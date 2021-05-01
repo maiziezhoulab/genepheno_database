@@ -1,0 +1,885 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="review-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Front Genet</journal-id>
+<journal-id journal-id-type="iso-abbrev">Front Genet</journal-id>
+<journal-id journal-id-type="publisher-id">Front. Genet.</journal-id>
+<journal-title-group>
+<journal-title>Frontiers in Genetics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1664-8021</issn>
+<publisher>
+<publisher-name>Frontiers Media S.A.</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31178890</article-id>
+<article-id pub-id-type="pmc">6543276</article-id>
+<article-id pub-id-type="doi">10.3389/fgene.2019.00397</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Genetics</subject>
+<subj-group>
+<subject>Review</subject>
+</subj-group>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Quantification of Facial Traits</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Böhringer</surname>
+<given-names>Stefan</given-names>
+</name>
+<xref ref-type="corresp" rid="c001">
+<sup>*</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/533265/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>de Jong</surname>
+<given-names>Markus A.</given-names>
+</name>
+<uri xlink:href="http://loop.frontiersin.org/people/654848/overview" xlink:type="simple"></uri>
+</contrib>
+</contrib-group>
+<aff><institution>Department of Biomedical Data Sciences, Leiden University Medical Center</institution>, <addr-line>Leiden</addr-line>, <country>Netherlands</country></aff>
+<author-notes>
+<fn fn-type="edited-by">
+<p>Edited by: Peter Claes, KU Leuven, Belgium</p>
+</fn>
+<fn fn-type="edited-by">
+<p>Reviewed by: Mike Suttie, University of Oxford, United Kingdom; Stephen Richmond, Cardiff University, United Kingdom</p>
+</fn>
+<corresp id="c001">*Correspondence: Stefan Böhringer <email>s.boehringer@lumc.nl</email></corresp>
+<fn fn-type="other" id="fn001">
+<p>This article was submitted to Applied Genetic Epidemiology, a section of the journal Frontiers in Genetics</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>24</day>
+<month>5</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2019</year>
+</pub-date>
+<volume>10</volume>
+<elocation-id>397</elocation-id>
+<history>
+<date date-type="received">
+<day>31</day>
+<month>7</month>
+<year>2018</year>
+</date>
+<date date-type="accepted">
+<day>12</day>
+<month>4</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2019 Böhringer and de Jong.</copyright-statement>
+<copyright-year>2019</copyright-year>
+<copyright-holder>Böhringer and de Jong</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Measuring facial traits by quantitative means is a prerequisite to investigate epidemiological, clinical, and forensic questions. This measurement process has received intense attention in recent years. We divided this process into the registration of the face, landmarking, morphometric quantification, and dimension reduction. Face registration is the process of standardizing pose and landmarking annotates positions in the face with anatomic description or mathematically defined properties (pseudolandmarks). Morphometric quantification computes pre-specified transformations such as distances. <bold>Landmarking:</bold> We review face registration methods which are required by some landmarking methods. Although similar, face registration and landmarking are distinct problems. The registration phase can be seen as a pre-processing step and can be combined independently with a landmarking solution. Existing approaches for landmarking differ in their data requirements, modeling approach, and training complexity. In this review, we focus on 3D surface data as captured by commercial surface scanners but also cover methods for 2D facial pictures, when methodology overlaps. We discuss the broad categories of active shape models, template based approaches, recent deep-learning algorithms, and variations thereof such as hybrid algorithms. The type of algorithm chosen depends on the availability of pre-trained models for the data at hand, availability of an appropriate landmark set, accuracy characteristics, and training complexity. <bold>Quantification:</bold> Landmarking of anatomical landmarks is usually augmented by pseudo-landmarks, i.e., indirectly defined landmarks that densely cover the scan surface. Such a rich data set is not amenable to direct analysis but is reduced in dimensionality for downstream analysis. We review classic dimension reduction techniques used for facial data and face specific measures, such as geometric measurements and manifold learning. Finally, we review symmetry registration and discuss reliability.</p>
+</abstract>
+<kwd-group>
+<kwd>face</kwd>
+<kwd>quantification</kwd>
+<kwd>registration</kwd>
+<kwd>3D surface</kwd>
+<kwd>photogrammetry</kwd>
+<kwd>reliability</kwd>
+<kwd>dimension reduction</kwd>
+<kwd>landmark</kwd>
+</kwd-group>
+<counts>
+<fig-count count="4"></fig-count>
+<table-count count="1"></table-count>
+<equation-count count="0"></equation-count>
+<ref-count count="142"></ref-count>
+<page-count count="14"></page-count>
+<word-count count="12213"></word-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec id="s1" sec-type="intro">
+<title>1. Introduction</title>
+<p>The face plays an important role in human interaction and is scientifically researched with respect to many disciplines including genetic control (Boehringer et al., <xref ref-type="bibr" rid="B13">2011b</xref>; Liu et al., <xref ref-type="bibr" rid="B77">2012</xref>; Paternoster et al., <xref ref-type="bibr" rid="B96">2012</xref>; Adhikari et al., <xref ref-type="bibr" rid="B3">2016</xref>; Cole et al., <xref ref-type="bibr" rid="B25">2016</xref>; Shaffer et al., <xref ref-type="bibr" rid="B107">2016</xref>; Lee et al., <xref ref-type="bibr" rid="B73">2017</xref>; Claes et al., <xref ref-type="bibr" rid="B22">2018</xref>), psycho-social impact (Scheib et al., <xref ref-type="bibr" rid="B105">1999</xref>; Leyvand et al., <xref ref-type="bibr" rid="B74">2008</xref>), archaeology (Stenton et al., <xref ref-type="bibr" rid="B110">2016</xref>), forensic reconstruction (Short et al., <xref ref-type="bibr" rid="B108">2014</xref>), relation with medical conditions (Hammond et al., <xref ref-type="bibr" rid="B49">2005</xref>; Boehringer et al., <xref ref-type="bibr" rid="B14">2006</xref>, <xref ref-type="bibr" rid="B12">2011a</xref>; Vollmar et al., <xref ref-type="bibr" rid="B128">2008</xref>; Wilamowska et al., <xref ref-type="bibr" rid="B131">2012</xref>), and facial identification (Wiskott and Von Der Malsburg, <xref ref-type="bibr" rid="B134">1996</xref>; Schroff et al., <xref ref-type="bibr" rid="B106">2015</xref>; Sun et al., <xref ref-type="bibr" rid="B112">2015</xref>).</p>
+<p>Facial identification or face recognition is the process of determining whether a face as represented by a single or a few images is present on a given target image. We do not cover face recognition in this review and only provide a brief discussion. In this review, we cover automatic methods that can derive quantitative values, such as distances, from given facial raw data as represented by 2D photographs or 3D surface scans. Such quantities are of interest in genome wide association studies (GWASs), syndrome classification, and other prediction settings.</p>
+<p>Early applications of facial genetics focused on Mendelian patterns (Lebow and Sawin, <xref ref-type="bibr" rid="B70">1941</xref>; Vandenberg and Strandskov, <xref ref-type="bibr" rid="B125">1964</xref>) of rough facial measurements such as length or heritability of measurements derived from lateral skull radiographs(Hunter et al., <xref ref-type="bibr" rid="B57">1970</xref>; Nakata et al., <xref ref-type="bibr" rid="B89">1976</xref>). A first statistical quantification proposed a harmonic analysis of cephalometric data by considering the outer rim of the skull (Lu, <xref ref-type="bibr" rid="B81">1965</xref>). In the following papers, quantitative facial analyses were applied to determine syndrome diagnoses (Hammond et al., <xref ref-type="bibr" rid="B49">2005</xref>; Boehringer et al., <xref ref-type="bibr" rid="B14">2006</xref>, <xref ref-type="bibr" rid="B12">2011a</xref>; Vollmar et al., <xref ref-type="bibr" rid="B128">2008</xref>; Wilamowska et al., <xref ref-type="bibr" rid="B131">2012</xref>), and to identify faces (Wiskott and Von Der Malsburg, <xref ref-type="bibr" rid="B134">1996</xref>; Schroff et al., <xref ref-type="bibr" rid="B106">2015</xref>; Sun et al., <xref ref-type="bibr" rid="B112">2015</xref>). Many syndromes can be well-classified due to distinct facial characteristics between the affected group and healthy controls. The syndrome groups were relatively small in number (100's of individuals) allowing manual annotation of faces. The introduction of GWASs (Liu et al., <xref ref-type="bibr" rid="B77">2012</xref>; Paternoster et al., <xref ref-type="bibr" rid="B96">2012</xref>; Adhikari et al., <xref ref-type="bibr" rid="B3">2016</xref>; Cole et al., <xref ref-type="bibr" rid="B25">2016</xref>; Shaffer et al., <xref ref-type="bibr" rid="B107">2016</xref>; Lee et al., <xref ref-type="bibr" rid="B73">2017</xref>; Claes et al., <xref ref-type="bibr" rid="B22">2018</xref>) required large cohort sizes to attain sufficient statistical power. While a limited number of landmarks have been placed manually (Paternoster et al., <xref ref-type="bibr" rid="B96">2012</xref>), (semi)automatic procedures have also been utilized (Liu et al., <xref ref-type="bibr" rid="B77">2012</xref>; Adhikari et al., <xref ref-type="bibr" rid="B3">2016</xref>; Lee et al., <xref ref-type="bibr" rid="B73">2017</xref>; Claes et al., <xref ref-type="bibr" rid="B22">2018</xref>). As cohort sizes increase further, reliable automatic quantification becomes more important.</p>
+<p>In this review, facial quantification is divided into three steps: pre-processing (face registration), landmarking (facial alignment), and deriving outcome measures based on these landmarks (morphometric quantification, dimension reduction). While, in principle, landmarks are not necessary to derive quantities from faces, they help in interpreting results and to remove important sources of variation from the data. We define face registration as the process of bringing a face into a well-defined pose. By facial alignment we mean that some or all points of a given face can be transformed to points on another face while retaining their meaning in terms of landmarks, thereby establishing correspondence between landmarks. This is intuitively obvious for anatomic landmarks (Swennen, <xref ref-type="bibr" rid="B114">2006</xref>) but can be extended to a full facial surface through dense surface models or pseudo-landmarks. Finally, aligned landmark data is rarely analyzed directly. Rather they are processed further using either pre-specified transformations or dimension reduction techniques. Important examples are morphometric quantities such as distances. Other transformations are derived from the data, which we call global quantification because they operate on the full data set. Principal component analysis (PCA) is an example of such a technique. These quantities are then used in ensuing analyses such as classification, heritability estimation, or genetic association.</p>
+<p>As a final aspect, symmetry is quickly discussed as a face specific application and some open problems are mentioned.</p>
+</sec>
+<sec id="s2" sec-type="face registration">
+<title>2. Face Registration</title>
+<p>Face registration is the process of aligning the face into a standard pose. In general, the definition of the standard pose is method specific. For example, nose, eyes, and mouth all offer possibilities for such definitions by aligning them to pre-specified locations. In principle, all landmarking methods can be trained to use non-registered faces, yet almost all methods are likely to profit when faces are pre-registered. The degree by which landmarking efforts depend on face registration certainly differs between methods. For example, template based methods use average image patches derived from training samples to represent landmarks (described in more detail in section 3.1), which can be used to locate landmarks in new data. Arguably, template based methods depend more on face registration than some other landmarks registration methods as the templates have been derived under a specific pose in the training data.</p>
+<p>Viola and Jones (<xref ref-type="bibr" rid="B127">2004</xref>) proposed a 2D algorithm that turned out to be very robust for defining regions containing faces under greater variation of facial poses. This is important as in 2D, it is difficult to correct pose, as such a correction is a three-dimensional rotation which requires to estimate depth information first.</p>
+<p>In 3D, available registration methods are heuristic, i.e., based on <italic>ad-hoc</italic> rules. They focus on characteristics of facial 3D models that are pre-selected based on plausible geometric assumptions. For example, a cylinder fitting approach with a 2D symmetry plane detection that iteratively converges toward symmetry between the left and right hand sides of the face was proposed (Spreeuwers, <xref ref-type="bibr" rid="B109">2011</xref>). Other popular registration methods are based on curvatures. Using mean curvatures and relative positions to locate the nose tip and both inner eye corners (Sun and Yin, <xref ref-type="bibr" rid="B113">2008</xref>) has been a successful approach.</p>
+<p>After face registration, the surface models can be brought into the standard pose and can be automatically landmarked without taking into account pose. This contrasts with the application of deep neural networks (DNN). In such models, pose is learned as part of the landmarking model and helps to improve landmarking by generating features that represent pose (Bulat and Tzimiropoulos, <xref ref-type="bibr" rid="B20">2017</xref>) (section 3.3).</p>
+</sec>
+<sec id="s3" sec-type="landmarking">
+<title>3. Landmarking</title>
+<p>Landmarking is the process of searching for locations on a given representation of a face corresponding to locations on a second such representation, or alternatively to those on an idealized face. Anatomical landmarks are defined anatomically (Swennen, <xref ref-type="bibr" rid="B114">2006</xref>), and pseudo-landmarks are locations with a mathematical definition relative to anatomical landmarks. Often pseudo-landmarks are defined by the movement required to align anatomical landmarks that involve a corresponding movement of pseudo-landmarks in between, which is discussed in section 5.4. Finding corresponding landmarks allows for a statistical analysis with respect to genetics or other traits.</p>
+<p>Most importantly, the availability of anatomical landmarks is the pre-requisite for further landmarking efforts. In many studies, anatomical landmarks are placed manually (Boehringer et al., <xref ref-type="bibr" rid="B13">2011b</xref>; Paternoster et al., <xref ref-type="bibr" rid="B96">2012</xref>), with a minimum of two required to define pseudo-landmarks. In the following, we discuss automated landmarking procedures for anatomical landmarks. Reliability of manual landmarking is discussed in section 6 and pseudo-landmarks in section 5.4.</p>
+<sec>
+<title>3.1. Template Based Methods</title>
+<sec>
+<title>3.1.1. 2D Methods</title>
+<p>A template for a landmark is defined as an image patch around a landmark that later can be used for comparison in a target image. Templates can be averages of image patches across a set of training images or the full set of image patches as extracted from training images.</p>
+<p>Early attempts used image patches directly without transformations, and correlations of a template with a patch of a target image was used to locate either the total face or sub-features like eyes, nose, or mouth (Samal and Iyengar, <xref ref-type="bibr" rid="B104">1992</xref>). Many modifications were developed such as weighted correlation (Kalina, <xref ref-type="bibr" rid="B61">2010</xref>) or making templates adaptive to varying conditions as reviewed elsewhere (Yang et al., <xref ref-type="bibr" rid="B136">2002</xref>). The review discusses methods for templates that can adapt to different lighting and pose conditions using parameters (parametrized templates) and also broadly discusses face identification methods.</p>
+<p>Apart from using raw image intensities, templates can be represented after being transformed. In many cases, a wavelet decomposition is applied to the image and the resulting representation is stored instead (wavelet coefficients). Roughly speaking, in a simple case, a square image is subdivided into four smaller squares and a difference between average pixel intensities of these sub-squares is stored (wavelet coefficient). The wavelet itself is a function that allows and defines this computation. This process is repeated for the four squares, implying wavelet size shrinks by a factor of two with every step. Wavelet coefficients again represent how different the smaller sub-squares are within their embedding square. This process can be repeated until the squares contain only a single pixel or after a number of predefined steps. The original image can be reconstructed from this representation. Intuitively, the global average of pixel intensities and also differences between sub-squares for the first steps are usually uninformative for face or landmark detection. Only when the wavelet size is close to a patch size that spans useful facial features (e.g., a patch spanning the edge of the nose but not the whole nose) they become useful for landmarking purposes. In this sense, a wavelet decomposition is more informative than the raw image as information is represented on different spatial scales. For example, smaller wavelets can be used to represent sharp edges whereas larger wavelets coefficients correlate with softer gradients. In this way, relevant information is encoded in fewer numbers as compared to the pixel values of the raw image patch. In computer vision applications, this process usually does not start with pre-defined patches (squares) but is centered around points of interest (e.g., potential landmarks). The same properties are used in image compression such as the JPEG standard (Wallace, <xref ref-type="bibr" rid="B129">1991</xref>), when coefficients represent different levels of detail and can be omitted when they only minimally affect image appearance. The ability of wavelet coefficients to sparsely describe image patches makes them attractive for computer vision applications. Details describing wavelet decompositions are given elsewhere (Gomes and Velho, <xref ref-type="bibr" rid="B41">2015</xref>).</p>
+<p>Haar-wavelets (Papageorgiou et al., <xref ref-type="bibr" rid="B95">1998</xref>), which are computed as described in the previous paragraph (with details omitted), were introduced for the purpose of general object detection. For a particular type of object, a supervised learning step is used to identify which Wavelet coefficients are needed for detection. The original paper (Papageorgiou et al., <xref ref-type="bibr" rid="B95">1998</xref>) already considers face detection, and was extended in several ways to allow for scale invariant detection and to improve computational efficiency (Viola and Jones, <xref ref-type="bibr" rid="B127">2004</xref>). This became the Viola-Jones algorithm mentioned previously. The algorithm is implemented in the OpenCV library (Bradski, <xref ref-type="bibr" rid="B18">2000</xref>) and has become an important tool for real-time applications and as a pre-processing step in other algorithms.</p>
+<p>Gabor-Wavelet are a smooth variant of Haar-wavelets that also allow for overlap between wavelets and are used by the so-called elastic bunchgraph method (Wiskott and Von Der Malsburg, <xref ref-type="bibr" rid="B134">1996</xref>; Wiskott et al., <xref ref-type="bibr" rid="B133">1997</xref>). An additional modification was that templates are not averaged across training samples but are stored as a collection in the so-called <italic>bunch graph</italic>. When searching for a maximum correlation match in a target image, the whole set of templates is iterated and the maximum across all training examples is chosen, which allows to represent heterogeneity across samples. Also template based methods usually take into account some geometric information. Usually, the relative landmark positions are not allowed to deviate strongly from an average graph as expressed by a distance or deformation energy (Wiskott et al., <xref ref-type="bibr" rid="B133">1997</xref>; Viola and Jones, <xref ref-type="bibr" rid="B127">2004</xref>). For this reason, template based methods handle texture information very flexibly but are less flexible geometrically as compared to, for example, active shape models described in the next section. The methods described above have been shown in the corresponding papers to perform well when few training images are used. This was demonstrated by either showing qualitative examples (Kalina, <xref ref-type="bibr" rid="B61">2010</xref>), face recognition rates (Wiskott et al., <xref ref-type="bibr" rid="B133">1997</xref>), or by reporting landmarking accuracy (de Jong et al., <xref ref-type="bibr" rid="B29">2018b</xref>). For many landmarks, 1–2 mm of accuracy can be achieved as compared to human raters.</p>
+</sec>
+<sec>
+<title>3.1.2. 3D Methods</title>
+<p>Template based 2D based methods can be applied to 3D surface scans by first projecting scans to 2D. In an extension, the height of projected points can be stored in an elevation map as well. In this case, full information is retained as the projection can be reverted by using the elevation map. Using both sources of information can improve landmarking accuracy (de Jong et al., <xref ref-type="bibr" rid="B30">2016</xref>). It is also possible to combine several landmarking algorithms into a combined method (ensemble) (de Jong et al., <xref ref-type="bibr" rid="B29">2018b</xref>) which can increase flexibility (de Jong et al., <xref ref-type="bibr" rid="B28">2018a</xref>).</p>
+</sec>
+</sec>
+<sec>
+<title>3.2. Active Shape Models</title>
+<p>Active contour models (ACMs) place a graph on an image and try to align it with existing edges. The graph that requires minimal movement and deformation while matching image edges is the solution of the alignment process. An example is shown in <xref ref-type="fig" rid="F1">Figure 1</xref>. More formally, the solution is a trade-off between fit to edges (measured by a distance) and the needed deformation (measured by an energy) (Kass et al., <xref ref-type="bibr" rid="B63">1988</xref>). Active shape models (ASMs) use information from a training sample to improve the procedure. The sample is used to define deformations of the initial graph that have actually been seen in training samples (possible shapes). For example, in the case of faces, the ratio of height to width is constrained and ASMs would not consider a deformed graph violating this constraint, i.e., only the set of possible shapes is used in the search. The initial work assumed that all landmarks can be connected by edges that correspond to edges in the image (Cootes et al., <xref ref-type="bibr" rid="B26">1995</xref>). Procrustes alignment is performed on the landmarks (see section 5) and a principal component analysis (PCA; see section 7) is performed on the aligned landmarks to define shapes. This is called the point distribution model (PDM). The PCA can be used to define shapes that are likely to be seen in new data by assuming that the training sample represents the true distribution. The landmarking process is iterative in trying to move landmarks toward edges in the image while constraining the combined set of proposed movements for all landmarks to a shape that is “likely enough” under the PDM.</p>
+<fig id="F1" position="float">
+<label>Figure 1</label>
+<caption>
+<p>ASM alignment of a connected graph to a face. Source: wikipedia.</p>
+</caption>
+<graphic xlink:href="fgene-10-00397-g0001"></graphic>
+</fig>
+<p>When a proposed shape is too unlikely, it is moved back to the closest point in the acceptable region. The ASM approach has been extended to 3D, in the volumetric sense, i.e., voxel (Hill et al., <xref ref-type="bibr" rid="B54">1993</xref>), and to 3D data as represented by multiple views (Milborrow et al., <xref ref-type="bibr" rid="B84">2013</xref>; Montúfar et al., <xref ref-type="bibr" rid="B88">2018</xref>).</p>
+<p>One of the early applications of ASMs was landmarking of faces (Lanitis et al., <xref ref-type="bibr" rid="B69">1997</xref>). The approach has been adapted to improve performance on faces where edges are not always appropriate to describe landmarks. The edge search has been modified to include the 2D profile around the edge (Milborrow and Nicolls, <xref ref-type="bibr" rid="B85">2008</xref>) and outright templates (Milborrow and Nicolls, <xref ref-type="bibr" rid="B86">2014</xref>) which have been chosen to be scale and rotation invariant (Lowe, <xref ref-type="bibr" rid="B80">2004</xref>).</p>
+<p>When ASMs are implemented for 2D images, a projection step from 3D to 2D can be used to apply these models on surface data. This has recently been performed when STASM (Zhou et al., <xref ref-type="bibr" rid="B141">2009</xref>; Milborrow and Nicolls, <xref ref-type="bibr" rid="B86">2014</xref>), an implementation of an ASM, has been compared to a template based approach (de Jong et al., <xref ref-type="bibr" rid="B30">2016</xref>). In this comparison, STASM showed a landmarking accuracy of 1–2 mm. In contrast to ASMs, Active appearance models (AAMs) is not only based on edge information but also takes into account gray scale information of the full image (Edwards et al., <xref ref-type="bibr" rid="B32">1998</xref>).</p>
+<p>An attractive feature of ASMs is that facial expression is implicitly captured in the PDM. Based on a classification of facial expression by human raters, facial expression can be predicted from images. As facial expression has not yet been analyzed genetically, we only suggest two reviews (Fasel and Luettin, <xref ref-type="bibr" rid="B35">2003</xref>; Oh et al., <xref ref-type="bibr" rid="B90">2018</xref>) and note that other landmarking methods can also be used to learn facial expression.</p>
+</sec>
+<sec>
+<title>3.3. Deep Learning</title>
+<p>Deep learning and deep neural networks (DNN) are terms for learning algorithms involving many stacked layers of functions (or regressions) for which parameters are estimated to optimize a final learning objective (LeCun et al., <xref ref-type="bibr" rid="B71">2015</xref>). For example, similar to the application of standard regression models, this can be used to classify a pixel in an image to be either a given landmark or not, or to predict a certain landmark coordinate. Statistically, deep learning can be best compared to stacking (Breiman, <xref ref-type="bibr" rid="B19">1996</xref>), where several base models are built to predict an outcome. Then, a second model is built to predict the outcome again based on output from the base models thereby generating a two-layer prediction. Deep learning similarly uses the output of regressions (or more generally parametrized functions) on a lower level as input for higher levels to predict a final output. Usually more than two layers are used in DNNs. So-called convolutional networks (CNNs) are a variant of DNNs that is applied on image or voxel data. They make use of functions that only look at smaller image patches within an input image instead of the full image. In a sliding-window approach the same function is applied to every possible patch placement and the result is summarized in a new picture (each new pixel is the value of the function for the patch around the pixel from the input). This is similar to a template search where at each pixel the function would indicate how well the template matches at the current position. Higher layers repeat this procedure. As each layer looks at a patch from the previous input layer, higher level outputs depend on increasingly larger patches of the initial input image (<xref ref-type="fig" rid="F2">Figure 2A</xref>). Intuitively, this is an important aspect, as features can be combined into increasingly larger units, say edges (first layer) are combined into structures like mouth and nose (second layer) and these are composed into faces (third layer). This concept is illustrated in <xref ref-type="fig" rid="F2">Figure 2B</xref>. Every layer represents features needed to detect faces/landmarks at different levels of complexity. Which functions are needed to achieve these representations is learned during model training. This allows to use raw pixel data as input without pre-processing. For landmarking purposes, CNNs are trained on manually labeled input images so that the resulting model can predict landmark coordinates for new input data.</p>
+<fig id="F2" position="float">
+<label>Figure 2</label>
+<caption>
+<p><bold>(A)</bold> For three example responses, each cone represents an image patch on a lower level on which the response of the level above depends. Through the middle layer, the upper layer depends on a wider input field in the lower level than the middle level. <bold>(B)</bold> Cartoons of input image patches that would create maximal responses in layers of CNNs (first layer at the bottom, last at the top). The first layer responds to edges, plain areas or point elevations in all cases. The second layer is specific to the learning objective, e.g., facial anatomical features such as eyes, noses, or mouths. The final layer recognizes objects as a whole. With permission from Lee et al. (<xref ref-type="bibr" rid="B72">2009</xref>).</p>
+</caption>
+<graphic xlink:href="fgene-10-00397-g0002"></graphic>
+</fig>
+<p>Disadvantages of CNNS are that the flexibility of the models also requires large training samples, the design of the network architecture is largely empirical, and the fitting of the models requires careful tuning (Goodfellow et al., <xref ref-type="bibr" rid="B42">2016</xref>).</p>
+<p>Deep networks for landmarking have been well established. A CNN using raw pixel information of 2D images was augmented by components estimating pose, sex, and other aspects using a so-called multi-tasking approach (Zhang et al., <xref ref-type="bibr" rid="B139">2016</xref>). The input was reduced to 40 × 40 gray scale images and four layers were used. Still the method had to rely on 10,000 training images. A similar approach using residual learning was proposed for 2D data (Ranjan et al., <xref ref-type="bibr" rid="B100">2017</xref>). Residual learning is a strategy to mitigate the cost in terms of training sample size with respect to the depth of the network. Instead of using only outputs of a lower layer, residual networks copy the input of the previous layer as well (He et al., <xref ref-type="bibr" rid="B52">2016</xref>). This is analogous to statistical models when main effects, i.e., the raw data should always be included in the model. This strategy was used to combine 2D and 3D data (Bulat and Tzimiropoulos, <xref ref-type="bibr" rid="B20">2017</xref>) in an effort to further alleviate the limitation in the availability of 3D surface data. Augmenting training data by synthetic training data is another typical strategy to increase available training data.</p>
+<p>When only scarce training data is available and data combination strategies are not an option, so-called transfer learning is yet another way to train deep networks. In this case, a pre-trained network is used and the last or last few layers are removed (Burlina et al., <xref ref-type="bibr" rid="B21">2017</xref>). This latter application involves image classification using GoogleNet (Szegedy et al., <xref ref-type="bibr" rid="B115">2015</xref>) as the source network. A new classifier can then be trained on few training examples by re-adding a final classification layer. The intuition behind this approach is that the source network has learned relevant features that can also be used for the classification problem at hand. A non-standard approach combines convolutional networks with a PDM (Zadeh et al., <xref ref-type="bibr" rid="B137">2017</xref>). Landmarking of volumetric data has also been addressed (Zheng et al., <xref ref-type="bibr" rid="B140">2015</xref>).</p>
+</sec>
+<sec>
+<title>3.4. Other Models</title>
+<p>In this section, we give a brief overview of some alternative approaches. An interesting approach is represented by <italic>generative models</italic>. Conceptually, a model is used to render the image of a face. This model is controlled by few parameters. Each set of parameters can be rendered into a face for which the landmark coordinates are known. These models therefore have a one-by-one correspondence between parameters and landmark coordinates. By generating an image that best resembles a given face in 2D or 3D, all landmarks are directly identified by reading them off of the model (Blanz and Vetter, <xref ref-type="bibr" rid="B9">1999</xref>, <xref ref-type="bibr" rid="B10">2003</xref>). Such models have not received much attention recently. Deep networks can also be used generatively to produce facial renderings but do not produce landmarks in a standard setting (Goodfellow et al., <xref ref-type="bibr" rid="B42">2016</xref>).</p>
+<p><italic>Agent based models</italic> consider landmarking as a task of finding the correct path to a landmark from a starting position where reinforcement learning can be used in combination with deep networks (Ghesu et al., <xref ref-type="bibr" rid="B39">2018</xref>; Alansary et al., <xref ref-type="bibr" rid="B4">2019</xref>). The search strategy as opposed to the landmarking accuracy itself is optimized and landmarking is a by-product.</p>
+<p>Many <italic>heuristic</italic> methods have been proposed focusing on specific properties of the data set at hand (for example He et al., <xref ref-type="bibr" rid="B53">2012</xref>; Wilamowska et al., <xref ref-type="bibr" rid="B131">2012</xref>; Guo et al., <xref ref-type="bibr" rid="B45">2013</xref>; Peng et al., <xref ref-type="bibr" rid="B97">2013</xref>). A heuristic step for detecting anatomical landmarks can be combined with dense surface registration (Guo et al., <xref ref-type="bibr" rid="B45">2013</xref>; Peng et al., <xref ref-type="bibr" rid="B97">2013</xref>). Such methods are characterized by the fact that the introduction of new landmarks would require changes to feature representations or the underlying model.</p>
+<p>Atlas-based methods define a single or a few instances of faces (or geometric objects in general) which are annotated with additional information such as landmarks. If the atlas is transformed to match the target instance, the annotations transfer as well and establish landmarks in the target image (Li et al., <xref ref-type="bibr" rid="B75">2017</xref>).</p>
+</sec>
+</sec>
+<sec id="s4" sec-type="symmetry registration">
+<title>4. Symmetry Registration</title>
+<p>Symmetry (or asymmetry) estimation addresses an important aspect of facial data. The degree of symmetry is an important property of a face having a connection with attractiveness (Scheib et al., <xref ref-type="bibr" rid="B105">1999</xref>; Leyvand et al., <xref ref-type="bibr" rid="B74">2008</xref>) and an impression of dysmorphia which in turn is linked with genetic syndromes (Winter, <xref ref-type="bibr" rid="B132">1996</xref>; Thornhill and Møller, <xref ref-type="bibr" rid="B118">1997</xref>).</p>
+<p>The process of symmetry registration is to establish left-right correspondence between either anatomic landmarks, pseudolandmarks, or pixels.</p>
+<p>A first approach uses localized, weighted correlation of image patches in 2D to find corresponding pixels (Kalina, <xref ref-type="bibr" rid="B62">2012</xref>). In this approach, every image patch on one side forms a template for the other side. This approach can be applied to 3D but needs face registration to avoid distortions when 3D surface models are projected to 2D.</p>
+<p>A second approach is to see symmetry registration as a landmarking problem. Instead of establishing correspondence across scans, correspondence between halves of the face is sought. To this end, one approach is to first mirror the scan with respect to the x-coordinate (first axis) after registering the face and then to find landmarks being close to each other when comparing the original and mirrored scan (Claes et al., <xref ref-type="bibr" rid="B24">2011</xref>; Taylor et al., <xref ref-type="bibr" rid="B116">2014</xref>).</p>
+<p>Having registered symmetry of a face results in a multivariate data sets with up to 10<sup>5</sup> dimensions. Perception of asymmetry by humans, however, is likely to rely on only a few dimensions. Some results are available to connect raw asymmetry as calculated from registration with perceived asymmetry. Facial symmetry perception may vary from observer to observer (Scheib et al., <xref ref-type="bibr" rid="B105">1999</xref>). Also different parts of the face contribute differently to the perception of symmetry (Hwang et al., <xref ref-type="bibr" rid="B59">2012</xref>; Storms et al., <xref ref-type="bibr" rid="B111">2017</xref>).</p>
+</sec>
+<sec id="s5" sec-type="morphometric analysis and reliability">
+<title>5. Morphometric Analysis and Reliability</title>
+<sec>
+<title>5.1. Procrustes Alignment</title>
+<p>After landmarks have been placed in a given image, landmark coordinates have to be standardized across the sample. Each set of landmarks is represented by a graph. The standard approach is to use a generalized Procrustes analysis which chooses the so-called Procrustes mean shape as a graph (Kendall, <xref ref-type="bibr" rid="B65">1989</xref>) so that distance to the graphs in the sample are minimized after they have been translated, scaled, and rotated in an optimal way (Gower, <xref ref-type="bibr" rid="B43">1975</xref>) (generalized Procrustes analysis; GPA). The distance is measured for corresponding landmarks. Procrustes residuals—the difference of the standardized graph of a sample and the Procrustes mean shape—have the advantage of being independent (Dryden and Mardia, <xref ref-type="bibr" rid="B31">1998</xref>). This is in contrast with other methods of standardization such as Bookstein coordinates, where a pair of landmarks is used to define translation, scaling, and rotation to bring this pair of coordinates into a standard position (Dryden and Mardia, <xref ref-type="bibr" rid="B31">1998</xref>).</p>
+</sec>
+<sec>
+<title>5.2. Transformations</title>
+<p>Coordinates of landmarks and pseudo-landmarks offer a raw quantification of the face. Often coordinates are transformed to enter statistical analyses. Most studies investigate pair-wise distances, fewer look at angles and areas of triangles as derived from a triangulation. The variance of the transformed values is usually larger than the variance of the coordinates. If, for example, two coordinates are subtracted <italic>D</italic> = <italic>X</italic><sub>2</sub> − <italic>X</italic><sub>1</sub>, the variance of <italic>D</italic> is <italic>Var</italic>(<italic>D</italic>) = <italic>Var</italic>(<italic>X</italic><sub>1</sub>) + <italic>Var</italic>(<italic>X</italic><sub>2</sub>) + 2<italic>Cov</italic>(<italic>X</italic><sub>1</sub>, <italic>X</italic><sub>2</sub>). For independent coordinates, the variances add up, positively correlated coordinates are resulting in a bigger variance. Applying transformations is therefore a tradeoff between generating useful features and introducing more variance. The variance can be decomposed in a part due to true, biological variation, and in measurement error. If the transformation is meaningful, the signal is not necessarily attenuated and the resulting features might better correlate with the outcome. In syndrome classification problems transformations seem to provide useful information (Balliu et al., <xref ref-type="bibr" rid="B7">2014</xref>; Kraemer et al., <xref ref-type="bibr" rid="B68">2018</xref>). Many GWASs and candidate gene studies use these transformations as outcomes (Boehringer et al., <xref ref-type="bibr" rid="B13">2011b</xref>; Liu et al., <xref ref-type="bibr" rid="B77">2012</xref>; Paternoster et al., <xref ref-type="bibr" rid="B96">2012</xref>; Adhikari et al., <xref ref-type="bibr" rid="B3">2016</xref>; Cole et al., <xref ref-type="bibr" rid="B25">2016</xref>; Shaffer et al., <xref ref-type="bibr" rid="B107">2016</xref>; Lee et al., <xref ref-type="bibr" rid="B73">2017</xref>). In these settings, the transformations are fixed, i.e., independent of the data. The case when transformations are estimated is discussed in section 7.</p>
+</sec>
+<sec>
+<title>5.3. Dense Surface Models</title>
+<p>3D surface data as produced by commercial scanners (Boehnen and Flynn, <xref ref-type="bibr" rid="B11">2005</xref>), <xref ref-type="bibr" rid="B1">2016</xref> is exported as a triangulated 3D-graph plus an accompanying texture that can be used to re-render the surface. For data analysis it is desirable to interpret the vertices of the graph as (dense) landmarks and establish correspondence between scans. This can dramatically augment the data set in that 10<sup>4</sup>–10<sup>5</sup> landmarks are produced.</p>
+<p>One approach is based on first aligning faces, followed by a step that identifies close vertices by a nearest neighbor approach (Hutton et al., <xref ref-type="bibr" rid="B58">2001</xref>). The alignment first uses a GPA to align faces using a linear transformation based on anatomical landmarks. In a second step, anatomical landmarks are aligned exactly using a warping technique (Bookstein, <xref ref-type="bibr" rid="B15">1996</xref>). Intuitively, the one graph of anatomical landmarks has to be bent into the shape of the second graph. This movement can be quantified, for example by a bending energy (Bookstein, <xref ref-type="bibr" rid="B15">1996</xref>), and the movement minimizing the criteria is chosen (thin-plate splines, TPS). This movement on the anatomical landmarks drags along the pseudo-landmarks in between. After this alignment, the correspondence can be established as described above using the nearest neighbors. As always when two faces are aligned, a common reference has to be chosen to align all samples, a common choice being one of the samples. The number of aligned dense landmarks varies depending on how many vertices are available from the initial scans which can be a disadvantage. Sub-sampling vertices from samples is one strategy to make the number of dense landmarks comparable across samples.</p>
+</sec>
+<sec>
+<title>5.4. Pseudo-Landmarks</title>
+<p>Pseudo-landmarks are mathematically defined landmarks, for example a landmark halfway between two anatomical landmarks (Dryden and Mardia, <xref ref-type="bibr" rid="B31">1998</xref>). This can be used to control the number of landmarks in a dense model. When the surface of the face is described with mathematical functions, an arbitrary number of landmarks can be derived from such a representation (Gilani et al., <xref ref-type="bibr" rid="B40">2015</xref>). Similar approaches are based on mathematical functions that interpolate the surface between anatomical landmarks. For example, the functions may be chosen to make the curvature of these functions similar across samples (or a reference template). In a second step, one can sample landmarks from the resulting functional representation (Litke et al., <xref ref-type="bibr" rid="B76">2005</xref>; Grewe and Zachow, <xref ref-type="bibr" rid="B44">2016</xref>).</p>
+<p>So called variational implicit functions have been used in pseudo-landmark alignment (Claes et al., <xref ref-type="bibr" rid="B23">2005</xref>). In this approach, again a continuous function is found that interpolates the graph representing the scan for all in-between points. The approach allows to control the smoothness of the interpolation. To align faces, one starts by transforming anatomical landmarks between the faces. The functions that interpolate the in-between points have to be analogously transformed. Once this transformation is found, correspondence between all points is established (Turk and O'brien, <xref ref-type="bibr" rid="B121">1999a</xref>,<xref ref-type="bibr" rid="B122">b</xref>).</p>
+</sec>
+</sec>
+<sec id="s6" sec-type="reliability and heritability">
+<title>6. Reliability and Heritability</title>
+<p>Reliability denotes the agreement of several measurements. Reliability can be further distinguished into repeatability, the agreement of repeated measurements with the same method, and reproducibility, the agreement of different methods (Petrie and Sabin, <xref ref-type="bibr" rid="B98">2013</xref>) when measurements are taken under similar conditions. Replication efforts in genetic studies of facial traits therefore require reproducibility of quantification. Reliability of manual landmarking efforts have been evaluated in some studies (Fagertun et al., <xref ref-type="bibr" rid="B34">2014</xref>; Katina et al., <xref ref-type="bibr" rid="B64">2015</xref>; de Jong et al., <xref ref-type="bibr" rid="B28">2018a</xref>). The agreement between raters was consistently reported to be between 1 and 2 mm across landmarks. The most detailed of the above studies (Katina et al., <xref ref-type="bibr" rid="B64">2015</xref>) performed multiple repeats (within/across days/raters) and could show that repeatability (i.e., the consistency of a single rater) is lower than 1 mm for 18 out of 21 landmarks but also that the combined error across raters, time points and image presentations falls into the range mentioned above. Systematic evaluation with many—i.e., more than 30—human raters is missing. Also, the absolute calibration of landmarking positions has mostly been insufficiently described, which makes generalizations difficult.</p>
+<p>Heritability estimation has been an early interest in facial research (Hunter et al., <xref ref-type="bibr" rid="B57">1970</xref>; Nakata et al., <xref ref-type="bibr" rid="B89">1976</xref>; Hoskens et al., <xref ref-type="bibr" rid="B55">2018</xref>; Richmond et al., <xref ref-type="bibr" rid="B101">2018</xref>). Heritability denotes the proportion of variation in an outcome that is attributable to genetic variation. Heritabilities can be calculated for additive genotype contribution (narrow sense) and a general genotypic model (broad sense). Narrow sense heritability can be estimated in families when only phenotype data is available. Heritability can be used to evaluate the reliability of a landmarking method by comparing heritability as estimated from landmarks attained with one method to that of a benchmark method which might be another landmarking method or a previous version of the same method. When measurement error is reduced, total variation should be reduced and the proportion explained by genetic contributions should increase. This approach has been used to evaluate landmarking methods (de Jong et al., <xref ref-type="bibr" rid="B28">2018a</xref>,<xref ref-type="bibr" rid="B29">b</xref>).</p>
+<p>Reproducibility determines the chance of study replication. It can be measured by the correlation between measurements of different methods. Although measurement agreement, i.e., reliability, is often evaluated using Bland-Altman plots (Bland and Altman, <xref ref-type="bibr" rid="B8">1986</xref>), correlation has an important statistical implication. Statistically, <italic>R</italic><sup>2</sup>, i.e., the squared correlation can be seen as the (percentage) loss in sample size when one measurement method is used instead of another one. An <italic>R</italic><sup>2</sup> can be defined for general likelihood models, for binary, linear, survival and count outcomes, among others (Orchard and Woodbury, <xref ref-type="bibr" rid="B91">1972</xref>; Louis, <xref ref-type="bibr" rid="B79">1982</xref>) which is known as the missing information principle. The “other” measurement can be seen as missing data that has to be inferred from the measurement at hand. This relationship is also known from the design of SNP panels as the omission of a particular SNP can be seen as missing data (Pritchard and Przeworski, <xref ref-type="bibr" rid="B99">2001</xref>). For example, the consequences of a correlation of ~ 0.7 means that effective sample size is reduced to a half, when a particular measurement is replicated in an independent cohort. <xref ref-type="fig" rid="F3">Figure 3</xref>, shows correlations of coordinates of an informal comparison as conducted on a data set as used in a previous study involving the Visigen consortium (de Jong et al., <xref ref-type="bibr" rid="B30">2016</xref>), comparing two automatic and one manual landmarking approach on an identical set of individuals. In this comparison, landmark positions were standardized using Procrustes analysis within each study. On this data, pairwise correlations between all landmark coordinates (<italic>x, y, z</italic>) were computed and used as a measure to judge inter-method variability, i.e., reproducibility. The maximal correlation was around ~ 0.6. While informal, these results indicate high variability between landmarking efforts. Regarding heritability, the best automatic methods performed similar to manual landmarking (<italic>h</italic><sup>2</sup> ≈ 0.6).</p>
+<fig id="F3" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Correlation heatmap comparing 3d-coordinates of three landmarking methods on an identical data set (Twins UK). The lower left block corresponds to (<italic>x, y, z</italic>)-coordintes of the first methods, the upper right block to those of the second method. Off-diagonal blocks correspond to correlations between methods. Method 1 (29 landmarks) and method 3 (21 landmarks) are automatic methods. Method 2 is manual (22 landmarks).</p>
+</caption>
+<graphic xlink:href="fgene-10-00397-g0003"></graphic>
+</fig>
+<sec>
+<title>6.1. Implications of Landmark Definition</title>
+<p>As more cohorts are phenotyped for facial traits and data sets are aggregated either through meta- or joint analysis, it is worthwhile to consider reproducibility a bit further. The measurement error of one method as compared to another has two components: bias and variance. The bias can be seen as the differences in landmark definitions. While anatomical landmarks are defined descriptively, the actual definition used in a study depends on human raters. A large majority of studies relies on human raters either directly through complete manual labeling (Boehringer et al., <xref ref-type="bibr" rid="B13">2011b</xref>; Paternoster et al., <xref ref-type="bibr" rid="B96">2012</xref>) or indirectly in the sense that an automated method is trained on human labeled training images (Liu et al., <xref ref-type="bibr" rid="B77">2012</xref>). The bias due to implicitly varying landmark definitions can be evaluated by comparing sets of landmarks defined in a different way. It has been suggested that definitions based on curvatures(Bowman et al., <xref ref-type="bibr" rid="B17">2015</xref>; Katina et al., <xref ref-type="bibr" rid="B64">2015</xref>) might have less variability and might therefore induce less inter-study bias. Curvatures have also been used in heritability evaluation (Tsagkrasoulis et al., <xref ref-type="bibr" rid="B120">2017</xref>) and seem promising. We return to the problem of landmark definitions in the discussion.</p>
+</sec>
+</sec>
+<sec id="s7" sec-type="global quantification">
+<title>7. Global Quantification</title>
+<p>Using local or morphometric descriptors in genetic analyses has the disadvantage of leading to a combinatorial expansion of features. An attractive alternative is to employ dimension reduction to make the analysis more straightforward and potentially more meaningful. We discuss classic linear, non-linear, and generative approaches in addition to principal components of heritability.</p>
+<sec>
+<title>7.1. Variance Based Approaches</title>
+<p>Principal component analysis (PCA) is one of the most widely used dimension reduction technique (Jolliffe, <xref ref-type="bibr" rid="B60">2005</xref>) and has been employed in many facial studies (Hutton et al., <xref ref-type="bibr" rid="B58">2001</xref>; Hammond et al., <xref ref-type="bibr" rid="B49">2005</xref>, <xref ref-type="bibr" rid="B48">2012</xref>; Boehringer et al., <xref ref-type="bibr" rid="B14">2006</xref>; Vollmar et al., <xref ref-type="bibr" rid="B128">2008</xref>). The first principal component (PC) is defined as a linear combination of raw data <italic>x</italic><sub><italic>ij</italic></sub>, with individual <italic>i</italic> and feature <italic>j</italic> (for example a coordinate). The PC score of individual <italic>i</italic> is <inline-formula><mml:math id="M1"><mml:msub><mml:mrow><mml:mi>z</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo>∑</mml:mo></mml:mrow><mml:mrow><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>p</mml:mi></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>w</mml:mi></mml:mrow><mml:mrow><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>x</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula>. The weights, called loadings, <italic>w</italic><sub><italic>j</italic></sub> form a unit length vector and are chosen to maximize the variance of the scores <italic>z</italic><sub><italic>i</italic></sub>. Higher order PCs are again unit length linear weight vectors maximizing variance subject to the constraint that they are orthogonal to all lower order PCs. One important difference to the transformations discussed in section 5 is that the transformation is also random as the loadings are estimated from the data. Both empirical (Molinaro et al., <xref ref-type="bibr" rid="B87">2005</xref>; Boehringer et al., <xref ref-type="bibr" rid="B12">2011a</xref>) and theoretical (Bai and Silverstein, <xref ref-type="bibr" rid="B6">2010</xref>) considerations imply that PCA has the largest influence on reproducibility by contributing variability into the analysis that is larger than that induced by measurement error. This relationship can be evaluated using cross-validation (CV) (Hastie et al., <xref ref-type="bibr" rid="B50">2001</xref>), i.e., a form of data splitting where one part of the data is used for model fitting and the left out part is used for evaluation (test data). This data-splitting mimics a replication experiment. In a study where syndromes were predicted from 2D facial data (Boehringer et al., <xref ref-type="bibr" rid="B12">2011a</xref>), the difference in prediction accuracy when first PCA was performed on the whole data before data splitting and second when PCA was performed on the training data and loadings were carried over to the test data was 60% compared to 21%.</p>
+<p>There are more generic multivariate techniques that have been employed in facial analysis. Among them are partial least squares (PLS) (Garthwaite, <xref ref-type="bibr" rid="B38">1994</xref>), canonical correlation (Hotelling, <xref ref-type="bibr" rid="B56">1936</xref>), and discriminant analysis (Fisher, <xref ref-type="bibr" rid="B36">1936</xref>). To address the problem of high variability due to loadings estimation, so-called sparse methods have been introduced. Instead of using all input features, the scores are only computed on a subset of input features by setting many loadings (weights <italic>w</italic><sub><italic>i</italic></sub>) to zero. Technically, penalization is used (Tibshirani, <xref ref-type="bibr" rid="B119">1996</xref>) and sparse PCA (Zou et al., <xref ref-type="bibr" rid="B142">2006</xref>), sparse PLS (Witten et al., <xref ref-type="bibr" rid="B135">2009</xref>), sparse canonical correlation (Witten et al., <xref ref-type="bibr" rid="B135">2009</xref>) and other sparse methods have received attention. Their effect on reproducibility has not yet been systematically evaluated on facial data.</p>
+<p>Historically, one of the early facial analysis applied PCA on the pixel data of an image, interpreted as a single long vector of gray values (Turk and Pentland, <xref ref-type="bibr" rid="B123">1991</xref>). This approach has been used for face recognition but has not been employed in genetic association studies as the variability inherent in the estimation of a PCA make replication difficult.</p>
+</sec>
+<sec>
+<title>7.2. Manifold Learning</title>
+<p>The methods mentioned in the previous section are all based on linear combinations of input and/or outcome data. It is possible to employ non-linear methods. When an outcome is to be predicted from facial input features, non-linear regression techniques can be used. These include generalized additive—spline based—models (Hastie and Tibshirani, <xref ref-type="bibr" rid="B51">1990</xref>) and support vector regression (SVR). SVR has been used to predict facial attractiveness, and subsequently “beautify” a given face (Leyvand et al., <xref ref-type="bibr" rid="B74">2008</xref>).</p>
+<p>It is also possible to perform dimension reduction on facial data alone using non-linear transformations. In three dimensions, the reduction would not lead to a flat plane or straight line but rather to a curved 2D-surface or 1D-curve, winding through three-dimensional space. The estimation of these transformations is known as generalized PCA or manifold learning (Vidal et al., <xref ref-type="bibr" rid="B126">2016</xref>). Recently, local embedding techniques have received attention. The motivation for these techniques is given by the sinusoid data in <xref ref-type="fig" rid="F4">Figure 4</xref>. The proper description of a data point would be a single number: the length along the curve that a given point is closest to. PCA on the other hand would not “understand” the data. The data has the biggest extent along the x-direction, leaving the data almost unchanged after PCA, except for a small rotation. If only a single PC were chosen much of the information in the data would be discarded. t-SNE (van der Maaten and Hinton, <xref ref-type="bibr" rid="B124">2008</xref>) is one such method and has been used for facial analysis (Booth et al., <xref ref-type="bibr" rid="B16">2016</xref>). A disadvantage of t-SNE is that is does not allow to embed new images into the same coordinate system which is due to the algorithm used. t-SNE can therefore only be used for visualization. Local linear embedding (Roweis and Saul, <xref ref-type="bibr" rid="B103">2000</xref>) and local multidimensional scaling (Tenenbaum et al., <xref ref-type="bibr" rid="B117">2000</xref>) are alternatives without this limitation. The latter study contains an application to synthetic facial data.</p>
+<fig id="F4" position="float">
+<label>Figure 4</label>
+<caption>
+<p>Example of global (PCA) and local (self-organizing map; SOM) dimension reduction (<xref ref-type="bibr" rid="B2">2018</xref>). PCA approximates the data along the blue line, whereas SOM estimates the red curve. Source: wikipedia.</p>
+</caption>
+<graphic xlink:href="fgene-10-00397-g0004"></graphic>
+</fig>
+<p>The DNN approach to manifold learning is called autoencoding (Goodfellow et al., <xref ref-type="bibr" rid="B42">2016</xref>). In this case, the network is used in two directions. When values are available at the output layer, they are run down the network again to produce potential input data, compatible with values at the output layer. The actual input can be compared with the potential input and the network will be trained to minimize these discrepancies. Deep autoencoders have been employed in the landmarking problem but it is unclear whether they can outperform more tailor-made models (Zhang et al., <xref ref-type="bibr" rid="B138">2014</xref>).</p>
+</sec>
+<sec>
+<title>7.3. Principal Components of Heritability</title>
+<p>An attractive way to perform dimension reduction in a genetic application is to take into account heritability. This approach requires family data and is based on the fact that variation in any outcome can be decomposed into intra-family and inter-family variation which add up to the total variation of the variable, say a distance. By rescaling the variable such that the intra-family variation is 1, the total variation becomes a measure for heritability, <italic>i.e</italic>. inter-family variation. In a multivariate setting, this rescaling becomes a matrix multiplication (Ott and Rabinowitz, <xref ref-type="bibr" rid="B92">1999</xref>). Finding the largest variation in the rescaled data becomes an application of PCA. The resulting component is called principal component of heritability (PCH). The initial approach can only deal with families of identical structure, for example sibships. Another problem is the variability of the required estimations, the rescaling and the PCA which become unstable for high-dimensional data. The dimensionality problem can be addressed by penalization (Wang et al., <xref ref-type="bibr" rid="B130">2007</xref>; Oualkacha et al., <xref ref-type="bibr" rid="B93">2012</xref>). The method has also been generalized to heterogenous families (Oualkacha et al., <xref ref-type="bibr" rid="B93">2012</xref>). PCHs only represent narrow sense heritability, i.e., explained variance due to additive genetic effects. PCHs have not been systematically applied to facial data.</p>
+</sec>
+</sec>
+<sec id="s8" sec-type="discussion">
+<title>8. Discussion</title>
+<p>Automatic quantification of facial traits is in a state of rapid development. Many state-of-the-art methods are competitive with human raters for many anatomical landmarks. Still methods differ in important properties which we summarize in <xref ref-type="table" rid="T1">Table 1</xref>. Template based methods work with very small training efforts (de Jong et al., <xref ref-type="bibr" rid="B29">2018b</xref>) but require more intense pre-processing than ASMs (Milborrow and Nicolls, <xref ref-type="bibr" rid="B86">2014</xref>) or DNNs (Bulat and Tzimiropoulos, <xref ref-type="bibr" rid="B20">2017</xref>). Pre-trained ASMs and DNNs are available but a recent comparison showed that re-training a template based method for a data set at hand outperforms the pre-trained model (de Jong et al., <xref ref-type="bibr" rid="B30">2016</xref>). As pre-trained models are based on larger and larger samples, this situation might change and it will be important to keep evaluating the gain achieved by re-training. One advantage of using pre-trained models would be the availability of more homogeneous data across studies, which would help replication efforts.</p>
+<table-wrap id="T1" position="float">
+<label>Table 1</label>
+<caption>
+<p>Comparison of landmarking methods.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Method class</bold>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Training complexity</bold>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Robustness</bold>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Specific advantages</bold>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Example implementation</bold>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Template based</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Low</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Low without pre-processing</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Quick to deploy</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<ext-link ext-link-type="uri" xlink:href="https://opencv.org">https://opencv.org</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Active shape</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Moderate to high</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Good to high</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Facial expression analysis</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://www.milbo.users.sonic.net/stasm">http://www.milbo.users.sonic.net/stasm</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Deep learning</td>
+<td align="left" colspan="1" rowspan="1" valign="top">High</td>
+<td align="left" colspan="1" rowspan="1" valign="top">High</td>
+<td align="left" colspan="1" rowspan="1" valign="top">No pre-processing required</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<ext-link ext-link-type="uri" xlink:href="https://www.adrianbulat.com/face-alignment">https://www.adrianbulat.com/face-alignment</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Generative</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Moderate</td>
+<td align="left" colspan="1" rowspan="1" valign="top">–</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Rendering of potential faces</td>
+<td align="left" colspan="1" rowspan="1" valign="top">–</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="TN1">
+<p><italic>Low, moderage, high complexity correspond to &lt;100, 100-1,000, &gt;1,000 training samples, respectively. Robustness refers to performance under varying image conditions such as lighting and pose and assumes such variation is represented in the training sample</italic>.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<p>Face recognition plays an important role in social media, biometric access control, and increasingly in law enforcement (Lynch, <xref ref-type="bibr" rid="B82">2018</xref>) and is therefore also a field in rapid development. It needs to detect the general shape of a face on an image and needs to learn unique features identifying an individual independently of confounding factors such as lighting, pose, and camera properties. This application has been pursued by commercial entities such as Google and is subject to intense research. The most promising implementations make use of deep neural networks (DNN) and learn face representations implicitly through parameters of the network (Schroff et al., <xref ref-type="bibr" rid="B106">2015</xref>). These models predate DNN models used for landmarking. Landmarking models share large portions of their architecture with pure face recognition models and developments in either class of models will influence the other.</p>
+<p>All models discussed that provide anatomical landmarks rely on human raters at some point. This implies that there is an implicit difference in landmark definitions between studies, as human raters do only agree on landmark definitions to some degree (section 6.1). An open question is the automatic definition of landmarks. One possible approach is to use manifold learning that needs to describe the sample sparsely, for example through an information criterion (Cover and Thomas, <xref ref-type="bibr" rid="B27">2012</xref>). As experiments on alternative landmark definitions show (Katina et al., <xref ref-type="bibr" rid="B64">2015</xref>), it seems promising to look for better definitions to improve replication efforts.</p>
+<p>As pointed out elsewhere (Evans, <xref ref-type="bibr" rid="B33">2018</xref>) it is desirable to quantify a face globally. Individual morphometric features, say distances, are unlikely to be important in face perception. More global patterns determine the importance of facial appearance and are therefore arguably also likely to be under common genetic control. An interesting strategy is to analyze features at the global and local level simultaneously. Using hierarchical spectral clustering, a recent study could demonstrate effects of genetic loci on different levels (Claes et al., <xref ref-type="bibr" rid="B22">2018</xref>). The idea is to start with an aggregation of the full facial landmark data and analyze genetic association with respect to this summary. In following steps, landmark data is partitioned into subsets and analyzed in an analogous manner within the subsets. This subsetting can be repeated to demonstrate genetic effects on specific facial sub-regions and thereby gives a more comprehensive view of genetic associations as compared to other GWAS analyses.</p>
+<p>Intuitively, facial appearance follows a local pattern: there is a smooth transition between all possible pairs of faces and local embedding techniques should therefore be well suited to cover biological variation. With very large sample sizes, the randomness of the transformation into the manifold can be reduced and models based on large external data sets could be used. Non-genetic facial databases reach more than 100,000 individuals (Bulat and Tzimiropoulos, <xref ref-type="bibr" rid="B20">2017</xref>) and are a potential source for such models. However, apart from biological variation there is also technical variation that might not follow a local pattern (Gagnon-Bartsch and Speed, <xref ref-type="bibr" rid="B37">2012</xref>). It is therefore likely that manifold learning has to take into account both local and global structure (McInnes and Healy, <xref ref-type="bibr" rid="B83">2018</xref>). Both empirical and theoretical work is needed to solve this issue</p>
+<p>For the technological measurement process, rapid developments are expected. Lensless imaging or multiple cameras on a mobile phone are likely to create new data sources for facial 3D scans (Ozcan and McLeod, <xref ref-type="bibr" rid="B94">2016</xref>) which will require adaptations in quantification. Combination with volumetric data such as CT or MRI data might help to improve quantification.</p>
+<p>We would also like to point out the importance of applications in the development of quantification methodology. Before GWASs were performed, applications in syndrome classification were introduced. First, these covered more common syndromes as single classes, such as Microdeletion 22q11.2, Fragile X, Noonan, Smith-Lemli-Opitz, Cornelia de Lange, and others (Loos et al., <xref ref-type="bibr" rid="B78">2003</xref>; Hammond et al., <xref ref-type="bibr" rid="B49">2005</xref>; Boehringer et al., <xref ref-type="bibr" rid="B14">2006</xref>). The focus of this field has now shifted to identifying mutations within syndrome classes (Gurovich et al., <xref ref-type="bibr" rid="B46">2019</xref>). GWASs could make use of landmarking techniques used for syndrome classification but needed adaptations. More automation was necessary and as landmarking accuracy directly affects statistical power, accuracy became a new focus. This was not necessarily the case in syndrome classification as facial appearance might be different enough across groups to tolerate noise. A similar situation exists with respect to asymmetry, which has been shown to be important in conditions like fetal alcohol syndrome and autism (Hammond et al., <xref ref-type="bibr" rid="B47">2008</xref>; Klingenberg, <xref ref-type="bibr" rid="B66">2008</xref>; Klingenberg et al., <xref ref-type="bibr" rid="B67">2010</xref>). A first GWAS on facial asymmetry has been published and shows some overlap with disease associated genes (Rolfe et al., <xref ref-type="bibr" rid="B102">2018</xref>).</p>
+<p>In conclusion, accuracy of facial quantification is of critical importance for both power and reproducibility of genetic studies with respect to facial traits. Power loss can be dramatic in replication efforts even when heritabilities estimated from quantification methods are similar on average (section 6). Standardizing the analysis could help and would open the door for easy re-analyses once improvements in quantification have been found. It is biologically plausible that facial appearance has a similar or larger genetic complexity as compared to body height (Allen et al., <xref ref-type="bibr" rid="B5">2010</xref>). With appropriate quantification, it should be possible to find the corresponding genes.</p>
+</sec>
+<sec id="s9">
+<title>Author Contributions</title>
+<p>SB and MdJ conception of the manuscript, writing, and approval of the manuscript.</p>
+<sec>
+<title>Conflict of Interest Statement</title>
+<p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+</sec>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank Liesbeth de Wreede for proof-reading the manuscript and many helpful suggestions.</p>
+</ack>
+<ref-list>
+<title>References</title>
+<ref id="B1">
+<mixed-citation publication-type="other">(<year>2016</year>). <article-title>3dMD–3D imagingsystems and software</article-title>.</mixed-citation>
+</ref>
+<ref id="B2">
+<mixed-citation publication-type="other">(<year>2018</year>). <source/>Nonlinear Dimensionality Reduction. Page Version ID:848551806.</mixed-citation>
+</ref>
+<ref id="B3">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Adhikari</surname><given-names>K.</given-names></name><name><surname>Fuentes-Guajardo</surname><given-names>M.</given-names></name><name><surname>Quinto-Sánchez</surname><given-names>M.</given-names></name><name><surname>Mendoza-Revilla</surname><given-names>J.</given-names></name><name><surname>Chacón-Duque</surname><given-names>J. C.</given-names></name><name><surname>Acuña-Alonzo</surname><given-names>V.</given-names></name><etal></etal></person-group>. (<year>2016</year>). <article-title>A genome-wide association scan implicates <italic>DCHS2, RUNX2, GLI3, PAX1</italic> and <italic>EDAR</italic> in human facial variation</article-title>. <source/>Nat. Commun.
+<volume>7</volume>:<fpage>11616</fpage>. <pub-id pub-id-type="doi">10.1038/ncomms11616</pub-id><pub-id pub-id-type="pmid">27193062</pub-id></mixed-citation>
+</ref>
+<ref id="B4">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Alansary</surname><given-names>A.</given-names></name><name><surname>Ozan</surname><given-names>O</given-names></name><name><surname>Yuanwei</surname><given-names>L.</given-names></name><name><surname>Loic</surname><given-names>L. F.</given-names></name><name><surname>Benjamin</surname><given-names>H.</given-names></name><name><surname>Ghislain</surname><given-names>V.</given-names></name><etal></etal></person-group>. (<year>2019</year>). <article-title>Evaluating reinforcement learning agents for anatomical landmark detection</article-title>. <source/>Medical Image Analysis
+<volume>53</volume>, <fpage>156</fpage>–<lpage>164</lpage>. <pub-id pub-id-type="doi">10.1016/j.media.2019.02.007</pub-id><pub-id pub-id-type="pmid">30784956</pub-id></mixed-citation>
+</ref>
+<ref id="B5">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Allen</surname><given-names>H. L.</given-names></name><name><surname>Estrada</surname><given-names>K.</given-names></name><name><surname>Lettre</surname><given-names>G.</given-names></name><name><surname>Berndt</surname><given-names>S. I.</given-names></name><name><surname>Weedon</surname><given-names>M. N.</given-names></name><name><surname>Rivadeneira</surname><given-names>F.</given-names></name><etal></etal></person-group> (<year>2010</year>). <article-title>Hundreds of variants clustered in genomic loci and biological pathways affect human height</article-title>. <source/>Nature
+<volume>467</volume>, <fpage>832</fpage>–<lpage>838</lpage>. <pub-id pub-id-type="doi">10.1038/nature09410</pub-id><pub-id pub-id-type="pmid">20881960</pub-id></mixed-citation>
+</ref>
+<ref id="B6">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Bai</surname><given-names>Z.</given-names></name><name><surname>Silverstein</surname><given-names>J. W.</given-names></name></person-group> (<year>2010</year>). <source/>Spectral Analysis of Large Dimensional Random Matrices, Vol 20.
+<publisher-loc>New York, NY</publisher-loc>: <publisher-name>Springer</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B7">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Balliu</surname><given-names>B.</given-names></name><name><surname>Würtz</surname><given-names>R. P.</given-names></name><name><surname>Horsthemke</surname><given-names>B.</given-names></name><name><surname>Wieczorek</surname><given-names>D.</given-names></name><name><surname>Böhringer</surname><given-names>S.</given-names></name></person-group> (<year>2014</year>). <article-title>Classification and visualization based on derived image features: application to genetic syndromes</article-title>. <source/>PLoS ONE
+<volume>9</volume>:<fpage>e109033</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0109033</pub-id><pub-id pub-id-type="pmid">25405460</pub-id></mixed-citation>
+</ref>
+<ref id="B8">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bland</surname><given-names>J. M.</given-names></name><name><surname>Altman</surname><given-names>D. G.</given-names></name></person-group> (<year>1986</year>). <article-title>Statistical methods for assessing agreement between two methods of clinical measurement</article-title>. <source/>Lancet
+<volume>1</volume>, <fpage>307</fpage>–<lpage>310</lpage>. <pub-id pub-id-type="doi">10.1016/S0140-6736(86)90837-8</pub-id><pub-id pub-id-type="pmid">2868172</pub-id></mixed-citation>
+</ref>
+<ref id="B9">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Blanz</surname><given-names>V.</given-names></name><name><surname>Vetter</surname><given-names>T.</given-names></name></person-group> (<year>1999</year>). <article-title>“A morphable model for the synthesis of 3D faces,”</article-title> in <source/>Proceedings of the 26th Annual Conference on Computer Graphics and Interactive Techniques (<publisher-loc>Los Angeles, CA: ACM Press; Addison-Wesley Publishing Co.</publisher-loc>), <fpage>187</fpage>–<lpage>194</lpage>.</mixed-citation>
+</ref>
+<ref id="B10">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Blanz</surname><given-names>V.</given-names></name><name><surname>Vetter</surname><given-names>T.</given-names></name></person-group> (<year>2003</year>). <article-title>Face recognition based on fitting a 3D morphable model</article-title>. <source/>IEEE Trans. Pattern Anal. Mach. Intell.
+<volume>25</volume>, <fpage>1063</fpage>–<lpage>1074</lpage>. <pub-id pub-id-type="doi">10.1109/TPAMI.2003.1227983</pub-id></mixed-citation>
+</ref>
+<ref id="B11">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Boehnen</surname><given-names>C.</given-names></name><name><surname>Flynn</surname><given-names>P.</given-names></name></person-group> (<year>2005</year>). <article-title>“Accuracy of 3D scanning technologies in a face scanning scenario,”</article-title> in <source/>Fifth International Conference on 3-D Digital Imaging and Modeling (3DIM'05) (<publisher-loc>Ottawa, ON</publisher-loc>), <fpage>310</fpage>–<lpage>317</lpage>.</mixed-citation>
+</ref>
+<ref id="B12">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Boehringer</surname><given-names>S.</given-names></name><name><surname>Guenther</surname><given-names>M.</given-names></name><name><surname>Sinigerova</surname><given-names>S.</given-names></name><name><surname>Wurtz</surname><given-names>R. P.</given-names></name><name><surname>Horsthemke</surname><given-names>B.</given-names></name><name><surname>Wieczorek</surname><given-names>D.</given-names></name></person-group> (<year>2011a</year>). <article-title>Automated syndrome detection in a set of clinical facial photographs</article-title>. <source/>Am. J. Med. Genet. Part A
+<volume>155</volume>, <fpage>2161</fpage>–<lpage>2169</lpage>. <pub-id pub-id-type="doi">10.1002/ajmg.a.34157</pub-id></mixed-citation>
+</ref>
+<ref id="B13">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Boehringer</surname><given-names>S.</given-names></name><name><surname>van der Lijn</surname><given-names>F.</given-names></name><name><surname>Liu</surname><given-names>F.</given-names></name><name><surname>Günther</surname><given-names>M.</given-names></name><name><surname>Sinigerova</surname><given-names>S.</given-names></name><name><surname>Nowak</surname><given-names>S.</given-names></name><etal></etal></person-group>. (<year>2011b</year>). <article-title>Genetic determination of human facial morphology: links between cleft-lips and normal variation</article-title>. <source/>Eur. J. Hum. Genet.
+<volume>19</volume>, <fpage>1192</fpage>–<lpage>1197</lpage>. <pub-id pub-id-type="doi">10.1038/ejhg.2011.110</pub-id><pub-id pub-id-type="pmid">21694738</pub-id></mixed-citation>
+</ref>
+<ref id="B14">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Boehringer</surname><given-names>S.</given-names></name><name><surname>Vollmar</surname><given-names>T.</given-names></name><name><surname>Tasse</surname><given-names>C.</given-names></name><name><surname>Wurtz</surname><given-names>R. P.</given-names></name><name><surname>Gillessen-Kaesbach</surname><given-names>G.</given-names></name><name><surname>Horsthemke</surname><given-names>B.</given-names></name><etal></etal></person-group>. (<year>2006</year>). <article-title>Syndrome identification based on 2d analysis software</article-title>. <source/>Eur. J. Hum. Genet.
+<volume>14</volume>, <fpage>1082</fpage>–<lpage>1089</lpage>. <pub-id pub-id-type="doi">10.1038/sj.ejhg.5201673</pub-id><pub-id pub-id-type="pmid">16773127</pub-id></mixed-citation>
+</ref>
+<ref id="B15">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Bookstein</surname><given-names>F. L.</given-names></name></person-group> (<year>1996</year>). <article-title>“Shape and the information in medical images: a decade of the morphometric synthesis,”</article-title> in <source/>Proceedings of the Workshop on Mathematical Methods in Biomedical Image Analysis (<publisher-loc>San Francisco, CA</publisher-loc>), <fpage>2</fpage>–<lpage>12</lpage>.</mixed-citation>
+</ref>
+<ref id="B16">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Booth</surname><given-names>J.</given-names></name><name><surname>Roussos</surname><given-names>A.</given-names></name><name><surname>Zafeiriou</surname><given-names>S.</given-names></name><name><surname>Ponniah</surname><given-names>A.</given-names></name><name><surname>Dunaway</surname><given-names>D.</given-names></name></person-group> (<year>2016</year>). <article-title>“A 3D morphable model learnt from 10,000 faces,”</article-title> in <source/>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (<publisher-loc>Las Vegas, NV</publisher-loc>), <fpage>5543</fpage>–<lpage>5552</lpage>.</mixed-citation>
+</ref>
+<ref id="B17">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bowman</surname><given-names>A. W.</given-names></name><name><surname>Katina</surname><given-names>S.</given-names></name><name><surname>Smith</surname><given-names>J.</given-names></name><name><surname>Brown</surname><given-names>D.</given-names></name></person-group> (<year>2015</year>). <article-title>Anatomical curve identification</article-title>. <source/>Comput. Stat. Data Anal.
+<volume>86</volume>, <fpage>52</fpage>–<lpage>64</lpage>. <pub-id pub-id-type="doi">10.1016/j.csda.2014.12.007</pub-id><pub-id pub-id-type="pmid">26041943</pub-id></mixed-citation>
+</ref>
+<ref id="B18">
+<mixed-citation publication-type="webpage"><person-group person-group-type="author"><name><surname>Bradski</surname><given-names>G.</given-names></name></person-group> (<year>2000</year>). <source/>The OpenCV Library. Dr. Dobb's Journal of Software Tools. Available online at: <ext-link ext-link-type="uri" xlink:href="https://github.com/opencv/opencv/wiki/CiteOpenCV">https://github.com/opencv/opencv/wiki/CiteOpenCV</ext-link></mixed-citation>
+</ref>
+<ref id="B19">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Breiman</surname><given-names>L.</given-names></name></person-group> (<year>1996</year>). <article-title>Stacked regressions</article-title>. <source/>Mach. Learn.
+<volume>24</volume>, <fpage>49</fpage>–<lpage>64</lpage>.</mixed-citation>
+</ref>
+<ref id="B20">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Bulat</surname><given-names>A.</given-names></name><name><surname>Tzimiropoulos</surname><given-names>G.</given-names></name></person-group> (<year>2017</year>). <article-title>“How far are we from solving the 2D &amp; 3D Face Alignment problem? (and a dataset of 230,000 3D facial landmarks),”</article-title> in <source/>International Conference on Computer Vision (<publisher-loc>Venice</publisher-loc>).</mixed-citation>
+</ref>
+<ref id="B21">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Burlina</surname><given-names>P.</given-names></name><name><surname>Pacheco</surname><given-names>K. D.</given-names></name><name><surname>Joshi</surname><given-names>N.</given-names></name><name><surname>Freund</surname><given-names>D. E.</given-names></name><name><surname>Bressler</surname><given-names>N. M.</given-names></name></person-group> (<year>2017</year>). <article-title>Comparing humans and deep learning performance for grading amd: a study in using universal deep features and transfer learning for automated amd analysis</article-title>. <source/>Comput. Biol. Med.
+<volume>82</volume>, <fpage>80</fpage>–<lpage>86</lpage>. <pub-id pub-id-type="doi">10.1016/j.compbiomed.2017.01.018</pub-id><pub-id pub-id-type="pmid">28167406</pub-id></mixed-citation>
+</ref>
+<ref id="B22">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Claes</surname><given-names>P.</given-names></name><name><surname>Roosenboom</surname><given-names>J.</given-names></name><name><surname>White</surname><given-names>J. D.</given-names></name><name><surname>Swigut</surname><given-names>T.</given-names></name><name><surname>Sero</surname><given-names>D.</given-names></name><name><surname>Li</surname><given-names>J.</given-names></name><etal></etal></person-group>. (<year>2018</year>). <article-title>Genome-wide mapping of global-to-local genetic effects on human facial shape</article-title>. <source/>Nat. Genet.
+<volume>50</volume>, <fpage>414</fpage>–<lpage>423</lpage>. <pub-id pub-id-type="doi">10.1038/s41588-018-0057-4</pub-id><pub-id pub-id-type="pmid">29459680</pub-id></mixed-citation>
+</ref>
+<ref id="B23">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Claes</surname><given-names>P.</given-names></name><name><surname>Vandermeulen</surname><given-names>D.</given-names></name><name><surname>Van Gool</surname><given-names>L.</given-names></name><name><surname>Suetens</surname><given-names>P.</given-names></name></person-group> (<year>2005</year>). <article-title>“Partial surface integration based on variational implicit functions and surfaces for 3d model building,”</article-title> in <source/>Fifth International Conference on 3-D Digital Imaging and Modeling, 3DIM 2005 (<publisher-loc>Ottawa, ON</publisher-loc>), <fpage>31</fpage>–<lpage>38</lpage>.</mixed-citation>
+</ref>
+<ref id="B24">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Claes</surname><given-names>P.</given-names></name><name><surname>Walters</surname><given-names>M.</given-names></name><name><surname>Vandermeulen</surname><given-names>D.</given-names></name><name><surname>Clement</surname><given-names>J. G.</given-names></name></person-group> (<year>2011</year>). <article-title>Spatially-dense 3d facial asymmetry assessment in both typical and disordered growth</article-title>. <source/>J. Anat.
+<volume>219</volume>, <fpage>444</fpage>–<lpage>455</lpage>. <pub-id pub-id-type="doi">10.1111/j.1469-7580.2011.01411.x</pub-id><pub-id pub-id-type="pmid">21740426</pub-id></mixed-citation>
+</ref>
+<ref id="B25">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cole</surname><given-names>J. B.</given-names></name><name><surname>Manyama</surname><given-names>M.</given-names></name><name><surname>Kimwaga</surname><given-names>E.</given-names></name><name><surname>Mathayo</surname><given-names>J.</given-names></name><name><surname>Larson</surname><given-names>J. R.</given-names></name><name><surname>Liberton</surname><given-names>D. K.</given-names></name><etal></etal></person-group>. (<year>2016</year>). <article-title>Genomewide association study of African children identifies association of SCHIP1 and PDE8a with facial size and shape</article-title>. <source/>PLoS Genet.
+<volume>12</volume>:<fpage>e1006174</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pgen.1006174</pub-id><pub-id pub-id-type="pmid">27560698</pub-id></mixed-citation>
+</ref>
+<ref id="B26">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cootes</surname><given-names>T. F.</given-names></name><name><surname>Taylor</surname><given-names>C. J.</given-names></name><name><surname>Cooper</surname><given-names>D. H.</given-names></name><name><surname>Graham</surname><given-names>J.</given-names></name></person-group> (<year>1995</year>). <article-title>Active shape models-their training and application</article-title>. <source/>Comput. Vis. Image Understand.
+<volume>61</volume>, <fpage>38</fpage>–<lpage>59</lpage>. <pub-id pub-id-type="doi">10.1006/cviu.1995.1004</pub-id></mixed-citation>
+</ref>
+<ref id="B27">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Cover</surname><given-names>T. M.</given-names></name><name><surname>Thomas</surname><given-names>J. A.</given-names></name></person-group> (<year>2012</year>). <source/>Elements of Information Theory. <publisher-loc>Hoboken, NJ</publisher-loc>: <publisher-name>John Wiley &amp; Sons</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B28">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>de Jong</surname><given-names>M. A.</given-names></name><name><surname>Gül</surname><given-names>A.</given-names></name><name><surname>de Gijt</surname><given-names>J. P.</given-names></name><name><surname>Koudstaal</surname><given-names>M. J.</given-names></name><name><surname>Kayser</surname><given-names>M.</given-names></name><name><surname>Wolvius</surname><given-names>E. B.</given-names></name><etal></etal></person-group>. (<year>2018a</year>). <article-title>Automated human skull landmarking with 2d Gabor wavelets</article-title>. <source/>Phys. Med. Biol.
+<volume>63</volume>:<fpage>105011</fpage>. <pub-id pub-id-type="doi">10.1088/1361-6560/aabfa0</pub-id><pub-id pub-id-type="pmid">29676286</pub-id></mixed-citation>
+</ref>
+<ref id="B29">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>de Jong</surname><given-names>M. A.</given-names></name><name><surname>Hysi</surname><given-names>P.</given-names></name><name><surname>Spector</surname><given-names>T.</given-names></name><name><surname>Niessen</surname><given-names>W.</given-names></name><name><surname>Koudstaal</surname><given-names>M. J.</given-names></name><name><surname>Wolvius</surname><given-names>E. B.</given-names></name><etal></etal></person-group>. (<year>2018b</year>). <article-title>Ensemble landmarking of 3D facial surface scans</article-title>. <source/>Sci. Rep. <volume>8</volume>:<fpage>12</fpage>. <pub-id pub-id-type="doi">10.1038/s41598-017-18294-x</pub-id><pub-id pub-id-type="pmid">29311563</pub-id></mixed-citation>
+</ref>
+<ref id="B30">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>de Jong</surname><given-names>M. A.</given-names></name><name><surname>Wollstein</surname><given-names>A.</given-names></name><name><surname>Ruff</surname><given-names>C.</given-names></name><name><surname>Dunaway</surname><given-names>D.</given-names></name><name><surname>Hysi</surname><given-names>P.</given-names></name><name><surname>Spector</surname><given-names>T.</given-names></name><etal></etal></person-group>. (<year>2016</year>). <article-title>An automatic 3d facial landmarking algorithm using 2d Gabor Wavelets</article-title>. <source/>IEEE Trans. Image Process.
+<volume>25</volume>, <fpage>580</fpage>–<lpage>588</lpage>. <pub-id pub-id-type="doi">10.1109/TIP.2015.2496183</pub-id><pub-id pub-id-type="pmid">26540684</pub-id></mixed-citation>
+</ref>
+<ref id="B31">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Dryden</surname><given-names>I. L.</given-names></name><name><surname>Mardia</surname><given-names>K. V.</given-names></name></person-group> (<year>1998</year>). <source/>Statistical Shape Analysis. <publisher-loc>Chichester, NY</publisher-loc>: <publisher-name>Wiley</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B32">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Edwards</surname><given-names>G. J.</given-names></name><name><surname>Taylor</surname><given-names>C. J.</given-names></name><name><surname>Cootes</surname><given-names>T. F.</given-names></name></person-group> (<year>1998</year>). <article-title>“Interpreting face images using active appearance models,”</article-title> in <source/>Proceedings Third IEEE International Conference on Automatic Face and Gesture Recognition, <fpage>300</fpage>–<lpage>305</lpage>.</mixed-citation>
+</ref>
+<ref id="B33">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Evans</surname><given-names>D. M.</given-names></name></person-group> (<year>2018</year>). <article-title>Elucidating the genetics of craniofacial shape</article-title>. <source/>Nat. Genet.
+<volume>50</volume>, <fpage>319</fpage>–<lpage>321</lpage>. <pub-id pub-id-type="doi">10.1038/s41588-018-0065-4</pub-id><pub-id pub-id-type="pmid">29511283</pub-id></mixed-citation>
+</ref>
+<ref id="B34">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fagertun</surname><given-names>J.</given-names></name><name><surname>Harder</surname><given-names>S.</given-names></name><name><surname>Rosengren</surname><given-names>A.</given-names></name><name><surname>Moeller</surname><given-names>C.</given-names></name><name><surname>Werge</surname><given-names>T.</given-names></name><name><surname>Paulsen</surname><given-names>R. R.</given-names></name><etal></etal></person-group>. (<year>2014</year>). <article-title>3d facial landmarks: inter-operator variability of manual annotation</article-title>. <source/>BMC Med. Imaging
+<volume>14</volume>:<fpage>35</fpage>. <pub-id pub-id-type="doi">10.1186/1471-2342-14-35</pub-id><pub-id pub-id-type="pmid">25306436</pub-id></mixed-citation>
+</ref>
+<ref id="B35">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fasel</surname><given-names>B.</given-names></name><name><surname>Luettin</surname><given-names>J.</given-names></name></person-group> (<year>2003</year>). <article-title>Automatic facial expression analysis: a survey</article-title>. <source/>Pattern Recogn.
+<volume>36</volume>, <fpage>259</fpage>–<lpage>275</lpage>. <pub-id pub-id-type="doi">10.1016/S0031-3203(02)00052-3</pub-id></mixed-citation>
+</ref>
+<ref id="B36">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fisher</surname><given-names>R. A.</given-names></name></person-group> (<year>1936</year>). <article-title>The use of multiple measurements in taxonomic problems</article-title>. <source/>Ann. Eugen.
+<volume>7</volume>, <fpage>179</fpage>–<lpage>188</lpage>. <pub-id pub-id-type="doi">10.1111/j.1469-1809.1936.tb02137.x</pub-id></mixed-citation>
+</ref>
+<ref id="B37">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gagnon-Bartsch</surname><given-names>J. A.</given-names></name><name><surname>Speed</surname><given-names>T. P.</given-names></name></person-group> (<year>2012</year>). <article-title>Using control genes to correct for unwanted variation in microarray data</article-title>. <source/>Biostatistics
+<volume>13</volume>, <fpage>539</fpage>–<lpage>552</lpage>. <pub-id pub-id-type="doi">10.1093/biostatistics/kxr034</pub-id><pub-id pub-id-type="pmid">22101192</pub-id></mixed-citation>
+</ref>
+<ref id="B38">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Garthwaite</surname><given-names>P. H.</given-names></name></person-group> (<year>1994</year>). <article-title>An interpretation of partial least squares</article-title>. <source/>J. Am. Stat. Assoc.
+<volume>89</volume>, <fpage>122</fpage>–<lpage>127</lpage>. <pub-id pub-id-type="doi">10.1080/01621459.1994.10476452</pub-id></mixed-citation>
+</ref>
+<ref id="B39">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ghesu</surname><given-names>F. C.</given-names></name><name><surname>Georgescu</surname><given-names>B.</given-names></name><name><surname>Grbic</surname><given-names>S.</given-names></name><name><surname>Maier</surname><given-names>A.</given-names></name><name><surname>Hornegger</surname><given-names>J.</given-names></name><name><surname>Comaniciu</surname><given-names>D.</given-names></name></person-group> (<year>2018</year>). <article-title>Towards intelligent robust detection of anatomical structures in incomplete volumetric data</article-title>. <source/>Med. Image Anal. <volume>48</volume>, <fpage>203</fpage>–<lpage>213</lpage>. <pub-id pub-id-type="doi">10.1016/j.media.2018.06.007</pub-id><pub-id pub-id-type="pmid">29966940</pub-id></mixed-citation>
+</ref>
+<ref id="B40">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gilani</surname><given-names>S. Z.</given-names></name><name><surname>Shafait</surname><given-names>F.</given-names></name><name><surname>Mian</surname><given-names>A.</given-names></name></person-group> (<year>2015</year>). <article-title>“Shape-based automatic detection of a large number of 3d facial landmarks,”</article-title> in <source/>2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), <fpage>4639</fpage>–<lpage>4648</lpage>.</mixed-citation>
+</ref>
+<ref id="B41">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Gomes</surname><given-names>J.</given-names></name><name><surname>Velho</surname><given-names>L.</given-names></name></person-group> (<year>2015</year>). <source/>From Fourier Analysis to Wavelets, Vol 3.
+<publisher-loc>New York, NY</publisher-loc>: <publisher-name>Springer</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B42">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Goodfellow</surname><given-names>I.</given-names></name><name><surname>Bengio</surname><given-names>Y.</given-names></name><name><surname>Courville</surname><given-names>A.</given-names></name></person-group> (<year>2016</year>). <source/>Deep Learning. <publisher-loc>Cambridge, MA</publisher-loc>: <publisher-name>MIT Press</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B43">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gower</surname><given-names>J. C.</given-names></name></person-group> (<year>1975</year>). <article-title>Generalized procrustes analysis</article-title>. <source/>Psychometrika
+<volume>40</volume>, <fpage>33</fpage>–<lpage>51</lpage>. <pub-id pub-id-type="doi">10.1007/BF02291478</pub-id></mixed-citation>
+</ref>
+<ref id="B44">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Grewe</surname><given-names>C. M.</given-names></name><name><surname>Zachow</surname><given-names>S.</given-names></name></person-group> (<year>2016</year>). <article-title>“Fully automated and highly accurate dense correspondence for facial surfaces,”</article-title> in <source/>European Conference on Computer Vision (<publisher-loc>Amsterdam</publisher-loc>: <publisher-name>Springer</publisher-name>), <fpage>552</fpage>–<lpage>568</lpage>.</mixed-citation>
+</ref>
+<ref id="B45">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Guo</surname><given-names>J.</given-names></name><name><surname>Mei</surname><given-names>X.</given-names></name><name><surname>Tang</surname><given-names>K.</given-names></name></person-group> (<year>2013</year>). <article-title>Automatic landmark annotation and dense correspondence registration for 3d human facial images</article-title>. <source/>BMC Bioinform.
+<volume>14</volume>:<fpage>232</fpage>. <pub-id pub-id-type="doi">10.1186/1471-2105-14-232</pub-id><pub-id pub-id-type="pmid">23870191</pub-id></mixed-citation>
+</ref>
+<ref id="B46">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gurovich</surname><given-names>Y.</given-names></name><name><surname>Hanani</surname><given-names>Y.</given-names></name><name><surname>Bar</surname><given-names>O.</given-names></name><name><surname>Nadav</surname><given-names>G.</given-names></name><name><surname>Fleischer</surname><given-names>N.</given-names></name><name><surname>Gelbman</surname><given-names>D.</given-names></name><etal></etal></person-group>. (<year>2019</year>). <article-title>Identifying facial phenotypes of genetic disorders using deep learning</article-title>. <source/>Nat. Med.
+<volume>25</volume>:<fpage>60</fpage>. <pub-id pub-id-type="doi">10.1038/s41591-018-0279-0</pub-id><pub-id pub-id-type="pmid">30617323</pub-id></mixed-citation>
+</ref>
+<ref id="B47">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hammond</surname><given-names>P.</given-names></name><name><surname>Forster-Gibson</surname><given-names>C.</given-names></name><name><surname>Chudley</surname><given-names>A. E.</given-names></name><name><surname>Allanson</surname><given-names>J. E.</given-names></name><name><surname>Hutton</surname><given-names>T. J.</given-names></name><name><surname>Farrell</surname><given-names>S. A.</given-names></name><etal></etal></person-group>. (<year>2008</year>). <article-title>Face–brain asymmetry in autism spectrum disorders</article-title>. <source/>Mol. Psychiatry
+<volume>13</volume>, <fpage>614</fpage>–<lpage>623</lpage>. <pub-id pub-id-type="doi">10.1038/mp.2008.18</pub-id><pub-id pub-id-type="pmid">18317467</pub-id></mixed-citation>
+</ref>
+<ref id="B48">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hammond</surname><given-names>P.</given-names></name><name><surname>Hannes</surname><given-names>F.</given-names></name><name><surname>Suttie</surname><given-names>M.</given-names></name><name><surname>Devriendt</surname><given-names>K.</given-names></name><name><surname>Vermeesch</surname><given-names>J. R.</given-names></name><name><surname>Faravelli</surname><given-names>F.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>Fine-grained facial phenotype –genotype analysis in Wolf–Hirschhorn syndrome</article-title>. <source/>Eur. J. Hum. Genet.
+<volume>20</volume>, <fpage>33</fpage>–<lpage>40</lpage>. <pub-id pub-id-type="doi">10.1038/ejhg.2011.135</pub-id><pub-id pub-id-type="pmid">21792232</pub-id></mixed-citation>
+</ref>
+<ref id="B49">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hammond</surname><given-names>P.</given-names></name><name><surname>Hutton</surname><given-names>T. J.</given-names></name><name><surname>Allanson</surname><given-names>J. E.</given-names></name><name><surname>Buxton</surname><given-names>B.</given-names></name><name><surname>Campbell</surname><given-names>L. E.</given-names></name><name><surname>Clayton-Smith</surname><given-names>J.</given-names></name><etal></etal></person-group>. (<year>2005</year>). <article-title>Discriminating power of localized three –dimensional facial morphology</article-title>. <source/>Am. J. Hum. Genet.
+<volume>77</volume>, <fpage>999</fpage>–<lpage>1010</lpage>. <pub-id pub-id-type="doi">10.1086/498396</pub-id><pub-id pub-id-type="pmid">16380911</pub-id></mixed-citation>
+</ref>
+<ref id="B50">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Hastie</surname><given-names>T.</given-names></name><name><surname>Tibshirani</surname><given-names>R.</given-names></name><name><surname>Friedman</surname><given-names>J.</given-names></name></person-group> (<year>2001</year>). <source/>The Elements of Statistical Learning: Data Mining, Inference, and Prediction. <publisher-loc>New York, NY</publisher-loc>: <publisher-name>Springer</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B51">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Hastie</surname><given-names>T. J.</given-names></name><name><surname>Tibshirani</surname><given-names>R. J.</given-names></name></person-group> (<year>1990</year>). <source/>Generalized Additive Models, Volume 43 of Monographs on Statistics and Applied Probability. <publisher-loc>London: Chapman &amp; Hall</publisher-loc>.</mixed-citation>
+</ref>
+<ref id="B52">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>He</surname><given-names>K.</given-names></name><name><surname>Zhang</surname><given-names>X.</given-names></name><name><surname>Ren</surname><given-names>S.</given-names></name><name><surname>Sun</surname><given-names>J.</given-names></name></person-group> (<year>2016</year>). <article-title>“Deep residual learning for image recognition,”</article-title> in <source/>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (<publisher-loc>Las Vegas, NV</publisher-loc>), <fpage>770</fpage>–<lpage>778</lpage>.</mixed-citation>
+</ref>
+<ref id="B53">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>He</surname><given-names>Q.</given-names></name><name><surname>Duan</surname><given-names>Y.</given-names></name><name><surname>Zhang</surname><given-names>D.</given-names></name></person-group> (<year>2012</year>). <article-title>“Automatic detailed localization of facial features,”</article-title> in <source/>International Conference on Industrial, Engineering and Other Applications of Applied Intelligent Systems (<publisher-loc>Morioka: Springer</publisher-loc>), <fpage>1</fpage>–<lpage>9</lpage>.</mixed-citation>
+</ref>
+<ref id="B54">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Hill</surname><given-names>A.</given-names></name><name><surname>Thornham</surname><given-names>A.</given-names></name><name><surname>Taylor</surname><given-names>C. J.</given-names></name></person-group> (<year>1993</year>). <article-title>“Model-based interpretation of 3D medical images,”</article-title> in <source/>4th British Machine Vision Conference, September 1993 (<publisher-loc>Guildford</publisher-loc>), <fpage>339</fpage>–<lpage>348</lpage>.</mixed-citation>
+</ref>
+<ref id="B55">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hoskens</surname><given-names>H.</given-names></name><name><surname>Li</surname><given-names>J.</given-names></name><name><surname>Indencleef</surname><given-names>K.</given-names></name><name><surname>Gors</surname><given-names>D.</given-names></name><name><surname>Larmuseau</surname><given-names>M. H. D.</given-names></name><name><surname>Richmond</surname><given-names>S.</given-names></name><etal></etal></person-group>. (<year>2018</year>). <article-title>Spatially dense 3d facial heritability and modules of co-heritability in a father-offspring design</article-title>. <source/>Front. Genet.
+<volume>9</volume>:<fpage>554</fpage>. <pub-id pub-id-type="doi">10.3389/fgene.2018.00554</pub-id><pub-id pub-id-type="pmid">30510565</pub-id></mixed-citation>
+</ref>
+<ref id="B56">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hotelling</surname><given-names>H.</given-names></name></person-group> (<year>1936</year>). <article-title>Relations between two sets of variates</article-title>. <source/>Biometrika
+<volume>28</volume>, <fpage>321</fpage>–<lpage>377</lpage>. <pub-id pub-id-type="doi">10.2307/2333955</pub-id></mixed-citation>
+</ref>
+<ref id="B57">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hunter</surname><given-names>W. S.</given-names></name><name><surname>Balbach</surname><given-names>D. R.</given-names></name><name><surname>Lamphiear</surname><given-names>D. E.</given-names></name></person-group> (<year>1970</year>). <article-title>The heritability of attained growth in the human face</article-title>. <source/>Am. J. Orthodont.
+<volume>58</volume>, <fpage>128</fpage>–<lpage>134</lpage>. <pub-id pub-id-type="doi">10.1016/0002-9416(70)90066-7</pub-id><pub-id pub-id-type="pmid">5269761</pub-id></mixed-citation>
+</ref>
+<ref id="B58">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Hutton</surname><given-names>T. J.</given-names></name><name><surname>Buxton</surname><given-names>B. F.</given-names></name><name><surname>Hammond</surname><given-names>P.</given-names></name></person-group> (<year>2001</year>). <article-title>“Dense surface point distribution models of the human face,”</article-title> in <source/>Proceedings IEEE Workshop on Mathematical Methods in Biomedical Image Analysis (MMBIA 2001) (<publisher-loc>Kauai, HI</publisher-loc>).</mixed-citation>
+</ref>
+<ref id="B59">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hwang</surname><given-names>H.-S.</given-names></name><name><surname>Yuan</surname><given-names>D.</given-names></name><name><surname>Jeong</surname><given-names>K.-H.</given-names></name><name><surname>Uhm</surname><given-names>G.-S.</given-names></name><name><surname>Cho</surname><given-names>J.-H.</given-names></name><name><surname>Yoon</surname><given-names>S.-J.</given-names></name></person-group> (<year>2012</year>). <article-title>Three-dimensional soft tissue analysis for the evaluation of facial asymmetry in normal occlusion individuals</article-title>. <source/>Korean J. Orthod.
+<volume>42</volume>, <fpage>56</fpage>–<lpage>63</lpage>. <pub-id pub-id-type="doi">10.4041/kjod.2012.42.2.56</pub-id><pub-id pub-id-type="pmid">23112933</pub-id></mixed-citation>
+</ref>
+<ref id="B60">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Jolliffe</surname><given-names>I.</given-names></name></person-group> (<year>2005</year>). <source/>Principal Component Analysis, 1st Edn. <publisher-loc>New York, NY</publisher-loc>: <publisher-name>Wiley Online Library</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B61">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Kalina</surname><given-names>J.</given-names></name></person-group> (<year>2010</year>). <article-title>“Locating landmarks using templates,”</article-title> in <source/>Nonparametrics and Robustness in Modern Statistical Inference and Time Series Analysis: A Festschrift in Honor of Professor Jana Jurecková (<publisher-loc>Beachwood, OH: Institute of Mathematical Statistics</publisher-loc>), <fpage>113</fpage>–<lpage>122</lpage>.</mixed-citation>
+</ref>
+<ref id="B62">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kalina</surname><given-names>J.</given-names></name></person-group> (<year>2012</year>). <article-title>Facial symmetry in robust anthropometrics</article-title>. <source/>J. Forens. Sci.
+<volume>57</volume>, <fpage>691</fpage>–<lpage>698</lpage>. <pub-id pub-id-type="doi">10.1111/j.1556-4029.2011.02000.x</pub-id><pub-id pub-id-type="pmid">22150845</pub-id></mixed-citation>
+</ref>
+<ref id="B63">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kass</surname><given-names>M.</given-names></name><name><surname>Witkin</surname><given-names>A.</given-names></name><name><surname>Terzopoulos</surname><given-names>D.</given-names></name></person-group> (<year>1988</year>). <article-title>Snakes: active contour models</article-title>. <source/>Int. J. Comput. Vis.
+<volume>1</volume>, <fpage>321</fpage>–<lpage>331</lpage>. <pub-id pub-id-type="doi">10.1007/BF00133570</pub-id></mixed-citation>
+</ref>
+<ref id="B64">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Katina</surname><given-names>S.</given-names></name><name><surname>Mcneil</surname><given-names>K.</given-names></name><name><surname>Ayoub</surname><given-names>A.</given-names></name><name><surname>Guilfoyle</surname><given-names>B.</given-names></name><name><surname>Khambay</surname><given-names>B.</given-names></name><name><surname>Siebert</surname><given-names>J.</given-names></name><etal></etal></person-group>. (<year>2015</year>). <article-title>The definitions of three-dimensional landmarks on the human face: an interdisciplinary view</article-title>. <source/>J. Anat.
+<volume>228</volume>, <fpage>355</fpage>–<lpage>365</lpage>. <pub-id pub-id-type="doi">10.1111/joa.12407</pub-id><pub-id pub-id-type="pmid">26659272</pub-id></mixed-citation>
+</ref>
+<ref id="B65">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kendall</surname><given-names>D. G.</given-names></name></person-group> (<year>1989</year>). <article-title>A survey of the statistical theory of shape</article-title>. <source/>Stat. Sci.
+<volume>4</volume>, <fpage>87</fpage>–<lpage>99</lpage>. <pub-id pub-id-type="doi">10.1214/ss/1177012582</pub-id></mixed-citation>
+</ref>
+<ref id="B66">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Klingenberg</surname><given-names>C. P.</given-names></name></person-group> (<year>2008</year>). <article-title>Morphological integration and developmental modularity</article-title>. <source/>Annu. Rev. Ecol. Evol. Syst.
+<volume>39</volume>, <fpage>115</fpage>–<lpage>132</lpage>. <pub-id pub-id-type="doi">10.1146/annurev.ecolsys.37.091305.110054</pub-id></mixed-citation>
+</ref>
+<ref id="B67">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Klingenberg</surname><given-names>C. P.</given-names></name><name><surname>Wetherill</surname><given-names>L.</given-names></name><name><surname>Rogers</surname><given-names>J.</given-names></name><name><surname>Moore</surname><given-names>E.</given-names></name><name><surname>Ward</surname><given-names>R.</given-names></name><name><surname>Autti-Rämö</surname><given-names>I.</given-names></name><etal></etal></person-group>. (<year>2010</year>). <article-title>Prenatal alcohol exposure alters the patterns of facial asymmetry</article-title>. <source/>Alcohol
+<volume>44</volume>, <fpage>649</fpage>–<lpage>657</lpage>. <pub-id pub-id-type="doi">10.1016/j.alcohol.2009.10.016</pub-id><pub-id pub-id-type="pmid">20060678</pub-id></mixed-citation>
+</ref>
+<ref id="B68">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kraemer</surname><given-names>M.</given-names></name><name><surname>Huynh</surname><given-names>Q. B.</given-names></name><name><surname>Wieczorek</surname><given-names>D.</given-names></name><name><surname>Balliu</surname><given-names>B.</given-names></name><name><surname>Mikat</surname><given-names>B.</given-names></name><name><surname>Boehringer</surname><given-names>S.</given-names></name></person-group> (<year>2018</year>). <article-title>Distinctive facial features in idiopathic Moyamoya disease in Caucasians: a first systematic analysis</article-title>. <source/>PeerJ
+<volume>6</volume>:<fpage>e4740</fpage>. <pub-id pub-id-type="doi">10.7717/peerj.4740</pub-id><pub-id pub-id-type="pmid">29977664</pub-id></mixed-citation>
+</ref>
+<ref id="B69">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lanitis</surname><given-names>A.</given-names></name><name><surname>Taylor</surname><given-names>C. J.</given-names></name><name><surname>Cootes</surname><given-names>T. F.</given-names></name></person-group> (<year>1997</year>). <article-title>Automatic interpretation and coding of face images using flexible models</article-title>. <source/>IEEE Trans. Pattern Anal. Mach. Intell.
+<volume>19</volume>, <fpage>743</fpage>–<lpage>756</lpage>. <pub-id pub-id-type="doi">10.1109/34.598231</pub-id></mixed-citation>
+</ref>
+<ref id="B70">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lebow</surname><given-names>M. R.</given-names></name><name><surname>Sawin</surname><given-names>P. B.</given-names></name></person-group> (<year>1941</year>). <article-title>INHERITANCE OF HUMAN FACIAL FEATURES:a pedigree study involving length of face, prominent ears and chin cleft</article-title>. <source/>J. Hered.
+<volume>32</volume>, <fpage>127</fpage>–<lpage>132</lpage>. <pub-id pub-id-type="doi">10.1093/oxfordjournals.jhered.a105016</pub-id></mixed-citation>
+</ref>
+<ref id="B71">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>LeCun</surname><given-names>Y.</given-names></name><name><surname>Bengio</surname><given-names>Y.</given-names></name><name><surname>Hinton</surname><given-names>G.</given-names></name></person-group> (<year>2015</year>). <article-title>Deep learning</article-title>. <source/>Nature
+<volume>521</volume>, <fpage>436</fpage>–<lpage>444</lpage>. <pub-id pub-id-type="doi">10.1038/nature14539</pub-id><pub-id pub-id-type="pmid">26017442</pub-id></mixed-citation>
+</ref>
+<ref id="B72">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>H.</given-names></name><name><surname>Grosse</surname><given-names>R.</given-names></name><name><surname>Ranganath</surname><given-names>R.</given-names></name><name><surname>Ng</surname><given-names>A. Y.</given-names></name></person-group> (<year>2009</year>). <article-title>“Convolutional deep belief networks for scalable unsupervised learning of hierarchical representations,”</article-title> in <source/>Proceedings of the 26th Annual International Conference on Machine Learning (<publisher-loc>ACM</publisher-loc>), <fpage>609</fpage>–<lpage>616</lpage>.</mixed-citation>
+</ref>
+<ref id="B73">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>M. K.</given-names></name><name><surname>Shaffer</surname><given-names>J. R.</given-names></name><name><surname>Leslie</surname><given-names>E. J.</given-names></name><name><surname>Orlova</surname><given-names>E.</given-names></name><name><surname>Carlson</surname><given-names>J. C.</given-names></name><name><surname>Feingold</surname><given-names>E.</given-names></name><etal></etal></person-group>. (<year>2017</year>). <article-title>Genome-wide association study of facial morphology reveals novel associations with FREM1 and PARK2</article-title>. <source/>PLoS ONE
+<volume>12</volume>:<fpage>e0176566</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0176566</pub-id><pub-id pub-id-type="pmid">28441456</pub-id></mixed-citation>
+</ref>
+<ref id="B74">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Leyvand</surname><given-names>T.</given-names></name><name><surname>Cohen-Or</surname><given-names>D.</given-names></name><name><surname>Dror</surname><given-names>G.</given-names></name><name><surname>Lischinski</surname><given-names>D.</given-names></name></person-group> (<year>2008</year>). <article-title>Data-driven enhancement of facial attractiveness</article-title>. <source/>ACM Trans. Graph.
+<volume>27</volume>:<fpage>38</fpage>
+<pub-id pub-id-type="doi">10.1145/1360612.1360637</pub-id></mixed-citation>
+</ref>
+<ref id="B75">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Li</surname><given-names>M.</given-names></name><name><surname>Cole</surname><given-names>J. B.</given-names></name><name><surname>Manyama</surname><given-names>M.</given-names></name><name><surname>Larson</surname><given-names>J. R.</given-names></name><name><surname>Liberton</surname><given-names>D. K.</given-names></name><name><surname>Riccardi</surname><given-names>S. L.</given-names></name><etal></etal></person-group>. (<year>2017</year>). <article-title>Rapid automated landmarking for morphometric analysis of three-dimensional facial scans</article-title>. <source/>J. Anat.
+<volume>230</volume>, <fpage>607</fpage>–<lpage>618</lpage>. <pub-id pub-id-type="doi">10.1111/joa.12576</pub-id><pub-id pub-id-type="pmid">28078731</pub-id></mixed-citation>
+</ref>
+<ref id="B76">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Litke</surname><given-names>N.</given-names></name><name><surname>Droske</surname><given-names>M.</given-names></name><name><surname>Rumpf</surname><given-names>M.</given-names></name><name><surname>Schröder</surname><given-names>P.</given-names></name></person-group> (<year>2005</year>). <article-title>“An image processing approach to surface matching,”</article-title> in <source/>Symposium on Geometry Processing, Vol. 255 (<publisher-loc>Vienna</publisher-loc>: <publisher-name>Citeseer</publisher-name>), <fpage>207</fpage>–<lpage>216</lpage>.</mixed-citation>
+</ref>
+<ref id="B77">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Liu</surname><given-names>F.</given-names></name><name><surname>van der Lijn</surname><given-names>F.</given-names></name><name><surname>Schurmann</surname><given-names>C.</given-names></name><name><surname>Zhu</surname><given-names>G.</given-names></name><name><surname>Chakravarty</surname><given-names>M. M.</given-names></name><name><surname>Hysi</surname><given-names>P. G.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>A genome-wide association study identifies five loci influencing facial morphology in Europeans</article-title>. <source/>PLoS Genet.
+<volume>8</volume>:<fpage>e1002932</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pgen.1002932</pub-id><pub-id pub-id-type="pmid">23028347</pub-id></mixed-citation>
+</ref>
+<ref id="B78">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Loos</surname><given-names>H. S.</given-names></name><name><surname>Wieczorek</surname><given-names>D.</given-names></name><name><surname>Würtz</surname><given-names>R. P.</given-names></name><name><surname>von der Malsburg</surname><given-names>C.</given-names></name><name><surname>Horsthemke</surname><given-names>B.</given-names></name></person-group> (<year>2003</year>). <article-title>Computer-based recognition of dysmorphic faces</article-title>. <source/>Eur. J. Hum. Genet.
+<volume>11</volume>, <fpage>555</fpage>–<lpage>560</lpage>. <pub-id pub-id-type="doi">10.1038/sj.ejhg.5200997</pub-id><pub-id pub-id-type="pmid">12891374</pub-id></mixed-citation>
+</ref>
+<ref id="B79">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Louis</surname><given-names>T. A.</given-names></name></person-group> (<year>1982</year>). <article-title>Finding the observed information matrix when using the EM algorithm</article-title>. <source/>J. R. Stat. Soc. Ser B 
+<volume>44</volume>, <fpage>226</fpage>–<lpage>233</lpage>. <pub-id pub-id-type="doi">10.1111/j.2517-6161.1982.tb01203.x</pub-id></mixed-citation>
+</ref>
+<ref id="B80">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lowe</surname><given-names>D. G.</given-names></name></person-group> (<year>2004</year>). <article-title>Distinctive image features from scale-invariant keypoints</article-title>. <source/>Int. J. Comput. Vis.
+<volume>60</volume>, <fpage>91</fpage>–<lpage>110</lpage>. <pub-id pub-id-type="doi">10.1023/B:VISI.0000029664.99615.94</pub-id></mixed-citation>
+</ref>
+<ref id="B81">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lu</surname><given-names>K. H.</given-names></name></person-group> (<year>1965</year>). <article-title>Harmonic analysis of the human face</article-title>. <source/>Biometrics
+<volume>21</volume>, <fpage>491</fpage>–<lpage>505</lpage>.<pub-id pub-id-type="pmid">14338681</pub-id></mixed-citation>
+</ref>
+<ref id="B82">
+<mixed-citation publication-type="webpage"><person-group person-group-type="author"><name><surname>Lynch</surname><given-names>J.</given-names></name></person-group> (<year>2018</year>). <source/>Face Off: Law Enforcement Use of Face Recognition Technology. Available online at: <ext-link ext-link-type="uri" xlink:href="https://www.eff.org/wp/law-enforcement-use-face-recognition">https://www.eff.org/wp/law-enforcement-use-face-recognition</ext-link></mixed-citation>
+</ref>
+<ref id="B83">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>McInnes</surname><given-names>L.</given-names></name><name><surname>Healy</surname><given-names>J.</given-names></name></person-group> (<year>2018</year>). <article-title>Umap: Uniform manifold approximation and projection for dimension reduction</article-title>. <source/>arXiv [preprint]. arXiv:1802.03426.</mixed-citation>
+</ref>
+<ref id="B84">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Milborrow</surname><given-names>S.</given-names></name><name><surname>Bishop</surname><given-names>T.</given-names></name><name><surname>Nicolls</surname><given-names>F.</given-names></name></person-group> (<year>2013</year>). <article-title>“Multiview active shape models with sift descriptors for the 300-w face landmark challenge,”</article-title> in <source/>Proceedings of the IEEE International Conference on Computer Vision Workshops (<publisher-loc>Sydney, NSW</publisher-loc>), <fpage>378</fpage>–<lpage>385</lpage>.</mixed-citation>
+</ref>
+<ref id="B85">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Milborrow</surname><given-names>S.</given-names></name><name><surname>Nicolls</surname><given-names>F.</given-names></name></person-group> (<year>2008</year>). <article-title>“Locating facial features with an extended active shape model,”</article-title> in <source/>European Conference on Computer Vision (<publisher-loc>Marseille: Springer</publisher-loc>), <fpage>504</fpage>–<lpage>513</lpage>.</mixed-citation>
+</ref>
+<ref id="B86">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Milborrow</surname><given-names>S.</given-names></name><name><surname>Nicolls</surname><given-names>F.</given-names></name></person-group> (<year>2014</year>). <article-title>Active shape models with SIFT descriptors and MARS</article-title>. <source/>VISAPP
+<volume>1</volume>:<fpage>5</fpage>
+<pub-id pub-id-type="doi">10.1109/ICCVW.2013.57</pub-id></mixed-citation>
+</ref>
+<ref id="B87">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Molinaro</surname><given-names>A. M.</given-names></name><name><surname>Simon</surname><given-names>R.</given-names></name><name><surname>Pfeiffer</surname><given-names>R. M.</given-names></name></person-group> (<year>2005</year>). <article-title>Prediction error estimation: a comparison of resampling methods</article-title>. <source/>Bioinformatics
+<volume>21</volume>, <fpage>3301</fpage>–<lpage>3307</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bti499</pub-id><pub-id pub-id-type="pmid">15905277</pub-id></mixed-citation>
+</ref>
+<ref id="B88">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Montúfar</surname><given-names>J.</given-names></name><name><surname>Romero</surname><given-names>M.</given-names></name><name><surname>Scougall-Vilchis</surname><given-names>R. J.</given-names></name></person-group> (<year>2018</year>). <article-title>Automatic 3-dimensional cephalometric landmarking based on active shape models in related projections</article-title>. <source/>Am. J. Orthod. Dentof. Orthop.
+<volume>153</volume>, <fpage>449</fpage>–<lpage>458</lpage>. <pub-id pub-id-type="doi">10.1016/j.ajodo.2017.06.028</pub-id><pub-id pub-id-type="pmid">29501121</pub-id></mixed-citation>
+</ref>
+<ref id="B89">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nakata</surname><given-names>M.</given-names></name><name><surname>Yu</surname><given-names>P.-L.</given-names></name><name><surname>Nance</surname><given-names>W. E.</given-names></name></person-group> (<year>1976</year>). <article-title>On facial similarity in relatives</article-title>. <source/>Hum. Biol.
+<volume>48</volume>, <fpage>611</fpage>–<lpage>621</lpage>.<pub-id pub-id-type="pmid">976979</pub-id></mixed-citation>
+</ref>
+<ref id="B90">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Oh</surname><given-names>Y.-H.</given-names></name><name><surname>See</surname><given-names>J.</given-names></name><name><surname>Le Ngo</surname><given-names>A. C.</given-names></name><name><surname>Phan</surname><given-names>R. C.-W.</given-names></name><name><surname>Baskaran</surname><given-names>V. M.</given-names></name></person-group> (<year>2018</year>). <article-title>A survey of automatic facial micro-expression analysis: databases, methods, and challenges</article-title>. <source/>Front. Psychol.
+<volume>9</volume>:<fpage>1128</fpage>. <pub-id pub-id-type="doi">10.3389/fpsyg.2018.01128</pub-id><pub-id pub-id-type="pmid">30042706</pub-id></mixed-citation>
+</ref>
+<ref id="B91">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Orchard</surname><given-names>T.</given-names></name><name><surname>Woodbury</surname><given-names>M. A.</given-names></name></person-group> (<year>1972</year>). <source/>A Missing Information Principle: Theory and Applications. Technical Report, <publisher-loc>Duke University Medical Center, Durham, NC</publisher-loc>.</mixed-citation>
+</ref>
+<ref id="B92">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ott</surname><given-names>J.</given-names></name><name><surname>Rabinowitz</surname><given-names>D.</given-names></name></person-group> (<year>1999</year>). <article-title>A principal-components approach based on heritability for combining phenotype information</article-title>. <source/>Hum. Hered.
+<volume>49</volume>, <fpage>106</fpage>–<lpage>111</lpage>. <pub-id pub-id-type="doi">10.1159/000022854</pub-id><pub-id pub-id-type="pmid">10077732</pub-id></mixed-citation>
+</ref>
+<ref id="B93">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Oualkacha</surname><given-names>K.</given-names></name><name><surname>Labbe</surname><given-names>A.</given-names></name><name><surname>Ciampi</surname><given-names>A.</given-names></name><name><surname>Roy</surname><given-names>M.-A.</given-names></name><name><surname>Maziade</surname><given-names>M.</given-names></name></person-group> (<year>2012</year>). <article-title>Principal components of heritability for high dimension quantitative traits and general pedigrees</article-title>. <source/>Stat. Appl. Genet. Mol. Biol.
+<volume>11</volume>, <fpage>1544</fpage>–<lpage>6115</lpage>. <pub-id pub-id-type="doi">10.2202/1544-6115.1711</pub-id><pub-id pub-id-type="pmid">22499698</pub-id></mixed-citation>
+</ref>
+<ref id="B94">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ozcan</surname><given-names>A.</given-names></name><name><surname>McLeod</surname><given-names>E.</given-names></name></person-group> (<year>2016</year>). <article-title>Lensless imaging and sensing</article-title>. <source/>Annu. Rev. Biomed. Eng.
+<volume>18</volume>, <fpage>77</fpage>–<lpage>102</lpage>. <pub-id pub-id-type="doi">10.1146/annurev-bioeng-092515-010849</pub-id><pub-id pub-id-type="pmid">27420569</pub-id></mixed-citation>
+</ref>
+<ref id="B95">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Papageorgiou</surname><given-names>C. P.</given-names></name><name><surname>Oren</surname><given-names>M.</given-names></name><name><surname>Poggio</surname><given-names>T.</given-names></name></person-group> (<year>1998</year>). <article-title>“A general framework for object detection,”</article-title> in <source/>Sixth International Conference on Computer Vision (<publisher-loc>Bombay</publisher-loc>), <fpage>555</fpage>–<lpage>562</lpage>.</mixed-citation>
+</ref>
+<ref id="B96">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Paternoster</surname><given-names>L.</given-names></name><name><surname>Zhurov</surname><given-names>A. I.</given-names></name><name><surname>Toma</surname><given-names>A. M.</given-names></name><name><surname>Kemp</surname><given-names>J. P.</given-names></name><name><surname>Pourcain</surname><given-names>B. S.</given-names></name><name><surname>Timpson</surname><given-names>N. J.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>Genome-wide association study of three-dimensional facial morphology identifies a variant in pax3 associated with nasion position</article-title>. <source/>Am. J. Hum. Genet.
+<volume>90</volume>, <fpage>478</fpage>–<lpage>485</lpage>. <pub-id pub-id-type="doi">10.1016/j.ajhg.2011.12.021</pub-id><pub-id pub-id-type="pmid">22341974</pub-id></mixed-citation>
+</ref>
+<ref id="B97">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Peng</surname><given-names>S.</given-names></name><name><surname>Tan</surname><given-names>J.</given-names></name><name><surname>Hu</surname><given-names>S.</given-names></name><name><surname>Zhou</surname><given-names>H.</given-names></name><name><surname>Guo</surname><given-names>J.</given-names></name><name><surname>Jin</surname><given-names>L.</given-names></name><etal></etal></person-group>. (<year>2013</year>). <article-title>Detecting genetic association of common human facial morphological variation using high density 3d image registration</article-title>. <source/>PLoS Comput. Biol.
+<volume>9</volume>:<fpage>e1003375</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pcbi.1003375</pub-id><pub-id pub-id-type="pmid">24339768</pub-id></mixed-citation>
+</ref>
+<ref id="B98">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Petrie</surname><given-names>A.</given-names></name><name><surname>Sabin</surname><given-names>C.</given-names></name></person-group> (<year>2013</year>). <source/>Medical Statistics at a Glance. <publisher-loc>Chichester: John Wiley &amp; Sons</publisher-loc>.</mixed-citation>
+</ref>
+<ref id="B99">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pritchard</surname><given-names>J. K.</given-names></name><name><surname>Przeworski</surname><given-names>M.</given-names></name></person-group> (<year>2001</year>). <article-title>Linkage disequilibrium in humans: models and data</article-title>. <source/>Am. J. Hum. Genet.
+<volume>69</volume>, <fpage>1</fpage>–<lpage>14</lpage>. <pub-id pub-id-type="doi">10.1086/321275</pub-id><pub-id pub-id-type="pmid">11410837</pub-id></mixed-citation>
+</ref>
+<ref id="B100">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ranjan</surname><given-names>R.</given-names></name><name><surname>Patel</surname><given-names>V. M.</given-names></name><name><surname>Chellappa</surname><given-names>R.</given-names></name></person-group> (<year>2017</year>). <article-title>Hyperface: a deep multi-task learning framework for face detection, landmark localization, pose estimation, and gender recognition</article-title>. <source/>IEEE Trans. Pattern Anal. Mach. Intell. <volume>41</volume>, <fpage>121</fpage>–<lpage>135</lpage>. <pub-id pub-id-type="doi">10.1109/TPAMI.2017.2781233</pub-id><pub-id pub-id-type="pmid">29990235</pub-id></mixed-citation>
+</ref>
+<ref id="B101">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Richmond</surname><given-names>S.</given-names></name><name><surname>Howe</surname><given-names>L. J.</given-names></name><name><surname>Lewis</surname><given-names>S.</given-names></name><name><surname>Stergiakouli</surname><given-names>E.</given-names></name><name><surname>Zhurov</surname><given-names>A.</given-names></name></person-group> (<year>2018</year>). <article-title>Facial genetics: a brief overview</article-title>. <source/>Front. Genet.
+<volume>9</volume>:<fpage>462</fpage>. <pub-id pub-id-type="doi">10.3389/fgene.2018.00462</pub-id><pub-id pub-id-type="pmid">30386375</pub-id></mixed-citation>
+</ref>
+<ref id="B102">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rolfe</surname><given-names>S.</given-names></name><name><surname>Lee</surname><given-names>S.-I.</given-names></name><name><surname>Shapiro</surname><given-names>L.</given-names></name></person-group> (<year>2018</year>). <article-title>Associations between genetic data and quantitative assessment of normal facial asymmetry</article-title>. <source/>Front. Genet.
+<volume>9</volume>:<fpage>659</fpage>. <pub-id pub-id-type="doi">10.3389/fgene.2018.00659</pub-id><pub-id pub-id-type="pmid">30631343</pub-id></mixed-citation>
+</ref>
+<ref id="B103">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Roweis</surname><given-names>S. T.</given-names></name><name><surname>Saul</surname><given-names>L. K.</given-names></name></person-group> (<year>2000</year>). <article-title>Nonlinear dimensionality reduction by locally linear embedding</article-title>. <source/>Science
+<volume>290</volume>, <fpage>2323</fpage>–<lpage>2326</lpage>. <pub-id pub-id-type="doi">10.1126/science.290.5500.2323</pub-id><pub-id pub-id-type="pmid">11125150</pub-id></mixed-citation>
+</ref>
+<ref id="B104">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Samal</surname><given-names>A.</given-names></name><name><surname>Iyengar</surname><given-names>P. A.</given-names></name></person-group> (<year>1992</year>). <article-title>Automatic recognition and analysis of human faces and facial expressions: a survey</article-title>. <source/>Pattern Recogn.
+<volume>25</volume>, <fpage>65</fpage>–<lpage>77</lpage>. <pub-id pub-id-type="doi">10.1016/0031-3203(92)90007-6</pub-id></mixed-citation>
+</ref>
+<ref id="B105">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Scheib</surname><given-names>J. E.</given-names></name><name><surname>Gangestad</surname><given-names>S. W.</given-names></name><name><surname>Thornhill</surname><given-names>R.</given-names></name></person-group> (<year>1999</year>). <article-title>Facial attractiveness, symmetry and cues of good genes</article-title>. <source/>Proc. R. Soc. Lond. B Biol. Sci.
+<volume>266</volume>, <fpage>1913</fpage>–<lpage>1917</lpage>. <pub-id pub-id-type="doi">10.1098/rspb.1999.0866</pub-id><pub-id pub-id-type="pmid">10535106</pub-id></mixed-citation>
+</ref>
+<ref id="B106">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schroff</surname><given-names>F.</given-names></name><name><surname>Kalenichenko</surname><given-names>D.</given-names></name><name><surname>Philbin</surname><given-names>J.</given-names></name></person-group> (<year>2015</year>). <article-title>FaceNet: a unified embedding for face recognition and clustering</article-title>. <source/>arXiv:1503.03832 [cs]
+<fpage>815</fpage>–<lpage>823</lpage>. <pub-id pub-id-type="doi">10.1109/CVPR.2015.7298682</pub-id></mixed-citation>
+</ref>
+<ref id="B107">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Shaffer</surname><given-names>J. R.</given-names></name><name><surname>Orlova</surname><given-names>E.</given-names></name><name><surname>Lee</surname><given-names>M. K.</given-names></name><name><surname>Leslie</surname><given-names>E. J.</given-names></name><name><surname>Raffensperger</surname><given-names>Z. D.</given-names></name><name><surname>Heike</surname><given-names>C. L.</given-names></name><etal></etal></person-group>. (<year>2016</year>). <article-title>Genome-wide association study reveals multiple loci influencing normal human facial morphology</article-title>. <source/>PLoS Genet.
+<volume>12</volume>:<fpage>e1006149</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pgen.1006149</pub-id><pub-id pub-id-type="pmid">27560520</pub-id></mixed-citation>
+</ref>
+<ref id="B108">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Short</surname><given-names>L. J.</given-names></name><name><surname>Khambay</surname><given-names>B.</given-names></name><name><surname>Ayoub</surname><given-names>A.</given-names></name><name><surname>Erolin</surname><given-names>C.</given-names></name><name><surname>Rynn</surname><given-names>C.</given-names></name><name><surname>Wilkinson</surname><given-names>C.</given-names></name></person-group> (<year>2014</year>). <article-title>Validation of a computer modelled forensic facial reconstruction technique using CT data from live subjects: a pilot study</article-title>. <source/>Forens. Sci. Int.
+<volume>237</volume>, <fpage>147.e1</fpage>–<lpage>147.e8</lpage>. <pub-id pub-id-type="doi">10.1016/j.forsciint.2013.12.042</pub-id><pub-id pub-id-type="pmid">24529418</pub-id></mixed-citation>
+</ref>
+<ref id="B109">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Spreeuwers</surname><given-names>L.</given-names></name></person-group> (<year>2011</year>). <article-title>Fast and accurate 3d face recognition using registration to an intrinsic coordinate system and fusion of multiple region</article-title>. <source/>Proc. Int. J. Comput. Vis.
+<volume>93</volume>, <fpage>389</fpage>–<lpage>414</lpage>. <pub-id pub-id-type="doi">10.1007/s11263-011-0426-2</pub-id></mixed-citation>
+</ref>
+<ref id="B110">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Stenton</surname><given-names>D. R.</given-names></name><name><surname>Keenleyside</surname><given-names>A.</given-names></name><name><surname>Trepkov</surname><given-names>D. P.</given-names></name><name><surname>Park</surname><given-names>R. W.</given-names></name></person-group> (<year>2016</year>). <article-title>Faces from the franklin expedition? Craniofacial reconstructions of two members of the 1845 northwest passage expedition</article-title>. <source/>Polar Rec.
+<volume>52</volume>, <fpage>76</fpage>–<lpage>81</lpage>. <pub-id pub-id-type="doi">10.1017/S0032247415000248</pub-id></mixed-citation>
+</ref>
+<ref id="B111">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Storms</surname><given-names>A.-S.</given-names></name><name><surname>Vansant</surname><given-names>L.</given-names></name><name><surname>Shaheen</surname><given-names>E.</given-names></name><name><surname>Coucke</surname><given-names>W.</given-names></name><name><surname>de Llano-Pérula</surname><given-names>M. C.</given-names></name><name><surname>Jacobs</surname><given-names>R.</given-names></name><etal></etal></person-group>. (<year>2017</year>). <article-title>Three-dimensional aesthetic assessment of class ii patients before and after orthognathic surgery and its association with quantitative surgical changes</article-title>. <source/>Int. J. Oral Maxillof. Surg.
+<volume>46</volume>, <fpage>1664</fpage>–<lpage>1671</lpage>. <pub-id pub-id-type="doi">10.1016/j.ijom.2017.07.002</pub-id><pub-id pub-id-type="pmid">28751183</pub-id></mixed-citation>
+</ref>
+<ref id="B112">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Liang</surname><given-names>D.</given-names></name><name><surname>Wang</surname><given-names>X.</given-names></name><name><surname>Tang</surname><given-names>X.</given-names></name></person-group> (<year>2015</year>). <article-title>Deepid3: face recognition with very deep neural networks</article-title>. <source/>arXiv [preprint]. arXiv:1502.00873. <pub-id pub-id-type="doi">10.1109/ICPR.2008.4760973</pub-id></mixed-citation>
+</ref>
+<ref id="B113">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Yin</surname><given-names>L.</given-names></name></person-group> (<year>2008</year>). <article-title>“Automatic pose estimation of 3d facial models,”</article-title> in <source/>19th International Conference on Pattern Recognition, ICPR 2008 (<publisher-loc>Tampa, FL</publisher-loc>), <fpage>1</fpage>–<lpage>4</lpage>.</mixed-citation>
+</ref>
+<ref id="B114">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Swennen</surname><given-names>G. R.</given-names></name></person-group> (<year>2006</year>). <article-title>“3-d cephalometric soft tissue landmarks,”</article-title> in <source/>Three-Dimensional Cephalometry (<publisher-loc>New York, NY: Springer</publisher-loc>), <fpage>183</fpage>–<lpage>226</lpage>.</mixed-citation>
+</ref>
+<ref id="B115">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Szegedy</surname><given-names>C.</given-names></name><name><surname>Liu</surname><given-names>W.</given-names></name><name><surname>Jia</surname><given-names>Y.</given-names></name><name><surname>Sermanet</surname><given-names>P.</given-names></name><name><surname>Reed</surname><given-names>S.</given-names></name><name><surname>Anguelov</surname><given-names>D.</given-names></name><etal></etal></person-group> (<year>2015</year>). <article-title>“Going deeper with convolutions,”</article-title> in <source/>Conference on Computer Vision and Pattern Recognition (CVPR) (<publisher-loc>Boston, MA</publisher-loc>).</mixed-citation>
+</ref>
+<ref id="B116">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Taylor</surname><given-names>H. O.</given-names></name><name><surname>Morrison</surname><given-names>C. S.</given-names></name><name><surname>Linden</surname><given-names>O.</given-names></name><name><surname>Phillips</surname><given-names>B.</given-names></name><name><surname>Chang</surname><given-names>J.</given-names></name><name><surname>Byrne</surname><given-names>M. E.</given-names></name><etal></etal></person-group>. (<year>2014</year>). <article-title>Quantitative facial asymmetry: using three-dimensional photogrammetry to measure baseline facial surface symmetry</article-title>. <source/>J. Craniof. Surg.
+<volume>25</volume>, <fpage>124</fpage>–<lpage>128</lpage>. <pub-id pub-id-type="doi">10.1097/SCS.0b013e3182a2e99d</pub-id><pub-id pub-id-type="pmid">24406564</pub-id></mixed-citation>
+</ref>
+<ref id="B117">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tenenbaum</surname><given-names>J. B.</given-names></name><name><surname>Silva</surname><given-names>V. d.</given-names></name><name><surname>Langford</surname><given-names>J. C.</given-names></name></person-group> (<year>2000</year>). <article-title>A global geometric framework for nonlinear dimensionality reduction</article-title>. <source/>Science
+<volume>290</volume>, <fpage>2319</fpage>–<lpage>2323</lpage>. <pub-id pub-id-type="doi">10.1126/science.290.5500.2319</pub-id><pub-id pub-id-type="pmid">11125149</pub-id></mixed-citation>
+</ref>
+<ref id="B118">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Thornhill</surname><given-names>R.</given-names></name><name><surname>Møller</surname><given-names>A. P.</given-names></name></person-group> (<year>1997</year>). <article-title>Developmental stability, disease and medicine</article-title>. <source/>Biol. Rev.
+<volume>72</volume>, <fpage>497</fpage>–<lpage>548</lpage>.<pub-id pub-id-type="pmid">9375532</pub-id></mixed-citation>
+</ref>
+<ref id="B119">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tibshirani</surname><given-names>R.</given-names></name></person-group> (<year>1996</year>). <article-title>Regression shrinkage and selection via the lasso</article-title>. <source/>J. R. Stat. Soc. Ser. B
+<volume>58</volume>, <fpage>267</fpage>–<lpage>288</lpage>.</mixed-citation>
+</ref>
+<ref id="B120">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tsagkrasoulis</surname><given-names>D.</given-names></name><name><surname>Hysi</surname><given-names>P.</given-names></name><name><surname>Spector</surname><given-names>T.</given-names></name><name><surname>Montana</surname><given-names>G.</given-names></name></person-group> (<year>2017</year>). <article-title>Heritability maps of human face morphology through large-scale automated three-dimensional phenotyping</article-title>. <source/>Sci. Rep.
+<volume>7</volume>:<fpage>45885</fpage>. <pub-id pub-id-type="doi">10.1038/srep45885</pub-id><pub-id pub-id-type="pmid">28422179</pub-id></mixed-citation>
+</ref>
+<ref id="B121">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Turk</surname><given-names>G.</given-names></name><name><surname>O'brien</surname><given-names>J. F.</given-names></name></person-group> (<year>1999a</year>). <article-title>“Shape transformation using variational implicit functions,”</article-title> in <source/>Proceedings of the 26th Annual Conference on Computer Graphics and Interactive Techniques (<publisher-loc>Los Angeles, CA: ACM Press; Addison-Wesley Publishing Co.</publisher-loc>), <fpage>335</fpage>–<lpage>342</lpage>.</mixed-citation>
+</ref>
+<ref id="B122">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Turk</surname><given-names>G.</given-names></name><name><surname>O'brien</surname><given-names>J. F.</given-names></name></person-group> (<year>1999b</year>). <source/>Variational Implicit Surfaces. Technical Report, Georgia Institute of Technology.</mixed-citation>
+</ref>
+<ref id="B123">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Turk</surname><given-names>M.</given-names></name><name><surname>Pentland</surname><given-names>A.</given-names></name></person-group> (<year>1991</year>). <article-title>Eigenfaces for recognition</article-title>. <source/>J. Cogn. Neurosci.
+<volume>3</volume>, <fpage>71</fpage>–<lpage>86</lpage>.<pub-id pub-id-type="pmid">23964806</pub-id></mixed-citation>
+</ref>
+<ref id="B124">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>van der Maaten</surname><given-names>L.</given-names></name><name><surname>Hinton</surname><given-names>G.</given-names></name></person-group> (<year>2008</year>). <article-title>Visualizing data using t-SNE</article-title>. <source/>J. Mach. Learn. Res.
+<volume>9</volume>, <fpage>2579</fpage>–<lpage>2605</lpage>.</mixed-citation>
+</ref>
+<ref id="B125">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Vandenberg</surname><given-names>S. G.</given-names></name><name><surname>Strandskov</surname><given-names>H. H.</given-names></name></person-group> (<year>1964</year>). <article-title>A comparison of identical and fraternal twins on some anthropometric measures</article-title>. <source/>Hum. Biol.
+<volume>36</volume>, <fpage>45</fpage>–<lpage>52</lpage>.<pub-id pub-id-type="pmid">14122589</pub-id></mixed-citation>
+</ref>
+<ref id="B126">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Vidal</surname><given-names>R.</given-names></name><name><surname>Ma</surname><given-names>Y.</given-names></name><name><surname>Sastry</surname><given-names>S. S.</given-names></name></person-group> (<year>2016</year>). <source/>Generalized Principal Component Analysis, Vol. 5. <publisher-loc>New York, NY</publisher-loc>: <publisher-name>Springer</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B127">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Viola</surname><given-names>P.</given-names></name><name><surname>Jones</surname><given-names>M.</given-names></name></person-group> (<year>2004</year>). <article-title>Robust real-time face detection</article-title>. <source/>Int. J. Computer Vision. <volume>57</volume>, <fpage>137</fpage>–<lpage>154</lpage>.</mixed-citation>
+</ref>
+<ref id="B128">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Vollmar</surname><given-names>T.</given-names></name><name><surname>Maus</surname><given-names>B.</given-names></name><name><surname>Wurtz</surname><given-names>R. P.</given-names></name><name><surname>Gillessen-Kaesbach</surname><given-names>G.</given-names></name><name><surname>Horsthemke</surname><given-names>B.</given-names></name><name><surname>Wieczorek</surname><given-names>D.</given-names></name><etal></etal></person-group>. (<year>2008</year>). <article-title>Impact of geometry and viewing angle on classification accuracy of 2d based analysis of dysmorphic faces</article-title>. <source/>Eur. J. Med. Genet.
+<volume>51</volume>, <fpage>44</fpage>–<lpage>53</lpage>. <pub-id pub-id-type="doi">10.1016/j.ejmg.2007.10.002</pub-id><pub-id pub-id-type="pmid">18054308</pub-id></mixed-citation>
+</ref>
+<ref id="B129">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wallace</surname><given-names>G. K.</given-names></name></person-group> (<year>1991</year>). <article-title>The JPEG still picture compression standard</article-title>. <source/>Commun. ACM
+<volume>34</volume>, <fpage>30</fpage>–<lpage>44</lpage>. <pub-id pub-id-type="doi">10.1145/103085.103089</pub-id></mixed-citation>
+</ref>
+<ref id="B130">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wang</surname><given-names>Y.</given-names></name><name><surname>Fang</surname><given-names>Y.</given-names></name><name><surname>Jin</surname><given-names>M.</given-names></name></person-group> (<year>2007</year>). <article-title>A ridge penalized principal-components approach based on heritability for high-dimensional data</article-title>. <source/>Hum. Hered.
+<volume>64</volume>, <fpage>182</fpage>–<lpage>191</lpage>. <pub-id pub-id-type="doi">10.1159/000102991</pub-id><pub-id pub-id-type="pmid">17536212</pub-id></mixed-citation>
+</ref>
+<ref id="B131">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wilamowska</surname><given-names>K.</given-names></name><name><surname>Wu</surname><given-names>J.</given-names></name><name><surname>Heike</surname><given-names>C.</given-names></name><name><surname>Shapiro</surname><given-names>L.</given-names></name></person-group> (<year>2012</year>). <article-title>Shape-based classification of 3d facial data to support 22q11.2ds craniofacial research</article-title>. <source/>J. Digit. Imaging
+<volume>25</volume>, <fpage>400</fpage>–<lpage>408</lpage>. <pub-id pub-id-type="doi">10.1007/s10278-011-9430-x</pub-id><pub-id pub-id-type="pmid">22086243</pub-id></mixed-citation>
+</ref>
+<ref id="B132">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Winter</surname><given-names>R. M.</given-names></name></person-group> (<year>1996</year>). <article-title>What's in a face?</article-title>
+<source/>Nat. Genet.
+<volume>12</volume>, <fpage>124</fpage>–<lpage>129</lpage>.<pub-id pub-id-type="pmid">8563748</pub-id></mixed-citation>
+</ref>
+<ref id="B133">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wiskott</surname><given-names>L.</given-names></name><name><surname>Fellous</surname><given-names>J.-M.</given-names></name><name><surname>Kuiger</surname><given-names>N.</given-names></name><name><surname>Von Der Malsburg</surname><given-names>C.</given-names></name></person-group> (<year>1997</year>). <article-title>Face recognition by elastic bunch graph matching</article-title>. <source/>IEEE Trans. Pattern Anal. Mach. Intell.
+<volume>19</volume>, <fpage>775</fpage>–<lpage>779</lpage>.</mixed-citation>
+</ref>
+<ref id="B134">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wiskott</surname><given-names>L.</given-names></name><name><surname>Von Der Malsburg</surname><given-names>C.</given-names></name></person-group> (<year>1996</year>). <article-title>Recognizing faces by dynamic link matching</article-title>. <source/>Neuroimage
+<volume>4</volume>, <fpage>S14</fpage>–<lpage>S18</lpage>. <pub-id pub-id-type="doi">10.1006/nimg.1996.0043</pub-id><pub-id pub-id-type="pmid">9345518</pub-id></mixed-citation>
+</ref>
+<ref id="B135">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Witten</surname><given-names>D. M.</given-names></name><name><surname>Tibshirani</surname><given-names>R.</given-names></name><name><surname>Hastie</surname><given-names>T.</given-names></name></person-group> (<year>2009</year>). <article-title>A penalized matrix decomposition, with applications to sparse principal components and canonical correlation analysis</article-title>. <source/>Biostatistics
+<volume>10</volume>, <fpage>515</fpage>–<lpage>534</lpage>. <pub-id pub-id-type="doi">10.1093/biostatistics/kxp008</pub-id><pub-id pub-id-type="pmid">19377034</pub-id></mixed-citation>
+</ref>
+<ref id="B136">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yang</surname><given-names>M.-H.</given-names></name><name><surname>Kriegman</surname><given-names>D. J.</given-names></name><name><surname>Ahuja</surname><given-names>N.</given-names></name></person-group> (<year>2002</year>). <article-title>Detecting faces in images: a survey</article-title>. <source/>IEEE Trans. Pattern Anal. Mach. Intell.
+<volume>24</volume>, <fpage>34</fpage>–<lpage>58</lpage>. <pub-id pub-id-type="doi">10.1109/34.982883</pub-id></mixed-citation>
+</ref>
+<ref id="B137">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Zadeh</surname><given-names>A.</given-names></name><name><surname>Lim</surname><given-names>Y. C.</given-names></name><name><surname>Baltrušaitis</surname><given-names>T.</given-names></name><name><surname>Morency</surname><given-names>L.-P.</given-names></name></person-group> (<year>2017</year>). <article-title>“Convolutional experts constrained local model for 3d facial landmark detection,”</article-title> in <source/>Proceedings of the IEEE International Conference on Computer Vision Workshops, Vol. 7 (<publisher-loc>Venice</publisher-loc>).</mixed-citation>
+</ref>
+<ref id="B138">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Shan</surname><given-names>S.</given-names></name><name><surname>Kan</surname><given-names>M.</given-names></name><name><surname>Chen</surname><given-names>X.</given-names></name></person-group> (<year>2014</year>). <article-title>“Coarse-to-fine auto-encoder networks (cfan) for real-time face alignment,”</article-title> in <source/>European Conference on Computer Vision (<publisher-loc>Zurich: Springer</publisher-loc>), <fpage>1</fpage>–<lpage>16</lpage>.</mixed-citation>
+</ref>
+<ref id="B139">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>Z.</given-names></name><name><surname>Luo</surname><given-names>P.</given-names></name><name><surname>Loy</surname><given-names>C. C.</given-names></name><name><surname>Tang</surname><given-names>X.</given-names></name></person-group> (<year>2016</year>). <article-title>Learning deep representation for face alignment with auxiliary attributes</article-title>. <source/>IEEE Trans. Pattern Anal. Mach. Intell.
+<volume>38</volume>, <fpage>918</fpage>–<lpage>930</lpage>. <pub-id pub-id-type="doi">10.1109/TPAMI.2015.2469286</pub-id><pub-id pub-id-type="pmid">27046839</pub-id></mixed-citation>
+</ref>
+<ref id="B140">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Zheng</surname><given-names>Y.</given-names></name><name><surname>Liu</surname><given-names>D.</given-names></name><name><surname>Georgescu</surname><given-names>B.</given-names></name><name><surname>Nguyen</surname><given-names>H.</given-names></name><name><surname>Comaniciu</surname><given-names>D.</given-names></name></person-group> (<year>2015</year>). <article-title>“3d deep learning for efficient and robust landmark detection in volumetric data,”</article-title> in <source/>Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015, Lecture Notes in Computer Science (<publisher-loc>Cham</publisher-loc>: <publisher-name>Springer</publisher-name>), <fpage>565</fpage>–<lpage>572</lpage>.</mixed-citation>
+</ref>
+<ref id="B141">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Zhou</surname><given-names>D.</given-names></name><name><surname>Petrovska-Delacretaz</surname><given-names>D.</given-names></name><name><surname>Dorizzi</surname><given-names>B.</given-names></name></person-group> (<year>2009</year>). <article-title>“Automatic landmark location with a combined active shape model,”</article-title> in <source/>Proceedings of the 3rd IEEE International Conference on Biometrics: Theory, Applications and Systems, BTAS'09 (<publisher-loc>Piscataway, NJ: IEEE Press</publisher-loc>), <fpage>49</fpage>–<lpage>55</lpage>.</mixed-citation>
+</ref>
+<ref id="B142">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zou</surname><given-names>H.</given-names></name><name><surname>Hastie</surname><given-names>T.</given-names></name><name><surname>Tibshirani</surname><given-names>R.</given-names></name></person-group> (<year>2006</year>). <article-title>Sparse principal component analysis</article-title>. <source/>J. Comput. Graph. Stat.
+<volume>15</volume>, <fpage>265</fpage>–<lpage>286</lpage>. <pub-id pub-id-type="doi">10.1198/106186006X113430</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

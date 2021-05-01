@@ -1,0 +1,2641 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PeerJ</journal-id>
+<journal-id journal-id-type="iso-abbrev">PeerJ</journal-id>
+<journal-id journal-id-type="pmc">PeerJ</journal-id>
+<journal-id journal-id-type="publisher-id">PeerJ</journal-id>
+<journal-title-group>
+<journal-title>PeerJ</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2167-8359</issn>
+<publisher>
+<publisher-name>PeerJ Inc.</publisher-name>
+<publisher-loc>San Francisco, USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">26844016</article-id>
+<article-id pub-id-type="pmc">4736989</article-id>
+<article-id pub-id-type="publisher-id">1558</article-id>
+<article-id pub-id-type="doi">10.7717/peerj.1558</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Bioinformatics</subject>
+</subj-group>
+<subj-group subj-group-type="heading">
+<subject>Computational Biology</subject>
+</subj-group>
+<subj-group subj-group-type="heading">
+<subject>Drugs and Devices</subject>
+</subj-group>
+<subj-group subj-group-type="heading">
+<subject>Pharmacology</subject>
+</subj-group>
+<subj-group subj-group-type="heading">
+<subject>Computational Science</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Mining integrated semantic networks for drug repositioning opportunities</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" id="author-1">
+<name>
+<surname>Mullen</surname>
+<given-names>Joseph</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1">1</xref>
+</contrib>
+<contrib contrib-type="author" id="author-2">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0002-6831-9806</contrib-id>
+<name>
+<surname>Cockell</surname>
+<given-names>Simon J.</given-names>
+</name>
+<xref ref-type="aff" rid="aff-2">2</xref>
+</contrib>
+<contrib contrib-type="author" id="author-3">
+<name>
+<surname>Tipney</surname>
+<given-names>Hannah</given-names>
+</name>
+<xref ref-type="aff" rid="aff-3">3</xref>
+</contrib>
+<contrib contrib-type="author" id="author-4">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0002-7654-6902</contrib-id>
+<name>
+<surname>Woollard</surname>
+<given-names>Peter M.</given-names>
+</name>
+<xref ref-type="aff" rid="aff-3">3</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" id="author-5">
+<name>
+<surname>Wipat</surname>
+<given-names>Anil</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1">1</xref>
+<email>anil.wipat@ncl.ac.uk</email>
+</contrib>
+<aff id="aff-1"><label>1</label><institution>Interdisciplinary Computing and Complex BioSystems Research Group, School of Computing Science, University of Newcastle-upon-Tyne</institution>, <addr-line>Newcastle upon Tyne</addr-line>, <country>United Kingdom</country></aff>
+<aff id="aff-2"><label>2</label><institution>Bioinformatics Support Unit, University of Newcastle-upon-Tyne</institution>, <country>United Kingdom</country></aff>
+<aff id="aff-3"><label>3</label><institution>Computational Biology, Target Sciences, GSK R&amp;D, GlaxoSmithKline</institution>, <addr-line>Stevenage, Hertfordshire</addr-line>, <country>United Kingdom</country></aff>
+</contrib-group>
+<contrib-group>
+<contrib contrib-type="editor">
+<name>
+<surname>Ettrich</surname>
+<given-names>Rudiger</given-names>
+</name>
+</contrib>
+</contrib-group>
+<pub-date date-type="pub" iso-8601-date="2016-01-19" pub-type="epub">
+<day>19</day>
+<month>1</month>
+<year iso-8601-date="2016">2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>4</volume>
+<elocation-id>e1558</elocation-id>
+<history>
+<date date-type="received" iso-8601-date="2015-09-30">
+<day>30</day>
+<month>9</month>
+<year iso-8601-date="2015">2015</year>
+</date>
+<date date-type="accepted" iso-8601-date="2015-12-11">
+<day>11</day>
+<month>12</month>
+<year iso-8601-date="2015">2015</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2016 Mullen et al.</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>Mullen et al.</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, reproduction and adaptation in any medium and for any purpose provided that it is properly attributed. For attribution, the original author(s), title, publication source (PeerJ) and either DOI or URL of the article must be cited.</license-p>
+</license>
+</permissions>
+<self-uri xlink:href="https://peerj.com/articles/1558"></self-uri>
+<abstract>
+<p>Current research and development approaches to drug discovery have become less fruitful and more costly. One alternative paradigm is that of drug repositioning. Many marketed examples of repositioned drugs have been identified through serendipitous or rational observations, highlighting the need for more systematic methodologies to tackle the problem. Systems level approaches have the potential to enable the development of novel methods to understand the action of therapeutic compounds, but requires an integrative approach to biological data. Integrated networks can facilitate systems level analyses by combining multiple sources of evidence to provide a rich description of drugs, their targets and their interactions. Classically, such networks can be mined manually where a skilled person is able to identify portions of the graph (semantic subgraphs) that are indicative of relationships between drugs and highlight possible repositioning opportunities. However, this approach is not scalable. Automated approaches are required to systematically mine integrated networks for these subgraphs and bring them to the attention of the user. We introduce a formal framework for the definition of integrated networks and their associated semantic subgraphs for drug interaction analysis and describe DReSMin, an algorithm for mining semantically-rich networks for occurrences of a given semantic subgraph. This algorithm allows instances of complex semantic subgraphs that contain data about putative drug repositioning opportunities to be identified in a computationally tractable fashion, scaling close to linearly with network data. We demonstrate the utility of our approach by mining an integrated drug interaction network built from 11 sources. This work identified and ranked 9,643,061 putative drug-target interactions, showing a strong correlation between highly scored associations and those supported by literature. We discuss the 20 top ranked associations in more detail, of which 14 are novel and 6 are supported by the literature. We also show that our approach better prioritizes known drug-target interactions, than other state-of-the art approaches for predicting such interactions.</p>
+</abstract>
+<kwd-group kwd-group-type="author">
+<kwd>Data integration</kwd>
+<kwd>Drug repositioning</kwd>
+<kwd>Systems approaches</kwd>
+<kwd>Data mining</kwd>
+<kwd>Semantic networks</kwd>
+<kwd>Semantic subgraphs</kwd>
+<kwd>Bioinformatics</kwd>
+<kwd>Drug target interactions</kwd>
+</kwd-group>
+<funding-group>
+<award-group id="fund-1">
+<funding-source>Engineering and Physical Sciences Research Council</funding-source>
+<award-id>1592752</award-id>
+</award-group>
+<funding-statement>JM receives funding as a CASE student from GSK and funding from the Engineering and Physical Sciences Research Council (ref 1592752). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+</funding-group>
+</article-meta>
+</front>
+<body>
+<sec sec-type="intro">
+<title>Introduction</title>
+<p>Drug repositioning is the process of finding new uses for existing drugs. This process is a rapidly-evolving issue in the area of drug development, having the potential to reduce both drug development costs and the time taken for a drug to reach the market. Many repositioned drugs currently on the market have been discovered through either serendipitous or rational observations. However, these manual approaches are not efficient given the potentially huge search space of drug-target (D-T) interactions. Systematic approaches to searching for repositioning opportunities are required to provide an efficient and scalable alternative to manual investigations.</p>
+<p>A large number of studies have detailed computational approaches to aid in the systematic identification of drug repositioning opportunities, including methodologies based on: chemical structure (<xref ref-type="bibr" rid="ref-28">Keiser et al., 2009</xref>), protein structure and molecular docking (<xref ref-type="bibr" rid="ref-36">Moriaud et al., 2011</xref>), phenotype similarity (such as side-effect similarity (<xref ref-type="bibr" rid="ref-52">Yang &amp; Agarwal, 2011</xref>) and gene expression similarity (<xref ref-type="bibr" rid="ref-32">Lamb et al., 2006</xref>)) or genetic variation (<xref ref-type="bibr" rid="ref-44">Sanseau et al., 2012</xref>). Approaches aim to infer links in the drug-target-phenotype-disease schema (<xref ref-type="bibr" rid="ref-26">Hurle et al., 2013</xref>). For example, side-effect methods link a known drug-phenotype to a new disease (drug-phenotype-disease). Genetics-based methods, however, can link targets with a phenotype that is associated with the disease (drug-target-phenotype-disease) (<xref ref-type="bibr" rid="ref-26">Hurle et al., 2013</xref>). One may also focus on the prediction of drug-target associations, with the hope that hypothesised links generated from domain knowledge will allow us to complete a drug-target-disease pathway and infer a novel use for an existing drug. As well as highlighting potential drug repositioning opportunities, D-T interaction identification also allows potential adverse side effects to be analysed (<xref ref-type="bibr" rid="ref-18">Fakhraei et al., 2014</xref>; <xref ref-type="bibr" rid="ref-16">Dudley et al., 2011</xref>).</p>
+<p>In vitro approaches to identifying D-T interactions are no different to other aspects of drug development and remain costly and time consuming (<xref ref-type="bibr" rid="ref-14">Ding et al., 2014</xref>). Using systematic <italic>in silico</italic> prediction methods allows for the D-T interaction search space to be reduced, highlighting areas for focus (<xref ref-type="bibr" rid="ref-18">Fakhraei et al., 2014</xref>). Molecular docking methodologies are heavily applied to the task, but require a large amounts of computational resources and are time consuming (<xref ref-type="bibr" rid="ref-14">Ding et al., 2014</xref>). Other approaches involve machine learning-based methods which may utilise a feature vector approach or, more commonly, similarity-based approaches which exploit the similarity between drugs and proteins (<xref ref-type="bibr" rid="ref-14">Ding et al., 2014</xref>). Such approaches allow for the production of prediction models and can be ligand-based or structure-based. For example, ligand information may be used to create models that learn which sub-structural features of a ligand correlate with activity against a particular target (<xref ref-type="bibr" rid="ref-1">Alvarsson et al., 2014</xref>). Other similarity-based approaches make use of a network, or more specifically a bipartite graph, data representation (<xref ref-type="bibr" rid="ref-14">Ding et al., 2014</xref>; <xref ref-type="bibr" rid="ref-18">Fakhraei et al., 2014</xref>; <xref ref-type="bibr" rid="ref-41">Palma et al., 2014</xref>; <xref ref-type="bibr" rid="ref-50">Yamanishi et al., 2008</xref>; <xref ref-type="bibr" rid="ref-51">Yamanishi et al., 2010</xref>). Within a bipartite graph, vertices are divided into two disjoint sets, proteins and drugs. Data from multiple publicly accessible datasets is integrated during the building of these networks (<xref ref-type="bibr" rid="ref-33">Lee et al., 2009</xref>), yet in most approaches to D-T interaction prediction data is limited to the inclusion of the two data ‘types’, protein and drugs.</p>
+<p>More recent approaches to drug repositioning focus on the creation of integrated networks which combine data from multiple analyses, to give a systems level view of cellular and molecular processes (<xref ref-type="bibr" rid="ref-2">Barratt &amp; Frail, 2012</xref>; <xref ref-type="bibr" rid="ref-7">Chen et al., 2012</xref>; <xref ref-type="bibr" rid="ref-8">Cockell et al., 2010</xref>; <xref ref-type="bibr" rid="ref-23">He et al., 2011</xref>; <xref ref-type="bibr" rid="ref-27">Iskar et al., 2012</xref>). This approach provides a complementary path to reductionist science in understanding complex phenomena. Semantically-rich integrated networks, which utilise a graph-based representation, are a convenient method of representing the types of integrated data necessary for finding drug repositioning opportunities (<xref ref-type="bibr" rid="ref-4">Betzler et al., 2011</xref>). In graph-based data, entities, such as proteins or drugs, are represented as vertices. Interactions between these entities, such as protein-protein interactions or a drugs binding to a protein are captured in edges. In <italic>semantic graphs</italic> each vertex and edge in the graph is assigned a type from a predefined set. Vertices and edges are also are annotated with attributes. Graph representations of complex systems are widely used in computer science, social and technological network analysis science due to their ability to represent structured and semi-structured data (<xref ref-type="bibr" rid="ref-42">Riaz &amp; Ali, 2011</xref>). Within bioinformatics graph-based representations are also widely adopted, particularly as a means of representing data produced during an exercise in data integration and in protein-protein interactions networks.</p>
+<p>In the context of these integrated networks, subgraphs are connected components of the parent network (<xref ref-type="bibr" rid="ref-19">Gallagher, 2006</xref>). These subgraphs formally capture local relationships between the elements represented in the graph. Often, the relationships in a given subgraph are indicative of a particular biological phenomenon. In the case of drug repositioning networks, the types of relationships include amongst others: interactions between drugs and their targets, interactions between targets, and the diseases associated with particular targets. Therefore, within the integrative graph are subgraphs that describe repositioning opportunities as a result of their semantic and topological properties. Once appropriate subgraphs have been observed and defined they can be used as templates to find instances of these subgraphs, and related subgraphs, within a given graph to highlight similar drug repositioning opportunities.</p>
+<p>For example, chlorpromazine is an anti-psychotic drug that is also approved as an antihistamine (<xref ref-type="bibr" rid="ref-35">Mitchell, 1993</xref>). The interactions of chlorpromazine can be captured in an integrated network (<xref ref-type="fig" rid="fig-1">Fig. 1</xref>). Data from DrugBank version 2.5 (DBv2.5) (<xref ref-type="bibr" rid="ref-49">Wishart, 2006</xref>) provides three interactions between chlorpromazine and single protein targets; none of these interactions explain the antihistaminic affects of the drug. Structurally, chlorpromazine is very similar to the antiemetic trimeprazine. DBv2.5 captures an interaction between trimeprazine and the Histamine H1 receptor, a known target for antihistamines. Through guilt-by-association, we can therefore predict the Histamine H1 receptor as a target for chlorpromazine, an interaction captured in the latest editions of the DrugBank database. The topological and semantic properties of the subgraph depicted in <xref ref-type="fig" rid="fig-1">Fig. 1B</xref> describe a repositioning relationship that could be generically applicable to any two drugs and their target. <xref ref-type="fig" rid="fig-1">Fig. 1B</xref> describes a situation whereby a compound, structurally similar to a compound with a known target, may also bind to the same target (the inference is represented as the dashed line). This real example can therefore be used to derive a template semantic subgraph that can be used for searching for similar, but novel, drug-target associations relationships involving different drugs and targets. This template semantic subgraph therefore describes a pattern indicative of a drugs interaction with a target, highlighting potential new indications for the drug. Although <xref ref-type="fig" rid="fig-1">Fig. 1</xref> shows a simple triad, semantic subgraphs capturing data relevant to repositioning opportunities are likely to be more complex. In the context of drug repositioning, manual identification of potential repositioning opportunities from large target networks is possible, though not efficient for the systematic analysis of such large networks. The definition of semantic subgraphs for known repositioning opportunities, in combination with an algorithm for the mining of integrated complex networks for these subgraphs, allows us to highlight potential repositioning in a more systematic and exhaustive fashion.</p>
+<fig id="fig-1" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-1</object-id>
+<label>Figure 1</label>
+<caption>
+<title>An example of a simple semantic subgraph (B) is derived from the repositioning of Chlorpromazine (A).</title>
+<p>Chlorpromazine is marketed as a non-sedating tranquilliser, but is also known to be effective as an antihistamine (<xref ref-type="bibr" rid="ref-43">Rukhadze et al., 2001</xref>) and so in A a relation is inferred between Chlorpromazine and the Histamine H1 receptor (dashed line).</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g001"></graphic>
+</fig>
+<p>In this paper we introduce a formal framework for the definition of a semantic subgraph for integrated networks. We also present DReSMin (<bold>D</bold>rug <bold>Re</bold>positioning <bold>S</bold>emantic <bold>Min</bold>ing), an algorithm for searching integrated networks for occurrences of a given semantic subgraph using semantic distance thresholds. DReSMin optimises the search time for larger subgraphs by including a semantic graph pruning step and applying a method for splitting large subgraphs prior to searching. We demonstrate the utility of our approach by searching an integrated drug dataset for semantic subgraphs that are indicative of drug repositioning opportunities, particularly focusing on inferring D-T interactions. As part of this work we updated an existing integrated dataset used for <italic>in silico</italic> drug discovery (<xref ref-type="bibr" rid="ref-8">Cockell et al., 2010</xref>). Finally we demonstrate that our approach can be successfully used to predict putative D-T interactions that were not explicitly represented in the integrated network.</p>
+<sec>
+<title>Graphs</title>
+<sec>
+<title>Definition of our graph model</title>
+<p>A graph <italic>G</italic> is defined as a ordered pair (<italic>V</italic>,<italic>E</italic>), where <italic>V</italic> is a set of vertices (or nodes), and <italic>E</italic> ∈ <italic>V</italic> × <italic>V</italic> is a set of edges (or relations). Each <italic>e</italic> ∈ <italic>E</italic> is a pair (<italic>v<sub>i</sub></italic>, <italic>v<sub>j</sub></italic>) where <italic>v<sub>i</sub></italic>, <italic>v<sub>j</sub></italic> ∈ <italic>V</italic>. Edges represent relations between vertices. Edges may be directed or undirected. Both vertices and edges may be labelled, typed and attributed.</p>
+<p>DReSMin, requires a <italic>directed</italic> (edges have a direction associated with them) graph where vertices and edges are labelled with types <italic>T<sub>v</sub></italic> and <italic>T<sub>e</sub></italic> respectively, where <italic>T<sub>v</sub></italic> and <italic>T<sub>e</sub></italic> are drawn from a finite hierarchy of types <italic>H</italic>, and are annotated with attributes. The algorithm allows for <italic>multigraphs</italic> (vertices <italic>v<sub>i</sub></italic> and <italic>v<sub>j</sub></italic> are permitted to have multiple edges between them) and for vertices to contain <italic>self-loops</italic> (<italic>v<sub>i</sub></italic> may have an edge directed toward itself). For the remainder of this paper |<italic>V</italic>(<italic>G</italic>)| will be used to represent the number of vertices contained in graph <italic>G</italic>.</p>
+</sec>
+<sec>
+<title>Classical subgraph definition</title>
+<p>Subgraph isomorphism is a task in which two graphs, <italic>G</italic> &amp; <italic>Q</italic> are given as input and one must determine whether <italic>G</italic> contains a subgraph that is isomorphic to <italic>Q</italic>: is there a subgraph <italic>G</italic>′(<italic>V</italic>′,<italic>E</italic>′): <italic>V</italic>′ ⊆ <italic>V</italic>,<italic>E</italic>′ ⊆ <italic>E</italic>? During the search of a query graph, a mapping (<italic>M</italic>) is expressed as the set of ordered pairs (<italic>v</italic>,<italic>m</italic>) (with <italic>v</italic> ∈ <italic>G</italic> and <italic>m</italic> ∈ <italic>Q</italic>) and so <italic>M</italic> = {(<italic>v</italic>,<italic>m</italic>) ∈ <italic>V<sub>G</sub></italic> × <italic>V<sub>Q</sub></italic>|<italic>v</italic> is mapped onto <italic>m</italic>}; that is <italic>M</italic>: <italic>G</italic>′ ↦ <italic>Q</italic>.</p>
+</sec>
+<sec>
+<title>Semantic subgraph definition</title>
+<p>A semantic subgraph is defined as <italic>Q</italic> = (<italic>V</italic>,<italic>E</italic>,<italic>T<sub>v</sub></italic>,<italic>f<sub>v</sub></italic>,<italic>T<sub>e</sub></italic>,<italic>f<sub>e</sub></italic>), where <italic>V</italic> is a set of vertices, <italic>E</italic> is a set of edges, <italic>T<sub>v</sub></italic> is a set of node types and <italic>T<sub>e</sub></italic> is a set of edge types. <italic>f<sub>v</sub></italic> : <italic>V</italic> ↠ <italic>T<sub>v</sub></italic> and <italic>f<sub>e</sub></italic> : <italic>E</italic> ↠ <italic>T<sub>e</sub></italic> are surjective functions; each node is assigned a node type and each edge an edge type from <italic>T<sub>v</sub></italic> or <italic>T<sub>e</sub></italic> respectively. A semantic subgraph may be designed in such a manner that mappings, or occurrences, in <italic>G</italic> aid in the inference of a relation between vertices of a particular <italic>t<sub>e</sub></italic>, where a relation does not exist. For example, one may use the semantic subgraph depicted in <xref ref-type="fig" rid="fig-1">Fig. 1B</xref> to infer an interaction between a compound and a target.</p>
+</sec>
+</sec>
+<sec>
+<title>Graph matching</title>
+<p>Several approaches have been described for combining semantic information with network motif topology including the <italic>list coloured motif problem</italic> (<xref ref-type="bibr" rid="ref-4">Betzler et al., 2011</xref>; <xref ref-type="bibr" rid="ref-31">Lacroix et al., 2006</xref>). In this case a motif (<italic>M</italic>) is defined as a multiset of colours, or types. An occurrence of <italic>M</italic> is a subset of vertices that forms a connected subgraph whose multiset of colours, or types, matches that of <italic>M</italic> exactly (<xref ref-type="bibr" rid="ref-31">Lacroix et al., 2006</xref>). Although this approach demonstrates how network motifs may be extended to incorporate semantic information, it does not allow for topological exacts to be identified. The ability to identify sub-components of a target network that match a defined topology is a necessity in situations where the topology of a subgraph is believed to aid in describing the functionality of the sub-component. The task of identifying mappings of a predefined subgraph with similar topology from a larger graph is known as the <italic>graph matching problem</italic> (<xref ref-type="bibr" rid="ref-19">Gallagher, 2006</xref>).</p>
+<p>There are different variations of the graph-matching problem. For example, <italic>exact matching</italic> occurs when the mapping between the vertices of the two graphs is <italic>edge-preserving</italic>; a mapping contains all edges defined by the query. One of the most stringent forms of exact matching is <italic>subgraph isomorphism</italic> (<xref ref-type="bibr" rid="ref-9">Conte et al., 2004</xref>) which aims to find all occurrences of a query graph and is an NP-complete problem (<xref ref-type="bibr" rid="ref-48">Washio &amp; Motoda, 2003</xref>). Currently, algorithms addressing this problem are exponential in performance relative to the size of the input graphs (<xref ref-type="bibr" rid="ref-19">Gallagher, 2006</xref>). Many algorithms which have been developed to address the subgraph isomorphism problem are based on the exhaustive algorithm developed by <xref ref-type="bibr" rid="ref-46">Ullmann (1976)</xref>. Applying an exhaustive method to the identification of drug repositioning opportunities is important to ensure all possible novel applications for a drug are investigated. Using a backtracking approach, Ulmann’s algorithm finds solutions by incrementing partial solutions or abandoning them when determining they cannot be completed (<xref ref-type="bibr" rid="ref-46">Ullmann, 1976</xref>). An extension of the Ullman approach, incorporating the semantics of a graph, has been implemented using inexact (<xref ref-type="bibr" rid="ref-15">Djoko et al., 1997</xref>), as well as exact approaches (<xref ref-type="bibr" rid="ref-11">Cordella et al., 2004</xref>; <xref ref-type="bibr" rid="ref-21">Giugno &amp; Shasha, 2002</xref>). However, as yet, none of these approaches have been applied to the automated identification of drug repositioning opportunities.</p>
+<p>Whilst searching for semantic subgraphs it is important to consider the similarity between the query subgraph and the target, both in terms of graph topology and the meaning of the annotations on vertices and edges. A measurement of semantic similarity between elements of a mapping and the equivalent element in a query must be introduced to the search and the degree of similarity can be expressed as a semantic distance. Numerous measures have been developed to score the semantic similarity between two ontological concepts (<xref ref-type="bibr" rid="ref-20">Ge &amp; Qiu, 2008</xref>; <xref ref-type="bibr" rid="ref-38">Noy, 2004</xref>). Previous work in the area of intelligence link analysis has used ontology-based semantic similarity scoring methods for pattern matching (<xref ref-type="bibr" rid="ref-45">Seid &amp; Mehrotra, 2007</xref>). In Seid and Mehrotra’s algorithm, an inexact topological search is carried out with matches semantically scored based on their Least Common Ancestor (LCA) within an ontology. Topological and semantic scores are then combined and <italic>k</italic> ranked matches returned.</p>
+<p>Whilst approaches described are adequate for their particular setting, here we present a new exhaustive graph matching approach to aid in the identification of potential drug repositioning opportunities from a target network. We therefore describe an algorithm for this task which is an improvement on those introduced for the purpose of drug repositioning.</p>
+</sec>
+</sec>
+<sec sec-type="materials|methods">
+<title>Materials and Methods</title>
+<sec>
+<title>Algorithm</title>
+<p>We have developed DReSMin, an algorithm for the detection of semantic subgraphs. This algorithm returns all mappings of a semantic subgraph that match at a level equal to, or above a given threshold, <italic>ST</italic>. In this case our application for the algorithm is the identification of a semantic subgraph (<italic>Q</italic>) which may be indicative of drug repositioning opportunities within a target graph (<italic>G</italic>). Examples of semantic subgraphs may be initially drawn from a set of templates, that is the graph representation of known repositioned drugs, such as chlorpromazine, shown in <xref ref-type="fig" rid="fig-1">Fig. 1A</xref>. The algorithm is made up of four main components which are described in <xref ref-type="fig" rid="fig-2">Fig. 2</xref>. These components comprise: (i) Semantic graph pruning (ii) Topological search (iii) Semantic subgraph distance exclusion (iv) Semantic subgraph splitting.</p>
+<fig id="fig-2" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-2</object-id>
+<label>Figure 2</label>
+<caption>
+<title>Overview of the DReSMin algorithm developed for the detection of semantic subgraphs indicative of repositioning opportunities.</title>
+</caption>
+<graphic xlink:href="peerj-04-1558-g002"></graphic>
+</fig>
+<sec>
+<title>Semantic graph pruning</title>
+<p>We are concerned only with identifying semantic subgraphs that match, semantically, at a level equal to, or above our threshold. (Note: In this work, the semantic distance between two graph entities is calculated using the semantic distance calculator described in the ‘Semantic subgraph distance exclusion’ section.) In this graph pruning component of the algorithm, any vertices (and their associated edges) in <italic>G</italic> which are above a certain semantic distance from those in <italic>Q</italic> are removed from <italic>G</italic>. This step allows any vertices that are semantically distant from our query to be removed prior to a search, cutting down the search space. Taking <italic>G</italic>, <italic>Q</italic> and a semantic threshold (<italic>ST</italic>) each <italic>t<sub>v</sub></italic> ∈ <italic>T<sub>v</sub></italic>(<italic>Q</italic>) are sent to the semantic subgraph distance calculator (termed SDC and described later in the manuscript), and scored against every <italic>t<sub>v</sub></italic> ∈ <italic>T<sub>v</sub></italic>(<italic>G</italic>). If <italic>SDC</italic>(<italic>t<sub>v</sub></italic>(<italic>Q</italic>), <italic>t<sub>v</sub></italic>(<italic>G</italic>)) &lt; <italic>ST</italic> then all <italic>v</italic> ∈ <italic>V</italic>(<italic>G</italic>) of type <italic>t<sub>v</sub></italic> are removed from <italic>G</italic> as well as any <italic>e</italic> ∈ <italic>E</italic> where <italic>v</italic> = <italic>v<sub>i</sub></italic> or <italic>v</italic> = <italic>v<sub>j</sub></italic>. Finally after all semantically insignificant elements are removed from <italic>G</italic>, all isolated <italic>v</italic> ∈ <italic>V</italic>(<italic>G</italic>) that may have resulted from the edge pruning step are also removed.</p>
+</sec>
+<sec>
+<title>Topological matching</title>
+<p>Many algorithms addressing the problem of subgraph isomorphism build on Ullman’s work. These applications include: GraphQL (<xref ref-type="bibr" rid="ref-24">He &amp; Singh, 2008</xref>), GADDI (<xref ref-type="bibr" rid="ref-53">Zhang, Li &amp; Yang, 2009</xref>) and, one of the most efficient, the VF algorithm (<xref ref-type="bibr" rid="ref-10">Cordella et al., 1999</xref>). Performance is increased in these algorithms by exploiting different join orders, pruning rules and auxiliary information to prune out negative candidate subgraphs as early as possible. We carry out topological matching using a variation of the VF algorithm (<xref ref-type="bibr" rid="ref-10">Cordella et al., 1999</xref>). The VF algorithm is exhaustive and suitable for working with ‘large’ graphs (up to 3 × 10<sup>4</sup> vertices) and employs a depth-first strategy implemented in a recursive fashion (<xref ref-type="bibr" rid="ref-10">Cordella et al., 1999</xref>). During a search using the VF algorithm, the search space is minimised via the introduction of topological pruning rules (<xref ref-type="bibr" rid="ref-10">Cordella et al., 1999</xref>). Integrated networks typically surpass the aforementioned ‘large’ graphs in size, particularly true within the biological and pharmaceutical settings. As data volumes continue to grow (e.g. omics technologies continue to mature) it is important to develop exhaustive algorithms capable of scaling with the data.</p>
+<p>Our initial implementation of the VF algorithm showed poor scalability and so, as an enhancement to the VF algorithm, we introduce three steps to improve the efficiency of searching for topological subgraphs. These three steps include: a set of rules used to determine the appropriate vertices at which an instance of the search is started (initial candidate set), as described in <xref ref-type="disp-formula" rid="eqn-1">(1)</xref> below; a topological pruning rule, based on a closed world assumption, as described in <xref ref-type="disp-formula" rid="eqn-2">(2)</xref> below; and a semantic thresholding step (described in the next section of the manuscript). As the focus of this work is the inference of associations involving compounds, it is vital that all mappings resulting from a search contain a node of this particular semantic type.</p>
+<list id="list-1" list-type="order">
+<list-item>
+<p>When considering an initial candidate set of nodes from the target graph <italic>G</italic> at which to initiate the search, it is desirable to try to ensure that the set is made up of nodes of a type, <italic>X</italic>, such as <monospace>Compound</monospace> to ensure the relevance of the portion of graph being searched. Therefore, an initial candidate set for the search is chosen based on: all <italic>v</italic> ∈ <italic>V</italic>(<italic>Q</italic>) whose <italic>t<sub>v</sub></italic> ∈ <italic>T<sub>v</sub></italic>(<italic>Q</italic>) = <italic>X</italic> are considered with <italic>v</italic> &gt; <italic>deg<sub>Q</sub></italic>(<italic>v</italic>) (where <italic>deg</italic> represents the degree of a node) selected as <italic>v</italic>. <italic>m</italic> is made up of all <italic>v</italic> ∈ <italic>V</italic>(<italic>G</italic>) whose <italic>deg<sub>G</sub></italic>(<italic>v</italic>) ≥ <italic>deg<sub>Q</sub></italic>(<italic>v</italic>) and <italic>t<sub>v</sub></italic> ∈ <italic>T<sub>v</sub></italic>(<italic>G</italic>) = <italic>X</italic>.</p>
+</list-item>
+<list-item>
+<p>When mining with a given semantic subgraph that describes a potential repositioning situation we must assume that the lack of a relationship between nodes indicates the absence of a relationship between the two nodes (a closed world assumption). As a result, when searching for a given semantic subgraph, <italic>Q</italic>, we only consider a match if there exists no additional edges between the vertices in a mapping <italic>M</italic> from the target graph <italic>G</italic>, and their equivalent vertices in <italic>Q</italic>. Therefore, a mapping <italic>M</italic> is expressed as a set of ordered pairs and the closed world assumption requires (<italic>M</italic> = <italic>match</italic>) ∨ (<italic>deg</italic>(<italic>v</italic>) ∈ (<italic>G</italic>) ≡ <italic>deg</italic>(<italic>m</italic>) ∈ <italic>V</italic>(<italic>Q</italic>)).</p>
+</list-item>
+</list>
+</sec>
+<sec>
+<title>Semantic subgraph distance exclusion</title>
+<p>Semantic thresholding is used to exclude matches found in <italic>G</italic> that are below a given semantic distance from <italic>Q</italic>. This process is achieved through a semantic subgraph distance calculator (SDC). An SDC comprises of two distance matrices, one for <italic>t<sub>v</sub></italic> ∈ <italic>T<sub>v</sub></italic>(<italic>G</italic>) and one for <italic>t<sub>e</sub></italic> ∈ <italic>T<sub>e</sub></italic>(<italic>G</italic>). We have <italic>n</italic> = 19(<italic>t<sub>v</sub></italic>) and <italic>n</italic> = 42(<italic>t<sub>e</sub></italic>) = ≻ each matrix is represented as matrix <italic>P</italic>′ = (<italic>p<sub>ij</sub></italic>), the <italic>n</italic> × <italic>n</italic> matrix defined by;
+<disp-formula id="eqn-1"><label>(1)</label><alternatives><graphic mime-subtype="png" mimetype="image" orientation="portrait" position="float" xlink:href="peerj-04-1558-e001.jpg"></graphic><tex-math id="M1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}$${p_{ij}} = \left\{ {\matrix{1 \hfill &amp; {{\rm{if }}{p_i}\,{\rm{is}}\,{\rm{semantically}}\,{\rm{identical}}\,{\rm{to}}\,{p_j};} \hfill \cr 0 \hfill &amp; {{\rm{if }}{p_i}\,{\rm{is}}\,{\rm{semantically}}\,{\rm{unrelated}}\,{\rm{to}}\,{p_j};} \hfill \cr { - 1} \hfill &amp; {{\rm{if }}{p_i}\,{\rm{is}}\,{\rm{semantically}}\,{\rm{opposite}}\,{\rm{to}}\,{p_j}.} \hfill \cr } } \right.$$\end{document}</tex-math><mml:math id="mml-eqn-1"><mml:mrow><mml:msub><mml:mi>p</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mrow><mml:mo>{</mml:mo><mml:mrow><mml:mtable columnalign="left"><mml:mtr columnalign="left"><mml:mtd columnalign="left"><mml:mn>1</mml:mn></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mtext>if</mml:mtext><mml:msub><mml:mi>p</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mtext> is semantically identical to </mml:mtext><mml:msub><mml:mi>p</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>;</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr columnalign="left"><mml:mtd columnalign="left"><mml:mn>0</mml:mn></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mtext>if</mml:mtext><mml:msub><mml:mi>p</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mtext> is semantically unrelated to </mml:mtext><mml:msub><mml:mi>p</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>;</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr columnalign="left"><mml:mtd columnalign="left"><mml:mrow><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mtext>if</mml:mtext><mml:msub><mml:mi>p</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mtext> is semantically opposite to </mml:mtext><mml:msub><mml:mi>p</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>.</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></p>
+<p>During the matching process each element of <italic>M</italic> = (<italic>V<sub>m</sub></italic>,<italic>E<sub>m</sub></italic>) is scored against its equivalent in <italic>Q</italic> = (<italic>V<sub>s</sub></italic>,<italic>E<sub>s</sub></italic>). The resulting <italic>semantic score</italic> (SS) of <italic>M</italic> is;
+<disp-formula id="eqn-2"><label>(2)</label><alternatives><graphic mime-subtype="png" mimetype="image" orientation="portrait" position="float" xlink:href="peerj-04-1558-e002.jpg"></graphic><tex-math id="M2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}$$\sum {{{SDC({m_1},{q_1}),SDC({m_2},{q_2})....SDC({m_n},{q_n})} \over n}} $$\end{document}</tex-math><mml:math id="mml-eqn-2"><mml:mrow><mml:mstyle displaystyle="true"><mml:mo>∑</mml:mo><mml:mrow><mml:mfrac><mml:mrow><mml:mi>S</mml:mi><mml:mi>D</mml:mi><mml:mi>C</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>q</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mi>S</mml:mi><mml:mi>D</mml:mi><mml:mi>C</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>q</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mn>....</mml:mn><mml:mi>S</mml:mi><mml:mi>D</mml:mi><mml:mi>C</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>q</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mi>n</mml:mi></mml:mfrac></mml:mrow></mml:mstyle></mml:mrow></mml:math></alternatives></disp-formula></p>
+<p>A semantic threshold (<italic>ST</italic>) is defined by the user prior to a search; a value ranging from 0 to 1. During the search, vertices and edges pass or fail the semantic threshold. Thus we identify topological exacts and semantic closeness.</p>
+</sec>
+<sec>
+<title>Semantic subgraph splitting</title>
+<p>This component takes a semantic subgraph, <italic>Q</italic>, and returns a set of semantic subgraphs, <italic>D</italic>, whose |<italic>V</italic>| &lt; 4. In <xref ref-type="fig" rid="fig-2">Fig. 2</xref>, we see how this step interacts with the other components of DReSMin. ∀<italic>d</italic> ∈ <italic>D</italic> produced during this step of DReSMin the target network, <italic>G</italic>, is pruned using the semantic graph prune component and <italic>d</italic>, before <italic>d</italic> is searched for in <italic>G</italic>. The graph splitting component allows smaller subgraphs to be searched and mappings joined based on sharing a common overlapping node (<italic>ON</italic>). In order for this approach to be successful a semantic subgraph is first converted to an undirected graph. The most connected node, <italic>v<sub>max</sub></italic>(<italic>Q</italic>), is then identified and used as <italic>ON</italic>. Of all the remaining <italic>v</italic> ∈ <italic>V</italic>(<italic>Q</italic>), the two most distant vertices (<italic>v</italic><sub>1</sub>, <italic>v</italic><sub>2</sub>) from <italic>Q</italic> are selected. Two new graphs (<italic>D</italic><sub>1</sub> &amp; <italic>D</italic><sub>2</sub>) are then created and populated with nodes as such: <italic>V</italic>(<italic>D</italic><sub>1</sub>) ∪ <italic>v</italic> ∈ δ(<italic>v</italic><sub>1</sub>, <italic>ON</italic>), <italic>V</italic>(<italic>D</italic><sub>2</sub>) ∪ <italic>v</italic> ∈ δ(<italic>v</italic><sub>2</sub>, <italic>ON</italic>), that is every node in the shortest path from <italic>v</italic><sub>1</sub> to <italic>ON</italic> is included in <italic>D</italic><sub>1</sub> and every node in the shortest path from <italic>v</italic><sub>2</sub> to <italic>ON</italic> is included in <italic>D</italic><sub>2</sub>. Remaining vertices are then allocated depending on which graph they share a connecting edge with <xref ref-type="fig" rid="fig-3">Fig. 3</xref>. Edges are then allocated as such: ∀<italic>e</italic> ∈ <italic>E</italic>(<italic>Q</italic>) if either <italic>V</italic>(<italic>D</italic><sub>1</sub>) or <italic>V</italic>(<italic>D</italic><sub>2</sub>) contains both (<italic>v<sub>i</sub></italic>, <italic>v<sub>j</sub></italic>) of <italic>e</italic>; <italic>e</italic> is allocated to that graph. Any edges whose nodes are are not found in the same graph are not allocated to the split subgraphs. As a result of this process during a search we have <italic>D</italic><sub>1</sub> and <italic>D</italic><sub>2</sub> as well as our original semantic subgraph, <italic>Q</italic>. A search is then started with <italic>D</italic><sub>1</sub> or <italic>D</italic><sub>2</sub>, depending on which has the smallest |<italic>V</italic>|. The search is started using <italic>ON</italic>, maintaining the edge set it possessed in <italic>Q</italic>, reducing the initial candidate set. All starting vertices that lead to an embedding being identified are then passed to the second search; reducing the initial candidate set once more. All matches from the two searches who share a common <italic>ON</italic> are then mapped and a final check for any <italic>e</italic> ∈ <italic>E</italic>(<italic>Q</italic>) that were not allocated to either <italic>D</italic><sub>1</sub> or <italic>D</italic><sub>2</sub> is made. This splitting may be called iteratively if either <italic>D</italic><sub>1</sub> or <italic>D</italic><sub>2</sub> still possess a |<italic>V</italic>| &gt; 3 after the first round of splitting, as demonstrated in <xref ref-type="fig" rid="fig-3">Fig. 3</xref>. Subsequent searching will result in the same set of mappings that would be identified by a non-split search (for algorithm pseudo-code and discussion please see <xref ref-type="supplementary-material" rid="supp-11">Article S1</xref>).</p>
+<fig id="fig-3" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-3</object-id>
+<label>Figure 3</label>
+<caption>
+<title>Subgraph split procedure takes an initial semantic subgraph (<italic>Q</italic>) and produces two smaller semantic subgraphs (<italic>D</italic><sub>1</sub> and <italic>D</italic><sub>2</sub>) using all vertices (<italic>v</italic>) from (<italic>Q</italic>).</title>
+<p>The overlapping node (<italic>ON</italic>) is identified in <italic><bold>Q</bold></italic>(<italic>v</italic><sub>3</sub>) and used as the overlapping node in both <italic>D</italic><sub>1</sub> and <italic>D</italic><sub>2</sub>. The two most distant vertices in <italic><bold>Q</bold></italic> are then identified (<italic>v</italic><sub>1</sub> and <italic>v</italic><sub>6</sub>) and vertices in the path between these and <italic>ON</italic> added to the corresponding graphs (<italic>D</italic><sub>1</sub> and <italic>D</italic><sub>2</sub>). We also see that |<italic>V</italic>(<italic>D</italic><sub>2</sub>)| &gt; 3 and so a second call is made to graph split giving us <italic>D</italic><sub>2</sub>1 and <italic>D</italic><sub>2</sub>2.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g003"></graphic>
+</fig>
+</sec>
+<sec>
+<title>Ranking inferred interactions</title>
+<p>Scoring of a semantic subgraph, <italic>Q</italic>, is achieved by determining the number of known D-T interactions in the predicted total set of D-T interactions inferred by <italic>Q</italic>. We refer to the complete set of inferred interactions as <italic>Q</italic>(<italic>I</italic>). A score <italic>R<sub>q</sub></italic> is calculated based on the ability of <italic>Q</italic> to identify D-T interactions captured in DBv3, but not present in our <italic>Dat</italic> integrated data set (see next section). The set of interactions that are captured in DBv3, but not captured in <italic>Dat</italic> is known as <italic>DBv3Rel</italic> (<xref ref-type="disp-formula" rid="eqn-5">Eq. 5</xref>).<disp-formula id="eqn-3"><label>(3)</label><alternatives><graphic mime-subtype="png" mimetype="image" orientation="portrait" position="float" xlink:href="peerj-04-1558-e003.jpg"></graphic><tex-math id="M3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}$${R_q}(Q) = {{\left| {Q(I) \cap DBv3Rel} \right|} \over {\left| {Q(I)} \right|}}$$\end{document}</tex-math><mml:math id="mml-eqn-3"><mml:mrow><mml:msub><mml:mi>R</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>Q</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mrow><mml:mo>|</mml:mo><mml:mrow><mml:mi>Q</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>I</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∩</mml:mo><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mi>v</mml:mi><mml:mn>3</mml:mn><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi></mml:mrow><mml:mo>|</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mrow><mml:mo>|</mml:mo><mml:mrow><mml:mi>Q</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>I</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>|</mml:mo></mml:mrow></mml:mrow></mml:mfrac></mml:mrow></mml:math></alternatives></disp-formula></p>
+<p>Once <italic>R<sub>q</sub></italic> is calculated for each semantic subgraph we then score individual D-T interactions, <italic>i</italic>, based on the cumulative score of all semantic subgraphs that predicted <italic>i</italic>.
+<disp-formula id="eqn-4"><label>(4)</label><alternatives><graphic mime-subtype="png" mimetype="image" orientation="portrait" position="float" xlink:href="peerj-04-1558-e004.jpg"></graphic><tex-math id="M4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}$${R_i}(i) = \sum\limits_{i \in Q'(I)} {{R_q}} (Q')$$\end{document}</tex-math><mml:math id="mml-eqn-4"><mml:mrow><mml:msub><mml:mi>R</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>i</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munder><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mi>Q</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mi>I</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:munder><mml:mrow><mml:msub><mml:mi>R</mml:mi><mml:mi>q</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>Q</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></alternatives></disp-formula></p>
+<p>DReSMin is an exhaustive algorithm, as such, scoring inferred interactions allows for ranking, with those ranked higher inferred with greater confidence than others.</p>
+</sec>
+<sec>
+<title>Characterisation and application</title>
+<p>An integrated dataset for <italic>in silico</italic> drug discovery has been described previously by Cockell and co-workers (<xref ref-type="bibr" rid="ref-8">Cockell et al., 2010</xref>). This dataset satisfies the requirements described for our algorithm (see ‘Definition of our graph model’ section) and so was used to test the algorithm performance and mined for D-T interactions using a Java based implementation of DReSMin.</p>
+<p>The dataset was developed in Ondex (<xref ref-type="bibr" rid="ref-30">Köhler et al., 2006</xref>) and includes compounds and targets from DrugBank<xref ref-type="fn" rid="fn-1"><sup>1</sup></xref><fn id="fn-1"><label>1</label><p><uri xlink:href="http://www.drugbank.ca">http://www.drugbank.ca</uri>.</p></fn> (<xref ref-type="bibr" rid="ref-49">Wishart, 2006</xref>), Proteins from UniProt<xref ref-type="fn" rid="fn-2"><sup>2</sup></xref><fn id="fn-2"><label>2</label><p><uri xlink:href="http://www.uniprot.org">http://www.uniprot.org</uri>.</p></fn> (<xref ref-type="bibr" rid="ref-47">UniProt Consortium, 2013</xref>) as well as information from eleven other databases and analysis methods (<xref ref-type="bibr" rid="ref-8">Cockell et al., 2010</xref>). An updated version of this dataset was used as a test bed for this work, however the approach we describe is valid for most integrated networks that adopt a semantically rigorous approach to edge and vertex type definition.</p>
+<p>Utilising a graph-based data representation and providing a framework for visualisation, both vertices and edges within an Ondex graph are annotated with semantically enriched metadata. Each vertex (or concept) is assigned a <italic>c</italic> ∈ <italic>C</italic>, where <italic>C</italic> is a finite set of <monospace>conceptClasses</monospace>, while each edge or relation is assigned a <italic>r</italic> ∈ <italic>R</italic> where <italic>R</italic> is a finite set of <monospace>relationTypes</monospace> (<xref ref-type="bibr" rid="ref-30">Köhler et al., 2006</xref>). As part of this work we developed plug-ins (parsers and mappers) for the Ondex platform to extend the original dataset. These plug-ins allowed us to add <monospace>disease conceptClass</monospace>, taken from the National Drug File Reference Terminology (NDF-RT)<xref ref-type="fn" rid="fn-3"><sup>3</sup></xref><fn id="fn-3"><label>3</label><p>VA National Drug File Reference Terminology. &lt;<uri xlink:href="http://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT">http://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT</uri>&gt; Accessed September 2013.</p></fn>. Four <monospace>relationTypes</monospace> showing interactions between <monospace>Disease-Disease</monospace> (<monospace>has_parent</monospace> and <monospace>has_child</monospace>) and <monospace>Compound-Disease</monospace> (<monospace>may_treat</monospace> and <monospace>may_prevent</monospace>) originally defined in NDF-RT were also integrated. A final <monospace>relationType</monospace> between <monospace>Target-Disease</monospace> (<monospace>involved_in</monospace>) was integrated from DisGeNET<xref ref-type="fn" rid="fn-4"><sup>4</sup></xref><fn id="fn-4"><label>4</label><p>Gene-disease association data were retrieved from the DisGeNET Database, GRIB/IMIM/UPF Integrative Biomedical Informatics Group, Barcelona. &lt;<uri xlink:href="http://www.disgenet.org/">http://www.disgenet.org/</uri>&gt;. Accessed September 2013.</p></fn> (<xref ref-type="bibr" rid="ref-3">Bauer-Mehren et al., 2010</xref>). The updated dataset, which we refer to as <italic>Dat</italic> from here on in, has an additional 4,463 vertices (155,316) made up of 19 <monospace>conceptClasses</monospace> (see <xref ref-type="supplementary-material" rid="supp-6">Table S1</xref>) in comparison to the original, together with an additional 28,736 edges (816,096), representing 42 <monospace>relationTypes</monospace> (see <xref ref-type="supplementary-material" rid="supp-7">Table S2</xref>). The metagraph of the dataset described is shown in <xref ref-type="supplementary-material" rid="supp-1">Fig. S1</xref>, with a subsection shown in <xref ref-type="fig" rid="fig-4">Fig. 4</xref>.</p>
+<fig id="fig-4" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-4</object-id>
+<label>Figure 4</label>
+<caption>
+<title>A subsection of the Ondex <italic>in silico</italic> drug discovery dataset metagraph.</title>
+<p>Shows how different <monospace>conceptClasses</monospace> (E.g. <monospace>Compound</monospace> &amp; <monospace>Target</monospace>) interact via <monospace>relationTypes</monospace> (<monospace>binds_to</monospace>).</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g004"></graphic>
+</fig>
+<p>This graph shows a high degree of connectivity with a <italic>d<sub>S</sub></italic>(<italic>G</italic>) (average node degree) of 10.42, whereby degrees of vertices range from δ(<italic>G</italic>) (minimum degree) of 1 and Δ(<italic>G</italic>) (highest degree) of 15,004. Average connectivity differs between <monospace>conceptClasses</monospace>, with <monospace>Proteins</monospace> displaying the highest <italic>d<sub>S</sub></italic>(<italic>G</italic>) of any <monospace>conceptClass</monospace> at ∼45. Other notable connectivity averages include <monospace>Target</monospace> ∼13, <monospace>Compound</monospace> ∼7 and <monospace>Disease</monospace> ∼4. All searches presented here were carried out using a semantic threshold (<italic>ST</italic>) of 0.8 (see <xref ref-type="supplementary-material" rid="supp-12">Article S2</xref>). We only include vertices of type <monospace>Compound</monospace> in our initial candidate set.</p>
+</sec>
+<sec>
+<title>Drug-Target interaction prediction evaluation</title>
+<p>We compared our ranked set of predicted D-T interactions to those produced by another state-of-the-art method for drug target interaction prediction–a ligand-based method. One implementation of such an approach is provided by ChEMBL<xref ref-type="fn" rid="fn-5"><sup>5</sup></xref><fn id="fn-5"><label>5</label><p><uri xlink:href="https://www.ebi.ac.uk/chembl/">https://www.ebi.ac.uk/chembl/</uri>.</p></fn>. ChEMBL provide two models for target prediction, using bioactivity data with a cut-off of 1 <italic>μ</italic>M and 10 <italic>μ</italic>M respectively. These models allow for n predicted interactions to be made for a given drug. Inferred interactions are also scored and can be ranked, meaning a direct comparison to our approach can be achieved. Predictions using the ChEMBL models can be found in compound report cards, accessed via their website.</p>
+<p>Mappings between DrugBank and ChEMBL compounds were retrieved from UniChem (<xref ref-type="bibr" rid="ref-6">Chambers et al., 2013</xref>) via whole source mapping<xref ref-type="fn" rid="fn-6"><sup>6</sup></xref><fn id="fn-6"><label>6</label><p><uri xlink:href="http://www.ebi.ac.uk/unichem/">www.ebi.ac.uk/unichem/</uri> Accessed 22nd June 2015.</p></fn>. This mapping provides a set of 3,765 drugs that are contained in both datasets, of which 57 of the ChEMBL ids mapped to &gt;1 DrugBank ID (one to four, five to three, and 51 to two). DReSMin inferred D-T associations for 2,223 of drugs common to both databases. In the comparison presented below we only consider D-T interaction inferences involving this set of 2,223 drugs. The set of inferences from DReSMin contained a total of 2,456 protein targets (of which 1,133 are from <italic>Homo sapiens</italic> and 1,323 from other organisms). The set of ChEMBL inferences involve 870 human protein targets, of which 362 are also captured in DReSMin inferred D-T associations.</p>
+<p>For each of the 2,223 drugs, we identified associations with single proteins. The top 100 of these associations were identified using the ChEMBL Web resource client<xref ref-type="fn" rid="fn-7"><sup>7</sup></xref><fn id="fn-7"><label>7</label><p><uri xlink:href="https://github.com/chembl/chembl_webresource_client">https://github.com/chembl/chembl_webresource_client</uri>.</p></fn>. Any interactions which were already captured in <italic>Dat</italic>, involved targets from organisms other than humans or were not captured in the overlapping 362 protein targets, were excluded from the analysis. This process was repeated for both the 1 <italic>μ</italic>M and the 10 <italic>μ</italic>M ChEMBL models, giving us two sets of predicted D-T associations. In order for a fair comparison to be made for each of the 2,223 drugs the top <italic>x</italic><xref ref-type="fn" rid="fn-8"><sup>8</sup></xref><fn id="fn-8"><label>8</label><p>x = 100 or, if DReSMin inferred &lt;100 targets for this drug, x = number of DReSMin inferred targets.</p></fn> inferred single protein targets were collated and ranked. This process resulted in three sets of 215,075 ranked drug-target interactions; <italic>DReS</italic>, <italic>Chem1</italic> and <italic>Chem10</italic>.</p>
+</sec>
+<sec>
+<title>Target class comparison</title>
+<p>We identify five human protein target classes based on their sizes and importance, as described by <xref ref-type="bibr" rid="ref-5">Bull &amp; Doig (2015)</xref>. Proteins are classified as one of the following: G prote–incoupled receptors (GPCR); ion channels; kinases; proteases; and other. In order to do this we use the same approach described by <xref ref-type="bibr" rid="ref-5">Bull &amp; Doig (2015)</xref>. Protein family membership is determined using multiple protein sources. The first is the id attribute of a <monospace>keyword</monospace> (<italic>k</italic>) element within a UniProt<xref ref-type="fn" rid="fn-9"><sup>9</sup></xref><fn id="fn-9"><label>9</label><p><uri xlink:href="http://www.uniprot.org">http://www.uniprot.org</uri> Accessed July 30th 2015.</p></fn> entry <italic>E</italic>. All keywords assigned to <italic>E</italic> are captured in the set <italic>K</italic>. If “KW-0297” in <italic>E</italic>(<italic>K</italic>) then <italic>E</italic> is classed as a GPCR; if “KW-1071”, “KW-0851”, “KW-0107”, “KW-0869”, “KW-0407”, “KW-0631” or “KW-0894” is in <italic>E</italic>(<italic>K</italic>) then <italic>E</italic> is classed as an ion channel; if “KW-0418”, “KW-0723” or “KW-0829” is in then <italic>E</italic>(<italic>K</italic>) then <italic>E</italic> is classed as a kinase; if “KW-0031”, “KW-0064”, “KW-0121”, “KW-0224”, “KW-0482”, “KW-0645”, “KW-0720”, “KW-0788” or “KW-0888” is in <italic>E</italic>(<italic>K</italic>) then <italic>E</italic> is classed as a protease; and finally all other proteins are classed as ‘other’. A protein is also classified as a GPCR, kinase or protease if it appears in the GPCR<xref ref-type="fn" rid="fn-10"><sup>10</sup></xref><fn id="fn-10"><label>10</label><p><uri xlink:href="http://www.uniprot.org/docs/7tmrlist.txt">http://www.uniprot.org/docs/7tmrlist.txt</uri> Accessed Nov 11th 2015.</p></fn>, kinase<xref ref-type="fn" rid="fn-11"><sup>11</sup></xref><fn id="fn-11"><label>11</label><p><uri xlink:href="http://www.uniprot.org/docs/pkinfam.txt">http://www.uniprot.org/docs/pkinfam.txt</uri> Accessed Nov 11th 2015.</p></fn> or protease<xref ref-type="fn" rid="fn-12"><sup>12</sup></xref><fn id="fn-12"><label>12</label><p><uri xlink:href="http://www.uniprot.org/docs/peptidas.txt">http://www.uniprot.org/docs/peptidas.txt</uri> Accessed Nov 11th 2015.</p></fn> files respectively.</p>
+</sec>
+</sec>
+</sec>
+<sec sec-type="results">
+<title>Results</title>
+<sec>
+<title>Characterisation and performance of DReSMin</title>
+<p>We evaluated the effectiveness of each step of our algorithm by adding each step (initial candidate set selection, topological pruning and semantic distance thresholding) sequentially to the basic topological search algorithm and then comparing the efficiency of each modified version to the VF2 topological search. The algorithm was implemented on a 20 node Ivy-Bridge bioinformatics cluster. Performance was measured as the time taken for a complete search for a semantic subgraph (<italic>Q</italic>) within a given target graph (<italic>G</italic>). Random semantic target graphs (<italic>Ran</italic>) as well as random semantic subgraphs were produced in order to evaluate the performance of the semantic subgraph search strategy. These random graphs were formulated using an approach that attempted to replicate the semantic and topological properties of <italic>Dat</italic>. In these random target graphs ∀<italic>v</italic> ∈ <italic>V</italic>(<italic>Ran</italic>) of type <italic>t<sub>v</sub></italic>, the average <italic>deg</italic><sup>−</sup>(<italic>t<sub>v</sub></italic>) and the average <italic>deg</italic><sup>+</sup>(<italic>t<sub>v</sub></italic>) were maintained ∀<italic>t<sub>v</sub></italic> ∈ <italic>T<sub>v</sub></italic>(<italic>Dat</italic>). Experiments were repeated 10 times.</p>
+<p>The SDC and graph-pruning step display linear running times of <italic>O</italic>(<italic>n</italic>); with the former capable of scoring 8 × 10<sup>4</sup> concept pairs per second and the latter taking &lt;1 second to prune a graph <italic>G</italic>, with |<italic>V</italic>(<italic>G</italic>)| of 1 × 10<sup>6</sup>. During the performance measures we focused on semantic subgraphs with between 3–6 vertices. The effect on search time when altering semantic subgraph edgeset size was also examined (<xref ref-type="supplementary-material" rid="supp-2">Fig. S2</xref>) showing an improvement in performance as the edgeset size increases. This performance increase is due to the fact that fewer nodes satisfy the more stringent topological rules. With more stringent pruning during a run of the algorithm the search space at each state is reduced; ultimately meaning that when searching for semantic subgraphs who share the same |<italic>V</italic>| but have differing |<italic>E</italic>|, the semantic subgraph with the &gt; |<italic>E</italic>| will be more efficient to search for.</p>
+<p>Once semantic subgraphs reach a |<italic>V</italic>(<italic>G</italic>)| of 4 then restricting the initial candidate set to include only <monospace>Compounds</monospace> improves performance. It is at this point the benefits of reducing the initial candidate set successfully reduce the search space, concomitantly increasing performance (<xref ref-type="fig" rid="fig-5">Fig. 5</xref>). A similar phenomenon is observed with the introduction of the closed world check, whereby the real performance benefits are apparent when semantic subgraphs reach a |<italic>V</italic>(<italic>G</italic>)| of 4 (<xref ref-type="fig" rid="fig-5">Fig. 5</xref>). By restricting the initial candidate set as well as using the closed world assumption a two fold increase in performance in comparison to a purely topological approach was observed. Performance is further enhanced when utilising the semantic distance calculator demonstrating an almost 10 fold performance boost when comparing to the purely topological approach.</p>
+<fig id="fig-5" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-5</object-id>
+<label>Figure 5</label>
+<caption>
+<title>Overview of algorithm performance with semantic subgraph (<italic>Q</italic>) queries nodeset |<italic>V</italic>(<italic>Q</italic>)| ranging from 3–6.</title>
+<p>Graphs show each step of the algorithm reducing search time. Abbreviations: <italic>V<sub>max</sub>G</italic>, initial candidate set is chosen using the <italic>v<sub>t</sub></italic> of the node displaying the highest connectivity in <italic>Q</italic>; COMP, <monospace>compound</monospace> makes up the initial candidate set; CW, closed world check implemented; SDC, semantic distance calculator used during search; GP, semantic graph prune step implemented; GS, graph split used. 5<italic><sup>a</sup></italic> (all steps plotted for |<italic>V</italic>(<italic>Q</italic>)| = 5) and 5<italic><sup>b</sup></italic> (focuses on GP and GS of |<italic>V</italic>(<italic>Q</italic>)| = 5). Algorithm Performance (bottom right) shows the best approach for each semantic subgraph size.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g005"></graphic>
+</fig>
+<p>The semantic graph prune step introduces a small but noticeable increase in performance to DReSMin. Despite an overall increase in performance the graph prune step also brings a subtle cost; any potential matches containing an element that scores &lt;<italic>ST</italic> when passed to the SDC will not be returned. It is for this reason that the graph pruning step is an optional add-on to the DReSMin algorithm. The graph pruning step is most useful when one wishes to return matches that are semantically exact to the semantic subgraph being used as a query (<italic>Q</italic>). The graph split step can potentially reduce the search time for <italic>Q</italic> from that of a |<italic>V</italic>(<italic>Q</italic>)| of 6 to one closer to the sum of a search for a subgraph with a |<italic>V</italic>(<italic>Q</italic>)| of 3 and a subgraph with a |<italic>V</italic>(<italic>Q</italic>)| of 4. It is this step that produces the greatest improvement to performance. For example, when using the SDC to search for <italic>Q</italic>, where |<italic>V</italic>(<italic>Q</italic>)| = 6 in <italic>G</italic> when |<italic>V</italic>(<italic>G</italic>)| = 1 × 10<sup>5</sup>, takes 60 seconds, using the graph split method reduces this search time to just over 8 seconds, a 7 fold increase in performance.</p>
+<p>Overall, when using all three of the algorithmic steps in DReSMin, the performance of DReSMin showed performance characteristics approximating a linear scale closer to <italic>O</italic>(<italic>n</italic>). This is in contrast to the exponential scaling characteristics observed for the purely topological search algorithm, VF2. These DReSMin performance characteristics were observed for semantic subgraphs of size |<italic>V</italic>(<italic>Q</italic>)| ≤ 6 (<xref ref-type="fig" rid="fig-5">Fig. 5</xref>). Using DReSMin with the hardware described above it is possible to complete an exhaustive, exact search for a 6 node semantic subgraph in a target graph containing &gt;1.5 × 10<sup>5</sup> vertices in under 10 seconds. The accuracy of the algorithm does not decrease as the target graph connectivity, or |<italic>E</italic>|, increases (<xref ref-type="supplementary-material" rid="supp-3">Fig. S3</xref>) or as the target graph |<italic>V</italic>| increases (<xref ref-type="supplementary-material" rid="supp-4">Fig. S4</xref>).</p>
+</sec>
+<sec>
+<title>Application to search for drug-target interactions</title>
+<p>Semantic subgraphs were identified in <italic>Dat</italic> and used to infer novel potential D-T interactions in <italic>Dat</italic> using the DReSMin algorithm. To aid in this process we utilised more recent D-T versions of the DrugBank datasets that were not used to build <italic>Dat</italic>. This approach allows us to determine if D-T interactions inferred from <italic>Dat</italic> using DReSMIn are likely to be supported as more knowledge is obtained. We can thus understand if inferences made have any potential value to drug repositioning now, as opposed to in the future.</p>
+<p>To carry out this process the D-T interactions from DBv2.5 that were integrated into <italic>Dat</italic> were retrieved and captured in the set <italic>DatRel</italic>. We used DBv2.5 to construct <italic>Dat</italic> in this exercise even though later releases of DrugBank are available; v3.0 (DBv3) and v4.2 (DBv4.2) (<xref ref-type="bibr" rid="ref-29">Knox et al., 2011</xref>). DBv3 contains additional drugs, targets and their interactions to those already contained in <italic>Dat</italic> (<xref ref-type="table" rid="table-1">Table 1</xref>) and 8,768 additional D-T interactions to those found in <italic>Dat</italic>. Of these interactions, 2,919 involve drugs and targets that are present in <italic>Dat</italic>, but the interaction relationship had not yet been defined (i.e. the D-T interaction had not been annotated in DBv2.5). In this work, we refer to these 2,919 interactions from DBv3 as being ‘relevant’. These relevant interactions are represented in the set <italic>DBv3Rel</italic> (see <xref ref-type="disp-formula" rid="eqn-5">Eq. 5</xref>) and were used to derive a query set of semantic subgraphs that were in turn used to mine <italic>Dat</italic>. DBv4.2 was then used as a reference to validate the new repositioning opportunities identified through the mining of <italic>Dat</italic>.
+<disp-formula id="eqn-5"><label>(5)</label><alternatives><graphic mime-subtype="png" mimetype="image" orientation="portrait" position="float" xlink:href="peerj-04-1558-e005.jpg"></graphic><tex-math id="M5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}$$DBv3Rel = \left\{ {DatRel \cup Unique(DBv3)\mid d \in DatRel(d) \wedge t \in DatRel(t)} \right\}$$\end{document}</tex-math><mml:math id="mml-eqn-5"><mml:mrow><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mi>v</mml:mi><mml:mn>3</mml:mn><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mrow><mml:mo>{</mml:mo><mml:mrow><mml:mi>D</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo>∪</mml:mo><mml:mi>U</mml:mi><mml:mi>n</mml:mi><mml:mi>i</mml:mi><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mi>v</mml:mi><mml:mn>3</mml:mn><mml:mo stretchy="false">)</mml:mo><mml:mo>∣</mml:mo><mml:mi>d</mml:mi><mml:mo>∈</mml:mo><mml:mi>D</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∧</mml:mo><mml:mi>t</mml:mi><mml:mo>∈</mml:mo><mml:mi>D</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>}</mml:mo></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></p>
+<table-wrap id="table-1" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/table-1</object-id>
+<label>Table 1</label>
+<caption>
+<title>Drug, Target and Drug-Target (D-T) Interactions present in the Dataset and DBv3.</title>
+</caption>
+<alternatives>
+<graphic xlink:href="peerj-04-1558-g013"></graphic>
+<table frame="hsides" rules="groups">
+<colgroup span="1">
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="1" rowspan="1"></th>
+<th colspan="1" rowspan="1">Drug</th>
+<th colspan="1" rowspan="1">Target</th>
+<th colspan="1" rowspan="1">D-T Interaction</th>
+<th colspan="1" rowspan="1">Unique</th>
+<th colspan="1" rowspan="1">Relevant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><italic>Dat</italic> (DBv2.5)</td>
+<td colspan="1" rowspan="1">4,772</td>
+<td colspan="1" rowspan="1">3,037</td>
+<td colspan="1" rowspan="1">9,227</td>
+<td colspan="1" rowspan="1">–</td>
+<td colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">DBv3</td>
+<td colspan="1" rowspan="1">6,180</td>
+<td colspan="1" rowspan="1">4,080</td>
+<td colspan="1" rowspan="1">14,570</td>
+<td colspan="1" rowspan="1">8,768</td>
+<td colspan="1" rowspan="1">2,919</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">DBv4.2</td>
+<td colspan="1" rowspan="1">6,377</td>
+<td colspan="1" rowspan="1">3,601</td>
+<td colspan="1" rowspan="1">14,157</td>
+<td colspan="1" rowspan="1">8,673</td>
+<td colspan="1" rowspan="1">2,940<xref ref-type="fn" rid="table-1fn2"><sup>*</sup></xref></td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="table-1fn">
+<p>
+<bold>Notes:</bold>
+</p>
+</fn>
+<fn fn-type="other" id="table-1fn1">
+<p>Unique: refers to interactions not found in Dat, Relevant: subset of Unique interactions, whereby both the drug and target can be found in <italic>Dat</italic>.</p>
+</fn>
+<fn fn-type="other" id="table-1fn2">
+<label>*</label>
+<p>Of these 333 are unique to DBv4.2 (i.e they are not captured in DBv3).</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<sec>
+<title>Semantic subgraphs inferring drug target interactions</title>
+<p>Semantic subgraphs can be derived through manual exploration of the graph and by reference to known repositioning examples. However, in this work, in order to exhaustively test the DReSMin algorithm, we derived an automated method for producing a set of semantic subgraphs that would be appropriate for systematically mining for new D-T interactions. In order to produce such a set, we extracted the portions of the network in <italic>Dat</italic> that contained drugs and targets from the 2,919 D-T interactions whose interaction was annotated later in <italic>DBv3Rel</italic>. To extract the subnetworks, each drug and target pair was identified in <italic>Dat</italic> and the subnetwork represented by the shortest path between them was extracted as a semantic subgraph (<xref ref-type="fig" rid="fig-6">Fig. 6</xref>). To identify the shortest semantic subpaths, <italic>Dat</italic> was converted to an undirected graph and a Java implementation of Dijkstra’s shortest path algorithm (<xref ref-type="bibr" rid="ref-13">Dijkstra, 1959</xref>), from the JGraphT<xref ref-type="fn" rid="fn-13"><sup>13</sup></xref><fn id="fn-13"><label>13</label><p><uri xlink:href="http://jgrapht.org">http://jgrapht.org</uri>.</p></fn> library used. On carrying out this semantic subgraph identification exercise 194 different subgraphs with a |<italic>V</italic>| &lt; 10 were found to cumulatively identify more than 95% of the D-T interactions in <italic>DBv3Rel</italic> and were used as a reference set for D-T inference using DReSMin as described below.</p>
+<fig id="fig-6" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-6</object-id>
+<label>Figure 6</label>
+<caption>
+<title>Semantic subgraphs were derived from the semantic shortest paths between a drug and a target pair captured in DrugBank v3.</title>
+<p>(A) shows a drug-target interaction captured in DBv3 made up of a drug (D1) and a target (T2) captured in our network, <italic>Dat</italic>. In order to create semantic subgraphs D1 and T2 are identified in <italic>Dat</italic> (highlighted in green in B) and the semantic shortest paths between the two nodes calculated (highlighted in red in B). Finally all semantic node types and edge types that fall on the semantic shortest path are used to create a query graph (C). <italic>Note:</italic> Dashed red line represents the inferred <italic>binds_to</italic> relations, squares represent compounds, circles targets, diamonds proteins and octagon diseases. For relation types: bi_to = <italic>binds_to</italic>, sim = <italic>similar_to</italic>, h_s_s = <italic>has_similar_sequence</italic>.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g006"></graphic>
+</fig>
+</sec>
+<sec>
+<title>Inference of novel drug-target interactions</title>
+<p>The 194 semantic subgraphs were used as queries to search <italic>Dat</italic> using DReSMin to test the ability of the algorithm to identify D-T interactions in <italic>Dat</italic> that had not yet been annotated in DBv2.5 (but are present in DBv3). DReSMin was used to identify subgraphs in <italic>Dat</italic> that were similar to the query set of semantic subgraphs and therefore with the potential to be indicative of novel D-T interactions and ultimately aid in the identification of drug repositioning opportunities. After an exhaustive search of <italic>Dat</italic> with the 194 semantic subgraphs a set of mappings (or instances) of each subgraph was identified. Semantic subgraphs were scored on their ability to identify D-T interactions captured in <italic>DBv3Rel</italic> (using <xref ref-type="disp-formula" rid="eqn-3">Eq. 3</xref>), with these scores ranging from 0.0 to 0.06589 (<xref ref-type="supplementary-material" rid="supp-9">Table S4</xref>). A single D-T interaction can be inferred by mappings of more than one query semantic subgraph, thus adding confidence to the prediction that a D-T interaction exists. Therefore, in order to rank the D-T interactions in terms of confidence, the scores assigned by all query semantic subgraphs that produced a mapping containing a potential D-T interaction were summed (using <xref ref-type="disp-formula" rid="eqn-4">Eq. 4</xref>). The ∑ <italic>R<sub>q</sub></italic> of the scores of all 194 query semantic subgraphs was 0.9499 (<xref ref-type="supplementary-material" rid="supp-5">Fig. S5</xref>) and so inferred D-T interaction scores contained within mappings could potentially, range from 0.0 to 0.9459. The top ten performing subgraphs, and a larger illustrative subgraph, are shown in <xref ref-type="fig" rid="fig-7">Fig. 7</xref>.</p>
+<fig id="fig-7" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-7</object-id>
+<label>Figure 7</label>
+<caption>
+<title>Examples of semantic subgraphs drawn from the semantic shortest paths.</title>
+<p>Q1–Q10 are drawn from the semantic shortest paths that represented the shortest path between the greatest number of D-T interactions in <italic>DBv3Rel</italic> and Q108 is an example of a more complex semantic subgraph. <italic>Note:</italic> Dashed red lines represent the inferred <italic>binds_to</italic> relations, squares represent compounds, circles targets, diamonds proteins and octagon diseases. For relation types: bi_to = <italic>binds_to</italic>, sim = <italic>similar_to</italic>, h_s_s = <italic>has_similar_sequence</italic>, ma_tr = <italic>may_treat</italic>, inv_in = <italic>involved_in</italic> and is_a = <italic>is_a</italic>.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g007"></graphic>
+</fig>
+<p>A search of <italic>Dat</italic> with the set of 194 semantic subgraphs described above resulted in 906,152,721 mappings. These mappings now captured the potential drug target interactions in the structure of the mapping subgraph. The 906,152,721 mappings predicted 9,643,061 D-T interactions that were ranked as described above. Unsurprisingly, we identify the interactions from <italic>DBv3Rel</italic> that were used to create the semantic subgraphs. Importantly, however, these interactions score highly, which indicates that a single interaction was identified by multiple semantic subgraphs. The D-T interactions from <italic>DBv3Rel</italic> consistently scored better and ranked higher than the unsupported inferred associations (<xref ref-type="fig" rid="fig-8">Figs. 8A</xref> and <xref ref-type="fig" rid="fig-8">8B</xref>). We also observe that the D-T interactions subsequently annotated and captured in <italic>DBv3Rel</italic> are identified by two fold the number of semantic subgraphs that infer D-T associations not annotated and present in <italic>DBv3Rel</italic> (<xref ref-type="fig" rid="fig-8">Fig. 8C</xref>).</p>
+<fig id="fig-8" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-8</object-id>
+<label>Figure 8</label>
+<caption>
+<title>Validation of inferred D-T associations with known D-T associations from DBv3 and DBv4.2.</title>
+<p>(A, B and C) show how DReSMin identifies and ranks the 2,919 known interactions from DBv3 when searching <italic>Dat</italic>. (D, E and F) show how DReSMin identifies and ranks the 333 known interactions from DBv4.2. For (A and D) hypergeometric distribution of inferred knowns were calculated using the scores of the validated associations. For (B and E) hypergeometric distribution of inferred knowns were calculated using the ranked position of the validated interactions. (C and F) show the number of semantic subgraphs that inferred knowns in comparison to the number of semantic subgraphs that inferred novel interactions. <italic>Note:</italic> Blue line shows the highest scoring semantic subgraph; all scores above this line are definitely inferred by &gt; one semantic subgraph.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g008"></graphic>
+</fig>
+<p>However, in order to quantify the predictive power of DReSMin we examined how many of the high scoring D-T predictions were subsequently annotated in DBv4.2. DBv4.2 contains 333 interactions not captured in DBv3 or <italic>Dat</italic>. In this work, these interactions are represented in the set <italic>DBv4Rel</italic> (see <xref ref-type="disp-formula" rid="eqn-6">Eq. 6</xref>). These 333 new interactions had not been used to construct the semantic subgraphs used for searching <italic>Dat</italic>. Of the 333 D-T interactions captured in <italic>DBv4Rel</italic>, 309 were successfully identified (94%). We also observed high ranking and scoring of 309 D-T interactions from <italic>DBv4Rel</italic> that were successfully identified by DReSMin (<xref ref-type="fig" rid="fig-8">Figs. 8D</xref> and <xref ref-type="fig" rid="fig-8">8E</xref>). The average number of semantic subgraphs that have mappings inferring the 309 annotated D-T associations captured in <italic>DBv4Rel</italic> is increased &gt;4 fold in comparison to the number of semantic subgraphs that produce mappings that infer interactions not captured in <italic>DBv4Rel</italic> (<xref ref-type="fig" rid="fig-8">Fig. 8F</xref>).<disp-formula id="eqn-6"><label>(6)</label><alternatives><graphic mime-subtype="png" mimetype="image" orientation="portrait" position="float" xlink:href="peerj-04-1558-e006.jpg"></graphic><tex-math id="M6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}$$\eqalign{DBv4Rel = \big\{ {(DatRel \cup Unique(DBv4.2)) \cap DBv3Rel\mid} \cr {d \in DatRel(d) \wedge t \in DatRel(t)} \big\}\hskip132$$\end{document}</tex-math><mml:math id="mml-eqn-6"><mml:mrow><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mi>v</mml:mi><mml:mn>4</mml:mn><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mrow><mml:mo>{</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>D</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo>∪</mml:mo><mml:mi>U</mml:mi><mml:mi>n</mml:mi><mml:mi>i</mml:mi><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mi>v</mml:mi><mml:mn>4.2</mml:mn><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo>∩</mml:mo><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mi>v</mml:mi><mml:mn>3</mml:mn><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo>∣</mml:mo><mml:mi>d</mml:mi><mml:mo>∈</mml:mo><mml:mi>D</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∧</mml:mo><mml:mi>t</mml:mi><mml:mo>∈</mml:mo><mml:mi>D</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>}</mml:mo></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></p>
+<p>Looking in more detail at the top 20 inferred D-T interactions (<xref ref-type="table" rid="table-2">Table 2</xref>) we see 12 different drugs and eight targets. Drugs include: three antiarrythmic calcium channel blockers (Verapamil, Mibefradil and Bepridil); three phenothiazine antipsychotic agents (Promazine, Perphenazine and Thioridazine); three atypical antipyschotic agents (Propiomazine, Clozapine and Quetiapine); two anticonvulsants (Zonisamide and Levetiracetam) and one antiarrythmic adrenergic beta-antagonist (Propranolol). Of the 12 drugs captured in the top ranked inferred D-T interactions, the average number of D-T interactions captured in <italic>Dat</italic> is ∼13, with the average number for all compounds being closer to three. The compounds present in the top 20 inferred D-T interactions are well studied and annotated and are thus highly connected in <italic>Dat</italic>. Targets include four voltage-dependant calcium channels (VDCC) and four G-Protein coupled receptors (GPCR). VDCCs display selective permeability to calcium ions which enter a cell, and alter a channel’s properties, through the pore which is formed by the a 1 subunit. We can see that three sub-types of VDCC are represented in <xref ref-type="table" rid="table-2">Table 2</xref>, being: L-type (CAC1C and CAC1D); P/Q Type (CAC1A) and N-type (CAC1B). Members of the GPCR superfamily in <xref ref-type="table" rid="table-2">Table 2</xref> include receptors activated by the neurotransmitters: serotonin (5HT7R and 5HT2B); epinephrine (ADA1A) and dopamine (DRD1).</p>
+<table-wrap id="table-2" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/table-2</object-id>
+<label>Table 2</label>
+<caption>
+<title>DReSMin was executed using the 194 semantic subgraphs that represented the shortest path between the drugs and targets captured in the relevant associations.</title>
+</caption>
+<alternatives>
+<graphic xlink:href="peerj-04-1558-g014"></graphic>
+<table frame="hsides" rules="groups">
+<colgroup span="1">
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+<col span="1"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="1" rowspan="1">Drug (<italic>DrugBank</italic> ID)</th>
+<th colspan="1" rowspan="1">Type, <italic>Category</italic></th>
+<th colspan="1" rowspan="1">Inferred Target (<italic>Uniprot ID</italic>)</th>
+<th colspan="1" rowspan="1">Evidence</th>
+<th colspan="1" rowspan="1"># Subs</th>
+<th colspan="1" rowspan="1">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">Verapamil (<italic>DB00661</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">CAC1C (<italic>Q13936</italic>)</td>
+<td colspan="1" rowspan="1">Y</td>
+<td colspan="1" rowspan="1">85</td>
+<td colspan="1" rowspan="1">0.49211</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Mibefradil (<italic>DB01388</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>WI</italic></td>
+<td colspan="1" rowspan="1">CAC1A (<italic>O00555</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">74</td>
+<td colspan="1" rowspan="1">0.44378</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Mibefradil (<italic>DB01388</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>WI</italic></td>
+<td colspan="1" rowspan="1">CAC1B (<italic>Q00975</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">59</td>
+<td colspan="1" rowspan="1">0.43097</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Promazine (<italic>DB00420</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">ADA1A (<italic>P35348</italic>)</td>
+<td colspan="1" rowspan="1">Y</td>
+<td colspan="1" rowspan="1">117</td>
+<td colspan="1" rowspan="1">0.39090</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Quetiapine (<italic>DB01224</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT7R (<italic>P34969</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">61</td>
+<td colspan="1" rowspan="1">0.38779</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Propiomazine (<italic>DB00777</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT7R (<italic>P34969</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">69</td>
+<td colspan="1" rowspan="1">0.38774</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Verapamil (<italic>DB00661</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">CAC1A (<italic>O00555</italic>)</td>
+<td colspan="1" rowspan="1">Y</td>
+<td colspan="1" rowspan="1">78</td>
+<td colspan="1" rowspan="1">0.38436</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Verapamil (<italic>DB00661</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">CAC1B (<italic>Q00975</italic>)</td>
+<td colspan="1" rowspan="1">Y</td>
+<td colspan="1" rowspan="1">64</td>
+<td colspan="1" rowspan="1">0.38180</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Mibefradil (<italic>DB01388</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>WI</italic></td>
+<td colspan="1" rowspan="1">CAC1D (<italic>Q5SQC4</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">52</td>
+<td colspan="1" rowspan="1">0.37525</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Perphenazine (<italic>DB00850</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT7R (<italic>P34969</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">86</td>
+<td colspan="1" rowspan="1">0.37383</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Thioridazine (<italic>DB00679</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT7R (<italic>P34969</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">75</td>
+<td colspan="1" rowspan="1">0.36830</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Promazine (<italic>DB00420</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT7R (<italic>P34969</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">75</td>
+<td colspan="1" rowspan="1">0.36824</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Propranolol (<italic>DB00571</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic>, <italic>IN</italic></td>
+<td colspan="1" rowspan="1">DRD1 (<italic>P21728</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">96</td>
+<td colspan="1" rowspan="1">0.36084</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Zonisamide (<italic>DB00909</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic>, <italic>IN</italic></td>
+<td colspan="1" rowspan="1">CAC1B (<italic>Q00975</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">50</td>
+<td colspan="1" rowspan="1">0.35478</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Levetiracetam (<italic>DB01202</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic>, <italic>IN</italic></td>
+<td colspan="1" rowspan="1">CAC1B (<italic>Q00975</italic>)</td>
+<td colspan="1" rowspan="1">Y</td>
+<td colspan="1" rowspan="1">50</td>
+<td colspan="1" rowspan="1">0.35478</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Thioridazine (<italic>DB00679</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT2B (<italic>P41595</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">107</td>
+<td colspan="1" rowspan="1">0.35036</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Clozapine (<italic>DB00363</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic></td>
+<td colspan="1" rowspan="1">5HT7R (<italic>P34969</italic>)</td>
+<td colspan="1" rowspan="1">Y</td>
+<td colspan="1" rowspan="1">64</td>
+<td colspan="1" rowspan="1">0.34799</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Propranolol (<italic>DB00571</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic>, <italic>IN</italic></td>
+<td colspan="1" rowspan="1">ADA1A (<italic>P35348</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">84</td>
+<td colspan="1" rowspan="1">0.34663</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Bepridil (<italic>DB01244</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic>, <italic>WI</italic></td>
+<td colspan="1" rowspan="1">CAC1C (<italic>Q13936</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">77</td>
+<td colspan="1" rowspan="1">0.34610</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Levetiracetam (<italic>DB01202</italic>)</td>
+<td colspan="1" rowspan="1">SM, <italic>AP</italic>, <italic>IN</italic></td>
+<td colspan="1" rowspan="1">CAC1A (<italic>O00555</italic>)</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">63</td>
+<td colspan="1" rowspan="1">0.34605</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="table-2fn">
+<p>
+<bold>Notes:</bold>
+</p>
+</fn>
+<fn fn-type="other" id="table-2fn1">
+<p>See <xref ref-type="supplementary-material" rid="supp-9">Table S4</xref> for a detailed scoring of the 194 semantic subgraphs. Scores are used as a ranking method for inferred interactions. Of the 20 interactions ranked highest by DReSMin, six were found in DBv3; having literature supporting their existence. For drug Type and <italic>category</italic>: SM, small molecule; <italic>AP</italic>, approved; <italic>IN</italic>, investigational and; <italic>WI</italic>, withdrawn. Scores are to 5 decimal places. # Subs refers to the number of semantic subgraphs that inferred the D-T interaction, with the maximum being 194.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<p>The ability of DReSMin to predict novel D-T interactions was compared to the state-of-the-art ligand-based method from ChEMBL. We first examined how many D-T interactions were predicted by both methods (co-prediction) using interactions captured in the sets <italic>DReS</italic>, <italic>Chem1</italic> and <italic>Chem10</italic>. 35% of the top <italic>x</italic> D-T interactions inferred by DReSMin are found in the top <italic>x</italic> D-T interactions predicted by ChEMBL models (<xref ref-type="fig" rid="fig-9">Figs. 9A</xref> and <xref ref-type="fig" rid="fig-9">9D</xref>). More interestingly is the fact that DReSMin successfully infers 10% more of the knowns from <italic>DBv4Rel</italic> than ChEMBL, for both models (<xref ref-type="fig" rid="fig-9">Figs. 9C</xref> and <xref ref-type="fig" rid="fig-9">9F</xref>). We found that DReSMin is able to rank the known D-T interactions more effectively than ChEMBL, with a mean ranking position of known D-T interactions from <italic>DBv4rel</italic> of 16,977, as opposed to the 47,618 achieved by ChEMBL (47,746 for 1 uM model and 47,490 for 10 uM model). We must recognise the fact that the semantic subgraphs used during this work were derived using DrugBank data and the ChEMBL models trained on ChEMBL data.</p>
+<fig id="fig-9" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-9</object-id>
+<label>Figure 9</label>
+<caption>
+<title>DReSMin inferred D-T associations in comparison to those inferred using the ligand-based similarity models provided by ChEMBL.</title>
+<p>Top graphs (A, B and C) show comparison to those using the 1μM model from ChEMBL and bottom graphs (D, E and F) show comparison with the 10μM model. (A and D) show the % crossover between the top ranked <italic>x</italic> associations from each method for each drug. (B and E) show the comparative ranking of the 2,919 known D-T interactions from <italic>DBv3Rel</italic>. (C and F) show the comparative ranking of the 333 known D-T interactions from <italic>DBv4Rel</italic>. In (B, C, E and F) red diamonds show the mean ranking and numbers in red show the number of knowns captured by each method. Only associations inferred by the 2,223 drugs with a mapping between DrugBank and ChEMBL and those that contain the overlapping set of target proteins are included in comparison.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g009"></graphic>
+</fig>
+</sec>
+<sec>
+<title>Target class comparison</title>
+<p>After classifying all human proteins in <italic>Dat</italic> we identify: 826 GPCRs; 343 ion channels; 638 kinases; and 560 proteases. Of the 9,643,061 D-T interactions inferred by DReSMin, 4,780,935 (49.6%) involve human protein targets with 103 GPCRs; 85 ion channels; 89 kinases; 60 proteases; and 782 others are captured. In <xref ref-type="fig" rid="fig-10">Fig. 10A</xref> we see how the target classes defined are represented in the inferences made by <italic>DReSMin</italic>. 89% of proteins are classed as ‘other’, and make up the targets in 69% of all inferences. GPCR’s make up only 4% of all proteins and yet are involved in nearly 10% of all inferences. Only 3.2% of all proteins are classed as kinases, yet these are captured in 7.9% of all inferences. Proteases make up 2.8% of proteins and are shown to be part of 5.4% of all inferences. Finally, ion channels make up 1.7% of proteins and are contained in 7.4% of all predicted D-T associations.</p>
+<fig id="fig-10" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-10</object-id>
+<label>Figure 10</label>
+<caption>
+<title>Target classes.</title>
+<p>Human proteins in <italic>Dat</italic> were assigned to one of five target classes: kinases, ion channels; G protein coupled receptors (GPCR); proteases; or other. (A) shows % of the total set of human proteins assigned to each class (Percent_HUMAN), what % of all DReSMin inferred associations contained a protein target from that class (Percent_INF), the % of the unique targets inferred by DReSMin that were from that class (Percent_nrINFTARGS) and the % of the target class for which an inference was made (Percent_CLASS). (B) shows how the known associations captured in <italic>DBv3Rel</italic> were ranked in the DReSMin inferred D-T interactions, with 1 being the highest ranked association. <italic>Note:</italic> Sets of numbers above each class in A represent how the target class ranked in performance in comparison to the other classes in the following measures: the average score of inferred interactions; the average ranking of inferences for that class; and the average number of semantic subgraphs that made an individual inference for that class. 1 represents the best performing target class and 5 the worst.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g010"></graphic>
+</fig>
+<p>Ion channels make up the second smallest set of comparative inferences, behind only proteases, however <xref ref-type="fig" rid="fig-10">Fig. 10A</xref> shows us that this class is inferred by, on average: the highest scoring predictions (using <xref ref-type="disp-formula" rid="eqn-4">Eq. 4</xref>); the highest ranked inferences; and the most semantic subgraphs per inference. Second is the GPCRs, followed by proteases, others and finally kinases.</p>
+<p><xref ref-type="fig" rid="fig-10">Figure 10B</xref> shows how highly ranked the D-T interactions captured in <italic>DBv3Rel</italic> are ranked in each of the classes. D-T associations captured in <italic>DBv3Rel</italic> are ranked highest for GPCRs, followed by: ion channels; proteases; other; and kinases. Known associations from all classes are, on average, ranked in the top 6% of all inferred associations.</p>
+</sec>
+<sec>
+<title>Completing the drug-target-disease pathway</title>
+<p>The highest ranked D-T interaction identified by DReSMin, receiving a score of 0.49211, is supported by the literature and therefore known to the scientific community. This D-T interaction is between one of the antiarrythmic calcium blockers, Verapamil, and CAC1C. Within <italic>Dat</italic> eight indications are associated to Veparamil and 12 diseases associated to CAC1C. One indication, hypertension, shares a <italic>has_Indication</italic> association with Verapamil and a <italic>involved_in</italic> association with CAC1C. Although Verapamil is already used to treat hypertension, and the inferred D-T interaction already known, we see how DReSMin may be used to help understand the molecular mechanism of a drug and thus complete the ‘drug-target-disease’ pathway. Understanding the molecular mechanisms of drugs can only aid the identification of repositioning opportunities. In <xref ref-type="fig" rid="fig-11">Fig. 11</xref> we see examples of unsupported, and therefore novel, DReSMin inferred D-T interactions that also increase understanding of the molecular mechanisms involved in a drug’s ability to treat a disease. Like Verapamil, Bepridil is also a calcium channel blocker with known antiarrhythmia activities. Used as a treatment of hypertension, we can see in <xref ref-type="table" rid="table-2">Table 2</xref> an inferred D-T association involving Bepridil and CAC1C. Bepridil is one of the two drugs from <xref ref-type="table" rid="table-2">Table 2</xref> that have been withdrawn from the market due to safety concerns. For this reason it is not a strong candidate to be repositioned, however, via the inferred association we are able to better understand the molecular mechanism of the drugs ability to treat hypertension (<xref ref-type="fig" rid="fig-11">Fig. 11A</xref>).</p>
+<fig id="fig-11" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-11</object-id>
+<label>Figure 11</label>
+<caption>
+<title>Drug-target-disease pathways completed via inferred D-T associations.</title>
+<p>Data presented is extracted from <italic>Dat</italic> with one association extracted from literature. <italic>Note:</italic> Dashed lines represent the inferred <italic>binds_to</italic> relations, zig-zag lines represent <italic>has_Indication</italic> relation not captured in <italic>Dat</italic> and extracted from literature, squares represent compound, circles target and octagon diseases.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g011"></graphic>
+</fig>
+<p>In <italic>Dat</italic> we see three indications for Quetiapine (Psychotic Disorders, Bipolar Disorders and Autistic Disorders) and three <italic>involved_in</italic> associations involving 5HT7R (Schizophrenia, Pain and Muscular Diseases). Although a <italic>has_Indication</italic> association is not captured in <italic>Dat</italic>, Quetiapine is approved for the treatment of Schizophrenia. By integrating this knowledge with <italic>Dat</italic> and our inferred associations we can complete another drug-target-disease pathway (<xref ref-type="fig" rid="fig-11">Fig. 11C</xref>). Schizophrenia, like many disorders, is a child of psychotic disorders. Although our dataset provides evidence showing Quetiapine is used to treat the parent term of Schizophrenia, psychotic disorders, the inference made allows for a better understanding of the drug-target-disease pathway in a more specific disease area to be achieved.</p>
+</sec>
+<sec>
+<title>Propranolol</title>
+<p>One inferred D-T interaction in <xref ref-type="table" rid="table-2">Table 2</xref> involves the antiarrythmic adrenergic beta-antagonist, Propranolol, and the G protein-coupled receptor DRD1. In <italic>Dat</italic> we capture 12 indications for Propranolol and 17 disease associations for DRD1, with one indication, Hypertension, involved in both an indication association for Propranolol and a disease association for DRD1 (<xref ref-type="fig" rid="fig-12">Fig. 12</xref>). Of the remaining 16 <italic>involved_in</italic> associations involving DRD1 three of the diseases represent known off-label indications for Propranolol being: Bipolar disorders; Schizophrenia, Alcoholism and as a non-stimulant treatment for ADHD (<xref ref-type="bibr" rid="ref-22">Gobbo &amp; Louzã, 2014</xref>). The remaining 12 diseases present and support some interesting repositioning opportunities/studies of potential repositioning opportunities for Propranolol.</p>
+<fig id="fig-12" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.7717/peerj.1558/fig-12</object-id>
+<label>Figure 12</label>
+<caption>
+<title>Diseases associated with Propranolol and DRD1.</title>
+<p>Drug-disease <italic>has_Indication</italic> associations involving Propranolol and gene-disease <italic>involved_in</italic> associations were extracted from <italic>Dat</italic>. <italic>Note:</italic> Dashed lines represent the inferred <italic>binds_to</italic> relations, squares represent compound, circles target and octagon diseases.</p>
+</caption>
+<graphic xlink:href="peerj-04-1558-g012"></graphic>
+</fig>
+<p>Looking at potential indications of Propranolol that are currently being investigated by the scientific community we see three that are supported by our work. <italic>Dat</italic> contains an association between DRD1 and cocaine related disorders, with multiple clinical trials being undertaken to analyse the use of Propranolol as a treatment for cocaine addiction (<xref ref-type="bibr" rid="ref-37">NIDA, 2010</xref>) as well as cocaine cravings (<xref ref-type="bibr" rid="ref-40">Medical University of South Carolina, 2015</xref>). A trial looking at the use of Propranolol as a treatment for Autism is also, at the time of writing, recruiting (<xref ref-type="bibr" rid="ref-39">University of Missouri-Columbia, 2015</xref>). Finally, a clinical trial has also been undertaken to analyse the effects of using Propranolol as a treatment for drug-induced movement disorders (<xref ref-type="bibr" rid="ref-12">Merck Sharp &amp; Dohme Corp., 2014</xref>). We can see that our inferred D-T interactions allow us to predict repositioning opportunities that agree with the community.</p>
+</sec>
+</sec>
+</sec>
+<sec sec-type="discussion">
+<title>Discussion</title>
+<p>In this paper, we explore the concept of using semantic subgraphs as a way of inferring novel D-T interactions with the aim of using them to identify drug repositioning leads. We present and formalise semantic subgraphs, showing how they may present patterns indicative of drug repositioning opportunities. By employing a novel approach to reducing the target graph size prior to a search, and by breaking larger semantic subgraphs to a set of smaller subgraphs, DReSMin significantly improves on the performance of a purely topological approach to pattern matching. We also show how the approach can be used to automate the identification of novel D-T interactions in an integrated semantic network, with the aid of historical data. This real-world problem often requires searching for semantic subgraphs where |<italic>V</italic>(<italic>Q</italic>)| &gt; 4. The optimisations we have presented here makes searching for instances of these complicated subgraphs computationally tractable and scalable. We have shown an example of the application of DReSMin which highlights the potential of the approach.</p>
+<p>When comparing DReSMin to other state-of-the-art drug-target prediction methods we observe an average co-prediction of 35%. Although this still leaves a large proportion of unique inferences we show that DReSMin inferences identify &gt;16% of the knowns when using DBv3, and &gt;10% of the knowns when using <italic>DBv4</italic>, in comparison to ChEMBL. The ability of DReSMin to identify more of the knowns than ChEMBL supports the approach and provides evidence that the approach provides an improved prediction set. We then directly compared and contrasted the results and found DReSMin to outperform the ChEMBL models at inferring annotated DrugBank D-T interactions. Considering DReSMin is a general algorithm, not specifically developed for the inference of D-T interactions, this highlights its potential ability to compete with specialised approaches. Although the semantic subgraphs used to search <italic>Dat</italic> were derived from the shortest paths between a drug and target from D-T interactions in DBv3, these interactions were inferred, on average, by around 40 different semantic subgraphs. This is in contrast to the 15 semantic subgraphs that inferred D-T interactions not captured in DBv3. Again this validates the approach we employed during this work. Annotated D-T interactions were not only captured by the semantic subgraph derived from the semantic shortest path between their drug and target but also by many more.</p>
+<p>We show that DReSMin is able to identify known D-T interactions regardless of the class to which the target belongs. Having said this, the approach works better for target classes where there exists a relatively high amount of information, such as GPCRs and ion channels, whose knowns fall, on average, in the top 2% of inferred D-T interactions. Knowns involving other classes, such as kinases, for which there is less information, are still, on average, captured in the top 6% of all DReSMin inferred D-T associations. Our approach makes use of the holistic view of an entity and so if less is known about a target it will be captured in fewer semantic subgraphs and thus D-T interactions that it is predicted to be involved in will obtain a lower score. The data bias will become less of a problem as more and more data is produced for target classes such as proteases and kinases.</p>
+<p>Although DReSMin at present scores semantics based purely on the most abstract form of types, it could be beneficial to include scoring metrics based on node and edge attributes, and the data-sources from which they are retrieved. For example, during the process of data integration it would be useful to consider dataset quality during the construction of the integrated graph and apply annotations that indicate a measure of confidence in a given interaction. To this end we are currently developing a new integrated dataset that will allow provenance and data to reliability to be scored during a search. This modification will allow the scoring of semantic subgraphs to be not only topological and semantic but also based on the reliability of the source of each element.</p>
+<p>DReSMin is very capable of prioritising known D-T interactions, however, in order for inferences made to be useful to drug repositioning there are still some limitations that must be discussed. We illustrate these limitations with some examples. First of all, DReSMin infers an interaction between Dexrazoxane (<italic>DB00380</italic>) and Dactinomycin (<italic>DB00970</italic>) and the Sodium channel protein type 1 subunit alpha (<italic>P35498</italic>). This target is located predominantly in the brain and is heavily associated with epilepsy (<xref ref-type="bibr" rid="ref-34">Mantegazza et al., 2010</xref>; <xref ref-type="bibr" rid="ref-17">Escayg &amp; Goldin, 2010</xref>). To reach the brain a drug must cross the blood-brain barrier (BBB). Restricted by their pharmacokinetics, multiple drugs, such as Dexrazoxane (<italic>DB00380</italic>) and Dactinomycin (<italic>DB00970</italic>) (<xref ref-type="bibr" rid="ref-25">Holm et al., 1998</xref>), are unable to cross the BBB and so this inference is unlikely to highlight any realistic repositioning opportunity. Secondly, DReSMin infers D-T interactions involving drugs from a range of marketed states. Examples include drugs that have been withdrawn due to the fact that they are not as effective as first thought, such as Drotrecogin alfa (<italic>DB00055</italic>) in the treatment of sepsis, or due to poor sales, such as Halazepam (<italic>DB00801</italic>); interesting candidates for repositioning. Drugs that have been withdrawn from the market for reasons involving safety concerns prove a more problematic repositioning opportunity. Some examples are included in DReSMin inferences, such as drugs that have been withdrawn from market due to potentially fatal side effects, such as: Metamizole (<italic>DB04817</italic>); Grepafloxacin (<italic>DB00365</italic>); and Temafloxacin (<italic>DB01405</italic>). Finally, DReSMin inferred an association between Domperidone (<italic>DB01184</italic>) and the Beta-1 adrenergic receptor (<italic>P08588</italic>). Heart palpitations are a known side-effect of Domperidone and Beta-1 adrenergic antagonists, such as Propranolol have been administered to those suffering heart palpitations. One can thus deduce that Domperidone may have some agonistic action upon the Beta-1 adrenergic receptor. With these examples in mind other properties must be considered in further extensions to the approach. Drug properties, such as pharmacokinetics, in relation to the target location must be considered as well as a pre-filtering step to remove all drugs from the search that are likely unsafe. Post-filtering of results based on the likelihood of an D-T interaction prediction leading to a potential side-effect would also be a useful addition.</p>
+<p>In the approach described here semantic subgraphs are derived from only the node types and edge types that fall directly on the semantic shortest path between a drug and a target. In order for a semantic subgraph capture even more functional detail it may be beneficial to expand the view that the subgraph takes of its immediate neighbourhood. To this regard we are currently considering extending semantic subgraphs to include nodes that interact with those in the semantic shortest path at a particular depth.</p>
+<p>Although we present an exhaustive automated approach it is also worth noting that semantic subgraphs can be drawn from real life repositioning examples via manual curation. The manual development of semantic subgraphs, such as the one described in <xref ref-type="fig" rid="fig-1">Fig. 1</xref>, is time consuming. However, manually curated semantic subgraphs may allow for more accurate representations of a functional module capturing a potential drug repositioning opportunity, as opposed to those created via automated approaches. We hope to create a library of semantic subgraphs curated from real world examples of repositioned drugs and compare the accuracy and efficiency to the semantic subgraphs developed during this work.</p>
+<p>With regard to the mining algorithm, as new graph mining frameworks emerge with efficient graph searching algorithms (e.g. Neo4J), it may be possible to exploit these built in algorithms to implement sections of the approach we describe here. However, necessarily, the nature of these implementations will depend on the specific graph database.</p>
+<p>We have demonstrated that our algorithm may be used to infer D-T interactions, however, like all <italic>in silico</italic> approaches to analysing in vivo and in vitro systems the accuracy is limited; overly simplified settings innately struggle to reflect real-life problems. Our approach, unlike many other computational approaches to drug repositioning, is not limited to the inference of D-T interactions. Semantic subgraphs may be designed to infer relations between any <monospace>conceptClasses</monospace> in a dataset and can be used to infer a drugs indication, mode of action, side effect and more. We believe that the systems biology approach that we describe here will allow for a more accurate, holistic, systematic approach to drug repositioning.</p>
+</sec>
+<sec id="supplemental-information" sec-type="supplementary-material">
+<title>Supplemental Information</title>
+<supplementary-material content-type="local-data" id="supp-1">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-1</object-id>
+<label>Supplemental Information 1</label>
+<caption>
+<title>There are 19 different types of ConceptClass included in the dataset.</title>
+<p><italic>Notes:</italic> *Indicates data that was included in the updated dataset, used during this work.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s001.png">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-2">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-2</object-id>
+<label>Supplemental Information 2</label>
+<caption>
+<title>Increasing the edgeset of a semantic subgraph can actually improve the search time (in seconds) of a search.</title>
+<p><italic>Note:</italic> Random semantic subgraphs were created with |<italic>V</italic> (<italic>Q</italic>)| of 4. Edgesets (|<italic>E</italic> (<italic>Q)</italic>|) of the subgraphs ranged from 3–6. Random target graphs were created with node sets ranging from 1 × 10<sup>4</sup> to 1 x 10<sup>5</sup>. The algorithm used one of two parameters <italic>i</italic>) all elements of the match must be greater than <italic>ST</italic> (top) or <italic>ii</italic>) all elements must cumulatively be greater than the <italic>ST</italic> (bottom).</p>
+</caption>
+<media xlink:href="peerj-04-1558-s002.png">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-3">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-3</object-id>
+<label>Supplemental Information 3</label>
+<caption>
+<title>Accuracy of algorithm when altering target graph (<italic>G</italic>) connectivity</title>
+<p><italic>Note:</italic> Semantic subgraphs were created at random with a |<italic>V</italic> (<italic>Q</italic>)| of between 3 and 6. Runs were duplicated at least five times for each point in the graph, using the algorithm with two alternate parameters: i) all elements of the match must be greater than <italic>ST</italic> (top left and top right); and ii) all elements must cumulatively be greater than the <italic>ST</italic> (bottom left and bottom right). Graphs on the left show matches returned before and after spiking the target graph with 100 instances of the semantic subgraph that is to be searched for. Graphs on the right show the difference between the spiked (red) and non-spiked searches (black).</p>
+</caption>
+<media xlink:href="peerj-04-1558-s003.png">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-4">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-4</object-id>
+<label>Supplemental Information 4</label>
+<caption>
+<title>Accuracy of algorithm when altering target graph (<italic>G</italic>) size.</title>
+<p><italic>Note:</italic> Semantic subgraphs were created at random with a |<italic>V</italic> (<italic>Q</italic>)| of between 3 and 6. Runs were duplicated at least five times for each point in the graph, using the algorithm with two alternate parameters: i) all elements of the match must be greater than <italic>ST</italic> (top left and top right); and ii) all elements must cumulatively be greater than the <italic>ST</italic> (bottom left and bottom right). Graphs on the left show matches returned before and after spiking the target graph with 100 instances of the semantic subgraph that is to be searched for. Graphs on the right show the difference between the spiked (red) and non-spiked searches (black).</p>
+</caption>
+<media xlink:href="peerj-04-1558-s004.png">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-5">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-5</object-id>
+<label>Supplemental Information 5</label>
+<caption>
+<title>Scored Subgraphs.</title>
+<p>Left hand graph is a boxplot showing the semantic subgraph scores, with the mean score shown by a red point. Graph on the right shows the scores for subgraphs ranked based on ID. All subgraphs that scored &gt; maximum are labelled with their ID.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s005.png">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-6">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-6</object-id>
+<label>Supplemental Information 6</label>
+<caption>
+<title>There are 19 different types of ConceptClass included in the dataset.</title>
+<p><italic>Note:</italic> *Indicates data that was included in the updated dataset, used during this work.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s006.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-7">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-7</object-id>
+<label>Supplemental Information 7</label>
+<caption>
+<title>There are 42 different categories of RelationType included in the dataset.</title>
+<p><italic>Note:</italic> *Indicates data that was included in the updated dataset, used during this work.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s007.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-8">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-8</object-id>
+<label>Supplemental Information 8</label>
+<caption>
+<title>Valid RelationTypes and their context.</title>
+</caption>
+<media xlink:href="peerj-04-1558-s008.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-9">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-9</object-id>
+<label>Supplemental Information 9</label>
+<caption>
+<title>Scored subgraphs.</title>
+<p><italic>Note:</italic> # SP refers to the number of drug-target associations captured in DBv3 and not in our dataset whose shortest path is captured via this subgraph. # Interactions refers to the number of drug-target associations inferred via<italic> S</italic> and # Unique refers to non-redundant inferred drug-target associations. The number of the inferred interactions that are captured in DBv3 are shown in the # Valid column. <italic>S</italic> score is to five decimal places. As we were using a semantic distance of 0.8 subgraphs that maintain a common topology and a relatively similar semantics (e.g. 62, 63 and 64) can return the same set of mappings.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s009.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-10">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-10</object-id>
+<label>Supplemental Information 10</label>
+<caption>
+<title>Scored associations.</title>
+<p>Top 100 ranked drug-target associations inferred by DReSMin.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s010.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-11">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-11</object-id>
+<label>Supplemental Information 11</label>
+<caption>
+<title>Graph Split algorithm.</title>
+<p>Article provides a more concise description of the graph split component of DReSMin.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s011.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="supp-12">
+<object-id pub-id-type="doi">10.7717/peerj.1558/supp-12</object-id>
+<label>Supplemental Information 12</label>
+<caption>
+<title>Calculating Semantic Threshold.</title>
+<p>Article provides an explanation of the semantic threshold (<italic>ST</italic>) employed during this work.</p>
+</caption>
+<media xlink:href="peerj-04-1558-s012.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We would like to thank Dr Philipe Sanseau of GlaxoSmithKline Research &amp; Development Ltd for his guidance during this project. We also extend our gratitude to the ICOS Writing Group and acknowledge Bioinformatics Support Unit, both of Newcastle University for their discussions and manuscript input.</p>
+</ack>
+<sec sec-type="additional-information">
+<title>Additional Information and Declarations</title>
+<fn-group content-type="competing-interests">
+<title>Competing Interests</title>
+<fn fn-type="conflict" id="conflict-1">
+<p>Hannah Tipney and Peter M. Woollard are employees of GlaxoSmithKline.</p>
+</fn>
+</fn-group>
+<fn-group content-type="author-contributions">
+<title>Author Contributions</title>
+<fn fn-type="con" id="contribution-1">
+<p><xref ref-type="contrib" rid="author-1">Joseph Mullen</xref> conceived and designed the experiments, performed the experiments, analyzed the data, wrote the paper, prepared figures and/or tables, reviewed drafts of the paper.</p>
+</fn>
+<fn fn-type="con" id="contribution-2">
+<p><xref ref-type="contrib" rid="author-2">Simon J. Cockell</xref> conceived and designed the experiments, analyzed the data, wrote the paper, reviewed drafts of the paper.</p>
+</fn>
+<fn fn-type="con" id="contribution-3">
+<p><xref ref-type="contrib" rid="author-3">Hannah Tipney</xref> conceived and designed the experiments, wrote the paper, reviewed drafts of the paper.</p>
+</fn>
+<fn fn-type="con" id="contribution-4">
+<p><xref ref-type="contrib" rid="author-4">Peter M. Woollard</xref> conceived and designed the experiments, wrote the paper, reviewed drafts of the paper.</p>
+</fn>
+<fn fn-type="con" id="contribution-5">
+<p><xref ref-type="contrib" rid="author-5">Anil Wipat</xref> conceived and designed the experiments, analyzed the data, wrote the paper, reviewed drafts of the paper.</p>
+</fn>
+</fn-group>
+<fn-group content-type="other">
+<title>Data Deposition</title>
+<fn id="addinfo-1">
+<p>The following information was supplied regarding data availability:</p>
+<p>
+<uri xlink:href="https://bitbucket.org/ncl-intbio/dresmin">https://bitbucket.org/ncl-intbio/dresmin</uri>
+</p>
+</fn>
+</fn-group>
+</sec>
+<ref-list content-type="authoryear">
+<title>References</title>
+<ref id="ref-1">
+<label>Alvarsson et al. (2014)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Alvarsson</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Eklund</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Engkvist</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Spjuth</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Carlsson</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Wikberg</surname>
+<given-names>JES</given-names>
+</name>
+<name>
+<surname>Noeske</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Ligand-based target prediction with signature fingerprints</article-title>
+<source/>Journal of Chemical Information and Modeling
+          <year>2014</year>
+<volume>54</volume>
+<issue>10</issue>
+<fpage>2647</fpage>
+<lpage>2653</lpage>
+<pub-id pub-id-type="pmid">25230336</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-2">
+<label>Barratt &amp; Frail (2012)</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Barratt</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Frail</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<source/>Drug Repositioning: Bringing New Life to Shelved Assets and Existing Drugs
+          <year>2012</year>
+<publisher-loc>UK</publisher-loc>
+<publisher-name>Wiley</publisher-name>
+<pub-id pub-id-type="doi">10.1002/9781118274408</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-3">
+<label>Bauer-Mehren et al. (2010)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bauer-Mehren</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Rautschka</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sanz</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Furlong</surname>
+<given-names>LI</given-names>
+</name>
+</person-group>
+<article-title>DisGeNET: a cytoscape plugin to visualize, integrate, search and analyze gene-disease networks</article-title>
+<source/>Bioinformatics
+          <year>2010</year>
+<volume>26</volume>
+<issue>22</issue>
+<fpage>2924</fpage>
+<lpage>2926</lpage>
+<pub-id pub-id-type="pmid">20861032</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-4">
+<label>Betzler (2011)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Betzler</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>van Bevern</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Fellows</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Komusiewicz</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Niedermeier</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Parameterized algorithmics for finding connected motifs in biological networks</article-title>
+<source/>IEEE/ACM Transactions on Computational Biology and Bioinformatics/IEEE, ACM
+          <year>2011</year>
+<volume>8</volume>
+<issue>5</issue>
+<fpage>1296</fpage>
+<lpage>1308</lpage>
+</element-citation>
+</ref>
+<ref id="ref-5">
+<label>Bull &amp; Doig (2015)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bull</surname>
+<given-names>SC</given-names>
+</name>
+<name>
+<surname>Doig</surname>
+<given-names>AJ</given-names>
+</name>
+</person-group>
+<article-title>Properties of protein drug target classes</article-title>
+<source/>PLoS ONE
+          <year>2015</year>
+<volume>10</volume>
+<issue>3</issue>
+<elocation-id>e1558</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0117955</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-6">
+<label>Chambers (2013)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chambers</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gaulton</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hersey</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Velankar</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Petryszak</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Hastings</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bellis</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>McGlinchey</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Overington</surname>
+<given-names>JP</given-names>
+</name>
+</person-group>
+<article-title>Unichem: a unified chemical structure cross-referencing and identifier tracking system</article-title>
+<source/>Journal of Cheminformatics
+          <year>2013</year>
+<volume>5</volume>
+<issue>1</issue>
+<fpage>3</fpage>
+<pub-id pub-id-type="doi">10.1186/1758-2946-5-3</pub-id>
+<pub-id pub-id-type="pmid">23317286</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-7">
+<label>Chen, Ding &amp; Wild (2012)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Ding</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wild</surname>
+<given-names>DJ</given-names>
+</name>
+</person-group>
+<article-title>Assessing drug target association using semantic linked data</article-title>
+<source/>PLoS Computational Biology
+          <year>2012</year>
+<volume>8</volume>
+<issue>7</issue>
+<elocation-id>e1558</elocation-id>
+</element-citation>
+</ref>
+<ref id="ref-8">
+<label>Cockell (2010)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cockell</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Weile</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lord</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Wipat</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Andriychenko</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Pocock</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wilkinson</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Young</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wipat</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>An integrated dataset for in silico drug discovery</article-title>
+<source/>Journal of Integrative Bioinformatics
+          <year>2010</year>
+<volume>7</volume>
+<issue>3</issue>
+<pub-id pub-id-type="doi">10.2390/biecoll-jib-2010-116</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-9">
+<label>Conte et al. (2004)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Conte</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Foggia</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Sansone</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Vento</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Thirty years of graph matching in pattern recognition</article-title>
+<source/>International Journal of Pattern Recognition and Artificial Intelligence
+          <year>2004</year>
+<volume>18</volume>
+<issue>3</issue>
+<fpage>265</fpage>
+<lpage>298</lpage>
+<pub-id pub-id-type="doi">10.1142/S0218001404003228</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-10">
+<label>Cordella et al. (1999)</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Cordella</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Foggia</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Sansone</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Vento</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Performance evaluation of the VF graph matching algorithm</article-title>
+<year>1999</year>
+<conf-name>Proceeding ICIAP’99 Proceedings of the 10th International Conference on Image Analysis and Processing</conf-name>
+<conf-loc>Venice</conf-loc>
+<fpage>1172</fpage>
+<lpage>1177</lpage>
+<pub-id pub-id-type="doi">10.1109/ICIAP.1999.797762</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-11">
+<label>Cordella (2004)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cordella</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Foggia</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Sansone</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Vento</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>A (sub)graph isomorphism algorithm for matching large graphs</article-title>
+<source/>IEEE Transactions on Pattern Analysis and Machine Intelligence
+          <year>2004</year>
+<volume>26</volume>
+<issue>10</issue>
+<fpage>1367</fpage>
+<lpage>1372</lpage>
+<pub-id pub-id-type="pmid">15641723</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-13">
+<label>Dijkstra (1959)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dijkstra</surname>
+<given-names>EW</given-names>
+</name>
+</person-group>
+<article-title>A note on two problems in connexion with graphs</article-title>
+<source/>Numerische Mathematik
+          <year>1959</year>
+<volume>1</volume>
+<issue>1</issue>
+<fpage>269</fpage>
+<lpage>271</lpage>
+</element-citation>
+</ref>
+<ref id="ref-14">
+<label>Ding (2014)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ding</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Takigawa</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Mamitsuka</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Similarity-based machine learning methods for predicting drug-target interactions: a brief review</article-title>
+<source/>Briefings in Bioinformatics
+          <year>2014</year>
+<volume>15</volume>
+<issue>5</issue>
+<fpage>734</fpage>
+<lpage>747</lpage>
+<pub-id pub-id-type="pmid">23933754</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-15">
+<label>Djoko, Cook &amp; Holder (1997)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Djoko</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Cook</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Holder</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>An empirical study of domain knowledge and its benefits to substructure discovery</article-title>
+<source/>IEEE Transactions on Knowledge and Data Engineering
+          <year>1997</year>
+<volume>9</volume>
+<issue>4</issue>
+<fpage>575</fpage>
+<lpage>586</lpage>
+</element-citation>
+</ref>
+<ref id="ref-16">
+<label>Dudley, Deshpande &amp; Butte (2011)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dudley</surname>
+<given-names>JT</given-names>
+</name>
+<name>
+<surname>Deshpande</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Butte</surname>
+<given-names>AJ</given-names>
+</name>
+</person-group>
+<article-title>Exploiting drug–disease relationships for computational drug repositioning</article-title>
+<source/>Briefings in Bioinformatics
+          <year>2011</year>
+<volume>12</volume>
+<issue>4</issue>
+<fpage>303</fpage>
+<lpage>311</lpage>
+<pub-id pub-id-type="pmid">21690101</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-17">
+<label>Escayg &amp; Goldin (2010)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Escayg</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Goldin</surname>
+<given-names>AL</given-names>
+</name>
+</person-group>
+<article-title>Sodium channel scn1a and epilepsy: mutations and mechanisms</article-title>
+<source/>Epilepsia
+          <year>2010</year>
+<volume>51</volume>
+<issue>9</issue>
+<fpage>1650</fpage>
+<lpage>1658</lpage>
+<pub-id pub-id-type="pmid">20831750</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-18">
+<label>Fakhraei et al. (2014)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fakhraei</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Raschid</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Getoor</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Network-based drug-target interaction prediction with probabilistic soft logic</article-title>
+<source/>IEEE/ACM Transactions on Computational Biology and Bioinformatics/IEEE, ACM
+          <year>2014</year>
+<volume>11</volume>
+<issue>5</issue>
+<fpage>775</fpage>
+<lpage>787</lpage>
+</element-citation>
+</ref>
+<ref id="ref-19">
+<label>Gallagher (2006)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gallagher</surname>
+<given-names>B</given-names>
+</name>
+</person-group>
+<article-title>Matching structure and semantics: a survey on graph-based pattern matching</article-title>
+<source/>AAAI FS
+          <year>2006</year>
+<volume>6</volume>
+<fpage>45</fpage>
+<lpage>53</lpage>
+</element-citation>
+</ref>
+<ref id="ref-20">
+<label>Ge &amp; Qiu (2008)</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Ge</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Qiu</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Concept similarity matching based on semantic distance</article-title>
+<year>2008</year>
+<conf-name>Fourth International Conference on Semantics, Knowledge and Grid</conf-name>
+<conf-date>3–5 Dec. 2008</conf-date>
+<publisher-loc>Beijing, China</publisher-loc>
+<publisher-name>IEEE</publisher-name>
+<fpage>380</fpage>
+<lpage>383</lpage>
+<pub-id pub-id-type="doi">10.1109/skg.2008.24</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-21">
+<label>Giugno &amp; Shasha (2002)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Giugno</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Shasha</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>GraphGrep: a fast and universal method for querying graphs</article-title>
+<source/>Pattern Recognition In: Proceedings. 16th International Conference on
+          <year>2002</year>
+<volume>2</volume>
+<fpage>112</fpage>
+<lpage>115</lpage>
+<pub-id pub-id-type="doi">10.1109/ICPR.2002.1048250</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-22">
+<label>Gobbo &amp; Louzã (2014)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gobbo</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Louzã</surname>
+<given-names>MR</given-names>
+</name>
+</person-group>
+<article-title>Influence of stimulant and non-stimulant drug treatment on driving performance in patients with attention deficit hyperactivity disorder: a systematic review</article-title>
+<source/>European Neuropsychopharmacology
+          <year>2014</year>
+<volume>24</volume>
+<issue>9</issue>
+<fpage>1425</fpage>
+<lpage>1443</lpage>
+<pub-id pub-id-type="pmid">25044052</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-23">
+<label>He et al. (2011)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>He</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Ding</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Moorthy</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Qiu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Desai</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Wild</surname>
+<given-names>DJ</given-names>
+</name>
+</person-group>
+<article-title>Mining relational paths in integrated biomedical data</article-title>
+<source/>PLoS ONE
+          <year>2011</year>
+<volume>6</volume>
+<issue>12</issue>
+<elocation-id>e1558</elocation-id>
+</element-citation>
+</ref>
+<ref id="ref-24">
+<label>He &amp; Singh (2008)</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>He</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Singh</surname>
+<given-names>AK</given-names>
+</name>
+</person-group>
+<article-title>Graphs-at-a-time: query language and access methods for graph databases</article-title>
+<year>2008</year>
+<conf-name>SIGMOD ’08 Proceedings of the 2008 ACM SIGMOD international conference on Management of data</conf-name>
+<publisher-name>ACM Press</publisher-name>
+<fpage>405</fpage>
+<lpage>418</lpage>
+<pub-id pub-id-type="doi">10.1145/1376616.1376660</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-25">
+<label>Holm, Sehested &amp; Jensen (1998)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Holm</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Sehested</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Jensen</surname>
+<given-names>PB</given-names>
+</name>
+</person-group>
+<article-title>Improved targeting of brain tumors using dexrazoxane rescue of topoisomerase ii combined with supralethal doses of etoposide and teniposide</article-title>
+<source/>Clinical Cancer Research
+          <year>1998</year>
+<volume>4</volume>
+<issue>6</issue>
+<fpage>1367</fpage>
+<lpage>1373</lpage>
+<pub-id pub-id-type="pmid">9626452</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-26">
+<label>Hurle et al. (2013)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hurle</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Xie</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Rajpal</surname>
+<given-names>DK</given-names>
+</name>
+<name>
+<surname>Sanseau</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Agarwal</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Computational drug repositioning: from data to therapeutics</article-title>
+<source/>Clinical Pharmacology and Therapeutics
+          <year>2013</year>
+<volume>93</volume>
+<issue>4</issue>
+<fpage>335</fpage>
+<lpage>341</lpage>
+<pub-id pub-id-type="pmid">23443757</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-27">
+<label>Iskar et al. (2012)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iskar</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Zeller</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>X-M</given-names>
+</name>
+<name>
+<surname>van Noort</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Bork</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Drug discovery in the age of systems biology: the rise of computational approaches for data integration</article-title>
+<source/>Current Opinion in Biotechnology
+          <year>2012</year>
+<volume>23</volume>
+<issue>4</issue>
+<fpage>609</fpage>
+<lpage>616</lpage>
+<pub-id pub-id-type="pmid">22153034</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-28">
+<label>Keiser et al. (2009)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Keiser</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Setola</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Irwin</surname>
+<given-names>JJ</given-names>
+</name>
+<name>
+<surname>Laggner</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Abbas</surname>
+<given-names>AI</given-names>
+</name>
+<name>
+<surname>Hufeisen</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Jensen</surname>
+<given-names>NH</given-names>
+</name>
+<name>
+<surname>Kuijer</surname>
+<given-names>MB</given-names>
+</name>
+<name>
+<surname>Matos</surname>
+<given-names>RC</given-names>
+</name>
+<name>
+<surname>Tran</surname>
+<given-names>TB</given-names>
+</name>
+<name>
+<surname>Whaley</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Glennon</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Hert</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>KLH</given-names>
+</name>
+<name>
+<surname>Edwards</surname>
+<given-names>DD</given-names>
+</name>
+<name>
+<surname>Shoichet</surname>
+<given-names>BK</given-names>
+</name>
+<name>
+<surname>Roth</surname>
+<given-names>BL</given-names>
+</name>
+</person-group>
+<article-title>Predicting new molecular targets for known drugs</article-title>
+<source/>Nature
+          <year>2009</year>
+<volume>462</volume>
+<issue>7270</issue>
+<fpage>175</fpage>
+<lpage>181</lpage>
+<pub-id pub-id-type="pmid">19881490</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-29">
+<label>Knox et al. (2011)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Knox</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Law</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Jewison</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Ly</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Frolkis</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Pon</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Banco</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Mak</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Neveu</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Djoumbou</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Eisner</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Guo</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Wishart</surname>
+<given-names>DS</given-names>
+</name>
+</person-group>
+<article-title>DrugBank 3.0: a comprehensive resource for ‘omics’ research on drugs</article-title>
+<source/>Nucleic Acids Research
+          <year>2011</year>
+<volume>39</volume>
+<issue>Database issue</issue>
+<fpage>D1035</fpage>
+<lpage>D1041</lpage>
+<pub-id pub-id-type="pmid">21059682</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-30">
+<label>K¨ohler et al. (2006)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Köhler</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Baumbach</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Taubert</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Specht</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Skusa</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Rüegg</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Rawlings</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Verrier</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Philippi</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Graph-based analysis and visualization of experimental results with ONDEX</article-title>
+<source/>Bioinformatics
+          <year>2006</year>
+<volume>22</volume>
+<issue>11</issue>
+<fpage>1383</fpage>
+<lpage>1390</lpage>
+<pub-id pub-id-type="pmid">16533819</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-31">
+<label>Lacroix, Fernandes &amp; Sagot (2006)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lacroix</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Fernandes</surname>
+<given-names>CG</given-names>
+</name>
+<name>
+<surname>Sagot</surname>
+<given-names>M-F</given-names>
+</name>
+</person-group>
+<article-title>Motif search in graphs: application to metabolic networks</article-title>
+<source/>IEEE/ACM Transactions on Computational Biology and Bioinformatics/IEEE, ACM
+          <year>2006</year>
+<volume>3</volume>
+<issue>4</issue>
+<fpage>360</fpage>
+<lpage>368</lpage>
+</element-citation>
+</ref>
+<ref id="ref-32">
+<label>Lamb et al. (2006)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lamb</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Crawford</surname>
+<given-names>ED</given-names>
+</name>
+<name>
+<surname>Peck</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Modell</surname>
+<given-names>JW</given-names>
+</name>
+<name>
+<surname>Blat</surname>
+<given-names>IC</given-names>
+</name>
+<name>
+<surname>Wrobel</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Lerner</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Brunet</surname>
+<given-names>J-P</given-names>
+</name>
+<name>
+<surname>Subramanian</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Ross</surname>
+<given-names>KN</given-names>
+</name>
+<name>
+<surname>Reich</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hieronymus</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Armstrong</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Haggarty</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Clemons</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Carr</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Lander</surname>
+<given-names>ES</given-names>
+</name>
+<name>
+<surname>Golub</surname>
+<given-names>TR</given-names>
+</name>
+</person-group>
+<article-title>The connectivity map: using gene-expression signatures to connect small molecules, genes, and disease</article-title>
+<source/>Science
+          <year>2006</year>
+<volume>313</volume>
+<issue>5795</issue>
+<fpage>1929</fpage>
+<lpage>1935</lpage>
+<pub-id pub-id-type="pmid">17008526</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-33">
+<label>Lee, Park &amp; Kim (2009)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Building a drug-target network and its applications</article-title>
+<source/>Expert Opinion on Drug Discovery
+          <year>2009</year>
+<volume>4</volume>
+<issue>11</issue>
+<fpage>1177</fpage>
+<lpage>1189</lpage>
+<pub-id pub-id-type="pmid">23480435</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-34">
+<label>Mantegazza et al. (2010)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mantegazza</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Curia</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Biagini</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Ragsdale</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Avoli</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Voltage-gated sodium channels as therapeutic targets in epilepsy and other neurological disorders</article-title>
+<source/>The Lancet Neurology
+          <year>2010</year>
+<volume>9</volume>
+<issue>4</issue>
+<fpage>413</fpage>
+<lpage>424</lpage>
+<pub-id pub-id-type="pmid">20298965</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-40">
+<label>Medical University of South Carolina (2015)</label>
+<element-citation publication-type="other">
+<person-group person-group-type="author">
+<collab>
+<institution>Medical University of South Carolina</institution>
+</collab>
+</person-group>
+<article-title>Enhancing disrupted reconsolidation: impact on cocaine craving</article-title>
+<year>2015</year>
+<comment><italic>Available from <uri xlink:href="https://clinicaltrials.gov/ct2/show/NCT01822587">https://clinicaltrials.gov/ct2/show/NCT01822587</uri></italic> (cited 2015 April 27)</comment>
+</element-citation>
+</ref>
+<ref id="ref-12">
+<label>Merck Sharp &amp; Dohme Corp. (2014)</label>
+<element-citation publication-type="other">
+<person-group person-group-type="author">
+<collab>
+<institution>Merck Sharp &amp; Dohme Corp.</institution>
+</collab>
+</person-group>
+<article-title>Study of preladenant for the treatment of neuroleptic induced akathisia</article-title>
+<year>2014</year>
+<comment><italic>Available from <uri xlink:href="https://clinicaltrials.gov/ct2/show/NCT00693472">https://clinicaltrials.gov/ct2/show/NCT00693472</uri></italic> (cited 2015 April 27)</comment>
+</element-citation>
+</ref>
+<ref id="ref-35">
+<label>Mitchell (1993)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mitchell</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Chlorpromazine turns forty</article-title>
+<source/>Australian and New Zealand Journal of Psychiatry
+          <year>1993</year>
+<volume>27</volume>
+<issue>3</issue>
+<fpage>370</fpage>
+<lpage>373</lpage>
+<pub-id pub-id-type="pmid">8250778</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-36">
+<label>Moriaud et al. (2011)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moriaud</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Richard</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Adcock</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Chanas-Martin</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Surgand</surname>
+<given-names>J-S</given-names>
+</name>
+<name>
+<surname>Jelloul</surname>
+<given-names>MB</given-names>
+</name>
+<name>
+<surname>Delfaud</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<article-title>Identify drug repurposing candidates by mining the protein data bank</article-title>
+<source/>Briefings in Bioinformatics
+          <year>2011</year>
+<volume>12</volume>
+<issue>4</issue>
+<fpage>336</fpage>
+<lpage>340</lpage>
+<pub-id pub-id-type="pmid">21768131</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-37">
+<label>NIDA (2010)</label>
+<element-citation publication-type="other">
+<person-group person-group-type="author">
+<collab>
+<institution>NIDA</institution>
+</collab>
+</person-group>
+<article-title>Propranolol for treatment of cocaine addiction - 2</article-title>
+<year>2010</year>
+<comment><italic>Available from <uri xlink:href="https://clinicaltrials.gov/ct2/show/NCT00000197">https://clinicaltrials.gov/ct2/show/NCT00000197</uri></italic> (cited 2015 April 27)</comment>
+</element-citation>
+</ref>
+<ref id="ref-38">
+<label>Noy (2004)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Noy</surname>
+<given-names>NF</given-names>
+</name>
+</person-group>
+<article-title>Semantic integration: a survey of ontology-based approaches</article-title>
+<source/>ACM SIGMOD Record
+          <year>2004</year>
+<volume>33</volume>
+<issue>4</issue>
+<fpage>65</fpage>
+<lpage>70</lpage>
+<pub-id pub-id-type="doi">10.1145/1041410.1041421</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-41">
+<label>Palma, Vidal &amp; Raschid (2014)</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Palma</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Vidal</surname>
+<given-names>M-E</given-names>
+</name>
+<name>
+<surname>Raschid</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<person-group person-group-type="editor">
+<name>
+<surname>Mika</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Tudorache</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Bernstein</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Welty</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Knoblock</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Vrandefcifa</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Groth</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Noy</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Janowicz</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Goble</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Drug-target interaction prediction using semantic similarity and edge partitioning</article-title>
+<source/>The Semantic Web, AI ISWC 2014
+          <year>2014</year>
+<volume>8796</volume>
+<series>Lecture Notes in Computer Science</series>
+<fpage>131</fpage>
+<lpage>146</lpage>
+<publisher-loc>Italy</publisher-loc>
+<publisher-name>Springer International Publishing</publisher-name>
+<pub-id pub-id-type="doi">10.1007/978-3-319-11964-9_9</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-42">
+<label>Riaz &amp; Ali (2011)</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Riaz</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Ali</surname>
+<given-names>KM</given-names>
+</name>
+</person-group>
+<article-title>Applications of graph theory in computer science</article-title>
+<year>2011</year>
+<conf-name>Third International Conference on Computational Intelligence, Communication Systems and Networks</conf-name>
+<conf-date>26–28 July 2011</conf-date>
+<publisher-loc>Bali</publisher-loc>
+<publisher-name>IEEE</publisher-name>
+<fpage>142</fpage>
+<lpage>145</lpage>
+<pub-id pub-id-type="doi">10.1109/cicsyn.2011.40</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-43">
+<label>Rukhadze et al. (2001)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rukhadze</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Bezarashvili</surname>
+<given-names>GS</given-names>
+</name>
+<name>
+<surname>Sidamonidze</surname>
+<given-names>NS</given-names>
+</name>
+<name>
+<surname>Tsagareli</surname>
+<given-names>SK</given-names>
+</name>
+</person-group>
+<article-title>Investigation of binding process of chlorpromazine to bovine serum albumin by means of passive and active experiments</article-title>
+<source/>Biomedical Chromatography
+          <year>2001</year>
+<volume>15</volume>
+<issue>6</issue>
+<fpage>365</fpage>
+<lpage>373</lpage>
+<pub-id pub-id-type="pmid">11559920</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-44">
+<label>Sanseau et al. (2012)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sanseau</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Agarwal</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Barnes</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Pastinen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Richards</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Cardon</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Mooser</surname>
+<given-names>V</given-names>
+</name>
+</person-group>
+<article-title>Use of genome-wide association studies for drug repositioning</article-title>
+<source/>Nature Biotechnology
+          <year>2012</year>
+<volume>30</volume>
+<issue>4</issue>
+<fpage>317</fpage>
+<lpage>320</lpage>
+</element-citation>
+</ref>
+<ref id="ref-45">
+<label>Seid &amp; Mehrotra (2011)</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Seid</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Mehrotra</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Semantically ranked graph pattern queries for link analysis</article-title>
+<year>2007</year>
+<conf-name>Intelligence and Security Informatics</conf-name>
+<conf-date>23–24 May 2007</conf-date>
+<publisher-loc>New Brunswick, NJ</publisher-loc>
+<publisher-name>IEEE</publisher-name>
+<fpage>296</fpage>
+<lpage>299</lpage>
+<pub-id pub-id-type="doi">10.1109/ISI.2007.379488</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-46">
+<label>Ullmann (1976)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ullmann</surname>
+<given-names>JR</given-names>
+</name>
+</person-group>
+<article-title>An algorithm for subgraph isomorphism</article-title>
+<source/>Journal of the ACM
+          <year>1976</year>
+<volume>23</volume>
+<issue>1</issue>
+<fpage>31</fpage>
+<lpage>42</lpage>
+</element-citation>
+</ref>
+<ref id="ref-47">
+<label>UniProt Consortium (2013)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<collab>
+<institution>UniProt Consortium</institution>
+</collab>
+</person-group>
+<article-title>Update on activities at the universal protein resource (UniProt)</article-title>
+<source/>Nucleic Acids Research
+          <year>2013</year>
+<volume>41</volume>
+<issue>Database issue</issue>
+<fpage>D43</fpage>
+<lpage>D47</lpage>
+<pub-id pub-id-type="pmid">23161681</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-39">
+<label>University of Missouri-Columbia (2015)</label>
+<element-citation publication-type="other">
+<person-group person-group-type="author">
+<collab>
+<institution>University of Missouri-Columbia</institution>
+</collab>
+</person-group>
+<article-title>Trial of propranolol in adults and adolescents with ASD and predictors of response</article-title>
+<year>2015</year>
+<comment><italic>Available from <uri xlink:href="https://clinicaltrials.gov/ct2/show/NCT02414451">https://clinicaltrials.gov/ct2/show/NCT02414451</uri></italic> (cited 2015 April 27)</comment>
+</element-citation>
+</ref>
+<ref id="ref-48">
+<label>Washio &amp; Motoda (2003)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Washio</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Motoda</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>State of the art of graph-based data mining</article-title>
+<source/>ACM SIGKDD Explorations Newsletter
+          <year>2003</year>
+<volume>5</volume>
+<issue>1</issue>
+<fpage>59</fpage>
+<lpage>68</lpage>
+<pub-id pub-id-type="doi">10.1145/959242.959249</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-49">
+<label>Wishart (2006)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wishart</surname>
+<given-names>DS</given-names>
+</name>
+</person-group>
+<article-title>DrugBank: a comprehensive resource for in silico drug discovery and exploration</article-title>
+<source/>Nucleic Acids Research
+          <year>2006</year>
+<volume>34</volume>
+<issue>90001</issue>
+<fpage>D668</fpage>
+<lpage>D672</lpage>
+<pub-id pub-id-type="pmid">16381955</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-50">
+<label>Yamanishi et al. (2008)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yamanishi</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Araki</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gutteridge</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Honda</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Kanehisa</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Prediction of drug-target interaction networks from the integration of chemical and genomic spaces</article-title>
+<source/>Bioinformatics
+          <year>2008</year>
+<volume>24</volume>
+<issue>13</issue>
+<fpage>i232</fpage>
+<lpage>i240</lpage>
+<pub-id pub-id-type="pmid">18586719</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-51">
+<label>Yamanishi et al. (2010)</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yamanishi</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Kotera</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kanehisa</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Goto</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Drug-target interaction prediction from chemical, genomic and pharmacological data in an integrated framework</article-title>
+<source/>Bioinformatics
+          <year>2010</year>
+<volume>26</volume>
+<issue>12</issue>
+<fpage>i246</fpage>
+<lpage>i254</lpage>
+<pub-id pub-id-type="pmid">20529913</pub-id>
+</element-citation>
+</ref>
+<ref id="ref-52">
+<label>Yang &amp; Agarwal</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Agarwal</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Systematic drug repositioning based on clinical side-effects</article-title>
+<source/>PLoS ONE
+          <year>2011</year>
+<volume>6</volume>
+<issue>12</issue>
+<elocation-id>e1558</elocation-id>
+</element-citation>
+</ref>
+<ref id="ref-53">
+<label>Zhang, Li &amp; Yang (2009)</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>GADDI: distance index based subgraph matching in biological networks</article-title>
+<year>2009</year>
+<conf-name>EDBT ’09 Proceedings of the 12th International Conference on Extending Database Technology: Advances in Database Technology</conf-name>
+<publisher-loc>New York</publisher-loc>
+<publisher-name>ACM Press</publisher-name>
+<fpage>192</fpage>
+<lpage>203</lpage>
+<pub-id pub-id-type="doi">10.1145/1516360.1516384</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

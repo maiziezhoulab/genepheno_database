@@ -1,0 +1,906 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Bioinformatics</journal-id>
+<journal-id journal-id-type="iso-abbrev">Bioinformatics</journal-id>
+<journal-id journal-id-type="publisher-id">bioinformatics</journal-id>
+<journal-title-group>
+<journal-title>Bioinformatics</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1367-4803</issn>
+<issn pub-type="epub">1367-4811</issn>
+<publisher>
+<publisher-name>Oxford University Press</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32129827</article-id>
+<article-id pub-id-type="pmc">7267831</article-id>
+<article-id pub-id-type="doi">10.1093/bioinformatics/btaa150</article-id>
+<article-id pub-id-type="publisher-id">btaa150</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Original Papers</subject>
+<subj-group subj-group-type="category-toc-heading">
+<subject>Systems Biology</subject>
+</subj-group>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Supervised learning is an accurate method for network-based gene classification</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>Renming</given-names>
+</name>
+<xref ref-type="aff" rid="btaa150-aff1">b1</xref>
+<xref ref-type="author-notes" rid="btaa150-FM1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Mancuso</surname>
+<given-names>Christopher A</given-names>
+</name>
+<xref ref-type="aff" rid="btaa150-aff1">b1</xref>
+<xref ref-type="author-notes" rid="btaa150-FM1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Yannakopoulos</surname>
+<given-names>Anna</given-names>
+</name>
+<xref ref-type="aff" rid="btaa150-aff1">b1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Johnson</surname>
+<given-names>Kayla A</given-names>
+</name>
+<xref ref-type="aff" rid="btaa150-aff1">b1</xref>
+<xref ref-type="aff" rid="btaa150-aff2">b2</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0002-7980-4110</contrib-id>
+<name>
+<surname>Krishnan</surname>
+<given-names>Arjun</given-names>
+</name>
+<xref ref-type="aff" rid="btaa150-aff1">b1</xref>
+<xref ref-type="aff" rid="btaa150-aff2">b2</xref>
+<xref ref-type="corresp" rid="btaa150-cor1"></xref>
+<!--<email>arjun@msu.edu</email>-->
+</contrib>
+</contrib-group>
+<contrib-group>
+<contrib contrib-type="editor">
+<name>
+<surname>Lu</surname>
+<given-names>Zhiyong</given-names>
+</name>
+<role>Associate Editor</role>
+</contrib>
+</contrib-group>
+<aff id="btaa150-aff1"><label>b1</label>
+<institution>Department of Computational Mathematics</institution>, Science and Engineering</aff>
+<aff id="btaa150-aff2"><label>b2</label>
+<institution>Department of Biochemistry and Molecular Biology</institution>, Michigan State University, East Lansing, MI 48824, <country country="US">USA</country></aff>
+<author-notes>
+<fn id="btaa150-FM1">
+<p>The authors wish it to be known that, in their opinion, the first two authors should be regarded as Joint First Authors.</p>
+</fn>
+<corresp id="btaa150-cor1">To whom correspondence should be addressed. Email: <email>arjun@msu.edu</email></corresp>
+</author-notes>
+<pub-date pub-type="ppub">
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date iso-8601-date="2020-04-14" pub-type="epub">
+<day>14</day>
+<month>4</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>14</day>
+<month>4</month>
+<year>2020</year>
+</pub-date>
+<!-- PMC Release delay is 0 months and 0 days and was based on the <pub-date pub-type="epub"/>. -->
+<volume>36</volume>
+<issue>11</issue>
+<fpage>3457</fpage>
+<lpage>3465</lpage>
+<history>
+<date date-type="received">
+<day>26</day>
+<month>8</month>
+<year>2019</year>
+</date>
+<date date-type="rev-recd">
+<day>01</day>
+<month>12</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>27</day>
+<month>2</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2020. Published by Oxford University Press.</copyright-statement>
+<copyright-year>2020</copyright-year>
+<license license-type="cc-by" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+</license>
+</permissions>
+<self-uri xlink:href="btaa150.pdf"></self-uri>
+<abstract>
+<title>Abstract</title>
+<sec id="s1">
+<title>Background</title>
+<p>Assigning every human gene to specific functions, diseases and traits is a grand challenge in modern genetics. Key to addressing this challenge are computational methods, such as supervised learning and label propagation, that can leverage molecular interaction networks to predict gene attributes. In spite of being a popular machine-learning technique across fields, supervised learning has been applied only in a few network-based studies for predicting pathway-, phenotype- or disease-associated genes. It is unknown how supervised learning broadly performs across different networks and diverse gene classification tasks, and how it compares to label propagation, the widely benchmarked canonical approach for this problem.</p>
+</sec>
+<sec id="s2">
+<title>Results</title>
+<p>In this study, we present a comprehensive benchmarking of supervised learning for network-based gene classification, evaluating this approach and a classic label propagation technique on hundreds of diverse prediction tasks and multiple networks using stringent evaluation schemes. We demonstrate that supervised learning on a gene’s full network connectivity outperforms label propagaton and achieves high prediction accuracy by efficiently capturing local network properties, rivaling label propagation’s appeal for naturally using network topology. We further show that supervised learning on the full network is also superior to learning on node embeddings (derived using <italic>node2vec</italic>), an increasingly popular approach for concisely representing network connectivity. These results show that supervised learning is an accurate approach for prioritizing genes associated with diverse functions, diseases and traits and should be considered a staple of network-based gene classification workflows.</p>
+</sec>
+<sec id="s3">
+<title>Availability and implementation</title>
+<p>The datasets and the code used to reproduce the results and add new gene classification methods have been made freely available.</p>
+</sec>
+<sec id="s4">
+<title>Contact</title>
+<p>
+<email>arjun@msu.edu</email>
+</p>
+</sec>
+<sec id="s5">
+<title>Supplementary information</title>
+<p>
+<xref ref-type="supplementary-material" rid="sup1">Supplementary data</xref> are available at <italic>Bioinformatics</italic> online.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>US National Institutes of Health</institution>
+</institution-wrap>
+</funding-source>
+</award-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>NIH</institution>
+<institution-id institution-id-type="DOI">10.13039/100000002</institution-id>
+</institution-wrap>
+</funding-source>
+<award-id>R35 GM128765</award-id>
+</award-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>MSU start-up funds</institution>
+</institution-wrap>
+</funding-source>
+</award-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>National Institutes of Health</institution>
+<institution-id institution-id-type="DOI">10.13039/100000002</institution-id>
+</institution-wrap>
+</funding-source>
+<award-id>F32 F32GM134595</award-id>
+</award-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>MSU Engineering Distinguished Fellowship</institution>
+</institution-wrap>
+</funding-source>
+</award-group>
+</funding-group>
+<counts>
+<page-count count="9"></page-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec>
+<title>1 Introduction</title>
+<p>A grand challenge in the post-genomic era is to characterize every gene across the genome in terms of the cellular pathways they participate in, and which multifactorial traits and diseases they are associated with. Computationally predicting the association of genes to pathways, traits or diseases—the task termed here as ‘gene classification’—has been critical to this quest, helping prioritize candidates for experimental verification and for shedding light on poorly characterized genes (<xref ref-type="bibr" rid="btaa150-B9">Bernardes and Pedreira, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B30">Jiang <italic>et al.</italic>, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B58">Peña-Castillo <italic>et al.</italic>, 2008</xref>; <xref ref-type="bibr" rid="btaa150-B63">Piro and Cunto, 2012</xref>; <xref ref-type="bibr" rid="btaa150-B64">Radivojac <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B68">Sharan <italic>et al.</italic>, 2007</xref>; <xref ref-type="bibr" rid="btaa150-B86">Yang <italic>et al.</italic>, 2011</xref>). Key to the success of these methods has been the steady accumulation of large amounts of publicly available data collections, such as curated databases of genes and their various attributes (<xref ref-type="bibr" rid="btaa150-B11">Buniello <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B33">Kanehisa <italic>et al.</italic>, 2017</xref>, <xref ref-type="bibr" rid="btaa150-B34">2019</xref>; <xref ref-type="bibr" rid="btaa150-B32">Kanehisa and Goto, 2000</xref>; <xref ref-type="bibr" rid="btaa150-B48">Liberzon <italic>et al.</italic>, 2011</xref>; <xref ref-type="bibr" rid="btaa150-B61">Piñero <italic>et al.</italic>, 2015</xref>, <xref ref-type="bibr" rid="btaa150-B62">2017</xref>; <xref ref-type="bibr" rid="btaa150-B71">Smith <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B73">Subramanian <italic>et al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="btaa150-B84">Wu <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B85">Xin <italic>et al.</italic>, 2016</xref>), controlled vocabularies of biological terms organized into ontologies (<xref ref-type="bibr" rid="btaa150-B3">Ashburner <italic>et al.</italic>, 2000</xref>; <xref ref-type="bibr" rid="btaa150-B66">Schriml <italic>et al.</italic>, 2012</xref>; <xref ref-type="bibr" rid="btaa150-B70">Smith <italic>et al.</italic>, 2004</xref>; <xref ref-type="bibr" rid="btaa150-B75">The Gene Ontology Consortium, 2019</xref>), high-throughput functional genomic assays (<xref ref-type="bibr" rid="btaa150-B5">Athar <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B20">Edgar <italic>et al.</italic>, 2002</xref>; <xref ref-type="bibr" rid="btaa150-B42">Leinonen <italic>et al.</italic>, 2011</xref>) and molecular interaction networks (<xref ref-type="bibr" rid="btaa150-B24">Greene <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa150-B28">Huang <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B45">Li <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa150-B72">Stark <italic>et al.</italic>, 2006</xref>; <xref ref-type="bibr" rid="btaa150-B74">Szklarczyk <italic>et al.</italic>, 2015</xref>).</p>
+<p>While protein sequence and 3D structure are remarkably informative about the corresponding gene’s molecular function (<xref ref-type="bibr" rid="btaa150-B2">Altschul <italic>et al.</italic>, 1990</xref>; <xref ref-type="bibr" rid="btaa150-B30">Jiang <italic>et al.</italic>, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B64">Radivojac <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B69">Sleator and Walsh, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B83">Whisstock and Lesk, 2003</xref>), the pathways or phenotypes that a gene might participate in significantly depends on the other genes that it works with in a context dependent manner. Molecular interaction networks—graphs with genes or proteins as nodes and their physical or functional relationships as edges—are powerful models for capturing the functional neighborhood of genes on a whole-genome scale (<xref ref-type="bibr" rid="btaa150-B35">Karaoz <italic>et al.</italic>, 2004</xref>; <xref ref-type="bibr" rid="btaa150-B44">Leone and Pagnani, 2005</xref>; <xref ref-type="bibr" rid="btaa150-B79">Vazquez <italic>et al.</italic>, 2003</xref>). These networks are often constructed by aggregating multiple sources of information about gene interactions in a context-specific manner (<xref ref-type="bibr" rid="btaa150-B24">Greene <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa150-B29">Ideker and Sharan, 2008</xref>). Therefore, unsurprisingly, several studies have taken advantage of these graphs to perform network-based gene classification (<xref ref-type="bibr" rid="btaa150-B26">Guan <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B36">Köhler <italic>et al.</italic>, 2008</xref>; <xref ref-type="bibr" rid="btaa150-B43">Leiserson <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa150-B56">Park <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B78">Vanunu <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B82">Warde-Farley <italic>et al.</italic>, 2010</xref>).</p>
+<p>The canonical principle of network-based gene classification is ‘guilt-by-association’, the notion that proteins/genes that are strongly connected to each other in the network are likely to perform the same functions, and hence, participate in similar higher-level attributes, such as phenotypes and diseases (<xref ref-type="bibr" rid="btaa150-B81">Wang <italic>et al.</italic>, 2011</xref>). Instead of just aggregating ‘local’ information from direct neighbors (<xref ref-type="bibr" rid="btaa150-B67">Schwikowski <italic>et al.</italic>, 2000</xref>), this principle is better realized by propagating pathway or disease labels across the network to capture ‘global’ patterns, achieving state-of-the-art results (<xref ref-type="bibr" rid="btaa150-B12">Cáceres and Paccanaro, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B16">Cowen <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa150-B19">Deng <italic>et al.</italic>, 2004</xref>; <xref ref-type="bibr" rid="btaa150-B35">Karaoz <italic>et al.</italic>, 2004</xref>; <xref ref-type="bibr" rid="btaa150-B36">Köhler <italic>et al.</italic>, 2008</xref>; <xref ref-type="bibr" rid="btaa150-B37">Komurov <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B43">Leiserson <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa150-B44">Leone and Pagnani, 2005</xref>; <xref ref-type="bibr" rid="btaa150-B51">Mostafavi <italic>et al.</italic>, 2008</xref>; <xref ref-type="bibr" rid="btaa150-B52">Murali <italic>et al.</italic>, 2011</xref>; <xref ref-type="bibr" rid="btaa150-B53">Nabieva <italic>et al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="btaa150-B55">Page <italic>et al.</italic>, 1999</xref>; <xref ref-type="bibr" rid="btaa150-B76">Tsuda <italic>et al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="btaa150-B78">Vanunu <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B79">Vazquez <italic>et al.</italic>, 2003</xref>; <xref ref-type="bibr" rid="btaa150-B82">Warde-Farley <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B92">Zhou <italic>et al.</italic>, 2003</xref>; <xref ref-type="bibr" rid="btaa150-B93">Zhu <italic>et al.</italic>, 2003</xref>). These global approaches belong to a class of methods referred to here as ‘label propagation’. Distinct from label propagation (LP) is another class of methods for gene classification that relies on the idea that network patterns characteristic of genes associated with a specific phenotype or pathway can be captured using supervised machine learning (<xref ref-type="bibr" rid="btaa150-B7">Barutcuoglu <italic>et al.</italic>, 2006</xref>; <xref ref-type="bibr" rid="btaa150-B24">Greene <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa150-B26">Guan <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B38">Krishnan <italic>et al.</italic>, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B39">Lanckriet <italic>et al.</italic>, 2004</xref>; <xref ref-type="bibr" rid="btaa150-B56">Park <italic>et al.</italic>, 2013</xref>). While this class of methods—referred to here as ‘supervised learning’—has yielded promising results in a number of applications, how it broadly performs across different types of networks and diverse gene classification tasks is unknown. Consequently, supervised learning (SL) is used far less compared to LP for network-based gene classification.</p>
+<p>The goal of this study is to perform a comprehensive, systematic benchmarking of SL for network-based gene classification across a number of genome-wide molecular networks and hundreds of diverse prediction tasks using meaningful evaluation schemes. Within this rigorous framework, we compare SL to a widely used, classic LP technique, testing both the original (adjacency matrix A) and a diffusion-based representation of the network (influence matrix I; <xref ref-type="fig" rid="btaa150-F1">Fig. 1</xref>). This combination results in four methods (listed with their earliest known references): LP on the adjacency matrix (LP-A) (<xref ref-type="bibr" rid="btaa150-B67">Schwikowski <italic>et al.</italic>, 2000</xref>), LP on the influence matrix (LP-I) (<xref ref-type="bibr" rid="btaa150-B55">Page <italic>et al.</italic>, 1999</xref>), SL on the adjacency matrix (SL-A) (<xref ref-type="bibr" rid="btaa150-B7">Barutcuoglu <italic>et al.</italic>, 2006</xref>) and SL on the influence matrix (SL-I) (<xref ref-type="bibr" rid="btaa150-B39">Lanckriet <italic>et al.</italic>, 2004</xref>). Additionally, we evaluate the performance of SL using node embeddings as features, as the use of node embeddings is burgeoning in network biology.</p>
+<fig id="btaa150-F1" orientation="portrait" position="float">
+<label>Fig. 1.</label>
+<caption>
+<p>Workflow for gene classification pipeline. Four methods are compared: SL-A, SL-I, LP-A and LP-I. Model performance on a variety of gene classification tasks is evaluated over a number of different molecular networks, validation schemes and evaluation metrics. Additionally, the performance of SL using node embeddings as features (SL-E) is evaluated (not shown in this figure)</p>
+</caption>
+<graphic xlink:href="btaa150f1"></graphic>
+</fig>
+<p>Our results demonstrate that SL outperforms LP for gene-function, gene-disease and gene-trait prediction. We also observe that SL captures local network properties as efficiently as LP, where both methods achieve more accurate predictions for genesets that are more tightly clustered in the network. Lastly, we show that SL using the full network connectivity is superior to using low-dimensional node embeddings as the features, which, in turn, is competitive to LP.</p>
+</sec>
+<sec>
+<title>2 Materials and Methods</title>
+<sec>
+<title>2.1 Networks</title>
+<p>We chose a diverse set of undirected, human gene/protein networks based on criteria laid out in <xref ref-type="bibr" rid="btaa150-B28">Huang <italic>et al.</italic> (2018)</xref> (<xref ref-type="fig" rid="btaa150-F1">Fig. 1</xref>): (i) networks constructed using high- or low-throughput data, (ii) the type of interactions the network was constructed from and (iii) if annotations were directly incorporated in constructing the network. We used versions of the networks that were released prior to 2017 so as not to bias the temporal holdout evaluations. We used all edge scores (weights) unless otherwise noted, and the nodes in all networks were mapped into Entrez genes using the MyGene.info database (<xref ref-type="bibr" rid="btaa150-B84">Wu <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B85">Xin <italic>et al.</italic>, 2016</xref>). If the original node ID mapped to multiple Entrez IDs, we added edges between all possible mappings. The networks used in this study are BioGRID (<xref ref-type="bibr" rid="btaa150-B72">Stark <italic>et al.</italic>, 2006</xref>), the full STRING network (<xref ref-type="bibr" rid="btaa150-B74">Szklarczyk <italic>et al.</italic>, 2015</xref>), as well as the subset with just experimental support (referred to as STRING-EXP in this study), InBioMap (<xref ref-type="bibr" rid="btaa150-B45">Li <italic>et al.</italic>, 2017</xref>) and the tissue-naïve network from GIANT (<xref ref-type="bibr" rid="btaa150-B24">Greene <italic>et al.</italic>, 2015</xref>), referred to as GIANT-TN in this study. These networks cover a wide size range, with the number of nodes ranging from 14 089 to 25 689 and the number of edges ranging from 141 629 to 38 904 929. More information on the networks can be found in the Supplementary Section 1.1.</p>
+</sec>
+<sec>
+<title>2.2 Network representations</title>
+<p>We considered three distinct representations of molecular networks: the adjacency matrix, an influence matrix and low-dimensional node embeddings. Let <inline-formula id="IE1"><mml:math id="IM1"><mml:mi mathvariant="normal">G</mml:mi><mml:mo>=</mml:mo><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal"> </mml:mi><mml:mi mathvariant="normal">E</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal"> </mml:mi><mml:mi mathvariant="normal">W</mml:mi></mml:mrow></mml:mfenced></mml:math></inline-formula> denote an undirected molecular network, where <inline-formula id="IE2"><mml:math id="IM2"><mml:mi mathvariant="normal">V</mml:mi></mml:math></inline-formula> is the set of vertices (genes), <inline-formula id="IE3"><mml:math id="IM3"><mml:mi mathvariant="normal">E</mml:mi></mml:math></inline-formula> is the set of edges (associations between genes) and <inline-formula id="IE4"><mml:math id="IM4"><mml:mi mathvariant="normal">W</mml:mi></mml:math></inline-formula> is the set of edge weights (the strengths of the associations). <inline-formula id="IE5"><mml:math id="IM5"><mml:mi mathvariant="normal">G</mml:mi></mml:math></inline-formula> can be represented as a weighted adjacency matrix <inline-formula id="IE6"><mml:math id="IM6"><mml:msub><mml:mrow><mml:mi mathvariant="normal">A</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">i</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal"> </mml:mi><mml:mi mathvariant="normal">j</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">W</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">i</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal"> </mml:mi><mml:mi mathvariant="normal">j</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula>, where <inline-formula id="IE7"><mml:math id="IM7"><mml:mi mathvariant="normal">A</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></inline-formula>. <inline-formula id="IE8"><mml:math id="IM8"><mml:mi mathvariant="normal">G</mml:mi></mml:math></inline-formula> can also be represented as an influence matrix, <inline-formula id="IE9"><mml:math id="IM9"><mml:mi mathvariant="normal">F</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></inline-formula>, which can capture both local and global structure of the network. <inline-formula id="IE10"><mml:math id="IM10"><mml:mi mathvariant="normal">F</mml:mi></mml:math></inline-formula> was obtained using a random walk with restart transformation kernel (<xref ref-type="bibr" rid="btaa150-B43">Leiserson <italic>et al.</italic>, 2015</xref>),
+<disp-formula id="E1"><label>(1)</label><mml:math id="M1"><mml:mi mathvariant="normal">F</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="normal">α</mml:mi><mml:msup><mml:mrow><mml:mfenced close="]" open="[" separators="|"><mml:mrow><mml:mi mathvariant="normal">I</mml:mi><mml:mo>-</mml:mo><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:mi mathvariant="normal">α</mml:mi><mml:mo>)</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">W</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">D</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></disp-formula>where <inline-formula id="IE11"><mml:math id="IM11"><mml:mi mathvariant="normal">α</mml:mi></mml:math></inline-formula> is the restart parameter, <inline-formula id="IE12"><mml:math id="IM12"><mml:mi mathvariant="normal">I</mml:mi></mml:math></inline-formula> is the identity matrix and <inline-formula id="IE13"><mml:math id="IM13"><mml:msub><mml:mrow><mml:mi mathvariant="normal">W</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">D</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula> is the degree weighted adjacency matrix given by <inline-formula id="IE14"><mml:math id="IM14"><mml:msub><mml:mrow><mml:mi mathvariant="normal">W</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">D</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi mathvariant="normal">A</mml:mi><mml:msup><mml:mrow><mml:mi mathvariant="normal">D</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>, where <inline-formula id="IE15"><mml:math id="IM15"><mml:mi mathvariant="normal">D</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></inline-formula> is a diagonal matrix of node degrees. A restart parameter of 0.85 was used for every network in this study. Detailed information of how the restart parameter was chosen can be found in <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.2</xref> and <xref ref-type="supplementary-material" rid="sup1">Figure S1</xref>.</p>
+<p>
+<inline-formula id="IE16"><mml:math id="IM16"><mml:mi mathvariant="normal">G</mml:mi></mml:math></inline-formula> can also be transformed into a low-dimensional representation through the process of node embedding. In this study, we used the <italic>node2vec</italic> algorithm (<xref ref-type="bibr" rid="btaa150-B25">Grover and Leskovec, 2016</xref>), which borrows ideas from the <italic>word2vec</italic> algorithm (<xref ref-type="bibr" rid="btaa150-B49">Mikolov <italic>et al.</italic>, 2013a</xref>, <xref ref-type="bibr" rid="btaa150-B50">2013b</xref>) used in natural language processing. The objective of <italic>node2vec</italic> is to find a low-dimensional representation of the adjacency matrix, <inline-formula id="IE17"><mml:math id="IM17"><mml:mi mathvariant="normal">E</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mi mathvariant="normal">d</mml:mi></mml:mrow></mml:msup></mml:math></inline-formula>, where <inline-formula id="IE18"><mml:math id="IM18"><mml:mi mathvariant="normal">d</mml:mi><mml:mo>≪</mml:mo><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced></mml:math></inline-formula>. This is done by optimizing the following log-probability objective function:
+<disp-formula id="E2"><label>(2)</label><mml:math id="M2"><mml:mi mathvariant="normal">E</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="normal"> </mml:mi><mml:mrow><mml:mrow><mml:munder><mml:mrow><mml:mi mathvariant="normal">max</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">f</mml:mi></mml:mrow></mml:munder></mml:mrow><mml:mo>⁡</mml:mo><mml:mrow><mml:mrow><mml:munder><mml:mo stretchy="false">∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">u</mml:mi><mml:mo>∈</mml:mo><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:munder><mml:mrow><mml:mi mathvariant="normal">log</mml:mi><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">Pr</mml:mi><mml:mfenced separators="|"><mml:mrow><mml:msub><mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">S</mml:mi></mml:mrow></mml:msub><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">u</mml:mi></mml:mrow></mml:mfenced><mml:mo>|</mml:mo><mml:mi mathvariant="normal">e</mml:mi><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">u</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:mrow></mml:mrow></mml:math></disp-formula>where <inline-formula id="IE19"><mml:math id="IM19"><mml:msub><mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">S</mml:mi></mml:mrow></mml:msub><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">u</mml:mi></mml:mrow></mml:mfenced></mml:math></inline-formula> is the network neighborhood of node u generated through a sampling strategy <inline-formula id="IE20"><mml:math id="IM20"><mml:mi mathvariant="normal">S</mml:mi></mml:math></inline-formula> and <inline-formula id="IE21"><mml:math id="IM21"><mml:mi mathvariant="normal">e</mml:mi><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">u</mml:mi></mml:mrow></mml:mfenced><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">d</mml:mi></mml:mrow></mml:msup></mml:math></inline-formula> is the feature vector of node <inline-formula id="IE22"><mml:math id="IM22"><mml:mi mathvariant="normal">u</mml:mi></mml:math></inline-formula>. In <italic>node2vec</italic>, the sampling strategy is based on random walks that are controlled using two parameters <inline-formula id="IE23"><mml:math id="IM23"><mml:mi>p</mml:mi></mml:math></inline-formula> and <inline-formula id="IE24"><mml:math id="IM24"><mml:mi>q</mml:mi></mml:math></inline-formula>, in which a high value of <inline-formula id="IE25"><mml:math id="IM25"><mml:mi>q</mml:mi></mml:math></inline-formula> keeps the walk local (a breadth-first search), and a high value of <inline-formula id="IE26"><mml:math id="IM26"><mml:mi>p</mml:mi></mml:math></inline-formula> encourages outward exploration (a depth-first search). The values of <inline-formula id="IE27"><mml:math id="IM27"><mml:mi>p</mml:mi></mml:math></inline-formula> and <inline-formula id="IE28"><mml:math id="IM28"><mml:mi>q</mml:mi></mml:math></inline-formula> were both set to 0.1 for every network in this study. Detailed information of how the node2vec hyperparameters were chosen can be found in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.2</xref>.</p>
+</sec>
+<sec>
+<title>2.3 Prediction methods</title>
+<p>We compared the prediction performance across four specific methods across two classes, LP and SL.</p>
+<sec>
+<title>2.3.1 Label propagation</title>
+<p>LP methods are the most widely used methods in network-based gene classification and achieve state-of-the-art results (<xref ref-type="bibr" rid="btaa150-B16">Cowen <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa150-B36">Köhler <italic>et al.</italic>, 2008</xref>). In this study, we considered two LP methods, LP-A and LP-I. First, we constructed a binary vector of ground-truth labels, <inline-formula id="IE29"><mml:math id="IM29"><mml:mi mathvariant="normal">x</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>, where <inline-formula id="IE30"><mml:math id="IM30"><mml:msub><mml:mrow><mml:mi>x</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:math></inline-formula> if gene <inline-formula id="IE31"><mml:math id="IM31"><mml:mi mathvariant="normal">i</mml:mi></mml:math></inline-formula> is a positively labeled gene in the training set, and 0 otherwise. In LP-A, we constructed a score vector, <inline-formula id="IE32"><mml:math id="IM32"><mml:mi mathvariant="normal">S</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mfenced close="|" open="|" separators="|"><mml:mrow><mml:mi mathvariant="normal">V</mml:mi></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>, denoting the predictions,
+<disp-formula id="E3"><label>(3)</label><mml:math id="M3"><mml:mi mathvariant="normal">S</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="normal">Ax</mml:mi></mml:math></disp-formula>where <inline-formula id="IE33"><mml:math id="IM33"><mml:mi mathvariant="normal">A</mml:mi></mml:math></inline-formula> is the adjacency matrix. Thus, the predicted score for a gene using LP-A is equal to the sum of the weights of the edges between the gene and its direct, positively labeled network neighbors. In LP-I, the score vector, <inline-formula id="IE34"><mml:math id="IM34"><mml:mi mathvariant="normal">S</mml:mi></mml:math></inline-formula>, is generated using <xref ref-type="disp-formula" rid="E3">equation (3)</xref>, except <inline-formula id="IE35"><mml:math id="IM35"><mml:mi mathvariant="normal">A</mml:mi></mml:math></inline-formula> is by replaced by <inline-formula id="IE36"><mml:math id="IM36"><mml:mi mathvariant="normal">F</mml:mi></mml:math></inline-formula>, the influence matrix [<xref ref-type="disp-formula" rid="E1">equation (1)</xref>]. In both LP-A and LP-I, only positive examples in the training set are used to calculate the score vector <inline-formula id="IE37"><mml:math id="IM37"><mml:mi mathvariant="normal">S</mml:mi></mml:math></inline-formula> to reflect how LP is typically used in practice (<xref ref-type="bibr" rid="btaa150-B16">Cowen <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa150-B36">Köhler <italic>et al.</italic>, 2008</xref>; <xref ref-type="bibr" rid="btaa150-B60">Picart-Armada <italic>et al.</italic>, 2019</xref>). Both positive and negative examples in the test set are later used for evaluation.</p>
+</sec>
+<sec>
+<title>2.3.2 Supervised learning</title>
+<p>SL can be used for network-based gene classification by using each gene’s network neighborhoods as feature vectors, along with gene labels, in a classification algorithm. Here, we used logistic regression with L2 regularization as the SL classification algorithm, which is a linear model that aims to minimize the following cost function (<xref ref-type="bibr" rid="btaa150-B57">Pedregosa <italic>et al.</italic>, 2011</xref>):
+<disp-formula id="E4"><label>(4)</label><mml:math id="M4"><mml:mrow><mml:mrow><mml:munder><mml:mrow><mml:mi mathvariant="normal">min</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">w</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal"> c</mml:mi></mml:mrow></mml:munder></mml:mrow><mml:mo>⁡</mml:mo><mml:mrow><mml:mfrac><mml:mrow><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:mfrac><mml:msup><mml:mrow><mml:mi mathvariant="normal">w</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="normal">w</mml:mi><mml:mo>+</mml:mo><mml:mi>C</mml:mi><mml:mrow><mml:munderover><mml:mo stretchy="false">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:munderover><mml:mrow><mml:mi mathvariant="normal">log</mml:mi><mml:mfenced separators="|"><mml:mrow><mml:mi mathvariant="normal">exp</mml:mi><mml:mfenced separators="|"><mml:mrow><mml:mo>-</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">y</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">i</mml:mi></mml:mrow></mml:msub><mml:mfenced separators="|"><mml:mrow><mml:msubsup><mml:mrow><mml:mi mathvariant="normal">X</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">i</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msubsup><mml:mi mathvariant="normal">w</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="normal">c</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:mrow></mml:mrow></mml:math></disp-formula>where <inline-formula id="IE38"><mml:math id="IM38"><mml:mi mathvariant="normal">w</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mi>m</mml:mi></mml:mrow></mml:msup></mml:math></inline-formula> is the vector of weights for a model with <inline-formula id="IE39"><mml:math id="IM39"><mml:mi>m</mml:mi></mml:math></inline-formula> features, <inline-formula id="IE40"><mml:math id="IM40"><mml:mi>C</mml:mi></mml:math></inline-formula> determines the regularization strength, <inline-formula id="IE41"><mml:math id="IM41"><mml:mi>n</mml:mi></mml:math></inline-formula> the number of examples, <inline-formula id="IE42"><mml:math id="IM42"><mml:mi mathvariant="normal">y</mml:mi></mml:math></inline-formula> is the ground-truth label, <inline-formula id="IE43"><mml:math id="IM43"><mml:mi mathvariant="normal">X</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:mo> </mml:mo><mml:mo>×</mml:mo><mml:mo> </mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msup></mml:math></inline-formula> is the data matrix and <inline-formula id="IE44"><mml:math id="IM44"><mml:mi mathvariant="normal">c</mml:mi></mml:math></inline-formula> is the intercept. After training a model using the labeled genes in the training set, the learned model weights are used to classify the genes in the testing set, returning a prediction probability for these genes that is bounded between 0 and 1. The regularization parameter, <inline-formula id="IE45"><mml:math id="IM45"><mml:mi>C</mml:mi></mml:math></inline-formula>, was set to 1.0 for all models in this study.</p>
+<p>In this study, three different network-based gene-level feature vectors were used to train three different SL classifiers: the rows of the adjacency matrix (SL-A), the rows of the influence matrix (SL-I) and the rows of the node embedding matrix (SL-E). Model selection and hyperparameter tuning are described in detail in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.2</xref>.</p>
+</sec>
+</sec>
+<sec>
+<title>2.4 Geneset-collections</title>
+<p>We curated a number of geneset-collections to test predictions on a diverse set of tasks: function, disease and trait (<xref ref-type="fig" rid="btaa150-F1">Fig. 1</xref>). Function prediction was defined as predicting genes associated with biological processes that are part of the Gene Ontology (referred to here as ‘GOBP’) (<xref ref-type="bibr" rid="btaa150-B75">The Gene Ontology Consortium, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B3">Ashburner <italic>et al.</italic>, 2000</xref>) obtained from MyGene.info (<xref ref-type="bibr" rid="btaa150-B84">Wu <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa150-B85">Xin <italic>et al.</italic>, 2016</xref>), and pathways from the Kyoto Encyclopedia of Genes and Genomes (<xref ref-type="bibr" rid="btaa150-B33">Kanehisa <italic>et al.</italic>, 2017</xref>, <xref ref-type="bibr" rid="btaa150-B34">2019</xref>; <xref ref-type="bibr" rid="btaa150-B32">Kanehisa and Goto, 2000</xref>), referred to ‘KEGGBP’ since disease-related pathways were removed from the original KEGG annotations in the Molecular Signatures Database (<xref ref-type="bibr" rid="btaa150-B48">Liberzon <italic>et al.</italic>, 2011</xref>; <xref ref-type="bibr" rid="btaa150-B73">Subramanian <italic>et al.</italic>, 2005</xref>). Disease prediction was defined based on predicting genes associated with diseases in the DisGeNET database (<xref ref-type="bibr" rid="btaa150-B61">Piñero <italic>et al.</italic>, 2015</xref>, <xref ref-type="bibr" rid="btaa150-B62">2017</xref>). Annotations from this database were divided into two separate geneset-collections: those that were manually-curated (referred to as ‘DisGeNet’ in this study) and those derived using the BeFree text-mining tool (referred to as ‘BeFree’ in this study). Trait prediction was defined as predicting genes linked to human traits from Genome-wide Association Studies (GWAS), curated from a community challenge (<xref ref-type="bibr" rid="btaa150-B15">Choobdar <italic>et al.</italic>, 2019</xref>), and mammalian phenotypes (annotated to human genes) from the Mouse Gene Informatics (MGI) database (Smith <italic>et al.</italic>, 2018).</p>
+<p>Each of these six geneset-collections contained anywhere from about a hundred to tens of thousands of genesets that varied widely in specificity and redundancy. Therefore, each collection was preprocessed to ensure that the final set of prediction tasks from each source is specific, largely non-overlapping and not driven by multi-attribute genes. First, if genesets in a collection corresponded to terms in an ontology (e.g. biological processes in the GOBP collection), annotations were propagated along the ontology structure to obtain a complete set of annotations for all genesets. Second, we removed genesets if the number of genes annotated to the geneset was above a certain threshold and then compared these genesets to each other in order to remove genesets that were highly-overlapping with other genesets in the collection, resulting in a set of specific, non-redundant genesets. Finally, individual genes that appeared in more than 10 of the remaining genesets in a collection were removed from all the genesets in that collection to remove multi-attribute (e.g. multi-functional) genes that are potentially easy to predict (<xref ref-type="bibr" rid="btaa150-B21">Gillis and Pavlidis, 2011</xref>). Detailed information on geneset pre-processing and geneset attributes can be found in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.3</xref>, <xref ref-type="supplementary-material" rid="sup1">Table S2</xref> and <xref ref-type="supplementary-material" rid="sup1">Figure S3</xref>.</p>
+<p>
+<italic>Selecting positive and negative examples</italic>: In each geneset-collection, for a given geneset, genes annotated to that set were designated as the set of positive examples. The SL methods additionally required a set of negative genes for each given geneset for training, and both SL and LP methods require a set of negative genes for each geneset for testing. A set of negative genes was generated by: (i) finding the union of all genes annotated to all genesets in the collection, (ii) removing genes annotated to the given geneset and (iii) removing genes annotated to any geneset in the collection which significantly overlapped with the given geneset (<italic>P</italic>-value &lt;0.05 based on the one-sided Fisher’s exact test).</p>
+</sec>
+<sec>
+<title>2.5 Validation schemes</title>
+<p>We performed extensive and rigorous evaluations based on three validation schemes: temporal holdout, study-bias holdout and 5-fold cross validation (5FCV). In temporal holdout, within a geneset-collection, genes that only had an annotation to any geneset in the collection after January 1, 2017 were considered test genes, and all other genes were considered training genes. Temporal holdout is the most stringent evaluation scheme for gene classification since it mimics the practical scenario of using current knowledge to predict the future and is the preferred evaluation method used in the CAFA challenges (<xref ref-type="bibr" rid="btaa150-B30">Jiang <italic>et al.</italic>, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B64">Radivojac <italic>et al.</italic>, 2013</xref>). Since the Gene Ontology was the only source with clear date-stamps for all its annotations, temporal holdout was applied only to the GOBP geneset-collection. For study-bias holdout, genes were ranked by the number of PubMed articles they were mentioned in, obtained from <xref ref-type="bibr" rid="btaa150-B10">Brown <italic>et al.</italic> (2015)</xref>. The top two-thirds of the most-mentioned genes were considered training genes, and the rest of the least-mentioned genes were used for testing. Study-bias holdout mimics the real-world situation of learning from well-characterized genes to predict novel un(der)-characterized genes. The last validation scheme is the traditional 5FCV, where the genes are split into five equal folds in a stratified manner (i.e. in each split, the proportion of genes in the positive and negative classes is preserved). In all these schemes, only genesets with at least 10 positive genes in both the training and test sets were considered. More information on the validation schemes is available in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.4</xref>.</p>
+</sec>
+<sec>
+<title>2.6 Evaluation metrics</title>
+<p>In this study, we considered three evaluation metrics: the area under the precision-recall curve (auPRC), the precision of the top-<inline-formula id="IE46"><mml:math id="IM46"><mml:mi mathvariant="normal">K</mml:mi></mml:math></inline-formula> ranked predictions (P@TopK) and, the area under the receiver-operator curve (auROC). For P@TopK, we set <inline-formula id="IE47"><mml:math id="IM47"><mml:mi mathvariant="normal">K</mml:mi></mml:math></inline-formula> equal to the number of ground-truth positives in the testing set. Since the standard auPRC and P@TopK scores are influenced by the prior probability of finding a positive example (equal to the proportion of positives to the total of positives and negatives), we expressed both metrics as the logarithm (base 2) of the ratio of the original metric to the prior. More details on the evaluation metrics can be found in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.5</xref>.</p>
+</sec>
+</sec>
+<sec>
+<title>3 Results</title>
+<p>We systematically compare the performance of four gene classification methods (<xref ref-type="fig" rid="btaa150-F1">Fig. 1</xref>): SL-A, SL-I, LP-A and LP-I. We choose six geneset-collections that represent three prominent gene classification tasks: gene-function (GOBP, KEGGBP), gene-disease (DisGeNet, BeFree) and gene-trait (GWAS, MGI) prediction. We use three different validation schemes: temporal holdout (train on genes annotated before 2017 and test on genes annotated in 2017 or later; only done for GOBP as it has clear timestamps), holdout based on study bias (train on well-studied genes and predict on less-studied genes) and the traditional 5FCV. Temporal holdout and study-bias holdout validation schemes are presented in the main text as they are more stringent and reflective of real-world tasks as compared to 5FCV (<xref ref-type="bibr" rid="btaa150-B31">Kahanda <italic>et al.</italic>, 2015</xref>). To ascertain the robustness of the relative performance of the methods to the underlying network, we choose five different genome-scale molecular networks that differ in their content and construction. To be in concert with temporal holdout evaluation and curtail data leakage, all the networks used throughout this study are the latest versions released before 2017. We present evaluation results based on the auPRC in the main text and results based on the P@topK and auROC in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Figures S4–S8</xref>. We note that the 5FCV, P@topK and auROC results in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Material</xref> are, for the most part, consistent with the results presented in the main text of this study.</p>
+<p>Our first analysis was to directly compare all four prediction methods against each other for each geneset in a given collection. For each geneset-collection–network combination, we rank the four methods per geneset (based on auPRC) using the standard competition ranking and calculate each method’s average rank across all the genesets in the collection (<xref ref-type="fig" rid="btaa150-F2">Fig. 2</xref>). For function prediction, SL-A is the top-performing method by a wide margin (particularly clear based on GOBP temporal holdout), with SL-I being the second best method. For disease and trait prediction, SL-A and SL-I still outperform LP-I, but to a lesser extent. In all cases, LP-A is the worst performing method. The large performance difference between the SL and LP methods in the GOBP temporal holdout validation is noteworthy since temporal holdout is the most stringent validation scheme and the one employed in community challenges, such as CAFA (<xref ref-type="bibr" rid="btaa150-B30">Jiang <italic>et al.</italic>, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B64">Radivojac <italic>et al.</italic>, 2013</xref>).</p>
+<fig id="btaa150-F2" orientation="portrait" position="float">
+<label>Fig. 2.</label>
+<caption>
+<p>Average rank across the four methods. Each point in each boxplot represents the average rank for a geneset-collection–network combination, obtained based on ranking the four methods in terms of performance for each geneset in a geneset-collection using the standard competition ranking. (<bold>A</bold>) Functional prediction tasks using GOBP temporal holdout, (<bold>B</bold>) functional prediction tasks using study-bias holdout for GOBP and KEGGBP and (<bold>C</bold>) disease and trait prediction tasks using study-bias holdout for DisGeNet, BeFree, GWAS and MGI. The results are shown for auPRC where different colors represent different networks and different marker styles represent the different geneset-collections. SL methods outperform LP methods for all prediction tasks</p>
+</caption>
+<graphic xlink:href="btaa150f2"></graphic>
+</fig>
+<p>Following the observation that SL methods outperform LP methods based on relative ranking, we use a non-parametric paired test (Wicoxon signed-rank test) to statistically assess the difference between specific pairs of methods (<xref ref-type="fig" rid="btaa150-F3">Fig. 3A</xref>). For each geneset-collection–network combination, we compare the two methods in one class to the two methods in the other class (i.e. we compare SL-A to LP-A, SL-A to LP-I, SL-I to LP-A and SL-I to LP-I). Each comparison yields a <italic>P</italic>-value along with the number of genesets in the collection where one method outperforms the other. After correcting the four <italic>P</italic>-values for multiple hypothesis testing (<xref ref-type="bibr" rid="btaa150-B8">Benjamini <italic>et al.</italic>, 2006</xref>), if a method from one class outperforms both methods from the other class independently (in terms of the number winning genesets), and if both (corrected) <italic>P</italic>-values are &lt;0.05, we consider a method to have significantly better performance compared to the entire other class.</p>
+<fig id="btaa150-F3" orientation="portrait" position="float">
+<label>Fig. 3.</label>
+<caption>
+<p>Testing for a statistically significant difference between SL and LP methods. (<bold>A</bold>) A key on interpreting the analysis. For each network–geneset combination, each method is compared to the two methods from the other class (i.e. SL-A versus LP-I, SL-A versus LP-A, SL-I versus LP-I, SL-I versus LP-A). If a method was found to be significantly better than both methods from the other class (Wilcoxon ranked-sum test with an FDR threshold of 0.05), the cell is annotated with that method. If both models in that class were found to be significantly better than the two methods in the other class, the cell is annotated in bold with just the class. The color scale represents the fraction of genesets that were higher for the SL methods across all four comparisons. The first column uses GOBP temporal holdout, whereas the remaining six columns use study-bias holdout. (<bold>B</bold>) SL methods show a statistically significant improvement over LP methods, especially for function prediction</p>
+</caption>
+<graphic xlink:href="btaa150f3"></graphic>
+</fig>
+<p>Additionally, we track the percentage of times the SL methods outperform the LP methods across all four comparisons within a geneset-collection–network combination.</p>
+<p>The results show that for function prediction SL is almost always significantly better than LP when considering auPRC (<xref ref-type="fig" rid="btaa150-F3">Fig. 3B</xref>). Based on temporal holdout on GOBP, both SL-A and SL-I are always significantly better than both LP methods. Based on study-bias holdout, in the 10 function prediction geneset-collections–network combinations using GOBP and KEGGBP, SL-A is a significantly better method 8 times (80%) and SL-I is a significantly better method 6 times (60%). Neither LP-I nor LP-A ever significantly outperforms the SL models. The performance of SL and LP is more comparable for disease and trait prediction, but SL methods still perform better in a larger fraction of genesets. For the 20 disease and trait geneset-collection–network combinations, SL-I is a significantly better method 8 times (40%), and SL-A is a significantly better method 6 times (30%), LP-I is a significantly better method once (5%), and LP-A is never a significantly better method.</p>
+<p>To visually inspect not only the relative performance of all four methods, but to also see how well the models are performing in an absolute sense, we examined the boxplots of the auPRC values for every geneset-collection–network combination (<xref ref-type="fig" rid="btaa150-F4">Fig. 4</xref>). The first notable observation is that, regardless of the method, function prediction tasks have much better performance results than disease/trait prediction tasks (<xref ref-type="fig" rid="btaa150-F4">Fig. 4B</xref>). Based on temporal holdout for function prediction (GOBPtmp), SL-A is the top-performing model based on the highest median performance for every network. Additionally, for all networks except STRING-EXP, SL-I is the second best performing model. For the 10 combinations of five networks with GOBP and KEGGBP, the top method based on the highest median performance is an SL method all but once, with SL-A being the top model 7 times (70%), SL-I being the top model 2 times (20%, GOBP and KEGGBP on GIANT-TN) and LP-A being the top model once (10%, KEGGBP on STRING-EXP). As noted earlier, for disease and trait prediction, SL and LP methods have more comparable performance. Of the 20 geneset-collection–network combinations, each of SL-A, SL-I, LP-I and LP-A is the top method based on median performance 5 (25%), 10 (50%), 4 (20%) and 1 (5%) times, respectively.</p>
+<fig id="btaa150-F4" orientation="portrait" position="float">
+<label>Fig. 4.</label>
+<caption>
+<p>Boxplots for performance across all geneset-collection–network combinations. (<bold>A</bold>)The performance for each individual geneset-collection–network combination is compared across the four methods; SL-A (red), SL-I (light red), LP-I (blue) and LP-A (light blue). The methods are ranked by median value with the highest scoring method on the left. Results show SL methods outperform LP methods, especially for function prediction. (<bold>B</bold>) Each point in the plot is the median value from one of the boxplots in (A). This shows that both SL and LP methods perform better for function prediction compared to disease/trait prediction. (Color version of this figure is available at <italic>Bioinformatics</italic> online.)</p>
+</caption>
+<graphic xlink:href="btaa150f4"></graphic>
+</fig>
+<p>Although the boxplots in <xref ref-type="fig" rid="btaa150-F4">Figure 4</xref> can give an idea of effect sizes, to further quantify this, we looked at the ratios of auPRC values across all genesets (<xref ref-type="supplementary-material" rid="sup1">Supplementary Section 2.2</xref> and <xref ref-type="supplementary-material" rid="sup1">Fig. S10</xref>). The results show that SL-A and SL-I both have a substantial effect size compared to LP-I for function prediction. Also, for all prediction tasks, the effect size of SL methods over LP-I is equal to or greater than the effect size of LP-I over LP-A, where LP-I is widely considered a much better model than LP-A and thus, the comparison between LP-I and LP-A can be viewed as a baseline effect size.</p>
+<p>Among the two classes of network-based models—SL and LP—it is intuitively clear how LP directly uses network connections to propagate information from the positively labeled nodes to other nodes close in the network. On the other hand, while SL is an accurate method for gene classification, it has not been studied if SL’s performance is tied to any traditional notion of network connectivity. To shed light on this problem, we investigated the performance of SL-A and LP-I as a function of three different properties of individual genesets in a collection: the number of annotated genes, edge density (a measure of how tightly connected the geneset is within itself) and segregation (a measure of how isolated the geneset is from the rest of the network). While the performance of neither SL-A nor LP-I has a strong association with the size of the geneset, the performance of SL-A has a strong positive correlation with both edge density and segregation of the geneset, similar to what is seen for LP-I (<xref ref-type="fig" rid="btaa150-F5">Fig. 5</xref>). For visual clarity, <xref ref-type="fig" rid="btaa150-F5">Figure 5</xref> presents results for just the STRING network, but very similar results are seen in the other networks as well (<xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S9</xref>). Detailed information on how the geneset and network properties are calculated can be found in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Section 1.3</xref>.</p>
+<fig id="btaa150-F5" orientation="portrait" position="float">
+<label>Fig. 5.</label>
+<caption>
+<p>Performance versus network/geneset properties. SL-A (<bold>A–C</bold>) is able to capture network information as efficiently as LP-I (<bold>D–F</bold>), for the STRING network. There is no correlation between the number of genes in the geneset versus performance (A, D), but there is a strong correlation between the performance and the edge density (B, E) as well as segregation (C, F). The different colored dots represent function genesets (red, GOBP and KEGGBP), disease genesets (blue, DIGenet and BeFree) and trait genesets (black, GWAS and MGI). The vertical line is the 95% confidence interval. Similar trends can be seen for the other networks (<xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S9</xref>). (Color version of this figure is available at <italic>Bioinformatics</italic> online.)</p>
+</caption>
+<graphic xlink:href="btaa150f5"></graphic>
+</fig>
+<p>Finally, since machine learning on node embeddings is gaining popularity for network-based node classification, we compared the top SL and LP methods tested here to this approach. Specifically, we compared LP-I and SL-A to an SL method using embeddings (SL-E) obtained from the <italic>node2vec</italic> algorithm (<xref ref-type="bibr" rid="btaa150-B25">Grover and Leskovec, 2016</xref>) (<xref ref-type="fig" rid="btaa150-F6">Fig. 6</xref>). For function prediction, we observe that SL-E substantially outperforms LP-I. For GOBP temporal holdout, SL-E is always significantly better than LP-I. For the GOBP and KEGGBP study-bias holdout, out of the 10 geneset-collection–network combinations, SL-E is significantly better than LP-I 5 times (50%), whereas the converse is true only once (10%). These patterns nearly reverse for the 20 disease/trait prediction tasks, with LP-I performing significantly better than SL-E 6 times (30%), and SL-E significantly outperforming LP-I 3 times (15%). The comparison between SL-E and SL-A showed that SL-A demonstrably outperforms SL-E for both function and disease/trait prediction tasks. Among the 30 geneset-collection–network combinations, SL-A is a significantly better model 20 times (67%), whereas SL-E comes out on top just once (3%). This shows that although methods that use node embeddings are a promising avenue of research, they should be compared to the strong baseline of SL-A when possible.</p>
+<fig id="btaa150-F6" orientation="portrait" position="float">
+<label>Fig. 6.</label>
+<caption>
+<p>Performance of SL-E versus LP-I and SL-A. We compare the performance of SL on the embedding matrix (SL-E) versus LP-I and SL-A using a Wilcoxon ranked-sum test. The performance metric is auPRC, the color scale represents the fraction of terms that were higher for the SL-E model (with purple meaning that SL-E had a higher fraction of better performing genesets compared to either LP-I or SL-A) and an ‘x’ signifies that the <italic>P</italic>-value from the Wilcoxon test was below 0.05. (<bold>A</bold>) Shows that SL-E is quite competitive with the classic method of LP-I and (<bold>B</bold>) shows that SL-A outperforms SL-E in a majority of cases. (Color version of this figure is available at <italic>Bioinformatics</italic> online.)</p>
+</caption>
+<graphic xlink:href="btaa150f6"></graphic>
+</fig>
+</sec>
+<sec>
+<title>4 Discussion</title>
+<p>We have conducted the first comprehensive benchmarking of SL for network-based gene classification, establishing it as a leading approach.. Further, to the best of our knowledge, neither the studies that propose new methods nor those that systematically compare existing approaches have directly compared the two classes of methods—SL and LP—against each other. Our work provides this systematic comparison and shows that SL methods demonstrably outperform LP methods for network-based gene classification, particularly for function prediction.</p>
+<p>Both SL and LP methods are, in general, more accurate for function prediction than disease and trait prediction. This trend is likely due to the fact that molecular interaction networks are primarily intended, either through curation or reconstruction, to reflect biological relationships between genes/proteins as they pertain to ‘normal’ cellular function. The utility of network connectivity to gene–disease or gene–trait prediction is incidental to the information the network holds about gene–function associations. This notion is supported by the observation that genesets related to function genesets are more tightly clustered than disease and trait genesets in the genome-wide molecular networks used in this study (<xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S3</xref>). Further analysis of prediction accuracy of genesets as a function of their network connectivity lends credence to the use of network structure by SL (<xref ref-type="fig" rid="btaa150-F5">Fig. 5</xref> and <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S9</xref>). Part of LP’s appeal, widespread use and development is this natural use of network topology to predict gene properties by diffusing information from characterized genes to uncharacterized genes in their network vicinity. Therefore, we expect that genes associated with tightly clustered pathways, traits or diseases will be easier to predict using LP, which is observed in our analysis (<xref ref-type="fig" rid="btaa150-F5">Fig. 5</xref> and <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S9</xref>). On the other hand, since SL (based on the full network) is designed to use global gene connectivity, it has been unclear if there is any association between the local clustering of genesets and their prediction performance using SL. Here, we show that the performance of SL, across networks and types of prediction tasks, is highly correlated with local network clustering of the genes of interest (<xref ref-type="fig" rid="btaa150-F5">Fig. 5</xref> and <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S9</xref>). This result substantiates SL as an approach that can accurately predict gene attributes by taking advantage of local network connectivity.</p>
+<p>While being accurate, training a SL model on the adjacency matrix (SL-A) can take some computational time and resources as the size of the molecular network increases, thus, considerably differing in speed for, say, STRING-EXP (14 089 nodes and 141 629 unweighted edges) and GIANT-TN (25 689 nodes and 38 904 929 weighted edges). Worthy of note in this context is the recent excitement in deriving node embeddings for each node in a network, concisely encoding its connectivity to all other nodes, and using them as features in SL algorithms for node classification (<xref ref-type="bibr" rid="btaa150-B13">Cai <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B17">Cui <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B23">Goyal and Ferrara, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B25">Grover and Leskovec, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B27">Hamilton <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa150-B59">Perozzi <italic>et al.</italic>, 2014</xref>; <xref ref-type="bibr" rid="btaa150-B80">Wang <italic>et al.</italic>, 2016</xref>). Although we show that SL-A markedly outperforms SL-E (<xref ref-type="fig" rid="btaa150-F6">Fig. 6</xref>), the unique characteristics of SL-E methods call for further exploration. For instance, the greatly reduced number of features allows SL-E methods to be more readily applicable to classifiers more complex than logistic regression, such as deep neural networks, which are typically ill-suited for problems where the number of features is much greater than the number of training examples. Further, since the reduced number of features allow SL-E methods to be trained orders of magnitude faster than SL-A or SL-I, they can be easily incorporated into ensemble learning models, which combine the results from many shallow learning algorithms. Akin to LP (<xref ref-type="bibr" rid="btaa150-B77">Valdeolivas <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B82">Warde-Farley <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa150-B91">Zhao <italic>et al.</italic>, 2019</xref>), node embeddings also offer a convenient route to incorporating multiple networks into SL approaches. While methods such as SL-I and SL-A may require concatenating the original networks or integrating them into a single network before learning, recent work has shown that SL-E-based methods can embed information from multiple molecular/heterogeneous networks and learn gene classifiers in tandem (<xref ref-type="bibr" rid="btaa150-B1">Alshahrani and Hoehndorf, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B4">Ata <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B6">Bai <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B14">Cho <italic>et al.</italic>, 2016</xref>; <xref ref-type="bibr" rid="btaa150-B22">Gligorijević <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B47">Li <italic>et al.</italic>, 2019b</xref>; <xref ref-type="bibr" rid="btaa150-B54">Nelson <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa150-B87">Yang <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa150-B94">Zitnik and Leskovec, 2017</xref>). However, none of these studies have compared the variety of SL-E methods to learning directly on the adjacency matrix. Given our finding here that SL-A greatly outperforms SL-E for function, disease and trait prediction, we advise and urge that every new SL-E method should be compared to SL-A for network-based gene classification.</p>
+<p>In past work, SL methods for gene classification have mostly relied on hand-crafting features from graph-theory metrics, such as degree and centrality measures, or combining metrics to expand the feature set, resulting in a feature set size of ∼30 or less (<xref ref-type="bibr" rid="btaa150-B46">Li <italic>et al.</italic>, 2019a</xref>; <xref ref-type="bibr" rid="btaa150-B90">Zhang <italic>et al.</italic>, 2016</xref>). We do not include a comparison to these types of methods in this study because predicting genes to functions or diseases based on generic network metrics, such as high degree, does not capture anything unique about specific functions or diseases. On the other hand, SL models with individual genes as features contain information biologically relevant to the specific prediction task (<xref ref-type="bibr" rid="btaa150-B40">Lee <italic>et al.</italic>, 2013</xref>, <xref ref-type="bibr" rid="btaa150-B41">2019</xref>).</p>
+<p>Critical to all these conclusions is the rigorous preparation of diverse, specific prediction tasks and the choice of meaningful validation schemes and evaluation metrics. Temporal holdout and study-bias holdout validations help faithfully capture the performance of the computational methods when a researcher uses them to prioritize novel uncharacterized genes in existing molecular networks for experimental validation based on a handful of currently known genes. Although we provide all the results for the auROC metric in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Materials</xref> for completion (<xref ref-type="supplementary-material" rid="sup1">Supplementary Figs S4</xref>, <xref ref-type="supplementary-material" rid="sup1">S5</xref> and <xref ref-type="supplementary-material" rid="sup1">S8</xref>), we base our conclusions on metrics driven by precision: auPRC and P@topK. While auROC is still commonly used in genomics, it is ill-suited to most biological prediction tasks including gene classification since they are highly imbalanced problems, with negative examples far outnumbering positive examples (<xref ref-type="bibr" rid="btaa150-B65">Saito and Rehmsmeier, 2015</xref>). Optimizing for precision-based metrics, on the other hand, helps control for false-positives among the top candidates (<xref ref-type="bibr" rid="btaa150-B18">Davis and Goadrich, 2006</xref>), an important consideration when providing a list of candidate genes for further study. Accompanying the results in this manuscript, we are providing our comprehensive evaluation framework in the form of data—networks, prediction tasks and evaluation splits—on Zenodo and the underlying code on Github to enable other researchers to not only reproduce our results but also to add new network-based gene classification methods for comparison. Together, the data and the code provide the community a systematic framework to conduct gene classification benchmarking studies. See ‘Availability of data and materials’ for more information.</p>
+<p>In this study, we have presented conclusive evidence that SL is an accurate method for gene classification. However, there exist many possible avenues for future exploration including studying how negative example selection affects gene classification. Although negative example selection has been studied for function prediction in a few studies (<xref ref-type="bibr" rid="btaa150-B88">Youngs <italic>et al.</italic>, 2013</xref>, <xref ref-type="bibr" rid="btaa150-B89">2014</xref>), there is room for exhaustive testing of how to best generate and incorporate negative examples for gene classification in both LP and SL methods. To begin to address this, we included an analysis using negative examples for LP (<xref ref-type="supplementary-material" rid="sup1">Supplementary Section 2.3</xref> and <xref ref-type="supplementary-material" rid="sup1">Figs S11–S14</xref>), where we show using negative examples slightly improves the performance of LP models, but not enough to change any of the findings in this work. Another avenue of exploration is performing a large model selection and hyperparameter tuning benchmarking study, including more non-linear models and embedding techniques. Lastly, it will be of interest to try network-based SL on other types of tasks, such as predicting enhancer roles in gene regulatory networks or predicting amino acid residue properties from 3D protein structures.</p>
+<p>In conclusion, we have established that SL outperforms LP for network-based gene classification across networks and prediction tasks (functions, diseases and traits). We show that SL, in which every gene is its own feature, is able to capture network information just as well as LP. Finally, we show that SL-A demonstrably outperforms SL using node embeddings, and thus we strongly recommend that future work on using node embeddings for gene classification draws a comparison to using SL-A.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="sup1">
+<label>btaa150_Supplementary_Data</label>
+<media xlink:href="btaa150_supplementary_data.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack id="ack1">
+<title>Acknowledgements</title>
+<p>We are grateful to Daniel Marbach for making the GWAS data available. We thank members of the Krishnan Lab for valuable discussions and feedback on the manuscript.</p>
+<sec>
+<title>Author contributions</title>
+<p>A.K., R.L. and C.A.M. conceived and designed the experiments; R.L. and C.A.M. performed the experiments; R.L., C.A.M., A.Y., K.A.J. and A.K. processed the networks and geneset-collections and analyzed the data. R.L., C.A.M. and A.K. wrote the manuscript. All authors read, edited and approved the final manuscript.</p>
+</sec>
+<sec>
+<title>Funding</title>
+<p>This work was primarily supported by US National Institutes of Health (NIH) [grant R35 GM128765 to A.K.]; supported in part by MSU start-up funds (to A.K.); National Institutes of Health [F32 F32GM134595 to C.A.M.]; and MSU Engineering Distinguished Fellowship (to A.Y.).</p>
+</sec>
+<sec sec-type="data-availability">
+<title>Availability of data and materials</title>
+<p>The data used in this study, including the geneset-collections and networks, are freely available on Zenodo at <ext-link ext-link-type="uri" xlink:href="https://zenodo.org/record/3352348">https://zenodo.org/record/3352348</ext-link>. We note that KEGG and InBioMap data are available only from the original sources due to restrictive licenses. A GitHub repository, GenePlexus, that contains code to reproduce the results in this study as well as add new gene classification methods is available at <ext-link ext-link-type="uri" xlink:href="https://github.com/krishnanlab/GenePlexus">https://github.com/krishnanlab/GenePlexus</ext-link>. <italic>Conflict of Interest</italic>: none declared.</p>
+</sec>
+</ack>
+<ref-list id="ref1">
+<title>References</title>
+<ref id="btaa150-B1">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Alshahrani</surname><given-names>M.</given-names></name>, <name name-style="western"><surname>Hoehndorf</surname><given-names>R.</given-names></name></person-group> (<year>2018</year>) 
+<article-title>Semantic Disease Gene Embeddings (SmuDGE): phenotype-based disease gene prioritization without phenotypes</article-title>. <source/>Bioinformatics, <volume>34</volume>, <fpage>i901</fpage>–<lpage>i907</lpage>.<pub-id pub-id-type="pmid">30423077</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B2">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Altschul</surname><given-names>S.F.</given-names></name></person-group>
+<etal>et al</etal> (<year>1990</year>) 
+<article-title>Basic local alignment search tool</article-title>. <source/>J. Mol. Biol., <volume>215</volume>, <fpage>403</fpage>–<lpage>410</lpage>.<pub-id pub-id-type="pmid">2231712</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B3">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ashburner</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2000</year>) 
+<article-title>Gene ontology: tool for the unification of biology. The Gene Ontology Consortium</article-title>. <source/>Nat. Genet., <volume>25</volume>, <fpage>25</fpage>–<lpage>29</lpage>.<pub-id pub-id-type="pmid">10802651</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B4">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ata</surname><given-names>S.K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>Integrating node embeddings and biological annotations for genes to predict disease-gene associations</article-title>. <source/>BMC Syst. Biol., <volume>12</volume>, <fpage>138</fpage>.<pub-id pub-id-type="pmid">30598097</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B5">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Athar</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>ArrayExpress update – from bulk to single-cell expression data</article-title>. <source/>Nucleic Acids Res., <volume>47</volume>, <fpage>D711</fpage>–<lpage>D715</lpage>.<pub-id pub-id-type="pmid">30357387</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B6">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Bai</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>HiWalk: learning node embeddings from heterogeneous networks</article-title>. <source/>Inf. Syst., <volume>81</volume>, <fpage>82</fpage>–<lpage>91</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B7">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Barutcuoglu</surname><given-names>Z.</given-names></name></person-group>
+<etal>et al</etal> (<year>2006</year>) 
+<article-title>Hierarchical multi-label prediction of gene function</article-title>. <source/>Bioinformatics, <volume>22</volume>, <fpage>830</fpage>–<lpage>836</lpage>.<pub-id pub-id-type="pmid">16410319</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B8">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Benjamini</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2006</year>) 
+<article-title>Adaptive linear step-up procedures that control the false discovery rate</article-title>. <source/>Biometrika, <volume>93</volume>, <fpage>491</fpage>–<lpage>507</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B9">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Bernardes</surname><given-names>J.S.</given-names></name>, <name name-style="western"><surname>Pedreira</surname><given-names>C.E.</given-names></name></person-group> (<year>2013</year>) 
+<article-title>A review of protein function prediction under machine learning perspective</article-title>. <source/>Recent Pat. Biotechnol., <volume>7</volume>, <fpage>122</fpage>–<lpage>141</lpage>.<pub-id pub-id-type="pmid">23848274</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B10">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Brown</surname><given-names>G.R.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>Gene: a gene-centered information resource at NCBI</article-title>. <source/>Nucleic Acids Res., <volume>43</volume>, <fpage>D36</fpage>–<lpage>D42</lpage>.<pub-id pub-id-type="pmid">25355515</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B11">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Buniello</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>The NHGRI-EBI GWAS Catalog of published genome-wide association studies, targeted arrays and summary statistics 2019</article-title>. <source/>Nucleic Acids Res., <volume>47</volume>, <fpage>D1005</fpage>–<lpage>D1012</lpage>.<pub-id pub-id-type="pmid">30445434</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B12">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cáceres</surname><given-names>J.J.</given-names></name>, <name name-style="western"><surname>Paccanaro</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>) 
+<article-title>Disease gene prediction for molecularly uncharacterized diseases</article-title>. <source/>PLoS Comput. Biol., <volume>15</volume>, <fpage>e1007078</fpage>.<pub-id pub-id-type="pmid">31276496</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B13">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cai</surname><given-names>H.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>A comprehensive survey of graph embedding: problems, techniques and applications</article-title>. <source/>IEEE Trans Knowl Data Eng., <volume>30</volume>, <fpage>1616</fpage>–<lpage>1637</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B14">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cho</surname><given-names>H.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) 
+<article-title>Compact integration of multi-network topology for functional analysis of genes</article-title>. <source/>Cell Syst., <volume>3</volume>, <fpage>540</fpage>–<lpage>548</lpage>.<pub-id pub-id-type="pmid">27889536</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B15">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Choobdar</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Open community challenge reveals molecular network modules with key roles in diseases</article-title>. <source/>bioRxiv, 265553.</mixed-citation>
+</ref>
+<ref id="btaa150-B16">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cowen</surname><given-names>L.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>Network propagation: a universal amplifier of genetic associations</article-title>. <source/>Nat. Rev. Genet., <volume>18</volume>, <fpage>551</fpage>–<lpage>562</lpage>.<pub-id pub-id-type="pmid">28607512</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B17">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cui</surname><given-names>P.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>A survey on network embedding</article-title>. <source/>IEEE Trans. Knowl. Data Eng., <volume>31</volume>, <fpage>833</fpage>–<lpage>852</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B18">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Davis</surname><given-names>J.</given-names></name>, <name name-style="western"><surname>Goadrich</surname><given-names>M.</given-names></name></person-group> (<year>2006</year>) The relationship between precision-recall and ROC curve. In: <source/>ICML’06: Proceedings of the 23rd International Conference on Machine Learning. pp. <fpage>233</fpage>–<lpage>240</lpage>. ACM, New York, NY, USA.</mixed-citation>
+</ref>
+<ref id="btaa150-B19">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Deng</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2004</year>) 
+<article-title>An integrated probabilistic model for functional prediction of proteins</article-title>. <source/>J. Comput. Biol., <volume>11</volume>, <fpage>463</fpage>–<lpage>475</lpage>.<pub-id pub-id-type="pmid">15285902</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B20">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Edgar</surname><given-names>R.</given-names></name></person-group>
+<etal>et al</etal> (<year>2002</year>) 
+<article-title>Gene Expression Omnibus: NCBI gene expression and hybridization array data repository</article-title>. <source/>Nucleic Acids Res., <volume>30</volume>, <fpage>207</fpage>–<lpage>210</lpage>.<pub-id pub-id-type="pmid">11752295</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B21">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Gillis</surname><given-names>J.</given-names></name>, <name name-style="western"><surname>Pavlidis</surname><given-names>P.</given-names></name></person-group> (<year>2011</year>) 
+<article-title>The impact of multifunctional genes on ‘guilt by association’ analysis</article-title>. <source/>PLoS One, <volume>6</volume>, <fpage>e17258</fpage>.<pub-id pub-id-type="pmid">21364756</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B22">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Gligorijević</surname><given-names>V.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>deepNF: deep network fusion for protein function prediction</article-title>. <source/>Bioinformatics, <volume>34</volume>, <fpage>3873</fpage>–<lpage>3881</lpage>.<pub-id pub-id-type="pmid">29868758</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B23">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Goyal</surname><given-names>P.</given-names></name>, <name name-style="western"><surname>Ferrara</surname><given-names>E.</given-names></name></person-group> (<year>2018</year>) 
+<article-title>Graph embedding techniques, applications, and performance: a survey</article-title>. <source/>Knowl.-Based Syst., <volume>151</volume>, <fpage>78</fpage>–<lpage>94</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B24">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Greene</surname><given-names>C.S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>Understanding multicellular function and disease with human tissue-specific networks</article-title>. <source/>Nat. Genet., <volume>47</volume>, <fpage>569</fpage>–<lpage>576</lpage>.<pub-id pub-id-type="pmid">25915600</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B25">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Grover</surname><given-names>A.</given-names></name>, <name name-style="western"><surname>Leskovec</surname><given-names>J.</given-names></name></person-group> (<year>2016</year>) nodvec: scalable feature learning for networks. In: <source/>KDD’16: Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. <fpage>855</fpage>–<lpage>864</lpage>. ACM Press, San Francisco, CA, USA.</mixed-citation>
+</ref>
+<ref id="btaa150-B26">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Guan</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) 
+<article-title>Functional genomics complements quantitative genetics in identifying disease-gene associations</article-title>. <source/>PLoS Comput. Biol., <volume>6</volume>, <fpage>e1000991</fpage>.<pub-id pub-id-type="pmid">21085640</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B27">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Hamilton</surname><given-names>W.L.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>Representation learning on graphs: methods and applications</article-title>. <italic>IEEE Data Engineering Bulletin</italic>.</mixed-citation>
+</ref>
+<ref id="btaa150-B28">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Huang</surname><given-names>J.K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>Systematic evaluation of molecular networks for discovery of disease genes</article-title>. <source/>Cell Syst., <volume>6</volume>, <fpage>484</fpage>–<lpage>495</lpage>.<pub-id pub-id-type="pmid">29605183</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B29">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ideker</surname><given-names>T.</given-names></name>, <name name-style="western"><surname>Sharan</surname><given-names>R.</given-names></name></person-group> (<year>2008</year>) 
+<article-title>Protein networks in disease</article-title>. <source/>Genome Res., <volume>18</volume>, <fpage>644</fpage>–<lpage>652</lpage>.<pub-id pub-id-type="pmid">18381899</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B30">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Jiang</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) 
+<article-title>An expanded evaluation of protein function prediction methods shows an improvement in accuracy</article-title>. <source/>Genome Biol., <volume>17</volume>, <fpage>184</fpage>.<pub-id pub-id-type="pmid">27604469</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B31">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kahanda</surname><given-names>I.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>A close look at protein function prediction evaluation protocols</article-title>. <source/>Gigascience, <volume>4</volume>, <fpage>41</fpage>.<pub-id pub-id-type="pmid">26380075</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B32">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kanehisa</surname><given-names>M.</given-names></name>, <name name-style="western"><surname>Goto</surname><given-names>S.</given-names></name></person-group> (<year>2000</year>) 
+<article-title>KEGG: Kyoto Encyclopedia of Genes and Genomes</article-title>. <source/>Nucleic Acids Res., <volume>28</volume>, <fpage>27</fpage>–<lpage>30</lpage>.<pub-id pub-id-type="pmid">10592173</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B33">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kanehisa</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>KEGG: new perspectives on genomes, pathways, diseases and drugs</article-title>. <source/>Nucleic Acids Res., <volume>45</volume>, <fpage>D353</fpage>–<lpage>D361</lpage>.<pub-id pub-id-type="pmid">27899662</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B34">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kanehisa</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>New approach for understanding genome variations in KEGG</article-title>. <source/>Nucleic Acids Res., <volume>47</volume>, <fpage>D590</fpage>–<lpage>D595</lpage>.<pub-id pub-id-type="pmid">30321428</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B35">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Karaoz</surname><given-names>U.</given-names></name></person-group>
+<etal>et al</etal> (<year>2004</year>) 
+<article-title>Whole-genome annotation by using evidence integration in functional-linkage networks</article-title>. <source/>Proc. Natl. Acad. Sci. USA, <volume>101</volume>, <fpage>2888</fpage>–<lpage>2893</lpage>.<pub-id pub-id-type="pmid">14981259</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B36">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Köhler</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2008</year>) 
+<article-title>Walking the interactome for prioritization of candidate disease genes</article-title>. <source/>Am. J. Hum. Genet., <volume>82</volume>, <fpage>949</fpage>–<lpage>958</lpage>.<pub-id pub-id-type="pmid">18371930</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B37">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Komurov</surname><given-names>K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) 
+<article-title>Use of data-biased random walks on graphs for the retrieval of context-specific networks from genomic data</article-title>. <source/>PLoS Comput. Biol., <volume>6</volume>, <fpage>e1000889</fpage>.<pub-id pub-id-type="pmid">20808879</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B38">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Krishnan</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) 
+<article-title>Genome-wide prediction and functional characterization of the genetic basis of autism spectrum disorder</article-title>. <source/>Nat. Neurosci., <volume>19</volume>, <fpage>1454</fpage>–<lpage>1462</lpage>.<pub-id pub-id-type="pmid">27479844</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B39">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lanckriet</surname><given-names>G.R.G.</given-names></name></person-group>
+<etal>et al</etal> (<year>2004</year>) 
+<article-title>Kernel-based data fusion and its application to protein function prediction in yeast</article-title>. <source/>Pac. Symp. Biocomput., <volume>9</volume>, <fpage>300</fpage>–<lpage>311</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B40">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lee</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>Ontology-aware classification of tissue and cell-type signals in gene expression profiles across platforms and technologies</article-title>. <source/>Bioinformatics, <volume>29</volume>, <fpage>3036</fpage>–<lpage>3044</lpage>.<pub-id pub-id-type="pmid">24037214</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B41">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lee</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>A computational framework for genome-wide characterization of the human disease landscape</article-title>. <source/>Cell Syst., <volume>8</volume>, <fpage>152</fpage>–<lpage>162</lpage>.<pub-id pub-id-type="pmid">30685436</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B42">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Leinonen</surname><given-names>R.</given-names></name></person-group>
+<etal>et al</etal>; on behalf of the International Nucleotide Sequence Database Collaboration. (<year>2011</year>) 
+<article-title>The sequence read archive</article-title>. <source/>Nucleic Acids Res., <volume>39</volume>, <fpage>D19</fpage>–<lpage>D21</lpage>.<pub-id pub-id-type="pmid">21062823</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B43">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Leiserson</surname><given-names>M.D.M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>Pan-cancer network analysis identifies combinations of rare somatic mutations across pathways and protein complexes</article-title>. <source/>Nat. Genet., <volume>47</volume>, <fpage>106</fpage>–<lpage>114</lpage>.<pub-id pub-id-type="pmid">25501392</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B44">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Leone</surname><given-names>M.</given-names></name>, <name name-style="western"><surname>Pagnani</surname><given-names>A.</given-names></name></person-group> (<year>2005</year>) 
+<article-title>Predicting protein functions with message passing algorithms</article-title>. <source/>Bioinformatics, <volume>21</volume>, <fpage>239</fpage>–<lpage>247</lpage>.<pub-id pub-id-type="pmid">15377508</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B45">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Li</surname><given-names>T.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>A scored human protein-protein interaction network to catalyze genomic interpretation</article-title>. <source/>Nat. Methods, <volume>14</volume>, <fpage>61</fpage>–<lpage>64</lpage>.<pub-id pub-id-type="pmid">27892958</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B46">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Li</surname><given-names>X.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019a</year>) 
+<article-title>Network-based methods for predicting essential genes or proteins: a survey</article-title>. <source/>Brief. Bioinform. doi: 10.1093/bib/bbz017.</mixed-citation>
+</ref>
+<ref id="btaa150-B47">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Li</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019b</year>) 
+<article-title>PGCN: disease gene prioritization by disease and gene embedding through graph convolutional neural networks</article-title>. <source/>bioRxiv, 532226.</mixed-citation>
+</ref>
+<ref id="btaa150-B48">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Liberzon</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>Molecular signatures database (MSigDB) 3.0</article-title>. <source/>Bioinformatics, <volume>27</volume>, <fpage>1739</fpage>–<lpage>1740</lpage>.<pub-id pub-id-type="pmid">21546393</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B49">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Mikolov</surname><given-names>T.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013a</year>) Distributed representations of words and phrases and their compositionality. In: <source/>NIPS’13: Proceedings of the 26th International Conference on Neural Information Processing Systems, Vol. 2. pp. <fpage>3111</fpage>–<lpage>3119</lpage>. Curran Associates Inc., USA.</mixed-citation>
+</ref>
+<ref id="btaa150-B50">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Mikolov</surname><given-names>T.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013b</year>) 
+<article-title>Efficient estimation of word representations in vector space</article-title>. <source/>ArXiv13013781 Cs.</mixed-citation>
+</ref>
+<ref id="btaa150-B51">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Mostafavi</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2008</year>) 
+<article-title>GeneMANIA: a real-time multiple association network integration algorithm for predicting gene function</article-title>. <source/>Genome Biol., <volume>9</volume>, <fpage>S4</fpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B52">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Murali</surname><given-names>T.M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>Network-based prediction and analysis of HIV dependency factors</article-title>. <source/>PLoS Comput. Biol., <volume>7</volume>, <fpage>e1002164</fpage>.<pub-id pub-id-type="pmid">21966263</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B53">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Nabieva</surname><given-names>E.</given-names></name></person-group>
+<etal>et al</etal> (<year>2005</year>) 
+<article-title>Whole-proteome prediction of protein function via graph-theoretic analysis of interaction maps</article-title>. <source/>Bioinformatics, <volume>21</volume>, <fpage>i302</fpage>–<lpage>i310</lpage>.<pub-id pub-id-type="pmid">15961472</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B54">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Nelson</surname><given-names>W.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>To embed or not: network embedding as a paradigm in computational biology</article-title>. <source/>Front. Genet, <volume>10</volume>, <fpage>381</fpage>.<pub-id pub-id-type="pmid">31118945</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B55">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Page</surname><given-names>L.</given-names></name></person-group>
+<etal>et al</etal> (<year>1999</year>) <italic>The PageRank Citation Ranking: Bringing Order to the Web</italic> Available at: <ext-link ext-link-type="uri" xlink:href="http://ilpubs.stanford.edu:8090/422/">http://ilpubs.stanford.edu:8090/422/</ext-link> (July 2019, date last accessed).</mixed-citation>
+</ref>
+<ref id="btaa150-B56">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Park</surname><given-names>C.Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>Functional knowledge transfer for high-accuracy prediction of under-studied biological Processes</article-title>. <source/>PLoS Comput. Biol., <volume>9</volume>, <fpage>e1002957</fpage>.<pub-id pub-id-type="pmid">23516347</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B57">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Pedregosa</surname><given-names>F.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>Scikit-learn: machine learning in Python</article-title>. <source/>J. Mach. Learn. Res., <volume>12</volume>, <fpage>2825</fpage>–<lpage>2830</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B58">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Peña-Castillo</surname><given-names>L.</given-names></name></person-group>
+<etal>et al</etal> (<year>2008</year>) 
+<article-title>A critical assessment of <italic>Mus musculusgene</italic> function prediction using integrated genomic evidence</article-title>. <source/>Genome Biol., <volume>9</volume>, <fpage>S2</fpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B59">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Perozzi</surname><given-names>B.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) DeepWalk: online learning of social representation. In: <source/>KDD’14: Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. <fpage>701</fpage>–<lpage>710</lpage>. ACM, New York, NY, USA.</mixed-citation>
+</ref>
+<ref id="btaa150-B60">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Picart-Armada</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Benchmarking network propagation methods for disease gene identification</article-title>. <source/>PLoS Comput. Biol., <volume>15</volume>, <fpage>e1007276</fpage>.<pub-id pub-id-type="pmid">31479437</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B61">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Piñero</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>DisGeNET: a discovery platform for the dynamical exploration of human diseases and their genes</article-title>. <source/>Database, <volume>2015</volume>, <fpage>bav028</fpage>.<pub-id pub-id-type="pmid">25877637</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B62">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Piñero</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>DisGeNET: a comprehensive platform integrating information on human disease-associated genes and variants</article-title>. <source/>Nucleic Acids Res., <volume>45</volume>, <fpage>D833</fpage>–<lpage>D839</lpage>.<pub-id pub-id-type="pmid">27924018</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B63">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Piro</surname><given-names>R.M.</given-names></name>, <name name-style="western"><surname>Cunto</surname><given-names>F.D.</given-names></name></person-group> (<year>2012</year>) 
+<article-title>Computational approaches to disease-gene prediction: rationale, classification and successes</article-title>. <source/>FEBS J., <volume>279</volume>, <fpage>678</fpage>–<lpage>696</lpage>.<pub-id pub-id-type="pmid">22221742</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B64">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Radivojac</surname><given-names>P.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>A large-scale evaluation of computational protein function prediction</article-title>. <source/>Nat. Methods, <volume>10</volume>, <fpage>221</fpage>–<lpage>227</lpage>.<pub-id pub-id-type="pmid">23353650</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B65">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Saito</surname><given-names>T.</given-names></name>, <name name-style="western"><surname>Rehmsmeier</surname><given-names>M.</given-names></name></person-group> (<year>2015</year>) 
+<article-title>The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets</article-title>. <source/>PLoS One, <volume>10</volume>, <fpage>e0118432</fpage>.<pub-id pub-id-type="pmid">25738806</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B66">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Schriml</surname><given-names>L.M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2012</year>) 
+<article-title>Disease Ontology: a backbone for disease semantic integration</article-title>. <source/>Nucleic Acids Res., <volume>40</volume>, <fpage>D940</fpage>–<lpage>D946</lpage>.<pub-id pub-id-type="pmid">22080554</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B67">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Schwikowski</surname><given-names>B.</given-names></name></person-group>
+<etal>et al</etal> (<year>2000</year>) 
+<article-title>A network of protein–protein interactions in yeast</article-title>. <source/>Nat. Biotechnol., <volume>18</volume>, <fpage>1257</fpage>–<lpage>1261</lpage>.<pub-id pub-id-type="pmid">11101803</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B68">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Sharan</surname><given-names>R.</given-names></name></person-group>
+<etal>et al</etal> (<year>2007</year>) 
+<article-title>Network‐based prediction of protein function</article-title>. <source/>Mol. Syst. Biol., <volume>3</volume>, <fpage>88</fpage>.<pub-id pub-id-type="pmid">17353930</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B69">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Sleator</surname><given-names>R.D.</given-names></name>, <name name-style="western"><surname>Walsh</surname><given-names>P.</given-names></name></person-group> (<year>2010</year>) 
+<article-title>An overview of in silico protein function prediction</article-title>. <source/>Arch. Microbiol., <volume>192</volume>, <fpage>151</fpage>–<lpage>155</lpage>.<pub-id pub-id-type="pmid">20127480</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B70">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Smith</surname><given-names>C.L.</given-names></name></person-group>
+<etal>et al</etal> (<year>2004</year>) 
+<article-title>The Mammalian Phenotype Ontology as a tool for annotating, analyzing and comparing phenotypic information</article-title>. <source/>Genome Biol., <volume>6</volume>, <fpage>R7</fpage>.<pub-id pub-id-type="pmid">15642099</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B71">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Smith</surname><given-names>C.L.</given-names></name></person-group>
+<etal>et al</etal>; the Mouse Genome Database Group. (<year>2018</year>) 
+<article-title>Mouse Genome Database (MGD)-2018: knowledgebase for the laboratory mouse</article-title>. <source/>Nucleic Acids Res., <volume>46</volume>, <fpage>D836</fpage>–<lpage>D842</lpage>.<pub-id pub-id-type="pmid">29092072</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B72">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Stark</surname><given-names>C.</given-names></name></person-group>
+<etal>et al</etal> (<year>2006</year>) 
+<article-title>BioGRID: a general repository for interaction datasets</article-title>. <source/>Nucleic Acids Res., <volume>34</volume>, <fpage>D535</fpage>–<lpage>D539</lpage>.<pub-id pub-id-type="pmid">16381927</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B73">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Subramanian</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2005</year>) 
+<article-title>Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</article-title>. <source/>Proc. Natl. Acad. Sci. USA, <volume>102</volume>, <fpage>15545</fpage>–<lpage>15550</lpage>.<pub-id pub-id-type="pmid">16199517</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B74">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Szklarczyk</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>STRING v10: protein-protein interaction networks, integrated over the tree of life</article-title>. <source/>Nucleic Acids Res., <volume>43</volume>, <fpage>D447</fpage>–<lpage>D452</lpage>.<pub-id pub-id-type="pmid">25352553</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B75">
+<mixed-citation publication-type="journal">The Gene Ontology Consortium (<year>2019</year>) 
+<article-title>The Gene Ontology Resource: 20 years and still GOing strong</article-title>. <source/>Nucleic Acids Res., <volume>47</volume>, <fpage>D330</fpage>–<lpage>D338</lpage>.<pub-id pub-id-type="pmid">30395331</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B76">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Tsuda</surname><given-names>K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2005</year>) 
+<article-title>Fast protein classification with multiple networks</article-title>. <source/>Bioinformatics, <volume>21</volume>, <fpage>ii59</fpage>–<lpage>ii65</lpage>.<pub-id pub-id-type="pmid">16204126</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B77">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Valdeolivas</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Random walk with restart on multiplex and heterogeneous biological networks</article-title>. <source/>Bioinformatics, <volume>35</volume>, <fpage>497</fpage>–<lpage>505</lpage>.<pub-id pub-id-type="pmid">30020411</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B78">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Vanunu</surname><given-names>O.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) 
+<article-title>Associating genes and protein complexes with disease via network propagation</article-title>. <source/>PLoS Comput. Biol., <volume>6</volume>, <fpage>e1000641</fpage>.<pub-id pub-id-type="pmid">20090828</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B79">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Vazquez</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2003</year>) 
+<article-title>Global protein function prediction from protein-protein interaction networks</article-title>. <source/>Nat. Biotechnol., <volume>21</volume>, <fpage>697</fpage>–<lpage>700</lpage>.<pub-id pub-id-type="pmid">12740586</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B80">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Wang</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) Structural deep network embedding. In: <source/>KDD’16: Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. <fpage>1225</fpage>–<lpage>1234</lpage>. ACM, New York, NY, USA.</mixed-citation>
+</ref>
+<ref id="btaa150-B81">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Wang</surname><given-names>X.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>Network-based methods for human disease gene prediction</article-title>. <source/>Brief. Funct. Genomics, <volume>10</volume>, <fpage>280</fpage>–<lpage>293</lpage>.<pub-id pub-id-type="pmid">21764832</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B82">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Warde-Farley</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) 
+<article-title>The GeneMANIA prediction server: biological network integration for gene prioritization and predicting gene function</article-title>. <source/>Nucleic Acids Res., <volume>38</volume>, <fpage>W214</fpage>–<lpage>W220</lpage>.<pub-id pub-id-type="pmid">20576703</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B83">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Whisstock</surname><given-names>J.C.</given-names></name>, <name name-style="western"><surname>Lesk</surname><given-names>A.M.</given-names></name></person-group> (<year>2003</year>) 
+<article-title>Prediction of protein function from protein sequence and structure</article-title>. <source/>Q. Rev. Biophys., <volume>36</volume>, <fpage>307</fpage>–<lpage>340</lpage>.<pub-id pub-id-type="pmid">15029827</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B84">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Wu</surname><given-names>C.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>BioGPS and MyGene.info: organizing online, gene-centric information</article-title>. <source/>Nucleic Acids Res., <volume>41</volume>, <fpage>D561</fpage>–<lpage>D565</lpage>.<pub-id pub-id-type="pmid">23175613</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B85">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Xin</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) 
+<article-title>High-performance web services for querying gene and variant annotation</article-title>. <source/>Genome Biol., <volume>17</volume>, <fpage>91</fpage>.<pub-id pub-id-type="pmid">27154141</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B86">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Yang</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>GCTA: a tool for genome-wide complex trait analysis</article-title>. <source/>Am. J. Hum. Genet., <volume>88</volume>, <fpage>76</fpage>–<lpage>82</lpage>.<pub-id pub-id-type="pmid">21167468</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B87">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Yang</surname><given-names>K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>HerGePred: heterogeneous network embedding representation for disease gene prediction</article-title>. <source/>IEEE J. Biomed. Health Inform., <volume>23</volume>, <fpage>1805</fpage>–<lpage>1815</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa150-B88">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Youngs</surname><given-names>N.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>Parametric Bayesian priors and better choice of negative examples improve protein function prediction</article-title>. <source/>Bioinformatics, <volume>29</volume>, <fpage>1190</fpage>–<lpage>1198</lpage>.<pub-id pub-id-type="pmid">23511543</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B89">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Youngs</surname><given-names>N.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) 
+<article-title>Negative example selection for protein function prediction: the NoGO database</article-title>. <source/>PLoS Comput. Biol., <volume>10</volume>, <fpage>e1003644</fpage>.<pub-id pub-id-type="pmid">24922051</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B90">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Zhang</surname><given-names>X.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) 
+<article-title>Predicting essential genes and proteins based on machine learning and network topological features: a comprehensive review</article-title>. <source/>Front. Physiol., <volume>7</volume>, <fpage>75</fpage>.<pub-id pub-id-type="pmid">27014079</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B91">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Zhao</surname><given-names>B.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>An iteration method for identifying yeast essential proteins from heterogeneous network</article-title>. <source/>BMC Bioinformatics, <volume>20</volume>, <fpage>355</fpage>.<pub-id pub-id-type="pmid">31234779</pub-id></mixed-citation>
+</ref>
+<ref id="btaa150-B92">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Zhou</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2003</year>) Learning with local and global consistency. In: <source/>NIPS’03: Proceedings of the 16th International Conference on Neural Information Processing Systems. pp. <fpage>321</fpage>–<lpage>328</lpage>. MIT Press, Cambridge, MA, USA.</mixed-citation>
+</ref>
+<ref id="btaa150-B93">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Zhu</surname><given-names>X.</given-names></name></person-group>
+<etal>et al</etal> (<year>2003</year>) Semi-supervised learning using Gaussian fields and harmonic functions. In: <source/>ICML’03: Proceedings of the Twentieth International Conference on International Conference on Machine Learning, Washington DC. pp. <fpage>912</fpage>–<lpage>919</lpage>. AAAI Press.</mixed-citation>
+</ref>
+<ref id="btaa150-B94">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Zitnik</surname><given-names>M.</given-names></name>, <name name-style="western"><surname>Leskovec</surname><given-names>J.</given-names></name></person-group> (<year>2017</year>) 
+<article-title>Predicting multicellular function through multi-layer tissue networks</article-title>. <source/>Bioinformatics, <volume>33</volume>, <fpage>i190</fpage>–<lpage>i198</lpage>.<pub-id pub-id-type="pmid">28881986</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

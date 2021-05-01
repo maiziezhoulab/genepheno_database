@@ -1,0 +1,559 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27502440</article-id>
+<article-id pub-id-type="pmc">4977499</article-id>
+<article-id pub-id-type="pii">srep31262</article-id>
+<article-id pub-id-type="doi">10.1038/srep31262</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Pro-arrhythmogenic effects of <italic>CACNA1C</italic> G1911R mutation in human ventricular tachycardia: insights from cardiac multi-scale models</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Bai</surname>
+<given-names>Jieyun</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Kuanquan</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Qince</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Yuan</surname>
+<given-names>Yongfeng</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Henggui</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="aff" rid="a2">2</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>School of Computer Science and Technology, Harbin Institute Technology</institution>, Harbin, 150001, <country>China</country></aff>
+<aff id="a2"><label>2</label><institution>Biological Physics Group, School of Physics and Astronomy, University of Manchester</institution>, Manchester, M13 9PL, <country>UK</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>wangkq@hit.edu.cn</email>
+</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>09</day>
+<month>08</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>6</volume>
+<elocation-id>31262</elocation-id>
+<history>
+<date date-type="received">
+<day>29</day>
+<month>03</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>14</day>
+<month>07</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016, The Author(s)</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>The Author(s)</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>Mutations in the <italic>CACNA1C</italic> gene are associated with ventricular tachycardia (VT). Although the <italic>CACNA1C</italic> mutations were well identified in patients with cardiac arrhythmias, mechanisms by which cardiac arrhythmias are generated in such genetic mutation conditions remain unclear. In this study, we identified a novel mechanism of VT resulted from enhanced repolarization dispersion which is a key factor for arrhythmias in the <italic>CACNA1C</italic> G1911R mutation using multi-scale computational models of the human ventricle. The increased calcium influx in the mutation prolonged action potential duration (APD), produced steepened action potential duration restitution (APDR) curves as well as augmented membrane potential differences among different cell types during repolarization, increasing transmural dispersion of repolarization (DOR) and the spatial and temporal heterogeneity of cardiac electrical activities. Consequentially, the vulnerability to unidirectional conduction block in response to a premature stimulus increased at tissue level in the G1911R mutation. The increased functional repolarization dispersion anchored reentrant excitation waves in tissue and organ models, facilitating the initiation and maintenance of VT due to less meandering rotor tip. Thus, the increased repolarization dispersion caused by the G1911R mutation is a primary factor that may primarily contribute to the genesis of cardiac arrhythmias in Timothy Syndrome.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Ventricular tachycardia (VT) characterized by high rates of ventricular excitation may cause sudden cardiac death<xref ref-type="bibr" rid="b1">1</xref>. Thus, it is important to understand the mechanisms of VT for practical cardiology. Although structural cardiac disease and electrical remodeling of ion channels were documented to be major contributory factors of initiating and sustaining VT<xref ref-type="bibr" rid="b2">2</xref><xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b4">4</xref>, the underlying mechanisms of VT are as yet incompletely understood. However, VT patients in some instances have characteristic solitary gene defects without other structural diseases<xref ref-type="bibr" rid="b3">3</xref>. In particular, the long-QT syndrome (LQTS), associated with genetic disorders, is characterized by ion channel remodeling, which may produce heterogeneous action potential (AP) duration prolongation, resulting in an amplified dispersion of repolarization (DOR) in the tissue, leading to an increased QT interval and recurrent VT in a structurally normal heart<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. Although gene mutations have been suggested to increase the risk of VT in LQTS patients, how the altered genotype generates clinically arrhythmic phenotypes in patients remains unclear.</p>
+<p>Mutations in the <italic>CACNA1C</italic> gene have been linked to rare forms of LQTS which is associated with excessive cellular Ca<sup>2+</sup> entry through Ca<sub>V</sub>1.2 L-type calcium channel and VT<xref ref-type="bibr" rid="b7">7</xref><xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref><xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref>. In <italic>CACNA1C</italic> mutations, there is a 5731 G&gt;C transversion, corresponding to a 1911 glycine to arginine substitution (p.G1911R) in Ca<sub>V</sub>1.2<xref ref-type="bibr" rid="b16">16</xref>. Although functional analysis in both wild-type and G1911R mutation conditions revealed an increased L-type calcium current (<italic>I</italic><sub><italic>CaL</italic></sub>) and suggested the mutant ionic promoted VT, this needs to be addressed directly<xref ref-type="bibr" rid="b16">16</xref>. Based on previous experimental data, computational models provided further analysis and physiological insights of genotype-phenotype associations<xref ref-type="bibr" rid="b22">22</xref>. In detail, modeling studies in <italic>CACNA1C</italic> mutations have shed light on the cellular and tissue-level mechanisms of arrhythmias<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b23">23</xref><xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref><xref ref-type="bibr" rid="b26">26</xref>. It has been demonstrated that <italic>CACNA1C</italic> mutations caused a gain-of-function of Ca<sub>V</sub>1.2 L-type calcium channel, leading to an increased calcium influx, resulting in a dramatic AP prolongation<xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b23">23</xref><xref ref-type="bibr" rid="b26">26</xref> and afterdepolarization-triggered activity<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref>. They also steepened the action potential duration restitution (APDR) curve, disrupted rate-dependent cardiac excitation dynamics and promoted the development of alternans<xref ref-type="bibr" rid="b24">24</xref>. <italic>CACNA1C</italic> mutations amplified DOR and increased membrane potential spatial gradients across the tissue<xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref>. <italic>CACNA1C</italic> mutations prolonged QT interval<xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref> and produced T-wave alternans and T-wave inversion<xref ref-type="bibr" rid="b24">24</xref> in electrocardiography (ECG). Although simulation studies interpreted the effects of <italic>CACNA1C</italic> mutations on cellular functions, however, the effects of of <italic>CACNA1C</italic> mutations on cardiac excitation dynamics, characteristics of ECG and the dynamics of spiral waves (VT in human ventricle) have not been investigated in these studies<xref ref-type="bibr" rid="b24">24</xref>. In addition, as there is no accurate animal model of the G1911R <italic>CACNA1C</italic> mutation to date, the underlying mechanisms of VT genesis and maintenance are not fully understood. Consequently, the aim of this study was to quantify the pro-arrhythmogenic effects of the G1911R mutation in the human ventricular at cell, tissue strand, tissue sheet and whole organ levels by utilizing a computational modeling approach.</p>
+<p>In this study, we hypothesized that the increased <italic>I</italic><sub><italic>CaL</italic></sub>in the G1911R mutation augmented repolarization dispersion through the transmural ventricular wall with intrinsic repolarization heterogeneity, leading to an increased tissue’s vulnerability to generate unidirectional conduction block of excitation waves, facilitating the genesis of VT. In this process, the midmyocardial (MCELL) region severed as an excitable obstacle for stabilizing and sustaining VT. To test these hypothesizes, a human ventricular model including specific changes of <italic>I</italic><sub><italic>CaL</italic></sub> kinetics induced by the G1911R <italic>CACNA1C</italic> mutation was developed to investigate changes of <italic>I</italic><sub><italic>CaL</italic></sub> on AP, APD and effective refractory period (ERP). A one-dimensional (1D) strand model was then constructed to quantify the pro-arrhythmogenic effects of <italic>CACNA1C</italic> G1911R mutation on APD heterogeneity, membrane potential heterogeneity, electrocardiograph (ECG), vulnerable window (VW) and DOR. Finally, idealized two-dimensional (2D) and realistic three-dimensional (3D) models with a MCELL island were built to simulate the initiation and maintenance of re-entry and examine effects of G1911R mutation on the genesis of VT.</p>
+<sec disp-level="1">
+<title>Results</title>
+<sec disp-level="2">
+<title>Effects of <italic>CACNA1C</italic> G1911R mutation on single cell APs</title>
+<p><xref ref-type="fig" rid="f1">Figure 1</xref> shows that increased <italic>I</italic><sub><italic>CaL</italic></sub>due to the <italic>CACNA1C</italic> G1911R mutation prolonged human ventricular APs. For endocardial cells (ENDO), the G1911R mutation significantly increased <italic>I</italic><sub><italic>CaL</italic></sub>(<xref ref-type="fig" rid="f1">Fig. 1a</xref>), which prolonged plateau of AP (<xref ref-type="fig" rid="f1">Fig. 1d</xref>), APD (<xref ref-type="fig" rid="f1">Fig. 1j</xref>) and ERP (<xref ref-type="fig" rid="f1">Fig. 1k</xref>).</p>
+<p>Similar results were observed in MCELL (<xref ref-type="fig" rid="f1">Fig. 1b,e,h</xref>) and epicardial cells (EPI) (<xref ref-type="fig" rid="f1">Fig. 1c,f,i</xref>). It is worthwhile to point out that the G1911R mutation prolonged APD in both MCELL and EPI (<xref ref-type="fig" rid="f1">Fig. 1j,k</xref>), but to different extents. The APD prolongation in MCELL is more significant than that in other cell types. Under wild-type condition, the APD differences between ENDO and MCELL (ENDO-MCELL) and between EPI and MCELL (EPI-MCELL) are about ~50 ms. However, the APD difference in ENDO-MCELL and EPI-MCELL cells in the G1911R mutation went up to ~100 ms. Similar to APD prolongation, the G1911R mutation also increased ERP as shown in <xref ref-type="fig" rid="f1">Fig. 1k</xref>. The increases of APD and ERP were inhomogeneous for the three different cell types, indicating an augmented transmural heterogeneity of APD across the ventricle wall in the G1911R mutation condition, leading to an increased dispersion of repolarisation.</p>
+<p>To further investigate the effect of the G1911R mutation on cardiac restitution properties, APDR was calculated under wild-type condition and compared with that under the G1911R condition. <xref ref-type="fig" rid="f1">Figure 1g–i</xref> show that the G1911R mutation produced an upward shift of APDR curves due to APD prolongation and steepened the APDR curve in ENDO, MCELL and EPI cells. The maximal slope of APDR curves under G1911R condition were also increased (<xref ref-type="fig" rid="f1">Fig. 1l</xref>). The simulation results suggested an increase in ventricular APD rate adaptation, which may increase the instability of excitation waves<xref ref-type="bibr" rid="b27">27</xref><xref ref-type="bibr" rid="b28">28</xref>, leading to formation of re-entrant excitation waves<xref ref-type="bibr" rid="b29">29</xref><xref ref-type="bibr" rid="b30">30</xref>, which is consistent with recurrent VT in patients<xref ref-type="bibr" rid="b16">16</xref>.</p>
+<p>In summary, the results in single cell simulations demonstrated that the G1911R mutation prolonged APD, increased electrical heterogeneity among different cell types and augmented the maximal slope of APDR, all of which plays an important role in predisposing to VT.</p>
+</sec>
+<sec disp-level="2">
+<title>Effects of <italic>CACNA1C</italic> G1911R mutation on ECG</title>
+<p>Propagating excitation waves and ECG traces were calculated to investigate effects of G1911R mutation at tissue strand level. As shown in <xref ref-type="fig" rid="f2">Fig. 2</xref>, a propagating excitation wave was initiated by applying a supra-threshold stimulus to the ENDO end (<xref ref-type="fig" rid="f2">Fig. 2a,b</xref>). The pseudo-ECGs were computed under wild-type (<xref ref-type="fig" rid="f2">Fig. 2c</xref>) and G1911R (<xref ref-type="fig" rid="f2">Fig. 2d</xref>) conditions. The G1911R mutation prolonged QT interval, elevated T wave and enlarged T wave width. In detail, the QT interval and T wave width were prolonged progressively from 367.8 ms and 20.3 ms under the wild type condition to 577 ms and 41.63 ms under the G1911R condition, respectively. In addition, these results are consistent with the major features of ECG signals recorded from patients<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b16">16</xref>.</p>
+<p>To illustrate mechanisms underlying ECG variations in the G1911R mutation condition, the membrane potential heterogeneity (δ) among cell types and transmural repolarization dispersion across the intact 1D strand were investigated. Simulated ENDO, MCELL and EPI APs under wild-type and G1911R conditions are shown in <xref ref-type="fig" rid="f3">Fig. 3a,b</xref> and corresponding δ plots between different cell types are shown in <xref ref-type="fig" rid="f3">Fig. 3c,d</xref>. The maximum δ between ENDO and MCELL regions and between MCELL and EPI regions during repolarization were both enlarged under the G1911R condition (<xref ref-type="fig" rid="f3">Fig. 3e,f</xref>). As the spatial gradient of membrane potential contributed to the ECG, the increased maximum spatial gradient during repolarization might account for the augmented T wave amplitude seen in <xref ref-type="fig" rid="f2">Fig. 2</xref>. In addition to membrane potential heterogeneity, the G1911R mutation also augmented repolarization time (<xref ref-type="fig" rid="f3">Fig. 3g</xref>) and increased the maximum APD spatial gradient (<xref ref-type="fig" rid="f3">Fig. 3h</xref>). As repolarization time is associated with QT interval and DOR reflects T wave width, altered <italic>I</italic><sub><italic>CaL</italic></sub>due to the G1911R mutation might account for the observed changes of ECG in patients with the G1911R mutation.</p>
+</sec>
+<sec disp-level="2">
+<title>Effects of <italic>CACNA1C</italic> G1911R mutation on tissue vulnerability to unidirectional conduction block.</title>
+<p>Since unidirectional conduction block increases susceptibility to VT, we quantified VW to examine effects of the G1911R mutation on tissue vulnerability to unidirectional conduction block. <xref ref-type="fig" rid="f4">Figure 4</xref> shows the excitation wave in response to a test stimulus which was applied in different portions of the fiber at different time delay (<italic>Δt</italic>) under the G1911R condition. In the ENDO region (marked in the <xref ref-type="fig" rid="f4">Fig. 4a</xref> by arrow), a test stimulus could not re-excite the tissue at an early time delay (<italic>Δt</italic> = 627 ms) when the tissue did not recover from excitation, generating a bidirectional conduction block (<xref ref-type="fig" rid="f4">Fig. 4a</xref>). When a time delay was within the VW (<italic>Δt</italic> = 627.5 ms), the tissue surrounding the test stimulus site partially recovered. In this condition, an excitation wave propagated towards recovered tissue and was blocked by unrecovered tissue, generating a unidirectional conduction block (<xref ref-type="fig" rid="f4">Fig. 4b</xref>). When a time delay was sufficiently late and out of the VW (<italic>Δt</italic> = 631 ms), all the tissue had fully recovered, therefore the surrounding tissue were excitable, generating a bidirectional conduction (<xref ref-type="fig" rid="f4">Fig. 4c</xref>). In detail, the measured VW in the ENDO region increased from 0.5 ms under the wild-type condition to 1.8 ms under the G1911R condition (<xref ref-type="fig" rid="f4">Fig. 4d</xref>).</p>
+<p>Similar results were shown in the EPI region. Bidirectional conduction block, unidirectional conduction block and bidirectional conduction of re-excitation waves in the EPI region (marked in the <xref ref-type="fig" rid="f4">Fig. 4e</xref> by arrow) were evoked at <italic>Δt</italic> = 629 ms, 630 ms and 635 ms, respectively, as shown in <xref ref-type="fig" rid="f4">Fig. 4e–g</xref>. In the EPI region, the VW increased by 200% (from 1.8 ms to 5.4 ms) in the G1911R condition (<xref ref-type="fig" rid="f4">Fig. 4h</xref>). In addition, there was no unidirectional block observed in the MCELL region under wild-type and G1911R conditions.</p>
+<p>Thus, the simulation results indicated that the G1911R mutation augmented tissue vulnerability to unidirectional conduction block by increasing transmural repolarization dispersion.</p>
+</sec>
+<sec disp-level="2">
+<title>Effects of <italic>CACNA1C</italic> G1911R mutation on spiral wave in idealized 2D model</title>
+<p>Spiral waves were initiated by applying a test stimulus within the VW at the ENDO region (<xref ref-type="fig" rid="f5">Fig. 5</xref>). In this case, since the MCELL region has slower repolarization than the ENDO and EPI regions, the longer ERP of the MCELL region gave rise to a unidirectional conduction towards the ENDO side, forming an excitable obstacle to conduction. Then, the excitation wave was attracted to the excitable obstacle and generated a spiral wave. <xref ref-type="fig" rid="f5">Figure 5a</xref> shows spiral waves propagation under wild-type and G1911R conditions. Under the wild-type condition, the initiated spiral wave terminated spontaneously (<xref ref-type="fig" rid="f5">Fig. 5b</xref>). However, the re-entrant wave in the G1911R group was stable and persistent at a high rate and the tip of the spiral wave was attracted into the MCELL region (<xref ref-type="fig" rid="f5">Fig. 5c</xref>). The measured life span of a spiral wave and the peak frequency of local electrical activity were 0.9 s and 0.78 Hz in the wild type group (<xref ref-type="fig" rid="f5">Fig. 5d,e</xref>) respectively, and 5 s and 2.5 Hz in the G1911R group (<xref ref-type="fig" rid="f5">Fig. 5f,g</xref>) respectively. Detailed movies of spiral wave propagation in idealized 2D model under wild-type and G1911R conditions are shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Videos S1</xref> and <xref ref-type="supplementary-material" rid="S1">S2</xref> respectively.</p>
+<p>Thus, the simulation results in idealized 2D model indicated that the G1911R mutation facilitated the genesis of reentry by augmenting tissue vulnerability to unidirectional conduction block.</p>
+</sec>
+<sec disp-level="2">
+<title>Arrhythmogenic substrates in the <italic>CACNA1C</italic> G1911R mutation in realistic 3D left ventricle</title>
+<p>In the realistic 3D left ventricular model, the dynamics of spiral waves were studied to reveal the effects of the G1911R mutation on VT. In detail, excitation waves in all groups were initiated by employing a test stimulus at the ENDO region in the 3D human left ventricular model with a MCELL island (<xref ref-type="fig" rid="f6">Fig. 6a</xref>). Under the wild-type condition, the excitation wave was not attracted to the MCELL region and meandered in a large area of the tissue, leading to self-termination at 0.7 s and manifesting as a single cycle of AP in <xref ref-type="fig" rid="f6">Fig. 6b</xref>. Under the G1911R condition, the excitation wave was attracted to the MCELL island and generated self-maintained spiral waves (<xref ref-type="fig" rid="f6">Fig. 6d</xref>). The life span of excitation wave and the peak frequency of local electrical activity were 0.7 s and 1.65 Hz in the wild-type group (<xref ref-type="fig" rid="f6">Fig. 6b,c</xref>). However, the re-entrant wave persisted throughout the whole simulation process (2.5 s) under the G1911R condition (<xref ref-type="fig" rid="f6">Fig. 6d</xref>). Meanwhile, the dominant frequency in the G1911R case was much higher (~2.4 Hz) than that under the wild-type condition (<xref ref-type="fig" rid="f6">Fig. 6e</xref>). Detailed movies of spiral wave propagation in realistic 3D model under wild-type and G1911R conditions are shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Videos S3</xref> and <xref ref-type="supplementary-material" rid="S1">S4</xref> respectively.</p>
+<p>The simulation results in realistic 3D model indicated that the G1911R mutation facilitated and perpetuated organ-scale VT by increasing repolarization dispersion.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>Mutations in <italic>CACNA1C</italic> are associated with life-threatening arrhythmias and some patients with this type of mutations may have an episode of VT<xref ref-type="bibr" rid="b7">7</xref><xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b19">19</xref>. In the G1911R mutation, a patient with the heterozygotic G1911R mutation demonstrated a QT interval of 520 ms at age 5 years and suffered from VT<xref ref-type="bibr" rid="b16">16</xref>. Although it has been reported that the G1911R mutation caused a gain-of-function of Ca<sub>V</sub>1.2, mechanisms by which the <italic>CACNA1C</italic> G1911R mutation facilitate and perpetuate organ-scale VT remain unclear. In this study, we quantified pro-arrhythmogenic effects of the G1911R mutation in the human ventricular at cell, tissue strand, tissue sheet and whole organ levels by utilizing a computational modeling approach. We demonstrated that the QT interval was prolonged from 367.8 ms under the wild-type condition to 577 ms under the G1911R condition. Importantly, spiral waves were shown under the G1911R condition which is consistent with the clinically observable VT. Our results indicated that the G1911R mutation (i) increased <italic>I</italic><sub><italic>CaL</italic></sub> by changing voltage-dependence of activation, voltage-dependence of inactivation and the time constant of inactivation; (ii) prolonged APD and ERP and steepened APD restitution curves, leading to enhanced rate-dependent adaptation of APD; (iii) prolonged QT interval, increased T wave amplitude and lengthened <italic>T</italic><sub><italic>peak</italic></sub>–<italic>T</italic><sub><italic>end</italic></sub> duration; (iv) augmented membrane potential and APD heterogeneity, increased repolarization dispersion and VW for unidirectional block and promoted the formation of spiral waves; (v) the MCELL island formed an excitable obstacle which anchored the spiral wave and stabilized re-entry, leading to more frequent ventricular excitations. Clinically, electrical heterogeneity was also reported to be enhanced in cardiac tissue in patients with LQTS<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. Taken together, our data demonstrates that increased repolarization dispersion may be the causative link between the altered genotype and the clinical arrhythmic phenotypes in patients.</p>
+<p>As VT remains one of the most common causes of sudden cardiac death, many studies have been undertaken to analyze its initiation. Particularly, observations in patients with the G1911R mutation provided insight into the mechanisms of VT<xref ref-type="bibr" rid="b16">16</xref>. Macroscopic reentry and VT have been found to occur in the patients’ heart with the G1911R mutation<xref ref-type="bibr" rid="b16">16</xref>. In addition, LQTS is characterized by regional APD prolongation<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. In the present paper, we focused on the initiation and maintenance of arrhythmias in transmural ventricular tissue, which are usually associated with reentry. Our study suggests that there are two facts mainly contributed to the pro-arrhythmic effects of G1911R mutation.</p>
+<p>The first one is the increased repolarization time and ERP in G1911R mutation. In the G1911R mutation, a defect in voltage-dependent inactivation (VDI) increased Ca<sub>V</sub>1.2 window current and prolonged the plateau phase of the action potential, producing excessive APD prolongation. Consequently, this augmented repolarization time (QT interval) of tissue and increased ERP, facilitating conduction block of excitation waves.</p>
+<p>The other fact contributed to the pro-arrhythmic effects of G1911R mutation is the increased electrical heterogeneity of the tissue, reflected by the increased repolarization dispersion. Our findings support the notion that enhanced repolarization dispersion is proarrhythmic<xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref>. On the one hand, the G1911R mutation augmented transmural heterogeneity of APD as the APD prolongation among cell types were different. The difference of repolarization among cell types augmented transmural DOR under the G1911R condition. The greater dispersion of repolarization significantly prolonged <italic>T</italic><sub><italic>peak</italic></sub>–<italic>T</italic><sub><italic>end.</italic></sub> Therefore, the G1911R mutation caused greater repolarization gradients between different cell regions in cardiac tissues and consequently increased the VW facilitating the genesis of VT. On the other hand, membrane potential heterogeneity was also enhanced by the G1911R mutation. The membrane potential gradients (the temporal gradients) between ENDO and MCELL and between EPI and MCELL during repolarization were augmented respectively in the G1911R mutation condition. Thus, the greater dispersion of membrane potential augmented T wave amplitude. In summary, the increased dispersion of repolarization due to the G1911R mutation led to augmented spatial and temporal gradients, together with a steeper APDR, increasing susceptibility to alternans development which was implicated in life-threatening arrhythmia by promoting wave break<xref ref-type="bibr" rid="b31">31</xref>.</p>
+<p>For the idealized 2D model, the transmural ventricular tissue is composed by ENDO, MCELL and EPI. Many studies have been undertaken to analysis the role of MCELL in LQTS arrhythmogenesis<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b33">33</xref><xref ref-type="bibr" rid="b34">34</xref>. Particularly, experimental studies in animals and patients with LQTS have shown how the size and distribution of MCELL in transmural ventricular tissue became arrhythmogenesis<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b32">32</xref>. Regional APD prolongation was observed<xref ref-type="bibr" rid="b6">6</xref> and size of the region was measured<xref ref-type="bibr" rid="b5">5</xref> in patients with LQTS. Most importantly, islands of MCELL, which provided the distribution of MCELL in transmural tissue, were observed in canine wedge<xref ref-type="bibr" rid="b32">32</xref>. In this paper, we constructed an idealized 2D transmural ventricular tissue model based on the size and distribution of the MCELL region. On the one hand, the width of 2D model is consistent with the normal range of human transmural ventricular width<xref ref-type="bibr" rid="b35">35</xref>. In the present simulations, the size of MCELL island was similar to the area of prolonged APD region in human heart<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b34">34</xref>. Our model gives a theoretical frame and supports our hypothesis on the proarrhythmic effects of increased DOR, particularly resulting from the MCELL island. Indeed, we did observe a prolonged APD region under the G1911R mutation condition and the region (the MCELL island) formed an excitable obstacle which can anchor spiral waves, forming a novel mechanism of generating VT by increased regional heterogeneity in the G1911R mutation condition.</p>
+<p>Spatial heterogeneous APD prolongation created a relatively stable and persistent excitable obstacle in the MCELL region. The maximal difference in APD/ERP among three cell types was determining such an excitable obstacle. The G1911R mutation significantly increased the maximal difference in APD/ERP among three cell types, resulting in a sustained functional excitable obstacle. The spiral wave was attracted to the excitable obstacle and its tip meandered around the obstacle, thereby leading to stable and persistent re-entry under the G1911R condition, which is consistent with regional heterogeneity-induced arrhythmogensis<xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b33">33</xref><xref ref-type="bibr" rid="b34">34</xref><xref ref-type="bibr" rid="b36">36</xref><xref ref-type="bibr" rid="b37">37</xref>. The results support that unique distribution of MCELL underlies reentrant mechanism in LQTS<xref ref-type="bibr" rid="b36">36</xref><xref ref-type="bibr" rid="b33">33</xref>. It is particularly noted that unique circular distribution of MCELL was directly responsible for conduction block and self-sustained transmural re-entrant circuits underlying VT. The-entrant wave in our simulation was not identical to that in 2D models with a strip of MCELL used in previous studies<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b33">33</xref><xref ref-type="bibr" rid="b35">35</xref>. Thus, excitation wave propagation for wild-type and G1911R conditions in idealized 2D with ENDO, MCELL and EPI layers was investigated and shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Videos S5</xref> and <xref ref-type="supplementary-material" rid="S1">S6</xref> respectively. Similar to the circular distribution, a strip of MCELL initiated and sustained spiral waves under the G1911R condition. In addition, the results in realistic 3D model under the G1911R condition also showed sustained spiral waves with a higher dominant frequency and a longer lifespan (Detailed movies of spiral wave propagation in realistic 3D model with ENDO, MCELL and EPI layers under wild-type and G1911R conditions are shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Videos S7</xref> and <xref ref-type="supplementary-material" rid="S1">S8</xref>). Thus, the simulation results in idealized 2D and realistic 3D models confirmed that the G1911R mutation facilitates and perpetuates organ-scale VT by enhancing heterogeneity.</p>
+<p>In addition, augmented <italic>I</italic><sub><italic>CaL</italic></sub> has previously been implicated in disrupting cardiac dynamics and promoting alternans by steepening action potential duration restitution<xref ref-type="bibr" rid="b24">24</xref>. Also, it was shown that increased dispersion of repolarization was required for unidirectional conduction block under the G406R/S402R mutation condition<xref ref-type="bibr" rid="b25">25</xref>. Our findings demonstrated that in the G911R mutation, the altered <italic>I</italic><sub><italic>CaL</italic></sub> not only steepened action potential duration restitution but also increased DOR, which promoted initiation and maintenance of cardiac arrhythmias. Therefore, our study implicates augmented <italic>I</italic><sub><italic>CaL</italic></sub> due to <italic>CACNA1C</italic> mutations in tachycardia arrhythmogenesis.</p>
+<p>Limitations of ten Tusscher <italic>et al.</italic> have been addressed elsewhere<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b38">38</xref><xref ref-type="bibr" rid="b39">39</xref>. Although our model successfully reproduced spiral waves (VT in human ventricle) under the G1911R condition, it has several limitations which need to be addressed in future study. First, the clinically observable arrhythmic phenotypes in patients often occur in the case of increased sympathetic tone<xref ref-type="bibr" rid="b31">31</xref>. Due to the lack of precise computational models of multiple signaling pathways, the relative contribution of active specific targets, such as calmodulin-dependent protein kinase II, β-adrenergic receptor, protein kinase A, etc.<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b25">25</xref><xref ref-type="bibr" rid="b31">31</xref> to the pro-arrhythmic effects of the G1911R mutation were not included. Second, it should be noted that the generation of afterdepolarization has been proposed as one of the arrhythmic mechanisms in <italic>CACNA1C</italic> mutations<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref>. However, single cell simulations did not exhibit the occurrence of afterdepoloarization in our models and afterdepoloarization may be associated with multiple signaling pathways<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b25">25</xref>. Third, the <italic>CACNA1C</italic> mutation increased intracellular calcium concentration, which influenced cardiac mechanics. In this study, cardiac mechanics was not included in our model and its effect on reentry was not studied<xref ref-type="bibr" rid="b40">40</xref><xref ref-type="bibr" rid="b41">41</xref>. Fourth, it should be noted that the distribution and population of each cell type in cardiac tissues could influence the cardiac dynamics and there is no detailed experimental data to modify the model. In this study, the related parameters were chosen according to previous studies<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b42">42</xref>. Although it is important to make clear the limitations of the models in this study, they do not alter our conclusion on that the <italic>CACNA1C</italic> G1911R mutation promotes initiation and maintenance of cardiac arrhythmias.</p>
+<p>In conclusion, the G1911R mutation facilitates and perpetuates organ-scale VT by increasing repolarization dispersion. The findings of this study provide new insights into the mechanism underlying the development and maintenance of VT in patients with <italic>CACNA1C</italic> G1911R mutation and emphasize the critical role of MCELL in the genesis of ventricular arrhythmias.</p>
+</sec>
+<sec disp-level="1">
+<title>Methods</title>
+<sec disp-level="2">
+<title>Mathematical model</title>
+<p>Using the experimental data of the changes of <italic>I</italic><sub><italic>CaL</italic></sub>in the <italic>CACNA1C</italic> G1911R mutation<xref ref-type="bibr" rid="b16">16</xref>, the TNNP models were modified for simulating human ventricular cellular functions (for details see <xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>)<xref ref-type="bibr" rid="b38">38</xref>. The simulated and experimental data of <italic>I</italic><sub><italic>CaL</italic></sub> under wild-type and G1911R conditions are well matched as shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>. The TNNP model was chosen in this study as it includes <italic>I</italic><sub><italic>CaL</italic></sub> from human ventricular myocytes and reproduces APs of human endo-cardial (ENDO), middle-cellular (MCELL) and epi-cardial (EPI). These models were shown to be well-suited to study VT<xref ref-type="bibr" rid="b29">29</xref><xref ref-type="bibr" rid="b30">30</xref><xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b39">39</xref>.</p>
+<p>The ventricular cell models were then integrated to construct tissue models with special tissue geometry and to simulate the wave propagation. The tissue models can be described as</p>
+<p>
+<disp-formula id="eq1">
+<inline-graphic id="d33e736" xlink:href="srep31262-m1.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where <italic>D</italic> is the electronic diffusion modeling gap junction coupling, <italic>V</italic> (mV) is the membrane potential, <italic>C</italic><sub><italic>m</italic></sub>(pF) is the membrane capacitance, <italic>I</italic><sub><italic>ion</italic></sub> (pA/pF) is the sum of ionic currents, <inline-formula id="d33e758"><inline-graphic id="d33e759" xlink:href="srep31262-m2.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>is the 1D, 2D or 3D gradient operator and <italic>t</italic> (ms) is time. For definitions of each component of <italic>I</italic><sub><italic>ion</italic></sub>, please see ten Tusscher <italic>et al.</italic><xref ref-type="bibr" rid="b38">38</xref>. The diffusion coefficient (<italic>D</italic>) across the fibers (transmural strands) is four times less than that along the fibers<xref ref-type="bibr" rid="b34">34</xref>, which is set to be 0.154 mm<sup>2</sup>/ms, producing a planar wave with the conduction velocity of 0.715 mm/ms along the fiber direction<xref ref-type="bibr" rid="b38">38</xref>. In addition, <italic>D</italic> at the EPI-MCELL border is 5-fold smaller<xref ref-type="bibr" rid="b43">43</xref>.</p>
+<p>Multi-scale ventricular models were developed to study excitation wave propagation. A 15 mm 1D transmural strand was constructed consisting of 25% ENDO cells, 35% MCELL cells and 40% EPI cells. The proportion of cells is similar to those used in other studies<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b35">35</xref>. Because the body surface potential mapping in LQTS patients has demonstrated a marked increase regional heterogeneity in repolarization<xref ref-type="bibr" rid="b6">6</xref>, we constructed the 2D idealized transmural model of the human ventricular tissue, using the same proportion of MCELL cell as that in the 1D strand and similar size of the MCELL region according to experimental and simulated studies<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. The distribution of the MCELL island of idealized 2D and realistic 3D models is depicted in <xref ref-type="supplementary-material" rid="S1">Supplementary Figure S1</xref>. The size of the MCELL island is used in the models based on the heterogeneous region following experimental and simulation studies<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. The anterior myocardial wall in the left ventricle encompassed a MCELL island. Transmurally, tissue included a MCELL island and the subepi- and subendocardium. The idealized 2D transmural ventricular tissue sheet (15 mm × 15 mm) with a MCELL island (π × 5.1 mm × 5.1 mm, a size similar to the heterogeneity region measured in the human heart and that used in a previous simulation study<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>) was simulated and the realistic 3D left ventricular model, including a MCELL island (4/3 × π × 5.1 mm × 5.1 mm × 5.1 mm) was constructed.</p>
+</sec>
+<sec disp-level="2">
+<title>Single cell simulations: AP, APD and ERP</title>
+<p>Single cell APs were elicited with supra-threshold stimuli with the amplitude of −40 μA/cm<sup>2</sup> and the duration of 0.5 ms. 30 stimuli were applied at a pacing cycle length (PCL) of 1000 ms to obtain stable AP profiles and the 31st AP was used in analysis. APD was measured at 90% repolarization. APDR was assessed by applying the standard stimulus (S1–S2) protocol. The basic cycle length is 1000 ms and the premature coupling interval (S1–S2) was shortened in steps before S2 was blocked<xref ref-type="bibr" rid="b24">24</xref>. The restitution curve (APDR) was obtained by plotting S2–induced APD against the last S1 diastolic interval (DI). Effective refractory period (ERP) was measured as the smallest premature coupling interval (S1–S2) for which the peak potential of the S2-induced AP reached 80% of the last S1-induced AP<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b35">35</xref>.</p>
+</sec>
+<sec disp-level="2">
+<title>1D tissue strand simulations: ECG, vulnerable window and dispersion of repolarization</title>
+<p>The transmural excitation waves in the transmural ventricular fiber were initiated by supra-threshold stimuli (similar to that of AP simulations) applied to the ENDO end. Dispersion of repolarization (DOR) was measured as the time interval between the earliest and the latest repolarization times in the strand. The vulnerable window, in which excitation can propagate in one direction, is the time window between the time of bidirectional conduction block and that of bidirectional conduction. The method of Gima and Rudy<xref ref-type="bibr" rid="b43">43</xref> was used to compute pseudo-ECG.</p>
+</sec>
+<sec disp-level="2">
+<title>Initiation of reentry in idealized 2D and realistic 3D models of human ventricle</title>
+<p>Re-entry was initiated by applying a test stimulus within the VW at the ENDO region to evoke unidirectional propagation<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b35">35</xref>. After initiation, re-entrant electrical activities in idealized 2D sheet was recorded for 5 s. The stability of the re-entry was assessed by the path and area of its tip. The method of Fenton and Karma<xref ref-type="bibr" rid="b44">44</xref> was used to trace the tip meander path. Life span (LS) of the re-entry was computed as the time duration from initiation to dissipation of a spiral wave. Dominant frequencies of virtual monophasic AP profiles from a special site were computed using standard fast Fourier transformed techniques. The same methods were used in realistic 3D left ventricular model.</p>
+</sec>
+<sec disp-level="2">
+<title>Numerical methods</title>
+<p>The partial differential equations were solved by an explicit forward Euler approximation. The time step (<italic>Δt</italic>) is 0.02 ms, and Δx, <italic>Δy</italic> and <italic>Δz</italic> are the space steps. The space steps are 0.15 mm for 1D simulations<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b35">35</xref>, 0.2 mm for 2D simulations and 0.5 mm for 3D simulations<xref ref-type="bibr" rid="b34">34</xref>. Simulations were carried out on an Intel core i703930K 64-bit CPU system with 64 G memory. Efficient parallelization was implemented using GPU acceleration.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article</bold>: Bai, J. <italic>et al.</italic> Pro-arrhythmogenic effects of <italic>CACNA1C</italic> G1911R mutation in human ventricular tachycardia: insights from cardiac multi-scale models. <italic>Sci. Rep.</italic>
+<bold>6</bold>, 31262; doi: 10.1038/srep31262 (2016).</p>
+</sec>
+<sec id="S1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="d33e27">
+<caption>
+<title>Supplementary Information</title>
+</caption>
+<media xlink:href="srep31262-s1.doc" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e30">
+<caption>
+<title>Supplementary Video S1</title>
+</caption>
+<media xlink:href="srep31262-s2.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e33">
+<caption>
+<title>Supplementary Video S2</title>
+</caption>
+<media xlink:href="srep31262-s3.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e36">
+<caption>
+<title>Supplementary Video S3</title>
+</caption>
+<media xlink:href="srep31262-s4.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e39">
+<caption>
+<title>Supplementary Video S4</title>
+</caption>
+<media xlink:href="srep31262-s5.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e42">
+<caption>
+<title>Supplementary Video S5</title>
+</caption>
+<media xlink:href="srep31262-s6.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e45">
+<caption>
+<title>Supplementary Video S6</title>
+</caption>
+<media xlink:href="srep31262-s7.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e48">
+<caption>
+<title>Supplementary Video S7</title>
+</caption>
+<media xlink:href="srep31262-s8.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e51">
+<caption>
+<title>Supplementary Video S8</title>
+</caption>
+<media xlink:href="srep31262-s9.avi" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank S.X. for providing the computational services. This study was supported in part by funds from the National Natural Science Foundation of China (Contract No: 61572152, 61571165).</p>
+</ack>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal"><name><surname>Napolitano</surname><given-names>C.</given-names></name>, <name><surname>Bloise</surname><given-names>R.</given-names></name>, <name><surname>Monteforte</surname><given-names>N.</given-names></name> &amp; <name><surname>Priori</surname><given-names>S. G.</given-names></name>
+<article-title>Sudden cardiac death and genetic ion channelopathies: long QT, Brugada, short QT, catecholaminergic polymorphic ventricular tachycardia, and idiopathic ventricular fibrillation</article-title>. <source/>Circulation
+<volume>125</volume>, <fpage>2027</fpage>–<lpage>2034</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22529064</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Choudhuri</surname><given-names>I.</given-names></name>, <name><surname>Pinninti</surname><given-names>M.</given-names></name>, <name><surname>Marwali</surname><given-names>M. R.</given-names></name>, <name><surname>Sra</surname><given-names>J.</given-names></name> &amp; <name><surname>Akhtar</surname><given-names>M.</given-names></name>
+<article-title>Polymorphic ventricular tachycardia-part I: structural heart disease and acquired causes</article-title>. <source/>Curr Probl Cardiol.
+<volume>38</volume>, <fpage>463</fpage>–<lpage>496</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">24139193</pub-id></mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>Choudhuri</surname><given-names>I.</given-names></name>, <name><surname>Pinninti</surname><given-names>M.</given-names></name>, <name><surname>Marwali</surname><given-names>M. R.</given-names></name>, <name><surname>Sra</surname><given-names>J.</given-names></name> &amp; <name><surname>Akhtar</surname><given-names>M.</given-names></name>
+<article-title>Polymorphic ventricular tachycardia–part II: the channelopathies</article-title>. <source/>Curr Probl Cardiol.
+<volume>38</volume>, <fpage>503</fpage>–<lpage>548</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">24262155</pub-id></mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Sicouri</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Cellular basis for the electrocardiographic and arrhythmic manifestations of Timothy syndrome: effects of ranolazine</article-title>. <source/>Heart rhythm
+<volume>4</volume>, <fpage>638</fpage>–<lpage>647</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17467634</pub-id></mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Glukhov</surname><given-names>A. V.</given-names></name>
+<italic>et al.</italic>
+<article-title>Transmural dispersion of repolarization in failing and nonfailing human ventricle</article-title>. <source/>Circ Res.
+<volume>106</volume>, <fpage>981</fpage>–<lpage>991</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20093630</pub-id></mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Vijayakumar</surname><given-names>R.</given-names></name>
+<italic>et al.</italic>
+<article-title>Electrophysiologic substrate in congenital Long QT syndrome: noninvasive mapping with electrocardiographic imaging (ECGI)</article-title>. <source/>Circulation
+<volume>130</volume>, <fpage>1936</fpage>–<lpage>1943</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25294783</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Splawski</surname><given-names>I.</given-names></name>
+<italic>et al.</italic>
+<article-title>Ca(V)1.2 calcium channel dysfunction causes a multisystem disorder including arrhythmia and autism</article-title>. <source/>Cell
+<volume>119</volume>, <fpage>19</fpage>–<lpage>31</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15454078</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Splawski</surname><given-names>I.</given-names></name>
+<italic>et al.</italic>
+<article-title>Severe arrhythmia disorder caused by cardiac L-type calcium channel mutations</article-title>. <source/>Proc Natl Acad Sci USA
+<volume>102</volume>, <fpage>8089</fpage>–<lpage>8096</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15863612</pub-id></mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Barrett</surname><given-names>C. F.</given-names></name> &amp; <name><surname>Tsien</surname><given-names>R. W.</given-names></name>
+<article-title>The Timothy syndrome mutation differentially affects voltage- and calcium-dependent inactivation of CaV1.2 L-type calcium channels</article-title>. <source/>Proc Natl Acad Sci USA
+<volume>105</volume>, <fpage>2157</fpage>–<lpage>2162</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18250309</pub-id></mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>Thiel</surname><given-names>W. H.</given-names></name>
+<italic>et al.</italic>
+<article-title>Proarrhythmic defects in Timothy syndrome require calmodulin kinase II</article-title>. <source/>Circulation
+<volume>118</volume>, <fpage>2225</fpage>–<lpage>2234</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">19001023</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Etheridge</surname><given-names>S. P.</given-names></name>
+<italic>et al.</italic>
+<article-title>Somatic mosaicism contributes to phenotypic variation in Timothy syndrome</article-title>. <source/>Am J Med Genet A
+<volume>155</volume>, <fpage>2578</fpage>–<lpage>2583</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21910241</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Yazawa</surname><given-names>M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Using induced pluripotent stem cells to investigate cardiac phenotypes in Timothy syndrome</article-title>. <source/>Nature
+<volume>471</volume>, <fpage>230</fpage>–<lpage>U120</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21307850</pub-id></mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="journal"><name><surname>Boczek</surname><given-names>N. J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Exome Sequencing and Systems Biology Converge to Identify Novel Mutations in the L-Type Calcium Channel, CACNA1C, Linked to Autosomal Dominant Long QT Syndrome</article-title>. <source/>Circ Cardiovasc Gene
+<volume>6</volume>, <fpage>279</fpage>–<lpage>289</lpage> (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Frohler</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Exome sequencing helped the fine diagnosis of two siblings afflicted with atypical Timothy syndrome (TS2)</article-title>. <source/>Bmc Med Genet
+<volume>15</volume>, <fpage>48</fpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24773605</pub-id></mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Fukuyama</surname><given-names>M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Long QT syndrome type 8: novel CACNA1C mutations causing QT prolongation and variant phenotypes</article-title>. <source/>Europace
+<volume>16</volume>, <fpage>1828</fpage>–<lpage>1837</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24728418</pub-id></mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Hennessey</surname><given-names>J. A.</given-names></name>
+<italic>et al.</italic>
+<article-title>A CACNA1C Variant Associated with Reduced Voltage-Dependent Inactivation, Increased Ca(V)1.2 Channel Window Current, and Arrhythmogenesis</article-title>. <source/>Plos One
+<volume>9</volume>, <fpage>e106982</fpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25184293</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Boczek</surname><given-names>N. J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Novel Timothy syndrome mutation leading to increase in CACNA1C window current</article-title>. <source/>Heart rhythm
+<volume>12</volume>, <fpage>211</fpage>–<lpage>219</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25260352</pub-id></mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Boczek</surname><given-names>N. J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Identification and Functional Characterization of a Novel CACNA1C-Mediated Cardiac Disorder Characterized by Prolonged QT Intervals With Hypertrophic Cardiomyopathy, Congenital Heart Defects, and Sudden Cardiac Death</article-title>. <source/>Circ Arrhythm Electrophysiol
+<volume>8</volume>, <fpage>1122</fpage>–<lpage>1132</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26253506</pub-id></mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"><name><surname>Hiippala</surname><given-names>A.</given-names></name>, <name><surname>Tallila</surname><given-names>J.</given-names></name>, <name><surname>Myllykangas</surname><given-names>S.</given-names></name>, <name><surname>Koskenvuo</surname><given-names>J. W.</given-names></name> &amp; <name><surname>Alastalo</surname><given-names>T. P.</given-names></name>
+<article-title>Expanding the Phenotype of Timothy Syndrome Type 2: An Adolescent with Ventricular Fibrillation but Normal Development</article-title>. <source/>Am J Med Genet A
+<volume>167</volume>, <fpage>629</fpage>–<lpage>634</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25691416</pub-id></mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Wemhoner</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Gain-of-function mutations in the calcium channel CACNA1C (Cav1.2) cause non-syndromic long-QT but not Timothy syndrome</article-title>. <source/>J Mol Cell Cardiol.
+<volume>80</volume>, <fpage>186</fpage>–<lpage>195</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25633834</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Gillis</surname><given-names>J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Long QT, syndactyly, joint contractures, stroke and novel CACNA1C mutation: expanding the spectrum of Timothy syndrome</article-title>. <source/>Am J Med Genet A
+<volume>158</volume>, <fpage>182</fpage>–<lpage>187</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22106044</pub-id></mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Niederer</surname><given-names>S. A.</given-names></name>, <name><surname>Land</surname><given-names>S.</given-names></name>, <name><surname>Omholt</surname><given-names>S. W.</given-names></name> &amp; <name><surname>Smith</surname><given-names>N. P.</given-names></name>
+<article-title>Interpreting genetic effects through models of cardiac electromechanics</article-title>. <source/>Am J Physiol-Heart C
+<volume>303</volume>, <fpage>H1294</fpage>–<lpage>H1303</lpage> (<year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Faber</surname><given-names>G. M.</given-names></name>, <name><surname>Silva</surname><given-names>J.</given-names></name>, <name><surname>Livshitz</surname><given-names>L.</given-names></name> &amp; <name><surname>Rudy</surname><given-names>Y.</given-names></name>
+<article-title>Kinetic properties of the cardiac L-type Ca2+ channel and its role in myocyte electrophysiology: a theoretical investigation</article-title>. <source/>Biophys J
+<volume>92</volume>, <fpage>1522</fpage>–<lpage>1543</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17158566</pub-id></mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><name><surname>Zhu</surname><given-names>Z. I.</given-names></name> &amp; <name><surname>Clancy</surname><given-names>C. E.</given-names></name>
+<article-title>L-type Ca2+ channel mutations and T-wave alternans: a model study</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>293</volume>, <fpage>H3480</fpage>–<lpage>H3489</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17933974</pub-id></mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal"><name><surname>Sung</surname><given-names>R. J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Beta-adrenergic modulation of arrhythmogenesis and identification of targeted sites of antiarrhythmic therapy in Timothy (LQT8) syndrome: a theoretical study</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>298</volume>, <fpage>H33</fpage>–<lpage>H44</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">19855067</pub-id></mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Morotti</surname><given-names>S.</given-names></name>, <name><surname>Grandi</surname><given-names>E.</given-names></name>, <name><surname>Summa</surname><given-names>A.</given-names></name>, <name><surname>Ginsburg</surname><given-names>K. S.</given-names></name> &amp; <name><surname>Bers</surname><given-names>D. M.</given-names></name>
+<article-title>Theoretical study of L-type Ca2+ current inactivation kinetics during action potential repolarization and early afterdepolarizations</article-title>. <source/>J Physiol-London
+<volume>590</volume>, <fpage>4465</fpage>–<lpage>4481</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22586219</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Xie</surname><given-names>F. G.</given-names></name>, <name><surname>Qu</surname><given-names>Z. L.</given-names></name>, <name><surname>Garfinkel</surname><given-names>A.</given-names></name> &amp; <name><surname>Weiss</surname><given-names>J. N.</given-names></name>
+<article-title>Electrical refractory period restitution and spiral wave reentry in simulated cardiac tissue</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>283</volume>, <fpage>H448</fpage>–<lpage>H460</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12063320</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>Adeniran</surname><given-names>I.</given-names></name>, <name><surname>El Harchi</surname><given-names>A.</given-names></name>, <name><surname>Hancox</surname><given-names>J. C.</given-names></name> &amp; <name><surname>Zhang</surname><given-names>H. G.</given-names></name>
+<article-title>Proarrhythmia in KCNJ2-linked short QT syndrome: insights from modelling</article-title>. <source/>Cardiovasc Res.
+<volume>94</volume>, <fpage>66</fpage>–<lpage>76</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22308236</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>Keldermann</surname><given-names>R. H.</given-names></name>
+<italic>et al.</italic>
+<article-title>A computational study of mother rotor VF in the human ventricles</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>296</volume>, <fpage>H370</fpage>–<lpage>H379</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19060124</pub-id></mixed-citation>
+</ref>
+<ref id="b30">
+<mixed-citation publication-type="journal"><name><surname>ten Tusscher</surname><given-names>K. H. W. J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Organization of ventricular fibrillation in the human heart: experiments and models</article-title>. <source/>Exp Physiol.
+<volume>94</volume>, <fpage>553</fpage>–<lpage>562</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19168541</pub-id></mixed-citation>
+</ref>
+<ref id="b31">
+<mixed-citation publication-type="journal"><name><surname>Best</surname><given-names>J. M.</given-names></name> &amp; <name><surname>Kamp</surname><given-names>T. J.</given-names></name>
+<article-title>A sympathetic model of L-type Ca2+ channel-triggered arrhythmias</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>298</volume>, <fpage>H3</fpage>–<lpage>H4</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">19897704</pub-id></mixed-citation>
+</ref>
+<ref id="b32">
+<mixed-citation publication-type="journal"><name><surname>Akar</surname><given-names>F. G.</given-names></name>, <name><surname>Yan</surname><given-names>G. X.</given-names></name>, <name><surname>Antzelevitch</surname><given-names>C.</given-names></name> &amp; <name><surname>Rosenbaum</surname><given-names>D. S.</given-names></name>
+<article-title>Unique topographical distribution of m cells underlies reentrant mechanism of torsade de pointes in the long-QT syndrome</article-title>. <source/>Circulation
+<volume>105</volume>, <fpage>1247</fpage>–<lpage>1253</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">11889021</pub-id></mixed-citation>
+</ref>
+<ref id="b33">
+<mixed-citation publication-type="journal"><name><surname>Henry</surname><given-names>H.</given-names></name>
+<article-title>&amp; Rappel, W.J. The role of M cells and the long QT syndrome in cardiac arrhythmias: Simulation studies of reentrant excitations using a detailed electrophysiological model</article-title>. <source/>Chaos
+<volume>14</volume>, <fpage>172</fpage>–<lpage>182</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15003058</pub-id></mixed-citation>
+</ref>
+<ref id="b34">
+<mixed-citation publication-type="journal"><name><surname>Defauw</surname><given-names>A.</given-names></name>, <name><surname>Vandersickel</surname><given-names>N.</given-names></name>, <name><surname>Dawyndt</surname><given-names>P.</given-names></name> &amp; <name><surname>Panfilov</surname><given-names>A. V.</given-names></name>
+<article-title>Small size ionic heterogeneities in the human heart can attract rotors</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>307</volume>, <fpage>H1456</fpage>–<lpage>H1468</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25217650</pub-id></mixed-citation>
+</ref>
+<ref id="b35">
+<mixed-citation publication-type="journal"><name><surname>Zhang</surname><given-names>H.</given-names></name>, <name><surname>Kharche</surname><given-names>S.</given-names></name>, <name><surname>Holden</surname><given-names>A. V.</given-names></name> &amp; <name><surname>Hancox</surname><given-names>J. C.</given-names></name>
+<article-title>Repolarisation and vulnerability to re-entry in the human heart with short QT syndrome arising from KCNQ1 mutation - A simulation study</article-title>. <source/>Prog Biophys Mol Biol.
+<volume>96</volume>, <fpage>112</fpage>–<lpage>131</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">17905416</pub-id></mixed-citation>
+</ref>
+<ref id="b36">
+<mixed-citation publication-type="journal"><name><surname>Boersma</surname><given-names>L.</given-names></name>, <name><surname>Zetelaki</surname><given-names>Z.</given-names></name>, <name><surname>Brugada</surname><given-names>J.</given-names></name> &amp; <name><surname>Allessie</surname><given-names>M.</given-names></name>
+<article-title>Polymorphic reentrant ventricular tachycardia in the isolated rabbit heart studied by high-density mapping</article-title>. <source/>Circulation
+<volume>105</volume>, <fpage>3053</fpage>–<lpage>3061</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12082002</pub-id></mixed-citation>
+</ref>
+<ref id="b37">
+<mixed-citation publication-type="journal"><name><surname>Yamazaki</surname><given-names>M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Regional cooling facilitates termination of spiral-wave reentry through unpinning of rotors in rabbit hearts</article-title>. <source/>Heart rhythm
+<volume>9</volume>, <fpage>107</fpage>–<lpage>114</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">21839044</pub-id></mixed-citation>
+</ref>
+<ref id="b38">
+<mixed-citation publication-type="journal"><name><surname>ten Tusscher</surname><given-names>K. H. W. J.</given-names></name>, <name><surname>Noble</surname><given-names>D.</given-names></name>, <name><surname>Noble</surname><given-names>P. J.</given-names></name> &amp; <name><surname>Panfilov</surname><given-names>A. V.</given-names></name>
+<article-title>A model for human ventricular tissue</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>286</volume>, <fpage>H1573</fpage>–<lpage>H1589</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">14656705</pub-id></mixed-citation>
+</ref>
+<ref id="b39">
+<mixed-citation publication-type="journal"><name><surname>ten Tusscher</surname><given-names>K. H. W. J.</given-names></name> &amp; <name><surname>Panfilov</surname><given-names>A. V.</given-names></name>
+<article-title>Alternans and spiral breakup in a human ventricular tissue model</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>291</volume>, <fpage>H1088</fpage>–<lpage>H1100</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16565318</pub-id></mixed-citation>
+</ref>
+<ref id="b40">
+<mixed-citation publication-type="journal"><name><surname>Nash</surname><given-names>M. P.</given-names></name> &amp; <name><surname>Panfilov</surname><given-names>A. V.</given-names></name>
+<article-title>Electromechanical model of excitable tissue to study reentrant cardiac arrhythmias</article-title>. <source/>Prog Biophys Mol Biol.
+<volume>85</volume>, <fpage>501</fpage>–<lpage>522</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15142759</pub-id></mixed-citation>
+</ref>
+<ref id="b41">
+<mixed-citation publication-type="journal"><name><surname>Keldermann</surname><given-names>R. H.</given-names></name>, <name><surname>Nash</surname><given-names>M. P.</given-names></name>, <name><surname>Gelderblom</surname><given-names>H.</given-names></name>, <name><surname>Wang</surname><given-names>V. Y.</given-names></name> &amp; <name><surname>Panfilov</surname><given-names>A. V.</given-names></name>
+<article-title>Electromechanical wavebreak in a model of the human left ventricle</article-title>. <source/>Am J Physiol Heart Circ Physiol.
+<volume>299</volume>, <fpage>H134</fpage>–<lpage>H143</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20400690</pub-id></mixed-citation>
+</ref>
+<ref id="b42">
+<mixed-citation publication-type="journal"><name><surname>Taggart</surname><given-names>P.</given-names></name>
+<italic>et al.</italic>
+<article-title>Inhomogeneous transmural conduction during early ischaemia in patients with coronary artery disease</article-title>. <source/>J Mol Cell Cardiol.
+<volume>32</volume>, <fpage>621</fpage>–<lpage>630</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">10756118</pub-id></mixed-citation>
+</ref>
+<ref id="b43">
+<mixed-citation publication-type="journal"><name><surname>Gima</surname><given-names>K.</given-names></name> &amp; <name><surname>Rudy</surname><given-names>Y.</given-names></name>
+<article-title>Ionic current basis of electrocardiographic waveforms - A model study</article-title>. <source/>Circ Res.
+<volume>90</volume>, <fpage>889</fpage>–<lpage>896</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">11988490</pub-id></mixed-citation>
+</ref>
+<ref id="b44">
+<mixed-citation publication-type="journal"><name><surname>Fenton</surname><given-names>F.</given-names></name> &amp; <name><surname>Karma</surname><given-names>A.</given-names></name>
+<article-title>Vortex dynamics in three-dimensional continuous myocardium with fiber rotation: Filament instability and fibrillation</article-title>. <source/>Chaos
+<volume>8</volume>, <fpage>20</fpage>–<lpage>47</lpage> (<year>1998</year>).<pub-id pub-id-type="pmid">12779708</pub-id></mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn>
+<p><bold>Author Contributions</bold> J.B. and H.Z. conceived and designed the experiments; J.B. conducted the simulation and prepared figures; J.B., Q.L. and H.Z. analyzed the results; J.B., K.W. and Y.F. drafted and edited the manuscript. All authors reviewed the final version of manuscript.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Simulations of <italic>I</italic><sub><italic>CaL</italic></sub>current traces, action potentials (AP), action potential duration (APD), effective refractory period (ERP) and action potential duration restitution (APDR) under wild-type and G1911R conditions for ENDO cell, MCELL cell and EPI cell.</title>
+<p>(<bold>a</bold>–<bold>c</bold>) <italic>I</italic><sub><italic>CaL</italic></sub>amplitude during AP under wild type and G1911R conditions for ENDO cell (<bold>a</bold>), MCELL cell (<bold>b</bold>) and EPI cell (<bold>c</bold>). (<bold>d</bold>–<bold>f</bold>) Simulated AP profiles under wild type and G1911R conditions for ENDO cell (<bold>d</bold>), MCELL cell (<bold>e</bold>) and EPI cell (<bold>f</bold>). (<bold>g</bold>–<bold>i</bold>) APDR curves under wild type and G1911R conditions for ENDO cell (<bold>g</bold>), MCELL cell (<bold>h</bold>) and EPI cell (<bold>i</bold>). (<bold>j</bold>) Transmural APD difference between wild type and G1911R conditions. (<bold>k</bold>) Transmural ERP difference between wild type and G1911R conditions. (<bold>l</bold>) Maximum slope difference of APDR curves between wild type and G1911R conditions.</p>
+</caption>
+<graphic xlink:href="srep31262-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>Space-time plots of propagating excitation wave and corresponding pseudo-ECG.</title>
+<p>(<bold>a</bold>,<bold>b</bold>) Color mapping of membrane potential along the 1D transmural ventricular strand under wild type (<bold>a</bold>) and G1911R (<bold>b</bold>) conditions. (<bold>c</bold>,<bold>d</bold>) Pseudo-ECGs corresponding to space-time plot of propagating excitation wave under wild type (<bold>c</bold>) and G1911R (<bold>d</bold>) conditions.</p>
+</caption>
+<graphic xlink:href="srep31262-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>APs for ENDO cell, MCELL cell and EPI cell, membrane potential heterogeneity (δ) between transmural cells, transmural repolarization dispersion and its spatial gradient in 1D transmural strand for wild type and G1911R conditions.</title>
+<p>(<bold>a</bold>) ENDO, MCELL and EPI APs under the wild type condition. (<bold>b</bold>) ENDO, MCELL and EPI APs under the G1911R condition. (<bold>c</bold>) Membrane potential heterogeneity (δ) under the wild type condition. (<bold>d</bold>) Membrane potential heterogeneity under the G1911R condition. (<bold>e</bold>) Membrane potential heterogeneity difference between wild type and G1911R conditions during APs. (<bold>f</bold>) Measured maximum δ between wild type and G1911R conditions during repolarization. (<bold>g</bold>) Spatial distribution of APD on 1D transmural strand under wild type and G1911R conditions. (<bold>f</bold>) Spatial gradient of APD on 1D transmural strand between wild type and G1911R conditions.</p>
+</caption>
+<graphic xlink:href="srep31262-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f4">
+<label>Figure 4</label>
+<caption>
+<title>Measured width of vulnerable window and space-time plot of propagating excitation wave in response to a premature test stimulus at various time interval (Δ<italic>t</italic>) between S1 and S2 stimulus under G1911R condition.</title>
+<p>(<bold>a</bold>–<bold>d</bold>) A premature test stimulus applied at ENDO part (marked in the figure by arrow). (<bold>a</bold>) Bidirectional block with Δ<italic>t</italic> = 627 ms. (<bold>b</bold>) Unidirectional block with Δ<italic>t</italic> = 627.5 ms. (<bold>c</bold>) Bidirectional conduction with Δ<italic>t</italic> = 631 ms. (<bold>d</bold>) Measured width difference of vulnerable window at ENDO part between wild type and G1911R conditions. (<bold>e</bold>–<bold>h</bold>) A premature test stimulus applied at EPI part. (<bold>e</bold>) Bidirectional block with Δ<italic>t</italic> = 629 ms. (<bold>f</bold>) Unidirectional block with Δ<italic>t</italic> = 630 ms. (<bold>g</bold>) Bidirectional conduction with Δ<italic>t</italic> = 635 ms. (<bold>h</bold>) Measured width difference of vulnerable window at EPI part between wild type and G1911R conditions.</p>
+</caption>
+<graphic xlink:href="srep31262-f4" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f5">
+<label>Figure 5</label>
+<caption>
+<title>Simulation of spiral waves in a 2D ventricular tissue which included a subendocardium (ENDO), a subepicardium (EPI), and a midmyocardium (MCELL) as indicated.</title>
+<p>Frames from the 2D simulation under the wild type and G1911R conditions at <italic>t</italic> = 0.4 s, <italic>t</italic> = 0.8 s and <italic>t</italic> = 5 s are shown in Fig. 5a. Trajectories of the re-entrant wave tip for wild type and G1911R conditions are shown in Fig. 5b,c, respectively. Recorded time series of the AP (<bold>d</bold>,<bold>f</bold>) of a cell (marked in the figure by asterisk) dominant frequencies (<bold>e</bold>,<bold>g</bold>) within 5s are were compared.</p>
+</caption>
+<graphic xlink:href="srep31262-f5" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f6">
+<label>Figure 6</label>
+<caption>
+<title>Simulation of scroll waves in a 3D virtual left ventricular with a MCELL island.</title>
+<p>Frames from the 3D simulation under wild type and G1911R conditions at <italic>t</italic> = 0.05 s, <italic>t</italic> = 0.2 s and <italic>t</italic> = 2 s are shown in Fig. 6a. Localized potentials (<bold>b</bold>,<bold>d</bold>) and dominant frequencies (<bold>c</bold>,<bold>e</bold>) within 5 s are were compared.</p>
+</caption>
+<graphic xlink:href="srep31262-f6" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+</floats-group>
+</article>
+</pmc-articleset>

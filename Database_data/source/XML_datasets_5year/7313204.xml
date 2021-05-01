@@ -1,0 +1,3299 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Microbiome</journal-id>
+<journal-id journal-id-type="iso-abbrev">Microbiome</journal-id>
+<journal-title-group>
+<journal-title>Microbiome</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2049-2618</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32576288</article-id>
+<article-id pub-id-type="pmc">7313204</article-id>
+<article-id pub-id-type="publisher-id">864</article-id>
+<article-id pub-id-type="doi">10.1186/s40168-020-00864-3</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Revealing the microbial assemblage structure in the human gut microbiome using latent Dirichlet allocation</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Hosoda</surname>
+<given-names>Shion</given-names>
+</name>
+<address>
+<email>shion_hosoda@asagi.waseda.jp</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Nishijima</surname>
+<given-names>Suguru</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Fukunaga</surname>
+<given-names>Tsukasa</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hattori</surname>
+<given-names>Masahira</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+<xref ref-type="aff" rid="Aff5">5</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-9466-1034</contrib-id>
+<name>
+<surname>Hamada</surname>
+<given-names>Michiaki</given-names>
+</name>
+<address>
+<email>mhamada@waseda.jp</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff6">6</xref>
+<xref ref-type="aff" rid="Aff7">7</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="GRID">grid.5290.e</institution-id><institution-id institution-id-type="ISNI">0000 0004 1936 9975</institution-id><institution>Graduate School of Advanced Science and Engineering, Waseda University, </institution></institution-wrap>55N-06-10, 3-4-1, Okubo Shinjuku-ku, Tokyo, 169–8555 Japan </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="GRID">grid.208504.b</institution-id><institution-id institution-id-type="ISNI">0000 0001 2230 7538</institution-id><institution>Computational Bio Big-Data Open Innovation Laboratory (CBBD-OIL), National Institute of Advanced Industrial Science and Technology (AIST), </institution></institution-wrap>Tokyo, Japan </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="GRID">grid.26999.3d</institution-id><institution-id institution-id-type="ISNI">0000 0001 2151 536X</institution-id><institution>Computational Biology and Medical Sciences, Graduate School of Frontier Sciences, The University of Tokyo, </institution></institution-wrap>Chiba, Japan </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="GRID">grid.26999.3d</institution-id><institution-id institution-id-type="ISNI">0000 0001 2151 536X</institution-id><institution>Department of Computer Science, Graduate School of Information Science and Engineering, The University of Tokyo, </institution></institution-wrap>Tokyo, Japan </aff>
+<aff id="Aff5"><label>5</label>RIKEN Center for Integrative Medical Sciences, Kanagawa, Japan </aff>
+<aff id="Aff6"><label>6</label><institution-wrap><institution-id institution-id-type="GRID">grid.410821.e</institution-id><institution-id institution-id-type="ISNI">0000 0001 2173 8328</institution-id><institution>Graduate School of Medicine, Nippon Medical School, </institution></institution-wrap>Tokyo, Japan </aff>
+<aff id="Aff7"><label>7</label><institution-wrap><institution-id institution-id-type="GRID">grid.5290.e</institution-id><institution-id institution-id-type="ISNI">0000 0004 1936 9975</institution-id><institution>Center for Data Science, Waseda University, </institution></institution-wrap>Tokyo, Japan </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>23</day>
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>23</day>
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>8</volume>
+<elocation-id>95</elocation-id>
+<history>
+<date date-type="received">
+<day>8</day>
+<month>5</month>
+<year>2018</year>
+</date>
+<date date-type="accepted">
+<day>13</day>
+<month>5</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2020</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<sec>
+<title>Background</title>
+<p id="Par1">The human gut microbiome has been suggested to affect human health and thus has received considerable attention. To clarify the structure of the human gut microbiome, clustering methods are frequently applied to human gut taxonomic profiles. Enterotypes, i.e., clusters of individuals with similar microbiome composition, are well-studied and characterized. However, only a few detailed studies on assemblages, i.e., clusters of co-occurring bacterial taxa, have been conducted. Particularly, the relationship between the enterotype and assemblage is not well-understood.</p>
+</sec>
+<sec>
+<title>Results</title>
+<p id="Par2">In this study, we detected gut microbiome assemblages using a latent Dirichlet allocation (LDA) method. We applied LDA to a large-scale human gut metagenome dataset and found that a 4-assemblage LDA model could represent relationships between enterotypes and assemblages with high interpretability. This model indicated that each individual tends to have several assemblages, three of which corresponded to the three classically recognized enterotypes. Conversely, the fourth assemblage corresponded to no enterotypes and emerged in all enterotypes. Interestingly, the dominant genera of this assemblage (<italic>Clostridium</italic>, <italic>Eubacterium</italic>, <italic>Faecalibacterium</italic>, <italic>Roseburia</italic>, <italic>Coprococcus</italic>, and <italic>Butyrivibrio</italic>) included butyrate-producing species such as <italic>Faecalibacterium prausnitzii</italic>. Indeed, the fourth assemblage significantly positively correlated with three butyrate-producing functions.</p>
+</sec>
+<sec>
+<title>Conclusions</title>
+<p id="Par3">We conducted an assemblage analysis on a large-scale human gut metagenome dataset using LDA. The present study revealed that there is an enterotype-independent assemblage.</p>
+<p id="Par60">
+<media id="MOESM2" xlink:href="40168_2020_864_MOESM2_ESM.mp4"><caption><p>Video Abstract</p></caption></media>
+</p>
+</sec>
+</abstract>
+<kwd-group xml:lang="en">
+<title>Keywords</title>
+<kwd>Metagenomics</kwd>
+<kwd>Latent Dirichlet allocation</kwd>
+<kwd>Human gut microbiome</kwd>
+<kwd>Enterotype</kwd>
+<kwd>Microbial assemblage</kwd>
+<kwd>Bayesian model</kwd>
+<kwd>Machine learning</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2020</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p>The human gut microbiome varies greatly from person to person depending on differences among human populations [<xref ref-type="bibr" rid="CR1">1</xref>] and dietary habits [<xref ref-type="bibr" rid="CR2">2</xref>]. The differences in gut microbial compositions affect host health and physiology [<xref ref-type="bibr" rid="CR3">3</xref>], and in some cases, altered microbial compositions are associated with diseases, such as inflammatory bowel disease (IBD) [<xref ref-type="bibr" rid="CR4">4</xref>], type 1 diabetes [<xref ref-type="bibr" rid="CR5">5</xref>], colorectal cancer [<xref ref-type="bibr" rid="CR6">6</xref>], and autism [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>]. Recent developments in metagenome sequencing technologies have enabled investigations of gut microbial compositions of individuals with ease and rapidity, and many large-scale research projects focused on the human gut microbiome have been conducted [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR9">9</xref>–<xref ref-type="bibr" rid="CR11">11</xref>]. At present, by applying various data mining methods to these massive metagenomic datasets, the structure of the human gut microbiome and the relationship between a hosts phenotype and its gut microbial profile can be revealed.</p>
+<p>Cluster analysis of samples is one of the widely used data-mining methods in metagenomic research. With this approach, individuals are clustered into groups based on similarities in their microbial profiles, that is, each sample is assigned to one cluster by this method. For example, Arumugam et al. discovered that the gut microbial profiles of individuals could be classified into three types known as enterotypes using the partitioning around medoids (PAM) clustering method [<xref ref-type="bibr" rid="CR12">12</xref>]. In another example, Ding and Schloss reported, employing the Dirichlet multinomial mixture (DMM) clustering method, that the human gut microbiome has considerable inter-individual variation and that the cluster type of an individual was almost unchanged during the sampling period [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>]. Although cluster analysis is a powerful approach for uncovering the overall structure of the human gut microbiome, this analysis is strongly affected by the dominant microbes in each individual. Therefore, cluster analyses of samples may ignore the existence of non-dominant but shared microbes among individuals (Fig. <xref ref-type="fig" rid="Fig1">1</xref>).
+<fig id="Fig1"><label>Fig. 1</label><caption><p>Schematic illustration of microbial assemblages and cluster analysis for the human gut microbiome, where A, B, and C indicate microbial assemblages, with circle size indicating abundance. The cluster of each individual is determined by the dominant assemblage. However, a cluster analysis cannot capture the non-dominant but shared microbes among samples, such as those comprising assemblage C</p></caption><graphic id="MO1" xlink:href="40168_2020_864_Fig1_HTML"></graphic></fig></p>
+<p>An alternative data-mining method is microbial assemblage analysis, which clusters microbes into certain assemblages, instead of clustering samples into groups. Here, following Shafiei et al. [<xref ref-type="bibr" rid="CR15">15</xref>], we define microbial assemblages as groups of microbes that are expected to co-occur. The existence of microbial assemblages can be reasonably expected from the interactions between microbes [<xref ref-type="bibr" rid="CR16">16</xref>]. Several microbial assemblages can exist in one individual, and microbial assemblage analysis can capture assemblages consisting of non-dominant microbes, unlike a cluster analysis of samples (Fig. <xref ref-type="fig" rid="Fig1">1</xref>). Shafiei et al. developed BioMiCo, which is a Bayesian probabilistic model for microbial assemblage analysis, and discovered host-specific assemblages in human gut metagenomic time-series data [<xref ref-type="bibr" rid="CR15">15</xref>]. Cai et al. also explored microbial assemblages using non-negative matrix factorization methods and identified a shift of microbial assemblages through time in one individual [<xref ref-type="bibr" rid="CR17">17</xref>]. Higashi et al. developed Latent Environment Allocation, a web application for visualization of metagenomic data based on a microbial assemblage analysis method, and found that microbial assemblages can represent continuous variations of the human gut microbiome [<xref ref-type="bibr" rid="CR18">18</xref>]. Meanwhile, Yan et al. created MetaTopics, an R package for microbial assemblage analysis [<xref ref-type="bibr" rid="CR19">19</xref>]. Further, Sankaran and Holmes conducted a simulation study to compare several methods of microbial assemblage analyses [<xref ref-type="bibr" rid="CR20">20</xref>]. Microbial assemblage analysis of the human gut microbiome has also been applied to track sources of contamination in metagenomic research [<xref ref-type="bibr" rid="CR21">21</xref>] and detect assemblage-level metabolic interactions [<xref ref-type="bibr" rid="CR22">22</xref>]. Although many microbial assemblage analyses of the human gut microbiome have been performed, a comparison between classical enterotypes and the assemblages of co-occurring taxa has not yet been conducted. Consequently, the large-scale assemblage structure of the human gut microbiome and the relationship between microbial assemblages and enterotypes are still unclear.</p>
+<p>In this study, we carried out a microbial assemblage analysis of a large-scale human gut metagenomic dataset to establish the relationship between microbial assemblages and enterotypes. To detect assemblages, we used the latent Dirichlet allocation (LDA) method, which is an unsupervised probabilistic model [<xref ref-type="bibr" rid="CR23">23</xref>]; LDA was first proposed for the classification of documents in natural-language processing, and this method is now widely applied in bioinformatics fields, such as transcriptome analysis [<xref ref-type="bibr" rid="CR24">24</xref>], pharmacology [<xref ref-type="bibr" rid="CR25">25</xref>], gene function prediction [<xref ref-type="bibr" rid="CR26">26</xref>], and metagenomic analyses [<xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR20">20</xref>, <xref ref-type="bibr" rid="CR27">27</xref>]. We first investigated the number of microbial assemblages based on the relationship between microbial assemblages and enterotypes. We found that a 4-assemblage model has high interpretability in the context of a large-scale human gut microbiome dataset and discovered that an individual might have not just one microbial assemblage but several assemblages in many cases. We investigated the relationships between enterotypes and microbial assemblages and revealed that three of the assemblages could be matched to the three enterotypes; however, the fourth assemblage could exist in all enterotypes. In addition, the dominant genera of this assemblage included butyrate-producing species, and this assemblage is significantly positively correlated with three butyrate-producing functions. We also estimated the functions of each assemblage by applying LDA to the functional profiles of the same samples and found that the fourth assemblage has some specific functional categories, such as the immune system and translation, with high abundance.</p>
+</sec>
+<sec id="Sec2">
+<title>Materials and methods</title>
+<p>We used our own implementation of the LDA and PAM algorithms. The detailed information is described in “Availability of data and material.”</p>
+<sec id="Sec3">
+<title>Metagenomic dataset and preprocessing methods</title>
+<p>We used the large-scale human gut metagenome dataset constructed by Nishijima et al. [<xref ref-type="bibr" rid="CR28">28</xref>]. This dataset consisted of gut metagenomic data from 861 healthy adults from 12 countries. Each individual corresponds to one sample. The taxon of each sequencing read was assigned by mapping the read to a reference genome dataset consisting of 6149 microbial genomes. We used genus as the taxonomic rank for each sequencing read, as commonly performed in previous studies on enterotypes [<xref ref-type="bibr" rid="CR12">12</xref>–<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR29">29</xref>].</p>
+<p>The read count of each genus of each individual was divided by the total read count of each individual, then multiplied by 10,000 and rounded down to the nearest integer. This is because the estimation results of LDA are strongly affected by samples with high read counts when using read count data directly. Therefore, we normalized each sample to sum to the same constant (that is, 10,000) to remove the bias caused by the differences of read counts among samples. We confirmed that the estimated parameters do not depend on the constant (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S1</xref>). After these preprocessing steps, the number of different genera included in the dataset became 252.</p>
+<p>To calculate correlation coefficients between microbial assemblages and functions across individuals, we used the Kyoto Encyclopedia of Genes and Genomes (KEGG) [<xref ref-type="bibr" rid="CR30">30</xref>] orthology-based annotated data as functional profiles. These functional profiles are of the same samples as the genus data.</p>
+</sec>
+<sec id="Sec4">
+<title>PAM clustering method</title>
+<p>To assign enterotypes, we applied the PAM clustering method to the dataset according to the methods of Arumugam et al. [<xref ref-type="bibr" rid="CR12">12</xref>]. This algorithm clusters samples by iteratively updating each cluster’s medoid, which is defined as the sample in a cluster for which the sum of a dissimilarity to the other samples in the same cluster is the smallest. The algorithm consists of the following three steps: (<italic>i</italic>) choose the initial value of the medoid randomly from the samples, (<italic>i</italic><italic>i</italic>) assign each sample to the cluster with the smallest Jensen–Shannon divergence (JSD) to its medoid, and (<italic>i</italic><italic>i</italic><italic>i</italic>) update the medoids using the JSD as the dissimilarity. Repeat steps (<italic>i</italic><italic>i</italic>) and (<italic>i</italic><italic>i</italic><italic>i</italic>) until the medoids no longer change. In the present study, we conducted 10 trials and used the result that had the highest silhouette coefficient [<xref ref-type="bibr" rid="CR31">31</xref>].</p>
+</sec>
+<sec id="Sec5">
+<title>LDA for modeling the human gut microbiome</title>
+<p>The probabilistic LDA model [<xref ref-type="bibr" rid="CR23">23</xref>] can be utilized to estimate <italic>K</italic> microbial assemblages from a human gut metagenomic dataset, where <italic>K</italic> is a given parameter. Let the numbers of individuals (samples) and genera be denoted by <italic>N</italic> and <italic>D</italic>, respectively. In the LDA model, the <italic>i</italic>th metagenome sample (<italic>i</italic>∈{1,...,<italic>N</italic>}) has a categorical distribution with parameter <inline-formula id="IEq1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$\theta _{i}=\{\theta _{i,k}\}_{k=1}^{K}$\end{document}</tex-math><mml:math id="M2"><mml:msub><mml:mrow><mml:mi>θ</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mrow><mml:mo>{</mml:mo><mml:msub><mml:mrow><mml:mi>θ</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>}</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>K</mml:mi></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="40168_2020_864_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula> over microbial assemblages where <italic>θ</italic><sub><italic>i</italic>,<italic>k</italic></sub> is the occurrence probability of the <italic>k</italic>th assemblage in the <italic>i</italic>th sample. The <italic>k</italic>th microbial assemblage has a categorical distribution with parameter <inline-formula id="IEq2"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$\phi _{k}=\{\phi _{k,j}\}_{j=1}^{D}$\end{document}</tex-math><mml:math id="M4"><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mrow><mml:mo>{</mml:mo><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>}</mml:mo></mml:mrow><mml:mrow><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>D</mml:mi></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="40168_2020_864_Article_IEq2.gif"></inline-graphic></alternatives></inline-formula> over genera, where <italic>ϕ</italic><sub><italic>k</italic>,<italic>j</italic></sub> is the occurrence probability of the <italic>j</italic>th genus in the <italic>k</italic>th assemblage.</p>
+<p>A microbial assemblage with high probability in an individual implies that the individual tends to have that particular microbial assemblage in the gut microbiome, and a genus with high probability in a microbial assemblage indicates that the microbial assemblage tends to have that particular genus. In addition, the LDA model has prior distributions on <italic>θ</italic><sub><italic>i</italic></sub> and <italic>ϕ</italic><sub><italic>k</italic></sub> provided by the Dirichlet distribution with hyperparameters <italic>α</italic> and <italic>β</italic>, respectively. In this study, we used 0.1 and 0.05 as initial values for all the elements in <bold>α</bold> and <bold>β</bold>, respectively.</p>
+<p>The LDA parameters (<italic>θ</italic> and <italic>ϕ</italic>) can be learned from the dataset in an unsupervised manner. Various parameter inference methods for the LDA model have been proposed, and we used the variational Bayes (VB) method [<xref ref-type="bibr" rid="CR23">23</xref>]. The VB method maximizes an approximation of the marginal likelihood, called the variational lower bound (VLB) score, by updating the parameters iteratively from random initial values. We finished the iteration of the parameter update when the change in the VLB score between the previous and the current step was less than 10<sup>−6</sup>. Finally, we estimated each <italic>θ</italic><sub><italic>i</italic></sub> and <italic>ϕ</italic><sub><italic>k</italic></sub> as the expectation values of the posterior distribution estimated by the VB method. This parameter estimation method has been previously described by Asuncion et al. [<xref ref-type="bibr" rid="CR32">32</xref>]. In addition, we updated the hyperparameters <bold>α</bold> and <bold>β</bold> from the initial values using a fixed-point iteration method in the parameter learning step [<xref ref-type="bibr" rid="CR33">33</xref>]. Based on previous research on LDA hyperparameter settings [<xref ref-type="bibr" rid="CR34">34</xref>], we estimated the parameters such that each element of <bold>α</bold> differed from the others but all elements of <bold>β</bold> had the same value. We conducted 10 trials for each <italic>K</italic>=2, 3, 4, and 5 and adopted the estimated set of parameters with the highest VLB score among all trials for each <italic>K</italic>.</p>
+</sec>
+<sec id="Sec6">
+<title>Functional assemblage analysis</title>
+<p>We estimated the functions of each assemblage by applying LDA to the functional profiles. We refer to the resulting assemblages as <italic>functional assemblages</italic>. Details surrounding the method are described in <xref ref-type="media" rid="MOESM1">Section S1</xref> (Additional File <xref ref-type="media" rid="MOESM1">1</xref>).</p>
+</sec>
+<sec id="Sec7">
+<title>Entropy scores of genera and individuals</title>
+<p>To quantify whether the estimated distributions are skewed toward some assemblages, we calculated the entropy scores of each sample and each genus over assemblages. In a categorical distribution, a high entropy score means that the distribution is similar to the uniform distribution, and a low score means that the distribution tends to take a specific value. The entropy score <italic>H</italic>(<italic>i</italic>) of the <italic>i</italic>th sample over assemblages was calculated as follows:
+<disp-formula id="Equ1"><label>1</label><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document} $$ H(i) = -\sum_{k=1}^{K} P(k|i) \log P(k|i).   $$ \end{document}</tex-math><mml:math id="M6"><mml:mi>H</mml:mi><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo><mml:mo>=</mml:mo><mml:mo>−</mml:mo><mml:munderover><mml:mrow><mml:mo>∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>K</mml:mi></mml:mrow></mml:munderover><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>|</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo><mml:mo>log</mml:mo><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>|</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo><mml:mi>.</mml:mi></mml:math><graphic position="anchor" xlink:href="40168_2020_864_Article_Equ1.gif"></graphic></alternatives></disp-formula></p>
+<p>As <italic>P</italic>(<italic>k</italic>|<italic>i</italic>) is equal to <italic>θ</italic><sub><italic>i</italic>,<italic>k</italic></sub>, we can directly calculate this score using the estimated LDA parameters. The entropy score, <italic>H</italic>(<italic>j</italic>), of the <italic>j</italic>th genus over assemblages was calculated as follows:
+<disp-formula id="Equ2"><label>2</label><alternatives><tex-math id="M7">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document} $$ H(j) = -\sum_{k=1}^{K} P(k|j) \log P(k|j),   $$ \end{document}</tex-math><mml:math id="M8"><mml:mi>H</mml:mi><mml:mo>(</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo><mml:mo>=</mml:mo><mml:mo>−</mml:mo><mml:munderover><mml:mrow><mml:mo>∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>K</mml:mi></mml:mrow></mml:munderover><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>|</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo><mml:mo>log</mml:mo><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>|</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="40168_2020_864_Article_Equ2.gif"></graphic></alternatives></disp-formula></p>
+<p>
+<disp-formula id="Equ3"><label>3</label><alternatives><tex-math id="M9">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document} $$ P(k|j) = \frac{P(j|k) P(k)}{\sum_{k} P(j|k) P(k)}   $$ \end{document}</tex-math><mml:math id="M10"><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>|</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>j</mml:mi><mml:mo>|</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:munder><mml:mrow><mml:mo>∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:munder><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>j</mml:mi><mml:mo>|</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo><mml:mi>P</mml:mi><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mfrac></mml:math><graphic position="anchor" xlink:href="40168_2020_864_Article_Equ3.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>where <italic>P</italic>(<italic>j</italic>|<italic>k</italic>) is equal to <italic>ϕ</italic><sub><italic>k</italic>,<italic>j</italic></sub> and <italic>P</italic>(<italic>k</italic>) was computed as the average of all <italic>θ</italic><sub><italic>i</italic>,<italic>k</italic></sub> across samples.</p>
+</sec>
+</sec>
+<sec id="Sec8" sec-type="results">
+<title>Results</title>
+<sec id="Sec9">
+<title>Cluster analysis of the human gut microbiome enterotypes</title>
+<p>To investigate the relationship between enterotypes and assemblages, we classified individual samples into three clusters using the PAM clustering method. We observed that the dominant genera in each identified cluster were <italic>Bacteroides</italic>, <italic>Prevotella</italic>, and <italic>Blautia</italic> and that these genera were specific to each cluster (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S2</xref>). These results were consistent with those of previous enterotype studies, in which the following three enterotypes were identified in the human gut microbiome: <italic>Bacteroides</italic> dominant type, <italic>Prevotella</italic> dominant type, and <italic>Ruminococcus</italic> and <italic>Blautia</italic> dominant type [<xref ref-type="bibr" rid="CR12">12</xref>]. Hence, we referred to these clusters as B-type, P-type, and R-type. These results were consistent across trials (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S3</xref>)</p>
+</sec>
+<sec id="Sec10">
+<title>Analysis of the human gut microbial assemblage profiles estimated by LDA</title>
+<p>We estimated the <italic>K</italic>-assemblage LDA model parameters for <italic>K</italic>=2,3,4, and 5 to identify the model with the highest interpretability of relationships between enterotypes and assemblages. Figure <xref ref-type="fig" rid="Fig2">2</xref> shows the assemblage distributions for each enterotype obtained by each model for each assemblage (the standard deviations of the distribution across individuals are shown in Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S4</xref>). The 2-assemblage model identified a B-type specific assemblage and a P- and R-type specific assemblage (IDs 1 and 2 in Fig. <xref ref-type="fig" rid="Fig2">2</xref>a). The 3-assemblage model estimated assemblages corresponding to each enterotype (Fig. <xref ref-type="fig" rid="Fig2">2</xref>b). In addition to these enterotype-specific assemblages, the 4- and 5-assemblage models inferred general assemblages that appear in <italic>all</italic> the enterotypes (Fig. <xref ref-type="fig" rid="Fig2">2</xref>cd). The strength of LDA is that it is possible to obtain such an assemblage. Adding a fifth assemblage is not informative because it yields two general assemblages (IDs 4 and 5 in Fig. <xref ref-type="fig" rid="Fig2">2</xref>d) that have the same abundance pattern for enterotypes. Therefore, we used the 4-assemblage model in this study. We emphasize that the existence of a general assemblage is not trivial in models with four or more assemblages because there are not always genera that appear in all enterotypes. These results are consistent across trials (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S5</xref>)
+<fig id="Fig2"><label>Fig. 2</label><caption><p>Assemblage distributions for each enterotype. Each row shows a distribution obtained by averaging the estimated assemblage distributions across individuals of each enterotype. The <italic>x</italic>- and <italic>y</italic>-axes represent the microbial assemblages and enterotypes, respectively. Darker colors indicate higher probabilities, and each number inside the partition indicates a different probability, where the sum of the values over each row is 1. <bold>a</bold>, <bold>b</bold>, <bold>c</bold>, and <bold>d</bold> indicate <italic>K</italic>-assemblage LDA models with <italic>K</italic>=2,3,4, and 5, respectively</p></caption><graphic id="MO2" xlink:href="40168_2020_864_Fig2_HTML"></graphic></fig></p>
+<p>In the following analysis, we call the assemblages with IDs 1, 2, and 3 the “B-assemblage,” “P-assemblage,” and “R-assemblage,” respectively, because these assemblages appeared specifically in the B-, P-, and R-type individuals, respectively (Fig. <xref ref-type="fig" rid="Fig2">2</xref>c). In addition, we refer to the assemblage with ID 4 as the “C-assemblage” owing to the high proportion of <italic>Clostridium</italic>. Next, we investigated the taxonomic composition of each microbial assemblage. Figure <xref ref-type="fig" rid="Fig3">3</xref> depicts the genus distribution of each microbial assemblage estimated by LDA (i.e., <inline-formula id="IEq3"><alternatives><tex-math id="M11">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$\phi _{k}=\{\phi _{k,j}\}_{j=1}^{D}$\end{document}</tex-math><mml:math id="M12"><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mrow><mml:mo>{</mml:mo><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>}</mml:mo></mml:mrow><mml:mrow><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>D</mml:mi></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="40168_2020_864_Article_IEq3.gif"></inline-graphic></alternatives></inline-formula> in the previous section). B- and P-assemblages mainly consisted of one dominant genus, <italic>Bacteroides</italic> and <italic>Prevotella</italic>, with relative frequencies of 71% and 66%, respectively. Conversely, R- and C-assemblages consisted of genera with moderate abundance. The genera that constituted the R-assemblage were <italic>Blautia</italic> (22%), <italic>Bifidobacterium</italic> (20%), and <italic>Ruminococcus</italic> (8.6%). The C-assemblage consisted of <italic>Clostridium</italic> (18%), <italic>Eubacterium</italic> (15%), and unclassified <italic>Firmicutes</italic> (13%).
+<fig id="Fig3"><label>Fig. 3</label><caption><p>Estimated genus distribution of each microbial assemblage. The <italic>x</italic>- and <italic>y</italic>-axes represent genera and assemblages, respectively. We displayed only the three genera with the highest probability in each assemblage</p></caption><graphic id="MO3" xlink:href="40168_2020_864_Fig3_HTML"></graphic></fig></p>
+<p>[In the LDA model, a genus can appear in several microbial assemblages. We investigated whether genera occurred in just one specific assemblage or not using the entropy scores of genera over assemblages (Eq. <xref ref-type="" rid="Equ2">2</xref>). Figure <xref ref-type="fig" rid="Fig4">4</xref>a shows a histogram of the entropy scores for all genera, and two peaks at 0.00–0.125 and 0.50–0.75 can be observed within the distribution. The former peak represents assemblage-specific genera, and <italic>Bacteroides</italic> and <italic>Prevotella</italic> belonged to this group (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Table <xref ref-type="media" rid="MOESM1">S1</xref>). The latter peak represents a genus appearing in several, but not all, assemblages, and <italic>Ruminococcus</italic> and <italic>Blautia</italic> belonged to this group (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Table <xref ref-type="media" rid="MOESM1">S1</xref>). Several genera had high entropy scores, thereby indicating that they are universal genera among assemblages (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S6</xref>).
+<fig id="Fig4"><label>Fig. 4</label><caption><p>Histograms of the entropy scores over assemblages <bold>a</bold> for all genera (Eq. <xref ref-type="" rid="Equ2">2</xref>) and <bold>b</bold> for all individuals (Eq. <xref ref-type="" rid="Equ1">1</xref>). The <italic>x</italic>- and <italic>y</italic>-axes represent entropy and the number of samples, respectively</p></caption><graphic id="MO4" xlink:href="40168_2020_864_Fig4_HTML"></graphic></fig></p>
+<p>Next, we calculated the entropy score of individuals over assemblages (Eq. <xref ref-type="" rid="Equ1">1</xref>). The distribution of the entropy scores was unimodal (Fig. <xref ref-type="fig" rid="Fig4">4</xref>b), and the median was 0.7805. These results suggest that most individuals have multiple, but not all, microbial assemblages. In addition, we examined the distribution of assemblages within individuals (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S7</xref>) and found that the co-abundance tendencies between microbial assemblages were not uniform. Individuals with B-assemblage, P-assemblage, R-assemblage, and C-assemblage dominance tend to have neither the P- nor R-assemblage, not the R-assemblage, not the P-assemblage, and possess any other assemblages, respectively. All the individuals tend to have the C-assemblage. These co-abundance tendencies can occur in the case that there are actually four enterotypes and one corresponding assemblage for each. To investigate such a possibility, we performed 4-type PAM clustering, but no such one-to-one relationship was observed (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S8</xref>). Therefore, the C-assemblage can be regarded as an assemblage that appears in all three enterotypes.</p>
+</sec>
+<sec id="Sec11">
+<title>Relationships between microbial assemblages and countries</title>
+<p>We investigated the relationship between microbial assemblages and host countries. Figure <xref ref-type="fig" rid="Fig5">5</xref> shows the average assemblage distributions of individuals for each country (the standard deviations of the distribution across individuals are shown in Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S9</xref>). We discovered that the occurrence distributions of microbial assemblages vary from country to county; for example, Japan and Austria tend to have R-assemblages while Peru, Malawi, and Venezuela tend to have P-assemblages. Conversely, the C-assemblage was frequently found in all countries except Japan.
+<fig id="Fig5"><label>Fig. 5</label><caption><p>Average assemblage distributions for each country. Each row shows a distribution obtained by averaging the estimated assemblage distributions across individuals of each country. The <italic>x</italic>- and <italic>y</italic>-axes represent the microbial assemblage and country of the individual, respectively</p></caption><graphic id="MO5" xlink:href="40168_2020_864_Fig5_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec12">
+<title>Correlations between microbial assemblages and butyrate-producing functions</title>
+<p>Dominant genera in the C-assemblage included butyrate-producing bacteria (Table <xref ref-type="table" rid="Tab1">1</xref>). Thus, we examined correlations between microbial assemblages and butyrate-producing functions (K00929: butyrate kinase, K01034: acetate CoA/acetoacetate CoA-transferase alpha subunit, and K01035: acetate CoA/acetoacetate CoA-transferase beta subunit). Figure <xref ref-type="fig" rid="Fig6">6</xref> indicates the Pearson’s correlation coefficients between microbial assemblages and butyrate-producing functions across individuals, showing that the C-assemblage is significantly positively correlated with all three functions (<italic>p</italic>&lt;0.01, two-sided test, after Benjamini–Hochberg correction). The P- and R-assemblages were negatively correlated with some functions, and the B-assemblage was significantly positively correlated with only K00929, concurrent with the finding that <italic>Bacteroides fragilis</italic> has only K00929 among these three functions [<xref ref-type="bibr" rid="CR35">35</xref>].
+<fig id="Fig6"><label>Fig. 6</label><caption><p>The Pearson’s correlation coefficients among the four assemblages and three butyrate-producing functions. The <italic>x</italic>- and <italic>y</italic>-axes represent the assemblages and Pearson’s correlation coefficients, respectively. Each bar of each assemblage indicates, from left to right, K01034, K00929, and K01035, respectively. Asterisks indicate significant differences. Significance was determined at <italic>p</italic>&lt;0.01 (two-sided test, after Benjamini–Hochberg correction)</p></caption><graphic id="MO6" xlink:href="40168_2020_864_Fig6_HTML"></graphic></fig><table-wrap id="Tab1"><label>Table 1</label><caption><p>Dominant genera of the C-assemblage an their probabilities as estimated by LDA</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><bold>Genus</bold></th><th align="left"><bold>Probability in C-assemblage</bold></th></tr></thead><tbody><tr><td align="left"><italic>Clostridium</italic></td><td align="left">0.179865</td></tr><tr><td align="left"><italic>Eubacterium</italic></td><td align="left">0.150802</td></tr><tr><td align="left"><italic>Unclassified Firmicutes</italic></td><td align="left">0.129783</td></tr><tr><td align="left"><italic>Faecalibacterium</italic></td><td align="left">0.093720</td></tr><tr><td align="left"><italic>Ruminococcus</italic></td><td align="left">0.085272</td></tr><tr><td align="left"><italic>Roseburia</italic></td><td align="left">0.074214</td></tr><tr><td align="left"><italic>Alistipes</italic></td><td align="left">0.072359</td></tr><tr><td align="left"><italic>Coprococcus</italic></td><td align="left">0.029497</td></tr><tr><td align="left"><italic>Butyrivibrio</italic></td><td align="left">0.021738</td></tr></tbody></table></table-wrap></p>
+</sec>
+<sec id="Sec13">
+<title>Functional profiles of each microbial assemblage</title>
+<p>To discuss the functional profiles of the microbial assemblages, we applied LDA to the functional profiles of individuals using the same <italic>K</italic> number as for the taxonomic profiles. We regarded functional assemblages as functional profiles of the microbial assemblages. More information on this experiment is described in the supplementary section (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Section <xref ref-type="media" rid="MOESM1">S1</xref>). We obtained functional assemblages with a one-to-one correspondence with the estimated microbial assemblages (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S10</xref>). These results justify regarding functional assemblages as functional profiles of the microbial assemblages. Next, we determined the abundances of functional categories for each assemblage (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S11</xref>) and assessed the assemblages with the largest relative abundance for each functional category (Table <xref ref-type="table" rid="Tab2">2</xref>). This table shows that metabolic functions of glycan/lipid are abundant in the B-assemblage and that some specific functional categories, such as the immune system and translation, are abundant in the C-assemblage. However, Supplementary Figure <xref ref-type="media" rid="MOESM1">S11</xref> demonstrates that differences between assemblages are rather small.
+<table-wrap id="Tab2"><label>Table 2</label><caption><p>Functional assemblage having the largest relative abundance for each functional category</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><bold>Functional category</bold></th><th align="left"><bold>Functional assemblage</bold></th></tr></thead><tbody><tr><td align="left">Biosynthesis of other secondary metabolites</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Carbohydrate metabolism</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Lipid metabolism</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Transport and catabolism</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Digestive system</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Endocrine system</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Glycan biosynthesis and metabolism</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Environmental adaptation</td><td align="left">B-assemblage(ko)</td></tr><tr><td align="left">Energy metabolism</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Endocrine and metabolic diseases</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Immune diseases</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Infectious diseases</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Metabolism of other amino acids</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Metabolism of terpenoids and polyketides</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Nervous system</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Excretory system</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Folding, sorting, and degradation</td><td align="left">P-assemblage(ko)</td></tr><tr><td align="left">Transcription</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Amino acid metabolism</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Metabolism of cofactors and vitamins</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Membrane transport</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Cell communication</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Signaling molecules and interaction</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Xenobiotics biodegradation and metabolism</td><td align="left">R-assemblage(ko)</td></tr><tr><td align="left">Immune system</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Nucleotide metabolism</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Neurodegenerative diseases</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Substance dependence</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Replication and repair</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Signal transduction</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Cell motility</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Cell growth and death</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Translation</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Cardiovascular diseases</td><td align="left">C-assemblage(ko)</td></tr><tr><td align="left">Cancers</td><td align="left">C-assemblage(ko)</td></tr></tbody></table><table-wrap-foot><p>Each functional assemblage is indicated by the name of the corresponding microbial assemblage with (ko) appended</p></table-wrap-foot></table-wrap></p>
+</sec>
+</sec>
+<sec id="Sec14" sec-type="discussion">
+<title>Discussion</title>
+<p>In this study, we used LDA for the detection of microbial assemblages in population-scale human gut microbiome data and discovered four microbial assemblages. While three assemblages (B-, P-, and R-assemblages) specifically emerged in the corresponding enterotypes (B-, P-, and R-types), the C-assemblage was frequently observed in every enterotype. As conventional cluster analysis of the samples focuses on the dominant genus of a cluster and the differences among clusters, the existence of non-dominant but shared microbial assemblages among individuals may have been overlooked. The detection of the C-assemblage suggested that LDA is a powerful approach for revealing the assemblage structure in large metagenomic datasets.</p>
+<p>We chose <italic>K</italic>, i.e., the number of assemblages, based on assemblage interpretability after comparing models with different numbers of assemblages. This task, called "model selection," is typically difficult for mixture models. Some methods for this task have been previously suggested [<xref ref-type="bibr" rid="CR36">36</xref>, <xref ref-type="bibr" rid="CR37">37</xref>]. Yan et al. used cross-validation, which is a method that selects the model with the highest likelihood against the test data [<xref ref-type="bibr" rid="CR19">19</xref>]. However, these methods tend to overestimate <italic>K</italic>, leading to difficulties in clarifying the association between enterotypes and assemblages. Indeed, Yan et al. estimated <italic>K</italic>=60, although the number of samples was less than in this study.</p>
+<p>As the model we used is rather simple (that is, <italic>K</italic> is small), it might fail to adequately capture the structure of the data. Hence, we confirmed whether our results were consistent with the data in two ways. First, we verified that the relative abundance (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S12</xref>) was consistent with the estimated assemblage distribution (Fig. <xref ref-type="fig" rid="Fig2">2</xref>c). Each genus was regarded as mainly appearing in the assemblage with the highest <italic>P</italic>(<italic>k</italic>|<italic>j</italic>), as defined by Eq. <xref ref-type="" rid="Equ3">3</xref>. These results were consistent with the estimated parameters shown in Fig. <xref ref-type="fig" rid="Fig2">2</xref>c. Second, we verified that most genera within the same assemblage were significantly positively correlated across samples based on the Spearman’s correlation coefficients across samples between the major genera of the B-, P-, R-, and C-assemblages (<italic>p</italic>&lt;0.01, two-sided test, after Benjamini–Hochberg correction [<xref ref-type="bibr" rid="CR38">38</xref>], Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S13</xref>). Some genera (i.e., <italic>Eubacterium</italic>, <italic>Faecalibacterium</italic>, <italic>Dorea</italic>, <italic>Ruminococcus</italic>, <italic>Streptococcus</italic>, and <italic>Catenibacterium</italic>) were significantly positively correlated with many genera in other assemblages. These results are in agreement with the fact that their <italic>P</italic>(<italic>k</italic>|<italic>j</italic>) is high for multiple assemblages (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S14</xref>). For example, <italic>Ruminococcus</italic> has a positive correlation with the genera mainly appearing in the R-assemblage. Indeed, <italic>Ruminococcus</italic> has a high association with the R-assemblage even though its main assemblage is the C-assemblage.</p>
+<p>As mentioned earlier, the genera mainly appearing in the B- and P-assemblages tend to occur in the B- and P-types, respectively. The genera specifically appearing in the B- and P-types were reported to have functions for metabolizing protein/animal fat and carbohydrates, respectively [<xref ref-type="bibr" rid="CR29">29</xref>], and the genera mainly appearing in the B- and P-assemblages may consequently have the same functions. We could confirm that lipid metabolism functions were abundant in the B-assemblage through functional assemblage analysis. This result suggests that the B-assemblage in the human gut becomes dominant through a fat-rich diet. Similarly, the genera mainly appearing in the C-assemblage may have functions that do not correspond with dietary habits because they appeared in all enterotypes. This suggestion is concurrent with the finding that functions related to immune cells and translation are abundant in the C-assemblage. The assemblage distributions for each country also suggests a relationship between dietary habits and assemblage. Peru, Malawi, and Venezuela, where staple foods include corn, have high P-assemblage abundance. We could not establish a similarity in dietary habits between Japan and Austria though their distributions are similar.</p>
+<p>The noticeable characteristic of Japan, i.e., low C-assemblage abundance, was observed. Nishijima et al. reported that the Japanese gut microbiome is characterized by the low abundance of <italic>Clostridium</italic> and unclassified <italic>Firmicutes</italic>, which are the main components of the C-assemblage (Table <xref ref-type="table" rid="Tab1">1</xref>) based on the same dataset [<xref ref-type="bibr" rid="CR28">28</xref>]. Japan has the highest abundance of the R-assemblage, which shares <italic>Ruminococcus</italic> and <italic>Eubacterium</italic> with the C-assemblage. Hence, the two assemblages may have similar metabolic functions. Incidentally, <italic>Eubacterium</italic> and <italic>Faecalibacterium</italic>, which are the abundant genera in the C-assemblage, were not less abundant in the Japanese population compared with that of other countries (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S15</xref>).</p>
+<p>There are two interesting points regarding the C-assemblage. First, it can coexist with all of the other three assemblages, which were found in almost all countries. Therefore, the genera mainly appearing in the C-assemblage are generalists in the human gut environment [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR40">40</xref>]. While generalists can adapt to diverse environments, they are not specialized to particular environments unlike specialists. This difference in survival strategy may be the reason why the genera mainly appearing in the C-assemblage were not dominant in the human gut microbiome. It is therefore possible that the C-assemblage is the core gut microbiome [<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR41">41</xref>]. However, C-assemblage abundance is not consistent from person to person; as such, what determines the existence of C-assemblages in the gut microbiome is unclear. Second, the dominant genera of the C-assemblage (such as <italic>Clostridium</italic>, <italic>Eubacterium</italic>, <italic>Faecalibacterium</italic>, <italic>Roseburia</italic>, <italic>Coprococcus</italic>, and <italic>Butyrivibrio</italic>) include representative butyrate-producing species (Table <xref ref-type="table" rid="Tab1">1</xref>) [<xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. In addition, we found that the C-assemblage correlates with the three butyrate-producing functions. Butyrate is known to have anti-inflammatory effects [<xref ref-type="bibr" rid="CR44">44</xref>] and is associated with IBD, type-2 diabetes, and colorectal cancer [<xref ref-type="bibr" rid="CR45">45</xref>–<xref ref-type="bibr" rid="CR47">47</xref>]. Therefore, C-assemblage abundance may indicate the health of its hosts, although the dataset used in this study contained only healthy individuals. In addition, we found that the ages and body mass indices (BMIs) of hosts did not relate to the presence of the C-assemblage (Additional File <xref ref-type="media" rid="MOESM1">1</xref>: Figure <xref ref-type="media" rid="MOESM1">S16</xref>). Further research is accordingly required, such as via comparisons of C-assemblage abundance between individuals with and without a disease.</p>
+<p>We envision two future directions for applications of LDA to metagenomic data. The first is its application to more diverse datasets. Metagenomic data have been sampled from not only human guts but also various other environments, such as the atmosphere [<xref ref-type="bibr" rid="CR48">48</xref>], ocean [<xref ref-type="bibr" rid="CR49">49</xref>, <xref ref-type="bibr" rid="CR50">50</xref>], and soil [<xref ref-type="bibr" rid="CR51">51</xref>]. Application of LDA to these data should help reveal the structure of microbial assemblages on a global scale [<xref ref-type="bibr" rid="CR52">52</xref>]. For example, Sommeria-Klein et al. recently applied LDA to taxonomic profiles of a tropical forest soil DNA dataset to reveal spatial structures [<xref ref-type="bibr" rid="CR53">53</xref>]. The second direction is the extension of the LDA model—LDA has high model extensibility. Indeed, many extended LDA models have been proposed for natural-language processing [<xref ref-type="bibr" rid="CR54">54</xref>–<xref ref-type="bibr" rid="CR57">57</xref>]. The application of these extended LDA models to metagenomic analysis is a fascinating research focus for further elucidation of microbial assemblage structure. For example, applying supervised topic models [<xref ref-type="bibr" rid="CR58">58</xref>], which utilize label information to estimate assemblage structures, to patient metagenomic data could detect microbial assemblages related to disease. The pachinko allocation model [<xref ref-type="bibr" rid="CR54">54</xref>], which models hierarchical assemblage structures, may be useful for revealing sub-assemblages within an assemblage. A transition in assemblage composition can be estimated from time-series data from the human gut microbiome [<xref ref-type="bibr" rid="CR59">59</xref>] using the topic tracking model [<xref ref-type="bibr" rid="CR57">57</xref>].</p>
+</sec>
+<sec id="Sec15" sec-type="conclusion">
+<title>Conclusions</title>
+<p>In this study, we conducted a microbial assemblage analysis on a large-scale human gut metagenome dataset using LDA. We discovered that three assemblages specifically emerged in the corresponding enterotypes, but the C-assemblage was frequently observed in all three enterotypes. In addition, we revealed that the dominant genera of the C-assemblage include representative butyrate-producing species. Further elucidation of the function of the C-assemblage or investigation of the relationship between disease and the C-assemblage is an important research direction.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec16">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="40168_2020_864_MOESM1_ESM.pdf"><caption><p><bold>Additional file 1</bold> This file includes Section S1, Figures S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, and Table S1.</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item>
+<term>LDA</term>
+<def>
+<p>Latent Dirichlet allocation</p>
+</def>
+</def-item>
+<def-item>
+<term>IBD</term>
+<def>
+<p>Inflammatory bowel disease</p>
+</def>
+</def-item>
+<def-item>
+<term>PAM</term>
+<def>
+<p>Partitioning around medoids</p>
+</def>
+</def-item>
+<def-item>
+<term>DMM</term>
+<def>
+<p>Dirichlet multinomial mixture</p>
+</def>
+</def-item>
+<def-item>
+<term>BMI</term>
+<def>
+<p>Body mass index</p>
+</def>
+</def-item>
+<def-item>
+<term>VB</term>
+<def>
+<p>Variational Bayes</p>
+</def>
+</def-item>
+<def-item>
+<term>VLB</term>
+<def>
+<p>Variational lower-bound</p>
+</def>
+</def-item>
+</def-list>
+</glossary>
+<fn-group>
+<fn>
+<p>
+<bold>Publisher’s Note</bold>
+</p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p><bold>Supplementary information</bold> accompanies this paper at 10.1186/s40168-020-00864-3.</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>The computations in this research were performed using the supercomputing facilities at the National Institute of Genetics in Research Organization of Information and Systems. We thank anonymous reviewers for their constructive and insightful comments, which greatly improved our manuscript.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Authors’ contributions</title>
+<p>M. Hamada and TF conceived the study. M. Hamada supervised this study. SN and M. Hattori processed the data. SH implemented the method and performed all the computational experiments. SH, SN, TF, and M. Hamada analyzed the results. TF, SH, and M. Hamada wrote the draft manuscript, and SN and M. Hattori critically revised the manuscript. All authors read and approved the final manuscript.</p>
+</notes>
+<notes notes-type="funding-information">
+<title>Funding</title>
+<p>This work was supported by the Ministry of Education, Culture, Sports, Science, and Technology (KAKENHI) (grant numbers JP16H05879, JP16H01318, JP16H02484, and 17K20032 to MH, JP16H06279).</p>
+</notes>
+<notes id="FPar1">
+<title>Ethics approval and consent to participate</title>
+<p>Not applicable.</p>
+</notes>
+<notes id="FPar2">
+<title>Consent for publication</title>
+<p>Not applicable.</p>
+</notes>
+<notes id="FPar3" notes-type="COI-statement">
+<title>Competing interests</title>
+<p>The authors declare that they have no competing interests.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kurokawa</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Itoh</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Kuwahara</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Oshima</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Toh</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Toyoda</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Takami</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Morita</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Sharma</surname>
+<given-names>VK</given-names>
+</name>
+<name>
+<surname>Srivastava</surname>
+<given-names>TP</given-names>
+</name>
+<name>
+<surname>Taylor</surname>
+<given-names>TD</given-names>
+</name>
+<name>
+<surname>Noguchi</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Mori</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Ogura</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Ehrlich</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Itoh</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Takagi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Sakaki</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hayashi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Hattori</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Comparative Metagenomics Revealed Commonly Enriched Gene Sets in Human Gut Microbiomes</article-title>
+<source/>DNA Res
+          <year>2007</year>
+<volume>14</volume>
+<issue>4</issue>
+<fpage>169</fpage>
+<lpage>81</lpage>
+<pub-id pub-id-type="pmid">17916580</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mai</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>McCrary</surname>
+<given-names>QM</given-names>
+</name>
+<name>
+<surname>Sinha</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Glei</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Associations between dietary habits and body mass index with gut microbiota composition and fecal water genotoxicity: an observational study in African American and Caucasian American volunteers</article-title>
+<source/>Nutr J
+          <year>2009</year>
+<volume>8</volume>
+<fpage>49</fpage>
+<pub-id pub-id-type="pmid">19845958</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cho</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Blaser</surname>
+<given-names>MJ</given-names>
+</name>
+</person-group>
+<article-title>The human microbiome: at the interface of health and disease</article-title>
+<source/>Nat Rev Genet
+          <year>2012</year>
+<volume>13</volume>
+<issue>4</issue>
+<fpage>260</fpage>
+<lpage>70</lpage>
+<pub-id pub-id-type="pmid">22411464</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xavier</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Podolsky</surname>
+<given-names>DK</given-names>
+</name>
+</person-group>
+<article-title>Unravelling the pathogenesis of inflammatory bowel disease</article-title>
+<source/>Nature
+          <year>2007</year>
+<volume>448</volume>
+<issue>7152</issue>
+<fpage>427</fpage>
+<lpage>34</lpage>
+<pub-id pub-id-type="pmid">17653185</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Giongo</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Gano</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Crabb</surname>
+<given-names>DB</given-names>
+</name>
+<name>
+<surname>Mukherjee</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Novelo</surname>
+<given-names>LL</given-names>
+</name>
+<name>
+<surname>Casella</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Drew</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Ilonen</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Knip</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hyöty</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Veijola</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Simell</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Simell</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Neu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wasserfall</surname>
+<given-names>CH</given-names>
+</name>
+<name>
+<surname>Schatz</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Atkinson</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Triplett</surname>
+<given-names>EW</given-names>
+</name>
+</person-group>
+<article-title>Toward defining the autoimmune microbiome for type 1 diabetes</article-title>
+<source/>ISME J
+          <year>2011</year>
+<volume>5</volume>
+<issue>1</issue>
+<fpage>82</fpage>
+<lpage>91</lpage>
+<pub-id pub-id-type="pmid">20613793</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kostic</surname>
+<given-names>AD</given-names>
+</name>
+<name>
+<surname>Gevers</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Pedamallu</surname>
+<given-names>CS</given-names>
+</name>
+<name>
+<surname>Michaud</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Duke</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Earl</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Ojesina</surname>
+<given-names>AI</given-names>
+</name>
+<name>
+<surname>Jung</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bass</surname>
+<given-names>AJ</given-names>
+</name>
+<name>
+<surname>Tabernero</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Baselga</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Shivdasani</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Ogino</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Birren</surname>
+<given-names>BW</given-names>
+</name>
+<name>
+<surname>Huttenhower</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Garrett</surname>
+<given-names>WS</given-names>
+</name>
+<name>
+<surname>Meyerson</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Genomic analysis identifies association of Fusobacterium with colorectal carcinoma</article-title>
+<source/>Genome Res
+          <year>2012</year>
+<volume>22</volume>
+<issue>2</issue>
+<fpage>292</fpage>
+<lpage>8</lpage>
+<pub-id pub-id-type="pmid">22009990</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mulle</surname>
+<given-names>JG</given-names>
+</name>
+<name>
+<surname>Sharp</surname>
+<given-names>WG</given-names>
+</name>
+<name>
+<surname>Cubells</surname>
+<given-names>JF</given-names>
+</name>
+</person-group>
+<article-title>The gut microbiome: a new frontier in autism research</article-title>
+<source/>Curr Psychiatr Rep
+          <year>2013</year>
+<volume>15</volume>
+<issue>2</issue>
+<fpage>337</fpage>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Clemente</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Ursell</surname>
+<given-names>LK</given-names>
+</name>
+<name>
+<surname>Parfrey</surname>
+<given-names>LW</given-names>
+</name>
+<name>
+<surname>Knight</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>The impact of the gut microbiota on human health: An integrative view</article-title>
+<source/>Cell
+          <year>2012</year>
+<volume>148</volume>
+<issue>6</issue>
+<fpage>1258</fpage>
+<lpage>70</lpage>
+<pub-id pub-id-type="pmid">22424233</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turnbaugh</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Hamady</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Yatsunenko</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Cantarel</surname>
+<given-names>BL</given-names>
+</name>
+<name>
+<surname>Duncan</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Ley</surname>
+<given-names>RE</given-names>
+</name>
+<name>
+<surname>Sogin</surname>
+<given-names>ML</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>WJ</given-names>
+</name>
+<name>
+<surname>Roe</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Affourtit</surname>
+<given-names>JP</given-names>
+</name>
+<name>
+<surname>Egholm</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Henrissat</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Heath</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Knight</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gordon</surname>
+<given-names>JI</given-names>
+</name>
+</person-group>
+<article-title>A core gut microbiome in obese and lean twins</article-title>
+<source/>Nature
+          <year>2009</year>
+<volume>457</volume>
+<issue>7228</issue>
+<fpage>480</fpage>
+<lpage>4</lpage>
+<pub-id pub-id-type="pmid">19043404</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Qin</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Raes</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Arumugam</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Burgdorf</surname>
+<given-names>KS</given-names>
+</name>
+<name>
+<surname>Manichanh</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Pons</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Levenez</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Yamada</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Mende</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Cao</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Liang</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Xie</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Tap</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lepage</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Bertalan</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Batto</surname>
+<given-names>J-M</given-names>
+</name>
+<name>
+<surname>Hansen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Paslier</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Linneberg</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>HB</given-names>
+</name>
+<name>
+<surname>Pelletier</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Renault</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Sicheritz-Ponten</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Turner</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Jian</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Qin</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Brunak</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Doré</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Guarner</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Kristiansen</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Pedersen</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Parkhill</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Weissenbach</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Consortium</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Antolin</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Artiguenave</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Blottiere</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Borruel</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Bruls</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Casellas</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Chervaux</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Cultrone</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Delorme</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Denariaz</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Dervyn</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Forte</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Friss</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>van de Guchte</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Guedon</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Haimet</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Jamet</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Juste</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kaci</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Kleerebezem</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Knol</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Kristensen</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Layec</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Roux</surname>
+<given-names>KL</given-names>
+</name>
+<name>
+<surname>Leclerc</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Maguin</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Minardi</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Oozeer</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Rescigno</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sanchez</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Tims</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Torrejon</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Varela</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>de Vos</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Winogradsky</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zoetendal</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Bork</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Ehrlich</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>A human gut microbial gene catalogue established by metagenomic sequencing</article-title>
+<source/>Nature
+          <year>2010</year>
+<volume>464</volume>
+<issue>7285</issue>
+<fpage>59</fpage>
+<lpage>65</lpage>
+<pub-id pub-id-type="pmid">20203603</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yatsunenko</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Rey</surname>
+<given-names>FE</given-names>
+</name>
+<name>
+<surname>Manary</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Trehan</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Dominguez-Bello</surname>
+<given-names>MG</given-names>
+</name>
+<name>
+<surname>Contreras</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Magris</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hidalgo</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Baldassano</surname>
+<given-names>RN</given-names>
+</name>
+<name>
+<surname>Anokhin</surname>
+<given-names>AP</given-names>
+</name>
+<name>
+<surname>Heath</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Warner</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Reeder</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Kuczynski</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Caporaso</surname>
+<given-names>JG</given-names>
+</name>
+<name>
+<surname>Lozupone</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Lauber</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Clemente</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Knights</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Knight</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gordon</surname>
+<given-names>JI</given-names>
+</name>
+</person-group>
+<article-title>Human gut microbiome viewed across age and geography</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>486</volume>
+<issue>7402</issue>
+<fpage>222</fpage>
+<lpage>7</lpage>
+<pub-id pub-id-type="pmid">22699611</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Arumugam</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Raes</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Pelletier</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Paslier</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Yamada</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Mende</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Fernandes</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Tap</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bruls</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Batto</surname>
+<given-names>J-M</given-names>
+</name>
+<name>
+<surname>Bertalan</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Borruel</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Casellas</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Fernandez</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Gautier</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Hansen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Hattori</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hayashi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Kleerebezem</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kurokawa</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Leclerc</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Levenez</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Manichanh</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>HB</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Pons</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Poulain</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Qin</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Sicheritz-Ponten</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Tims</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Torrents</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Ugarte</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Zoetendal</surname>
+<given-names>EG</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Guarner</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Pedersen</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>de Vos</surname>
+<given-names>WM</given-names>
+</name>
+<name>
+<surname>Brunak</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Doré</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Members</surname>
+<given-names>MCa</given-names>
+</name>
+<name>
+<surname>Antolín</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Artiguenave</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Blottiere</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Almeida</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Brechot</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Cara</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Chervaux</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Cultrone</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Delorme</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Denariaz</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Dervyn</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Foerstner</surname>
+<given-names>KU</given-names>
+</name>
+<name>
+<surname>Friss</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>van de Guchte</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Guedon</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Haimet</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Huber</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>van Hylckama-Vlieg</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Jamet</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Juste</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kaci</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Knol</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Kristiansen</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Lakhdari</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Layec</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Roux</surname>
+<given-names>KL</given-names>
+</name>
+<name>
+<surname>Maguin</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Mérieux</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Minardi</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>M’rini</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Muller</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Oozeer</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Parkhill</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Renault</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Rescigno</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sanchez</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Sunagawa</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Torrejon</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Turner</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Vandemeulebrouck</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Varela</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Winogradsky</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zeller</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Weissenbach</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Ehrlich</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Bork</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Enterotypes of the human gut microbiome</article-title>
+<source/>Nature
+          <year>2011</year>
+<volume>473</volume>
+<issue>7346</issue>
+<fpage>174</fpage>
+<lpage>80</lpage>
+<pub-id pub-id-type="pmid">21508958</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ding</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Schloss</surname>
+<given-names>PD</given-names>
+</name>
+</person-group>
+<article-title>Dynamics and associations of microbial community types across the human body</article-title>
+<source/>Nature
+          <year>2014</year>
+<volume>509</volume>
+<issue>7500</issue>
+<fpage>357</fpage>
+<lpage>60</lpage>
+<pub-id pub-id-type="pmid">24739969</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Holmes</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Harris</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Quince</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Dirichlet multinomial mixtures: generative models for microbial metagenomics</article-title>
+<source/>PLoS ONE
+          <year>2012</year>
+<volume>7</volume>
+<issue>2</issue>
+<fpage>30126</fpage>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shafiei</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Dunn</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Boon</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>MacDonald</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Walsh</surname>
+<given-names>DA</given-names>
+</name>
+<name>
+<surname>Gu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Bielawski</surname>
+<given-names>JP</given-names>
+</name>
+</person-group>
+<article-title>BioMiCo: a supervised Bayesian model for inference of microbial community structure</article-title>
+<source/>Microbiome
+          <year>2015</year>
+<volume>3</volume>
+<fpage>8</fpage>
+<pub-id pub-id-type="pmid">25774293</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Boon</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Meehan</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Whidden</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Wong</surname>
+<given-names>DH-J</given-names>
+</name>
+<name>
+<surname>Langille</surname>
+<given-names>MGI</given-names>
+</name>
+<name>
+<surname>Beiko</surname>
+<given-names>RG</given-names>
+</name>
+</person-group>
+<article-title>Interactions in the microbiome: communities of organisms and communities of genes</article-title>
+<source/>FEMS Microbiol Rev
+          <year>2014</year>
+<volume>38</volume>
+<issue>1</issue>
+<fpage>90</fpage>
+<lpage>118</lpage>
+<pub-id pub-id-type="pmid">23909933</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cai</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Gu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kenney</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Learning microbial community structures with supervised and unsupervised non-negative matrix factorization</article-title>
+<source/>Microbiome
+          <year>2017</year>
+<volume>5</volume>
+<fpage>110</fpage>
+<pub-id pub-id-type="pmid">28859695</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Higashi</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Suzuki</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Kurosawa</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Mori</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kurokawa</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Latent environment allocation of microbial community data</article-title>
+<source/>PLOS Comput Biol
+          <year>2018</year>
+<volume>14</volume>
+<issue>6</issue>
+<fpage>1006143</fpage>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yan</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Chuai</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Qi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Shao</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Shi</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Q</given-names>
+</name>
+</person-group>
+<article-title>MetaTopics: an integration tool to analyze microbial community profile by topic model</article-title>
+<source/>BMC Genomics
+          <year>2017</year>
+<volume>18</volume>
+<issue>1</issue>
+<fpage>962</fpage>
+<pub-id pub-id-type="pmid">28198670</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sankaran</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Holmes</surname>
+<given-names>SP</given-names>
+</name>
+</person-group>
+<article-title>Latent variable modeling for the microbiome</article-title>
+<source/>Biostatistics
+          <year>2019</year>
+<volume>20</volume>
+<issue>4</issue>
+<fpage>599</fpage>
+<lpage>614</lpage>
+<pub-id pub-id-type="pmid">29868846</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Knights</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Kuczynski</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Charlson</surname>
+<given-names>ES</given-names>
+</name>
+<name>
+<surname>Zaneveld</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Mozer</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Collman</surname>
+<given-names>RG</given-names>
+</name>
+<name>
+<surname>Bushman</surname>
+<given-names>FD</given-names>
+</name>
+<name>
+<surname>Knight</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Kelley</surname>
+<given-names>ST</given-names>
+</name>
+</person-group>
+<article-title>Bayesian community-wide culture-independent microbial source tracking</article-title>
+<source/>Nat Methods
+          <year>2011</year>
+<volume>8</volume>
+<issue>9</issue>
+<fpage>761</fpage>
+<lpage>3</lpage>
+<pub-id pub-id-type="pmid">21765408</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shafiei</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Dunn</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Chipman</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Gu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Bielawski</surname>
+<given-names>JP</given-names>
+</name>
+</person-group>
+<article-title>BiomeNet: a Bayesian model for inference of metabolic divergence among microbial communities</article-title>
+<source/>PLOS Comput Biol
+          <year>2014</year>
+<volume>10</volume>
+<issue>11</issue>
+<fpage>1003918</fpage>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Blei</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Ng</surname>
+<given-names>AY</given-names>
+</name>
+<name>
+<surname>Jordan</surname>
+<given-names>MI</given-names>
+</name>
+</person-group>
+<article-title>Latent Dirichlet Allocation</article-title>
+<source/>J Mach Learn Res
+          <year>2003</year>
+<volume>3</volume>
+<issue>Jan</issue>
+<fpage>993</fpage>
+<lpage>1022</lpage>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Tsykin</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Goodall</surname>
+<given-names>GJ</given-names>
+</name>
+<name>
+<surname>Green</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>CH</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Identifying functional miRNA–mRNA regulatory modules with correspondence latent Dirichlet allocation</article-title>
+<source/>Bioinformatics
+          <year>2010</year>
+<volume>26</volume>
+<issue>24</issue>
+<fpage>3105</fpage>
+<lpage>11</lpage>
+<pub-id pub-id-type="pmid">20956247</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25</label>
+<mixed-citation publication-type="other">Wu Y, Liu M, Zheng WJ, Zhao Z, Xu H. Ranking gene-drug relationships in biomedical literature using latent Dirichlet allocation. World Sci. 2012. 10.1142/9789814366496_0041.</mixed-citation>
+</ref>
+<ref id="CR26">
+<label>26</label>
+<mixed-citation publication-type="other">Pinoli P, Chicco D, Masseroli M. Latent Dirichlet allocation based on Gibbs sampling for gene function prediction. In: 2014 IEEE Conference on Computational Intelligence in Bioinformatics and Computational Biology: 2014. p. 1–8. 10.1109/CIBCB.2014.6845514.</mixed-citation>
+</ref>
+<ref id="CR27">
+<label>27</label>
+<mixed-citation publication-type="other">Chen X, He TT, Hu X, An Y, Wu X. Inferring functional groups from microbial gene catalogue with probabilistic topic models. In: 2011 IEEE International Conference on Bioinformatics and Biomedicine: 2011. p. 3–9. 10.1109/BIBM.2011.12.</mixed-citation>
+</ref>
+<ref id="CR28">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nishijima</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Suda</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Oshima</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>S-W</given-names>
+</name>
+<name>
+<surname>Hirose</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Morita</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Hattori</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>The gut microbiome of healthy Japanese and its microbial and functional uniqueness</article-title>
+<source/>DNA Res Int J Rapid Publ Rep Genes Genomes
+          <year>2016</year>
+<volume>23</volume>
+<issue>2</issue>
+<fpage>125</fpage>
+<lpage>33</lpage>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>GD</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hoffmann</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Bittinger</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y-Y</given-names>
+</name>
+<name>
+<surname>Keilbaugh</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Bewtra</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Knights</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Walters</surname>
+<given-names>WA</given-names>
+</name>
+<name>
+<surname>Knight</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Sinha</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gilroy</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Gupta</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Baldassano</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Nessel</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Bushman</surname>
+<given-names>FD</given-names>
+</name>
+<name>
+<surname>Lewis</surname>
+<given-names>JD</given-names>
+</name>
+</person-group>
+<article-title>Linking long-term dietary patterns with gut microbial enterotypes</article-title>
+<source/>Science
+          <year>2011</year>
+<volume>334</volume>
+<issue>6052</issue>
+<fpage>105</fpage>
+<lpage>8</lpage>
+<pub-id pub-id-type="pmid">21885731</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kanehisa</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Goto</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>KEGG: Kyoto Encyclopedia of Genes and Genomes</article-title>
+<source/>Nucleic Acids Res
+          <year>2000</year>
+<volume>28</volume>
+<issue>1</issue>
+<fpage>27</fpage>
+<lpage>30</lpage>
+<pub-id pub-id-type="pmid">10592173</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rousseeuw</surname>
+<given-names>PJ</given-names>
+</name>
+</person-group>
+<article-title>Silhouettes: a graphical aid to the interpretation and validation of cluster analysis</article-title>
+<source/>J Comput Appl Math
+          <year>1987</year>
+<volume>20</volume>
+<fpage>53</fpage>
+<lpage>65</lpage>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Asuncion</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Welling</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Smyth</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Teh</surname>
+<given-names>YW</given-names>
+</name>
+</person-group>
+<article-title>On smoothing and inference for topic models</article-title>
+<source/>Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence, UAI’09
+          <year>2009</year>
+<publisher-loc>Montreal, Quebec, Canada</publisher-loc>
+<publisher-name>AUAI Press</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33</label>
+<mixed-citation publication-type="other">Minka T. Estimating a Dirichlet distribution. Technical report, MIT. 2000.</mixed-citation>
+</ref>
+<ref id="CR34">
+<label>34</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wallach</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Mimno</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>McCallum</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Rethinking LDA: why priors matter</article-title>
+<source/>Adv Neural Inf Process Syst
+          <year>2009</year>
+<volume>22</volume>
+<fpage>1973</fpage>
+<lpage>81</lpage>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35</label>
+<mixed-citation publication-type="other">KO (KEGG ORTHOLOGY) Database. <ext-link ext-link-type="uri" xlink:href="https://www.kegg.jp/kegg/ko.html">https://www.kegg.jp/kegg/ko.html</ext-link>. Accessed 28 Feb 2019.</mixed-citation>
+</ref>
+<ref id="CR36">
+<label>36</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Corduneanu</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bishop</surname>
+<given-names>CM</given-names>
+</name>
+</person-group>
+<source/>Variational Bayesian model selection for mixture distributions
+          <year>2001</year>
+<publisher-loc>MA</publisher-loc>
+<publisher-name>Morgan Kaufmann Waltham</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37</label>
+<mixed-citation publication-type="other">Fujimaki R, Morinaga S. Factorized asymptotic Bayesian inference for mixture modeling. In: Artificial Intelligence and Statistics: 2012. p. 400–8.</mixed-citation>
+</ref>
+<ref id="CR38">
+<label>38</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Benjamini</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hochberg</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Controlling the false discovery rate: a practical and powerful approach to multiple testing</article-title>
+<source/>J R Stat Soc Ser B Methodol
+          <year>1995</year>
+<volume>57</volume>
+<issue>1</issue>
+<fpage>289</fpage>
+<lpage>300</lpage>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pandit</surname>
+<given-names>SN</given-names>
+</name>
+<name>
+<surname>Jurek</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Karl</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Contrasts between habitat generalists and specialists: an empirical extension to the basic metacommunity framework</article-title>
+<source/>Ecology
+          <year>2009</year>
+<volume>90</volume>
+<issue>8</issue>
+<fpage>2253</fpage>
+<lpage>62</lpage>
+<pub-id pub-id-type="pmid">19739387</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sriswasdi</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>C. -c.</given-names>
+</name>
+<name>
+<surname>Iwasaki</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>Generalist species drive microbial dispersion and evolution</article-title>
+<source/>Nat Commun
+          <year>2017</year>
+<volume>8</volume>
+<issue>1</issue>
+<fpage>1162</fpage>
+<pub-id pub-id-type="pmid">29079803</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turnbaugh</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Gordon</surname>
+<given-names>JI</given-names>
+</name>
+</person-group>
+<article-title>The core gut microbiome, energy balance and obesity</article-title>
+<source/>J Physiol
+          <year>2009</year>
+<volume>587</volume>
+<issue>Pt 17</issue>
+<fpage>4153</fpage>
+<lpage>8</lpage>
+<pub-id pub-id-type="pmid">19491241</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pryde</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Duncan</surname>
+<given-names>SH</given-names>
+</name>
+<name>
+<surname>Hold</surname>
+<given-names>GL</given-names>
+</name>
+<name>
+<surname>Stewart</surname>
+<given-names>CS</given-names>
+</name>
+<name>
+<surname>Flint</surname>
+<given-names>HJ</given-names>
+</name>
+</person-group>
+<article-title>The microbiology of butyrate formation in the human colon</article-title>
+<source/>FEMS Microbiol Lett
+          <year>2002</year>
+<volume>217</volume>
+<issue>2</issue>
+<fpage>133</fpage>
+<lpage>9</lpage>
+<pub-id pub-id-type="pmid">12480096</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Louis</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Flint</surname>
+<given-names>HJ</given-names>
+</name>
+</person-group>
+<article-title>Diversity, metabolism and microbial ecology of butyrate-producing bacteria from the human large intestine</article-title>
+<source/>FEMS Microbiol Lett
+          <year>2009</year>
+<volume>294</volume>
+<issue>1</issue>
+<fpage>1</fpage>
+<lpage>8</lpage>
+<pub-id pub-id-type="pmid">19222573</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sokol</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Pigneur</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Watterlot</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Lakhdari</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Bermúdez-Humarán</surname>
+<given-names>LG</given-names>
+</name>
+<name>
+<surname>Gratadoux</surname>
+<given-names>J-J</given-names>
+</name>
+<name>
+<surname>Blugeon</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Bridonneau</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Furet</surname>
+<given-names>J-P</given-names>
+</name>
+<name>
+<surname>Corthier</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Grangette</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Vasquez</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Pochart</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Trugnan</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Blottière</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Doré</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Marteau</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Seksik</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Langella</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Faecalibacterium prausnitzii is an anti-inflammatory commensal bacterium identified by gut microbiota analysis of Crohn disease patients</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2008</year>
+<volume>105</volume>
+<issue>43</issue>
+<fpage>16731</fpage>
+<lpage>6</lpage>
+<pub-id pub-id-type="pmid">18936492</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Furusawa</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Obata</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Fukuda</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Endo</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Nakato</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Takahashi</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Nakanishi</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Uetake</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kato</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kato</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Takahashi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Fukuda</surname>
+<given-names>NN</given-names>
+</name>
+<name>
+<surname>Murakami</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Miyauchi</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Hino</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Atarashi</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Onawa</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Fujimura</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Lockett</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Clarke</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Topping</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Tomita</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hori</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Ohara</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Morita</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Koseki</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kikuchi</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Honda</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Hase</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Ohno</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Commensal microbe-derived butyrate induces the differentiation of colonic regulatory T cells</article-title>
+<source/>Nature
+          <year>2013</year>
+<volume>504</volume>
+<issue>7480</issue>
+<fpage>446</fpage>
+<lpage>50</lpage>
+<pub-id pub-id-type="pmid">24226770</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nicholson</surname>
+<given-names>JK</given-names>
+</name>
+<name>
+<surname>Holmes</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Kinross</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Burcelin</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gibson</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Jia</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Pettersson</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Host-Gut microbiota metabolic interactions</article-title>
+<source/>Science
+          <year>2012</year>
+<volume>336</volume>
+<issue>6086</issue>
+<fpage>1262</fpage>
+<lpage>7</lpage>
+<pub-id pub-id-type="pmid">22674330</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tremaroli</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Bäckhed</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<article-title>Functional interactions between the gut microbiota and host metabolism</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>489</volume>
+<issue>7415</issue>
+<fpage>242</fpage>
+<lpage>9</lpage>
+<pub-id pub-id-type="pmid">22972297</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tringe</surname>
+<given-names>SG</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>WH</given-names>
+</name>
+<name>
+<surname>Yap</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yao</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Suan</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Ing</surname>
+<given-names>SK</given-names>
+</name>
+<name>
+<surname>Haynes</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Rohwer</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>CL</given-names>
+</name>
+<name>
+<surname>Tan</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Bristow</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Rubin</surname>
+<given-names>EM</given-names>
+</name>
+<name>
+<surname>Ruan</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>The airborne metagenome in an indoor urban environment</article-title>
+<source/>PLoS ONE
+          <year>2008</year>
+<volume>3</volume>
+<issue>4</issue>
+<fpage>1862</fpage>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Venter</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Remington</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Heidelberg</surname>
+<given-names>JF</given-names>
+</name>
+<name>
+<surname>Halpern</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Rusch</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Eisen</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Paulsen</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>KE</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Fouts</surname>
+<given-names>DE</given-names>
+</name>
+<name>
+<surname>Levy</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Knap</surname>
+<given-names>AH</given-names>
+</name>
+<name>
+<surname>Lomas</surname>
+<given-names>MW</given-names>
+</name>
+<name>
+<surname>Nealson</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>White</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Peterson</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hoffman</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Parsons</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Baden-Tillson</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Pfannkoch</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Rogers</surname>
+<given-names>Y-H</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>HO</given-names>
+</name>
+</person-group>
+<article-title>Environmental genome shotgun sequencing of the Sargasso Sea</article-title>
+<source/>Science
+          <year>2004</year>
+<volume>304</volume>
+<issue>5667</issue>
+<fpage>66</fpage>
+<lpage>74</lpage>
+<pub-id pub-id-type="pmid">15001713</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50</label>
+<mixed-citation publication-type="other">Sunagawa S, Coelho LP, Chaffron S, Kultima JR, Labadie K, Salazar G, Djahanschiri B, Zeller G, Mende DR, Alberti A, Cornejo-Castillo FM, Costea PI, Cruaud C, d’Ovidio F, Engelen S, Ferrera I, Gasol JM, Guidi L, Hildebrand F, Kokoszka F, Lepoivre C, Lima-Mendez G, Poulain J, Poulos BT, Royo-Llonch M, Sarmento H, Vieira-Silva S, Dimier C, Picheral M, Searson S, Kandels-Lewis S, Coordinators TO, Bowler C, Vargas C. d., Gorsky G, Grimsley N, Hingamp P, Iudicone D, Jaillon O, Not F, Ogata H, Pesant S, Speich S, Stemmann L, Sullivan MB, Weissenbach J, Wincker P, Karsenti E, Raes J, Acinas SG, Bork P. Structure and function of the global ocean microbiome. Science. 2015; 348(6237). 10.1126/science.1261359.</mixed-citation>
+</ref>
+<ref id="CR51">
+<label>51</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fierer</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Leff</surname>
+<given-names>JW</given-names>
+</name>
+<name>
+<surname>Adams</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>UN</given-names>
+</name>
+<name>
+<surname>Bates</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Lauber</surname>
+<given-names>CL</given-names>
+</name>
+<name>
+<surname>Owens</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Gilbert</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Wall</surname>
+<given-names>DH</given-names>
+</name>
+<name>
+<surname>Caporaso</surname>
+<given-names>JG</given-names>
+</name>
+</person-group>
+<article-title>Cross-biome metagenomic analyses of soil microbial communities and their functional attributes</article-title>
+<source/>Proc Natl Acad Sci
+          <year>2012</year>
+<volume>109</volume>
+<issue>52</issue>
+<fpage>21390</fpage>
+<lpage>5</lpage>
+<pub-id pub-id-type="pmid">23236140</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chaffron</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Rehrauer</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Pernthaler</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>von Mering</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>A global network of coexisting microbes from environmental and whole-genome sequence data</article-title>
+<source/>Genome Res
+          <year>2010</year>
+<volume>20</volume>
+<issue>7</issue>
+<fpage>947</fpage>
+<lpage>59</lpage>
+<pub-id pub-id-type="pmid">20458099</pub-id>
+</element-citation>
+</ref>
+<ref id="CR53">
+<label>53</label>
+<mixed-citation publication-type="other">Sommeria-Klein G, Zinger L, Coissac E, Iribar A, Schimann H, Taberlet P, Chave J. Latent Dirichlet allocation reveals spatial and taxonomic structure in a DNA-based census of soil biodiversity from a tropical forest. Mol Ecol Resour. 2019; n/a(n/a). 10.1111/1755-0998.13109.</mixed-citation>
+</ref>
+<ref id="CR54">
+<label>54</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>McCallum</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Pachinko allocation: DAG-structured mixture models of topic correlations</article-title>
+<source/>Proceedings of the 23rd International Conference on Machine Learning, ICML ’06
+          <year>2006</year>
+<publisher-loc>New York, NY, USA</publisher-loc>
+<publisher-name>ACM</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lacoste-Julien</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Sha</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Jordan</surname>
+<given-names>MI</given-names>
+</name>
+</person-group>
+<article-title>DiscLDA: discriminative learning for dimensionality reduction and classification</article-title>
+<source/>Adv Neural Inf Process Syst
+          <year>2009</year>
+<volume>21</volume>
+<fpage>897</fpage>
+<lpage>904</lpage>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Ramage</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Hall</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Nallapati</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Manning</surname>
+<given-names>CD</given-names>
+</name>
+</person-group>
+<article-title>Labeled LDA: a supervised topic model for credit attribution in multi-labeled corpora</article-title>
+<source/>Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing: Volume 1 - Volume 1, EMNLP ’09
+          <year>2009</year>
+<publisher-loc>Stroudsburg, PA, USA</publisher-loc>
+<publisher-name>Association for Computational Linguistics</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR57">
+<label>57</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Iwata</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Watanabe</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Yamada</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Ueda</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>Topic tracking model for analyzing consumer purchase behavior</article-title>
+<source/>Proceedings of the 21st International Jont Conference on Artifical Intelligence, IJCAI’09
+          <year>2009</year>
+<publisher-loc>San Francisco, CA, USA</publisher-loc>
+<publisher-name>Morgan Kaufmann Publishers Inc.</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR58">
+<label>58</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mcauliffe</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Blei</surname>
+<given-names>DM</given-names>
+</name>
+</person-group>
+<article-title>Supervised topic models</article-title>
+<source/>Adv Neural Inf Process Syst
+          <year>2008</year>
+<volume>20</volume>
+<fpage>121</fpage>
+<lpage>8</lpage>
+</element-citation>
+</ref>
+<ref id="CR59">
+<label>59</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>David</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Materna</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Friedman</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Campos-Baptista</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Blackburn</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Perrotta</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Erdman</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Alm</surname>
+<given-names>EJ</given-names>
+</name>
+</person-group>
+<article-title>Host lifestyle affects human microbiota on daily timescales</article-title>
+<source/>Genome Biol
+          <year>2014</year>
+<volume>15</volume>
+<fpage>89</fpage>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

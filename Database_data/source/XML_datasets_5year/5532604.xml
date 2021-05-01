@@ -1,0 +1,2339 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Brain Sci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Brain Sci</journal-id>
+<journal-id journal-id-type="publisher-id">brainsci</journal-id>
+<journal-title-group>
+<journal-title>Brain Sciences</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2076-3425</issn>
+<publisher>
+<publisher-name>MDPI</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">28754001</article-id>
+<article-id pub-id-type="pmc">5532604</article-id>
+<article-id pub-id-type="doi">10.3390/brainsci7070091</article-id>
+<article-id pub-id-type="publisher-id">brainsci-07-00091</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Using Machine Learning to Discover Latent Social Phenotypes in Free-Ranging Macaques</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Madlon-Kay</surname>
+<given-names>Seth</given-names>
+</name>
+<xref ref-type="aff" rid="af1-brainsci-07-00091">1</xref>
+<xref ref-type="corresp" rid="c1-brainsci-07-00091">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Brent</surname>
+<given-names>Lauren J. N.</given-names>
+</name>
+<xref ref-type="aff" rid="af2-brainsci-07-00091">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0003-0253-4404</contrib-id>
+<name>
+<surname>Montague</surname>
+<given-names>Michael J.</given-names>
+</name>
+<xref ref-type="aff" rid="af1-brainsci-07-00091">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Heller</surname>
+<given-names>Katherine A.</given-names>
+</name>
+<xref ref-type="aff" rid="af3-brainsci-07-00091">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Platt</surname>
+<given-names>Michael L.</given-names>
+</name>
+<xref ref-type="aff" rid="af1-brainsci-07-00091">1</xref>
+<xref ref-type="aff" rid="af4-brainsci-07-00091">4</xref>
+<xref ref-type="aff" rid="af5-brainsci-07-00091">5</xref>
+</contrib>
+</contrib-group>
+<contrib-group>
+<contrib contrib-type="editor">
+<name>
+<surname>Cacioppo</surname>
+<given-names>Stephanie</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<aff id="af1-brainsci-07-00091"><label>1</label>Department of Neuroscience, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA 19104, USA; <email>montag@mail.med.upenn.edu</email> (M.J.M.); <email>mplatt@mail.med.upenn.edu</email> (M.L.P.)</aff>
+<aff id="af2-brainsci-07-00091"><label>2</label>Center for Research in Animal Behaviour, University of Exeter, Exeter EX4 4QG, UK; <email>L.J.N.Brent@exeter.ac.uk</email></aff>
+<aff id="af3-brainsci-07-00091"><label>3</label>Department of Statistical Science, Duke University, Durham, NC 27708, USA; <email>kheller@stat.duke.edu</email></aff>
+<aff id="af4-brainsci-07-00091"><label>4</label>Department of Psychology, School of Arts and Sciences, University of Pennsylvania, Philadelphia, PA 19104, USA</aff>
+<aff id="af5-brainsci-07-00091"><label>5</label>Marketing Department, The Wharton School, University of Pennsylvania, Philadelphia, PA 19104, USA</aff>
+<author-notes>
+<corresp id="c1-brainsci-07-00091"><label>*</label>Correspondence: <email>madseth@mail.med.upenn.edu</email>; Tel.: +1-215-898-1579</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>21</day>
+<month>7</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>7</month>
+<year>2017</year>
+</pub-date>
+<volume>7</volume>
+<issue>7</issue>
+<elocation-id>91</elocation-id>
+<history>
+<date date-type="received">
+<day>29</day>
+<month>3</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>16</day>
+<month>7</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2017 by the authors.</copyright-statement>
+<copyright-year>2017</copyright-year>
+<license license-type="open-access">
+<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Investigating the biological bases of social phenotypes is challenging because social behavior is both high-dimensional and richly structured, and biological factors are more likely to influence complex patterns of behavior rather than any single behavior in isolation. The space of all possible patterns of interactions among behaviors is too large to investigate using conventional statistical methods. In order to quantitatively define social phenotypes from natural behavior, we developed a machine learning model to identify and measure patterns of behavior in naturalistic observational data, as well as their relationships to biological, environmental, and demographic sources of variation. We applied this model to extensive observations of natural behavior in free-ranging rhesus macaques, and identified behavioral states that appeared to capture periods of social isolation, competition over food, conflicts among groups, and affiliative coexistence. Phenotypes, represented as the rate of being in each state for a particular animal, were strongly and broadly influenced by dominance rank, sex, and social group membership. We also identified two states for which variation in rates had a substantial genetic component. We discuss how this model can be extended to identify the contributions to social phenotypes of particular genetic pathways.</p>
+</abstract>
+<kwd-group>
+<kwd>machine learning</kwd>
+<kwd>behavioral genetics</kwd>
+<kwd>social neuroscience</kwd>
+<kwd>animal models</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1-brainsci-07-00091">
+<title>1. Introduction</title>
+<p>Understanding how biological and environmental factors shape human social phenotypes—the ways in which we interact with others and in which others shape our own behavior—is a topic of intense interest in neuroscience. While neuroscientific research has made impressive strides in identifying genetic pathways and brain areas that contribute to specific social phenotypes, traditional approaches are limited in their ability to assess how biological and environmental factors contribute to naturalistic social behaviors in real-world environments. Animals used in laboratory research may differ from humans in the brain areas associated with social cognition, and live in laboratory environments with much less varied and dynamic social interactions than natural environments [<xref ref-type="bibr" rid="B1-brainsci-07-00091">1</xref>]. Research in humans faces similar limitations, as comprehensive, in-depth observations of human social behavior in natural environments is both logistically and ethically problematic, while controlled laboratory tasks take place in restricted and low-stakes environments which may leave the true social environment unobserved.</p>
+<p>An alternative approach to understanding biological contributions to human social behavior is to study free-ranging animals whose biology and social behavior more closely approximate our own. Free-ranging non-human primates (NHPs) provide naturalistic and human-relevant variability in social behavior that cannot be modeled in the laboratory or easily (or ethically) collected in humans. With free-ranging NHPs, it is possible to collect comprehensive data on many different aspects of social behavior, as well as both noninvasive and invasive biological samples and life history information that can be used to disentangle genetic and environmental influences. However, natural social behavior is both noisy and high-dimensional, presenting severe challenges for traditional methods of data analysis. Standard methods for relating genetic variation to traits take an atomistic view by measuring genetic influences on each measured variable individually. While this approach makes sense for specific, well-defined phenotypes of interest such as educational attainment [<xref ref-type="bibr" rid="B2-brainsci-07-00091">2</xref>] or height [<xref ref-type="bibr" rid="B3-brainsci-07-00091">3</xref>], it is less useful for high-dimensional data where any individual dimension is of limited or unknown significance.</p>
+<p>In the case of natural behavior, continuous streams of activity are necessarily segmented into many discrete behavioral categories during measurement, in many cases with no specific behavior being of special interest relative to the whole. The challenge is thus to develop a rigorous and biologically meaningful approach for reconstructing a “whole” behavioral state based on discrete, atomized behaviors. Such a challenge can be viewed as a type of latent structure learning, in that there is some underlying structure that is not directly observed but that ties together many different individual pieces of data. Models of this sort are increasingly popular in the field of probabilistic machine learning [<xref ref-type="bibr" rid="B4-brainsci-07-00091">4</xref>]. Though machine learning models are most frequently used for prediction, here we adapt methods from the machine learning literature to infer a meaningful and useful structure in observational data sets.</p>
+<p>Any source of genetic variation is unlikely to affect only a single discrete social behavior. A genetic variant associated with grooming behavior, for instance, may also be associated with increased time spent in the proximity of other animals in general. Genetic influences are more likely distributed across many different individual social behaviors than localized to specific types of actions [<xref ref-type="bibr" rid="B5-brainsci-07-00091">5</xref>]. Furthermore, in the case of observations of natural social behavior, it is important to recognize that each type of behavior does not occur in isolation. Rather, the set of behaviors that occur during a given observational session may reflect the current situation or behavioral state the animal is in. The relationship between any given behavior and an underlying social phenotype thus may vary with context. For example, adjusting a watchband while speaking to a group of people may be a nervous tick reflecting social anxiety, while adjusting a watchband in one’s bedroom might reflect only an ill-fitting watchband.</p>
+<p>Thus, it is critical for any useful model of observed social behavior to reflect the complex interrelatedness of individual behaviors, while retaining identifiability and scalability to large data sets with dozens of individual behaviors and thousands of observations. To achieve this goal, we here adapt a family of models from machine learning known as topic models. Topic models are tools for describing the topics that are covered by a corpus of documents and to what degree each document is focused on each topic [<xref ref-type="bibr" rid="B6-brainsci-07-00091">6</xref>,<xref ref-type="bibr" rid="B7-brainsci-07-00091">7</xref>]. In our analysis, each animal is analogous to a document, while the animal’s social phenotype, or the weights assigned to different behavioral states, correspond to the weights a document assigns to each of the different topics. Under a topic model, each word in a document belongs to a topic, just as in the current model each observational session belongs to a behavioral state. Of the many topic modeling variants that exist in the literature, the current model is most closely related to the logistic normal topic model [<xref ref-type="bibr" rid="B8-brainsci-07-00091">8</xref>,<xref ref-type="bibr" rid="B9-brainsci-07-00091">9</xref>]. Our model differs from the standard logistic normal topic model in that we do not explicitly model correlations between topic weights (here, weights on behavioral states); instead, our model uses a hierarchical regression layer to incorporate outside information about documents (here, animals) in predicting their phenotypes. To the best of our knowledge, no previous topic model has included hierarchical regression at the level of topic weights (but see [<xref ref-type="bibr" rid="B10-brainsci-07-00091">10</xref>] for a related model).</p>
+<p>Recent research on behavioral phenotypes in NHPs has used principle components analysis (PCA) to identify latent structure in natural behavior [<xref ref-type="bibr" rid="B5-brainsci-07-00091">5</xref>,<xref ref-type="bibr" rid="B11-brainsci-07-00091">11</xref>], as well as in the study of animal behavior generally [<xref ref-type="bibr" rid="B12-brainsci-07-00091">12</xref>]. However, that research relied on rates of behaviors averaged across many different observational periods on the same animal. This means that the relationships among behaviors and the patterns in which they co-occur within a single observation are lost. That is, PCA captures variation among animals, but at the cost of losing all information on variability at the level of individual observational periods. By contrast, the hierarchical nature of topic models allows us to explicitly capture variability at both the level of individual animals and the level of observational sessions, in the form of the phenotypes used to represent individual animals and the behavioral states used to characterize observations, respectively.</p>
+<p>Our behavioral data is a large set of animal observations taken from the free-ranging rhesus macaque (<italic>Macaca mulatta</italic>) colony on Cayo Santiago Island off the coast of Puerto Rico. Rhesus macaques provide an excellent model species for studying biological and environmental influences on human social behavior due to their extensive use in lab and field research; neural circuitry that is homologous to that of humans; and complex social behaviors that are critical to their biological success [<xref ref-type="bibr" rid="B13-brainsci-07-00091">13</xref>,<xref ref-type="bibr" rid="B14-brainsci-07-00091">14</xref>,<xref ref-type="bibr" rid="B15-brainsci-07-00091">15</xref>,<xref ref-type="bibr" rid="B16-brainsci-07-00091">16</xref>]. Because demographic, pedigree, and genetic data are also available for the colony [<xref ref-type="bibr" rid="B17-brainsci-07-00091">17</xref>,<xref ref-type="bibr" rid="B18-brainsci-07-00091">18</xref>], this detailed record of natural social behavior provides a unique opportunity for modeling genetic, demographic, and environmental influences on complex social phenotypes.</p>
+</sec>
+<sec id="sec2-brainsci-07-00091">
+<title>2. Materials and Methods</title>
+<sec id="sec2dot1-brainsci-07-00091">
+<title>2.1. Study Site and Subjects</title>
+<p>The studied population is a colony of rhesus macaques (<italic>Macaca mulatta</italic>) living on the island of Cayo Santiago, a 37-acre island 1 km off the southeastern coast of Puerto Rico. This is a free-ranging, freely-breeding population with known pedigrees, rich data on life histories and fitness, and extensive genetic and observational data on behavior. The colony was founded in 1938 with a population of 409 Indian-origin rhesus macaques and is currently maintained by the University of Puerto Rico Medical Sciences Campus [<xref ref-type="bibr" rid="B19-brainsci-07-00091">19</xref>]. The current population numbers approximately 1600 animals self-organized into six different social groups. Approximately 600 of the animals are adults of age six or above, and 600 are juveniles between the ages of one and five. Researcher and caretaker intervention in the population is minimal. Animals in the colony are provided commercially available monkey chow daily and unlimited access to water. Animals are handled only during designated annual trapping periods, during which infants are tagged for identification and population control can be implemented via the removal of small numbers of animals.</p>
+<p>The data used in this study were 8205 ten-minute focal observations collected from adult (age &gt; 6 years) male and female macaques from three social groups (F, HH, and R). Observational data was collected from group F during 2012 and 2013 and from group HH and R during years 2014 and 2015, respectively. A total of 227 macaques (71 male) were represented in this data set, with 106 from group F (41 male), 41 from group HH (11 male), and 80 from group R (19 male). The number of focal observations per animal ranged from 80 (approximately 13.33 h) to 11 (approximately 1.83 h), with an average of 36.15 focal observations per animal (approximately 6 h).</p>
+</sec>
+<sec id="sec2dot2-brainsci-07-00091">
+<title>2.2. Observational Data</title>
+<p>The data is comprised of ten-minute focal samples, wherein a trained researcher tracks an individual monkey (the focal animal) for a ten-minute period while comprehensively recording the animal’s behaviors [<xref ref-type="bibr" rid="B17-brainsci-07-00091">17</xref>,<xref ref-type="bibr" rid="B18-brainsci-07-00091">18</xref>]. Once each ten-minute session is complete, the observer moves on to a new focal animal. Observers recorded the times at which the monkey engaged in any behaviors specified by a predetermined ethogram, as well as the identities of nearby animals during the focal observation [<xref ref-type="bibr" rid="B17-brainsci-07-00091">17</xref>]. The order in which animals were observed was semi-randomized to equalize the times of day and year that animals were observed. The ethogram used to guide data collection consisted of both social and non-social behaviors, both of which were classified as either activities, which have durations, or events, which occur over effectively zero duration. Social behaviors were further classified into affiliative and agonistic behaviors. Each social behavior was further divided based on whether the behavior was initiated by another animal and directed towards the focal animal, or initiated by the focal animal towards another animal. A total of 30 behaviors were used in the present study, including behaviors divided by giving versus receiving. For a description of each behavior included in the model, see the <xref ref-type="app" rid="app2-brainsci-07-00091">Appendix</xref>. Only social behaviors involving another adult macaque were used in this study; behaviors directed at infant or juvenile macaques or human researchers were not included.</p>
+<p>This research complied with protocols approved by the Institutional Animal Care and Use Committee of the University of Puerto Rico (protocol #A6850108) and adhered to the legal requirements of the United States of America.</p>
+</sec>
+<sec id="sec2dot3-brainsci-07-00091">
+<title>2.3. Genetic Data</title>
+<p>We obtained animal pedigrees from a long-term database maintained by the Caribbean Primate Research Center (CPRC). From the founding of the population up through 1992, maternal identity was ascertained by behavioral observations, such as nurturing behaviors and lactation. For most macaques born after 1992, both maternal and paternal identity were ascertained genetically through the analysis of 29 microsatellite markers. Previous studies revealed a 97.4% agreement rate between maternity determined by behavior and by genetics [<xref ref-type="bibr" rid="B5-brainsci-07-00091">5</xref>]. The population pedigree was used to generate a kinship matrix for the animals in the present study via the R package kinship2 [<xref ref-type="bibr" rid="B20-brainsci-07-00091">20</xref>]. The kinship matrix was then element-wise multiplied by two to create the genetic covariance matrix used to estimate the heritability of behavioral states.</p>
+</sec>
+<sec id="sec2dot4-brainsci-07-00091">
+<title>2.4. A Model for Social Phenotypes</title>
+<p>At the heart of the model is a finite set of latent behavioral states that determines the rates at which different behaviors occur. An animal’s social phenotype is represented in the model as the rate at which that animal experiences the different behavioral states. We describe each component of the model in detail below. In this section, we first present a conceptual description of the model, and the description of the mathematical implementation follows in <xref ref-type="sec" rid="sec2dot6-brainsci-07-00091">Section 2.6</xref>.</p>
+<p>Each ten-minute focal sample is assumed to belong to one and only one behavioral state; that is, during a given focal observation, the focal animal is assumed to be in a particular behavioral state. Each state is defined by a set of parameters that determines the probabilities that each of the discrete behaviors will occur, and, should they occur, how frequently or in what amount they will occur during a focal observation. In the data analyzed here, we used a categorical distribution over various levels of behavioral quantities, but the algorithm can trivially be modified to use different data likelihoods, such as a Poisson distribution for data in count form, a normal distribution for continuous data, and so on. For details on the coding of discrete behaviors in the current study, see <xref ref-type="sec" rid="sec2dot5-brainsci-07-00091">Section 2.5</xref> below.</p>
+<p>Every animal has a different probability distribution over behavioral states, which describes how often it finds itself in each of those states. This probability is what we call the animal’s social phenotype. An intuitive interpretation of this aspect of the model is that at the beginning of a focal observation, the focal animal flips a <italic>K</italic>-sided die where <italic>K</italic> is the number of states in the model. Whichever side the die lands on determines which behavioral state the animal will be in for the duration of the focal observation. While the <italic>K</italic> behavioral states are common across all animals, each animal has a unique die with different probabilities of landing on any given side compared to any other animal.</p>
+<p>Ultimately, we are interested in not just describing social phenotypes and behavioral states, but also understanding how they are associated with other variables of scientific interest, be they morphological, demographic or genetic. Accordingly, our model allows the phenotypes of each animal to be influenced by covariates. We accomplish this by having the probabilities in the animals’ phenotype be determined by a mixed-effects multinomial logistic regression. The regression model incorporates the influence of covariates as fixed effects. Two random effects components are also included in the model. The first describes the intercepts of each of the <italic>K</italic> states, which determine how typical each state is across the population as a whole. The second describes animal-specific error terms for each state, which capture how each animal deviates from the predicted phenotypes based on its covariates and the population average. This mixed effect formulation allows the model to refine the predicted phenotypes for each individual animal by pooling information across the entire population, as represented in the data [<xref ref-type="bibr" rid="B21-brainsci-07-00091">21</xref>].</p>
+<p>In addition to the random effects terms described above, the model can also incorporate a third random effects component based on groupings or relationships among animals. Here we use this term to incorporate genetic effects into the model so that the heritability of phenotypes can be calculated as in the popular “animal model” in behavioral ecology [<xref ref-type="bibr" rid="B22-brainsci-07-00091">22</xref>].</p>
+<p>A major constraint in the model is that during a ten-minute focal sample, the focal animal is confined to only one behavioral state. This constraint is equivalent to assuming that the rate of switching between behavioral states is low enough that the probability of changing states during a consecutive ten-minute period is effectively zero. Though this constraint is not particularly realistic, attempting to infer state shifts within focal samples would dramatically increase the computational complexity of the model. Furthermore, because many individual behaviors are quite sparse—occurring on average at a rate of less than once per focal observation—state transitions within focal samples are likely to be very difficult to detect. We therefore justify this simplifying assumption for the computational efficiency and scalability it permits, though it can be relaxed in the future or with different data.</p>
+</sec>
+<sec id="sec2dot5-brainsci-07-00091">
+<title>2.5. Data Processing and Likelihood</title>
+<p>To construct the input to the model, we calculated the total amount of each behavior present in each observation, and converted those amounts into ordered levels. The exact procedure is described below:
+<list list-type="order"><list-item><p>Construct a data matrix with a row for each focal observation, and a column for each behavior in the ethogram.</p></list-item><list-item><p>For each focal observation:
+<list list-type="simple"><list-item><label>(a)</label><p>For each “event” behavior, count the number of times that behavior occurred during the observation.</p></list-item><list-item><label>(b)</label><p>For each “activity” behavior, calculate the total proportion of the focal observation spent engaged in that behavior.</p></list-item><list-item><label>(c)</label><p>Populate the associated row in the data matrix with these values.</p></list-item></list></p></list-item><list-item><p>For each behavior:
+<list list-type="simple"><list-item><label>(a)</label><p>Calculate quintiles, e.g., 20th percentile, 40th percentile, etc., of the values in that behavior’s associated column in the data matrix.</p></list-item><list-item><label>(b)</label><p>Also calculate the 1st and 99th percentile of the behavior to make high and low outliers.</p></list-item><list-item><label>(c)</label><p>Bin using the quantiles calculated above as cutpoints, e.g., values ≤ 1st percentile being 1, &gt; 1st and ≤ 20th percentiles being 2, etc.</p></list-item></list></p></list-item></list></p>
+<p>This procedure divides each behavior into up to seven levels, with 1 being the smallest amount of a behavior and 7 being the most. However, in practice many behaviors occurred so infrequently that the bottom 50% or more of the data were all zeros. The large number of zeros in most behaviors can be seen in <xref ref-type="app" rid="app1-brainsci-07-00091">Supplementary Figure S1</xref>. This meant that 19 of 30 behaviors were split into three levels representing 0, 1, and &gt;1 occurrences, and no behavior was divided into more than 6 levels.</p>
+<p>A behavioral state consists of a set of categorical distributions, one for each behavior. Each categorical distribution has as many parameters as the behavior has levels that determine the probability of each level of the behavior occurring under that state. This allows each behavioral state to be extremely flexible; a state need not specify a narrow range of values or a specific distributional shape for every behavior. A state may be associated with a very specific amount of one behavior, but also consistent with a wide range of amounts of a different behavior.</p>
+<p>The categorical distribution we used as the data likelihood can be easily changed to any distribution with a conjugate prior. For example, one might use the Poisson distribution for event behaviors and the zero-truncated normal distribution for activity behaviors. We chose the categorical distribution here because, as can be seen in <xref ref-type="app" rid="app1-brainsci-07-00091">Figure S1</xref>, many behaviors were zero-inflated with long right tails, which cannot be captured by Poisson and normal distributions.</p>
+</sec>
+<sec id="sec2dot6-brainsci-07-00091">
+<title>2.6. Mathematical Description of the Model</title>
+<p>The content of a focal observation is represented by <inline-formula><mml:math id="mm1"><mml:mrow><mml:msup><mml:mi>y</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>, a vector of length <italic>B</italic>, where <italic>B</italic> is the number of individual behaviors considered in the model. Element <inline-formula><mml:math id="mm2"><mml:mrow><mml:msubsup><mml:mi>y</mml:mi><mml:mi>b</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:math></inline-formula> is the amount of behavior <italic>b</italic> that occurred in that focal observation. Each focal observation in the data belongs to a single behavioral state. Formally, this means that each observation <italic>f</italic> of animal <italic>i</italic> is associated with a latent variable <inline-formula><mml:math id="mm3"><mml:mrow><mml:msub><mml:mi>z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> which can take on values 1 through <italic>K</italic>, where <italic>K</italic> is the number of behavioral states in the model. This value denotes which of the <italic>K</italic> behavioral states to which the focal observation belongs. Given a value for behavioral state <inline-formula><mml:math id="mm4"><mml:mrow><mml:msub><mml:mi>z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> we can write the data likelihood of the focal observation using the parameters defining the behavioral state:
+<disp-formula id="FD1-brainsci-07-00091"><label>(1)</label><mml:math id="mm5"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">p</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>y</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup><mml:mo>|</mml:mo><mml:msub><mml:mi>z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mo>∏</mml:mo><mml:mrow><mml:mi>b</mml:mi><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>B</mml:mi></mml:mrow></mml:munder><mml:msubsup><mml:mi>θ</mml:mi><mml:msubsup><mml:mi>y</mml:mi><mml:mi>b</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:mrow></mml:math></disp-formula></p>
+<p>Here <inline-formula><mml:math id="mm6"><mml:mrow><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula> is the set of all parameters associated with state <italic>k</italic>, <inline-formula><mml:math id="mm7"><mml:mrow><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula> is the vector of probabilities for different levels of behavior <italic>b</italic> in state <italic>k</italic>, and <inline-formula><mml:math id="mm8"><mml:mrow><mml:msubsup><mml:mi>θ</mml:mi><mml:mi>l</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:math></inline-formula> is the probability that behavior <italic>b</italic> occurs at level <italic>l</italic> in state <italic>k</italic>. Note that this data likelihood is simply a product of categorical likelihoods, one for each behavior. Because each focal observation is statistically independent conditional on the state assignments, we can write the complete likelihood for animal <italic>i</italic> as simply the product of the likelihoods of the focal observations:
+<disp-formula id="FD2-brainsci-07-00091"><label>(2)</label><mml:math id="mm9"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">p</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>y</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup><mml:mo>|</mml:mo><mml:msub><mml:mi>z</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>θ</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mo>∏</mml:mo><mml:mrow><mml:mi>f</mml:mi><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:msub><mml:mi>n</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:munder><mml:mi mathvariant="normal">p</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>y</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup><mml:mo>|</mml:mo><mml:msub><mml:mi>z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></disp-formula></p>
+<p>Here <inline-formula><mml:math id="mm10"><mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> is the number of focal observations for animal <italic>i</italic>.</p>
+<p>We now turn our attention from the likelihood to the phenotype, which is the prior probability of a focal observation <italic>f</italic> of animal <italic>i</italic> belonging to each of the <italic>k</italic> behavioral states. We can write this prior probability as,
+<disp-formula id="FD3-brainsci-07-00091"><label>(3)</label><mml:math id="mm11"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi mathvariant="normal">p</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>z</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>|</mml:mo><mml:msub><mml:mi>π</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mo>∏</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>K</mml:mi></mml:mrow></mml:munder><mml:msubsup><mml:mi>π</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:msubsup></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mo>∑</mml:mo><mml:mrow><mml:mi>f</mml:mi><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:msub><mml:mi>n</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:munder><mml:mn mathvariant="bold">1</mml:mn><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>Here <inline-formula><mml:math id="mm12"><mml:mrow><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> is the prior probability that animal <italic>i</italic> finds itself in state <italic>k</italic> and <inline-formula><mml:math id="mm13"><mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> is the total number of focal observations of animal <italic>i</italic> belonging to state <italic>k</italic>. The probabilities <inline-formula><mml:math id="mm14"><mml:mrow><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> are themselves determined by via multinomial logistic regression:
+<disp-formula id="FD4-brainsci-07-00091"><label>(4)</label><mml:math id="mm15"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo form="prefix">exp</mml:mo><mml:mo>(</mml:mo><mml:msub><mml:mi>η</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>K</mml:mi></mml:mrow></mml:msub><mml:mo form="prefix">exp</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>η</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mfrac></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msub><mml:mi>η</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>α</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msubsup><mml:mi>X</mml:mi><mml:mi>i</mml:mi><mml:mi>T</mml:mi></mml:msubsup><mml:msub><mml:mi>β</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>u</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>ϵ</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>Here <inline-formula><mml:math id="mm16"><mml:mrow><mml:msub><mml:mi>η</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> is a vector of unbounded propensities for animal <italic>i</italic> to fall into each behavioral state, which are transformed by the softmax function into the probability distribution over states, <inline-formula><mml:math id="mm17"><mml:mrow><mml:msub><mml:mi>π</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula>. <inline-formula><mml:math id="mm18"><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> is a vector of animal-specific covariates, with the state-specific fixed effect regression coefficient vectors <inline-formula><mml:math id="mm19"><mml:mrow><mml:msub><mml:mi>β</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula>. The quantities <inline-formula><mml:math id="mm20"><mml:mrow><mml:mi>α</mml:mi></mml:mrow></mml:math></inline-formula>, <italic>u</italic>, and <inline-formula><mml:math id="mm21"><mml:mrow><mml:mi>ϵ</mml:mi></mml:mrow></mml:math></inline-formula> are random effects terms representing baseline state propensities, genetic effects, and individual animal effects, respectively. These random effects are given normal distributions with the variances as free parameters to be estimated:
+<disp-formula id="FD5-brainsci-07-00091"><label>(5)</label><mml:math id="mm22"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msub><mml:mi>ϵ</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msub><mml:mi>α</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mi>τ</mml:mi><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msub><mml:mi>u</mml:mi><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup><mml:mi>A</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>The parameters <inline-formula><mml:math id="mm23"><mml:mrow><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math></inline-formula> determine how much variability exists across animals in the propensity for state <italic>k</italic> (outside of variability accounted for by the covariates <inline-formula><mml:math id="mm24"><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula>). The parameter <inline-formula><mml:math id="mm25"><mml:mrow><mml:mi>τ</mml:mi></mml:mrow></mml:math></inline-formula> controls the extent to which the states themselves vary in their average propensities across animals. That is to say, in a model where the <inline-formula><mml:math id="mm26"><mml:mrow><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math></inline-formula> are large and <inline-formula><mml:math id="mm27"><mml:mrow><mml:mi>τ</mml:mi></mml:mrow></mml:math></inline-formula> is small, no state will consistently have high or low probability across the population, whereas when <inline-formula><mml:math id="mm28"><mml:mrow><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math></inline-formula> are small and <inline-formula><mml:math id="mm29"><mml:mrow><mml:mi>τ</mml:mi></mml:mrow></mml:math></inline-formula> is large, states will have similar probabilities across animals but some states will be consistently high probability and others low. Finally, the covariance matrix <italic>A</italic> is the relatedness matrix of the animals in the study population. The parameters <inline-formula><mml:math id="mm30"><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> determine how much variation in each state’s propensities is accounted for by genetic effects. Further, note that the variance component parameters <inline-formula><mml:math id="mm31"><mml:mrow><mml:mi>τ</mml:mi></mml:mrow></mml:math></inline-formula> and <inline-formula><mml:math id="mm32"><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> are being scaled by the “global” variances <inline-formula><mml:math id="mm33"><mml:mrow><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math></inline-formula>. This causes the linear regression in Equation (<xref ref-type="disp-formula" rid="FD4-brainsci-07-00091">4</xref>) to be fully conjugated, such that the sampler can be “partially collapse” during inference by integrating out the components of the linear regression [<xref ref-type="bibr" rid="B23-brainsci-07-00091">23</xref>]. See [<xref ref-type="bibr" rid="B24-brainsci-07-00091">24</xref>] for an explanation of partially collapsed samples in mixed effects regression.</p>
+<p>As we are using a fully Bayesian approach, we must specify priors for the free parameters. We use standard conjugate uninformative or weakly informative priors in all cases:
+<disp-formula id="FD6-brainsci-07-00091"><label>(6)</label><mml:math id="mm34"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi>Dirichlet</mml:mi><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>β</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mo>(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>1</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>k</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi>InvGamma</mml:mi><mml:mo>(</mml:mo><mml:mn>0.005</mml:mn><mml:mo>,</mml:mo><mml:mn>0.0005</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mi>τ</mml:mi></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi>InvGamma</mml:mi><mml:mo>(</mml:mo><mml:mn>0.005</mml:mn><mml:mo>,</mml:mo><mml:mn>0.0005</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi>InvGamma</mml:mi><mml:mo>(</mml:mo><mml:mn>0.165</mml:mn><mml:mo>,</mml:mo><mml:mn>0.0165</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>See [<xref ref-type="bibr" rid="B25-brainsci-07-00091">25</xref>] for a discussion on weakly informative priors, though we do not use their exact priors. Note that the seemingly weakly informative prior on the <inline-formula><mml:math id="mm35"><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> parameters was chosen in order to achieve an uninformative (high variance) prior on heritability, which in this model is approximately <inline-formula><mml:math id="mm36"><mml:mrow><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>/</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula>. An uninformative prior such as <inline-formula><mml:math id="mm37"><mml:mrow><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>∼</mml:mo><mml:mi>InvGamma</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mn>0.005</mml:mn><mml:mo>,</mml:mo><mml:mn>0.0005</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> would actually place high prior probability mass on values of <inline-formula><mml:math id="mm38"><mml:mrow><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>/</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> near 1. The chosen prior is roughly symmetric on <inline-formula><mml:math id="mm39"><mml:mrow><mml:mrow><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>/</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:msub><mml:mi>γ</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> and places much of the probability mass near both 0 and 1.</p>
+</sec>
+<sec id="sec2dot7-brainsci-07-00091">
+<title>2.7. Model Fitting</title>
+<p>We fit the model using a custom Gibbs sampler implemented in the Julia technical computing language v0.5.0 [<xref ref-type="bibr" rid="B26-brainsci-07-00091">26</xref>]. As standard logistic regression representation is non-conjugate and therefore cannot be sampled from using Gibbs, we use the fully conjugate latent variable formulation of logistic regression described in [<xref ref-type="bibr" rid="B27-brainsci-07-00091">27</xref>] and previously applied to topic models in [<xref ref-type="bibr" rid="B9-brainsci-07-00091">9</xref>]. In the results reported below we ran two chains of 100,000 samples each, which were thinned to 1000 samples, with the first 100 of those discarded as burn-in.</p>
+<p>Our model involves unsupervised classification with several hundred parameters, which means the posterior is likely to be highly multimodal. Gibbs sampling with naively chosen random starting points can often get stuck around suboptimal and idiosyncratic local maxima, which leads to both poor inference and results that are unpredictable and unreproducible between runs. Tests with random starting points indicated that even in simple synthetic data sets, where observations fall into distant, non-overlapping clusters, Gibbs sampling alone very frequently yielded incorrect clustering whenever more than three or four behavioral states were used. In many applications of topic modeling, reproducibility and interpretability of model outputs are of secondary concern to pure predictive performance, but for scientific inference they are paramount.</p>
+<p>In order to improve the quality and reliability of inference we first fit a simpler version of the model which we then used to generate starting points for the full model. Specifically, we fit a “flattened” version of the full model which is equivalent to assuming that all observations came from the same animal, thus discarding all information about differences between animals and population level covariates. This model is in effect a naive Bayes classifier, where each possible classification is analogous to a behavioral state. This flat model was fit by maximum likelihood (ML) using the Stan software package v2.14.0 [<xref ref-type="bibr" rid="B28-brainsci-07-00091">28</xref>]. The initial points for this optimization step were generated by first taking the ML solution for a model with a single behavioral state, then adding independent Gaussian noise to each parameter to generate starting points for each behavioral state. Multiple fits with independent initializations were generated and the fit with the highest posterior density was used to initialize the Gibbs sampler. Specifically, for each focal observation, an assignment to a behavioral state was randomly drawn from the posterior distribution of behavioral state memberships under the ML fit, and this mapping from observations to behavioral state was used as the starting point for the Gibbs sampler. We found that in practice this procedure very reliably recovered the true parameters when applied to simulated data and provided consistent results using real data.</p>
+<p>In order to choose an appropriate number of behavioral states, <italic>K</italic>, we calculated the widely-applicable information criterion (WAIC) [<xref ref-type="bibr" rid="B29-brainsci-07-00091">29</xref>] for models (without a genetic component) with 5, 10, 15, and 20 states, and used the number of states associated with the lowest WAIC. See <xref ref-type="app" rid="app1-brainsci-07-00091">Supplementary Figure S2</xref> for the WAIC results.</p>
+</sec>
+<sec id="sec2dot8-brainsci-07-00091">
+<title>2.8. Repeatability Analysis</title>
+<p>Seventy-seven animals from social group F were observed for two consecutive years (2012 and 2013), and we used these animals to assess the stability of the phenotypes discovered by our model. To accomplish this objective, we ran a separate model in which all animals from the previous analysis were included, but animals with dual observation years were permitted to have independent phenotypes for each year. We then examined the correlation between the posterior means of the phenotypes in 2012 and 2013. No heritability component was included in this model. Note that this version of the model was not used for any analysis other than heritability, as the artificial inflation of the number of animals might lead to unwarranted confidence in population-level inferences.</p>
+</sec>
+<sec id="sec2dot9-brainsci-07-00091">
+<title>2.9. Simulations</title>
+<p>To verify that the behavioral state model could correctly recover both state contents and individual phenotypes, we tested the model on synthetic data in series of five simulations using 5, 10, 20, 40, and 80 states. For each simulation, we simulate 200 individuals with 100 focal observations each, using an ethogram consisting of 30 behaviors. Each behavior was represented as a categorical distribution with 3 levels. States were generated by sampling from the following prior:
+<disp-formula id="FD7-brainsci-07-00091"><label>(7)</label><mml:math id="mm40"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:msubsup><mml:mi>λ</mml:mi><mml:mi>l</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mo>(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>1.0</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:msubsup><mml:mi>θ</mml:mi><mml:mi>l</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo form="prefix">exp</mml:mo><mml:mo>(</mml:mo><mml:msubsup><mml:mi>λ</mml:mi><mml:mi>l</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:msup><mml:mi>l</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mn>3</mml:mn></mml:mrow></mml:msub><mml:mo form="prefix">exp</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:msubsup><mml:mi>λ</mml:mi><mml:msup><mml:mi>l</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mfrac></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>Similarly, individual phenotypes were generated by sampling from the following distribution:
+<disp-formula id="FD8-brainsci-07-00091"><label>(8)</label><mml:math id="mm41"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>η</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>α</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mn>0.0625</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>α</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>∼</mml:mo><mml:mi mathvariant="normal">N</mml:mi><mml:mo>(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>0.25</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>These values are converted into individual probability distributions over states. Each individual’s probabilities are then used to sample a state membership for each of that individual’s 100 focal observations.</p>
+<p>Because states have no intrinsic ordering, some method is required for associating states in the simulated data with a matching state in the model output before it is possible to determine whether a state or phenotype has been accurately estimated. To accomplish this, we used a greedy matching algorithm with the folowing steps:<list list-type="order"><list-item><p>Pick an output state <inline-formula><mml:math id="mm42"><mml:mrow><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup></mml:mrow></mml:math></inline-formula> and calculate the posterior mean for each of its parameters, <inline-formula><mml:math id="mm43"><mml:mrow><mml:msup><mml:mover accent="true"><mml:mi>θ</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mo>(</mml:mo><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>.</p></list-item><list-item><p>For each simulated state <italic>k</italic> that is not already matched with an output state, calculate the correlation between <inline-formula><mml:math id="mm44"><mml:mrow><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula> and <inline-formula><mml:math id="mm45"><mml:mrow><mml:msup><mml:mover accent="true"><mml:mi>θ</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mo>(</mml:mo><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>.</p></list-item><list-item><p>Pick the simulated state with the highest correlation as the match for the output state <inline-formula><mml:math id="mm46"><mml:mrow><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup></mml:mrow></mml:math></inline-formula>.</p></list-item><list-item><p>Repeat for each <inline-formula><mml:math id="mm47"><mml:mrow><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup></mml:mrow></mml:math></inline-formula>.</p></list-item></list></p>
+<p>After the matching procedure, we assessed how well the model recovered individual phenotypes by calculating for each individual the correlation between that individual’s simulated probability of being in each state and the probabilities of being in the matching states of under the fitted model. We also assessed our ability to recover the true number of behavioral states in the 5-state simulation by comparing WAIC scores of the model with 5 states to models with 3, 4, 6, and 7 states fitted to the same data.</p>
+<p>The model was fit to the simulated data using the same fitting procedure as used with the Cayo data. However, no regression coefficients or heritabilities were calculated.</p>
+</sec>
+<sec id="sec2dot10-brainsci-07-00091">
+<title>2.10. Comparisons with Factor Analysis</title>
+<p>We fit factor analysis models to the Cayo Santiago data set to compare with the behavioral state model presented here. As factor analysis and related models have no explicit hierarchical structure, they cannot separate observation-level relationships among behaviors from organism-level relationships; they can either examine how behaviors co-occur within observations, or how average rates of behaviors can co-occur between macaques, but not both simultaneously. Therefore we fit two models. The factor model 1 used the focal observations themselves as independent data points. For factor model 2, we calculated average rates of each behavior for each macaque and used macaques as independent data points. To set the number of factors used, we used 5-fold cross-validation to choose amongst 5, 10, 15, and 20 factors. For both versions 1 and 2 of the model, models with 10 factors or more performed similarly, so we used 10 factors for ease of comparison with the state model. We defined the phenotypes infered by the factor models as the factor scores of the individual animals. In the case of factor model 1, scores are associated with individual focal observations rather than individual animals, so the phenotypes were the average of the scores across each macaque’s focal observations.</p>
+<p>To estimate heritability of phenotypes under both models, we fit an animal model to the inferred phenotypes. These models used the same covariates as the state model.</p>
+<p>To calculate conditional means for rates of behaviors under factor model 1, we sampled focal observations from a multivariate normal distribution with the means and covariance matrix fit by the factor model. Since the true data is discrete rather than continuous, for each of the sampled observations we rounded the behavior amounts to the nearest whole number occurring in the true data.</p>
+<p>All factor analyses were carried out using the (factanal) function in R 3.4.0 using “regression” scores. [<xref ref-type="bibr" rid="B30-brainsci-07-00091">30</xref>]. Animal models were written and fit using the Stan software package [<xref ref-type="bibr" rid="B28-brainsci-07-00091">28</xref>].</p>
+</sec>
+<sec id="sec2dot11-brainsci-07-00091">
+<title>2.11. Assessing Genetic and Covariate Influences on Social Phenotypes</title>
+<p>In multinomial logistic regression, regression coefficients associated with a state are only interpretable relative to a baseline state [<xref ref-type="bibr" rid="B31-brainsci-07-00091">31</xref>]. This is due to the fact that a probability distribution over <italic>K</italic> states has only <inline-formula><mml:math id="mm48"><mml:mrow><mml:mrow><mml:mi>K</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mrow></mml:math></inline-formula> free variables, as the probability of a single state is determined completely by that of the remaining states. If a baseline state is not specified, parameters will be unidentifiable with respect to the data and will be constrained only by the prior. Regression coefficients and genetic effects, with the coefficients and genetic effects of the baseline state subtracted, therefore reflect an influence on the relative probabilities of a each state occurring versus the baseline state.</p>
+<p>A related issue is that the state probabilities, here the phenotypes of interest, are a nonlinear function of the underlying model parameters and covariates. The impact on the phenotypes of any given component of the model depends on the value of every other covariate and parameter in the model. Due to this nonlinearity, and because values depend on the baseline selected, parameter estimates themselves can be very difficult to interpret. However, an advantage of our Bayesian approach is that we can easily derive estimates and central credible intervals (CIs) for the influence of specific components of the model on the phenotypes of interest. We accomplished this by generating predicted phenotypes from posterior samples under different assumptions to assess the contributions of different components of the model. To assess the impact of a specific covariate on phenotypes, we generated predicted state probabilities at varying levels of that covariate while holding every other covariate fixed at its population average value (or, in the case of discrete covariates, the modal level). This process was repeated for every posterior sample of the model parameters, yielding a full posterior distribution of predicted phenotypes.</p>
+<p>To assess which, if any, behavioral states were strongly influenced by genetic effects, we calculated a pseudo-<inline-formula><mml:math id="mm49"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> metric to describe the amount of variance in state probabilities that was explained by genetic effects and covariates combined relative to the variance captured by covariates alone. Formally, for state <italic>k</italic> the total variance in state probabilities is <inline-formula><mml:math id="mm50"><mml:mrow><mml:mrow><mml:mi>var</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:math></inline-formula>, where <inline-formula><mml:math id="mm51"><mml:mrow><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> is the vector of state probabilities as defined above (Equation (<xref ref-type="disp-formula" rid="FD4-brainsci-07-00091">4</xref>)). We can also define partial variances based on state probabilities estimated when certain components of the model are omitted:
+<disp-formula id="FD9-brainsci-07-00091"><label>(9)</label><mml:math id="mm52"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msubsup><mml:mover accent="true"><mml:mi>π</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>B</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo form="prefix">exp</mml:mo><mml:mo>(</mml:mo><mml:msubsup><mml:mover accent="true"><mml:mi>η</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>B</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>K</mml:mi></mml:mrow></mml:msub><mml:mo form="prefix">exp</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:msubsup><mml:mover accent="true"><mml:mi>η</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>B</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mfrac></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msubsup><mml:mover accent="true"><mml:mi>η</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>B</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:msub><mml:mi>α</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msubsup><mml:mi>X</mml:mi><mml:mi>i</mml:mi><mml:mi>T</mml:mi></mml:msubsup><mml:msub><mml:mi>β</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula>
+<disp-formula id="FD10-brainsci-07-00091"><label>(10)</label><mml:math id="mm53"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msubsup><mml:mover accent="true"><mml:mi>π</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>u</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo form="prefix">exp</mml:mo><mml:mo>(</mml:mo><mml:msubsup><mml:mover accent="true"><mml:mi>η</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>u</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup><mml:mo>∈</mml:mo><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>K</mml:mi></mml:mrow></mml:msub><mml:mo form="prefix">exp</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:msubsup><mml:mover accent="true"><mml:mi>η</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:msup><mml:mi>k</mml:mi><mml:mo>′</mml:mo></mml:msup></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>u</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mfrac></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="left"><mml:mrow><mml:msubsup><mml:mover accent="true"><mml:mi>η</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>u</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:msub><mml:mi>α</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msubsup><mml:mi>X</mml:mi><mml:mi>i</mml:mi><mml:mi>T</mml:mi></mml:msubsup><mml:msub><mml:mi>β</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>u</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math></disp-formula></p>
+<p>We then define pseudo-<inline-formula><mml:math id="mm54"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> for behavioral state <italic>k</italic> as,
+<disp-formula id="FD11-brainsci-07-00091"><label>(11)</label><mml:math id="mm55"><mml:mrow><mml:mrow><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:mfrac><mml:mrow><mml:mi>var</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:msubsup><mml:mover accent="true"><mml:mi>π</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>u</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:mi>var</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>π</mml:mi><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:msubsup><mml:mover accent="true"><mml:mi>π</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mi>B</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math></disp-formula></p>
+<p>This is the proportion of variance explained by adding genetic effects back into a model, out of the residual variance left over by a model with covariates alone. This is both closely related to a partial <inline-formula><mml:math id="mm56"><mml:mrow><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula>, and to the traditional <inline-formula><mml:math id="mm57"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> measure used in animal models, where the latter is commonly defined as the proportion of variance explained by genetic effects out of the residual variance after the effects of covariates are removed [<xref ref-type="bibr" rid="B32-brainsci-07-00091">32</xref>]. As with covariates, we calculated pseudo-<inline-formula><mml:math id="mm58"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> for every posterior sample. Finally, we note that unlike standard <inline-formula><mml:math id="mm59"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> and <inline-formula><mml:math id="mm60"><mml:mrow><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula>, pseudo-<inline-formula><mml:math id="mm61"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> can be negative, indicating that including genetic components reduces predictive accuracy.</p>
+</sec>
+</sec>
+<sec id="sec3-brainsci-07-00091">
+<title>3. Results</title>
+<sec id="sec3dot1-brainsci-07-00091">
+<title>3.1. Simulation Tests</title>
+<p>We first verified that our model could accurately recover both the contents of behavioral states and phenotypes of individual animals by fitting the model to simulated data sets and comparing the model outputs to the ground truth. <xref ref-type="fig" rid="brainsci-07-00091-f001">Figure 1</xref> shows that for data sets of similar size as the Cayo Santiago data, the model accurately recovered all behavioral states so long as the number of states did not exceed 20. In each simulated data set with up to 20 states, every simulated state had a unique state in the fit model for which their state parameters <inline-formula><mml:math id="mm62"><mml:mrow><mml:msup><mml:mi>θ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula> had a correlation coefficient above <inline-formula><mml:math id="mm63"><mml:mrow><mml:mrow><mml:mn>0.95</mml:mn></mml:mrow></mml:mrow></mml:math></inline-formula>. When the number of states exceeded 20, the majority of simulated states had a close match in the model’s estimated states, but several simulated states had no match with correlations above <inline-formula><mml:math id="mm64"><mml:mrow><mml:mrow><mml:mn>0.5</mml:mn></mml:mrow></mml:mrow></mml:math></inline-formula>. This suggests that the model was unable to find some behavioral states.</p>
+<p>Similarly, the ability of the model to reliably recover phenotypes declined as the number of states increased. With 5 and 10 states, the correlation between fitted and simulated phenotypes was above <inline-formula><mml:math id="mm65"><mml:mrow><mml:mrow><mml:mn>0.75</mml:mn></mml:mrow></mml:mrow></mml:math></inline-formula> for most individuals and above <inline-formula><mml:math id="mm66"><mml:mrow><mml:mrow><mml:mn>0.5</mml:mn></mml:mrow></mml:mrow></mml:math></inline-formula> for nearly all of them, while in the data sets with 40 and 80 states most individuals had correlations below <inline-formula><mml:math id="mm67"><mml:mrow><mml:mrow><mml:mn>0.5</mml:mn></mml:mrow></mml:mrow></mml:math></inline-formula>. This is not surprising, as larger numbers of states means more parameters must be estimated for each individual using the same number of observations.</p>
+<p>We also found that for the data set with five states were were able to identify the model with five behavioral states as the optimal model using WAIC goodness-of-fit metric. See <xref ref-type="app" rid="app1-brainsci-07-00091">Supplementary Figure S3</xref> for the WAIC results.</p>
+</sec>
+<sec id="sec3dot2-brainsci-07-00091">
+<title>3.2. Phenotype Distributions and Behavioral State Content</title>
+<p>We fit the model allowing ten behavioral states (referred to hereon as S1–S10). <xref ref-type="fig" rid="brainsci-07-00091-f002">Figure 2</xref> shows the distribution of phenotypes across the population, in the form of the rate at which each animal exhibited each behavioral state. We ordered the states in terms of how frequently each state occurred in the population, with S1 having the highest average rate of occurrence and S10 having the lowest. S1–S3 showed both high overall rates, with animals spending on average 55% of their focal observations in these states, as well as high variability in their rates across animals, with substantial numbers of animals spending more than 30% of their focal observations in a single one of these three states. S4–S9, on the other hand, all had median rates falling in a narrow range between 7% and 5.6%, with only one animal displaying a rate greater than 20% in any one of those states. Finally, S10 has a median rate of only 1.4%.</p>
+<p>Next we examined the contents of these behavioral states. <xref ref-type="fig" rid="brainsci-07-00091-f003">Figure 3</xref> visualizes the typical behaviors of each state in terms of their relative frequency, with very rare behaviors omitted for legibility. Such “at a glance” summaries distinguish particular features of each behavioral state. Immediately apparent is the distinction between the more frequent S1–S3 and the infrequent S4–S9. S1–S3 paint a rather prosaic portrait of macaque life, consisting largely of self-directed behaviors, such as scratching oneself, eating, and walking. Indeed, S2 entailed doing little other than resting. The social interactions that did occur in these three states were primarily agonistic. In particular, both overt non-contact aggression and less overt agonistic actions, such as fear grimaces and avoidances, were quite common in S1. The middle infrequent S4–S9 on the other hand, displayed mixtures in varying proportions of agonistic and affiliative actions. Incidental affiliative behaviors such as approaching other animals occurred commonly throughout all of these infrequent states, while grooming, a more significant sign of affiliation, appeared concentrated in S4, S5, and S8.</p>
+</sec>
+<sec id="sec3dot3-brainsci-07-00091">
+<title>3.3. Repeatability</title>
+<p>As our goal is to identify phenotypes with underlying biological bases, it is important to show that phenotypes produced from the model are consistent within animals and relatively stable across time. To that end we compared estimated phenotypes from animals in group F from years 2012 and 2013. Phenotypes in 2012 were strongly correlated with phenotypes in 2013 for all behavioral states, with the lowest correlation coefficient being 0.64 for S1, and the largest being 0.88 for S8 (<italic>p</italic> &lt; 0.001 for both).</p>
+</sec>
+<sec id="sec3dot4-brainsci-07-00091">
+<title>3.4. Group, Rank, and Sex Effects on Social Phenotypes</title>
+<p>While describing the content of behavioral states is useful, scientists are often more interested in identifying sources of behavioral variability. In rhesus macaques and other NHPs, it is important to understand how much variability in social phenotypes across animals can be predicted on the basis of demographic covariates, and how much is idiosyncratic to each individual. In the present model we included age, sex, dominance rank, social group, and age-by-sex and rank-by-sex as population-level predictors of phenotypes. Dominance rank was represented on an ordered categorical scale: low-ranking animals outranked less than 50% of their social group, medium-ranking animals outranked between 50% and 80%; and high-ranking animals outranked greater than 80%. Ranks were available annually, so for animals with multiple years of observations that changed ranks, their average rank was used. <xref ref-type="fig" rid="brainsci-07-00091-f004">Figure 4</xref> displays the regression coefficients for each covariate’s influence on the probability of being in each behavioral state. Here we choose S2 as baseline as it provides a neutral default state with little in the way of positive or negative social interactions.</p>
+<p>The posterior distributions of the regression coefficients indicate that social group membership and sex had large influences on social phenotypes. Animals in groups R and HH had, for instance, lower relative rates of being in S1 versus S2 than animals in the largest social group, F, with regression coefficients of −0.52 ([−0.78, −0.27] 95% CI) and −0.88 ([−1.20,−0.58] 95% CI), respectively. As S1 had much higher rates of agonistic behavior than the unsocial S2 and typically involved very little affiliative behavior, this suggests that animals in group F were more likely to become involved in agonistic interactions. Sex and linear dominance rank were the most common predictors of relative behavioral state occurrence rates, with four and five of the nine non-baseline states respectively showing significant effects. These states overlap, with S1, S3, and S6 being more frequent in male macaques and in lower ranking monkeys, which we note were states with higher rates of agonistic behaviors and relatively lower rates of affiliative behaviors.</p>
+<p>Though examining the posterior of regression coefficients predicting relative odds of states can be useful, it is often more intuitive to directly examine the influence of covariates on the absolute rates at which an animal experiences behavioral states. We used this method to examine how sex, group membership, and dominance rank influenced phenotype. <xref ref-type="fig" rid="brainsci-07-00091-f005">Figure 5</xref> displays the influence of social group membership on the social phenotype of male and female animals of median age and rank. This representation of the model demonstrates that males experienced S1 and S3 more frequently than females, at the expense of slightly lower rates of all of the less frequent, more social S4–S10. S1 entailed giving and receiving aggression while moving and feeding, while S3 consisted of self-directed grooming and scratching with some amount of agonistic actions that may have served to defuse aggression. Both featured low rates of affiliative social behavior. In contrast, the states males experienced less often contained higher relative rates of affiliative behaviors and peaceful sharing of space with conspecifics. This implies that males spent more of their time avoiding confrontations and competing for resources and less time experiencing social support.</p>
+<p>It is worth noting that males experienced S6 at lower rates than females did, despite the fact that the S6 regression coefficient for ‘male’ has a positive posterior mean and little posterior mass below zero (0.13 posterior mean, [−0.03,0.45] 95% CI). This illustrates the value of examining absolute state probabilities rather than regression coefficients themselves. In other words, because males spent so many focal observations in S1 and S3, the positive coefficient for males in S6 reduced the extent to which S1 and S3 crowded out S6 for males, but did not reverse the gap between sexes.</p>
+<p>Finally, we note that S10, the least frequent of states overall, showed a dramatic difference between groups. Monkeys in group R experienced this state far more often than members of either F or HH. As before, this effect was not apparent from the raw regression coefficients, as the coefficients for HH and R membership were similar in absolute value, with posterior means of −0.91 ([−1.80,−0.14] 95% CI) and 1.45 ([0.96, 1.95] 95% CI) respectively. S10 was characterized by very high rates of feeding while maintaining close proximity to large numbers of other animals. Focal animals in S10 also engaged in high rates of agonistic behaviors such as threats and non-contact aggression, suggesting this state captured episodes of food competition within or between groups.</p>
+<p><xref ref-type="fig" rid="brainsci-07-00091-f006">Figure 6</xref> shows the influence of dominance rank on the phenotype of an animal of median age in group F. Here we observed an overall pattern across behavioral states that was similar to the effect of gender, in that S1 and S3 were overall more frequent among low ranking animals than high, while S4–S10 were more frequent in high ranking animals. We also observed strong rank-by-sex interactions in S3 and S9, whereby higher rank had little effect on the rate of being in S3 for females but greatly decreased that rate for males, while the opposite was true for S9.</p>
+</sec>
+<sec id="sec3dot5-brainsci-07-00091">
+<title>3.5. Genetic Components of Social Phenotypes</title>
+<p>Finally, we sought to clarify which aspects of social phenotypes were strongly influenced by genetic factors. To quantify how much variability in the probability of being in each behavioral state could be accounted for by genetic factors, beyond the variability explained by demographic covariates alone, we calculated pseudo-<inline-formula><mml:math id="mm68"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> as described above for each behavioral state and displayed the posterior distributions in <xref ref-type="fig" rid="brainsci-07-00091-f007">Figure 7</xref>. For most states, we found very wide 95% credible intervals for the variability explained with the lower bounds of eight of the ten states falling below 10%. For these states, we could not effectively rule out negligibly small contributions of genetics in determining behavioral state probabilities. However, S5 and S6 showed reliably high pseudo-<inline-formula><mml:math id="mm69"><mml:mrow><mml:msup><mml:mi>h</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math></inline-formula> of 0.69 ([0.43, 0.80] 95% CI) and 0.6 ([0.24, 0.76] 95% CI), respectively.</p>
+<p>S5 was associated with high levels of affiliative behavior, involving high rates of friendly vocalizations, grooming, and passive physical contact, as well as being in close proximity to a high number of conspecifics for long periods of time (Proximity Group Size and Social Proximity, respectively, see <xref ref-type="app" rid="app2-brainsci-07-00091">Appendix</xref> for definitions). S5 also showed low rates of most agonistic interactions. Conversely, S6 was characterized by a more diverse selection of behaviors, entailing high rates of less confrontational forms of agonistic behavior (e.g., giving and receiving fear grimaces and displacements) and more actively confrontational behavior (e.g., giving threats and noncontact aggression, as well as submissive gestures). Nonetheless, animals in S6 were not deterred from affiliative approaches.</p>
+</sec>
+<sec id="sec3dot6-brainsci-07-00091">
+<title>3.6. Comparison with Factor Analyis</title>
+<p>One advantage of the state model over factor analysis and related methods is that it can capture a wider range of relationships among behaviors. <xref ref-type="fig" rid="brainsci-07-00091-f008">Figure 8</xref>a gives an example of this using the behaviors Travel, Feed, and Noncontact Aggression (received). The relationship between traveling and feeding is nonlinear, with the rate of traveling increasing with the rate of feeding for low levels of feeding, but sharply decreasing at very high rates of feeding. Moreover, this relationship is moderated by noncontact aggression received. During focal observations when the animal is not feeding, animals travel much more when receiving aggression, but when feeding occurs received aggression has little impact on time spent traveling. The state model captures both the nonlinear relationship between travel and feeding as well as the interaction with noncontact aggression received, though it does notably underestimate how quickly time spent traveling decreases at high levels of feeding. Factor model 1, however, can only represent linear relationships [<xref ref-type="bibr" rid="B33-brainsci-07-00091">33</xref>] and so captures only the positive correlation between traveling and feeding at low levels of feeding. We did not assess factor model 2 in this way; because factor model 2 is a model of average behavior rates by individuals rather than a model of focal observations themselves, we saw no clear method for generating predictions for these observation-level relationships.</p>
+<p>Finally, we also compared the state model to the factor models in the repeatability and heritability of the phenotypes generated by the model. As shown in <xref ref-type="fig" rid="brainsci-07-00091-f008">Figure 8</xref>b, the phenotypes under the state model showed higher repeatability than those of either factor model. As shown in <xref ref-type="fig" rid="brainsci-07-00091-f008">Figure 8</xref>c, the factor model yielded no phenotypes with heritability estimated at above 0.5, while the state model and factor model 1 phenotypes showed broadly similar distributions of heritabilities. However, given the high uncertainties associated with heritability estimates under all models, any conclusions about differences among models must be tentative at best.</p>
+<p>The loadings associated with factor models 1 and 2 are shown in <xref ref-type="app" rid="app1-brainsci-07-00091">Supplementary Tables S1 and S2</xref>, respectively.</p>
+</sec>
+</sec>
+<sec id="sec4-brainsci-07-00091">
+<title>4. Discussion</title>
+<p>The influence of typical biological and environmental factors on social behavior is likely to be many-to-many, with any given factor impacting many different behaviors together rather than any specific behavior in isolation [<xref ref-type="bibr" rid="B34-brainsci-07-00091">34</xref>,<xref ref-type="bibr" rid="B35-brainsci-07-00091">35</xref>,<xref ref-type="bibr" rid="B36-brainsci-07-00091">36</xref>,<xref ref-type="bibr" rid="B37-brainsci-07-00091">37</xref>]. Dealing with high-dimensional, structured behavioral data will therefore be important for understanding the biological bases of behavior. The field of primatology has decades of experience collecting detailed, high-dimensional data on social behavior in species with complex, human-like social behaviors, and this data may prove invaluable for linking fundamental biology to complex social behavior. However, extracting useful structure from natural, high-dimensional and relatively noisy behavioral data sets remains a major challenge. In this paper we presented a model for identifying patterns of social behavior and relating them to environmental and genetic factors, as inspired by machine learning methods for uncovering underlying topics in corpora of documents.</p>
+<p>The behavioral states our model discovered and their relationships with demographic covariates were consistent with our knowledge of rhesus macaque behavior generally. Macaques on average spent about 50% of their time in S1–S3, which involved little social interaction beyond receiving non-contact aggression and other agonistic encounters in S1. This pattern may reflect conflict over food or space given that state’s high levels of feeding and traveling. The other 50% of the observed time was evenly distributed across the remaining states, S4–S10, which consisted of idiosyncratic combinations of agonistic and affiliative behaviors, reflecting the long-known importance of sociality in rhesus macaque life [<xref ref-type="bibr" rid="B15-brainsci-07-00091">15</xref>,<xref ref-type="bibr" rid="B19-brainsci-07-00091">19</xref>]. Among both males and females, higher dominance rank was associated with a shift away from the frequent S1 and S3, which involved mostly self-directed behavior amidst some agonistic interactions, and towards S4–S10 which had higher rates of many different social interactions overall as well as high rates of affiliative interactions. This is consistent with the many previous findings that high ranking macaques, and other primates as well, receive higher rates of affiliative behaviors from others in their social group, while low ranking individuals are more likely to experience social isolation [<xref ref-type="bibr" rid="B13-brainsci-07-00091">13</xref>,<xref ref-type="bibr" rid="B15-brainsci-07-00091">15</xref>,<xref ref-type="bibr" rid="B16-brainsci-07-00091">16</xref>,<xref ref-type="bibr" rid="B38-brainsci-07-00091">38</xref>,<xref ref-type="bibr" rid="B39-brainsci-07-00091">39</xref>,<xref ref-type="bibr" rid="B40-brainsci-07-00091">40</xref>]. The effect of sex on predicted phenotypes was similar to the effect of dominance rank, with males, like low-ranking animals, having higher probabilities of assignment to S1 and S3 at the expense of time spent in S4–S9 (but not S10, notably). This may reflect the inheritance of female rank in rhesus societies, with females remaining in their natal groups and acquiring a rank just below their mother. By contrast, males disperse into new social groups at adulthood and must earn their ranks there. This results in dominance hierarchies generally being more stable, and therefore social relationships more peaceful, among females than males [<xref ref-type="bibr" rid="B41-brainsci-07-00091">41</xref>,<xref ref-type="bibr" rid="B42-brainsci-07-00091">42</xref>].</p>
+<p>Our model improves upon the commonly used factor analysis and PCA methods in that it captures information regarding the way individual behaviors co-occur. First, factor analysis and related methods implicitly assumes that data is normally distributed [<xref ref-type="bibr" rid="B33-brainsci-07-00091">33</xref>]. This assumption is strongly violated by observations of natural behaviors, which are typically represented as counts. Furthermore, many behaviors of interest are relatively infrequent (see <xref ref-type="sec" rid="sec2dot6-brainsci-07-00091">Section 2.6</xref> on data processing and likelihood), leading to highly skewed, zero-inflated distributions for individual behaviors. Our model uses instead a flexible discrete distribution to avoid mismatches between the assumed data distribution and the data itself (though any distribution with conjugate priors can be substituted with minimal effort). Second, and more because of the multivariate normal assumption, PCA and factor models can only represent relationships between two behaviors as correlations. The behavioral state model, being a type of mixture model, is more flexible and capable of capturing nonlinear relationships and interaction effects [<xref ref-type="bibr" rid="B43-brainsci-07-00091">43</xref>]. This means PCA cannot capture nonlinear relationships between pairs of behaviors, or relationships which are modulated by a third behavior. The seemingly quadratic relationship between time spent feeding and traveling in Cayo Santiago macaques, which itself depends on whether aggression is received, is an example of the kind of complex relationship among behaviors that that the behavioral state model is able to represent.</p>
+<p>We are not the first to apply topic model-like methods to primate behavioral data. The popular program STRUCTURE, which was in fact developed prior to topic models, represents the genotypes of organisms as distributions over distinct genetic populations [<xref ref-type="bibr" rid="B44-brainsci-07-00091">44</xref>], just as topic models treat documents as distributions over topics and just as our current model describes the phenotype of an animal as a distribution over behavioral states. This model has been applied to distinguish Indian and Chinese rhesus macaque genotypes [<xref ref-type="bibr" rid="B45-brainsci-07-00091">45</xref>]. The current model is, to the best of our knowledge, the first attempt to apply topic models to natural animal behavior.</p>
+<p>In this paper we used a pedigree to estimate additive genetic influences on behavioral phenotypes, as per classical heritability analyses. An alternative approach is to include individual genetic variants as predictors in the model as in genome-wide association analyses (GWAS). Our model’s regression layer makes GWAS very straightforward to implement, as variant data such as minor allele count can be included directly in the model as a per-animal covariate. However, while this approach would yield much more precise information on how different genetic variants influence phenotypes, it may be difficult to implement for two reasons. First, the traditional GWAS methodology involves fitting a separate model for many common genetic variants [<xref ref-type="bibr" rid="B46-brainsci-07-00091">46</xref>]. While this is tractable when the model being fit is a standard linear regression, fitting a complex hierarchical model thousands of times is computationally infeasible. Second, the sample sizes available in observational data sets of wild or free-ranging animals reach the hundreds or low thousands at best, which are orders of magnitude too small to achieve adequate power to detect the generally small effects of common genetic variants [<xref ref-type="bibr" rid="B47-brainsci-07-00091">47</xref>,<xref ref-type="bibr" rid="B48-brainsci-07-00091">48</xref>,<xref ref-type="bibr" rid="B49-brainsci-07-00091">49</xref>]. However, inference on the effects of rare or de novo mutations, which can have larger effect sizes, may be more feasible [<xref ref-type="bibr" rid="B37-brainsci-07-00091">37</xref>,<xref ref-type="bibr" rid="B50-brainsci-07-00091">50</xref>,<xref ref-type="bibr" rid="B51-brainsci-07-00091">51</xref>]. Gene sets [<xref ref-type="bibr" rid="B52-brainsci-07-00091">52</xref>] or genetic risk scores, which aggregate known genetic effects on biological pathways, provide alternative approaches.</p>
+<p>Another possibility is to use realized relatedness based on measured genetic similarity to estimate genetic influences on phenotypes. This method assumes that many genetic variants have some small effect and aggregates information across all of them rather than attempting to identify specific variants with large effects [<xref ref-type="bibr" rid="B34-brainsci-07-00091">34</xref>,<xref ref-type="bibr" rid="B53-brainsci-07-00091">53</xref>]. This assumption is highly appropriate for complex behavioral phenotypes such as social behaviors, which are known to be polygenic in humans [<xref ref-type="bibr" rid="B35-brainsci-07-00091">35</xref>,<xref ref-type="bibr" rid="B36-brainsci-07-00091">36</xref>]. While aggregating across many variants means individual variants cannot be singled out as important for a given phenotype, recent methodological advances suggest that analyses based on realized relatedness can be used to decompose overall genetic influences into the influences of specific genomic regions of interest, thus retaining some specificity and allowing insight into the roles of different genetic pathways [<xref ref-type="bibr" rid="B54-brainsci-07-00091">54</xref>,<xref ref-type="bibr" rid="B55-brainsci-07-00091">55</xref>,<xref ref-type="bibr" rid="B56-brainsci-07-00091">56</xref>]. Several groups have begun investigating the use of realized relatedness to examine genetic contributions to phenotypes in natural populations [<xref ref-type="bibr" rid="B57-brainsci-07-00091">57</xref>,<xref ref-type="bibr" rid="B58-brainsci-07-00091">58</xref>], though to the best of our knowledge no groups have yet examined the contributions of different genomic regions or pathways. This may present a path forward for understanding the genetics of natural behavior, when combined with models of behavior such as that developed here that effectively and efficiently aggregate information both across behaviors and animals.</p>
+</sec>
+<sec id="sec5-brainsci-07-00091">
+<title>5. Conclusions</title>
+<p>As neuroscientists and biologists investigate the biological determinants of natural social behavior and attempt to translate laboratory findings into more realistic, unconstrained environments, they face the perennial challenge of quantifying natural social behavior. Because natural social behavior is high-dimensional, highly variable, and yet highly structured, straightforward measurement of its influences is difficult. We have worked to address this issue by developing a model for identifying patterns of social behavior and relating them to environmental and genetic factors. Based on recent advances in machine learning for identifying latent structure in sets of documents, this method captures a wider range of relationships among behaviors than is possible using popular methods such as factor analysis or PCA, and explicitly disentangles variability in an individual’s social behavior from variability across the population. We hope that this model will aid researchers in quantifying social behaivior in a way that is rigorous and consistent, while also capturing the richness and complexity of social behavior.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>The authors would like to thank John Pearson, Sam Larson, Ashley Walker, Joel Glick, Josue Negron, and the CPRC staff for their feedback and research support. This research supported by NIH grant 5R01-MH096875-02. The CPRC is supported by grant 8-P40 OD012217-25 from the National Center for Research Resources and the Office of Research Infrastructure Programs of the National Institutes of Health.</p>
+</ack>
+<app-group>
+<app id="app1-brainsci-07-00091">
+<title>Supplementary Materials</title>
+<p>Supplementary material are available online at <uri xlink:href="www.mdpi.com/2076-3425/7/7/91/s1">www.mdpi.com/2076-3425/7/7/91/s1</uri>. Figure S1: Distribution of behavior amounts across focal observations. Figure S2: Choosing number of states for the Cayo Santiago data using WAIC. Figure S3: Choosing number of states for simulated data using WAIC. Table S1: Factor loadings for factor model 1. Table S2: Factor loadings for factor model 2.</p>
+<supplementary-material content-type="local-data" id="brainsci-07-00091-s001">
+<media xlink:href="brainsci-07-00091-s001.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</app>
+</app-group>
+<notes>
+<title>Author Contributions</title>
+<p>S.M., K.A.H., and M.L.P. conceived the project; L.J.N.B. provided the data; S.M., K.A.H., and L.J.N.B. designed the analyses, S.M. developed the algorithm and performed the analyses; S.M., M.J.M., and M.L.P. wrote the paper.</p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Conflicts of Interest</title>
+<p>The authors declare no conflict of interest. The founding sponsors had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript, and in the decision to publish the results.</p>
+</notes>
+<glossary>
+<title>Abbreviations</title>
+<p>The following abbreviations are used in this manuscript:
+<array orientation="portrait"><tbody><tr><td align="left" colspan="1" rowspan="1" valign="middle">CPRC</td><td align="left" colspan="1" rowspan="1" valign="middle">Carribean Primate Research Center</td></tr><tr><td align="left" colspan="1" rowspan="1" valign="middle">PCA</td><td align="left" colspan="1" rowspan="1" valign="middle">Principle components analysis</td></tr><tr><td align="left" colspan="1" rowspan="1" valign="middle">NHP</td><td align="left" colspan="1" rowspan="1" valign="middle">Non-human primate</td></tr><tr><td align="left" colspan="1" rowspan="1" valign="middle">CI</td><td align="left" colspan="1" rowspan="1" valign="middle">Central credible interval</td></tr><tr><td align="left" colspan="1" rowspan="1" valign="middle">WAIC</td><td align="left" colspan="1" rowspan="1" valign="middle">Widely-applicable information criterion</td></tr></tbody></array></p>
+</glossary>
+<app-group>
+<app id="app2-brainsci-07-00091">
+<title>Appendix A</title>
+<p>Note that all affiliative and agonistic behaviors can be either “given” or “received” depending on whether the focal animal directed the action at another or another directed the action towards the focal animal, with the exception of Passive Contact, Social Proximity, and Proximity Group Size. The “given” and “received” versions of behaviors are represented separately in the model. Further, all behaviors are measured in counts of the number of times the behavior occurs, except for Feed, Travel, Groom, and Passive Contact, which are measured in durations. For more information on the behaviors defined below, see [<xref ref-type="bibr" rid="B17-brainsci-07-00091">17</xref>].</p>
+<sec id="secAdot1-brainsci-07-00091">
+<title>Appendix A.1. Self-Directed Behaviors</title>
+<list list-type="bullet">
+<list-item>
+<p>Scratch: Rapid and repeated movement of the nails of a hand or foot across the skin.</p>
+</list-item>
+<list-item>
+<p>Self groom: Running of hands or mouth through one’s own hair for at least 5 s.</p>
+</list-item>
+<list-item>
+<p>Feed: Searching for, manipulating, holding and ingesting food items, including water, for at least 5 s.</p>
+</list-item>
+<list-item>
+<p>Travel: Movement from one location to another over a distance of at least 5 m.</p>
+</list-item>
+</list>
+</sec>
+<sec id="secAdot2-brainsci-07-00091">
+<title>Appendix A.2. Affiliative Behaviors</title>
+<list list-type="bullet">
+<list-item>
+<p>Approach: One individual approaches another to within arms’ reach (2 m) without physical contact, and remains within that distance for at least 5 s.</p>
+</list-item>
+<list-item>
+<p>Leave: Exiting a 2 m area around another without an agonistic interaction.</p>
+</list-item>
+<list-item>
+<p>Affiliative Vocalization (AffilVocal in figures): Emiting a friendly vocalization in the form of either a grunt, girney, vocal exchange, or lipsmack. Individuals will often emit many vocalizations in short succession.</p>
+</list-item>
+<list-item>
+<p>Groom: Running the hands or mouth through the hair of another monkey for at least 5 s.</p>
+</list-item>
+<list-item>
+<p>Passive Contact: Sitting or lying in physical contact with another animal without grooming.</p>
+</list-item>
+<list-item>
+<p>Social Proximity: Number of time points out of three at which the focal was observed to be within 2 m of at least one other animal. The time points were at the beginning, middle, and end of the focal observation.</p>
+</list-item>
+<list-item>
+<p>Proximity Group Size: Number of unique animals with whom the focal animal shared social proximity as defined above.</p>
+</list-item>
+</list>
+</sec>
+<sec id="secAdot3-brainsci-07-00091">
+<title>Appendix A.3. Agonistic Behaviors</title>
+<list list-type="bullet">
+<list-item>
+<p>Threat: One individual threatens another with one or a combination of staring, barks, head bobs, and opening one’s mouth with covered teeth.</p>
+</list-item>
+<list-item>
+<p>Avoid: Moving out of the way of another before they come within 2 m.</p>
+</list-item>
+<list-item>
+<p>Displacement: Similar to avoid, but within 2 m.</p>
+</list-item>
+<list-item>
+<p>Fear Grimace: Submissive facial expression wherein lips are retracted horizontally to expose teeth.</p>
+</list-item>
+<list-item>
+<p>Submit: Leaning away from another or crouching while raising hindquarters towards another.</p>
+</list-item>
+<list-item>
+<p>Noncontact Aggression: A lunge, charge, or chase that does not result in direct physical contact.</p>
+</list-item>
+<list-item>
+<p>Contact Aggression: Direct physical contact such as a bite, hit, push, or grab.</p>
+</list-item>
+</list>
+</sec>
+</app>
+</app-group>
+<ref-list>
+<title>References</title>
+<ref id="B1-brainsci-07-00091">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morgan</surname>
+<given-names>K.N.</given-names>
+</name>
+<name>
+<surname>Tromborg</surname>
+<given-names>C.T.</given-names>
+</name>
+<name>
+<surname>Syaadah</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Norma</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Feldon</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Berckmans</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Hare</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Tepper</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Lindburg</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>Sources of stress in captivity</article-title>
+<source/>Appl. Anim. Behav. Sci.
+          <year>2007</year>
+<volume>102</volume>
+<fpage>262</fpage>
+<lpage>302</lpage>
+<pub-id pub-id-type="doi">10.1016/j.applanim.2006.05.032</pub-id>
+</element-citation>
+</ref>
+<ref id="B2-brainsci-07-00091">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rietveld</surname>
+<given-names>C.A.</given-names>
+</name>
+<name>
+<surname>Medland</surname>
+<given-names>S.E.</given-names>
+</name>
+<name>
+<surname>Derringer</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Esko</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Martin</surname>
+<given-names>N.G.N.W.</given-names>
+</name>
+<name>
+<surname>Westra</surname>
+<given-names>H.J.</given-names>
+</name>
+<name>
+<surname>Shakhbazov</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Abdellaoui</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Agrawal</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>GWAS of 126,559 individuals identifies genetic variants associated with educational attainment</article-title>
+<source/>Science
+          <year>2013</year>
+<volume>340</volume>
+<fpage>1467</fpage>
+<lpage>1471</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1235488</pub-id>
+<pub-id pub-id-type="pmid">23722424</pub-id>
+</element-citation>
+</ref>
+<ref id="B3-brainsci-07-00091">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Allen</surname>
+<given-names>H.L.</given-names>
+</name>
+<name>
+<surname>Estrada</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Lettre</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Berndt</surname>
+<given-names>S.I.</given-names>
+</name>
+<name>
+<surname>Weedon</surname>
+<given-names>M.N.</given-names>
+</name>
+<name>
+<surname>Rivadeneira</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Willer</surname>
+<given-names>C.J.</given-names>
+</name>
+<name>
+<surname>Jackson</surname>
+<given-names>A.U.</given-names>
+</name>
+<name>
+<surname>Vedantam</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Raychaudhuri</surname>
+<given-names>S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Hundreds of variants clustered in genomic loci and biological pathways affect human height</article-title>
+<source/>Nature
+          <year>2010</year>
+<volume>467</volume>
+<fpage>832</fpage>
+<lpage>838</lpage>
+<pub-id pub-id-type="doi">10.1038/nature09410</pub-id>
+<pub-id pub-id-type="pmid">20881960</pub-id>
+</element-citation>
+</ref>
+<ref id="B4-brainsci-07-00091">
+<label>4.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Murphy</surname>
+<given-names>K.P.</given-names>
+</name>
+</person-group>
+<source/>Machine Learning: A Probabilistic Perspective
+          <publisher-name>The MIT Press</publisher-name>
+<publisher-loc>Cambridge, MA, USA</publisher-loc>
+<year>2012</year>
+</element-citation>
+</ref>
+<ref id="B5-brainsci-07-00091">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brent</surname>
+<given-names>L.J.N.</given-names>
+</name>
+<name>
+<surname>Semple</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Maclarnon</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Ruiz-Lambides</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Gonzalez-Martinez</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Platt</surname>
+<given-names>M.L.</given-names>
+</name>
+</person-group>
+<article-title>Personality Traits in Rhesus Macaques (Macaca mulatta) Are Heritable but Do Not Predict Reproductive Output</article-title>
+<source/>Int. J. Primatol.
+          <year>2014</year>
+<volume>35</volume>
+<fpage>188</fpage>
+<lpage>209</lpage>
+<pub-id pub-id-type="doi">10.1007/s10764-013-9724-6</pub-id>
+<pub-id pub-id-type="pmid">24659840</pub-id>
+</element-citation>
+</ref>
+<ref id="B6-brainsci-07-00091">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Blei</surname>
+<given-names>D.M.</given-names>
+</name>
+<name>
+<surname>Ng</surname>
+<given-names>A.Y.</given-names>
+</name>
+<name>
+<surname>Jordan</surname>
+<given-names>M.I.</given-names>
+</name>
+</person-group>
+<article-title>Latent Dirichlet Allocation</article-title>
+<source/>J. Mach. Learn. Res.
+          <year>2003</year>
+<volume>3</volume>
+<fpage>993</fpage>
+<lpage>1022</lpage>
+</element-citation>
+</ref>
+<ref id="B7-brainsci-07-00091">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Blei</surname>
+<given-names>D.M.</given-names>
+</name>
+</person-group>
+<article-title>Probabilistic topic models</article-title>
+<source/>Commun. ACM
+          <year>2012</year>
+<volume>55</volume>
+<fpage>77</fpage>
+<pub-id pub-id-type="doi">10.1145/2133806.2133826</pub-id>
+</element-citation>
+</ref>
+<ref id="B8-brainsci-07-00091">
+<label>8.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Lafferty</surname>
+<given-names>J.D.</given-names>
+</name>
+<name>
+<surname>Blei</surname>
+<given-names>D.M.</given-names>
+</name>
+</person-group>
+<article-title>Correlated Topic Models</article-title>
+<source/>Advances in Neural Information Processing Systems 18
+          <person-group person-group-type="editor">
+<name>
+<surname>Weiss</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Schölkopf</surname>
+<given-names>P.B.</given-names>
+</name>
+<name>
+<surname>Platt</surname>
+<given-names>J.C.</given-names>
+</name>
+</person-group>
+<publisher-name>MIT Press</publisher-name>
+<publisher-loc>Cambridge, MA, USA</publisher-loc>
+<year>2006</year>
+<fpage>147</fpage>
+<lpage>154</lpage>
+</element-citation>
+</ref>
+<ref id="B9-brainsci-07-00091">
+<label>9.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Scalable Inference for Logistic-Normal Topic Models</article-title>
+<source/>Advances in Neural Information Processing Systems 26
+          <person-group person-group-type="editor">
+<name>
+<surname>Burges</surname>
+<given-names>C.J.C.</given-names>
+</name>
+<name>
+<surname>Bottou</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Welling</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Gharamani</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Weinberger</surname>
+<given-names>K.Q.</given-names>
+</name>
+</person-group>
+<publisher-name>Curran Associates Inc.</publisher-name>
+<publisher-loc>Red Hook, NY, USA</publisher-loc>
+<year>2013</year>
+<fpage>2445</fpage>
+<lpage>2453</lpage>
+</element-citation>
+</ref>
+<ref id="B10-brainsci-07-00091">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rodríguez</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Dunson</surname>
+<given-names>D.B.</given-names>
+</name>
+</person-group>
+<article-title>Nonparametric Bayesian models through probit stick-breaking processes</article-title>
+<source/>Bayesian Anal.
+          <year>2011</year>
+<volume>6</volume>
+<fpage>145</fpage>
+<lpage>177</lpage>
+<pub-id pub-id-type="doi">10.1214/11-BA605</pub-id>
+<pub-id pub-id-type="pmid">24358072</pub-id>
+</element-citation>
+</ref>
+<ref id="B11-brainsci-07-00091">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Seyfarth</surname>
+<given-names>R.M.</given-names>
+</name>
+<name>
+<surname>Silk</surname>
+<given-names>J.B.</given-names>
+</name>
+<name>
+<surname>Cheney</surname>
+<given-names>D.L.</given-names>
+</name>
+</person-group>
+<article-title>Variation in personality and fitness in wild female baboons</article-title>
+<source/>Proc. Natl. Acad. Sci. USA
+          <year>2012</year>
+<volume>109</volume>
+<fpage>16980</fpage>
+<lpage>16985</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1210780109</pub-id>
+<pub-id pub-id-type="pmid">23027933</pub-id>
+</element-citation>
+</ref>
+<ref id="B12-brainsci-07-00091">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Budaev</surname>
+<given-names>S.V.</given-names>
+</name>
+</person-group>
+<article-title>Using Principal Components and Factor Analysis in Animal Behaviour Research: Caveats and Guidelines</article-title>
+<source/>Ethology
+          <year>2010</year>
+<volume>116</volume>
+<fpage>472</fpage>
+<lpage>480</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1439-0310.2010.01758.x</pub-id>
+</element-citation>
+</ref>
+<ref id="B13-brainsci-07-00091">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brent</surname>
+<given-names>L.J.N.</given-names>
+</name>
+<name>
+<surname>Heilbronner</surname>
+<given-names>S.R.</given-names>
+</name>
+<name>
+<surname>Horvath</surname>
+<given-names>J.E.</given-names>
+</name>
+<name>
+<surname>Gonzalez-Martinez</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Ruiz-Lambides</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Robinson</surname>
+<given-names>A.G.</given-names>
+</name>
+<name>
+<surname>Skene</surname>
+<given-names>J.H.P.</given-names>
+</name>
+<name>
+<surname>Platt</surname>
+<given-names>M.L.</given-names>
+</name>
+</person-group>
+<article-title>Genetic origins of social networks in rhesus macaques</article-title>
+<source/>Sci. Rep.
+          <year>2013</year>
+<volume>3</volume>
+<fpage>1042</fpage>
+<pub-id pub-id-type="doi">10.1038/srep01042</pub-id>
+<pub-id pub-id-type="pmid">23304433</pub-id>
+</element-citation>
+</ref>
+<ref id="B14-brainsci-07-00091">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Widdig</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Bercovitch</surname>
+<given-names>F.B.</given-names>
+</name>
+<name>
+<surname>Streich</surname>
+<given-names>W.J.</given-names>
+</name>
+<name>
+<surname>Sauermann</surname>
+<given-names>U.</given-names>
+</name>
+<name>
+<surname>Nürnberg</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Krawczak</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>A longitudinal analysis of reproductive skew in male rhesus macaques</article-title>
+<source/>Proc. Biol. Sci.
+          <year>2004</year>
+<volume>271</volume>
+<fpage>819</fpage>
+<lpage>826</lpage>
+<pub-id pub-id-type="doi">10.1098/rspb.2003.2666</pub-id>
+<pub-id pub-id-type="pmid">15255100</pub-id>
+</element-citation>
+</ref>
+<ref id="B15-brainsci-07-00091">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Carpenter</surname>
+<given-names>C.R.</given-names>
+</name>
+</person-group>
+<article-title>Characteristics of Social Behavior in Non-Human Primates</article-title>
+<source/>Trans. N. Y. Acad. Sci.
+          <year>1942</year>
+<volume>4</volume>
+<fpage>248</fpage>
+<lpage>258</lpage>
+<pub-id pub-id-type="doi">10.1111/j.2164-0947.1942.tb00856.x</pub-id>
+</element-citation>
+</ref>
+<ref id="B16-brainsci-07-00091">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bernstein</surname>
+<given-names>I.S.</given-names>
+</name>
+<name>
+<surname>Sharpe</surname>
+<given-names>L.G.</given-names>
+</name>
+</person-group>
+<article-title>Social Roles in a Rhesus Monkey Group</article-title>
+<source/>Behaviour
+          <year>1966</year>
+<volume>26</volume>
+<fpage>91</fpage>
+<lpage>104</lpage>
+<pub-id pub-id-type="doi">10.1163/156853966X00038</pub-id>
+<pub-id pub-id-type="pmid">4955110</pub-id>
+</element-citation>
+</ref>
+<ref id="B17-brainsci-07-00091">
+<label>17.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Brent</surname>
+<given-names>L.J.N.</given-names>
+</name>
+</person-group>
+<article-title>Investigating The Causes and Consequences of Sociality in Adult Female Rhesus Macaques Using a Social Network Approach</article-title>
+<source/>Ph.D. Thesis
+          <publisher-name>University of Roehampton</publisher-name>
+<publisher-loc>London, UK</publisher-loc>
+<year>2010</year>
+</element-citation>
+</ref>
+<ref id="B18-brainsci-07-00091">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Altmann</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Observational Study of Behavior: Sampling Methods</article-title>
+<source/>Behaviour
+          <year>1974</year>
+<volume>49</volume>
+<fpage>227</fpage>
+<lpage>267</lpage>
+<pub-id pub-id-type="doi">10.1163/156853974X00534</pub-id>
+<pub-id pub-id-type="pmid">4597405</pub-id>
+</element-citation>
+</ref>
+<ref id="B19-brainsci-07-00091">
+<label>19.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Rawlins</surname>
+<given-names>R.G.</given-names>
+</name>
+<name>
+<surname>Kessler</surname>
+<given-names>M.J.</given-names>
+</name>
+</person-group>
+<source/>The Cayo Santiago Macaques: History, Behavior, and Biology
+          <publisher-name>State University of New York Press</publisher-name>
+<publisher-loc>Albany, NY, USA</publisher-loc>
+<year>1986</year>
+<fpage>306</fpage>
+</element-citation>
+</ref>
+<ref id="B20-brainsci-07-00091">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sinnwell</surname>
+<given-names>J.P.</given-names>
+</name>
+<name>
+<surname>Therneau</surname>
+<given-names>T.M.</given-names>
+</name>
+<name>
+<surname>Schaid</surname>
+<given-names>D.J.</given-names>
+</name>
+</person-group>
+<article-title>The kinship2 R package for pedigree data</article-title>
+<source/>Hum. Hered.
+          <year>2014</year>
+<volume>78</volume>
+<fpage>91</fpage>
+<lpage>93</lpage>
+<pub-id pub-id-type="doi">10.1159/000363105</pub-id>
+<pub-id pub-id-type="pmid">25074474</pub-id>
+</element-citation>
+</ref>
+<ref id="B21-brainsci-07-00091">
+<label>21.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Gelman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Hill</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<source/>Data Analysis Using Regression and Multilevel/Hierarchical Models
+          <comment>Analytical Methods for Social Research</comment>
+<publisher-name>Cambridge University Press</publisher-name>
+<publisher-loc>New York, NY</publisher-loc>
+<year>2007</year>
+</element-citation>
+</ref>
+<ref id="B22-brainsci-07-00091">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kruuk</surname>
+<given-names>L.E.B.</given-names>
+</name>
+</person-group>
+<article-title>Estimating genetic parameters in natural populations using the “animal model”</article-title>
+<source/>Philos. Trans. R. Soc. Lond. B Biol. Sci.
+          <year>2004</year>
+<volume>359</volume>
+<fpage>873</fpage>
+<lpage>890</lpage>
+<pub-id pub-id-type="doi">10.1098/rstb.2003.1437</pub-id>
+<pub-id pub-id-type="pmid">15306404</pub-id>
+</element-citation>
+</ref>
+<ref id="B23-brainsci-07-00091">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Van Dyk</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>Partially Collapsed Gibbs Samplers: Theory and Methods</article-title>
+<source/>J. Am. Stat. Assoc.
+          <year>2008</year>
+<volume>103</volume>
+<fpage>790</fpage>
+<lpage>796</lpage>
+<pub-id pub-id-type="doi">10.1198/016214508000000409</pub-id>
+</element-citation>
+</ref>
+<ref id="B24-brainsci-07-00091">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Park</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Min</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Partially Collapsed Gibbs Sampling for Linear Mixed-effects Models</article-title>
+<source/>Commun. Stat. Simul. Comput.
+          <year>2014</year>
+<volume>45</volume>
+<fpage>165</fpage>
+<lpage>180</lpage>
+<pub-id pub-id-type="doi">10.1080/03610918.2013.857687</pub-id>
+</element-citation>
+</ref>
+<ref id="B25-brainsci-07-00091">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gelman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Jakulin</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Pittau</surname>
+<given-names>M.G.</given-names>
+</name>
+<name>
+<surname>Su</surname>
+<given-names>Y.S.</given-names>
+</name>
+</person-group>
+<article-title>A weakly informative default prior distribution for logistic and other regression models</article-title>
+<source/>Ann. Appl. Stat.
+          <year>2008</year>
+<volume>2</volume>
+<fpage>1360</fpage>
+<lpage>1383</lpage>
+<pub-id pub-id-type="doi">10.1214/08-AOAS191</pub-id>
+</element-citation>
+</ref>
+<ref id="B26-brainsci-07-00091">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bezanson</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Edelman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Karpinski</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Shah</surname>
+<given-names>V.B.</given-names>
+</name>
+</person-group>
+<article-title>Julia: A Fresh Approach to Numerical Computing</article-title>
+<source/>SIAM Rev.
+          <year>2014</year>
+<volume>59</volume>
+<fpage>65</fpage>
+<lpage>98</lpage>
+<pub-id pub-id-type="doi">10.1137/141000671</pub-id>
+</element-citation>
+</ref>
+<ref id="B27-brainsci-07-00091">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Polson</surname>
+<given-names>N.G.</given-names>
+</name>
+<name>
+<surname>Scott</surname>
+<given-names>J.G.</given-names>
+</name>
+<name>
+<surname>Windle</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Bayesian Inference for Logistic Models Using Pólya–Gamma Latent Variables</article-title>
+<source/>J. Am. Stat. Assoc.
+          <year>2013</year>
+<volume>108</volume>
+<fpage>1339</fpage>
+<lpage>1349</lpage>
+<pub-id pub-id-type="doi">10.1080/01621459.2013.829001</pub-id>
+</element-citation>
+</ref>
+<ref id="B28-brainsci-07-00091">
+<label>28.</label>
+<element-citation publication-type="other">
+<person-group person-group-type="author">
+<collab>Stan Development Team</collab>
+</person-group>
+<article-title>RStan: The R interface to Stan, R package version 2.14.1</article-title>
+<year>2016</year>
+</element-citation>
+</ref>
+<ref id="B29-brainsci-07-00091">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vehtari</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Gelman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Gabry</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Practical Bayesian model evaluation using leave-one-out cross-validation and WAIC</article-title>
+<source/>Stat. Comput.
+          <year>2017</year>
+<volume>27</volume>
+<fpage>1413</fpage>
+<lpage>1432</lpage>
+<pub-id pub-id-type="doi">10.1007/s11222-016-9696-4</pub-id>
+</element-citation>
+</ref>
+<ref id="B30-brainsci-07-00091">
+<label>30.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<collab>R Core Team</collab>
+</person-group>
+<source/>R: A Language and Environment for Statistical Computing
+          <publisher-name>R Foundation for Statistical Computing</publisher-name>
+<publisher-loc>Vienna, Austria</publisher-loc>
+<year>2017</year>
+</element-citation>
+</ref>
+<ref id="B31-brainsci-07-00091">
+<label>31.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Agresti</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<source/>Categorical Data Analysis
+          <edition>2nd ed.</edition>
+<publisher-name>Wiley</publisher-name>
+<publisher-loc>Hoboken, NY, USA</publisher-loc>
+<year>2002</year>
+</element-citation>
+</ref>
+<ref id="B32-brainsci-07-00091">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wilson</surname>
+<given-names>A.J.</given-names>
+</name>
+<name>
+<surname>Réale</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Clements</surname>
+<given-names>M.N.</given-names>
+</name>
+<name>
+<surname>Morrissey</surname>
+<given-names>M.M.</given-names>
+</name>
+<name>
+<surname>Postma</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Walling</surname>
+<given-names>C.A.</given-names>
+</name>
+<name>
+<surname>Kruuk</surname>
+<given-names>L.E.B.</given-names>
+</name>
+<name>
+<surname>Nussey</surname>
+<given-names>D.H.</given-names>
+</name>
+</person-group>
+<article-title>An ecologist’s guide to the animal model</article-title>
+<source/>J. Anim. Ecol.
+          <year>2010</year>
+<volume>79</volume>
+<fpage>13</fpage>
+<lpage>26</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1365-2656.2009.01639.x</pub-id>
+<pub-id pub-id-type="pmid">20409158</pub-id>
+</element-citation>
+</ref>
+<ref id="B33-brainsci-07-00091">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Roweis</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Ghahramani</surname>
+<given-names>Z.</given-names>
+</name>
+</person-group>
+<article-title>A Unifying Review of Linear Gaussian Models</article-title>
+<source/>Neural Comput.
+          <year>1999</year>
+<volume>11</volume>
+<fpage>305</fpage>
+<lpage>345</lpage>
+<pub-id pub-id-type="doi">10.1162/089976699300016674</pub-id>
+<pub-id pub-id-type="pmid">9950734</pub-id>
+</element-citation>
+</ref>
+<ref id="B34-brainsci-07-00091">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Benyamin</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>McEvoy</surname>
+<given-names>B.P.</given-names>
+</name>
+<name>
+<surname>Gordon</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Henders</surname>
+<given-names>A.K.</given-names>
+</name>
+<name>
+<surname>Nyholt</surname>
+<given-names>D.R.</given-names>
+</name>
+<name>
+<surname>Madden</surname>
+<given-names>P.A.</given-names>
+</name>
+<name>
+<surname>Heath</surname>
+<given-names>A.C.</given-names>
+</name>
+<name>
+<surname>Martin</surname>
+<given-names>N.G.</given-names>
+</name>
+<name>
+<surname>Montgomery</surname>
+<given-names>G.W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Common SNPs explain a large proportion of the heritability for human height</article-title>
+<source/>Nat. Gen.
+          <year>2010</year>
+<volume>42</volume>
+<fpage>565</fpage>
+<lpage>569</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.608</pub-id>
+<pub-id pub-id-type="pmid">20562875</pub-id>
+</element-citation>
+</ref>
+<ref id="B35-brainsci-07-00091">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Davies</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Tenesa</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Payton</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Harris</surname>
+<given-names>S.E.</given-names>
+</name>
+<name>
+<surname>Liewald</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Ke</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Le Hellard</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Christoforou</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Luciano</surname>
+<given-names>M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genome-wide association studies establish that human intelligence is highly heritable and polygenic</article-title>
+<source/>Mol. Psychiatry
+          <year>2011</year>
+<volume>16</volume>
+<fpage>996</fpage>
+<lpage>1005</lpage>
+<pub-id pub-id-type="doi">10.1038/mp.2011.85</pub-id>
+<pub-id pub-id-type="pmid">21826061</pub-id>
+</element-citation>
+</ref>
+<ref id="B36-brainsci-07-00091">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Benjamin</surname>
+<given-names>D.J.</given-names>
+</name>
+<name>
+<surname>Cesarini</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Chabris</surname>
+<given-names>C.F.</given-names>
+</name>
+<name>
+<surname>Glaeser</surname>
+<given-names>E.L.</given-names>
+</name>
+<name>
+<surname>Laibson</surname>
+<given-names>D.I.</given-names>
+</name>
+<name>
+<surname>Guðnason</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Harris</surname>
+<given-names>T.B.</given-names>
+</name>
+<name>
+<surname>Launer</surname>
+<given-names>L.J.</given-names>
+</name>
+<name>
+<surname>Purcell</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>A.V.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The Promises and Pitfalls of Genoeconomics</article-title>
+<source/>Annu. Rev. Econ.
+          <year>2012</year>
+<volume>4</volume>
+<fpage>627</fpage>
+<lpage>662</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev-economics-080511-110939</pub-id>
+<pub-id pub-id-type="pmid">23482589</pub-id>
+</element-citation>
+</ref>
+<ref id="B37-brainsci-07-00091">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Neale</surname>
+<given-names>B.M.</given-names>
+</name>
+<name>
+<surname>Kou</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Ma’ayan</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Samocha</surname>
+<given-names>K.E.</given-names>
+</name>
+<name>
+<surname>Sabo</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>C.F.</given-names>
+</name>
+<name>
+<surname>Stevens</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>L.S.</given-names>
+</name>
+<name>
+<surname>Makarov</surname>
+<given-names>V.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Patterns and rates of exonic de novo mutations in autism spectrum disorders</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>485</volume>
+<fpage>242</fpage>
+<lpage>245</lpage>
+<pub-id pub-id-type="doi">10.1038/nature11011</pub-id>
+<pub-id pub-id-type="pmid">22495311</pub-id>
+</element-citation>
+</ref>
+<ref id="B38-brainsci-07-00091">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brent</surname>
+<given-names>L.J.N.</given-names>
+</name>
+</person-group>
+<article-title>Friends of friends: Are indirect connections in social networks important to animal behaviour?</article-title>
+<source/>Anim. Behav.
+          <year>2015</year>
+<volume>103</volume>
+<fpage>211</fpage>
+<lpage>222</lpage>
+<pub-id pub-id-type="doi">10.1016/j.anbehav.2015.01.020</pub-id>
+<pub-id pub-id-type="pmid">25937639</pub-id>
+</element-citation>
+</ref>
+<ref id="B39-brainsci-07-00091">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Seyfarth</surname>
+<given-names>R.M.</given-names>
+</name>
+</person-group>
+<article-title>The distribution of grooming and related behaviours among adult female vervet monkeys</article-title>
+<source/>Anim. Behav.
+          <year>1980</year>
+<volume>28</volume>
+<fpage>798</fpage>
+<lpage>813</lpage>
+<pub-id pub-id-type="doi">10.1016/S0003-3472(80)80140-0</pub-id>
+</element-citation>
+</ref>
+<ref id="B40-brainsci-07-00091">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Seyfarth</surname>
+<given-names>R.M.</given-names>
+</name>
+</person-group>
+<article-title>A model of social grooming among adult female monkeys</article-title>
+<source/>J. Theor. Biol.
+          <year>1977</year>
+<volume>65</volume>
+<fpage>671</fpage>
+<lpage>698</lpage>
+<pub-id pub-id-type="doi">10.1016/0022-5193(77)90015-7</pub-id>
+<pub-id pub-id-type="pmid">406485</pub-id>
+</element-citation>
+</ref>
+<ref id="B41-brainsci-07-00091">
+<label>41.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Colvin</surname>
+<given-names>J.D.</given-names>
+</name>
+</person-group>
+<article-title>Proximate Causes of Male Emigration at Puberty in Rhesus Monkeys</article-title>
+<source/>The Cayo Santiago macaques: History, behavior, and biology
+          <person-group person-group-type="editor">
+<name>
+<surname>Rawlins</surname>
+<given-names>R.G.</given-names>
+</name>
+<name>
+<surname>Kessler</surname>
+<given-names>M.J.</given-names>
+</name>
+</person-group>
+<publisher-name>State University of New York Press</publisher-name>
+<publisher-loc>Albany, NY, USA</publisher-loc>
+<year>1986</year>
+<comment>Chapter 6</comment>
+</element-citation>
+</ref>
+<ref id="B42-brainsci-07-00091">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Melnick</surname>
+<given-names>D.J.</given-names>
+</name>
+<name>
+<surname>Pearl</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Richard</surname>
+<given-names>A.F.</given-names>
+</name>
+</person-group>
+<article-title>Male migration and inbreeding avoidance in wild rhesus monkeys</article-title>
+<source/>Am. J. Primatol.
+          <year>1984</year>
+<volume>7</volume>
+<fpage>229</fpage>
+<lpage>243</lpage>
+<pub-id pub-id-type="doi">10.1002/ajp.1350070303</pub-id>
+</element-citation>
+</ref>
+<ref id="B43-brainsci-07-00091">
+<label>43.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Gelman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Carlin</surname>
+<given-names>J.B.</given-names>
+</name>
+<name>
+<surname>Stern</surname>
+<given-names>H.S.</given-names>
+</name>
+<name>
+<surname>Dunson</surname>
+<given-names>D.B.</given-names>
+</name>
+<name>
+<surname>Vehtari</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Rubin</surname>
+<given-names>D.B.</given-names>
+</name>
+</person-group>
+<source/>Bayesian Data Analysis
+          <edition>3rd ed.</edition>
+<publisher-name>CRC Press</publisher-name>
+<publisher-loc>Boca Raton, FL, USA</publisher-loc>
+<year>2013</year>
+</element-citation>
+</ref>
+<ref id="B44-brainsci-07-00091">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pritchard</surname>
+<given-names>J.K.</given-names>
+</name>
+<name>
+<surname>Stephens</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Donnelly</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Inference of Population Structure Using Multilocus Genotype Data</article-title>
+<source/>Genetics
+          <year>2000</year>
+<volume>155</volume>
+<fpage>945</fpage>
+<lpage>959</lpage>
+<pub-id pub-id-type="pmid">10835412</pub-id>
+</element-citation>
+</ref>
+<ref id="B45-brainsci-07-00091">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hernandez</surname>
+<given-names>R.D.</given-names>
+</name>
+<name>
+<surname>Hubisz</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Wheeler</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>D.G.</given-names>
+</name>
+<name>
+<surname>Ferguson</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Rogers</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Nazareth</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Indap</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Bourquin</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>McPherson</surname>
+<given-names>J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Demographic histories and patterns of linkage disequilibrium in Chinese and Indian rhesus macaques</article-title>
+<source/>Science
+          <year>2007</year>
+<volume>316</volume>
+<fpage>240</fpage>
+<lpage>243</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1140462</pub-id>
+<pub-id pub-id-type="pmid">17431170</pub-id>
+</element-citation>
+</ref>
+<ref id="B46-brainsci-07-00091">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Balding</surname>
+<given-names>D.J.</given-names>
+</name>
+</person-group>
+<article-title>A tutorial on statistical methods for population association studies</article-title>
+<source/>Nat. Rev. Gen.
+          <year>2006</year>
+<volume>7</volume>
+<fpage>781</fpage>
+<lpage>791</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg1916</pub-id>
+<pub-id pub-id-type="pmid">16983374</pub-id>
+</element-citation>
+</ref>
+<ref id="B47-brainsci-07-00091">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chabris</surname>
+<given-names>C.F.</given-names>
+</name>
+<name>
+<surname>Hebert</surname>
+<given-names>B.M.</given-names>
+</name>
+<name>
+<surname>Benjamin</surname>
+<given-names>D.J.</given-names>
+</name>
+<name>
+<surname>Beauchamp</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cesarini</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>van der Loos</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Johannesson</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Magnusson</surname>
+<given-names>P.K.E.</given-names>
+</name>
+<name>
+<surname>Lichtenstein</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Atwood</surname>
+<given-names>C.S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Most reported genetic associations with general intelligence are probably false positives</article-title>
+<source/>Psychol. Sci.
+          <year>2012</year>
+<volume>23</volume>
+<fpage>1314</fpage>
+<lpage>1323</lpage>
+<pub-id pub-id-type="doi">10.1177/0956797611435528</pub-id>
+<pub-id pub-id-type="pmid">23012269</pub-id>
+</element-citation>
+</ref>
+<ref id="B48-brainsci-07-00091">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Spencer</surname>
+<given-names>C.C.A.</given-names>
+</name>
+<name>
+<surname>Su</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Donnelly</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Marchini</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Designing Genome-Wide Association Studies: Sample Size, Power, Imputation, and the Choice of Genotyping Chip</article-title>
+<source/>PLoS Gen.
+          <year>2009</year>
+<volume>5</volume>
+<elocation-id>e1000477</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1000477</pub-id>
+<pub-id pub-id-type="pmid">19492015</pub-id>
+</element-citation>
+</ref>
+<ref id="B49-brainsci-07-00091">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Willer</surname>
+<given-names>C.J.</given-names>
+</name>
+<name>
+<surname>Speliotes</surname>
+<given-names>E.K.</given-names>
+</name>
+<name>
+<surname>Loos</surname>
+<given-names>R.J.F.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Lindgren</surname>
+<given-names>C.M.</given-names>
+</name>
+<name>
+<surname>Heid</surname>
+<given-names>I.M.</given-names>
+</name>
+<name>
+<surname>Berndt</surname>
+<given-names>S.I.</given-names>
+</name>
+<name>
+<surname>Elliott</surname>
+<given-names>A.L.</given-names>
+</name>
+<name>
+<surname>Jackson</surname>
+<given-names>A.U.</given-names>
+</name>
+<name>
+<surname>Lamina</surname>
+<given-names>C.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Six new loci associated with body mass index highlight a neuronal influence on body weight regulation</article-title>
+<source/>Nat. Gen.
+          <year>2009</year>
+<volume>41</volume>
+<fpage>25</fpage>
+<lpage>34</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.287</pub-id>
+<pub-id pub-id-type="pmid">19079261</pub-id>
+</element-citation>
+</ref>
+<ref id="B50-brainsci-07-00091">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schaaf</surname>
+<given-names>C.P.</given-names>
+</name>
+<name>
+<surname>Sabo</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Sakai</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Crosby</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Muzny</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Hawes</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Lewis</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Akbar</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Varghese</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Boerwinkle</surname>
+<given-names>E.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Oligogenic heterozygosity in individuals with high-functioning autism spectrum disorders</article-title>
+<source/>Hum. Mol. Gen.
+          <year>2011</year>
+<volume>20</volume>
+<fpage>3366</fpage>
+<lpage>3375</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddr243</pub-id>
+<pub-id pub-id-type="pmid">21624971</pub-id>
+</element-citation>
+</ref>
+<ref id="B51-brainsci-07-00091">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gratten</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Wray</surname>
+<given-names>N.R.</given-names>
+</name>
+<name>
+<surname>Keller</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Visscher</surname>
+<given-names>P.M.</given-names>
+</name>
+</person-group>
+<article-title>Large-scale genomics unveils the genetic architecture of psychiatric disorders</article-title>
+<source/>Nat. Neurosci.
+          <year>2014</year>
+<volume>17</volume>
+<fpage>782</fpage>
+<lpage>790</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.3708</pub-id>
+<pub-id pub-id-type="pmid">24866044</pub-id>
+</element-citation>
+</ref>
+<ref id="B52-brainsci-07-00091">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Subramanian</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Tamayo</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Mootha</surname>
+<given-names>V.K.</given-names>
+</name>
+<name>
+<surname>Mukherjee</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Ebert</surname>
+<given-names>B.L.</given-names>
+</name>
+<name>
+<surname>Gillette</surname>
+<given-names>M.A.</given-names>
+</name>
+<name>
+<surname>Paulovich</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Pomeroy</surname>
+<given-names>S.L.</given-names>
+</name>
+<name>
+<surname>Golub</surname>
+<given-names>T.R.</given-names>
+</name>
+<name>
+<surname>Lander</surname>
+<given-names>E.S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles</article-title>
+<source/>Proc. Natl. Acad. Sci. USA
+          <year>2005</year>
+<volume>102</volume>
+<fpage>15545</fpage>
+<lpage>15550</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0506580102</pub-id>
+<pub-id pub-id-type="pmid">16199517</pub-id>
+</element-citation>
+</ref>
+<ref id="B53-brainsci-07-00091">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Goddard</surname>
+<given-names>M.E.</given-names>
+</name>
+<name>
+<surname>Visscher</surname>
+<given-names>P.M.</given-names>
+</name>
+<name>
+<surname>van der Werf</surname>
+<given-names>J.H.</given-names>
+</name>
+</person-group>
+<article-title>Using the realized relationship matrix to disentangle confounding factors for the estimation of genetic variance components of complex traits</article-title>
+<source/>Gen. Sel. Evolut.
+          <year>2010</year>
+<volume>42</volume>
+<fpage>22</fpage>
+<pub-id pub-id-type="doi">10.1186/1297-9686-42-22</pub-id>
+<pub-id pub-id-type="pmid">20546624</pub-id>
+</element-citation>
+</ref>
+<ref id="B54-brainsci-07-00091">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gusev</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Trynka</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Finucane</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Vilhjálmsson</surname>
+<given-names>B.J.</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Zang</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Ripke</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Bulik-Sullivan</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Stahl</surname>
+<given-names>E.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Partitioning Heritability of Regulatory and Cell-Type-Specific Variants across 11 Common Diseases</article-title>
+<source/>Am. J. Hum. Gen.
+          <year>2014</year>
+<volume>95</volume>
+<fpage>535</fpage>
+<lpage>552</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2014.10.004</pub-id>
+<pub-id pub-id-type="pmid">25439723</pub-id>
+</element-citation>
+</ref>
+<ref id="B55-brainsci-07-00091">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kostem</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Eskin</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Improving the accuracy and efficiency of partitioning heritability into the contributions of genomic regions</article-title>
+<source/>Am. J. Hum. Gen.
+          <year>2013</year>
+<volume>92</volume>
+<fpage>558</fpage>
+<lpage>564</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.03.010</pub-id>
+<pub-id pub-id-type="pmid">23561845</pub-id>
+</element-citation>
+</ref>
+<ref id="B56-brainsci-07-00091">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Goddard</surname>
+<given-names>M.E.</given-names>
+</name>
+<name>
+<surname>Visscher</surname>
+<given-names>P.M.</given-names>
+</name>
+</person-group>
+<article-title>GCTA: A tool for genome-wide complex trait analysis</article-title>
+<source/>Am. J. Hum. Gen.
+          <year>2011</year>
+<volume>88</volume>
+<fpage>76</fpage>
+<lpage>82</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2010.11.011</pub-id>
+<pub-id pub-id-type="pmid">21167468</pub-id>
+</element-citation>
+</ref>
+<ref id="B57-brainsci-07-00091">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gay</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Siol</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Ronfort</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Pedigree-free estimates of heritability in the wild: Promising prospects for selfing populations</article-title>
+<source/>PLoS ONE
+          <year>2013</year>
+<volume>8</volume>
+<elocation-id>e66983</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0066983</pub-id>
+<pub-id pub-id-type="pmid">23825602</pub-id>
+</element-citation>
+</ref>
+<ref id="B58-brainsci-07-00091">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bérénos</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Ellis</surname>
+<given-names>P.A.</given-names>
+</name>
+<name>
+<surname>Pilkington</surname>
+<given-names>J.G.</given-names>
+</name>
+<name>
+<surname>Pemberton</surname>
+<given-names>J.M.</given-names>
+</name>
+</person-group>
+<article-title>Estimating quantitative genetic parameters in wild populations: A comparison of pedigree and genomic approaches</article-title>
+<source/>Mol. Ecol.
+          <year>2014</year>
+<volume>23</volume>
+<fpage>3434</fpage>
+<lpage>3451</lpage>
+<pub-id pub-id-type="doi">10.1111/mec.12827</pub-id>
+<pub-id pub-id-type="pmid">24917482</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="brainsci-07-00091-f001" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Correlations between simulated and fit phenotypes (<bold>left</bold>) and state contents (<bold>right</bold>). Both panels show boxplots, though for the state contents the values are concentrated enough that the hinges of the plots are not distinguishable. For phenotypes, each data point is an individual, while for states, each data point is a state.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g001"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f002" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>The distribution of phenotypes of the studied population. The box-and-whisker plots display the distribution of posterior mean probabilities of being in each state across all studied individuals. States are ordered by descending mean probability across the population. “Hinges” of the boxes represent 25%, 50%, and 75% quartiles.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g002"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f003" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>The content of behavioral states fit by the model. Relative rates for each behavior are calculated by dividing the posterior mean rates across states by the mean rate of the highest state, such that 1 represents the highest mean rate across states. For visual clarity, behaviors with relative rates below 0.05 are omitted, and behaviors for which the difference between the “give” and “receive” variants is less than 0.33 are concatenated into a single label (give/rec).</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g003"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f004" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>Regression coefficients with S2 as a baseline (see Methods). Points represent posterior means and lines, 95% central credible intervals.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g004"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f005" orientation="portrait" position="float">
+<label>Figure 5</label>
+<caption>
+<p>Expected probabilities of being in a state across different social groups for animals of average age and rank. Points represent posterior means and error bars, 95% central credible intervals of the expected probability.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g005"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f006" orientation="portrait" position="float">
+<label>Figure 6</label>
+<caption>
+<p>Relationship between dominance rank and the expected probability of being in a state for animals of average age in group F. Curves represent posterior means and shaded regions, 95% central credible intervals of the value of the curve at the corresponding rank.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g006"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f007" orientation="portrait" position="float">
+<label>Figure 7</label>
+<caption>
+<p>Genetic influences on the probability of being in a state in the studied population. Points represent posterior means, thick error bars, 66% central credible interval (roughly equivalent to 1 standard error), and thin error bars, 95% central credible intervals. See Methods for definition of the pseudo-h2 measure.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g007"></graphic>
+</fig>
+<fig id="brainsci-07-00091-f008" orientation="portrait" position="float">
+<label>Figure 8</label>
+<caption>
+<p>Comparisons between the state model and factor analysis models. (<bold>a</bold>) The leftmost panel shows observed means and standard errors of rates of Travel at varying levels of Feed and Noncontact Aggression (received); The right two panel shows the expected levels of Traveling under the state model and factor model 1; (<bold>b</bold>) Repeatability, as measured by the correlation between 2012 and 2013 phenotypes, for the three models; (<bold>c</bold>) Heritability estimates of phenotypes from the three models. Error bars in all panels represent one standard error.</p>
+</caption>
+<graphic xlink:href="brainsci-07-00091-g008"></graphic>
+</fig>
+</floats-group>
+</article>
+</pmc-articleset>

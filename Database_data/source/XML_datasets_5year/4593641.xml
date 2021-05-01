@@ -1,0 +1,684 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+<journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLoS ONE</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">26437450</article-id>
+<article-id pub-id-type="pmc">4593641</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-14-25150</article-id>
+<article-id pub-id-type="doi">10.1371/journal.pone.0139656</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Prioritizing Clinically Relevant Copy Number Variation from Genetic Interactions and Gene Function Data</article-title>
+<alt-title alt-title-type="running-head">Prioritizing Harmful Copy Number Variations</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Foong</surname>
+<given-names>Justin</given-names>
+</name>
+<xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Girdea</surname>
+<given-names>Marta</given-names>
+</name>
+<xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Stavropoulos</surname>
+<given-names>James</given-names>
+</name>
+<xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Brudno</surname>
+<given-names>Michael</given-names>
+</name>
+<xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+</contrib-group>
+<aff id="aff001">
+<label>1</label>
+<addr-line>Department of Computer Science, University of Toronto, Toronto, Ontario, Canada</addr-line>
+</aff>
+<aff id="aff002">
+<label>2</label>
+<addr-line>Hospital of Sick Children, Toronto, Ontario, Canada</addr-line>
+</aff>
+<contrib-group>
+<contrib contrib-type="editor">
+<name>
+<surname>Liu</surname>
+<given-names>Chunyu</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"></xref>
+</contrib>
+</contrib-group>
+<aff id="edit1">
+<addr-line>University of Illinois at Chicago, UNITED STATES</addr-line>
+</aff>
+<author-notes>
+<fn fn-type="COI-statement" id="coi001">
+<p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+</fn>
+<fn fn-type="con" id="contrib001">
+<p>Conceived and designed the experiments: JF MG MB. Performed the experiments: JF. Analyzed the data: JF MG JS MB. Contributed reagents/materials/analysis tools: JS. Wrote the paper: JF MG JS MB.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email>brudno@cs.toronto.edu</email></corresp>
+</author-notes>
+<pub-date pub-type="collection">
+<year>2015</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>5</day>
+<month>10</month>
+<year>2015</year>
+</pub-date>
+<volume>10</volume>
+<issue>10</issue>
+<elocation-id>e0139656</elocation-id>
+<history>
+<date date-type="received">
+<day>11</day>
+<month>6</month>
+<year>2014</year>
+</date>
+<date date-type="accepted">
+<day>16</day>
+<month>9</month>
+<year>2015</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2015 Foong et al</copyright-statement>
+<copyright-year>2015</copyright-year>
+<copyright-holder>Foong et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="pone.0139656.pdf" xlink:type="simple"></self-uri>
+<abstract>
+<p>It is becoming increasingly necessary to develop computerized methods for identifying the few disease-causing variants from hundreds discovered in each individual patient. This problem is especially relevant for Copy Number Variants (CNVs), which can be cheaply interrogated via low-cost hybridization arrays commonly used in clinical practice. We present a method to predict the disease relevance of CNVs that combines functional context and clinical phenotype to discover clinically harmful CNVs (and likely causative genes) in patients with a variety of phenotypes. We compare several feature and gene weighing systems for classifying both genes and CNVs. We combined the best performing methodologies and parameters on over 2,500 Agilent CGH 180k Microarray CNVs derived from 140 patients. Our method achieved an F-score of 91.59%, with 87.08% precision and 97.00% recall. Our methods are freely available at <ext-link ext-link-type="uri" xlink:href="https://github.com/compbio-UofT/cnv-prioritization">https://github.com/compbio-UofT/cnv-prioritization</ext-link>. Our dataset is included with the supplementary information.</p>
+</abstract>
+<funding-group>
+<funding-statement>This research was funded by the Ontario Research Fund (ORF) Genomes To Life (GL2) program.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="3"></fig-count>
+<table-count count="1"></table-count>
+<page-count count="15"></page-count>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>The data is available with the supplementary information.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+<notes>
+<title>Data Availability</title>
+<p>The data is available with the supplementary information.</p>
+</notes>
+</front>
+<body>
+<sec id="sec001">
+<title>1 Introduction</title>
+<p>Remarkable improvements in genotyping methods have arisen recently, including microarrays and more recently High Throughput Sequencing (HTS) technologies. These new technologies allow for inexpensive and accurate identification of millions of genetic variants, including Single Nucleotide and Copy Number Variants (SNVs and CNVs) present in any human. Now large-scale studies of human populations are possible, such as the Wellcome Trust Case-Control Study [<xref ref-type="bibr" rid="pone.0139656.ref001">1</xref>] and the 1000 Genomes Project [<xref ref-type="bibr" rid="pone.0139656.ref002">2</xref>]. However, the clinical use of whole-genome genotyping, whether array or sequencing-based, has been hindered by the difficulty of identifying disease-causing variants amongst the millions of benign differences between human genomes. A molecular diagnostic lab analyzes the DNA of individuals with suspected genetic disorders to uncover the molecular cause of the disease. Depending on the disorder, the individual may undergo screening for a small number of relevant genes, or whole-genome analysis. In either case, the discovered variants are presented to a molecular geneticist who manually analyzes each variant and determines whether it is likely to be involved in the disorder. In many cases, harmful variants must be identified solely based on the patient’s clinical phenotype (description of symptoms) rather than a named disorder, as a large fraction of individuals presented to a molecular diagnostic facility cannot be easily given a specific diagnosis. Because the predominant fraction of the variants found in any human’s genome do not contribute to the patients clinical phenotype and are likely benign [<xref ref-type="bibr" rid="pone.0139656.ref003">3</xref>], software tools for harmful variant prioritization [<xref ref-type="bibr" rid="pone.0139656.ref004">4</xref>, <xref ref-type="bibr" rid="pone.0139656.ref005">5</xref>] play an important role in assisting the geneticist. However, these methodologies typically only address single nucleotide variation, and rarely have the specificity or sensitivity to be used without human supervision [<xref ref-type="bibr" rid="pone.0139656.ref006">6</xref>].</p>
+<p>In this work we develop methodologies to assist in the prediction of the harmfulness of large-scale CNVs. These variants can significantly alter cellular processes by simultaneously deleting or duplicating multiple genes, all with distinct functions [<xref ref-type="bibr" rid="pone.0139656.ref007">7</xref>]. Identification of clinically harmful CNVs is significantly more complicated than single nucleotide variants (SNVs). Conservation, impact on splicing or protein structure, or location within a known functional element have been shown to closely correlate to harmfulness [<xref ref-type="bibr" rid="pone.0139656.ref004">4</xref>, <xref ref-type="bibr" rid="pone.0139656.ref008">8</xref>] for SNVs. However, such features are less informative for larger CNVs: while the conservation level of a smaller variant is indicative of its functionality, all larger CNVs are almost certain to contain multiple conserved regions, and conversely, it has been shown that the deletion of some highly conserved regions leads to no discernible phenotype [<xref ref-type="bibr" rid="pone.0139656.ref009">9</xref>]. Even the approach of filtering variants that are present at high frequency in the human population has important caveats when working with CNV data from comparative genome hybridization (CGH) arrays. The breakpoints of most CNVs are not determined precisely, and multiple partially overlapping variants from several individuals may or may not be identical.</p>
+<p>To date, most efforts to analyze the medical impact of CNVs have concentrated on well-matched cases and controls. For example, by carefully analyzing the CNV loci and the corresponding pathways, researchers have been able to identify novel genes involved in complex disorders, such as Autism [<xref ref-type="bibr" rid="pone.0139656.ref010">10</xref>]. One recent study also revealed the existence of physical interactions between different genes harboring causal mutations for several immune-mediated disorders, including rheumatoid arthritis and Crohn’s disease [<xref ref-type="bibr" rid="pone.0139656.ref011">11</xref>]. Both of these approaches, however, aim to identify disease genes, rather than discover the medically relevant CNVs within each patient.</p>
+<p>A prioritization pipeline for CNVs in patients with intellectual disability is proposed in [<xref ref-type="bibr" rid="pone.0139656.ref012">12</xref>]. Their approach considered, for each CNV, a number of genomic parameters, such as gene density, length, repeat content of the CNV, as well as some functional features, such as region annotation in specific KEGG pathways [<xref ref-type="bibr" rid="pone.0139656.ref013">13</xref>] or MGI phenotypes [<xref ref-type="bibr" rid="pone.0139656.ref014">14</xref>]. They found that the best predictors of harmfulness of CNVs were mouse phenotypes and the density of LINE repeats in the variant, yet they made no attempt to correlate the harmful CNVs to the patient phenotypes through gene function, or to identify which gene(s) within the larger CNV actually contribute to the phenotype.</p>
+<p>The methods developed in the current manuscript take into consideration the mutation’s broader molecular and functional context, as well as the phenotype of the patient in whom it was observed. Our work develops upon several recent studies [<xref ref-type="bibr" rid="pone.0139656.ref015">15</xref>–<xref ref-type="bibr" rid="pone.0139656.ref017">17</xref>], that propose approaches for prioritizing disease genes which combine multiple sources of information, including phenotype-phenotype and phenotype-gene associations, as well as gene/protein interaction networks. Unlike our approach, however, these methods utilize phenotype-gene correlations to assist the prioritization of genes for a specific disease, rather than for discovering clinically harmful genes (and CNVs) in patients with a variety of disorders. A method that explicitly allows for multiple disorders is [<xref ref-type="bibr" rid="pone.0139656.ref018">18</xref>], which uses a cross-species phenotype ontology to determine phenotypic features related to a query CNV. In addition to identifying if a CNV is causative, it also prioritizes which genes affected by the CNV are relevant. Finally previous work that is perhaps most closely related to our methodologically identifies CNV disrupted pathways through label propagation on a protein-protein interaction network [<xref ref-type="bibr" rid="pone.0139656.ref019">19</xref>].</p>
+<p>Our algorithm combines patient phenotype information, phenotype-gene associations as well as gene interaction networks to prioritize the results. We show that incorporating this information leads to a substantial improvement in recall. We achieved an F-score of 91.59%, with 87.08% precision and 97.00% recall on our dataset of 2,643 CNVs (including 162 harmful ones) derived from 140 patients genotyped with Agilent CGH 180k Microarrays and characterized as benign or harmful by a molecular geneticist.</p>
+</sec>
+<sec id="sec002">
+<title>2 Background</title>
+<p>Our model is built upon a variety resources and tools allowing for the interpretation of our data across multiple layers of knowledge. These layers range from disease and phenotype information and relationships to disease-causative genes, gene functions and interactions. Their interoperability is ensured by the use of standardized vocabularies and identification systems.</p>
+<sec id="sec003">
+<title>2.0.1 HPO</title>
+<p>The Human Phenotype Ontology (HPO) [<xref ref-type="bibr" rid="pone.0139656.ref020">20</xref>], aims to provide a standardized vocabulary for the phenotypic abnormalities (approximately 10,000 terms) encountered in human disease, and the semantic relationships between them (<ext-link ext-link-type="uri" xlink:href="http://www.human-phenotype-ontology.org/">http://www.human-phenotype-ontology.org/</ext-link>). Phenotypes within HPO are commonly annotated with hereditary disorders, with &gt; 50,000 crosslinks available between HPO and the Online Mendelian Inheritance in Man (OMIM) [<xref ref-type="bibr" rid="pone.0139656.ref021">21</xref>] database.</p>
+<p>Each patient description consists of a set of HPO terms, thus we benefit from the knowledge in these annotations, allowing us to access mappings between phenotypes and diseases or even known causative genes.</p>
+</sec>
+<sec id="sec004">
+<title>2.0.2 GO and GOA</title>
+<p>The Gene Ontology (GO) project [<xref ref-type="bibr" rid="pone.0139656.ref022">22</xref>] (<ext-link ext-link-type="uri" xlink:href="http://www.geneontology.org/">http://www.geneontology.org/</ext-link>) provides structured controlled vocabularies and classifications. The GO covers several domains of molecular and cellular biology and are freely available for community use in the annotation of genes, gene products and sequences. Using this extensive vocabulary for describing gene functions, the Gene Ontology Annotation (GOA) database [<xref ref-type="bibr" rid="pone.0139656.ref023">23</xref>] (<ext-link ext-link-type="uri" xlink:href="http://www.ebi.ac.uk/GOA">http://www.ebi.ac.uk/GOA</ext-link>) consists of high-quality electronic and manual annotations to the UniProt Knowledgebase (Swiss-Prot, TrEMBL and PIR-PSD). GOA associates meta-information to each of the available gene annotations, including their evidence sources, thus allowing for advanced filtering for the most relevant and reliable annotations.</p>
+<p>Because of the extensive detail of available GO terms (&gt; 35,000), it is common practice to limit the number of available terms by making a “cut” across the ontology. We keep terms above this cut, while mapping terms below to their nearest available ancestor. In this work we use GO Slim [<xref ref-type="bibr" rid="pone.0139656.ref022">22</xref>] to reduce the number of possible GO terms to 105.</p>
+<p>In our model, we use GO, GO-Slim, and GOA extensively for describing CNV affected genes by their GO functions. Such a detailed functional profile facilitates the discovery of patterns among the genes suspected to be causative for specific phenotypes.</p>
+</sec>
+<sec id="sec005">
+<title>2.0.3 Semantic similarity in ontologies</title>
+<p>Both HPO and GO are ontologies structured as <italic>taxonomies</italic> where concepts are organized into broader concept categories via the “<italic>is a</italic>” relationship. Furthermore, concepts defined by HPO and GO annotate other entities, such as OMIM diseases and human genes respectively. The “<italic>is a</italic>” relation can be used for defining similarities between the concepts, based on their specificity within the annotations. The other relations are not used for defining similarities.</p>
+<p>The evaluation of semantic similarity in a taxonomy using <italic>information content</italic> has been discussed in several papers, including [<xref ref-type="bibr" rid="pone.0139656.ref024">24</xref>] for generic taxonomies annotating generic targets and [<xref ref-type="bibr" rid="pone.0139656.ref025">25</xref>] for the specific case of HPO with OMIM annotations in the context on differential diagnosis. The approach, briefly explained below, is defined for any taxonomy of concepts that annotate a set of targets. In our case, the taxonomy can be either GO with gene names as targets, or HPO with OMIM disorders as targets.</p>
+<p>Let <italic>T</italic> = (<italic>V</italic>, <italic>R</italic>) be a directed acyclic graph representing the taxonomy, where <italic>V</italic> is the set of terms (concepts) and <italic>R</italic> = {(<italic>u</italic>, <italic>v</italic>), <italic>u</italic>, <italic>v</italic> ∈ <italic>V</italic>} defines the parent-child relations within the taxonomy. Let <italic>A</italic> = (<italic>N</italic>, <italic>C</italic>, <italic>E</italic>) be the bipartite graph representing the available annotations, where <italic>N</italic> is the set of target nodes, <italic>C</italic> ⊆ <italic>V</italic> is the set of concepts used to annotate the targets, and <italic>E</italic> = {(<italic>c</italic>, <italic>n</italic>)∣<italic>c</italic> ∈ <italic>C</italic>, <italic>d</italic> ∈ <italic>D</italic>} is the set of edges between <italic>N</italic> and <italic>C</italic>, designating mappings between targets and their annotations. Let <italic>a</italic>(<italic>n</italic>) be all the neighbors in <italic>A</italic> of a target <italic>n</italic>, namely all the concepts known to be associated <italic>n</italic>. We assume that, if (<italic>c</italic>, <italic>n</italic>) is an edge in <italic>A</italic>, then (<italic>p</italic>, <italic>n</italic>) is an edge in <italic>A</italic> for any <italic>p</italic> that is an ascendant of <italic>c</italic> in the taxonomy <italic>T</italic>; in other words, if a target is annotated with a concept, then we consider that all broader concepts which include it are also annotations of that target. The similarity between two sets of concepts <italic>X</italic> and <italic>Y</italic> depends on the annotated targets as follows [<xref ref-type="bibr" rid="pone.0139656.ref025">25</xref>]:
+<disp-formula id="pone.0139656.e001"><alternatives><graphic id="pone.0139656.e001g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e001.jpg"></graphic><mml:math id="M1"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>X</mml:mi><mml:mo>,</mml:mo><mml:mi>Y</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi>a</mml:mi><mml:mi>v</mml:mi><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>x</mml:mi><mml:mo>∈</mml:mo><mml:mi>X</mml:mi></mml:mrow></mml:msub><mml:munder><mml:mo form="prefix" movablelimits="true">max</mml:mo><mml:mrow><mml:mi>y</mml:mi><mml:mo>∈</mml:mo><mml:mi>Y</mml:mi></mml:mrow></mml:munder><mml:mi>I</mml:mi><mml:mi>C</mml:mi><mml:mo>(</mml:mo><mml:mi>M</mml:mi><mml:mi>I</mml:mi><mml:mi>C</mml:mi><mml:mi>A</mml:mi><mml:mo>(</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo>)</mml:mo><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(1)</label></disp-formula>
+where <italic>MICA</italic>(<italic>x</italic>, <italic>y</italic>) denotes the most informative (having the highest information content) common ancestor of terms <italic>x</italic> and <italic>y</italic> in the taxonomy <italic>T</italic>, and the information content <italic>IC</italic> of a taxonomy term <italic>t</italic> is computed with respect to the annotation graph <italic>A</italic> as
+<disp-formula id="pone.0139656.e002"><alternatives><graphic id="pone.0139656.e002g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e002.jpg"></graphic><mml:math id="M2"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>I</mml:mi><mml:mi>C</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>t</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mo>-</mml:mo><mml:mo form="prefix">log</mml:mo><mml:mo>(</mml:mo><mml:mi>f</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:msub><mml:mi>q</mml:mi><mml:mi>A</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>t</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(2)</label></disp-formula>
+designating as more informative those concepts which annotate fewer targets.</p>
+<p>Our model uses this semantic similarity measure to determine closely related phenotypic manifestations, as well as very similar functional profiles of genes. Together with the knowledge comprised in gene-phenotype annotations, this similarity measure helps infer which genes are more likely to be causative for the observed phenotype.</p>
+</sec>
+<sec id="sec006">
+<title>2.0.4 Gene networks via GeneMANIA</title>
+<p>Gene and protein interaction networks provide valuable insight regarding the roles genes play in complex diseases. To incorporate this information in our model, we rely on GeneMANIA [<xref ref-type="bibr" rid="pone.0139656.ref026">26</xref>]. GeneMANIA is a tool that uses multiple networks derived from different genomic or proteomic data sources to produce a single, composite functional association network with normalized interaction weights. We use these weights to build a network of “neighbor” genes for the genes affected by CNVs in our dataset. These neighbors are included in our decision process for inferring CNV harmfulness.</p>
+</sec>
+</sec>
+<sec id="sec007">
+<title>3 Results</title>
+<p>In this section we present the performance of our methods on a dataset of CNVs detected in clinical patients with known phenotypes. These CNVs were evaluated by a clinical geneticist as harmful or benign. We choose an optimal weighing system for both gene ontology features and gene relevance to build a classifier for the harmfulness of a gene. We then show that this classifier, in combination with the CNV length and the frequency in DGV, achieves greater accuracy in predicting CNV harmfulness than any subset of the three information sources. The results presented here are obtained by aggregating the output of 20 runs on random training / testing splits generated as explained in Section 5.1.</p>
+<sec id="sec008">
+<title>3.1 Dataset</title>
+<sec id="sec009">
+<title>3.1.1 Raw data</title>
+<p>We have obtained Agilent CGH 180k Microarray dataset from the Molecular Diagnostic Laboratory and the Microarray Facility at the Hospital of Sick Children. This data set consists of 140 patient reports, with 162 harmful and 2,481 benign CNVs annotated by a molecular geneticist. Each of these patients was annotated with a set of phenotypes (HPO codes), and each had at least one harmful CNV. The majority of these patients (119) were annotated with the phenotype <italic>developmental delay</italic>, 10 patients presented <italic>facial dysmorphism</italic>, while 7 other phenotypes (<italic>autism</italic>, <italic>cleft palate</italic>, <italic>congenital heart defect</italic>, <italic>failure to thrive</italic>, <italic>microcephaly</italic>, <italic>seizures</italic>, <italic>short stature</italic>) are each assigned to 1 or 2 patients of our curated dataset.</p>
+</sec>
+<sec id="sec010">
+<title>3.1.2 Pre-processing</title>
+<p>We used BEDTools [<xref ref-type="bibr" rid="pone.0139656.ref027">27</xref>] to annotate the CNVs with Ensembl genes from UCSC’s table browser [<xref ref-type="bibr" rid="pone.0139656.ref028">28</xref>] for the hg18 Human assembly. Each gene was then labeled with Gene Ontology (GO) [<xref ref-type="bibr" rid="pone.0139656.ref022">22</xref>] functions using the Gene Ontology Annotation database (GOA) [<xref ref-type="bibr" rid="pone.0139656.ref023">23</xref>], resulting in &gt; 3,000 potential features. To reduce the feature space we mapped each term to its nearest ancestor within Generic GO Slim [<xref ref-type="bibr" rid="pone.0139656.ref022">22</xref>], to obtain a set of 105 features (GO terms identifiers).</p>
+</sec>
+</sec>
+<sec id="sec011">
+<title>3.2 Optimal model weights</title>
+<sec id="sec012">
+<title>3.2.1 Choosing a feature weighing system</title>
+<p>We evaluate the performance of both feature weighing systems for CNV classification presented in Section 5.2.1 (<italic>i.e</italic>. <bold>Network-Uniform</bold> and <bold>Network-Weighted</bold>) and show the results in <xref ref-type="fig" rid="pone.0139656.g001">Fig 1b–1d</xref>.</p>
+<fig id="pone.0139656.g001" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0139656.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>Importance of Model Features.</title>
+<p>(a) Histogram of CNV lengths (on log scale) for harmful and benign CNVs within our dataset shows that harmful CNVs are more likely to be longer, and hence likely affect more genes and gene functions. (b-d) Precision (b), recall (c) and f-measure (d) for predicting harmful versus benign CNVs relative to the number of closest neighbors considered within the gene interaction network. Both precision (b) and f-measure (d) improve as we expand the number of neighbors considered, but stabilize or slightly descend after 10 neighbors. We also see an improvement from utilizing the patient phenotypes uniform model in precision and accuracy as we add the ranking as a source for weighing our features.</p>
+</caption>
+<graphic xlink:href="pone.0139656.g001"></graphic>
+</fig>
+<p>As a first observation, all precision and accuracy curves (<xref ref-type="fig" rid="pone.0139656.g001">Fig 1b and 1d</xref>) show an ascending trend as we take into account more neighbors of the affected genes, with a tendency to stabilize or slightly descend after 10 neighbors. This shows the significance of using relevant gene interactions to infer gene functions affected by a mutation. However, interrogating too many such neighbors can result in uninformative or even noisy features being introduced in the model. We also observe an improvement over the Network-Uniform model in precision and F-measure when using the Network-Weighted model.</p>
+<p>Note also that under both of these weighing systems the recall on harmful CNVs (<xref ref-type="fig" rid="pone.0139656.g001">Fig 1c</xref>) is nearly perfect. We consider this a significant advantage of our model: such a low false negative rate means it is very unlikely to “miss” a harmful variant (hence CNVs classified as benign need not be manually verified).</p>
+</sec>
+<sec id="sec013">
+<title>3.2.2 Choosing a gene weighing system</title>
+<p>The <bold>Phenotype-Weighted</bold> and <bold>Phenotype-Uniform</bold> models for weighing genes (training points for the gene classifier) that were described in Section 5.2.2 have been tested on our dataset, and the results are captured in <xref ref-type="fig" rid="pone.0139656.g001">Fig 1b–1d</xref>. As expected, gene classification accuracy improves with the introduction of the gene weights, since the model learns to focus on those GO terms that are consistent with prior knowledge regarding gene-phenotype associations. Similarly, CNV precision is boosted by these weights and continues to improve as we take into consideration the relevance of more close neighbors, without reducing the recall.</p>
+</sec>
+</sec>
+<sec id="sec014">
+<title>3.3 Performance on CNV prioritization</title>
+<p>Among the different setups presented in sections 5.2.1 and 5.2.2, we have chosen the parameters which produce the best results on our data: (1) the <bold>Network-Weighted model</bold> for feature weighting, (2) the <bold>Phenotype-Weighted</bold>-based gene weighting, and (3) 10 closest neighbors for relevant GO term incorporation. As shown before in <xref ref-type="fig" rid="pone.0139656.g001">Fig 1</xref> which summarizes the results, using these weights derived from gene interaction data and from known gene-phenotype associations leads to a precision of 76.65% and a 99.13% recall computed as the average over 20 runs.</p>
+<p>After choosing the best-performing parameters for our method, we compared it to two other simple classifiers that take into account the length of the CNV and its occurrences in DGV respectively, which are known to correlate well with the harmfulness of a CNV. The results of this comparison are depicted in <xref ref-type="fig" rid="pone.0139656.g002">Fig 2</xref>. Our gene-based method has a better recall (99.13%) than the DGV classifier (95.05%), and significantly outperforms the classification based solely on the CNV length (63.03%), yet the latter is more precise (99.21%). The overall accuracy (based on F-measure) shows the gene-based method as the best performing of the three.</p>
+<fig id="pone.0139656.g002" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0139656.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title>Precision, recall and f-measure for CNVs when combining the three following features length, DGV and gene.</title>
+<p>Length is the CNV length. DGV is a measure of the CNV’s frequency in the Database of Genomic Variants. Gene is the feature derived from the previous machine learning step in this method.</p>
+</caption>
+<graphic xlink:href="pone.0139656.g002"></graphic>
+</fig>
+<p>Since the three sources of information for establishing CNV harmfulness have different strengths (e.g. our gene-based method has a very low false positive rate, while the length-based classification is very precise), we looked into combining them into a single classifier (described in Section 5.3) in order to achieve better accuracy. <xref ref-type="fig" rid="pone.0139656.g002">Fig 2</xref> presents the performance of various combinations. For example, length and DGV-overlaps achieve together an F-measure of 84.06%, but adding the gene-harmfulness evidence obtained by our method will further improve the score up to 91.59%. To better understand this improvement, we evaluated our method on the CNVs that have been incorrectly classified by Length-DGV classifier, and obtained the correct labeling in 34 (92%) of the cases. This result emphasizes the ability of our method to capture correlations between gene information and CNV harmfulness that elude the classifier based on length and DGV overlaps.</p>
+<p>To sum up the findings depicted in <xref ref-type="fig" rid="pone.0139656.g002">Fig 2</xref>, our approach for assessing CNV harmfulness based on gene and phenotype evidence outperforms the classifiers based on CNV length and DGV overlaps. Combining the gene feature along with the CNV length and DGV overlaps in a Naive Bayes model produces an F-score of 91.59%—the highest among all the evaluated models, with a 87.08% precision and a 97.00% recall measured on our dataset.</p>
+<p>When testing the final classifier that combines all three features on an unbalanced dataset, where we test on whole patients and beign CNVs outnumber harmful ones by ∼ 15 : 1, we achieve an F-score of 64.29%, with a 48.07% precision and a 97.01% recall. Our recall remains high while the precision drops on an unbalanced dataset.</p>
+</sec>
+</sec>
+<sec id="sec015">
+<title>4 Discussion</title>
+<p>Current advances in genotyping, including microarrays and High Throughput Sequencing (HTS) technologies, allow for inexpensive and accurate identification of the millions of genetic variants, including Single Nucleotide and Copy Number Variants (SNVs and CNVs) present in any human. However, the clinical use of whole-genome genotyping, whether array or sequencing-based, has been hindered by the difficulty of identifying disease-causing variants amongst the millions of differences between human genomes. Current methods utilize phenotype-gene correlations to assist the prioritization of genes for a specific disease, rather than for discovering clinically harmful genes (and CNVs).</p>
+<p>In this paper we presented a method to combine functional context and phenotype to discover clinically harmful genes (and CNVs) in patients with a variety of disorders. Our results show that incorporating this information leads to a substantial improvement in recall. We achieved an F-score of 91.59%, with 87.08% precision and 97.00% recall on our dataset of Agilent CGH 180k Microarray CNVs. This high recall is a significant advantage of our model. It is unlikely to “miss” a harmful variant with such a low false negative rate so CNVs classified as benign will have a low priority of manual verification. This is highly desirable for a diagnostic test.</p>
+<p>While the recall is near perfect, the precision could be improved. A natural extension to this method lies in the transition between the gene and CNV classification steps. In this paper, a simple “boolean or” is used to determine the CNV’s classification from its overlapping genes. This method considers any CNV with at least a single harmful gene to be classified as harmful and leads to an overcalling of harmful CNVs. Using a less simplistic method for combining the gene classifications such as the “noisy or” to weigh each gene by its confidence value may improve the precision.</p>
+</sec>
+<sec id="sec016">
+<title>5 Methods</title>
+<p>This study was approved by the Hospital for Sick Children’s Research Ethics Board. All patient information was anonymized and de-identified prior to analysis.</p>
+<p>Our method for classifying harmful CNVs relies on two orthogonal types of phenotypic and genetic data: <bold>(1) phenotypic descriptions</bold> of patients and the relationships between these phenotypes as specified by HPO, together with their non-exhaustive associations to disease genes (via OMIM), and <bold>(2) genes affected by CNVs and gene interactions</bold> (via GeneMANIA), with their respective functions according to GO.</p>
+<p>To establish whether a CNV and its affected genes could be responsible for the phenotypes observed within a patient, we design a classifier that utilizes multiple types of prior biological knowledge, overviewed in <xref ref-type="fig" rid="pone.0139656.g003">Fig 3</xref>. In particular, our method uses phenotype-genotype correlations, gene interaction networks, and gene function to identify genes within each CNV which are most likely to be responsible for the observed patient phenotypes. This gene prediction is then combined with additional information to predict the harmfulness of the CNV.</p>
+<fig id="pone.0139656.g003" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0139656.g003</object-id>
+<label>Fig 3</label>
+<caption>
+<title>Databases, ontologies and known associations used to identify CNV-phenotype correlations.</title>
+<p>Our approach integrates 3 types of information: 1) CNVs an their non-exhaustive frequency in healthy individuals, 2) genes and gene interactions, with their respective functions (each gene within a CNV is weighted by its likelihood of contributing to the phenotypes; via semantic similarity within the GO ontology), and 3) phenotypic descriptions and relationships between them as specified by HPO, with their non-exhaustive associations to disease genes (via OMIM). For an individuals variants and known HPO phenotypes, genes affected by these variants are highlighted within the gene interaction network, while the phenotypes are emphasized in the phenotype ontology layer.</p>
+</caption>
+<graphic xlink:href="pone.0139656.g003"></graphic>
+</fig>
+<sec id="sec017">
+<title>5.1 Classifier Overview</title>
+<p>Our method involves using two classifiers: the Gene classifier (see Section 5.2) and the CNV classifier (see Section 5.3). The output of the first results in an input to the second. <xref ref-type="table" rid="pone.0139656.t001">Table 1</xref> summarizes the features utilized by these classifiers.</p>
+<table-wrap id="pone.0139656.t001" orientation="portrait" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0139656.t001</object-id>
+<label>Table 1</label>
+<caption>
+<title>The overall structure of the two layer classifier, with the output of hte Gene Classifier being one of the inputs to the CNV classifier.</title>
+</caption>
+<alternatives>
+<graphic id="pone.0139656.t001g" xlink:href="pone.0139656.t001"></graphic>
+<table border="0" frame="box" rules="all">
+<colgroup span="1">
+<col align="left" span="1" valign="top"/>
+<col align="left" span="1" valign="top"/>
+<col align="left" span="1" valign="top"/>
+</colgroup>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Gene Classifier:</td>
+<td align="left" colspan="1" rowspan="1">Random Forest</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Inputs:</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">GO terms</td>
+<td align="left" colspan="1" rowspan="1">&lt; <italic>Float</italic> &gt;</td>
+<td align="left" colspan="1" rowspan="1">The “impact” of the gene on each GO term, calculated in 5.2.1.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">HPO terms</td>
+<td align="left" colspan="1" rowspan="1">&lt; <italic>Bool</italic> &gt;</td>
+<td align="left" colspan="1" rowspan="1">Vector of all phenotypes, with those present in the current individual set to 1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<bold>Output</bold>:</td>
+<td align="left" colspan="1" rowspan="1">Bool: CausativeGene</td>
+<td align="left" colspan="1" rowspan="1">Whether this gene is likely causative of the observed phenotypes</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">CNV Classifier:</td>
+<td align="left" colspan="1" rowspan="1">Naive Bayes</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Inputs:</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">CausativeGene</td>
+<td align="left" colspan="1" rowspan="1">Bool</td>
+<td align="left" colspan="1" rowspan="1">The ‘OR’ of CausativeGene status of genes in this CNV from above.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Length</td>
+<td align="left" colspan="1" rowspan="1">Int</td>
+<td align="left" colspan="1" rowspan="1">The length of the CNV.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">DGV</td>
+<td align="left" colspan="1" rowspan="1">Float</td>
+<td align="left" colspan="1" rowspan="1">Score describing whether the CNV is commonly observed in controls (see 5.3).</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<bold>Output</bold>:</td>
+<td align="left" colspan="1" rowspan="1">Harmful/Benign</td>
+<td align="left" colspan="1" rowspan="1">Harmfulness prediction for the CNV.</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+</table-wrap>
+<p>Our method is designed to deal with missing data, biases, and other artifacts. An example of missing data is the HPO annotations that relate phenotypes to causative genes. These are likely only a small subset of all existing associations. One bias with gene-gene interactions is that some have been proven experimentally while others are inferred by association, e.g. co-expression. To overcome these issues, we train classifiers to recognize data that is consistent with the provided patient samples.</p>
+<sec id="sec018">
+<title>5.1.1 Train/test split and Experimental setup</title>
+<p>For each experiment, we randomly split the CNVs into three sets, which are balanced regarding the representation of each phenotype in the sets and the <italic>harmful:benign</italic> ratio in the training data. The three sets consist of 50% of the CNVs for training the gene classifier, 25% for testing the gene classifier and training the CNV classifier, and 25% for testing the CNV classifier. We test our method on a balanced collection of benign and harmful CNVs. To do so, we iterate through the phenotypes present in the dataset and we select randomly two cases and two controls (CNVs) that are equally distributed into the training and test sets. When it is no longer possible to select two cases and two controls for the two pools, we proceed to the next available phenotype. In certain experiments, we also utilized an “unbalanced” regime, where the above split was based on patients rather than CNVs, and all of the CNVs for a specific patient were assigned to the appropriate benign and harmful categories. This “unbalanced” regime correspond more closely to the clinical setting, where all of the CNVs for a specific patient, the majority of which are benign, are presented for analysis.</p>
+<p>All experiments presented in this paper are the aggregation of 20 different runs on random training / testing splits of our initial dataset.</p>
+</sec>
+</sec>
+<sec id="sec019">
+<title>5.2 Gene Classification method</title>
+<p>The data points used for training and testing the gene classification model are genes affected by the CNVs present in the dataset. A feature vector describes every one of these data points where each feature is a gene function from GO Slim. Since our original data does not comprise any information regarding the actual causative gene for each harmful CNVs, the <italic>harmful / benign</italic> labeling of CNVs from the training set was propagated directly to the underlying genes. In previous subsections we present and evaluate various options for assigning training weights to features (GO terms) and data points (genes) based on known gene-phenotype associations and gene interaction networks.</p>
+<p>We used the implementation of Random Forests [<xref ref-type="bibr" rid="pone.0139656.ref029">29</xref>] provided by the Weka software package for Machine Learning [<xref ref-type="bibr" rid="pone.0139656.ref030">30</xref>]. Weka is a tool for data analysis that includes implementations of data pre-processing, classification, regression, clustering, association rules, and visualization by different algorithms. Random forests are a machine learning ensemble method of decision trees. We used random forests because their error rates comparable to other ensemble methods such as AdaBoost [<xref ref-type="bibr" rid="pone.0139656.ref031">31</xref>], while they are more robust to noise [<xref ref-type="bibr" rid="pone.0139656.ref032">32</xref>] which is likely to be introduced by our naive transfer of harmful/benign labels from CNVs to genes.</p>
+<sec id="sec020">
+<title>5.2.1 Feature weighing by incorporating gene interactions</title>
+<p>Because we wish that our feature set offer a good overview of the functions affected by any given variant, we expand the GO feature subset to GO terms that annotate genes known to interact with those represented by our data points. We obtain the most relevant neighbors of a gene by <italic>random walk</italic> on a gene network generated by GeneMANIA, and use the GeneMANIA network weights to derive feature weights for the GO terms describing our genes. In this section we propose several feature weighing systems and evaluate their effect on the performance of our model.</p>
+<p>We used GeneMANIA’s <italic>Homo sapiens precombined</italic> to create a network of most relevant genes that interact with the ones being investigated. We filtered the network to retain the top 5% of the strongest interactions. We translated the weighted interactions into distances to prepare the graph for Dijkstra’s algorithm. Dijkstra’s algorithm was used to select subnetworks centered on these genes comprising the closest 30 neighbors. This is to restrict the neighbours that we consider to those that are more relevant and to reduce the run time of the random walk. Dijkstra’s algorithm finds the shortest path which corresponds to the closest neighbors due to how we set the distance between nodes to be inversely proportional to the weight of the interaction. To any edge connecting two gene nodes <italic>g</italic>
+<sub><italic>i</italic></sub> and <italic>g</italic>
+<sub><italic>j</italic></sub>, we assigned a distance <italic>d</italic>
+<sub><italic>g</italic><sub><italic>i</italic></sub>, <italic>g</italic><sub><italic>j</italic></sub></sub> inversely proportional to its weight:
+<disp-formula id="pone.0139656.e003"><alternatives><graphic id="pone.0139656.e003g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e003.jpg"></graphic><mml:math id="M3"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mo form="prefix" movablelimits="true">max</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>v</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:msub><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>v</mml:mi></mml:msub></mml:mrow></mml:msub></mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:msub></mml:mfrac></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(3)</label></disp-formula>
+where max<sub>(<italic>g</italic><sub><italic>u</italic></sub>, <italic>g</italic><sub><italic>v</italic></sub>)</sub>
+<italic>w</italic>
+<sub><italic>g</italic><sub><italic>u</italic></sub>, <italic>g</italic><sub><italic>v</italic></sub></sub> is maximum weight found in the entire network. Instead of only using pairwise interactions between genes, we would like to rank the interaction between the query gene and the genes in the subnetwork using information from the whole subnetwork. This is accomplished using a random walk. In each subnetwork of closely related genes, we added a <italic>sink</italic> node adjacent to all genes that had at least one connection removed when generating the subnetwork. A sink node was used to replace the lost connections due to using subnetwork instead of the whole network. The weight of the edge between such a gene and the sink is the sum of the weights of all the connections removed for that gene. We then estimate the strength of interaction between any gene in the subnetwork and the original query gene as the probability distribution of being at any particular node, calculated by a <italic>random walk</italic>, and use these probabilities to rank the closest interactions of a gene. These ranks dictate the order in which we consider the closest neighbors <italic>g</italic>
+<sub><italic>n</italic></sub> of a query gene <italic>g</italic>
+<sub><italic>q</italic></sub>, with weights inversely proportional to the Dijkstra path distance:
+<disp-formula id="pone.0139656.e004"><alternatives><graphic id="pone.0139656.e004g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e004.jpg"></graphic><mml:math id="M4"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mo form="prefix" movablelimits="true">max</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>v</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:msub><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>v</mml:mi></mml:msub></mml:mrow></mml:msub></mml:mrow><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:msub></mml:mfrac><mml:mo>.</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(4)</label></disp-formula>
+</p>
+<p>Having obtained the most relevant neighboring genes, we extend the original feature set of the target gene by adding all the GO Slim terms that annotate these neighbors as features. Let <italic>g</italic>
+<sub><italic>q</italic></sub> be a query gene residing in an investigated CNV, and <italic>subnetwork</italic>(<italic>g</italic>
+<sub><italic>q</italic></sub>) denote the weighted graph containing its most relevant neighbors. We have explored several approaches of assigning weights to these features:
+<list list-type="simple"><list-item><p>
+<bold>Network-Uniform:</bold> The value 1 is assigned to any GO term feature (<italic>fWeight</italic>
+<sub><italic>u</italic></sub>(<italic>f</italic>) = 1), regardless whether it annotates the affected gene or one of its neighbors.</p></list-item><list-item><p>
+<bold>Network-Weighted:</bold> The weight of a GO feature <italic>f</italic> is made dependent on the rank <italic>r</italic>
+<sub><italic>g</italic><sub><italic>q</italic></sub>, <italic>g</italic><sub><italic>n</italic></sub></sub> by random walk of the gene neighbor <italic>g</italic>
+<sub><italic>n</italic></sub> with which it is associated, and the evidence tier level <italic>e</italic>
+<sub><italic>f</italic>, <italic>g</italic><sub><italic>n</italic></sub></sub> associating the GO term <italic>f</italic> to the gene <italic>g</italic>
+<sub><italic>q</italic></sub>:
+<disp-formula id="pone.0139656.e005"><alternatives><graphic id="pone.0139656.e005g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e005.jpg"></graphic><mml:math id="M5"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>f</mml:mi><mml:mi>W</mml:mi><mml:mi>e</mml:mi><mml:mi>i</mml:mi><mml:mi>g</mml:mi><mml:mi>h</mml:mi><mml:msub><mml:mi>t</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>f</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mo>∑</mml:mo><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:mi>s</mml:mi><mml:mi>u</mml:mi><mml:mi>b</mml:mi><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>t</mml:mi><mml:mi>w</mml:mi><mml:mi>o</mml:mi><mml:mi>r</mml:mi><mml:mi>k</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:munder><mml:mrow><mml:mfrac><mml:mn>1</mml:mn><mml:msup><mml:mn>10</mml:mn><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:msub></mml:msup></mml:mfrac><mml:mo>·</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:msup><mml:mn>10</mml:mn><mml:msub><mml:mi>e</mml:mi><mml:mrow><mml:mi>f</mml:mi><mml:mo>,</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:msub></mml:msup></mml:mfrac></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(5)</label></disp-formula>
+where, for convenience, we consider <italic>r</italic>
+<sub><italic>g</italic><sub><italic>q</italic></sub>, <italic>g</italic><sub><italic>q</italic></sub></sub> = 0. The evidence tier level <italic>e</italic> associates the value 1 (i.e. more strength) to experimentally proved sources, and 2 to computational evidence sources and other inferred sources. Mappings between genes and GO terms that have no traceable source or no data support are ignored. While evidence codes cannot be used as a measure of the quality of the annotation, we have found that using the above broad categories have improved the algorithm.</p></list-item></list>
+</p>
+</sec>
+<sec id="sec021">
+<title>5.2.2 Gene weighing via known gene-phenotype associations</title>
+<p>In this section we explain the weighing of training data points (genes). This weighting depends on the genes relevance to the associated phenotype, based on previously known gene-phenotype associations.</p>
+<p>For each gene <italic>g</italic>
+<sub><italic>q</italic></sub> affected by a CNV of a patient <italic>q</italic> presenting the phenotypes <italic>P</italic>
+<sub><italic>q</italic></sub>, we compute <italic>relevance</italic>(<italic>g</italic>
+<sub><italic>q</italic></sub>, <italic>P</italic>
+<sub><italic>q</italic></sub>) given by <xref ref-type="disp-formula" rid="pone.0139656.e006">Eq (6)</xref>. This relevance expresses how likely it is for that gene to be the actual cause of the observed phenotypes <italic>P</italic>
+<sub><italic>q</italic></sub>, based on prior knowledge regarding genes implicated in phenotypes strongly similar to <italic>P</italic>
+<sub><italic>q</italic></sub>. The method computing <italic>relevance</italic>(<italic>g</italic>
+<sub><italic>q</italic></sub>, <italic>P</italic>
+<sub><italic>q</italic></sub>) relies on the similarity between the gene and other genes known to cause phenotypes very similar to <italic>P</italic>
+<sub><italic>q</italic></sub>. The relevance score has two components: the functional similarity of genes and the relatedness of phenotypes. Let <italic>D</italic> = {<italic>e</italic>
+<sub><italic>t</italic></sub> = (<italic>g</italic>
+<sub><italic>t</italic></sub>, <italic>P</italic>
+<sub><italic>t</italic></sub>)} be the mapping between genes and sets of phenotypes they may produce if mutated. We further labeled each gene with its Gene Ontology functions, as explained in section 3.1.2. Let <italic>GO</italic>(<italic>g</italic>) denote the set of GO terms associated with a gene <italic>g</italic>. Note that at this point each entry (<italic>gene</italic>, <italic>phenotypes</italic>) is expressed as two sets of ontology terms: a set of GO terms describing gene functions and a set of HPO terms describing the observed phenotypes. Then we can compute the score of <italic>g</italic>
+<sub><italic>q</italic></sub> with respect to the phenotypes <italic>P</italic>
+<sub><italic>q</italic></sub> as:
+<disp-formula id="pone.0139656.e006"><alternatives><graphic id="pone.0139656.e006g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e006.jpg"></graphic><mml:math id="M6"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>v</mml:mi><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mo form="prefix" movablelimits="true">max</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mi>g</mml:mi><mml:mo>,</mml:mo><mml:mi>P</mml:mi><mml:mo>)</mml:mo><mml:mo>∈</mml:mo><mml:mi>D</mml:mi></mml:mrow></mml:munder><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mo>(</mml:mo><mml:mi>G</mml:mi><mml:mi>O</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mi>G</mml:mi><mml:mi>O</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>g</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>)</mml:mo><mml:mo>·</mml:mo><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>P</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(6)</label></disp-formula>
+where the similarity <italic>sim</italic>(<italic>X</italic>, <italic>Y</italic>) between two sets of ontology terms (either HPO or GO) is based on information content and is given by <xref ref-type="disp-formula" rid="pone.0139656.e001">Eq (1)</xref> in Section 2. If this relevance score is zero, we identify the gene’s closest neighbors (see Section 5.2.1) and use the maximum relevance score among the neighbors, scaled by the Dijkstra weight given in <xref ref-type="disp-formula" rid="pone.0139656.e004">Eq (4)</xref>.</p>
+<p>The scores obtained according to <xref ref-type="disp-formula" rid="pone.0139656.e006">Eq (6)</xref>, which combine the similarity of gene functions with phenotype similarity, ensure that both sources of evidence are present when inferring the possible involvement of a gene affected by a CNV in the observed phenotype. We assign to each of our training data points weights that are proportional to their relevance score, and we expect this procedure to help the classification algorithm focus on genes that are more informative, according to prior knowledge. The weight of a gene <italic>g</italic>
+<sub><italic>q</italic></sub> affected by a CNV <italic>C</italic> of a patient presenting the phenotypes <italic>P</italic> is calculated as:
+<disp-formula id="pone.0139656.e007"><alternatives><graphic id="pone.0139656.e007g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e007.jpg"></graphic><mml:math id="M7"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>g</mml:mi><mml:mi>W</mml:mi><mml:mi>e</mml:mi><mml:mi>i</mml:mi><mml:mi>g</mml:mi><mml:mi>h</mml:mi><mml:msub><mml:mi>t</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mrow><mml:mo>⌈</mml:mo><mml:mfrac><mml:mrow><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>v</mml:mi><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>P</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mspace width="4.pt"></mml:mspace><mml:mtext>affected</mml:mtext><mml:mspace width="4.pt"></mml:mspace><mml:mtext>by</mml:mtext><mml:mspace width="4.pt"></mml:mspace><mml:mi>C</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>v</mml:mi><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>P</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mfrac><mml:mo>·</mml:mo><mml:mn>1000</mml:mn><mml:mo>⌉</mml:mo></mml:mrow><mml:mo>.</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(7)</label></disp-formula>
+and is interpreted as the number of copies representing each gene in the training set. Note that in this setup each CNV is equally represented in the training set by a total of 1,000 copies of genes. 1,000 genes per CNV was found to give enough granularity to the training data to make the weighting relevant vs the actual number of genes within the CNVs. As an exception, CNVs containing only genes with zero relevance get a single copy per gene, since we consider such genes mostly uninformative and prone to introducing noise in the training set.</p>
+<p>In the Results section above, we compare the performance of this <bold>Phenotype-Weighted</bold> model expressed by <xref ref-type="disp-formula" rid="pone.0139656.e007">Eq (7)</xref> with the <bold>Phenotype-Uniform</bold> model, where the gene relevance with respect to the given phenotype is not taken into account, and each gene of the CNV has the same number of copies:
+<disp-formula id="pone.0139656.e008"><alternatives><graphic id="pone.0139656.e008g" mimetype="image" orientation="portrait" position="anchor" xlink:href="pone.0139656.e008.jpg"></graphic><mml:math id="M8"><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>g</mml:mi><mml:mi>W</mml:mi><mml:mi>e</mml:mi><mml:mi>i</mml:mi><mml:mi>g</mml:mi><mml:mi>h</mml:mi><mml:msub><mml:mi>t</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mrow><mml:mo>⌈</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:mo>#</mml:mo><mml:mo>(</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mspace width="4.pt"></mml:mspace><mml:mtext>affected</mml:mtext><mml:mspace width="4.pt"></mml:mspace><mml:mtext>by</mml:mtext><mml:mspace width="4.pt"></mml:mspace><mml:mi>C</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mfrac><mml:mo>·</mml:mo><mml:mn>1000</mml:mn><mml:mo>⌉</mml:mo></mml:mrow><mml:mo>.</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></alternatives><label>(8)</label></disp-formula>
+</p>
+</sec>
+</sec>
+<sec id="sec022">
+<title>5.3 CNV Classification method</title>
+<p>A preliminary analysis of the available data (<xref ref-type="fig" rid="pone.0139656.g001">Fig 1a</xref>) revealed that the harmfulness of a CNV is highly correlated with its length, the number of mutated genes and the number of affected gene functions. The unbalanced numbers of affected gene functions between harmful and benign CNVs are likely to lead most classification methods to false correlations between the presence of a certain GO term in the description of the CNV and its harmfulness. Furthermore, treating a CNV as a whole does not make it easy to eventually infer the actual causative gene.</p>
+<p>We hence run the Gene Classifier, described above, for each gene within the CNV. The Gene Classifier will decide whether the CNV contains at least one gene that is potentially causative of the observed phenotype. We assign the <italic>causative_gene</italic> feature for any given CNV a <monospace>true</monospace>/<monospace>false</monospace> value according to this result.</p>
+<p>We also use the CNV’s <italic>length</italic> and the CNV’s frequency in the Database of Genomic Varaiants [<xref ref-type="bibr" rid="pone.0139656.ref033">33</xref>] (a large collection of benign variants) as additional features for the CNV classification method. The value of the latter is computed by merging all CNVs within each DGV study to define regions of the genome that we believe are benign. Then, for any given query CNV, we find all of the merged DGV variants that overlap with at least 50% of its length. The sum of the percentage overlap for each of these DGV CNVs is the value assigned to the <italic>DGV_frequecy</italic> feature.</p>
+<p>The implementation of Naive Bayes provided by Weka is then trained and tested on CNVs described by these three features. Naive bayes is a machine learning classifier based on Bayes rule, which assumes independence of the features. We chose to use Naive Bayes at this level since the resulting model is easy to interpret and there are only three features.</p>
+</sec>
+</sec>
+<sec id="sec023" sec-type="supplementary-material">
+<title>Supporting Information</title>
+<supplementary-material content-type="local-data" id="pone.0139656.s001">
+<label>S1 Table</label>
+<caption>
+<title>Agilent CGH 180k Microarray CNVs.</title>
+<p>The columns are chromosome, start, end, type [DUP/DEL], phenotype, classification [HARMFUL/BENIGN].</p>
+<p>(TXT)</p>
+</caption>
+<media xlink:href="pone.0139656.s001.txt">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ref-list>
+<title>References</title>
+<ref id="pone.0139656.ref001">
+<label>1</label>
+<mixed-citation publication-type="journal">
+<name><surname>Craddock</surname><given-names>N</given-names></name>, <name><surname>Hurles</surname><given-names>ME</given-names></name>, <name><surname>Cardin</surname><given-names>N</given-names></name>, <name><surname>Pearson</surname><given-names>RD</given-names></name>, <name><surname>Plagnol</surname><given-names>V</given-names></name>, <name><surname>Robson</surname><given-names>S</given-names></name>, <etal>et al</etal>
+<article-title>Genome-wide association study of CNVs in 16,000 cases of eight common diseases and 3,000 shared controls</article-title>. <source/>Nature. <year>2010</year>;<volume>464</volume>(<issue>7289</issue>):<fpage>713</fpage>–<lpage>720</lpage>. <pub-id pub-id-type="doi">10.1038/nature08979</pub-id>
+<pub-id pub-id-type="pmid">20360734</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref002">
+<label>2</label>
+<mixed-citation publication-type="journal">
+<name><surname>Durbin</surname><given-names>RM</given-names></name>, <name><surname>Altshuler</surname><given-names>DL</given-names></name>, <name><surname>Abecasis</surname><given-names>GR</given-names></name>, <name><surname>Bentley</surname><given-names>DR</given-names></name>, <name><surname>Chakravarti</surname><given-names>A</given-names></name>, <name><surname>Clark</surname><given-names>AG</given-names></name>, <etal>et al</etal>
+<article-title>A map of human genome variation from population-scale sequencing</article-title>. <source/>Nature. <year>2010</year>;<volume>467</volume>(<issue>7319</issue>):<fpage>1061</fpage>–<lpage>1073</lpage>. <pub-id pub-id-type="doi">10.1038/nature09534</pub-id>
+<pub-id pub-id-type="pmid">20981092</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref003">
+<label>3</label>
+<mixed-citation publication-type="journal">
+<name><surname>Birney</surname><given-names>E</given-names></name>, <name><surname>Stamatoyannopoulos</surname><given-names>JA</given-names></name>, <name><surname>Dutta</surname><given-names>A</given-names></name>, <name><surname>Guigó</surname><given-names>R</given-names></name>, <name><surname>Gingeras</surname><given-names>TR</given-names></name>, <name><surname>Margulies</surname><given-names>EH</given-names></name>, <etal>et al</etal>
+<article-title>Identification and analysis of functional elements in 1% of the human genome by the ENCODE pilot project</article-title>. <source/>Nature. <year>2007</year>;<volume>447</volume>(<issue>7146</issue>):<fpage>799</fpage>–<lpage>816</lpage>. <pub-id pub-id-type="doi">10.1038/nature05874</pub-id>
+<pub-id pub-id-type="pmid">17571346</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref004">
+<label>4</label>
+<mixed-citation publication-type="journal">
+<name><surname>Adzhubei</surname><given-names>IA</given-names></name>, <name><surname>Schmidt</surname><given-names>S</given-names></name>, <name><surname>Peshkin</surname><given-names>L</given-names></name>, <name><surname>Ramensky</surname><given-names>VE</given-names></name>, <name><surname>Gerasimova</surname><given-names>A</given-names></name>, <name><surname>Bork</surname><given-names>P</given-names></name>, <etal>et al</etal>
+<article-title>A method and server for predicting damaging missense mutations</article-title>. <source/>Nat Methods. <year>2010</year>
+<month>4</month>;<volume>7</volume>(<issue>4</issue>):<fpage>248</fpage>–<lpage>249</lpage>. <pub-id pub-id-type="doi">10.1038/nmeth0410-248</pub-id>
+<pub-id pub-id-type="pmid">20354512</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref005">
+<label>5</label>
+<mixed-citation publication-type="journal">
+<name><surname>Kumar</surname><given-names>P</given-names></name>, <name><surname>Henikoff</surname><given-names>S</given-names></name>, <name><surname>Ng</surname><given-names>PC</given-names></name>. <article-title>Predicting the effects of coding non-synonymous variants on protein function using the SIFT algorithm</article-title>. <source/>Nature protocols. <year>2009</year>
+<month>6</month>;<volume>4</volume>(<issue>7</issue>):<fpage>1073</fpage>–<lpage>1081</lpage>. <pub-id pub-id-type="doi">10.1038/nprot.2009.86</pub-id>
+<pub-id pub-id-type="pmid">19561590</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref006">
+<label>6</label>
+<mixed-citation publication-type="journal">
+<name><surname>Cooper</surname><given-names>GM</given-names></name>, <name><surname>Shendure</surname><given-names>J</given-names></name>. <article-title>Needles in stacks of needles: finding disease-causal variants in a wealth of genomic data</article-title>. <source/>Nature Reviews Genetics. <year>2011</year>;<volume>12</volume>(<issue>9</issue>):<fpage>628</fpage>–<lpage>640</lpage>. <pub-id pub-id-type="doi">10.1038/nrg3046</pub-id>
+<pub-id pub-id-type="pmid">21850043</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref007">
+<label>7</label>
+<mixed-citation publication-type="journal">
+<name><surname>Iafrate</surname><given-names>AJ</given-names></name>, <name><surname>Feuk</surname><given-names>L</given-names></name>, <name><surname>Rivera</surname><given-names>MN</given-names></name>, <name><surname>Listewnik</surname><given-names>ML</given-names></name>, <name><surname>Donahoe</surname><given-names>PK</given-names></name>, <name><surname>Qi</surname><given-names>Y</given-names></name>, <etal>et al</etal>
+<article-title>Detection of large-scale variation in the human genome</article-title>. <source/>Nature genetics. <year>2004</year>;<volume>36</volume>(<issue>9</issue>):<fpage>949</fpage>–<lpage>951</lpage>. <pub-id pub-id-type="doi">10.1038/ng1416</pub-id>
+<pub-id pub-id-type="pmid">15286789</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref008">
+<label>8</label>
+<mixed-citation publication-type="journal">
+<name><surname>Buske</surname><given-names>OJ</given-names></name>, <name><surname>Manickaraj</surname><given-names>A</given-names></name>, <name><surname>Mital</surname><given-names>S</given-names></name>, <name><surname>Ray</surname><given-names>PN</given-names></name>, <name><surname>Brudno</surname><given-names>M</given-names></name>. <article-title>Identification of deleterious synonymous variants in human genomes</article-title>. <source/>Bioinformatics. <year>2013</year>;<volume>29</volume>(<issue>15</issue>):<fpage>1843</fpage>–<lpage>1850</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btt308</pub-id>
+. Available from:<pub-id pub-id-type="pmid">23736532</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref009">
+<label>9</label>
+<mixed-citation publication-type="journal">
+<name><surname>Nobrega</surname><given-names>MA</given-names></name>, <name><surname>Zhu</surname><given-names>Y</given-names></name>, <name><surname>Plajzer-Frick</surname><given-names>I</given-names></name>, <name><surname>Afzal</surname><given-names>V</given-names></name>, <name><surname>Rubin</surname><given-names>EM</given-names></name>. <article-title>Megabase deletions of gene deserts result in viable mice</article-title>. <source/>Nature. <year>2004</year>;<volume>431</volume>(<issue>7011</issue>):<fpage>988</fpage>–<lpage>993</lpage>. <pub-id pub-id-type="doi">10.1038/nature03022</pub-id>
+<pub-id pub-id-type="pmid">15496924</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref010">
+<label>10</label>
+<mixed-citation publication-type="journal">
+<name><surname>Pinto</surname><given-names>D</given-names></name>, <name><surname>Pagnamenta</surname><given-names>AT</given-names></name>, <name><surname>Klei</surname><given-names>L</given-names></name>, <name><surname>Anney</surname><given-names>R</given-names></name>, <name><surname>Merico</surname><given-names>D</given-names></name>, <name><surname>Regan</surname><given-names>R</given-names></name>, <etal>et al</etal>
+<article-title>Functional impact of global rare copy number variation in autism spectrum disorders</article-title>. <source/>Nature. <year>2010</year>;<volume>466</volume>(<issue>7304</issue>):<fpage>368</fpage>–<lpage>372</lpage>. <pub-id pub-id-type="doi">10.1038/nature09146</pub-id>
+<pub-id pub-id-type="pmid">20531469</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref011">
+<label>11</label>
+<mixed-citation publication-type="journal">
+<name><surname>Rossin</surname><given-names>EJ</given-names></name>, <name><surname>Lage</surname><given-names>K</given-names></name>, <name><surname>Raychaudhuri</surname><given-names>S</given-names></name>, <name><surname>Xavier</surname><given-names>RJ</given-names></name>, <name><surname>Tatar</surname><given-names>D</given-names></name>, <name><surname>Benita</surname><given-names>Y</given-names></name>, <etal>et al</etal>
+<article-title>Proteins encoded in genomic regions associated with immune-mediated disease physically interact and suggest underlying biology</article-title>. <source/>PLoS genetics. <year>2011</year>;<volume>7</volume>(<issue>1</issue>):<fpage>e1001273</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1001273</pub-id>
+<pub-id pub-id-type="pmid">21249183</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref012">
+<label>12</label>
+<mixed-citation publication-type="journal">
+<name><surname>Hehir-Kwa</surname><given-names>JY</given-names></name>, <name><surname>Wieskamp</surname><given-names>N</given-names></name>, <name><surname>Webber</surname><given-names>C</given-names></name>, <name><surname>Pfundt</surname><given-names>R</given-names></name>, <name><surname>Brunner</surname><given-names>HG</given-names></name>, <name><surname>Gilissen</surname><given-names>C</given-names></name>, <etal>et al</etal>
+<article-title>Accurate distinction of pathogenic from benign CNVs in mental retardation</article-title>. <source/>PLoS computational biology. <year>2010</year>;<volume>6</volume>(<issue>4</issue>):<fpage>e1000752</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1000752</pub-id>
+<pub-id pub-id-type="pmid">20421931</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref013">
+<label>13</label>
+<mixed-citation publication-type="journal">
+<name><surname>Kanehisa</surname><given-names>M</given-names></name>, <name><surname>Goto</surname><given-names>S</given-names></name>, <name><surname>Kawashima</surname><given-names>S</given-names></name>, <name><surname>Okuno</surname><given-names>Y</given-names></name>, <name><surname>Hattori</surname><given-names>M</given-names></name>. <article-title>The KEGG resource for deciphering the genome</article-title>. <source/>Nucleic Acids Research. <year>2004</year>;<volume>32</volume>(<issue>Database-Issue</issue>):<fpage>277</fpage>–<lpage>280</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkh063</pub-id>
+</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref014">
+<label>14</label>
+<mixed-citation publication-type="journal">
+<name><surname>Blake</surname><given-names>JA</given-names></name>, <name><surname>Bult</surname><given-names>CJ</given-names></name>, <name><surname>Kadin</surname><given-names>JA</given-names></name>, <name><surname>Richardson</surname><given-names>JE</given-names></name>, <name><surname>Eppig</surname><given-names>JT</given-names></name>. <article-title>The Mouse Genome Database (MGD): premier model organism resource for mammalian genomics and genetics</article-title>. <source/>Nucleic Acids Research. <year>2011</year>;<volume>39</volume>(<issue>Database-Issue</issue>):<fpage>842</fpage>–<lpage>848</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkq1008</pub-id>
+</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref015">
+<label>15</label>
+<mixed-citation publication-type="journal">
+<name><surname>Hwang</surname><given-names>TH</given-names></name>, <name><surname>Atluri</surname><given-names>G</given-names></name>, <name><surname>Xie</surname><given-names>MQ</given-names></name>, <name><surname>Dey</surname><given-names>S</given-names></name>, <name><surname>Hong</surname><given-names>C</given-names></name>, <name><surname>Kumar</surname><given-names>V</given-names></name>, <etal>et al</etal>
+<article-title>Co-clustering phenome—genome for phenotype classification and disease gene discovery</article-title>. <source/>Nucleic Acids Research. <year>2012</year>;<volume>1</volume>:<fpage>16</fpage>.</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref016">
+<label>16</label>
+<mixed-citation publication-type="book">
+<name><surname>Xie</surname><given-names>M</given-names></name>, <name><surname>Hwang</surname><given-names>T</given-names></name>, <name><surname>Kuang</surname><given-names>R</given-names></name>. <chapter-title>Prioritizing Disease Genes by Bi-Random Walk</chapter-title> In: <name><surname>Tan</surname><given-names>PN</given-names></name>, <name><surname>Chawla</surname><given-names>S</given-names></name>, <name><surname>Ho</surname><given-names>C</given-names></name>, <name><surname>Bailey</surname><given-names>J</given-names></name>, editors. <source/>Advances in Knowledge Discovery and Data Mining. vol. 7302 of Lecture Notes in Computer Science. <publisher-name>Springer</publisher-name>
+<publisher-loc>Berlin Heidelberg</publisher-loc>; <year>2012</year> p. <fpage>292</fpage>–<lpage>303</lpage>.</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref017">
+<label>17</label>
+<mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>Y</given-names></name>, <name><surname>Jiang</surname><given-names>T</given-names></name>, <name><surname>Jiang</surname><given-names>R</given-names></name>. <article-title>Uncover disease genes by maximizing information flow in the phenome—interactome network</article-title>. <source/>Bioinformatics. <year>2011</year>;<volume>27</volume>(<issue>13</issue>):<fpage>i167</fpage>–<lpage>i176</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btr213</pub-id>
+<pub-id pub-id-type="pmid">21685067</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref018">
+<label>18</label>
+<mixed-citation publication-type="journal">
+<name><surname>Doelken</surname><given-names>SC</given-names></name>, <name><surname>Köhler</surname><given-names>S</given-names></name>, <name><surname>Mungall</surname><given-names>CJ</given-names></name>, <name><surname>Gkoutos</surname><given-names>GV</given-names></name>, <name><surname>Ruef</surname><given-names>BJ</given-names></name>, <name><surname>Smith</surname><given-names>C</given-names></name>, <etal>et al</etal>
+<article-title>Phenotypic overlap in the contribution of individual genes to CNV pathogenicity revealed by cross-species computational analysis of single-gene mutations in humans, mice and zebrafish</article-title>. <source/>Disease Models &amp; Mechanisms. <year>2013</year>
+<month>3</month>;<volume>6</volume>(<issue>2</issue>):<fpage>358</fpage>–<lpage>372</lpage>. <pub-id pub-id-type="doi">10.1242/dmm.010322</pub-id>
+<pub-id pub-id-type="pmid">23104991</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref019">
+<label>19</label>
+<mixed-citation publication-type="journal">
+<name><surname>Hwang</surname><given-names>T</given-names></name>, <name><surname>Atluri</surname><given-names>G</given-names></name>, <name><surname>Kuang</surname><given-names>R</given-names></name>, <name><surname>Kumar</surname><given-names>V</given-names></name>, <name><surname>Starr</surname><given-names>T</given-names></name>, <name><surname>Silverstein</surname><given-names>K</given-names></name>, <etal>et al</etal>
+<article-title>Large-scale integrative network-based analysis identifies common pathways disrupted by copy number alterations across cancers</article-title>. <source/>BMC Genomics. <year>2013</year>
+<month>7</month>;<volume>14</volume>(<issue>1</issue>):<fpage>440</fpage>+ <pub-id pub-id-type="doi">10.1186/1471-2164-14-440</pub-id>
+.<pub-id pub-id-type="pmid">23822816</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref020">
+<label>20</label>
+<mixed-citation publication-type="journal">
+<name><surname>Köhler</surname><given-names>S</given-names></name>, <name><surname>Doelken</surname><given-names>SC</given-names></name>, <name><surname>Mungall</surname><given-names>CJ</given-names></name>, <name><surname>Bauer</surname><given-names>S</given-names></name>, <name><surname>Firth</surname><given-names>HV</given-names></name>, <name><surname>Bailleul-Forestier</surname><given-names>I</given-names></name>, <etal>et al</etal>
+<article-title>The Human Phenotype Ontology project: linking molecular biology and disease through phenotype data</article-title>. <source/>Nucleic Acids Research. <year>2014</year>
+<month>1</month>;<volume>42</volume>(<issue>D1</issue>):<fpage>D966</fpage>–<lpage>D974</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkt1026</pub-id>
+<pub-id pub-id-type="pmid">24217912</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref021">
+<label>21</label>
+<mixed-citation publication-type="journal">
+<name><surname>Hamosh</surname><given-names>A</given-names></name>, <name><surname>Scott</surname><given-names>AF</given-names></name>, <name><surname>Amberger</surname><given-names>JS</given-names></name>, <name><surname>Bocchini</surname><given-names>CA</given-names></name>, <name><surname>McKusick</surname><given-names>VA</given-names></name>. <article-title>Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders</article-title>. <source/>Nucleic acids research. <year>2005</year>;<volume>33</volume>(<issue>suppl 1</issue>):<fpage>D514</fpage>–<lpage>D517</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gki033</pub-id>
+<pub-id pub-id-type="pmid">15608251</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref022">
+<label>22</label>
+<mixed-citation publication-type="journal">
+<name><surname>Harris</surname><given-names>M</given-names></name>, <name><surname>Clark</surname><given-names>J</given-names></name>, <name><surname>Ireland</surname><given-names>A</given-names></name>, <name><surname>Lomax</surname><given-names>J</given-names></name>, <name><surname>Ashburner</surname><given-names>M</given-names></name>, <name><surname>Foulger</surname><given-names>R</given-names></name>, <etal>et al</etal>
+<article-title>The Gene Ontology (GO) database and informatics resource</article-title>. <source/>Nucleic acids research. <year>2004</year>;<volume>32</volume>(<issue>Database issue</issue>):<fpage>D258</fpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkh036</pub-id>
+<pub-id pub-id-type="pmid">14681407</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref023">
+<label>23</label>
+<mixed-citation publication-type="journal">
+<name><surname>Camon</surname><given-names>E</given-names></name>, <name><surname>Magrane</surname><given-names>M</given-names></name>, <name><surname>Barrell</surname><given-names>D</given-names></name>, <name><surname>Lee</surname><given-names>V</given-names></name>, <name><surname>Dimmer</surname><given-names>E</given-names></name>, <name><surname>Maslen</surname><given-names>J</given-names></name>, <etal>et al</etal>
+<article-title>The Gene Ontology annotation (GOA) database: sharing knowledge in Uniprot with Gene Ontology</article-title>. <source/>Nucleic acids research. <year>2004</year>;<volume>32</volume>(<issue>suppl 1</issue>):<fpage>D262</fpage>–<lpage>D266</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkh021</pub-id>
+<pub-id pub-id-type="pmid">14681408</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref024">
+<label>24</label>
+<mixed-citation publication-type="book">
+<name><surname>Resnik</surname><given-names>P</given-names></name>. <chapter-title>Using information content to evaluate semantic similarity in a taxonomy</chapter-title> In: <source/>Proceedings of the 14th international joint conference on Artificial intelligence-Volume 1. <publisher-name>Morgan Kaufmann Publishers Inc.</publisher-name>; <volume>1995</volume> p. <fpage>448</fpage>–<lpage>453</lpage>.</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref025">
+<label>25</label>
+<mixed-citation publication-type="journal">
+<name><surname>Köhler</surname><given-names>S</given-names></name>, <name><surname>Schulz</surname><given-names>MH</given-names></name>, <name><surname>Krawitz</surname><given-names>P</given-names></name>, <name><surname>Bauer</surname><given-names>S</given-names></name>, <name><surname>Dölken</surname><given-names>S</given-names></name>, <name><surname>Ott</surname><given-names>CE</given-names></name>, <etal>et al</etal>
+<article-title>Clinical diagnostics in human genetics with semantic similarity searches in ontologies</article-title>. <source/>The American Journal of Human Genetics. <year>2009</year>;<volume>85</volume>(<issue>4</issue>):<fpage>457</fpage>–<lpage>464</lpage>. <pub-id pub-id-type="doi">10.1016/j.ajhg.2009.09.003</pub-id>
+<pub-id pub-id-type="pmid">19800049</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref026">
+<label>26</label>
+<mixed-citation publication-type="journal">
+<name><surname>Mostafavi</surname><given-names>S</given-names></name>, <name><surname>Ray</surname><given-names>D</given-names></name>, <name><surname>Farley</surname><given-names>DW</given-names></name>, <name><surname>Grouios</surname><given-names>C</given-names></name>, <name><surname>Morris</surname><given-names>Q</given-names></name>. <article-title>GeneMANIA: a real-time multiple association network integration algorithm for predicting gene function</article-title>. <source/>Genome Biology. <year>2008</year>;<volume>9</volume>(<issue>Suppl 1</issue>):<fpage>S4</fpage>+ <pub-id pub-id-type="doi">10.1186/gb-2008-9-s1-s4</pub-id>
+.<pub-id pub-id-type="pmid">18613948</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref027">
+<label>27</label>
+<mixed-citation publication-type="journal">
+<name><surname>Quinlan</surname><given-names>AR</given-names></name>, <name><surname>Hall</surname><given-names>IM</given-names></name>. <article-title>BEDTools: a flexible suite of utilities for comparing genomic features</article-title>. <source/>Bioinformatics. <year>2010</year>;<volume>26</volume>(<issue>6</issue>):<fpage>841</fpage>–<lpage>842</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btq033</pub-id>
+<pub-id pub-id-type="pmid">20110278</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref028">
+<label>28</label>
+<mixed-citation publication-type="journal">
+<name><surname>Kent</surname><given-names>WJ</given-names></name>, <name><surname>Sugnet</surname><given-names>CW</given-names></name>, <name><surname>Furey</surname><given-names>TS</given-names></name>, <name><surname>Roskin</surname><given-names>KM</given-names></name>, <name><surname>Pringle</surname><given-names>TH</given-names></name>, <name><surname>Zahler</surname><given-names>AM</given-names></name>, <etal>et al</etal>
+<article-title>The human genome browser at UCSC</article-title>. <source/>Genome research. <year>2002</year>;<volume>12</volume>(<issue>6</issue>):<fpage>996</fpage>–<lpage>1006</lpage>. <pub-id pub-id-type="doi">10.1101/gr.229102</pub-id>
+<pub-id pub-id-type="pmid">12045153</pub-id></mixed-citation>
+</ref>
+<ref id="pone.0139656.ref029">
+<label>29</label>
+<mixed-citation publication-type="journal">
+<name><surname>Breiman</surname><given-names>L</given-names></name>. <article-title>Random forests</article-title>. <source/>Machine learning. <year>2001</year>;<volume>45</volume>(<issue>1</issue>):<fpage>5</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1023/A:1010933404324</pub-id>
+</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref030">
+<label>30</label>
+<mixed-citation publication-type="journal">
+<name><surname>Hall</surname><given-names>M</given-names></name>, <name><surname>Frank</surname><given-names>E</given-names></name>, <name><surname>Holmes</surname><given-names>G</given-names></name>, <name><surname>Pfahringer</surname><given-names>B</given-names></name>, <name><surname>Reutemann</surname><given-names>P</given-names></name>, <name><surname>Witten</surname><given-names>IH</given-names></name>. <article-title>The WEKA data mining software: an update</article-title>. <source/>ACM SIGKDD Explorations Newsletter. <year>2009</year>;<volume>11</volume>(<issue>1</issue>):<fpage>10</fpage>–<lpage>18</lpage>. <pub-id pub-id-type="doi">10.1145/1656274.1656278</pub-id>
+</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref031">
+<label>31</label>
+<mixed-citation publication-type="other">Freund Y, Schapire RE. Experiments with a New Boosting Algorithm. In: International Conference on Machine Learning; 1996. p. 148–156. Available from: <ext-link ext-link-type="uri" xlink:href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.51.6252">http://citeseerx.ist.psu.edu/viewdoc/summary?doi = 10.1.1.51.6252</ext-link>.</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref032">
+<label>32</label>
+<mixed-citation publication-type="journal">
+<name><surname>Zhao</surname><given-names>Y</given-names></name>, <name><surname>Zhang</surname><given-names>Y</given-names></name>. <article-title>Comparison of decision tree methods for finding active objects</article-title>. <source/>Advances in Space Research. <year>2008</year>;<volume>41</volume>(<issue>12</issue>):<fpage>1955</fpage>–<lpage>1959</lpage>. <pub-id pub-id-type="doi">10.1016/j.asr.2007.07.020</pub-id>
+</mixed-citation>
+</ref>
+<ref id="pone.0139656.ref033">
+<label>33</label>
+<mixed-citation publication-type="journal">
+<name><surname>Iafrate</surname><given-names>AJ</given-names></name>, <name><surname>Feuk</surname><given-names>L</given-names></name>, <name><surname>Rivera</surname><given-names>MN</given-names></name>, <name><surname>Listewnik</surname><given-names>ML</given-names></name>, <name><surname>Donahoe</surname><given-names>PK</given-names></name>, <name><surname>Qi</surname><given-names>Y</given-names></name>, <etal>et al</etal>
+<article-title>Detection of large-scale variation in the human genome</article-title>. <source/>Nature genetics. <year>2004</year>
+<month>9</month>;<volume>36</volume>(<issue>9</issue>):<fpage>949</fpage>–<lpage>951</lpage>. <pub-id pub-id-type="doi">10.1038/ng1416</pub-id>
+<pub-id pub-id-type="pmid">15286789</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

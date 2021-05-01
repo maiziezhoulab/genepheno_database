@@ -1,0 +1,1079 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32165711</article-id>
+<article-id pub-id-type="pmc">7067874</article-id>
+<article-id pub-id-type="publisher-id">61288</article-id>
+<article-id pub-id-type="doi">10.1038/s41598-020-61288-5</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Forecasting risk gene discovery in autism with machine learning and genome-scale data</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Brueggeman</surname>
+<given-names>Leo</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Koomar</surname>
+<given-names>Tanner</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-9713-0992</contrib-id>
+<name>
+<surname>Michaelson</surname>
+<given-names>Jacob J.</given-names>
+</name>
+<address>
+<email>jacob-michaelson@uiowa.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 8294</institution-id><institution-id institution-id-type="GRID">grid.214572.7</institution-id><institution>University of Iowa, Department of Psychiatry, </institution></institution-wrap>Iowa City, IA USA </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 8294</institution-id><institution-id institution-id-type="GRID">grid.214572.7</institution-id><institution>University of Iowa, Interdisciplinary Genetics Program, </institution></institution-wrap>Iowa City, IA USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 8294</institution-id><institution-id institution-id-type="GRID">grid.214572.7</institution-id><institution>University of Iowa, Medical Scientist Training Program, </institution></institution-wrap>Iowa City, IA USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>12</day>
+<month>3</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>12</day>
+<month>3</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>10</volume>
+<elocation-id>4569</elocation-id>
+<history>
+<date date-type="received">
+<day>7</day>
+<month>6</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>10</day>
+<month>2</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2020</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">Genetics has been one of the most powerful windows into the biology of autism spectrum disorder (ASD). It is estimated that a thousand or more genes may confer risk for ASD when functionally perturbed, however, only around 100 genes currently have sufficient evidence to be considered true “autism risk genes”. Massive genetic studies are currently underway producing data to implicate additional genes. This approach — although necessary — is costly and slow-moving, making identification of putative ASD risk genes with existing data vital. Here, we approach autism risk gene discovery as a machine learning problem, rather than a genetic association problem, by using genome-scale data as predictors to identify new genes with similar properties to established autism risk genes. This ensemble method, forecASD, integrates brain gene expression, heterogeneous network data, and previous gene-level predictors of autism association into an ensemble classifier that yields a single score indexing evidence of each gene’s involvement in the etiology of autism. We demonstrate that forecASD has substantially better performance than previous predictors of autism association in three independent trio-based sequencing studies. Studying forecASD prioritized genes, we show that forecASD is a robust indicator of a gene’s involvement in ASD etiology, with diverse applications to gene discovery, differential expression analysis, eQTL prioritization, and pathway enrichment analysis.</p>
+</abstract>
+<kwd-group kwd-group-type="npg-subject">
+<title>Subject terms</title>
+<kwd>Genome informatics</kwd>
+<kwd>Autism spectrum disorders</kwd>
+</kwd-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">https://doi.org/10.13039/100000025</institution-id>
+<institution>U.S. Department of Health &amp; Human Services | NIH | National Institute of Mental Health (NIMH)</institution>
+</institution-wrap>
+</funding-source>
+<award-id>MH105527</award-id>
+<principal-award-recipient>
+<name>
+<surname>Michaelson</surname>
+<given-names>Jacob J.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+</funding-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">https://doi.org/10.13039/100000055</institution-id>
+<institution>U.S. Department of Health &amp; Human Services | NIH | National Institute on Deafness and Other Communication Disorders (NIDCD)</institution>
+</institution-wrap>
+</funding-source>
+<award-id>DC014489</award-id>
+<principal-award-recipient>
+<name>
+<surname>Michaelson</surname>
+<given-names>Jacob J.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+</funding-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">https://doi.org/10.13039/100000893</institution-id>
+<institution>Simons Foundation</institution>
+</institution-wrap>
+</funding-source>
+<award-id>516716</award-id>
+<principal-award-recipient>
+<name>
+<surname>Michaelson</surname>
+<given-names>Jacob J.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+</funding-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2020</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par2">Autism Spectrum Disorder (ASD) is a heterogeneous group of developmental disorders caused by a range of genetic and environmental factors. The core diagnostic features of ASD — which manifest at a young age — are impairments in social communication and restrictive and repetitive behaviors and interests. Evidence for genetic causes of ASD is strong: monozygotic twins have near 90% concordance of ASD diagnosis<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. Population and twin studies confirmed these findings<sup><xref ref-type="bibr" rid="CR2">2</xref></sup> and estimated ASD’s narrow-sense heritability to be in the 50–95% range.</p>
+<p id="Par3">While evidence of genetics’s role in autism is abundant, our understanding of the specific genes underlying the disorder’s etiology is still limited. It is estimated that a thousand or more genes may confer risk for ASD when functionally perturbed<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. This functional perturbation can come in a number of forms, including <italic>de novo</italic> mutation, expression quantitative trait loci (eQTL) disruption, and inheritance of damaging rare variants. Despite these projections, the existing list of high-confidence autism risk genes — depending on the source — stands closer to the 100-gene mark<sup><xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR6">6</xref></sup>. This discrepancy is partly explained by the relatively limited number of genomic studies compared to the vast genetic heterogeneity underlying autism.</p>
+<p id="Par4">To close the gap between anticipated and known autism risk genes, several network-biology approaches were applied in the past decade. These studies leveraged large, publicly-available datasets to add context and amplify the genetic signals observed in ASD sequencing studies. These network-biology studies predicted individual genes that were often later identified as bona fide autism risk genes<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>; but they fell short of providing a useful genome-wide metric to indicate the evidence of every gene’s involvement in autism. More recently, machine learning based methods used gene interaction networks<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>, cell-specific gene expression profiles<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>, and human<sup><xref ref-type="bibr" rid="CR10">10</xref></sup> or cross-species<sup><xref ref-type="bibr" rid="CR11">11</xref></sup> brain region expression profiles to surmount this shortcoming. Importantly, these studies produced quantitative metrics that score every gene according to evidence of a role in autism. Despite these studies’ effectiveness in prioritizing autism risk genes, our preliminary investigations suggested there was still room for appreciable improvement in the classification algorithm, the training set, and the predictors. In particular, these approaches do not incorporate indicators autism involvement based on known genetic association (e.g., TADA scores) into their predictive features.</p>
+<p id="Par5">We introduce forecASD, a gene-level score indexing autism relevance that integrates prior network-biology approaches, scores of genetic association, brain gene expression, and topological information from large gene interaction networks. In three independent test sets — the recent sequencing studies MSSNG<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, new ASC samples<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>, and the SPARK pilot data<sup><xref ref-type="bibr" rid="CR13">13</xref></sup> — forecASD has superior performance prioritizing <italic>de novo</italic> mutations, compared to other gene-level estimates of autism relevance.</p>
+<p id="Par6">In addition to prioritizing <italic>de novo</italic> mutations in probands, forecASD is an informative filter for a variety of genomic data types, including ASD-associated common variants and differential gene expression. Specifically, we find enrichment of ASD risk genes in downregulated ASD postmortem genes, and identify numerous biological pathways underrepresented in our current understanding of autism risk. We further demonstrate that expression quantitative trait loci (eQTL) regulating the expression of genes identified by forecASD also contain excessive association signal from the most recent genome-wide association study (GWAS) of autism. These analyses demonstrate forecASD’s generalizability beyond <italic>de novo</italic> mutation prioritization, as a tool that can be applied to the interpretation of rare and common variant studies, as well as gene expression studies of autism. forecASD is not a replacement for traditional approaches to genetic association, but a powerful resource for expanding our interpretative capabilities and anticipating the trajectory of gene discovery in autism.</p>
+</sec>
+<sec id="Sec2">
+<title>Methods</title>
+<sec id="Sec3">
+<title>Overview</title>
+<p id="Par7">forecASD utilizes stacked Random Forest ensembles, organized in two levels (shown in Supplementary Fig. S<xref ref-type="media" rid="MOESM1">1</xref>). In the first level, two models are trained using BrainSpan<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> gene expression and the STRING<sup><xref ref-type="bibr" rid="CR15">15</xref></sup> shortest paths network as features. Our training dataset consists of a positive class of high-confidence genes scored in SFARI gene<sup><xref ref-type="bibr" rid="CR4">4</xref></sup> as either 1 or 2 (n = 76; SFARI HC genes, retrieved January 11th 2017), and a negative class of 1,000 random genes not contained within SFARI gene. These two models produce genome-wide predictions for autism involvement. These scores are then used as features in the second level’s Random Forest model, along with genome-wide scores from previous studies (Fig. <xref ref-type="fig" rid="Fig1">1</xref>).<fig id="Fig1"><label>Figure 1</label><caption><p>Overview and performance of forecASD. forecASD (<bold>a</bold>) is a random forest ensemble of features derived from the BrainSpan developmental transcriptome, the STRING network, and several previously published ASD gene prediction methods. Using SFARI 1 and 2 genes as the positive class and 1,000 background genes as the negative class, class predictions of 17,957 genes yields a ranked list with values between 0 and 1. Ranked genes are split by decile and tested for an enrichment (<bold>b</bold>) of multiple classes of de novo mutations derived from three independent ASD cohorts (MSSNG, SPARK pilot, ASC). The top decile synonymous mutation rate (0.196) in probands (<bold>bi</bold>.) is used as the expected proportion of mutations within the top decile of genes ranked by forecASD. A binomial test (fraction and p-value written below mutation type) of the enrichment of genes affected by recurrent LOF, recurrent missense, and singleton LOF mutations in the top decile showed a significant enrichment (<bold>bii–iv</bold>.).</p></caption><graphic id="d29e368" xlink:href="41598_2020_61288_Fig1_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec4">
+<title>BrainSpan, STRING, and TADA data assembly</title>
+<p id="Par8">BrainSpan data was obtained from the Allen Institute. BrainSpan is a developmental transcriptome of the human brain, made up of RNA-sequencing data covering numerous brain structures and time-points. To process this data for use in forecASD, the expression matrix from BrainSpan was downloaded and brain regions containing fewer than 20 samples were excluded (leaving 16/26 brain structures). After this initial filtering, the BrainSpan matrix consists of gene expression values from 22327 genes (rows) in 553 samples (columns), representing data from 41 unique individuals between the ages of 8 weeks post-conception to 40 years old. Despite the size of this dataset, there are not expression values for every timepoint in every region, and some region-timepoint combinations may have multiple measurements. To address this combination of sparsity and redundancy in the BrainSpan matrix, we first smoothed across available timepoints for each gene on a per-region basis (using the R<sup><xref ref-type="bibr" rid="CR16">16</xref></sup> stats package function lowess()), averaging out differences between redundant timepoints. Next, we linearly interpolate (using the base R function approx()) each genes’ expression to a standard length of 50 timepoints, covering the full span of ages in BrainSpan, and resolving the sparsity in the BrainSpan matrix. Lastly, for each gene, we z-scaled each timepoint using the base R function scale(), so expression levels are comparable across timepoints. From this processing we derive a total of 800 measures per gene, representing expression levels across 16 brain regions at 50 different timepoints.</p>
+<p id="Par9">The STRING database (version 10) was obtained from the online browser<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. The format of this data is a matrix of gene-by-gene interaction scores, based on a combination of curated evidence types, such as coexpression, protein interaction, and co-mention in literature. As most genes do not interact in STRING, a gene-by-gene interaction matrix is very sparse, with roughly 98% of gene pairs lacking an interaction score. To decrease the sparsity of this gene-by-gene interaction matrix, we converted these scores into a shortest paths matrix. To accomplish this, we filtered out low-confidence interactions from STRING (defined as a score &lt; 0.4), increasing the downstream diversity of shortest paths values. Next, this interaction matrix was converted into an adjacency matrix, from which a shortest paths matrix was calculated. This processing of the STRING database produced a gene-by-gene matrix where each value represents the minimum number of steps needed to traverse the STRING graph from the source gene to the target gene. Full code for downloading and processing the BrainSpan and STRING data is available in the script 01_load_data.R on forecASD’s github page.</p>
+<p id="Par10">TADA summary statistics were downloaded from the largest meta-analysis for autism available at the time of development<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. These summary statistics included the most informative column, tadaFdrAscSscExomeSscAgpSmallDel, which integrates data from the SSC and ASC cohorts<sup><xref ref-type="bibr" rid="CR3">3</xref></sup> across multiple mutation types, including <italic>de novo</italic> loss of function and small deletions. TADA summary statistics were also obtained from the supplementary table of another comprehensive study of autism risk<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. All five available TADA summary statistics were used as features in the final model, TADA_BF, tadaFdrAscSscExomeSscAgpSmallDel, tadaFdrAscSscExome, tadaFdrAscExome, and tadaFdrSscExome.</p>
+</sec>
+<sec id="Sec5">
+<title>Model training and genome wide prediction</title>
+<p id="Par11">All models were trained using SFARI HC genes as positive examples (of which there are 76 common to both STRING &amp; BrainSpan), and a randomly sampled set of 1,000 background genes (i.e., not listed in the SFARI Gene database) as negative examples.</p>
+<p id="Par12">The first level of our stacked model consists of two genome-wide scores based on data from BrainSpan or the STRING interaction network.</p>
+<p id="Par13">The BrainSpan random forest model was trained to classify each of the 1,076 training set genes (<italic>y</italic>) using the 800 BrainSpan observations (<italic>x</italic>) as features. As described in the BrainSpan data assembly methods section, these 800 features represent expression levels at 50 different timepoint (from 8 weeks post-conception to 40 years old) across 16 different brain regions.</p>
+<p id="Par14">The STRING random forest model was trained to classify the training set genes (<italic>y</italic>) using the gene-by-gene shortest paths matrix (<italic>x</italic>) as features. As described in the STRING data assembly methods section, each gene has a set of 18,884 features representing the shortest path from that gene to all other genes in the STRING network. Given the large number of features for the STRING-based random forest model, we performed a backwards-elimination feature selection. To accomplish this, we first fit a random forest model using the full STRING feature set. Then, each STRING feature not selected in any of the constructed trees was dropped. This variable selection step was repeated until the final model contained only features which were selected at least once during tree construction.</p>
+<p id="Par15">The random forest models were trained with 1000 total trees in a balanced fashion, with 70 positive and 70 negative training examples during the construction of each tree. The randomForest package<sup><xref ref-type="bibr" rid="CR18">18</xref></sup> (version 4.6-12) in R<sup><xref ref-type="bibr" rid="CR16">16</xref></sup> (version 3.5.1) was used for all model training. With the trained STRING and BrainSpan models, we then predicted autism involvement scores for the remaining genes not included in our training set. These scores are in Supplementary Table S<xref ref-type="media" rid="MOESM1">1</xref> in the columns BrainSpan_score and STRING_score. Reported scores for training set genes are the out-of-bag (OOB) estimates, providing an unbiased estimate of training set genes where they were not used in training of the trees used to make their estimate.</p>
+<p id="Par16">We used these scores (test set gene predictions and OOB training set gene predictions), along with DAWN<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>, TADA<sup><xref ref-type="bibr" rid="CR3">3</xref>,<xref ref-type="bibr" rid="CR17">17</xref></sup>, DAMAGES<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>, and the score from Krishnan <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>, as predictive features in a final ensemble Random Forest, using the same 1,076 training labels described above. Genome-wide predictions were then obtained, again using OOB estimates for training set genes. This final score is listed under the forecASD column in Supplementary Table S<xref ref-type="media" rid="MOESM1">1</xref>.</p>
+</sec>
+<sec id="Sec6">
+<title>Performance comparisons using <italic>de novo</italic> mutation data and SFARI gene</title>
+<p id="Par17"><italic>De novo</italic> mutation (DNM) data from the MSSNG dataset<sup><xref ref-type="bibr" rid="CR12">12</xref></sup> was obtained through the denovo-db database<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>. DNM data was also obtained from the SPARK pilot dataset from the consortium’s recently released <italic>de novo</italic> mutation table<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>. Lastly, DNM data was obtained from the recently released Autism Sequencing Consortium (ASC) update<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>, and subset to contain only newly sequenced ASC samples (n = 6,197). Across all three datasets, only DNMs from probands were kept. To compare the performances of the different gene prioritization methods (Fig. <xref ref-type="fig" rid="Fig2">2</xref>), a set of 44 genes was found which had at least two or more <italic>de novo</italic> loss-of-function mutations (hereafter referred to as recurrent LOF) in the combined MSSNG, ASC, and SPARK datasets. A binomial test was used to calculate if the first decile of genes prioritized by each method were enriched for these 44 genes. The expected proportion of genes contained within the first decile was calculated for each method separately using the proportion of genes in the first decile containing a synonymous mutation in probands. This adjustment corrects for scores that highly rank genes with high mutation rates. This is a known issue for brain expressed genes, which tend to accumulate mutations at elevated rates due to their above average length<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>.<fig id="Fig2"><label>Figure 2</label><caption><p>Performance comparison of forecASD with competing methods in prioritizing genes hit by recurrent de novo loss-of-function mutations across three independent ASD cohorts. Bar height and color indicate the fraction of genes with recurrent LOF mutations (n = 44) within the given decile of genes ranked by each score. A binomial test was used to assess for an enrichment of genes with recurrent LOF mutations in the top decile of each score, using each scores decile enrichment for proband synonymous mutations as a baseline (result listed in parentheses below score name).</p></caption><graphic id="d29e525" xlink:href="41598_2020_61288_Fig2_HTML"></graphic></fig></p>
+<p id="Par18">As an additional performance test, all methods were also evaluated for their ability to prioritize SFARI Gene score 3 genes (Supplementary Fig. <xref ref-type="media" rid="MOESM1">3</xref>). Importantly, this test was performed to control for the influence of TADA-based features when prioritizing potential ASD risk genes (which should be enriched in SFARI Gene score 3 genes). To carry out this test, a logistic regression model was fit to predict SFARI Gene score 3 genes, using all other genes not contained in SFARI Gene (any score category) as a negative set. The features in each logistic regression model were one of the competing methods’ score and all five TADA-based measures used by forecASD. The within-sample genome-wide predicted values from all models was used to plot the ROC curve (Supplementary Fig. <xref ref-type="media" rid="MOESM1">3</xref>), and the Z-score and p-value of all methods coefficient is reported in the text.</p>
+</sec>
+<sec id="Sec7">
+<title>ASC and iHART novel ASD risk gene data sources</title>
+<p id="Par19">Gene lists were taken from the Autism Sequencing Consortium (ASC)<sup><xref ref-type="bibr" rid="CR6">6</xref></sup> and the Hartwell Autism Research and Technology Initiative (iHART)<sup><xref ref-type="bibr" rid="CR22">22</xref></sup> preprints. These lists were filtered, excluding genes that were already present in the SFARI gene database<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>, and used in Fig. <xref ref-type="fig" rid="Fig3">3a</xref>. The iHART dataset is an ASD cohort with whole genome sequencing on multiplex families (n = 2,308), while the ASC cohort is a collection of trios.<fig id="Fig3"><label>Figure 3</label><caption><p>forecASD prioritizes ASD genetic signal across diverse data types. The majority of novel ASD genes recently identified in two ASD sequencing studies by TADA (not part of forecASD’s training set) fall within the top decile of forecASD (<bold>a</bold>). The forecASD score is significantly negatively correlated with ASD postmortem differential expression levels (<bold>b</bold>). Higher scoring forecASD genes are enriched for brain eQTL that also have low p-values (nominal &lt; 0.01) in ASD GWAS (<bold>c</bold>).</p></caption><graphic id="d29e571" xlink:href="41598_2020_61288_Fig3_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec8">
+<title>Pathway enrichment and comparison with case/control brain gene expression data</title>
+<p id="Par20">We used Reactome annotations<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>, and unless otherwise noted, PantherDB<sup><xref ref-type="bibr" rid="CR24">24</xref></sup> to assess functional enrichment in both forecASD genes and SFARI HC genes using Fisher’s method. Odds ratios and p-values were used to compare these two prioritization methods (Fig. <xref ref-type="fig" rid="Fig4">4</xref>) in terms of the pathways they implicate. The full list of results of these enrichment analyses are provided in Supplemental Table S<xref ref-type="media" rid="MOESM1">2</xref>. Statistical analyses described in results and discussion were performed in R<sup><xref ref-type="bibr" rid="CR16">16</xref></sup> using either glm() or fisher.test(). Gene-wise and pathway-level comparisons with ASD case/control brain gene expression data were performed using frontal cortex RNA-seq summary statistics<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>.<fig id="Fig4"><label>Figure 4</label><caption><p>Pathway analysis of genes highlighted by forecASD. When testing the top-decile genes according to forecASD for Reactome pathway enrichment, pathways emerged that were represented, but not enriched in the SFARI HC list (<bold>a</bold>). In panel a, for each pathway, the top bar represents the number of genes (number) and the enrichment (color) for that pathway in top decile forecASD genes, while the bottom represents the enrichment for that pathway in SFARI HC genes. Other pathways were highly enriched in forecASD genes that were not represented at all in the SFARI HC list, even though they have associated literature suggesting a role in autism (<bold>b</bold>). forecASD is more sensitive than SFARI HC to pathways that are differentially regulated in the brains of individuals with autism, particularly in ASD-upregulated pathways (<bold>c</bold>), but also in downregulated pathways (<bold>d</bold>). Using the top decile of TADA (− log10 FDR) genes showed similar sensitivity to SFARI HC (not shown), suggesting that rare variant approaches may be less sensitive in implicating genes found through gene expression studies.</p></caption><graphic id="d29e626" xlink:href="41598_2020_61288_Fig4_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec9">
+<title>Brain eQTL analysis</title>
+<p id="Par21">Brain expression quantitative trait loci (eQTL) passing a Bonferroni FDR significance level of 0.05 and filtered for genes having expression &gt;0.1 FPKM in at least 150 samples from PsychENCODE<sup><xref ref-type="bibr" rid="CR26">26</xref></sup> were selected for further analysis. In parallel, these eQTL were matched to SNPs in a recent autism GWAS<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>. eQTL that did not map to a SNP from the ASD GWAS were excluded from further analysis. eQTL were then split into two classes, based on whether their associated ASD GWAS match had an unadjusted p-value above or below 0.01. eQTL target genes were then split into 5% quantiles by their associated genes’ forecASD score. A Fisher’s test was performed comparing the top 5% quantile to all lower bins, testing for an enrichment of eQTL with ASD GWAS p-values below 0.01 (termed eQTL/GWAS hit enrichment). To visualize this test (Fig. <xref ref-type="fig" rid="Fig3">3c</xref>), the odds ratio for eQTL/GWAS hits for each bin (and all preceding bins) relative to all lower bins is shown.</p>
+</sec>
+<sec id="Sec10">
+<title>Cluster analysis of top scoring forecASD genes</title>
+<p id="Par22">Using the STRING database, interactions were obtained for forecASD genes (top decile) and used to create a network with the igraph package<sup><xref ref-type="bibr" rid="CR28">28</xref></sup> in R<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. No filter was applied to the interaction score. Hierarchical greedy clustering based on optimization of modularity score<sup><xref ref-type="bibr" rid="CR29">29</xref></sup> was performed using the fastgreedy.community() function from the igraph package<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>. Clustering was performed iteratively, with clusters containing more than 200 genes subject to further clustering, and clusters with fewer than 30 genes discarded. The annotated network of clusters was loaded into Cytoscape<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>, using the STRING application<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. Functional enrichment of clusters was assessed using the STRING application in Cytoscape, with the p-value threshold set to 0.05. For annotation of the network plot shown in Fig. <xref ref-type="fig" rid="Fig5">5a</xref>, either the top annotated term or consensus among several top terms was chosen as the representative label. The enrichment of pLI was assessed using Fisher’s exact test on genes within each cluster with a pLI score above 0.5. The assessment of enrichment with SFARI HC genes was performed using the hypergeometric test, assuming a background of 18,000 total genes (the number of genes to which a forecASD score could be assigned).<fig id="Fig5"><label>Figure 5</label><caption><p>Clustering of genes highlighted by forecASD into distinct modules. Greedy hierarchical optimization of the modularity score yielded 17 clusters consisting of 1,452 forecASD genes (<bold>a</bold>). All clusters have several significantly enriched biological pathways, of which the top terms were labeled. Clusters were tested for significance of overlap with the list of SFARI HC genes (<bold>b</bold>), and enrichment of haploinsufficiency genes (pLI &gt; 0.5; <bold>c</bold>).</p></caption><graphic id="d29e702" xlink:href="41598_2020_61288_Fig5_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec11">
+<title>Ethics approval and consent to participate</title>
+<p id="Par23">All human genetic data used in this study was accessed in a deidentified manner from associated sequencing consortia with their approval. Due to the method of access, this study is not formally considered human subjects research and therefore not subject to associated restrictions, as outlined by the National Institutes of Health.</p>
+</sec>
+</sec>
+<sec id="Sec12" sec-type="results">
+<title>Results</title>
+<sec id="Sec13">
+<title>forecASD model performance</title>
+<p id="Par24">We first tested forecASD’s ability to identify putative risk genes by assessing enrichment of <italic>de novo</italic> mutations in genes observed in three recent data sets not used in forecASD’s development or training: the SPARK pilot<sup><xref ref-type="bibr" rid="CR13">13</xref>,<xref ref-type="bibr" rid="CR20">20</xref></sup>, MSSNG<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, and the 2018 release of ASC samples<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>. A robustly reproducible result from ASD sequencing studies is an enrichment of <italic>de novo</italic> LOF mutations in autism-associated genes in probands<sup><xref ref-type="bibr" rid="CR32">32</xref>–<xref ref-type="bibr" rid="CR34">34</xref></sup>. Combining all <italic>de novo</italic> mutations across the three cohorts into a single table, we used a binomial test (Fig. <xref ref-type="fig" rid="Fig1">1b</xref>) to examine whether genes affected by each mutation class (recurrent LOF, singleton LOF, recurrent missense) showed an over-representation in the top decile of forecASD scores. The expected proportion of genes (0.196) within the top decile was calculated using the percentage of genes with <italic>de novo</italic> synonymous mutations in the top decile across the three cohorts (Fig. <xref ref-type="fig" rid="Fig1">1b.i.</xref>). From this test, we found a significant enrichment (Fig. <xref ref-type="fig" rid="Fig1">1b.ii.</xref>) of recurrent LOF mutations (observed in more than one individual) in the top decile of forecASD genes (binomial test of first decile, P = 4.9 × 10<sup>−14</sup>). This same binomial test was performed for singleton LOF and recurrent missense <italic>de novo</italic> mutations (Fig. <xref ref-type="fig" rid="Fig1">1b.iii–iv.</xref>), which also showed a significant enrichment in the top decile (P = 3.4 × 10<sup>−6</sup> and 3.5 × 10<sup>−5</sup>, respectively). Because substantial enrichment of LOF mutations was found in the top decile (n = 1,787 genes), we use use this set of genes (“forecASD genes”) in subsequent analyses.</p>
+<p id="Par25">To evaluate forecASD’s performance relative to other methods, we extended the above decile enrichment tests of recurrent <italic>de novo</italic> LOF genes to several other gene prioritization methods (Fig. <xref ref-type="fig" rid="Fig2">2</xref>). For non-autism specific baseline scores, we used the recently released gnomad LOEUF score (Fig. <xref ref-type="fig" rid="Fig2">2.ii.</xref>)<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> (which quantifies the depletion of LOF mutations in genes across a large population sample), and total expression within the BrainSpan dataset (Fig. <xref ref-type="fig" rid="Fig2">2.viii.</xref>)<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> (which prioritizes genes highly expressed across numerous brain regions). Alternative autism risk gene prioritization methods include Duda <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR11">11</xref></sup>, Lin <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR10">10</xref></sup>, DAMAGES<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>, Krishnan <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR8">8</xref></sup> and DAWN<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>. Across all scores tested, forecASD showed the greatest enrichment for recurrent <italic>de novo</italic> LOF mutations in its top decile (binomial test, 32/44 genes, P = 4.9 × 10<sup>−14</sup>). After forecASD, loeuf showed the second greatest enrichment (27/44, P = 9.6 × 10<sup>−9</sup>), followed by Duda<sup><xref ref-type="bibr" rid="CR11">11</xref></sup> (24/43, P = 3.9 × 10<sup>−8</sup>), Lin<sup><xref ref-type="bibr" rid="CR10">10</xref></sup> (11/20, P = 1.2 × 10<sup>−3</sup>), DAMAGES<sup><xref ref-type="bibr" rid="CR9">9</xref></sup> (21/40, P = 5.6 × 10<sup>−8</sup>), Krishnan<sup><xref ref-type="bibr" rid="CR8">8</xref></sup> (18/44, P = 4.0 × 10<sup>−5</sup>), DAWN<sup><xref ref-type="bibr" rid="CR7">7</xref></sup> (6/44, P = 3.9 × 10<sup>−1</sup>), and lastly BrainSpan expression (5/40, P = 3.2 × 10<sup>−1</sup>). Importantly, MSSNG, SPARK, and ASC data were not used directly or indirectly in the training of the forecASD ensemble (e.g., SFARI gene training labels retrieved before SPARK, MSSNG, and recent ASC release, TADA features also prior to release of 3 cohorts), and therefore demonstrate the generalization of these methods to unseen data.</p>
+<p id="Par26">As a further performance benchmark, we tested the predictive strength of all evaluated models when controlling for TADA scores. Since TADA scores are used to define new ASD risk genes, most gene prioritization methods, including forecASD, are either directly or indirectly using TADA scores. To examine signal outside of TADA, we fit logistic regression models including all five TADA-based features used by forecASD as covariates (see Methods section, BrainSpan, STRING, and TADA data assembly), with each of the methods scores as the predictor of membership among SFARI Gene score 3 genes (Supplemental Fig. S<xref ref-type="media" rid="MOESM1">3</xref>; score 3 genes were not used in training forecASD, but are nevertheless assumed to be enriched for true ASD genes). All other genes listed in the SFARI Gene database were removed from the analysis, and the remainder of the genome was considered the negative class. Strong association with score 3 membership (as measured by the regression coefficient and Z-score) is a desirable trait for an ASD gene prediction method, and forecASD proved to be the most strongly associated of the tested methods, even after correcting for the information imparted by TADA rankings (Z = 13.35, P = 1.19 × 10<sup>−40</sup>). Following forecASD was Lin (Z = 11.2, P = 3.65 × 10<sup>−29</sup>), Duda (Z = 8.56, P = 1.09 × 10<sup>−17</sup>), LOEUF (Z = −8.52, P = 1.50 × 10<sup>−17</sup>), Krishnan (Z = 8.49, P = 1.99 × 10<sup>−17</sup>), DAMAGES (Z = 4.82, P = 1.38 × 10<sup>−6</sup>), DAWN (Z = 3.92, P = 8.68 × 10<sup>−5</sup>), and BrainSpan (Z =  − 0.4, P = 6.6 × 10<sup>−1</sup>).</p>
+</sec>
+<sec id="Sec14">
+<title>Applications of forecASD: risk gene discovery, differential expression, GWAS</title>
+<p id="Par27">A primary goal of genetic research of ASD is enumerating the full complement of genes that confer risk when disrupted. A central claim of this work is that forecASD scores “anticipate” which genes will eventually show evidence of association in gene discovery studies. Toward this end, we tested the enrichment of high-scoring forecASD genes among the findings of two large, recent ASD sequencing studies, from the ASC<sup><xref ref-type="bibr" rid="CR6">6</xref></sup> and the iHART<sup><xref ref-type="bibr" rid="CR22">22</xref></sup> consortia. These studies were published after the development and training of forecASD. From this analysis (Fig. <xref ref-type="fig" rid="Fig3">3a</xref>) we found that 12/18 and 8/12 novel candidate genes reported by the ASC and iHART consortia, respectively, were top-decile forecASD genes, and were significantly enrichmented for high forecASD scores (Wilcoxon rank sum test; P = 4.98 × 10<sup>−8</sup>; P = 8.87 × 10<sup>−14</sup>). However, as is common practice in ASD genetic studies, both the ASC and iHART studies include previously published cohorts, such as the Simons Simplex Collection, in their gene discovery efforts. As genetic information from these cohorts was used in the training of forecASD (i.e. TADA-based features), this raises the question if forecASD’s signal is purely driven by cohort overlap. To test for this possibility, we fit a logistic regression model predicting whether a gene was one of the novel candidate genes (fit across all 17,881 non-SFARI HC genes, with 30 positive class examples) using forecASD score and all genetic features (i.e. all 5 TADA-based features) as predictors. A Wald test showed that forecASD significantly improved prediction (P = 1.73 × 10<sup>−9</sup>) beyond a baseline model including all genetic features. These analyses support the observation that forecASD generalizes well and is a good indicator of actual genetic risk for autism.</p>
+<p id="Par28">Extending the forecASD score to postmortem brain gene expression studies, we accessed the largest such study available to date<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>, which includes 51 ASD postmortem brain samples. In general, relatively little overlap has been observed between differential expression findings in ASD postmortem brains and genes implicated by genetic association studies. For example, in the study referenced<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>, only 2/76 genes scoring either 1 or 2 in SFARI gene were found in the set of 1824 differentially expressed genes (all brain regions combined). Despite this low prior expectation, we found that high-scoring forecASD genes are enriched among downregulated genes (Fig. <xref ref-type="fig" rid="Fig3">3b</xref>) from ASD postmortem case/control gene expression studies (OR = 1.3, P = 0.0013), and are depleted from upregulated genes (OR = 0.57, P = 1.8 × 10<sup>−8</sup>). This forecASD-differential expression signature is more significant than a comparable analysis using TADA scores to prioritize genes (P &lt; 2.2 × 10<sup>−16</sup>), suggesting forecASD is more sensitive to ASD-associated genes discovered through differential expression studies.</p>
+<p id="Par29">To determine forecASD’s utility in identifying a role for common variation in ASD risk, we analyzed the connection between brain eQTL and ASD GWAS signatures. Specifically, we integrated a recently published list of brain eQTL<sup><xref ref-type="bibr" rid="CR26">26</xref></sup> with a recent ASD GWAS study<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>. From this analysis (Fig. <xref ref-type="fig" rid="Fig3">3c</xref>), we found that brain eQTL for forecASD genes (top decile) were more likely to be nominally ASD-associated SNPs (binary cutoff of P &lt; 0.01) than brain eQTL for the bottom 90% of genes scored by forecASD (Fisher’s test: odds ratio = 2.24, P = 4.89 × 10<sup>−244</sup>).</p>
+</sec>
+<sec id="Sec15">
+<title>Pathway and network analysis of forecASD genes</title>
+<p id="Par30">After demonstrating the predictive performance characteristics of forecASD, we turned to practical applications that could further illuminate the underlying biological mechanisms at play in autism. Functional enrichment using Reactome annotations showed forecASD genes are highly enriched for pathways known to play important roles in autism etiology, including chromatin modification, synaptic transmission, and developmental biology (full list in Supplemental Table S<xref ref-type="media" rid="MOESM1">2</xref>). To highlight new biological themes that forecASD detects — but that are not clear from the list of SFARI HC genes — we prioritized pathways based on differential enrichment (Fig. <xref ref-type="fig" rid="Fig4">4</xref>). Figure <xref ref-type="fig" rid="Fig4">4a</xref> highlights pathways represented in SFARI HC genes, but that showed significantly greater enrichment in forecASD genes. Figure <xref ref-type="fig" rid="Fig4">4b</xref> shows a sampling of the forecASD pathways with the most significant p-values that are not represented by any SFARI HC gene, highlighting under-appreciated mechanisms in autism.</p>
+<p id="Par31">Given the existing gap between ASD postmortem differential expression findings and known ASD risk genes, we also analyzed pathway enrichment overlaps between either SFARI HC or forecASD genes with postmortem differentially expressed genes. We found forecASD has increased sensitivity to autism risk pathways identified in gene expression studies, for both ASD upregulated (Fig. <xref ref-type="fig" rid="Fig4">4c</xref>) and downregulated pathways (Fig. <xref ref-type="fig" rid="Fig4">4d</xref>). Overall, pathways demonstrating forecASD-specific excess enrichment showed a significant agreement with pathway enrichment from independent case/control brain gene expression studies (OR = 28.8; P = 2.9 × 10<sup>−48</sup>), and were more likely to support pathways that were up-regulated in the gene expression data (OR = 2.1, P = 1.27 × 10<sup>−6</sup>, Fig. <xref ref-type="fig" rid="Fig4">4c</xref>) compared to pathways implicated by SFARI HC.</p>
+<p id="Par32">For a global view of forecASD gene function, we performed a network analysis using forecASD top decile genes. The resulting network consisted of 17 clusters composed of 1,452 genes (Fig. <xref ref-type="fig" rid="Fig5">5a</xref>). All clusters were significantly enriched with numerous GO and KEGG pathways (Supplemental Table S<xref ref-type="media" rid="MOESM1">3</xref>). Clusters were also tested for overlap with SFARI HC genes by a hypergeometric test, and 8 clusters were not significantly enriched for these genes, suggesting forecASD identified groupings of genes currently missing from the known list of autism risk genes (Fig. <xref ref-type="fig" rid="Fig5">5b</xref>). The clusters lacking significant overlap included those with the functions: signal transduction, cytoskeleton, cell migration, neuron projection, steroid signaling, neuron differentiation, potassium signaling, development and morphogenesis. All clusters — except for a small cluster with functions related to mediator complex — were significantly enriched for haploinsufficient genes (pLI &gt; 0.5) (Fig. <xref ref-type="fig" rid="Fig5">5c</xref>) by a Fisher’s test. Similar to the pathway analysis above, we found an entire cluster enriched for potassium signaling genes (P = 1.8 × 10<sup>−49</sup>) which lacked significant overlap with SFARI HC genes. Other notable examples include clusters related to cell migration (P = 6.0 × 10<sup>−11</sup>) and endocytosis (P = 2.7 × 10<sup>−21</sup>). These pathways have recently been explored for their ability to regulate brain connectivity<sup><xref ref-type="bibr" rid="CR36">36</xref></sup> and postsynaptic organization<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>, respectively.</p>
+</sec>
+</sec>
+<sec id="Sec16" sec-type="discussion">
+<title>Discussion</title>
+<p id="Par33">We present forecASD, a machine learning approach that combines systems biology and genetic models into a single score that indexes the strength of evidence for a gene’s involvement in autism. This genome-wide score can be a useful prior, filter, or positive control in molecular studies of autism. It can also be used as a starting point to generate new hypotheses to investigate currently under-appreciated aspects of the molecular etiology of autism. In our tests of predictive performance and generalization, forecASD outperformed other systems biology and genetic approaches for autism risk gene prioritization.</p>
+<p id="Par34">Applying forecASD to two recent, sequencing-based ASD risk gene discovery efforts<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR22">22</xref></sup> showed that forecASD ranked their proposed novel candidate risk genes highly (Fig. <xref ref-type="fig" rid="Fig3">3a</xref>). We foresee this as a central application of forecASD, allowing candidate risk genes to be prioritized based on a diversity of ASD-associated signal. Going further, we applied forecASD to the differential expression patterns seen in postmortem ASD brain samples. The lack of overlap between ASD disease genes and gene expression based studies has been speculated to be due to differential expression results capturing downstream effects of ASD, while sequencing results are capturing upstream, causative effects<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>. We found that high-scoring forecASD genes were more likely to be downregulated, and conversely, high-scoring forecASD genes were less likely to be upregulated (Fig. <xref ref-type="fig" rid="Fig3">3b</xref>). This is the first report to our knowledge of global downregulation of ASD risk genes in ASD postmortem brains. Though previously unreported, this pattern is in line with expectations, as ASD risk genes are largely found through an accumulation of gene-disrupting mutations. Lastly, we applied the forecASD score in an analysis of common risk variants to prioritize brain eQTL (Fig. <xref ref-type="fig" rid="Fig3">3c</xref>), finding that eQTL associated with high-scoring forecASD genes showed a significant enrichment for ASD GWAS signal. In addition to serving as a further validation of forecASD’s gene prioritization, this demonstrates how forecASD can be used to prioritize common, intergenic variation in order to find enrichment of ASD-specific signal.</p>
+<p id="Par35">Beyond genes, the organization of ASD risk into distinct biological pathways has also been central to our understanding of the condition’s pathology. Some pathways, although represented in the current SFARI HC list, showed a substantial relative increase in enrichment when considering forecASD (Fig. <xref ref-type="fig" rid="Fig4">4a</xref>, Supplemental Table S<xref ref-type="media" rid="MOESM1">2</xref>). These pathways may therefore represent noted and plausible — but still under-appreciated — molecular themes in our understanding of autism. The pathway with the largest relative increase in enrichment from SFARI HC to forecASD was Rho GTPase signaling (OR = 2.2, P = 4.8 × 10<sup>−5</sup>), which plays a critical role in cytoskeletal dynamics in neurodevelopment<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>, including interactions with SHANK proteins and the formation and maturation of dendritic spines<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>. As another example, although chromatin modification is a well-established theme in autism genetic risk, histone acetyltransferases showed relatively little representation in the SFARI HC list, but were significantly enriched in forecASD genes (OR = 4.1, P = 3.5 × 10<sup>−9</sup>). Histone acetylation was recently shown to be a pervasive genomic predictor of affected status in a large autism case/control postmortem brain study<sup><xref ref-type="bibr" rid="CR40">40</xref></sup>. It appears that this mechanism’s importance was under-represented by established risk genes, but forecASD is sensitive to it.</p>
+<p id="Par36">As a final example of under-appreciated molecular mechanisms, the disruption of circadian clock pathway genes was implicated by forecASD as an important source of risk for autism (OR = 6.5, P = 7.6 × 10<sup>−13</sup>). Sleep disturbances are a well-known and problematic comorbidity in autism, and molecular deficits in circadian regulation related to autism have been documented<sup><xref ref-type="bibr" rid="CR41">41</xref>–<xref ref-type="bibr" rid="CR43">43</xref></sup>. Although literature support is available for these processes playing a role in autism, our results indicate that their current sparse representation in lists of accepted genetic risk factors is not representative of their importance in the disorder.</p>
+<p id="Par37">Other pathways were identified by forecASD as significantly enriched for autism risk, but were not represented at all among SFARI HC genes (Supplemental Table S<xref ref-type="media" rid="MOESM1">2</xref>, Fig. <xref ref-type="fig" rid="Fig4">4b</xref>). Consequently, we expect these pathways to contribute to new insights into the molecular basis of autism. Potassium channels showed particularly significant enrichment in forecASD genes (OR = 4.1, P = 7.2 × 10<sup>−9</sup>, N = 35 genes) despite the absence of potassium channel genes among currently accepted autism risk genes. However, literature shows support for a role for potassium channels in ASD risk<sup><xref ref-type="bibr" rid="CR44">44</xref>–<xref ref-type="bibr" rid="CR47">47</xref></sup>, and the pathway was enriched for differential regulation in a recently published brain gene expression study of autism (P = 0.001, downregulated)<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>. Overall, when comparing the pathways identified using forecASD genes, we found a significant agreement with pathways enriched in an ASD case/control postmortem brain gene expression study<sup><xref ref-type="bibr" rid="CR25">25</xref></sup> (Fig. <xref ref-type="fig" rid="Fig4">4</xref>). Notably, the agreement between forecASD and ASD postmortem brain up-regulated pathways was significantly stronger than the agreement between SFARI HC and postmortem brain upregulated pathways. This finding highlights a potential blindspot of current ASD gene discovery methods to pathways which have experimental evidence of involvement in ASD.</p>
+<p id="Par38">Using TADA to impart genetic association information to the forecASD ensemble is unique among the ASD gene prediction approaches we used as benchmarks. However, this raises concerns about the potential for circularity: TADA is emerging as the most popular way to compute and update gene-wise genetic association statistics for ASD studies, and previous TADA scores are strongly correlated with updated TADA scores. Furthermore, TADA scores are among the most important predictive features in the forecASD ensemble (Supplementary Fig. S<xref ref-type="media" rid="MOESM1">2</xref>). Consequently, it would be concerning if forecASD’s ability to predict new ASD genes was due entirely to the inclusion of previously published TADA scores. Testing for this possibility, we found that forecASD remained the strongest predictor of SFARI score 3 genes (not used during training), even when using all five TADA-based features as covariates in a logistic regression model (Supplemental Fig. S<xref ref-type="media" rid="MOESM1">3</xref>).</p>
+<p id="Par39">Although our cluster analysis identified well-defined clusters with an enrichment for haploinsufficient genes, we observed only a marginally significant relationship between cluster pLI enrichment and SFARI HC gene overlap. The lack of signal was likely driven by the relatively even distribution of SFARI HC genes among clusters. This suggests that — across the functionally coherent groups of genes forecASD identified — there is no bias in existing knowledge toward one cluster or another, and that these clusters may represent yet-undiscovered reservoirs of ASD risk genes. We believe this means that forecASD can help point the way forward to as-yet undiscovered ASD biology.</p>
+<p id="Par40">For the foreseeable future, traditional gene discovery studies will continue to add to the list of bona fide ASD risk genes. When sample sizes saturate and gene discovery decelerates, the field will be challenged to develop new and useful applications of this acquired knowledge. By combining new and previously published predictors into a high-performance ensemble classifier, forecASD provides a glimpse of this future and gives an opportunity to begin thinking about what can be done with a comprehensive list of autism risk genes.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec17">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2020_61288_MOESM1_ESM.pdf"><caption><p>Supplementary Information.</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p><bold>Publisher’s note</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p>is available for this paper at 10.1038/s41598-020-61288-5.</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>We are grateful to all of the families in SPARK, the SPARK clinical sites and SPARK staff. We appreciate obtaining access to exome sequencing and phenotypic data on SFARI Base. This work was supported by the National Institutes of Health [MH105527 and DC014489 to J.J.M.]. This work was supported by a grant from the Simons Foundation (SFARI # 516716, [J.J.M.]).</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author contributions</title>
+<p>L.B. contributed to design, testing, and implementation of forecASD model and was a major contributor in writing the manuscript. T.K. contributed to analysis of forecASD model results and contributed to github implementation of forecASD. J.J.M. contributed to design, testing, and implementation of forecASD model and was a major contributor in writing the manuscript. All authors read and approved the final manuscript.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Data availability</title>
+<p>Approved researchers can obtain the SPARK population dataset described in this study by applying at <ext-link ext-link-type="uri" xlink:href="https://base.sfari.org">https://base.sfari.org</ext-link>. All data and code used to generate the forecASD model is available for download from the repository associated with this project, <ext-link ext-link-type="uri" xlink:href="https://github.com/LeoBman/forecASD">https://github.com/LeoBman/forecASD</ext-link>.</p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Competing interests</title>
+<p id="Par41">The authors declare no competing interests.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rosenberg</surname>
+<given-names>RE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Characteristics and concordance of autism spectrum disorders among 277 twin pairs</article-title>
+<source/>Archives of Pediatrics &amp; Adolescent Medicine
+          <year>2009</year>
+<volume>163</volume>
+<fpage>907</fpage>
+<pub-id pub-id-type="doi">10.1001/archpediatrics.2009.98</pub-id>
+<pub-id pub-id-type="pmid">19805709</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Colvert</surname>
+<given-names>E</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Heritability of autism spectrum disorder in a UK population-based twin sample</article-title>
+<source/>JAMA Psychiatry
+          <year>2015</year>
+<volume>72</volume>
+<fpage>415</fpage>
+<pub-id pub-id-type="doi">10.1001/jamapsychiatry.2014.3028</pub-id>
+<pub-id pub-id-type="pmid">25738232</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rubeis</surname>
+<given-names>SD</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Synaptic, transcriptional and chromatin genes disrupted in autism</article-title>
+<source/>Nature
+          <year>2014</year>
+<volume>515</volume>
+<fpage>209</fpage>
+<lpage>215</lpage>
+<pub-id pub-id-type="doi">10.1038/nature13772</pub-id>
+<pub-id pub-id-type="pmid">25363760</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abrahams</surname>
+<given-names>BS</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>SFARI gene 2.0: a community-driven knowledgebase for the autism spectrum disorders (ASDs)</article-title>
+<source/>Molecular Autism
+          <year>2013</year>
+<volume>4</volume>
+<fpage>36</fpage>
+<pub-id pub-id-type="doi">10.1186/2040-2392-4-36</pub-id>
+<pub-id pub-id-type="pmid">24090431</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iossifov</surname>
+<given-names>I</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The contribution of de novo coding mutations to autism spectrum disorder</article-title>
+<source/>Nature
+          <year>2014</year>
+<volume>515</volume>
+<fpage>216</fpage>
+<lpage>221</lpage>
+<pub-id pub-id-type="doi">10.1038/nature13908</pub-id>
+<pub-id pub-id-type="pmid">25363768</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<mixed-citation publication-type="other"> Satterstrom, F. K. <italic>et al</italic>. Large-scale exome sequencing study implicates both developmental and functional changes in the neurobiology of autism 10.1101/484113 (2018).</mixed-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>DAWN: a framework to identify autism genes and subnetworks using gene expression and genetics</article-title>
+<source/>Molecular Autism
+          <year>2014</year>
+<volume>5</volume>
+<fpage>22</fpage>
+<pub-id pub-id-type="doi">10.1186/2040-2392-5-22</pub-id>
+<pub-id pub-id-type="pmid">24602502</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Krishnan</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genome-wide prediction and functional characterization of the genetic basis of autism spectrum disorder</article-title>
+<source/>Nature Neuroscience
+          <year>2016</year>
+<volume>19</volume>
+<fpage>1454</fpage>
+<lpage>1462</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.4353</pub-id>
+<pub-id pub-id-type="pmid">27479844</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>A cell type-specific expression signature predicts haploinsufficient autism-susceptibility genes</article-title>
+<source/>Human Mutation
+          <year>2016</year>
+<volume>38</volume>
+<fpage>204</fpage>
+<lpage>215</lpage>
+<pub-id pub-id-type="doi">10.1002/humu.23147</pub-id>
+<pub-id pub-id-type="pmid">27860035</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<mixed-citation publication-type="other"> Lin, Y., Rajadhyaksha, A. M., Potash, J. B. &amp; Han, S. A machine learning approach to predicting autism risk genes: Validation of known genes and discovery of new candidates 10.1101/463547 (2018).</mixed-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<mixed-citation publication-type="other"> Duda, M. <italic>et al</italic>. Brain-specific functional relationship networks inform autism spectrum disorder gene prediction. <italic>Translational Psychiatry</italic><bold>8</bold>10.1038/s41398-018-0098-6 (2018).</mixed-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yuen</surname>
+<given-names>RKC</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Whole genome sequencing resource identifies 18 new candidate genes for autism spectrum disorder</article-title>
+<source/>Nature Neuroscience
+          <year>2017</year>
+<volume>20</volume>
+<fpage>602</fpage>
+<lpage>611</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.4524</pub-id>
+<pub-id pub-id-type="pmid">28263302</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Feliciano</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>SPARK: A US cohort of 50, 000 families to accelerate autism research</article-title>
+<source/>Neuron
+          <year>2018</year>
+<volume>97</volume>
+<fpage>488</fpage>
+<lpage>493</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2018.01.015</pub-id>
+<pub-id pub-id-type="pmid">29420931</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sunkin</surname>
+<given-names>SM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Allen brain atlas: an integrated spatio-temporal portal for exploring the central nervous system</article-title>
+<source/>Nucleic Acids Research
+          <year>2012</year>
+<volume>41</volume>
+<fpage>D996</fpage>
+<lpage>D1008</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gks1042</pub-id>
+<pub-id pub-id-type="pmid">23193282</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>v. Mering</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>STRING: a database of predicted functional associations between proteins</article-title>
+<source/>Nucleic Acids Research
+          <year>2003</year>
+<volume>31</volume>
+<fpage>258</fpage>
+<lpage>261</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkg034</pub-id>
+<pub-id pub-id-type="pmid">12519996</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<mixed-citation publication-type="other"> R Development Core Team. <italic>R: A Language and Environment for Statistical Computing</italic>. R Foundation for Statistical Computing, Vienna, Austria (2008). ISBN 3-900051-07-0.</mixed-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sanders</surname>
+<given-names>SJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Insights into autism spectrum disorder genomic architecture and biology from 71 risk loci</article-title>
+<source/>Neuron
+          <year>2015</year>
+<volume>87</volume>
+<fpage>1215</fpage>
+<lpage>1233</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2015.09.016</pub-id>
+<pub-id pub-id-type="pmid">26402605</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liaw</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Wiener</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Classification and regression by randomforest</article-title>
+<source/>R News
+          <year>2002</year>
+<volume>2</volume>
+<fpage>18</fpage>
+<lpage>22</lpage>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<mixed-citation publication-type="other"> denovo-db.gs.washington.edu. Accessed: 2018.</mixed-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<mixed-citation publication-type="other"> Feliciano, P. <italic>et al</italic>. Exome sequencing of 457 autism families recruited online provides evidence for novel asd genes. <italic>bioRxiv</italic>, 10.1101/516625, <ext-link ext-link-type="uri" xlink:href="https://www.biorxiv.org/content/early/2019/44101/09/516625.full.pdf">https://www.biorxiv.org/content/early/2019/44101/09/516625.full.pdf</ext-link> (2019).</mixed-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zylka</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Simon</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Philpot</surname>
+<given-names>BD</given-names>
+</name>
+</person-group>
+<article-title>Gene length matters in neurons</article-title>
+<source/>Neuron
+          <year>2015</year>
+<volume>86</volume>
+<fpage>353</fpage>
+<lpage>355</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2015.03.059</pub-id>
+<pub-id pub-id-type="pmid">25905808</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<mixed-citation publication-type="other"> Ruzzo, E. K. <italic>et al</italic>. Whole genome sequencing in multiplex families reveals novel inherited and de novo genetic risk in autism, 10.1101/338855 (2018).</mixed-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fabregat</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The reactome pathway knowledgebase</article-title>
+<source/>Nucleic Acids Research
+          <year>2017</year>
+<volume>46</volume>
+<fpage>D649</fpage>
+<lpage>D655</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkx1132</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mi</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>The PANTHER database of protein families, subfamilies, functions and pathways</article-title>
+<source/>Nucleic Acids Research
+          <year>2004</year>
+<volume>33</volume>
+<fpage>D284</fpage>
+<lpage>D288</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gki078</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gandal</surname>
+<given-names>MJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Shared molecular neuropathology across major psychiatric disorders parallels polygenic overlap</article-title>
+<source/>Science
+          <year>2018</year>
+<volume>359</volume>
+<fpage>693</fpage>
+<lpage>697</lpage>
+<pub-id pub-id-type="doi">10.1126/science.aad6469</pub-id>
+<pub-id pub-id-type="pmid">29439242</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Comprehensive functional genomic resource and integrative model for the human brain</article-title>
+<source/>Science
+          <year>2018</year>
+<volume>362</volume>
+<fpage>eaat8464</fpage>
+<pub-id pub-id-type="doi">10.1126/science.aat8464</pub-id>
+<pub-id pub-id-type="pmid">30545857</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grove</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification of common genetic risk variants for autism spectrum disorder</article-title>
+<source/>Nature Genetics
+          <year>2019</year>
+<volume>51</volume>
+<fpage>431</fpage>
+<lpage>444</lpage>
+<pub-id pub-id-type="doi">10.1038/s41588-019-0344-8</pub-id>
+<pub-id pub-id-type="pmid">30804558</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<mixed-citation publication-type="other"> Csardi, G. &amp; Nepusz, T. The igraph software package for complex network research. <italic>InterJournal</italic>  <bold>Complex Systems</bold>, 1695 (2006).</mixed-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Newman</surname>
+<given-names>MEJ</given-names>
+</name>
+</person-group>
+<article-title>Modularity and community structure in networks</article-title>
+<source/>Proceedings of the National Academy of Sciences
+          <year>2006</year>
+<volume>103</volume>
+<fpage>8577</fpage>
+<lpage>8582</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0601602103</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shannon</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Cytoscape: A software environment for integrated models of biomolecular interaction networks</article-title>
+<source/>Genome Research
+          <year>2003</year>
+<volume>13</volume>
+<fpage>2498</fpage>
+<lpage>2504</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.1239303</pub-id>
+<pub-id pub-id-type="pmid">14597658</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Szklarczyk</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The STRING database in 2017: quality-controlled protein-protein association networks, made broadly accessible</article-title>
+<source/>Nucleic Acids Research
+          <year>2016</year>
+<volume>45</volume>
+<fpage>D362</fpage>
+<lpage>D368</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/464gkw937</pub-id>
+<pub-id pub-id-type="pmid">27924014</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>O’Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Sporadic autism exomes reveal a highly interconnected protein network of de novo mutations</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>485</volume>
+<fpage>246</fpage>
+<lpage>250</lpage>
+<pub-id pub-id-type="doi">10.1038/nature10989</pub-id>
+<pub-id pub-id-type="pmid">22495309</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sanders</surname>
+<given-names>SJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>De novo mutations revealed by whole-exome sequencing are strongly associated with autism</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>485</volume>
+<fpage>237</fpage>
+<lpage>241</lpage>
+<pub-id pub-id-type="doi">10.1038/nature10945</pub-id>
+<pub-id pub-id-type="pmid">22495306</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turner</surname>
+<given-names>TN</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genomic patterns of de novo mutation in simplex autism</article-title>
+<source/>Cell
+          <year>2017</year>
+<volume>171</volume>
+<fpage>710</fpage>
+<lpage>722e12</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2017.08.047</pub-id>
+<pub-id pub-id-type="pmid">28965761</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<mixed-citation publication-type="other">Karczewski, K. J.  <italic>et al</italic>.  Variation across 141, 456 human exomes and genomes reveals the spectrum of loss-of-function intolerance across human protein-coding genes 10.1101/531210 (2019).</mixed-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Reiner</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Karzbrun</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Kshirsagar</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Kaibuchi</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Regulation of neuronal migration, an emerging topic in autism spectrum disorders</article-title>
+<source/>Journal of Neurochemistry
+          <year>2015</year>
+<volume>136</volume>
+<fpage>440</fpage>
+<lpage>456</lpage>
+<pub-id pub-id-type="doi">10.1111/jnc.13403</pub-id>
+<pub-id pub-id-type="pmid">26485324</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Loebrich</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>The role of f-actin in modulating clathrin-mediated endocytosis: Lessons from neurons in health and neuropsychiatric disorder</article-title>
+<source/>Communicative &amp;Integrative Biology
+          <year>2014</year>
+<volume>7</volume>
+<fpage>e28740</fpage>
+<pub-id pub-id-type="doi">10.4161/cib.28740</pub-id>
+<pub-id pub-id-type="pmid">25053985</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Reichova</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Zatkova</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Bacova</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Bakos</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Abnormalities in interactions of rho GTPases with scaffolding proteins contribute to neurodevelopmental disorders</article-title>
+<source/>Journal of Neuroscience Research
+          <year>2017</year>
+<volume>96</volume>
+<fpage>781</fpage>
+<lpage>788</lpage>
+<pub-id pub-id-type="doi">10.1002/jnr.24200</pub-id>
+<pub-id pub-id-type="pmid">29168207</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Martin-Vilchez</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>RhoGTPase regulators orchestrate distinct stages of synaptic development</article-title>
+<source/>PLOS ONE
+          <year>2017</year>
+<volume>12</volume>
+<fpage>e0170464</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0170464</pub-id>
+<pub-id pub-id-type="pmid">28114311</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sun</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Histone acetylome-wide association study of autism spectrum disorder</article-title>
+<source/>Cell
+          <year>2016</year>
+<volume>167</volume>
+<fpage>1385</fpage>
+<lpage>1397.e11</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2016.10.031</pub-id>
+<pub-id pub-id-type="pmid">27863250</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lipton</surname>
+<given-names>JO</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Aberrant proteostasis of BMAL1 underlies circadian abnormalities in a paradigmatic mTOR-opathy</article-title>
+<source/>Cell Reports
+          <year>2017</year>
+<volume>20</volume>
+<fpage>868</fpage>
+<lpage>880</lpage>
+<pub-id pub-id-type="doi">10.1016/j.celrep.2017.07.008</pub-id>
+<pub-id pub-id-type="pmid">28746872</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Monyak</surname>
+<given-names>RE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Insulin signaling misregulation underlies circadian and cognitive deficits in a drosophila fragile x model</article-title>
+<source/>Molecular Psychiatry
+          <year>2016</year>
+<volume>22</volume>
+<fpage>1140</fpage>
+<lpage>1148</lpage>
+<pub-id pub-id-type="doi">10.1038/mp.2016.51</pub-id>
+<pub-id pub-id-type="pmid">27090306</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kozlov</surname>
+<given-names>SV</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The imprinted gene magel2 regulates normal circadian output</article-title>
+<source/>Nature Genetics
+          <year>2007</year>
+<volume>39</volume>
+<fpage>1266</fpage>
+<lpage>1272</lpage>
+<pub-id pub-id-type="doi">10.1038/ng2114</pub-id>
+<pub-id pub-id-type="pmid">17893678</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<mixed-citation publication-type="other">Guglielmi, L.  Update on the implication of potassium channels in autism: K channelautism spectrum disorder. <italic>Frontiers Cellular Neuroscience</italic> <bold>9</bold>, 10.3389/fncel.2015.00034 (2015).</mixed-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Deng</surname>
+<given-names>P-Y</given-names>
+</name>
+<name>
+<surname>Klyachko</surname>
+<given-names>VA</given-names>
+</name>
+</person-group>
+<article-title>Genetic upregulation of BK channel activity normalizes multiple synaptic and circuit defects in a mouse model of fragile x syndrome</article-title>
+<source/>The Journal of Physiology
+          <year>2015</year>
+<volume>594</volume>
+<fpage>83</fpage>
+<lpage>97</lpage>
+<pub-id pub-id-type="doi">10.1113/jp271031</pub-id>
+<pub-id pub-id-type="pmid">26427907</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Exome sequencing identifies de novo gain of function missense mutation in KCND2 in identical twins with autism and seizures that slows potassium channel inactivation</article-title>
+<source/>Human Molecular Genetics
+          <year>2014</year>
+<volume>23</volume>
+<fpage>3481</fpage>
+<lpage>3489</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddu056</pub-id>
+<pub-id pub-id-type="pmid">24501278</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<mixed-citation publication-type="other">Sicca, F.  <italic>et al</italic>.  Gain-of-function defects of astrocytic kir4.1 channels in children with autism spectrum disorders and epilepsy. <italic>Scientific Reports</italic>  <bold>6</bold>,  10.1038/srep34325 (2016).</mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

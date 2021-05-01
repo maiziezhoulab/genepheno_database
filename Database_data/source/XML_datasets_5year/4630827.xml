@@ -1,0 +1,1697 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">BMC Genomics</journal-id>
+<journal-id journal-id-type="iso-abbrev">BMC Genomics</journal-id>
+<journal-title-group>
+<journal-title>BMC Genomics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1471-2164</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">26526070</article-id>
+<article-id pub-id-type="pmc">4630827</article-id>
+<article-id pub-id-type="publisher-id">2123</article-id>
+<article-id pub-id-type="doi">10.1186/s12864-015-2123-y</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Determining multiallelic complex copy number and sequence variation from high coverage exome sequencing data</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Forni</surname>
+<given-names>Diego</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+<xref ref-type="aff" rid="Aff2"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Martin</surname>
+<given-names>Diana</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Abujaber</surname>
+<given-names>Razan</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sharp</surname>
+<given-names>Andrew J.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff3"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sironi</surname>
+<given-names>Manuela</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2"></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Hollox</surname>
+<given-names>Edward J.</given-names>
+</name>
+<address>
+<email>ejh33@le.ac.uk</email>
+</address>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<aff id="Aff1"><label></label>Department of Genetics, University of Leicester, Leicester, UK </aff>
+<aff id="Aff2"><label></label>Bioinformatics, Scientific Institute IRCCS E.MEDEA, Bosisio, Parini, Italy </aff>
+<aff id="Aff3"><label></label>Department of Genetics and Genome Sciences, Icahn School of Medicine at Mount Sinai, New York, NY USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>2</day>
+<month>11</month>
+<year>2015</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>2</day>
+<month>11</month>
+<year>2015</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2015</year>
+</pub-date>
+<volume>16</volume>
+<elocation-id>891</elocation-id>
+<history>
+<date date-type="received">
+<day>1</day>
+<month>9</month>
+<year>2015</year>
+</date>
+<date date-type="accepted">
+<day>22</day>
+<month>10</month>
+<year>2015</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© Forni et al. 2015</copyright-statement>
+<license license-type="OpenAccess">
+<license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<sec>
+<title>Background</title>
+<p>Copy number variation (CNV) is a major component of genomic variation, yet methods to accurately type genomic CNV lag behind methods that type single nucleotide variation. High-throughput sequencing can contribute to these methods by using sequence read depth, which takes the number of reads that map to a given part of the reference genome as a proxy for copy number of that region, and compares across samples. Furthermore, high-throughput sequencing also provides information on the sequence differences between copies within and between individuals.</p>
+</sec>
+<sec>
+<title>Methods</title>
+<p>In this study we use high-coverage phase 3 exome sequences of the 1000 Genomes project to infer diploid copy number of the beta-defensin genomic region, a well-studied CNV that carries several beta-defensin genes involved in the antimicrobial response, signalling, and fertility. We also use these data to call sequence variants, a particular challenge given the multicopy nature of the region.</p>
+</sec>
+<sec>
+<title>Results</title>
+<p>We confidently call copy number and sequence variation of the beta-defensin genes on 1285 samples from 26 global populations, validate copy number using Nanostring nCounter and triplex paralogue ratio test data. We use the copy number calls to verify the genomic extent of the CNV and validate sequence calls using analysis of cloned PCR products. We identify novel variation, mostly individually rare, predicted to alter amino-acid sequence in the beta-defensin genes. Such novel variants may alter antimicrobial properties or have off-target receptor interactions, and may contribute to individuality in immunological response and fertility.</p>
+</sec>
+<sec>
+<title>Conclusions</title>
+<p>Given that 81 % of identified sequence variants were not previously in dbSNP, we show that sequence variation in multiallelic CNVs represent an unappreciated source of genomic diversity.</p>
+</sec>
+<sec>
+<title>Electronic supplementary material</title>
+<p>The online version of this article (doi:10.1186/s12864-015-2123-y) contains supplementary material, which is available to authorized users.</p>
+</sec>
+</abstract>
+<kwd-group xml:lang="en">
+<title>Keywords</title>
+<kwd>Exome</kwd>
+<kwd>High throughput sequencing</kwd>
+<kwd>Copy number variation</kwd>
+<kwd>Beta-defensin</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2015</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Background</title>
+<p>Copy number variation (CNV), where a section of DNA differs from a diploid copy number of 2 between different individuals, is a common form of variation that can affect a substantial portion of the human genome and genomes from other organisms [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR3">3</xref>]. Such variation can affect phenotype through a variety of mechanisms, such as a gene dosage effect [<xref ref-type="bibr" rid="CR4">4</xref>], variation in the number of protein coding domains [<xref ref-type="bibr" rid="CR5">5</xref>] or alteration of position of enhancer elements [<xref ref-type="bibr" rid="CR6">6</xref>]. CNV can be divided into simple CNV, usually comprising a deletion or duplication and generated by one mutational event, and complex multiallelic CNV where different dosage variants are generated by recurrent mutation. In humans, complex CNV has been shown to affect disease susceptibility. For example, CNV of the beta-defensin locus has been shown to affect the risk of developing the inflammatory skin disease psoriasis [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>], and CNV of the neuronal glucose transporter <italic>SLC2A3</italic> modifies the age of onset of Huntington’s disease [<xref ref-type="bibr" rid="CR9">9</xref>]. Furthermore, CNV of the amylase gene in dogs has been shown to be an adaptation to domestication and in Drosophila CNV is important in resistance to insecticides [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>].</p>
+<p>Despite the importance of complex CNV, research progress has lagged behind studies into simpler deletions and duplications, and has been dogged by false positive disease associations. This is almost entirely due to the challenges in accurately typing complex multiallelic CNV [<xref ref-type="bibr" rid="CR12">12</xref>]. Most studies have used real-time quantitative PCR, which is prone to bias [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>]. Although other more reliable methods exist, such as the paralogue ratio test (PRT) and multiplex amplifiable probe hybridisation (MAPH), such assays require extensive validation and are locus specific rather than genome-wide, limiting the amount of data generated at one time. Genome-wide approaches, such as analysis of hybridisation signal intensities from SNP chips and array comparative genomic hybridisation, generate a large amount of useful data but are often weak in typing complex CNV – i.e. giving an absolute copy number rather than just indicating a loss or gain of signal. Furthermore, complex CNV detection and typing appears to be DNA cohort dependent, which further increases the risk of false negative genetic associations and false positive associations due to batch effects.</p>
+<p>Recent work has addressed analysis of CNVs using sequence read depth (SRD) generated by next-generation sequencing platforms [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR15">15</xref>]. The principle is simple: when short read sequences are generated from an individual with a high copy number for a particular region and are subsequently aligned to a reference genome with only one copy of that region, the number of reads mapping to that region will be higher than expected. Most studies have focused on detecting CNV in whole genome sequences rather than typing absolute copy number of particular complex CNV regions [<xref ref-type="bibr" rid="CR16">16</xref>]. One exception relies on singly-unique-nucleotides (SUNs) to provide an internal calibration of copy number of that particular region [<xref ref-type="bibr" rid="CR15">15</xref>]. This has been successful for some CNVs, and using this approach the role of a particular sequence variant of the CNV carrying the <italic>SRGAP2</italic> gene in human evolution has been elucidated [<xref ref-type="bibr" rid="CR17">17</xref>]. Nevertheless, the extent to which other complex CNVs show that particular pattern of variation, where SUNs exist and are frequent, is not clear.</p>
+<p>One distinct advantage of SRD approaches is that they can yield information on the sequence differences between different copies of the complex CNV. Other methods, such as analysis of SNP array hybridisation intensity data, array comparative genomic hybridisation (aCGH) data, MAPH or PRT often assume sequence identity under the probe or primer. The effect of this can be minimised either by multiple assays or careful design of probes/assays, but such methods remain essentially blind to the sequence variation between copies. This sequence variation can be important, for example, in the <italic>SRGAP2</italic> example mentioned above, where only particular paralogues, defined by sequence variants, are functional [<xref ref-type="bibr" rid="CR17">17</xref>].</p>
+<p>An accurate assessment of sequence variation of a multiallelic CNV locus using SRD needs high coverage sequence data to be confident that all copies have their sequence represented in the alignment. The number of publically-available whole genomes sequenced at high coverage is increasing but limited, but the 1000 Genome Project has released sequence data of 2455 exomes sequenced at high coverage using Illumina sequencing technology. Furthermore, given the lower cost of exome sequencing per sample, exome sequences are becoming increasingly common for large sample sets. Therefore we focused on complex CNV typing and sequence analysis using high coverage exome sequence data.</p>
+<p>There are several platforms that use exome SRD data to detect and call CNV [<xref ref-type="bibr" rid="CR16">16</xref>]. All use a similar approach of using principal component analysis to extract components describing different aspects of the variation, including noise, and then using a hidden Markov model approach to call boundaries between gain of copy number, loss of copy number and diploid regions. In principle, the variation in the principal component that most closely corresponds to DNA dosage signal can be used to type the absolute integer copy number of complex CNV. Only one platform has been used to do this, CoNIFER, which has been used on 907 exomes to show proof of principle [<xref ref-type="bibr" rid="CR18">18</xref>], and subsequently on 1644 exomes to investigate the role of CNV in autism spectrum disorder [<xref ref-type="bibr" rid="CR19">19</xref>].</p>
+<p>To rigorously test the quality of copy number and sequence variation calls from exome data on a region of complex CNV, we decided to focus on the well-studied human beta-defensin locus. This is a 322 kb region of DNA on chromosome 8p23.1, which is embedded within a complex region rich in segmental duplications and olfactory receptor genes [<xref ref-type="bibr" rid="CR20">20</xref>, <xref ref-type="bibr" rid="CR21">21</xref>]. The 322 kb region is copy number variable as a block, with the diploid copy number commonly between 2 and 7 copies, but individuals with as few as one copy and as many as 12 copies have been observed [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR22">22</xref>]. Chromosomes with high copy number of the beta-defensin region can be distinguished by a visibly larger 8p23.1 region by G-band staining [<xref ref-type="bibr" rid="CR23">23</xref>]. Furthermore, the beta-defensin region is polymorphic in physical location on the chromosome, with some copies polymorphically at the proximal end of 8p23.1 within the olfactory repeat region REPP in addition to the distal end within the olfactory repeat region REPD [<xref ref-type="bibr" rid="CR20">20</xref>].</p>
+<p>Seventeen annotated genes are within the copy number variable region, including eight beta-defensin genes (<italic>DEFB4</italic>, <italic>DEFB103</italic>, <italic>DEFB104</italic>, <italic>DEFB105</italic>, <italic>DEFB106</italic>, <italic>DEFB107, DEFB108</italic> and <italic>DEFB109</italic>) and nine other genes mostly expressed in the testes [<xref ref-type="bibr" rid="CR21">21</xref>]. The role of <italic>DEFB4</italic> and <italic>DEFB103</italic> appear to be immunomodulatory in humans, in addition to direct antimicrobial activity. For the other defensins, the role is less clear, although a knockout mouse deleting the orthologous beta-defensin cluster shows complete male infertility, strongly suggesting an important role of these genes in reproduction [<xref ref-type="bibr" rid="CR22">22</xref>]. The function of the other genes remains unknown. Sequence variation of the region remains understudied, primarily due to the difficulty of reliably distinguishing variant nucleotides in multicopy regions by the Sanger sequencing method. We therefore decided to test whether exome SRD could accurately call copy number and sequence variation of this complex CNV, both to identify beta-defensin variants which may have novel functions but also to robustly establish a recommended approach that could be applied to complex CNVs by the research community.</p>
+</sec>
+<sec id="Sec2" sec-type="materials|methods">
+<title>Methods</title>
+<sec id="Sec3">
+<title>Exome data</title>
+<p>Filtered phase 3 exome data generated by the 1000 Genome project was downloaded from the European Bioinformatics Institute (<ext-link ext-link-type="uri" xlink:href="http://ftp.1000genomes.ebi.ac.uk/vol1/">http://ftp.1000genomes.ebi.ac.uk/vol1/</ext-link>) as fastq files. We retrieved only Illumina technology filtered paired end data generated by four different sequencing centres: Baylor College of Medicine (BCM), Beijing Genomic Institute (BGI), Broad Institute (BI), and Washington University Genome Sequencing Center (WUGSC). The initial dataset consisted of 2455 samples divided in 5 major continental groups (referred to as “super populations” by the 1000 Genomes Project): African, East Asian, South Asian, European, and Admixed American. Throughout this paper, the standard abbreviations for 1000 Genomes populations are used – see <ext-link ext-link-type="uri" xlink:href="http://www.1000genomes.org/category/frequently-asked-questions/population">http://www.1000genomes.org/category/frequently-asked-questions/population</ext-link> for details of population codes and sample names.</p>
+</sec>
+<sec id="Sec4">
+<title>Mapping</title>
+<p>The reference sequence was generated using all chromosome 8 exons plus 300 bp flanking sequence from the GRCh37-hg19 human reference genome; when two exons were closer than 600 bp, all the genomic distance was considered. We used mrsFAST ultra v3.2.0 for sequence alignment, using a paired end approach [<xref ref-type="bibr" rid="CR24">24</xref>]. Importantly, ConIFER was designed to be used on alignments generated using mrsFAST [<xref ref-type="bibr" rid="CR25">25</xref>], a one-to many sequence read aligner, rather than other more common aligners based on the Burrows-Wheeler algorithm that generally operate as a one-to-one sequence aligner. mrsFAST therefore captures all possible mapping locations up to a user-defined number of mismatches, which leads to more accurate estimates of copy number from SRD approaches, because all copies above a given percentage identity will be aligned efficiently to the reference locus. A reference indexing window size of 12 was created and the pair end reads mapping was performed using the all-mapper tool with a maximum error threshold of 6.</p>
+</sec>
+<sec id="Sec5">
+<title>CNV calling</title>
+<p>CNV calling used CoNIFER, a suite of Python scripts that calculate RPKM (reads per thousand bases per million reads sequenced) values starting from aligned sequences and a set of probes [<xref ref-type="bibr" rid="CR18">18</xref>]; for our analyses we defined the probe set as all the chr8 exon boundaries. Samples with a RPKM mean &lt;50 were discarded from the analysis to reduce background signal. Singular value decomposition standardized z-scores RPKM (SVD-ZRPKM) values were calculated for samples belonging to one or more population generated by the same sequencing centre (e.g. all African samples from BGI), removing the first components that are disproportionally responsible for the variance of the data. For each dataset under analysis, we evaluated the best number of components to be removed using scree plots generated by CoNIFER; the components to be removed were chosen based on the shoulder of the scree plot. Raw SVD-ZRPKM mean of the beta-defensins that unambiguously map just to chromosome 8p23.1 <italic>DEFB4</italic>, <italic>DEFB103</italic>, <italic>DEFB104</italic>, <italic>DEFB105</italic>, <italic>DEFB106</italic> and <italic>DEFB107</italic>) were retrieved and used for CNV calling. To determine the integer copy number call for each sample we used CNVtools, grouping samples from the same continental group and sequencing centre together. The Gaussian mixture models were evaluated by eye, plotting the mixture model together with a histogram of raw copy number to check for clear clustering about integer copy numbers, and also by comparing calls with previous copy number estimates of samples from the HapMap collection that overlapped the 1000 Genomes dataset, using triplex paralogue ratio tests [<xref ref-type="bibr" rid="CR26">26</xref>]. These positive controls also allowed us to confirm that the correct SVD-ZRPKM component was used for copy number calling.</p>
+</sec>
+<sec id="Sec6">
+<title>Variant calling</title>
+<p>Single nucleotide variants in one assembled beta-defensin region were called using FreeBayes v9.9.2 [<xref ref-type="bibr" rid="CR27">27</xref>]. Freebayes is a haplotype-based Bayesian genetic variant detector, which can call sequence variants from samples of different ploidy, with ploidy (equivalent to, in our case, copy number) as an extra parameter for each sample. We ran FreeBayes setting 30 and 50 as minimum base and mapping quality, respectively; 0.10 as the minimum fraction of alternate variant observations and 10 for the minimum count of alternate variant reads; finally we specified for each sample the number of copies of the beta-defensin region estimated by the CoNIFER exome SRD analysis.</p>
+</sec>
+<sec id="Sec7">
+<title>Validation of copy number</title>
+<p>Copy number estimates of 164 samples from the HapMap collection that overlapped the 1000 Genomes dataset, using triplex paralogue ratio tests, have been published previously. Copy number estimates of the same samples were also obtained using the Nanostring nCounter system [<xref ref-type="bibr" rid="CR28">28</xref>], by designing 6 probes mapping to the beta-defensin repeat and calculating the first principal component, sample-wise, of the 6 probe values using the R package CNVtools [<xref ref-type="bibr" rid="CR29">29</xref>].</p>
+</sec>
+<sec id="Sec8">
+<title>Validation of sequence variants</title>
+<p>PCR primers were designed flanking variable sites, and genomic DNA from a selection of 8 HapMap samples amplified using standard PCR. PCR products were then cloned into pJET 1.2 vector using the CloneJet PCR cloning kit (Thermo Scientific), where the insert disrupts a lethal gene allowing only plasmids with an insert to confer viability to the bacterial host. Following plating, colonies were selected for colony PCR using the vector primers 5’CGACTCACTATAGGGAGAGCGGC-3’ and 5’AAGAACATCGATTTTCCATGGCAG-3’ flanking the insert, according to the manufacturer’s instructions. PCR products were then digested using the appropriate restriction enzyme to distinguish the alleles at the variant site (<italic>Msp</italic>I for rs140952426, <italic>Ape</italic>KI for rs200757797) and scored for allelic state following agarose gel electrophoresis.</p>
+</sec>
+<sec id="Sec9">
+<title>Population genetics</title>
+<p>Variant frequency distributions for non-synonymous and synonymous variants were compared across the beta-defensin genes analysed, for each population, using the k-sample Anderson-Darling test [<xref ref-type="bibr" rid="CR30">30</xref>] implemented by the R package kSamples.</p>
+</sec>
+<sec id="Sec10">
+<title>Availability of data</title>
+<p>One thousand Genomes phase 3 exome read data are publically available from the European Bioinformatics Institute European Bioinformatics Institute (<ext-link ext-link-type="uri" xlink:href="http://ftp.1000genomes.ebi.ac.uk/vol1/">http://ftp.1000genomes.ebi.ac.uk/vol1/</ext-link>) as fastq files. All 1285 confident copy number calls have been submitted to dbVar (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/dbvar">http://www.ncbi.nlm.nih.gov/dbvar</ext-link>) with accession number nstd116. All novel variants identified in this paper have been deposited in dbSNP (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/SNP/">http://www.ncbi.nlm.nih.gov/SNP/</ext-link>).</p>
+</sec>
+<sec id="Sec11">
+<title>Ethics statement</title>
+<p>For a description of the ethics and consent agreements used for the 1000 Genomes Project see <ext-link ext-link-type="uri" xlink:href="http://www.1000genomes.org/about">http://www.1000genomes.org/about</ext-link>.</p>
+</sec>
+</sec>
+<sec id="Sec12" sec-type="results">
+<title>Results</title>
+<p>We aligned fastq raw sequence read files for 2455 samples from 26 populations to a concatenated reference sequence made of all chromosome 8 exons plus 300 bp flanking sequence. We grouped the samples from the 26 populations into four continental groups. After removing samples where the reads per kilobase per million mapped reads (RPKM) mean value was less than 50, (Fig. <xref ref-type="fig" rid="Fig1">1</xref>, Table <xref ref-type="table" rid="Tab1">1</xref>) we calculated single variant decomposition scores batch wise, with each batch representing a distinct continental group/sequencing centre combination. Raw SVD-ZRPKM mean of all exons of the beta-defensin genes were retrieved and a Gaussian mixture model fitted for each set of data using CNVtools. Observing clear clustering of SVD-ZRPKM mean values about integer copy number values leads us to have high confidence in the Gaussian mixture model fit and therefore in the final copy number calls. Importantly, batches needed to be defined by both sequencing centre and continental group, otherwise poor clustering was observed. For example, Fig. <xref ref-type="fig" rid="Fig2">2</xref> shows histograms of raw SVD-ZRPKM mean values from the BGI sequencing centre, for East Asians (Fig. <xref ref-type="fig" rid="Fig2">2a</xref>), South Asians (Fig. <xref ref-type="fig" rid="Fig2">2b</xref>) and East and South Asians together (Fig. <xref ref-type="fig" rid="Fig2">2c</xref>). Although a Gaussian mixture model can be fitted for all three histograms, the clustering of the SVD-ZRPKM values of the combined batches (Fig. <xref ref-type="fig" rid="Fig2">2c</xref>) is visibly less distinct than when each batch is analysed separately. For most batches, clear clustering of raw SVD-ZRPKM values was observed, increasing confidence that the correct copy number was being called (Fig. <xref ref-type="fig" rid="Fig3">3a</xref>). However some showed SVD-ZRPKM values that did not cluster well (e.g. African samples from BCM sequencing centre, Fig. <xref ref-type="fig" rid="Fig3">3b</xref>), and these were removed from subsequent analyses.<fig id="Fig1"><label>Fig. 1</label><caption><p>Distribution of reads-per-kilobase-per-million-reads (RPKM) values of different samples stratified by sequencing centre. The kernel density plot shows density of RPKM values from mrsFAST alignments for four different sequencing centres, distinguished by the different colours. The vertical dotted line indicates the cutoff value at RPKM = 50, with samples above that threshold taken on for copy number calling</p></caption><graphic id="MO1" xlink:href="12864_2015_2123_Fig1_HTML"></graphic></fig><table-wrap id="Tab1"><label>Table 1</label><caption><p>Characteristics of exome sequences analysed</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Centre name</th><th>Samples</th><th>Samples with &gt; 50 reads per exon</th><th>Sample with a copy number call</th><th>Samples with a copy number call <italic>P</italic> &gt; 0.95*</th><th>Sequence enrichment method</th></tr></thead><tbody><tr><td>BCM</td><td>228</td><td>228</td><td>147</td><td>129 (88 %)</td><td>HSGC VCRome custom array</td></tr><tr><td>BGI</td><td>894</td><td>866</td><td>866</td><td>795 (91 %)</td><td>NimbleGen SeqCap_EZ_Exome v2</td></tr><tr><td>BI</td><td>830</td><td>161</td><td>161</td><td>140 (87 %)</td><td>Agilent SureSelect_All_Exon_V2</td></tr><tr><td>WUGSC</td><td>503</td><td>397</td><td>288</td><td>221 (76 %)</td><td>NimbleGen SeqCap_EZ_Exome v3</td></tr></tbody></table><table-wrap-foot><p>*posterior probability of the copy number call is &gt;0.95</p></table-wrap-foot></table-wrap><fig id="Fig2"><label>Fig. 2</label><caption><p>Effects of continental group batch of origin on copy number clustering. The histograms show normalised sequence depth coverage data for the beta-defensin region generated by the BGI sequencing centre. X-axis values represent raw mean SVD-ZRPKM values, and the y-axis represents number of samples. Curved lines indicating the Gaussian curves used to call integer copy number. <bold>a</bold>) samples from East Asian populations (<italic>n</italic> = 269), <bold>b</bold>) samples from South Asian populations (<italic>n</italic> = 165), <bold>c</bold>) samples from South Asian and East Asian populations analysed as one batch (<italic>n</italic> = 434)</p></caption><graphic id="MO2" xlink:href="12864_2015_2123_Fig2_HTML"></graphic></fig><fig id="Fig3"><label>Fig. 3</label><caption><p>Effects of sequencing centre and batch size on copy number clustering. The histograms show normalised sequence depth coverage data for the beta-defensin region for sub-Saharan African samples. X-axis values represent raw mean SVD-ZRPKM values a) BCM sequencing centre, <italic>n</italic> = 81 (15 YRI, 57 LWK, 9 ASW). b) BGI sequencing centre, <italic>n</italic> = 172 (26 YRI, 3 LWK, 25 GWD, 43 MSL, 47 ESN, 5 ASW, 23 ACB), with curved lines indicating the Gaussian mixture model used to call integer copy number</p></caption><graphic id="MO3" xlink:href="12864_2015_2123_Fig3_HTML"></graphic></fig></p>
+<p>Gaussian mixture modelling generated a copy number call for each sample with an associated posterior probability of that call. The proportion of calls with a posterior probability greater than 0.95 varied between sequencing centres (Table <xref ref-type="table" rid="Tab1">1</xref>), but overall was 87 %. The distribution of copy number reflected previous results, with 4 being the modal copy number in all continental groups apart from sub-Saharan Africans, and the range of common variation extending from 2 copies to 8 copies per diploid genome (Table <xref ref-type="table" rid="Tab2">2</xref>).<table-wrap id="Tab2"><label>Table 2</label><caption><p>Beta-defensin copy number frequency in human continental groups</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Continental group</th><th>Total Samples</th><th>2 copy</th><th>3 copy</th><th>4 copy</th><th>5 copy</th><th>6 copy</th><th>7 copy</th><th>8 copy</th></tr></thead><tbody><tr><td>Sub-Saharan African</td><td>214</td><td>1 (0.005)</td><td>26 (0.12)</td><td>60 (0.28)</td><td>68 (0.32)</td><td>38 (0.18)</td><td>16 (0.07)</td><td>5 (0.02)</td></tr><tr><td>East Asian</td><td>405</td><td>13 (0.03)</td><td>81 (0.200)</td><td>153 (0.38)</td><td>112 (0.28)</td><td>34 (0.08)</td><td>10 (0.02)</td><td>2 (0.005)</td></tr><tr><td>South Asian</td><td>248</td><td>9 (0.04)</td><td>41 (0.17)</td><td>97 (0.39)</td><td>66 (0.27)</td><td>32 (0.13)</td><td>3 (0.01)</td><td>0</td></tr><tr><td>European</td><td>349</td><td>7 (0.02)</td><td>50 (0.14)</td><td>142 (0.41)</td><td>109 (0.31)</td><td>35 (0.10)</td><td>6 (0.02)</td><td>0</td></tr><tr><td>Admixed American</td><td>246</td><td>6 (0.02)</td><td>49 (0.20)</td><td>113 (0.46)</td><td>64 (0.26)</td><td>12 (0.05)</td><td>2 (0.008)</td><td>0</td></tr></tbody></table></table-wrap></p>
+<p>We validated our copy number calls by comparing calls on a subset of samples with copy number estimates made previously by Triplex PRT [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR26">26</xref>], by Nanostring [<xref ref-type="bibr" rid="CR28">28</xref>] (Fig. <xref ref-type="fig" rid="Fig4">4a</xref>), and also with copy number calls of the region made by whole genome sequencing [<xref ref-type="bibr" rid="CR4">4</xref>] (Fig. <xref ref-type="fig" rid="Fig4">4b</xref>). It is clear that copy number calls made using exome SRD agree well with both PRT and Nanostring consensus copy number. Exome SRD calls also agree well with whole genome SRD data, although there is a significant discrepancy rate of 11.8 %. Most discrepancies are at the higher copy numbers, and seem to be due to exome SRD underestimating copy number. Of the 7 samples that are discrepant between exome SRD and both PRT and Nanostring, three are also discrepant with whole genome SRD copy number calls, all are spread across the different sequencing centres (Table <xref ref-type="table" rid="Tab3">3</xref>), suggesting the discrepancies are due to random assay noise rather than a systematic bias.<fig id="Fig4"><label>Fig. 4</label><caption><p>Validated of beta-defensin copy number calling. The plots show comparisons between two methods of calling integer beta-defensin copy number. <bold>a</bold>) comparison with triplex paralogue ratio test and Nanostring nCounter. <bold>b</bold>) comparison with integer calls from phase 1 low coverage whole genome data [<xref ref-type="bibr" rid="CR4">4</xref>]. The figures in red indicate the numbers of samples concordant for that particular copy number. The numbers in blue indicate the numbers of discordant samples</p></caption><graphic id="MO4" xlink:href="12864_2015_2123_Fig4_HTML"></graphic></fig><table-wrap id="Tab3"><label>Table 3</label><caption><p>Discrepant copy number calls between exome sequence read depth (SRD) analysis and previous analyses</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Sample</th><th>Pop</th><th>Batch</th><th>Posterior probability of Exome SRD call</th><th>Copy number from Exome SRD</th><th>PRT and nanostring copy number</th><th>Copy number from whole genome SRD</th></tr></thead><tbody><tr><td>NA18858</td><td>YRI</td><td>BGI</td><td>0.589</td><td>6</td><td>8</td><td>8</td></tr><tr><td>NA18861</td><td>YRI</td><td>BGI</td><td>0.996</td><td>5</td><td>6</td><td>6</td></tr><tr><td>NA11892</td><td>CEU</td><td>BGI</td><td>0.968</td><td>3</td><td>5</td><td>3</td></tr><tr><td>NA11893</td><td>CEU</td><td>BGI</td><td>0.977</td><td>4</td><td>5</td><td>5</td></tr><tr><td>NA12156</td><td>CEU</td><td>BCM</td><td>0.610</td><td>5</td><td>6</td><td>na</td></tr><tr><td>NA18912</td><td>YRI</td><td>BI</td><td>0.982</td><td>6</td><td>5</td><td>6</td></tr><tr><td>NA12761</td><td>CEU</td><td>WUGSC</td><td>0.995</td><td>4</td><td>3</td><td>na</td></tr></tbody></table></table-wrap></p>
+<p>We used our exome SRD data to investigate the extent of contiguous copy number variation at this locus, gene by gene. Individual SVD-ZRPKM mean values of each gene were correlated with the individual SVD-ZRPKM mean values of genes within and surrounding the beta-defensin CNV region, both at distal 8p23.1 (a region called REPD [<xref ref-type="bibr" rid="CR31">31</xref>]), and proximal 8p23.1 (REPP), across the 171 European samples sequenced at the BGI. We would expect genes on the CNV block to show highly correlated SVD-ZRPKM scores across these individuals, reflecting the CNV. Indeed, the core defensin genes (<italic>DEFB4</italic> to <italic>DEFB107</italic>) showed a very high correlation (Fig. <xref ref-type="fig" rid="Fig5">5</xref>) indicating that these are on a contiguous block that shows CNV. This block of highly correlated genes extends distally as far as <italic>FAM90A13</italic> and includes <italic>DEFB109</italic>, albeit with lower correlation coefficients, which is likely to be due to mapping of sequence reads derived from known segmental duplications involving these genes on chromosome 4 and chromosome 12. This confirms the observation made previously using arrayCGH that these genes are involved in the beta-defensin CNV [<xref ref-type="bibr" rid="CR21">21</xref>], and shows that analysis of exome SRD can be a powerful approach to identify CNV boundaries. Interestingly, a moderate correlation coefficient is observed for some genes at REPP, including <italic>DEFB130</italic> but not <italic>DEFB134</italic>, <italic>DEFB135</italic> nor <italic>DEFB136</italic>. The beta-defensin repeat region (involving <italic>DEFB4</italic> to <italic>FAM90A13</italic>) is not assembled here, but it is known from genetic data that the repeat region can be polymorphically present here at this location [<xref ref-type="bibr" rid="CR20">20</xref>], and this signal we observe is likely to be due to CNV of the beta-defensin repeat region at REPP.<fig id="Fig5"><label>Fig. 5</label><caption><p>Correlation of SVD-ZRPKM values between genes at 8p23.1. Plot of pairwise correlation between SVD-ZRPKM values among genes at chromosome region 8p23.1. The SVD-ZRPKM mean for all exons belonging to each gene was calculated and the pairwise correlation for each pair of genes was evaluated by the r<sup>2</sup> metric (the correlation is increasing with gray shading). Gene presence and location is based on the annotation of the hg19 human genome assembly. Complex repeat-rich regions REPP and REPD are indicated, and several genes between REPP and REPD are omitted to save space, as indicated by the red dashed line</p></caption><graphic id="MO5" xlink:href="12864_2015_2123_Fig5_HTML"></graphic></fig></p>
+<p>We used our exome alignment files to call sequence variation across the beta-defensin genes within the CNV. Using FreeBayes, a sequence caller that uses diploid copy number as an extra parameter and therefore can make sequence variant calls from non-diploid regions, we called 436 single nucleotide variants spanning 8811 bp of sequence representing the combined length of the beta-defensin genes. 299 are intronic or intergenic, with 137 within the untranslated regions or coding regions. The majority of variants called are rare or very rare, and are specific to particular continental groups, suggesting that they have arisen very recently in human evolutionary history. 355 variants (81 % of total) are novel and have been submitted to dbSNP.</p>
+<p>Sixty-seven variants (64 non-synonymous substitutions and 3 stop codon gains) were called that were predicted to affect amino acids within the beta-defensin genes (Fig. <xref ref-type="fig" rid="Fig6">6</xref>). We validated two frequent non-synonymous variants, rs140952426 in <italic>DEFB104</italic> that changes arginine to a glutamine at position 38, and rs200757797 in <italic>DEFB105</italic> that changes a cysteine to a tyrosine at position 73. It was important not only to validate the presence of the variant but also the correct number of copies of that variant. We did this by amplifying across the variant using genomic DNA, cloning the resulting PCR product, and then counting the number of clones (each derived from a single amplified DNA molecule from the PCR) that had each allele of the variant using colony PCR followed by restriction enzyme digestion (Table <xref ref-type="table" rid="Tab4">4</xref>). This gave an estimate of the proportion of each allele at each variant for each sample, which could be then compared with that predicted by exome sequencing – for example a GGGA genotype (where three copies have a G and one copy has an A at the same paralogous nucleotide site) would be regarded as 0.25 A allele. For both variants, samples homozygous for the variant that is cut by the restriction enzyme was included to provide a background rate of cut failure either due to experimental error or mutation of restriction site during amplification and cloning. The proportion of each allele measured using this approach is consistent with the genotype called from exome SRD data for all samples, except one. The exception is NA12763, where the molecular cloning method generates an estimate which agrees with a copy number of 6 called by PRT rather than a copy number of 4 called by exome SRD, and therefore reflects an error in copy number calling by exome SRD.<fig id="Fig6"><label>Fig. 6</label><caption><p>Summary of predicted amino acid changes inferred from sequence variation. The six beta-defensin proteins encoded by the genes analysed in this study are shown. The prepro region, which is cleaved during processing, is shown under the blue bar; with the mature peptide sequence is shown under the red bar. The canonical six cysteines are highlighted in red, with sequence variants identified in this study shown in green. X represents a stop codon, and hbd2, hbd3, hbd4, hbd5, hbd6, and hbd7 are the proteins encoded by <italic>DEFB4</italic>, <italic>DEFB103</italic>, <italic>DEFB104</italic>, <italic>DEFB105</italic>, <italic>DEFB106</italic> and <italic>DEFB107</italic> respectively</p></caption><graphic id="MO6" xlink:href="12864_2015_2123_Fig6_HTML"></graphic></fig><table-wrap id="Tab4"><label>Table 4</label><caption><p>Validation of single nucleotide variants</p></caption><table frame="hsides" rules="groups"><thead><tr><th rowspan="2">Sample</th><th colspan="4">rs140952426</th><th colspan="4">rs200757797</th></tr><tr><th>Uncut (A)</th><th>Cut (G)</th><th>Proportion A (95 % CI)</th><th>From exome</th><th>Uncut (T)</th><th>Cut (C)</th><th>Proportion T (95 % CI)</th><th>From exome</th></tr></thead><tbody><tr><td>NA07056</td><td>60</td><td>41</td><td>0.59 (0.49-0.69)</td><td>AAGG</td><td>3</td><td>84</td><td>0.03 (0.01-0.10)</td><td>CCCC</td></tr><tr><td>NA12044</td><td>4</td><td>74</td><td>0.05 (0.01-0.13)</td><td>GGGG</td><td>18</td><td>53</td><td>0.25 (0.16-0.37)</td><td>CCCT</td></tr><tr><td>NA18956</td><td>44</td><td>123</td><td>0.26 (0.20-0.34)</td><td>AGGG</td><td>-</td><td>-</td><td>-</td><td>CCCC</td></tr><tr><td>NA12004</td><td>37</td><td>139</td><td>0.21 (0.15-0.28)</td><td>AGGG</td><td>-</td><td>-</td><td>-</td><td>CCCC</td></tr><tr><td>NA12156</td><td>13</td><td>146</td><td>0.08 (0.04-0.14)</td><td>AGGGG</td><td>-</td><td>-</td><td>-</td><td>CCCCC</td></tr><tr><td>NA07357</td><td>-</td><td>-</td><td>-</td><td>GGGGGG</td><td>5</td><td>79</td><td>0.06 (0.02-0.13)</td><td>CCCCCT</td></tr><tr><td>NA12763</td><td>-</td><td>-</td><td>-</td><td>GGGG</td><td>22</td><td>178</td><td>0.11 (0.07-0.16)</td><td>CCCT<sup>a</sup>
+</td></tr><tr><td>NA12874</td><td>-</td><td>-</td><td>-</td><td>GGGG</td><td>16</td><td>52</td><td>0.23 (0.14-0.35)</td><td>CCCT</td></tr></tbody></table><table-wrap-foot><p>95 % confidence intervals of the binomial distribution calculated using the Pearson-Klopper method</p><p>
+<sup>a</sup>Called as 6 copies by previous PRT</p></table-wrap-foot></table-wrap></p>
+<p>We considered whether a signature of selection at these beta-defensin genes could be inferred from the frequency of sequence variants. By comparing the sequence variant frequency distribution of non-synonymous and synonymous SNPs within coding regions, it is possible to detect the effect of negative selection or balancing selection across the region. Assuming that selection does not act on synonymous variants and therefore their variant frequency distribution represents the neutral null model, we would expect to see an enrichment of non-synonymous variants at low frequency under negative selection, and an enrichment of non-synonymous variants at high frequency (0.4-0.5) under balancing selection.</p>
+<p>Given the small exon size and therefore small number of polymorphisms in the coding region of each gene, we compared the sequence variant frequency distribution for each continental group separately, combining data across all beta-defensin genes measured in the CNV. We did not find a statistically significant difference between any non-synonymous and synonymous sequence variant frequency distributions, for any of the continental groups. This suggests that selection is not acting on these genes, and that the sequence variants observed are essentially neutral.</p>
+</sec>
+<sec id="Sec13" sec-type="discussion">
+<title>Discussion</title>
+<p>In this study we show that high coverage exome sequencing can effectively report integer copy number and sequence variation between copies. Focusing on exome sequencing data has two disadvantages compared to whole genome sequencing data. Firstly, typing depends on the presence of exons (or, more correctly, baits in the exome enrichment mix) that map within the complex CNV region. It is obvious that if there are no exons within the CNV, the sequence will not be enriched and no (or very little) sequence will be generated from that CNV. The problem is scalar, in that it is likely that CNVs with more exonic sequence will have more sequence reads and therefore be more effectively called using SRD approaches compared to CNVs with a small amount of exonic sequence. Secondly, exome sequencing relies on solution-phase enrichment of fragmented DNA using sequence-specific baits. Such an enrichment process might introduce bias into copy number calling, dependent on GC-content of the region or experimental batch, for example.</p>
+<p>Future studies need to be aware of several issues that are important to consider when inferring integer copy number from exome SRD. Firstly, in this study we knew a priori the extent of CNV, which had been elucidated previously, so allowing us to choose several genes which we know were contained in a contiguous CNV block. Inferring CNV boundaries from exome data, particularly when those boundaries are within gene sparse areas or segmental duplications, may result in noisier SRD data, although we show that once a CNV can be robustly typed, the boundary of the CNV can be refined on a gene-by-gene basis. Secondly, we had a number of positive controls where copy number was well established using other methods. This allowed us to validate our singular value decomposition components and our Gaussian mixture models, giving us confidence in our final copy number calls. Thirdly, particular population-sequencing centre batches of samples gave distinct raw copy number results, suggesting that fitting individual Gaussian mixture models to individual batches is important. We do not know what causes this variation, and why sometimes it prevents clustering of raw copy number results, but we suspect it might be due to subtly different signal-noise structures in the data because of different exome enrichment processes used by different centres, which SVD cannot completely resolve. If correct, then we predict that high-coverage whole genome sequences will not show this problem.</p>
+<p>One previous study used target enrichment and 454 sequencing of over 87 kb of the beta-defensin CNV in two samples to study sequence variation [<xref ref-type="bibr" rid="CR32">32</xref>]. This study had the advantage of revealing variation in non-coding regions, and, together with the longer reads generated by 454 technology, sequence haplotypes could be inferred. However, CNV calling by read depth was not attempted and some sequence variants, particularly rare variants, were called with a small number of supporting reads, suggesting limited sensitivity of the approach. Furthermore, only two European samples were sequenced, revealing a limited part of the total potential sequence variation of the region.</p>
+<p>By comparing sequenced BACs, we have previously shown that sequence differences between different copies is localised particularly immediately upstream and downstream of genes, and this may result in expression differences between different copies of the same gene. Indeed, both luciferase reporter studies in keratinocytes and expression in lymphoblastoid cell lines have shown that variation between different defensin copies affects expression of <italic>DEFB103</italic> and of <italic>DEFB4</italic> [<xref ref-type="bibr" rid="CR26">26</xref>, <xref ref-type="bibr" rid="CR33">33</xref>]. The single nucleotide variation affecting <italic>DEFB103</italic> expression is within 1 kb immediately 5’ of the transcription start site, but the single nucleotide variation affecting <italic>DEFB4</italic> expression is not known, except that it is tagged by a synonymous polymorphism rs2740090, which is reported as common across all the continental groups studied here (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S1). Our previous observations of increased sequence differentiation upstream of <italic>DEFB103</italic>, together with its functional effect and the population distribution differences, have led us to suggest that natural selection has influenced expression levels of at least <italic>DEFB103</italic> [<xref ref-type="bibr" rid="CR26">26</xref>]. Furthermore, given the gene dosage effect of copy number variation observed at this locus [<xref ref-type="bibr" rid="CR34">34</xref>, <xref ref-type="bibr" rid="CR35">35</xref>], gene copy number results in variation in levels of protein which in turn provides a phenotype upon which selection can act. In contrast, in rhesus macaques [<xref ref-type="bibr" rid="CR21">21</xref>] and dogs [<xref ref-type="bibr" rid="CR36">36</xref>] it seems likely that amino acid sequence variation between copies has been subject to natural selection.</p>
+<p>In Africa, all variants that alter amino acids in the defensin genes are rare, but outside some of these variants have risen to increased frequency. In particular, a variant at <italic>DEFB105 (rs700757797)</italic>, which disrupts the fifth canonical cysteine essential for disulphide bridge formation in the mature protein (Fig. <xref ref-type="fig" rid="Fig6">6</xref>), is common in non-African populations (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S1). The functional consequences of this and other variants are not known, and await further study. It is likely that they are variants with little effect or null variants, resulting in proteins with reduced function. In the context of a multicopy gene, one or two copies with little or no function will have little consequence, particularly at higher copy numbers, therefore negative selection against such variants is likely to be weak, and indeed we could not detect any signature of selection using variant frequency distributions. An alternative view is that some variants may have alternative off-target effects, and that we have little power to detect selection at a small number of such variants. Indeed given the known receptor promiscuity of defensins [<xref ref-type="bibr" rid="CR37">37</xref>] and the influence of structural changes on antimicrobial activity [<xref ref-type="bibr" rid="CR38">38</xref>, <xref ref-type="bibr" rid="CR39">39</xref>] this is a possibility worth exploring in the context of novel therapeutic agents.</p>
+</sec>
+<sec id="Sec14">
+<title>Conclusions</title>
+<p>We have used exome sequence data from the 1000 Genomes Project to call copy number for the human beta-defensin region on 1285 individuals. We have also identified 436 sequence variants that differ between copies and between individuals, mostly rare, of which 67 are predicted to affect amino-acid sequence of one of the beta-defensin genes.</p>
+</sec>
+</body>
+<back>
+<app-group>
+<app id="App1">
+<sec id="Sec20">
+<title>Additional file</title>
+<p>
+<media id="MOESM1" position="anchor" xlink:href="12864_2015_2123_MOESM1_ESM.docx">
+<label>Additional file 1: Table S1.</label>
+<caption>
+<p>Frequency of rs200757797 and rs2740090 in the 1000 Genomes continental groups. (DOCX 13.4 kb)</p>
+</caption>
+</media>
+</p>
+</sec>
+</app>
+</app-group>
+<fn-group>
+<fn>
+<p>
+<bold>Competing interests</bold>
+</p>
+<p>EJH has received grant funding from Pfizer Inc on a project unrelated to the project described in this paper.</p>
+</fn>
+<fn>
+<p>
+<bold>Author contributions</bold>
+</p>
+<p>The work was conceived and designed by DF and EJH. DF and DM generated the data, and DF, EJH, DM, RA and MS analysed and discussed the results. AS provided Nanostring nCounter data. The paper was written by EJH with all authors contributing and reviewing the final manuscript.</p>
+</fn>
+</fn-group>
+<ack>
+<title>Acknowledgements</title>
+<p>This research used the ALICE High Performance Computing Facility at the University of Leicester.</p>
+</ack>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hollox</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Hoh</surname>
+<given-names>B-P</given-names>
+</name>
+</person-group>
+<article-title>Human gene copy number variation and infectious disease</article-title>
+<source/>Hum Genet
+          <year>2014</year>
+<volume>133</volume>
+<issue>10</issue>
+<fpage>1217</fpage>
+<lpage>33</lpage>
+<pub-id pub-id-type="doi">10.1007/s00439-014-1457-x</pub-id>
+<pub-id pub-id-type="pmid">25110110</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schrider</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Hahn</surname>
+<given-names>MW</given-names>
+</name>
+</person-group>
+<article-title>Gene copy-number polymorphism in nature</article-title>
+<source/>Proc R Soc B Biol Sci
+          <year>2010</year>
+<volume>277</volume>
+<issue>1698</issue>
+<fpage>3213</fpage>
+<lpage>3221</lpage>
+<pub-id pub-id-type="doi">10.1098/rspb.2010.1180</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wain</surname>
+<given-names>LV</given-names>
+</name>
+<name>
+<surname>Armour</surname>
+<given-names>JAL</given-names>
+</name>
+<name>
+<surname>Tobin</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<article-title>Genomic copy number variation, human health, and disease</article-title>
+<source/>Lancet
+          <year>2009</year>
+<volume>374</volume>
+<issue>9686</issue>
+<fpage>340</fpage>
+<lpage>350</lpage>
+<pub-id pub-id-type="doi">10.1016/S0140-6736(09)60249-X</pub-id>
+<pub-id pub-id-type="pmid">19535135</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Handsaker</surname>
+<given-names>RE</given-names>
+</name>
+<name>
+<surname>Van Doren</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Berman</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Genovese</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Kashin</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Boettger</surname>
+<given-names>LM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Large multiallelic copy number variations in humans</article-title>
+<source/>Nat Genet
+          <year>2015</year>
+<volume>47</volume>
+<issue>3</issue>
+<fpage>296</fpage>
+<lpage>303</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.3200</pub-id>
+<pub-id pub-id-type="pmid">25621458</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Polley</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Louzada</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Forni</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Sironi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Balsakas</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Hains</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Evolution of the rapidly-mutating human salivary agglutinin gene (DMBT1) and population subsistence strategy</article-title>
+<source/>Proc Natl Acad Sci
+          <year>2015</year>
+<volume>112</volume>
+<issue>15</issue>
+<fpage>5105</fpage>
+<lpage>5110</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1416531112</pub-id>
+<pub-id pub-id-type="pmid">25848046</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Montavon</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Thevenet</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Duboule</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Impact of copy number variations (CNVs) on long-range gene regulation at the HoxD locus</article-title>
+<source/>Proc Natl Acad Sci
+          <year>2012</year>
+<volume>109</volume>
+<issue>50</issue>
+<fpage>20204</fpage>
+<lpage>20211</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1217659109</pub-id>
+<pub-id pub-id-type="pmid">23134724</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hollox</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Huffmeier</surname>
+<given-names>U</given-names>
+</name>
+<name>
+<surname>Zeeuwen</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Palla</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Lascorz</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Rodijk-Olthuis</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Psoriasis is associated with increased beta-defensin genomic copy number</article-title>
+<source/>Nat Genet
+          <year>2008</year>
+<volume>40</volume>
+<issue>1</issue>
+<fpage>23</fpage>
+<pub-id pub-id-type="doi">10.1038/ng.2007.48</pub-id>
+<pub-id pub-id-type="pmid">18059266</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stuart</surname>
+<given-names>PE</given-names>
+</name>
+<name>
+<surname>Hüffmeier</surname>
+<given-names>U</given-names>
+</name>
+<name>
+<surname>Nair</surname>
+<given-names>RP</given-names>
+</name>
+<name>
+<surname>Palla</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Tejasvi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Schalkwijk</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association of β-defensin copy number and psoriasis in three cohorts of European origin</article-title>
+<source/>J Investig Dermatol
+          <year>2012</year>
+<volume>132</volume>
+<issue>10</issue>
+<fpage>2407</fpage>
+<lpage>2413</lpage>
+<pub-id pub-id-type="doi">10.1038/jid.2012.191</pub-id>
+<pub-id pub-id-type="pmid">22739795</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vittori</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Breda</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Repici</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Orth</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Roos</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Outeiro</surname>
+<given-names>TF</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Copy number variation of the neuronal glucose transporter gene SLC2A3 and age of onset in Huntington's disease</article-title>
+<source/>Hum Mol Genet
+          <year>2014</year>
+<volume>23</volume>
+<issue>12</issue>
+<fpage>3129</fpage>
+<lpage>37</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddu022</pub-id>
+<pub-id pub-id-type="pmid">24452335</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Remnant</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Good</surname>
+<given-names>RT</given-names>
+</name>
+<name>
+<surname>Schmidt</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Lumb</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Robin</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Daborn</surname>
+<given-names>PJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene duplication in the major insecticide target site, Rdl, in Drosophila melanogaster</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2013</year>
+<volume>110</volume>
+<issue>36</issue>
+<fpage>14705</fpage>
+<lpage>14710</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1311341110</pub-id>
+<pub-id pub-id-type="pmid">23959864</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schmidt</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Good</surname>
+<given-names>RT</given-names>
+</name>
+<name>
+<surname>Appleton</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Sherrard</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Raymant</surname>
+<given-names>GC</given-names>
+</name>
+<name>
+<surname>Bogwitz</surname>
+<given-names>MR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Copy number variation and transposable elements feature in recent, ongoing adaptation at the Cyp6g1 locus</article-title>
+<source/>PLoS Genet
+          <year>2010</year>
+<volume>6</volume>
+<issue>6</issue>
+<fpage>e1000998</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1000998</pub-id>
+<pub-id pub-id-type="pmid">20585622</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cantsilieris</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Western</surname>
+<given-names>PS</given-names>
+</name>
+<name>
+<surname>Baird</surname>
+<given-names>PN</given-names>
+</name>
+<name>
+<surname>White</surname>
+<given-names>SJ</given-names>
+</name>
+</person-group>
+<article-title>Technical considerations for genotyping multi-allelic copy number variation (CNV), in regions of segmental duplication</article-title>
+<source/>BMC Genomics
+          <year>2014</year>
+<volume>15</volume>
+<issue>1</issue>
+<fpage>329</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2164-15-329</pub-id>
+<pub-id pub-id-type="pmid">24885186</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Aldhous</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Bakar</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Prescott</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Palla</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Soo</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Mansfield</surname>
+<given-names>JC</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Measurement methods and accuracy in copy number variation: failure to replicate associations of beta-defensin copy number with Crohn's disease</article-title>
+<source/>Hum Mol Genet
+          <year>2010</year>
+<volume>19</volume>
+<issue>24</issue>
+<fpage>4930</fpage>
+<lpage>4938</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddq411</pub-id>
+<pub-id pub-id-type="pmid">20858604</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fode</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Jespersgaard</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Hardwick</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Bogle</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Theisen</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Dodoo</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Determination of beta-defensin genomic copy number in different populations: a comparison of three methods</article-title>
+<source/>PLoS One
+          <year>2011</year>
+<volume>6</volume>
+<issue>2</issue>
+<fpage>e16768</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0016768</pub-id>
+<pub-id pub-id-type="pmid">21364933</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sudmant</surname>
+<given-names>PH</given-names>
+</name>
+<name>
+<surname>Kitzman</surname>
+<given-names>JO</given-names>
+</name>
+<name>
+<surname>Antonacci</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Alkan</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Malig</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Tsalenko</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Diversity of human copy number variation and multicopy genes</article-title>
+<source/>Science
+          <year>2010</year>
+<volume>330</volume>
+<issue>6004</issue>
+<fpage>641</fpage>
+<pub-id pub-id-type="doi">10.1126/science.1197005</pub-id>
+<pub-id pub-id-type="pmid">21030649</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tan</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Kleinstein</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Guo</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An Evaluation of Copy Number Variation Detection Tools from Whole‐Exome Sequencing Data</article-title>
+<source/>Hum Mutat
+          <year>2014</year>
+<volume>35</volume>
+<issue>7</issue>
+<fpage>899</fpage>
+<lpage>907</lpage>
+<pub-id pub-id-type="doi">10.1002/humu.22537</pub-id>
+<pub-id pub-id-type="pmid">24599517</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dennis</surname>
+<given-names>MY</given-names>
+</name>
+<name>
+<surname>Nuttle</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Sudmant</surname>
+<given-names>PH</given-names>
+</name>
+<name>
+<surname>Antonacci</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Graves</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Nefedov</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Human-specific evolution of novel SRGAP2 genes by incomplete segmental duplication</article-title>
+<source/>Cell
+          <year>2012</year>
+<volume>149</volume>
+<issue>4</issue>
+<fpage>912</fpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2012.03.033</pub-id>
+<pub-id pub-id-type="pmid">22559943</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Krumm</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Sudmant</surname>
+<given-names>PH</given-names>
+</name>
+<name>
+<surname>Ko</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>O'Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Malig</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Coe</surname>
+<given-names>BP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Copy number variation detection and genotyping from exome sequence data</article-title>
+<source/>Genome Res
+          <year>2012</year>
+<volume>22</volume>
+<issue>8</issue>
+<fpage>1525</fpage>
+<lpage>1532</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.138115.112</pub-id>
+<pub-id pub-id-type="pmid">22585873</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Krumm</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>O'Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Karakoc</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Mohajeri</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Vives</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Transmission disequilibrium of small CNVs in simplex autism</article-title>
+<source/>Am J Hum Genet
+          <year>2013</year>
+<volume>93</volume>
+<issue>4</issue>
+<fpage>595</fpage>
+<lpage>606</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.07.024</pub-id>
+<pub-id pub-id-type="pmid">24035194</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abu Bakar</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Hollox</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Armour</surname>
+<given-names>JA</given-names>
+</name>
+</person-group>
+<article-title>Allelic recombination between distinct genomic locations generates copy number diversity in human beta-defensins</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2009</year>
+<volume>106</volume>
+<issue>3</issue>
+<fpage>853</fpage>
+<lpage>858</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0809073106</pub-id>
+<pub-id pub-id-type="pmid">19131514</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ottolini</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Hornsby</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Abujaber</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>MacArthur</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Badge</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Schwarzacher</surname>
+<given-names>T</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Evidence of convergent evolution in humans and macaques supports an adaptive role for copy number variation of the beta-defensin-2 gene</article-title>
+<source/>Genome Biol Evol
+          <year>2014</year>
+<volume>6</volume>
+<issue>11</issue>
+<fpage>3025</fpage>
+<lpage>3038</lpage>
+<pub-id pub-id-type="doi">10.1093/gbe/evu236</pub-id>
+<pub-id pub-id-type="pmid">25349268</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>YS</given-names>
+</name>
+<name>
+<surname>Webb</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Lettice</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Tardif</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Kilanowski</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Tyrrell</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Partial deletion of chromosome 8 beta-defensin cluster confers sperm dysfunction and infertility in male mice</article-title>
+<source/>PLoS Genet
+          <year>2013</year>
+<volume>9</volume>
+<issue>10</issue>
+<fpage>e1003826</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1003826</pub-id>
+<pub-id pub-id-type="pmid">24204287</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hollox</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Armour</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Barber</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<article-title>Extensive normal copy number variation of a β-defensin antimicrobial-gene cluster</article-title>
+<source/>Am J Hum Genet
+          <year>2003</year>
+<volume>73</volume>
+<issue>3</issue>
+<fpage>591</fpage>
+<lpage>600</lpage>
+<pub-id pub-id-type="doi">10.1086/378157</pub-id>
+<pub-id pub-id-type="pmid">12916016</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hach</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Sarrafi</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Alkan</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Eichler</surname>
+<given-names>EE</given-names>
+</name>
+<name>
+<surname>Sahinalp</surname>
+<given-names>SC</given-names>
+</name>
+</person-group>
+<article-title>mrsFAST-Ultra: a compact, SNP-aware mapper for high performance sequencing applications</article-title>
+<source/>Nucleic Acids Res
+          <year>2014</year>
+<volume>42</volume>
+<issue>Web Server issue</issue>
+<fpage>W494</fpage>
+<lpage>500</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku370</pub-id>
+<pub-id pub-id-type="pmid">24810850</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hach</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Alkan</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Birol</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Eichler</surname>
+<given-names>EE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>mrsFAST: a cache-oblivious algorithm for short-read mapping</article-title>
+<source/>Nat Methods
+          <year>2010</year>
+<volume>7</volume>
+<issue>8</issue>
+<fpage>576</fpage>
+<lpage>577</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth0810-576</pub-id>
+<pub-id pub-id-type="pmid">20676076</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hardwick</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Machado</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Zuccherato</surname>
+<given-names>LW</given-names>
+</name>
+<name>
+<surname>Antolinos</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Xue</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Shawa</surname>
+<given-names>N</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A worldwide analysis of beta‐defensin copy number variation suggests recent selection of a high‐expressing DEFB103 gene copy in East Asia</article-title>
+<source/>Hum Mutat
+          <year>2011</year>
+<volume>32</volume>
+<issue>7</issue>
+<fpage>743</fpage>
+<lpage>750</lpage>
+<pub-id pub-id-type="doi">10.1002/humu.21491</pub-id>
+<pub-id pub-id-type="pmid">21387465</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Garrison</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Marth</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Haplotype-based variant detection from short-read sequencing</article-title>
+<source/>arXiv preprint
+          <year>2012</year>
+<volume>arXiv</volume>
+<fpage>1207</fpage>
+<lpage>3907</lpage>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brahmachary</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Guilmatre</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Quilez</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hasson</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Borel</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Warburton</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Digital genotyping of macrosatellites and multicopy genes reveals novel biological functions associated with copy number variation of large tandem repeats</article-title>
+<source/>PLoS Genet
+          <year>2014</year>
+<volume>10</volume>
+<issue>6</issue>
+<fpage>e1004418</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1004418</pub-id>
+<pub-id pub-id-type="pmid">24945355</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barnes</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Plagnol</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Fitzgerald</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Redon</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Marchini</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Clayton</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A robust statistical method for case–control association testing with copy number variation</article-title>
+<source/>Nat Genet
+          <year>2008</year>
+<volume>40</volume>
+<issue>10</issue>
+<fpage>1245</fpage>
+<lpage>1252</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.206</pub-id>
+<pub-id pub-id-type="pmid">18776912</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Scholz</surname>
+<given-names>FW</given-names>
+</name>
+<name>
+<surname>Stephens</surname>
+<given-names>MA</given-names>
+</name>
+</person-group>
+<article-title>K-sample Anderson–Darling tests</article-title>
+<source/>J Am Stat Assoc
+          <year>1987</year>
+<volume>82</volume>
+<issue>399</issue>
+<fpage>918</fpage>
+<lpage>924</lpage>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hollox</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Barber</surname>
+<given-names>JCK</given-names>
+</name>
+<name>
+<surname>Brookes</surname>
+<given-names>AJ</given-names>
+</name>
+<name>
+<surname>Armour</surname>
+<given-names>JAL</given-names>
+</name>
+</person-group>
+<article-title>Defensins and the dynamic genome: what we can learn from structural variation at human chromosome band 8p23. 1</article-title>
+<source/>Genome Res
+          <year>2008</year>
+<volume>18</volume>
+<issue>11</issue>
+<fpage>1686</fpage>
+<lpage>1697</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.080945.108</pub-id>
+<pub-id pub-id-type="pmid">18974263</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Taudien</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Szafranski</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Felder</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Groth</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Huse</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Raffaelli</surname>
+<given-names>F</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Comprehensive assessment of sequence variation within the copy number variable defensin cluster on 8p23 by target enriched in-depth 454 sequencing</article-title>
+<source/>BMC Genomics
+          <year>2011</year>
+<volume>12</volume>
+<issue>1</issue>
+<fpage>243</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2164-12-243</pub-id>
+<pub-id pub-id-type="pmid">21592371</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Groth</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wiegand</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Szafranski</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Huse</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kramer</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Rosenstiel</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Both copy number and sequence variations affect expression of human DEFB4</article-title>
+<source/>Genes Immun
+          <year>2010</year>
+<volume>11</volume>
+<issue>6</issue>
+<fpage>458</fpage>
+<lpage>466</lpage>
+<pub-id pub-id-type="doi">10.1038/gene.2010.19</pub-id>
+<pub-id pub-id-type="pmid">20445567</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jansen</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Rodijk-Olthuis</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Hollox</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Kamsteeg</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Tjabringa</surname>
+<given-names>GS</given-names>
+</name>
+<name>
+<surname>de Jongh</surname>
+<given-names>GJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>β-Defensin-2 protein is a serum biomarker for disease activity in psoriasis and reaches biologically relevant concentrations in lesional skin</article-title>
+<source/>PLoS One
+          <year>2009</year>
+<volume>4</volume>
+<issue>3</issue>
+<fpage>e4725</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0004725</pub-id>
+<pub-id pub-id-type="pmid">19266104</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jaradat</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Hoder-Przyrembel</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Cubillos</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Krieg</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Lehmann</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Piehler</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Beta-defensin-2 genomic copy number variation and chronic periodontitis</article-title>
+<source/>J Dent Res
+          <year>2013</year>
+<volume>92</volume>
+<issue>11</issue>
+<fpage>1035</fpage>
+<lpage>40</lpage>
+<pub-id pub-id-type="doi">10.1177/0022034513504217</pub-id>
+<pub-id pub-id-type="pmid">24019264</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anderson</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Candille</surname>
+<given-names>SI</given-names>
+</name>
+<name>
+<surname>Musiani</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Greco</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Stahler</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>DW</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Molecular and evolutionary history of melanism in North American gray wolves</article-title>
+<source/>Science
+          <year>2009</year>
+<volume>323</volume>
+<issue>5919</issue>
+<fpage>1339</fpage>
+<lpage>1343</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1165448</pub-id>
+<pub-id pub-id-type="pmid">19197024</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Semple</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Dorin</surname>
+<given-names>JR</given-names>
+</name>
+</person-group>
+<article-title>beta-Defensins: multifunctional modulators of infection, inflammation and more?</article-title>
+<source/>J Innate Immun
+          <year>2012</year>
+<volume>4</volume>
+<issue>4</issue>
+<fpage>337</fpage>
+<lpage>348</lpage>
+<pub-id pub-id-type="doi">10.1159/000336619</pub-id>
+<pub-id pub-id-type="pmid">22441423</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schroeder</surname>
+<given-names>BO</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Nuding</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Groscurth</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Marcinowski</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Beisner</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Reduction of disulphide bonds unmasks potent antimicrobial activity of human beta-defensin 1</article-title>
+<source/>Nature
+          <year>2011</year>
+<volume>469</volume>
+<issue>7330</issue>
+<fpage>419</fpage>
+<lpage>423</lpage>
+<pub-id pub-id-type="doi">10.1038/nature09674</pub-id>
+<pub-id pub-id-type="pmid">21248850</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Hoover</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Boulègue</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Santamaria</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Oppenheim</surname>
+<given-names>JJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Engineering disulfide bridges to dissect antimicrobial and chemotactic activities of human β-defensin 3</article-title>
+<source/>Proc Natl Acad Sci
+          <year>2003</year>
+<volume>100</volume>
+<issue>15</issue>
+<fpage>8880</fpage>
+<lpage>8885</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1533186100</pub-id>
+<pub-id pub-id-type="pmid">12840147</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

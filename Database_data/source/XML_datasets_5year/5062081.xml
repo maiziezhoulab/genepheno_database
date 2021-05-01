@@ -1,0 +1,925 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27734896</article-id>
+<article-id pub-id-type="pmc">5062081</article-id>
+<article-id pub-id-type="pii">srep34651</article-id>
+<article-id pub-id-type="doi">10.1038/srep34651</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>3Disease Browser: A Web server for integrating 3D genome and disease-associated chromosome rearrangement data</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Ruifeng</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>Yifang</given-names>
+</name>
+<xref ref-type="aff" rid="a2">2</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Tingting</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Cheng</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="aff" rid="a3">3</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>Peking-Tsinghua Center for Life Sciences, Academy for Advanced Interdisciplinary Studies; School of Life Sciences, Peking University</institution>, Beijing, <country>China</country></aff>
+<aff id="a2"><label>2</label><institution>School of Life Sciences, Tsinghua University</institution>, Beijing, <country>China</country></aff>
+<aff id="a3"><label>3</label><institution>Center for Statistical Science; Center for Bioinformatics, Peking University</institution>, Beijing, <country>China</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>cheng_li@pku.edu.cn</email>
+</corresp>
+<fn id="n1">
+<label>*</label>
+<p>These authors contributed equally to this work.</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>13</day>
+<month>10</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>6</volume>
+<elocation-id>34651</elocation-id>
+<history>
+<date date-type="received">
+<day>04</day>
+<month>05</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>16</day>
+<month>09</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016, The Author(s)</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>The Author(s)</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>Chromosomal rearrangement (CR) events have been implicated in many tumor and non-tumor human diseases. CR events lead to their associated diseases by disrupting gene and protein structures. Also, they can lead to diseases through changes in chromosomal 3D structure and gene expression. In this study, we search for CR-associated diseases potentially caused by chromosomal 3D structure alteration by integrating Hi-C and ChIP-seq data. Our algorithm rediscovers experimentally verified disease-associated CRs (polydactyly diseases) that alter gene expression by disrupting chromosome 3D structure. Interestingly, we find that intellectual disability may be a candidate disease caused by 3D chromosome structure alteration. We also develop a Web server (3Disease Browser, <ext-link ext-link-type="uri" xlink:href="http://3dgb.cbi.pku.edu.cn/disease/" xmlns:xlink="http://www.w3.org/1999/xlink">http://3dgb.cbi.pku.edu.cn/disease/</ext-link>) for integrating and visualizing disease-associated CR events and chromosomal 3D structure.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Chromosomal rearrangement (CR) events are observed in many tumor and non-tumor human diseases<xref ref-type="bibr" rid="b1">1</xref><xref ref-type="bibr" rid="b2">2</xref>. A CR event occurs as a consequence of double-strand breaks (DSBs) of DNA, followed by abnormal rejoining of non-homologous ends, producing a new chromosomal arrangement<xref ref-type="bibr" rid="b3">3</xref>. Alternatively, a CR event results from crossing-over between repetitive DNA sequences during cell division<xref ref-type="bibr" rid="b4">4</xref>. CR events are categorized into different types: deletion, duplication, insertion, inversion, translocation and ring chromosome. The information of CR events and their associated diseases and clinical symptoms is available in databases such as ClinVar<xref ref-type="bibr" rid="b5">5</xref> and dbCRID<xref ref-type="bibr" rid="b6">6</xref>.</p>
+<p>CRs have functional consequences in gene regulation and expression. CRs may result in the formation of a fusion gene from which a fusion transcript and protein is generated. An example is the BCR-ABL gene in chronic myeloid leukemia (CML)<xref ref-type="bibr" rid="b7">7</xref>. The characteristic genetic abnormality of CML is a reciprocal translocation between the long arms of chromosomes 9 and 22<xref ref-type="bibr" rid="b7">7</xref>. The molecular consequence of this translocation is the generation of the fusion protein BCR-ABL, a constitutively activated tyrosine kinase. A drug specifically targeting this fusion protein proved effective for CML patients<xref ref-type="bibr" rid="b8">8</xref>.</p>
+<p>Chromosomes in the nucleus fold into highly complex three-dimensional structures that are dynamically regulated<xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref>. 3C-based techniques such as 5C, Hi-C and ChIA-PET capture genome-wide spatial interaction between chromatins at a high resolution<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref>. The generated data result in deeper insights into the 3D genome and its functional consequences. For example, the interactions between gene promoters and remote enhancers are facilitated by loop structures between them<xref ref-type="bibr" rid="b15">15</xref>. The mammalian genome is organized into ~1 Mb topologically associated domains (TADs) which are functional units of gene replication and transcription<xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b17">17</xref>. When CRs alter chromosomes, they may also alter chromosomal 3D structure<xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b19">19</xref>. <xref ref-type="fig" rid="f1">Figure 1a</xref> shows a model of TAD variation caused by CRs. In condition 1, TAD A and TAD B are insulated by a TAD boundary, which is often occupied by the CTCF protein. The enhancer in TAD B cannot interact and activate the gene in TAD A. However, when the TAD boundary is deleted by a CR, TAD A and TAD B merge into a single TAD C. In this condition, the enhancer and the gene can interact with each other, leading to gene activation. A de novo TAD boundary may also be generated by duplication or inversion events. Therefore, the structural variations of TADs can influence gene expression<xref ref-type="bibr" rid="b18">18</xref>.</p>
+<p>In recent years, advances in DNA microarray and sequencing technologies have led to accurate identification of CR events and chromosomal 3D structures in large scale<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b13">13</xref>. Combining these data sets may provide us more insights on the pathogenicity of CR events that affect chromosomal 3D structure. In this study, we predicted disease-associated CR events that may alter chromosomal 3D structure by integrating Hi-C and ChIP-seq data sets. We also developed a Web server for easily exploring the relationship between disease-associated CR events and chromosome 3D structures of multiple human cell types.</p>
+<sec disp-level="1">
+<title>Results</title>
+<sec disp-level="2">
+<title>Predicting disease-associated CR events that affect TADs</title>
+<p>Based on previous studies, abnormal 3D chromosome structure may be a consequence of CR events leading to diseases. When CR events affect TAD boundaries, they alter the interactions between genes and enhancers, leading to abnormal expression of genes (<xref ref-type="fig" rid="f1">Fig. 1a</xref>). A recent study shows that CR events cause polydactyly diseases through altering 3D chromosomal organization<xref ref-type="bibr" rid="b18">18</xref>. A model for pathogenicity of CR events is shown in <xref ref-type="fig" rid="f1">Fig. 1b</xref>. Wild-type chromosome conformation shows the structure of three TADs, separated by boundary elements. The activity of an enhancer (E) is restricted to gene 1 (G1) located inside TAD B. In an inversion event, the enhancer is moved out of TAD B and placed near gene 2 (G2), and the boundary is now on the right side of E. This results in interaction between E and G2, but prevents the original interaction between E and G1. In a duplication event, E is placed next to the duplicated G2 within a newly created TAD, resulting in their interaction and abnormal expression of G2 (<xref ref-type="fig" rid="f1">Fig. 1b</xref>). Lastly, if a deletion event removes the boundary B1 and parts of TAD A and TAD B, the two TADs merge and E is able to interact with both G1 and G2, resulting in abnormal expression of G2.</p>
+<p>Based on the above model, we calculate an SI (Structure Influence) score, which quantifies the degree that a disease-associated CR alters 3D chromosome structure (<xref ref-type="fig" rid="f1">Fig. 1c</xref>). We inspect two features from these types of CR events: inversion, duplication and deletion. First, a CR region contains at least one TAD boundary, so the CR probably disrupts the structure of neighboring TADs. Second, there must be at least one predicted enhancer near the CR breakpoints or the TAD boundary, so the enhancer may mis-regulate the expression of nearby genes in disrupted TADs. To quantitatively evaluate these two features, for each CR, we calculate an Insulation Score measuring the strength of TAD boundaries in the CR<xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref>, and an Enhancer Score measuring the abundance of nearby enhancers (see Methods, <xref ref-type="fig" rid="f1">Fig. 1c</xref>). The SI score is given by SI = Percentile (Insulations Score) ∗ Percentile (Enhancer Score), measuring the degree that a disease-associated CR may alter gene expression through changing 3D chromosome structure.</p>
+</sec>
+<sec disp-level="2">
+<title>Top predicted disease-associated CR events that affect TADs</title>
+<p>We collect 157,003 disease-associated CR events from ClinVar (<ext-link ext-link-type="uri" xlink:href="http://www.clinvar.com" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.clinvar.com</ext-link>)<xref ref-type="bibr" rid="b5">5</xref> and 84 additional CRs by manual search in PubMed. We filter the data by genome loci, CR region length and proximity to TAD boundaries in the hESC (human embryonic stem cell) cell line (<xref ref-type="fig" rid="f2">Fig. 2a</xref>), and obtain 5369 disease-associated CR events for the next analysis. The median length of these CR regions is about 800 kb (<xref ref-type="fig" rid="f2">Fig. 2b</xref>). Considering the similar size of the filtered CRs and TADs (median size is 1.1 Mb in the hESC cell line), these CRs are likely to influence the chromosome 3D structure at the TAD level. The number of TAD boundaries in the hESC cell line overlapping with a CR region is mostly one or two (<xref ref-type="fig" rid="f2">Fig. 2c</xref>).</p>
+<p>Using the hESC cell line’s Hi-C and ChIP-seq data, we predict 261 CR events (top 5% SI score, FDR = 0.03, <xref ref-type="fig" rid="f2">Fig. 2d</xref>) that may disrupt TAD boundaries and mis-regulate gene expression (black dots in <xref ref-type="fig" rid="f2">Fig. 2e</xref>, top 20 in <xref ref-type="table" rid="t1">Table 1</xref>). The FDR is 0.03 and 0.04 for top 5% and 10% predicted CRs (<xref ref-type="fig" rid="f2">Fig. 2d</xref>). There is only a moderate correlation between SI Score and CR length (The Pearson correlation is 0.24). We also use the sum of percentile (Insulation Score) and percentile (Enhancer Score) as a score to predict TAD-altering CR events, and the top 5% of predicted CRs are mostly similar (99% overlapping). The SI score of a CR associated with polydactyly diseases is 0.72, and it is ranked within top 4% among all filtered disease-associated CRs (red dot in <xref ref-type="fig" rid="f2">Fig. 2e</xref>). For four of the five CRs from the Lupianez <italic>et al</italic>. study<xref ref-type="bibr" rid="b18">18</xref> that are associated with limb developmental disorders, the SI scores are significant (<xref ref-type="table" rid="t2">Table 2</xref>). Therefore, our algorithm rediscovers experimentally verified disease-associated CRs that alter gene expression by disrupting chromosome 3D structure.</p>
+<p>Although the hESC cell line is a suitable surrogate for the 3D genome of key cell types responsible for developmental diseases, we ask how different cell types affect our prediction. We expand analysis by using Hi-C and ChIP-seq data of six cell lines (GM12878, K562, hESC, HUVEC, HMEC and NHEK) representing different cell types. The top 5% predicted CRs in different cell lines are mostly cell line specific (<xref ref-type="fig" rid="f2">Fig. 2f</xref>). Considering the differences and conservation of TADs and enhancers among cell types, it is essential to match a disease and its related cell types in our analysis. The conservation of the 3D structures (loop level) of different human cell lines is about 55% ~ 75% <xref ref-type="bibr" rid="b15">15</xref>, and the conservation of enhancer can be as low as 30% between HeLa and K562 <xref ref-type="bibr" rid="b22">22</xref>. However, Hi-C data are currently not available for many cell types, and we do not find suitable Hi-C data for some diseases. To reduce the influence of mismatched cell types and a disease, we average the SI score of six different cell lines to calculate a mean SI score to screen disease-associated CRs. If the mean SI score is high and the FDR is significant, the TAD boundary and enhancer is more conserved among cell types and the result is less likely to be affected by mismatched cell types and disease.</p>
+</sec>
+<sec disp-level="2">
+<title>Visualizing the relationship between TADs and CR events</title>
+<p>We make several types of graphs to help us understand how CR events may lead to diseases via altering 3D chromosome structure. The first graph contains detail information about TADs, including Hi-C contact matrix, TAD boundaries<xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b21">21</xref>, ChIP-seq data and gene information (<xref ref-type="fig" rid="f3">Fig. 3a</xref>). The second graph shows the 3D model of the chromosome structure surrounding a CR event (<xref ref-type="fig" rid="f3">Fig. 3b</xref>). The third graph is the 3D model of the chromosome structure overlaid with additional genomic annotations (<xref ref-type="fig" rid="f3">Fig. 3c</xref>, H3K4me1). These graphs help us to understand how CR affects 3D chromosomal structure and the distribution of enhancer on the 3D structure. Here we show two examples using known and predicted TAD-affecting CRs. For a CR of a patient with polydactyly disease<xref ref-type="bibr" rid="b18">18</xref>, the SI score (hESC) and mean SI score are both significant: 0.72 (FDR = 1.1%) and 0.23 (FDR = 1.1%), respectively. In this patient, there is a 926 kb duplication (red bar in <xref ref-type="fig" rid="f3">Fig. 3a</xref>) in chromosome 2. This duplication causes an enhancer (blue box) ectopically interact with the nearby gene IHH, leading to high expression of IHH<xref ref-type="bibr" rid="b18">18</xref>. A specific spatial and temporal expression of IHH within the developing limb buds is essential for accurate digit outgrowth and correct digit number<xref ref-type="bibr" rid="b23">23</xref>. The 3D models of the TAD regions surrounding the duplicated region show that the duplication affects both TAD A and TAD B (<xref ref-type="fig" rid="f3">Fig. 3b,c</xref>).</p>
+<p>Among our top predicted CR events, one is associated with intellectual disability<xref ref-type="bibr" rid="b2">2</xref>. The SI score (hESC) and mean SI score of this CR are both significant: 0.40 (FDR = 4.7%) and 0.11 (FDR = 4.7%), respectively. In this patient of intellectual disability, there is a 1.6 Mb deletion (chr7: 70,257,735 - 719,093,76, red bar in <xref ref-type="fig" rid="f4">Fig. 4a</xref>)<xref ref-type="bibr" rid="b24">24</xref>. The deleted genes (MIR3914-1, WBSCR17 and CALN1) are not known to relate to intellectual disability. At one side of the deletion is the gene AUTS2 (Autism susceptibility candidate 2, 7q11.22). The deletion in this patient does not affect the coding region of AUTS2 (<xref ref-type="fig" rid="f4">Fig. 4a</xref>). Nevertheless, previous studies show that genomic rearrangements involving AUTS2 are associated with autism and intellectual disability<xref ref-type="bibr" rid="b2">2</xref>. In some patients CR events alter AUTS2’s coding region, and in other patients disruption of intergenic regions may drive the phenotype<xref ref-type="bibr" rid="b2">2</xref>. In particular, abnormal expression of the AUTS2 may cause phenotypes of intellectual disability<xref ref-type="bibr" rid="b25">25</xref>. Since AUTS2 locates within one TAD (<xref ref-type="fig" rid="f4">Fig. 4a</xref>), when the deletion removes the TAD boundaries near its one end, nearby enhancer elements (blue box) may alter the expression of AUTS2. Hence we propose that the deletion may affect the expression of AUTS2 through changing the local 3D chromosome structure (<xref ref-type="fig" rid="f4">Fig. 4b,c</xref>). In both examples, the TAD structures and enhancers are largely conserved among different cell types (<xref ref-type="fig" rid="f5">Fig. 5</xref>), leading to significant mean SI scores.</p>
+</sec>
+<sec disp-level="2">
+<title>Web server for the 3D structure of disease-associated CR events</title>
+<p>We implement a constraint-based modeling that converts Hi-C data to 3D chromosome models based on the ShRec3D algorithm<xref ref-type="bibr" rid="b26">26</xref>. It uses a shortest-path method to convert Hi-C contact frequencies to relative distances between chromosome bins, and then uses the multi-dimensional scaling (MDS) method to reconstruct the three-dimensional coordinates of the bins that fit to their pair-wise distances. By using this workflow, we convert the Hi-C interaction matrix surrounding a CR region to 3D models (<xref ref-type="fig" rid="f3">Figs 3</xref>b and <xref ref-type="fig" rid="f4">4</xref>b).</p>
+<p>To display and share the integrated data and prediction results, we developed a Web server for querying and visualizing disease-associated CR events and 3D genome data (3Disease Browser, <ext-link ext-link-type="uri" xlink:href="http://3dgb.cbi.pku.edu.cn/disease/" xmlns:xlink="http://www.w3.org/1999/xlink">http://3dgb.cbi.pku.edu.cn/disease/</ext-link>). The visualization of the disease-associated CR and Hi-C data is user-friendly: (1) Type in an interested gene name or disease name in the search panel, and the records containing the query texts will be displayed below the search box (<xref ref-type="fig" rid="f6">Fig. 6a).</xref> (2) Click the “View” link for a particular item in the list and it will generate a new page with detailed TAD and 3D model information for the particular item (<xref ref-type="fig" rid="f6">Fig. 6c).</xref> (3) The default cell line is hESC, and click a different cell line name to view the corresponding data for that cell line. (4) Use mouse to interactively rotate and zoom the 3D structure, and click different ChIP-seq data buttons to view the corresponding epigenetic information overlaid on the 3D structure.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>CR events are frequently associated with cancer and developmental diseases. In addition to their roles in disrupting coding regions, recent studies found that CRs may alter gene expression by affecting chromosomal structures. In this study, we developed a method to predict disease-associated CRs that may influence chromosomal 3D structure using Hi-C and ChIP-seq data. Our method rediscovers experimentally validated disease-causing CRs in the polydactyly diseases that alter gene expression by disrupting chromosome 3D structure<xref ref-type="bibr" rid="b18">18</xref>. Among our top predicted CR events, intellectual disability is a candidate disease caused by TAD-affecting CRs. This new discovery provides important clues about the causes of intellectual disability. Follow-up validations may compare the gene expression level of normal people and patients with CR in affected cell types, and use 4C and CRISPR experiments to inspect the impact of CRs on chromatin interactions.</p>
+<p>In addition to TADs, chromatin loops are identified by 3D genome data<xref ref-type="bibr" rid="b15">15</xref>. Mammalian genomes are partitioned into larger TAD domains that contain smaller chromatin loops linking promoters and enhancers<xref ref-type="bibr" rid="b27">27</xref><xref ref-type="bibr" rid="b28">28</xref>. Capture Hi-C is used to investigate the interactions between autoimmune diseases-associated SNPs and genes<xref ref-type="bibr" rid="b29">29</xref>. In the future, we will expand our method to predict chromatin loops that are disrupted by disease-associated CRs or SNPs such as those in cancer<xref ref-type="bibr" rid="b30">30</xref>. Other ChIP-seq markers such as those indicating promoters may also be added to the scoring algorithm.</p>
+<p>Although the 3D structures of different cell lines are conserved<xref ref-type="bibr" rid="b15">15</xref>, the enhancer patterns in different cell lines are cell line-specific<xref ref-type="bibr" rid="b22">22</xref>, causing differential TAD-disrupting capacity of a CR in different cell types. Therefore, TAD-affecting CR prediction should match a disease and its related cell types. We use mean SI score to mitigate this issue. Recently the chromatin interaction maps of 98 cell lines were predicted from histone modification data<xref ref-type="bibr" rid="b31">31</xref>. For future work, we will add these data to our model and Web server to better match diseases and 3D genome data.</p>
+<p>We develop 3Disease Browser (<ext-link ext-link-type="uri" xlink:href="http://3dgb.cbi.pku.edu.cn/disease/" xmlns:xlink="http://www.w3.org/1999/xlink">http://3dgb.cbi.pku.edu.cn/disease/</ext-link>) for querying and visualizing human chromosomal 3D structure and disease-associated CRs. Existing 3D genome browsers can display Hi-C contact matrices (Hi-C Data Browser, Dekker lab), overlay annotation tracks such as ChIP-seq data and genes with the Hi-C heatmaps (Juicebox, Lieberman- Aiden lab), and visualize 3D genome structure (GMOL). Recently, the HiView Web server combines the GWAS variants with Hi-C data<xref ref-type="bibr" rid="b32">32</xref>. Our 3Disease Browser is the first disease-centric 3D genome browser that integrates Hi-C data, annotation tracks and 3D structure overlaid with epigenetic information (<xref ref-type="table" rid="t3">Table 3</xref> for a comparison of 3D genome browsers).</p>
+<p>In summary, integrating data of chromosomal 3D structure and disease-associated CRs provides important clues about disease pathogenicity. We made a first attempt to systematically correlate these data types to prioritize disease-related genomic alterations that may contribute to disease initiation and progression through 3D genome reorganization. Our methods and Web server are easily expandable to integrate other data types with 3D genome data, such as copy number alterations in cancer and disease-associated loci from GWAS studies.</p>
+</sec>
+<sec disp-level="1">
+<title>Methods</title>
+<sec disp-level="2">
+<title>Data sets</title>
+<p>We used high-resolution Hi-C data from Gene Expression Omnibus (GEO) with the accession number GSE63525 (GM12878, K562, HMEC, HUVEC and NHEK)<xref ref-type="bibr" rid="b15">15</xref> and GSE35156 (hESC)<xref ref-type="bibr" rid="b16">16</xref>. The current version of 3Disease Browser contains these six human cell types (<ext-link ext-link-type="uri" xlink:href="http://genome.ucsc.edu/ENCODE/cellTypes.html" xmlns:xlink="http://www.w3.org/1999/xlink">http://genome.ucsc.edu/ENCODE/cellTypes.html</ext-link>). GM12878 is a lymphoblastoid cell line produced from the blood of a female with European ancestry. K562 is an immortalized cell line from a female patient with chronic myelogenous leukemia (CML). hESC is an embryonic stem cell line from a normal male. HMEC is a mammary epithelial cell line from a normal person. HUVEC is an umbilical vein endothelial cell line from a normal person. NHEK is an epidermal keratinocyte cell line from the skin of a normal person. The ChIP-seq data of the above cell lines come from the ENCODE project (<ext-link ext-link-type="uri" xlink:href="https://www.encodeproject.org" xmlns:xlink="http://www.w3.org/1999/xlink">https://www.encodeproject.org</ext-link>). The CR data come from ClinVar (Release 2015-12, <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/clinvar/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.ncbi.nlm.nih.gov/clinvar/</ext-link>) and manual search of PubMed.</p>
+</sec>
+<sec disp-level="2">
+<title>Calculation of Structure Influence score</title>
+<p>We calculated the Insulation score<xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref> of each chromosomal bin using the 10 kb resolution Hi-C data. DI (Directionality Index) and HS (HMM State) were calculated using the Dixon method<xref ref-type="bibr" rid="b16">16</xref>. The Insulation Score of a CR region is the highest score of the TAD boundaries identified in the CR. The enhancer data come from the Broad ChromHMM track in the UCSC Table Browser (<ext-link ext-link-type="uri" xlink:href="http://genome.ucsc.edu" xmlns:xlink="http://www.w3.org/1999/xlink">http://genome.ucsc.edu</ext-link>). We only used the strong enhancer (state 4 and state 5) to calculate the Enhancer Score. For a CR event, we calculated the sum of enhancer base pairs in each of the three 400 kb regions surrounding the two CR breakpoints and the TAD boundary with the highest insulation score TAD boundary as the Enhancer Score. Finally we calculated the SI score as Percentile (Insulation Score) * Percentile (Enhancer Score), with percentile relative to the respective scores of other CR regions. Alternatively, we also calculate the sum of enhancer base pairs of the whole CR region normalized by CR length as the Enhancer Score (<xref ref-type="supplementary-material" rid="S1">Figure S1a</xref>). The Pearson’s correlation of the two methods’ SI score is high (0.87, <xref ref-type="supplementary-material" rid="S1">Figure S1b</xref>). We conclude that both methods have their merits.</p>
+<p>To calculate the FDR of top 5% scores, we permuted corresponding relationship between Insulation Score and Enhancer Score of the CR regions 1000 times. Each time, we record the number of SI scores larger than 0.68 (the smallest score of top 5%). The ratio between the mean number of SI scores &gt; 0.68 in permuted data and the number of top 5% CRs is the estimated FDR. The minimum FDR of the six cell lines is regard as the FDR of mean SI score.</p>
+</sec>
+<sec disp-level="2">
+<title>Web server implementation</title>
+<p>3Disease Browser is built by using the MongoDB/ExpressJS/AngularJS/NodeJS stack software. It uses D3.js for interactive 2D presentation in SVG layers and Plotly.js for 3D visualization. jQuery is used for writing Javascript. It uses queue.js for asynchronous data loading and Masonry for cascading grid layout.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article</bold>: Li, R. <italic>et al</italic>. 3Disease Browser: A Web server for integrating 3D genome and disease-associated chromosome rearrangement data. <italic>Sci. Rep.</italic>
+<bold>6</bold>, 34651; doi: 10.1038/srep34651 (2016).</p>
+</sec>
+<sec id="S1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="d33e25">
+<caption>
+<title>Supplementary Information</title>
+</caption>
+<media xlink:href="srep34651-s1.doc" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank Jian Wang and Yujie Sun for helpful discussion, Yuxuan Zheng, Qing Chen and Qiang Shi for disease data collection and analysis, and Lei Kong for Web server assistance. We thank Yang Chen, Zhihua Zhang and reviewers for critical comments on the manuscript. The work is supported by grants from Peking-Tsinghua Center for Life Sciences.</p>
+</ack>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal"><name><surname>Stephens</surname><given-names>P. J.</given-names></name>
+<etal></etal>. <article-title>Complex landscapes of somatic rearrangement in human breast cancer genomes</article-title>. <source/>Nature
+<volume>462</volume>, <fpage>1005</fpage>–<lpage>1010</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature08645</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">20033038</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Beunders</surname><given-names>G.</given-names></name>
+<etal></etal>. <article-title>Exonic deletions in AUTS2 cause a syndromic form of intellectual disability and suggest a critical role for the C terminus</article-title>. <source/>American Journal of Human Genetics
+<volume>92</volume>, <fpage>210</fpage>–<lpage>220</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.12.011</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23332918</pub-id></mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>van Gent</surname><given-names>D. C.</given-names></name>, <name><surname>Hoeijmakers</surname><given-names>J. H.</given-names></name> &amp; <name><surname>Kanaar</surname><given-names>R.</given-names></name>
+<article-title>Chromosomal stability and the DNA double-stranded break connection</article-title>. <source/>Nature Reviews Genetics
+<volume>2</volume>, <fpage>196</fpage>–<lpage>206</lpage>, doi:<pub-id pub-id-type="doi">10.1038/35056049</pub-id> (<year>2001</year>).</mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Shrivastav</surname><given-names>M.</given-names></name>, <name><surname>De Haro</surname><given-names>L. P.</given-names></name> &amp; <name><surname>Nickoloff</surname><given-names>J. A.</given-names></name>
+<article-title>Regulation of DNA double-strand break repair pathway choice</article-title>. <source/>Cell Research
+<volume>18</volume>, <fpage>134</fpage>–<lpage>147</lpage>, doi:<pub-id pub-id-type="doi">10.1038/cr.2007.111</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18157161</pub-id></mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Landrum</surname><given-names>M. J.</given-names></name>
+<etal></etal>. <article-title>ClinVar: public archive of interpretations of clinically relevant variants</article-title>. <source/>Nucleic Acids Research
+<volume>44</volume>, <fpage>D862</fpage>–<lpage>868</lpage>, doi:<pub-id pub-id-type="doi">10.1093/nar/gkv1222</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">26582918</pub-id></mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Kong</surname><given-names>F.</given-names></name>
+<etal></etal>. <article-title>dbCRID: a database of chromosomal rearrangements in human diseases</article-title>. <source/>Nucleic Acids Research
+<volume>39</volume>, <fpage>D895</fpage>–<lpage>900</lpage>, doi:<pub-id pub-id-type="doi">10.1093/nar/gkq1038</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21051346</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Rowley</surname><given-names>J. D.</given-names></name>
+<article-title>Letter: A new consistent chromosomal abnormality in chronic myelogenous leukaemia identified by quinacrine fluorescence and Giemsa staining</article-title>. <source/>Nature
+<volume>243</volume>, <fpage>290</fpage>–<lpage>293</lpage> (<year>1973</year>).<pub-id pub-id-type="pmid">4126434</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Druker</surname><given-names>B. J.</given-names></name>
+<etal></etal>. <article-title>Efficacy and safety of a specific inhibitor of the BCR-ABL tyrosine kinase in chronic myeloid leukemia</article-title>. <source/>The New England Journal of Medicine
+<volume>344</volume>, <fpage>1031</fpage>–<lpage>1037</lpage>, doi:<pub-id pub-id-type="doi">10.1056/NEJM200104053441401</pub-id> (<year>2001</year>).<pub-id pub-id-type="pmid">11287972</pub-id></mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Lanctot</surname><given-names>C.</given-names></name>, <name><surname>Cheutin</surname><given-names>T.</given-names></name>, <name><surname>Cremer</surname><given-names>M.</given-names></name>, <name><surname>Cavalli</surname><given-names>G.</given-names></name> &amp; <name><surname>Cremer</surname><given-names>T.</given-names></name>
+<article-title>Dynamic genome architecture in the nuclear space: regulation of gene expression in three dimensions</article-title>. <source/>Nature Reviews Genetics
+<volume>8</volume>, <fpage>104</fpage>–<lpage>115</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nrg2041</pub-id> (<year>2007</year>).</mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>Nunez</surname><given-names>E.</given-names></name>, <name><surname>Fu</surname><given-names>X. D.</given-names></name> &amp; <name><surname>Rosenfeld</surname><given-names>M. G.</given-names></name>
+<article-title>Nuclear organization in the 3D space of the nucleus - cause or consequence?</article-title>
+<source/>Current Opinion in Genetics &amp; Development
+<volume>19</volume>, <fpage>424</fpage>–<lpage>436</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.gde.2009.07.005</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19846290</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Gibcus</surname><given-names>J. H.</given-names></name> &amp; <name><surname>Dekker</surname><given-names>J.</given-names></name>
+<article-title>The hierarchy of the 3D genome</article-title>. <source/>Molecular Cell
+<volume>49</volume>, <fpage>773</fpage>–<lpage>782</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.molcel.2013.02.011</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23473598</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Sexton</surname><given-names>T.</given-names></name> &amp; <name><surname>Cavalli</surname><given-names>G.</given-names></name>
+<article-title>The role of chromosome domains in shaping the functional genome</article-title>. <source/>Cell
+<volume>160</volume>, <fpage>1049</fpage>–<lpage>1059</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.cell.2015.02.040</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25768903</pub-id></mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="journal"><name><surname>Lieberman-Aiden</surname><given-names>E.</given-names></name>
+<etal></etal>. <article-title>Comprehensive mapping of long-range interactions reveals folding principles of the human genome</article-title>. <source/>Science
+<volume>326</volume>, <fpage>289</fpage>–<lpage>293</lpage>, doi:<pub-id pub-id-type="doi">10.1126/science.1181369</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19815776</pub-id></mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Fullwood</surname><given-names>M. J.</given-names></name>
+<etal></etal>. <article-title>An oestrogen-receptor-alpha-bound human chromatin interactome</article-title>. <source/>Nature
+<volume>462</volume>, <fpage>58</fpage>–<lpage>64</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature08497</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19890323</pub-id></mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Rao</surname><given-names>S. S.</given-names></name>
+<etal></etal>. <article-title>A 3D Map of the Human Genome at Kilobase Resolution Reveals Principles of Chromatin Looping</article-title>. <source/>Cell
+<volume>159</volume>, <fpage>1665</fpage>–<lpage>1680</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.cell.2014.11.021</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25497547</pub-id></mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Dixon</surname><given-names>J. R.</given-names></name>
+<etal></etal>. <article-title>Topological domains in mammalian genomes identified by analysis of chromatin interactions</article-title>. <source/>Nature
+<volume>485</volume>, <fpage>376</fpage>–<lpage>380</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature11082</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22495300</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Pope</surname><given-names>B. D.</given-names></name>
+<etal></etal>. <article-title>Topologically associating domains are stable units of replication-timing regulation</article-title>. <source/>Nature
+<volume>515</volume>, <fpage>402</fpage>–<lpage>405</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature13986</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25409831</pub-id></mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Lupianez</surname><given-names>D. G.</given-names></name>
+<etal></etal>. <article-title>Disruptions of topological chromatin domains cause pathogenic rewiring of gene-enhancer interactions</article-title>. <source/>Cell
+<volume>161</volume>, <fpage>1012</fpage>–<lpage>1025</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.cell.2015.04.004</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25959774</pub-id></mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"><name><surname>Taberlay</surname><given-names>P. C.</given-names></name>
+<etal></etal>. <article-title>Three-dimensional disorganisation of the cancer genome occurs coincident with long range genetic and epigenetic alterations</article-title>. <source/>Genome Research , doi:<pub-id pub-id-type="doi">10.1101/gr.201517.115</pub-id> (<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Sofueva</surname><given-names>S.</given-names></name>
+<etal></etal>. <article-title>Cohesin-mediated interactions organize chromosomal domain architecture</article-title>. <source/>The EMBO Journal
+<volume>32</volume>, <fpage>3119</fpage>–<lpage>3129</lpage>, doi:<pub-id pub-id-type="doi">10.1038/emboj.2013.237</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">24185899</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Crane</surname><given-names>E.</given-names></name>
+<etal></etal>. <article-title>Condensin-driven remodelling of X chromosome topology during dosage compensation</article-title>. <source/>Nature
+<volume>523</volume>, <fpage>240</fpage>–<lpage>244</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature14450</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">26030525</pub-id></mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Heintzman</surname><given-names>N. D.</given-names></name>
+<etal></etal>. <article-title>Histone modifications at human enhancers reflect global cell-type-specific gene expression</article-title>. <source/>Nature
+<volume>459</volume>, <fpage>108</fpage>–<lpage>112</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature07829</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19295514</pub-id></mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Litingtung</surname><given-names>Y.</given-names></name>, <name><surname>Dahn</surname><given-names>R. D.</given-names></name>, <name><surname>Li</surname><given-names>Y.</given-names></name>, <name><surname>Fallon</surname><given-names>J. F.</given-names></name> &amp; <name><surname>Chiang</surname><given-names>C.</given-names></name>
+<article-title>Shh and Gli3 are dispensable for limb skeleton formation but regulate digit number and identity</article-title>. <source/>Nature
+<volume>418</volume>, <fpage>979</fpage>–<lpage>983</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature01033</pub-id> (<year>2002</year>).<pub-id pub-id-type="pmid">12198547</pub-id></mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><name><surname>Miller</surname><given-names>D. T.</given-names></name>
+<etal></etal>. <article-title>Consensus statement: chromosomal microarray is a first-tier clinical diagnostic test for individuals with developmental disabilities or congenital anomalies</article-title>. <source/>American Journal of Human Genetics
+<volume>86</volume>, <fpage>749</fpage>–<lpage>764</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.ajhg.2010.04.006</pub-id> (<year>2010</year>).<pub-id pub-id-type="pmid">20466091</pub-id></mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal"><name><surname>Gao</surname><given-names>Z.</given-names></name>
+<etal></etal>. <article-title>An AUTS2-Polycomb complex activates gene expression in the CNS</article-title>. <source/>Nature
+<volume>516</volume>, <fpage>349</fpage>–<lpage>354</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nature13921</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25519132</pub-id></mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Lesne</surname><given-names>A.</given-names></name>, <name><surname>Riposo</surname><given-names>J.</given-names></name>, <name><surname>Roger</surname><given-names>P.</given-names></name>, <name><surname>Cournac</surname><given-names>A.</given-names></name> &amp; <name><surname>Mozziconacci</surname><given-names>J.</given-names></name>
+<article-title>3D genome reconstruction from chromosomal contacts</article-title>. <source/>Nature Methods
+<volume>11</volume>, <fpage>1141</fpage>–<lpage>1143</lpage>, doi:<pub-id pub-id-type="doi">10.1038/nmeth.3104</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25240436</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Tang</surname><given-names>Z.</given-names></name>
+<etal></etal>. <article-title>CTCF-Mediated Human 3D Genome Architecture Reveals Chromatin Topology for Transcription</article-title>. <source/>Cell
+<volume>163</volume>, <fpage>1611</fpage>–<lpage>1627</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.cell.2015.11.024</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">26686651</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>Ji</surname><given-names>X.</given-names></name>
+<etal></etal>. <article-title>3D Chromosome Regulatory Landscape of Human Pluripotent Cells</article-title>. <source/>Cell Stem Cell
+<volume>18</volume>, <fpage>262</fpage>–<lpage>275</lpage>, doi:<pub-id pub-id-type="doi">10.1016/j.stem.2015.11.007</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">26686465</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>Martin</surname><given-names>P.</given-names></name>
+<etal></etal>. <article-title>Capture Hi-C reveals novel candidate genes and complex long-range interactions with related autoimmune risk loci</article-title>. <source/>Nature Communications
+<volume>6</volume>, <fpage>10069</fpage>, doi:<pub-id pub-id-type="doi">10.1038/ncomms10069</pub-id> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b30">
+<mixed-citation publication-type="journal"><name><surname>Hnisz</surname><given-names>D.</given-names></name>
+<etal></etal>. <article-title>Activation of proto-oncogenes by disruption of chromosome neighborhoods</article-title>. <source/>Science
+<volume>351</volume>, <fpage>1454</fpage>–<lpage>1458</lpage>, doi:<pub-id pub-id-type="doi">10.1126/science.aad9024</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">26940867</pub-id></mixed-citation>
+</ref>
+<ref id="b31">
+<mixed-citation publication-type="journal"><name><surname>Chen</surname><given-names>Y.</given-names></name>, <name><surname>Wang</surname><given-names>Y.</given-names></name>, <name><surname>Xuan</surname><given-names>Z.</given-names></name>, <name><surname>Chen</surname><given-names>M.</given-names></name> &amp; <name><surname>Zhang</surname><given-names>M. Q.</given-names></name>
+<article-title>De novo deciphering three-dimensional chromatin interaction and topological domains by wavelet transformation of epigenetic profiles</article-title>. <source/>Nucleic Acids Research
+<volume>44</volume>, <fpage>e106</fpage>, doi:<pub-id pub-id-type="doi">10.1093/nar/gkw225</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">27060148</pub-id></mixed-citation>
+</ref>
+<ref id="b32">
+<mixed-citation publication-type="journal"><name><surname>Xu</surname><given-names>Z.</given-names></name>
+<etal></etal>. <article-title>HiView: an integrative genome browser to leverage Hi-C results for the interpretation of GWAS variants</article-title>. <source/>BMC Research Notes
+<volume>9</volume>, <fpage>159</fpage>, doi:<pub-id pub-id-type="doi">10.1186/s13104-016-1947-0</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">26969411</pub-id></mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn>
+<p><bold>Author Contributions</bold> R.L., T.L. and C.L. designed the study. Y.L. built the Web server. R.L. collected and analyzed the data. All authors wrote and approved manuscript.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Models for how CR events cause Chromosome 3D structure variation.</title>
+<p>(<bold>a</bold>) A model of chromatin TAD variation caused by CR. In the Hi-C contact matrix, every red triangle represents one TAD. (<bold>b</bold>) A model for pathogenicity of CR events that alter gene expression through 3D chromosome structure (adapted from ref. <xref ref-type="bibr" rid="b18">18</xref>). (<bold>c</bold>) The scores used to predict disease-associated CR events that affect TADs. SI Score = Percentile (Insulation Score) * Percentile (Enhancer Score).</p>
+</caption>
+<graphic xlink:href="srep34651-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>Predicting disease-associated CR events that affect TADs.</title>
+<p>(<bold>a</bold>) The CR-filtering workflow. (<bold>b</bold>) The length distribution of the filtered CR regions. (<bold>c</bold>) The number of CRs with different number of overlapping TAD boundaries. (<bold>d</bold>) The FDR of the top predicted CRs. (<bold>e</bold>) The scatterplot of Insulation Score vs. Enhancer Score. Black points represent the CR events with top 5% highest SI score. The red point represents a CR associated with polydactyly disease. (<bold>f</bold>) The overlap between top 5% predicted CRs using different cell lines.</p>
+</caption>
+<graphic xlink:href="srep34651-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>Visualization of the relationship between TADs and a duplication CR associated with polydactyly disease.</title>
+<p>(<bold>a</bold>) The contact matrix is the heatmap of Hi-C contact frequencies in hESC, with the deeper color for greater value of contacts. The dotted triangles indicate identified TADs. The red bar represents the CR region. DI (Directionality Index), HS (HMM state) and TB (TAD boundary) scores identify TAD boundaries. The enhancer row shows the number of “strong enhancer” base-pairs in 10 kb bins. The H3K4me1 and H3K27ac ChIP-seq data confirm the enhancers. The last row is gene information, including the gene name, length and transcription direction. (<bold>b</bold>,<bold>c</bold>) The 3D model of the TADs surrounding the duplication region. The red bar in b and thick bar in c represent the CR region.</p>
+</caption>
+<graphic xlink:href="srep34651-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f4">
+<label>Figure 4</label>
+<caption>
+<title>Visualization of the relationship between TADs and a deletion CR associated with intellectual disability disease.</title>
+<p>(<bold>a</bold>) Similar plot to <xref ref-type="fig" rid="f3">Fig. 3a</xref> for a deletion CR. The detailed information of the deletion region and nearby genes is added to the bottom. (<bold>b,c</bold>) The 3D model of the TADs surrounding the deletion region. The red bar in b and thick bar in c represent the CR region.</p>
+</caption>
+<graphic xlink:href="srep34651-f4" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f5">
+<label>Figure 5</label>
+<caption>
+<title>Differences and conservation of TADs and enhancers among cell types.</title>
+<p>(<bold>a</bold>) The contact matrix and enhancers near a CR associated with polydactyly in six cell lines. The blue box indicates the enhancer region that contributes to the Enhancer score. The black dotted line is the TAD boundary that contributes to the Insulation score. (<bold>b</bold>) Similar plot to a for a CR associated with intellectual disability.</p>
+</caption>
+<graphic xlink:href="srep34651-f5" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f6">
+<label>Figure 6</label>
+<caption>
+<title>The 3Disease Browser Web server.</title>
+<p>(<bold>a</bold>) The home page of the 3Disease Browser with a demonstration example of the IHH gene. The input parameters are CR ID, disease name or gene name. (<bold>b</bold>) The internal design of the Web server. (<bold>c</bold>) The TAD and 3D visualization of the queried CR region, similar to <xref ref-type="fig" rid="f3">Figs 3</xref> and <xref ref-type="fig" rid="f4">4</xref>.</p>
+</caption>
+<graphic xlink:href="srep34651-f6" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<table-wrap id="t1" position="float">
+<label>Table 1</label>
+<caption>
+<title>Top 20 diseases whose associated CRs are predicted to affect TAD.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">CR ID</th>
+<th align="center" charoff="50" valign="top">Disease Name</th>
+<th align="center" charoff="50" valign="top">CR Type</th>
+<th align="center" charoff="50" valign="top">CR length</th>
+<th align="center" charoff="50" valign="top">Gene</th>
+<th align="center" charoff="50" valign="top">PubMed ID</th>
+<th align="center" charoff="50" valign="top">SI Score (hESC)</th>
+<th align="center" charoff="50" valign="top">FDR (SI score)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">145620</td>
+<td align="center" charoff="50" valign="top">Cleft palate</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">3630934</td>
+<td align="center" charoff="50" valign="top">CRYBB2</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.91</td>
+<td align="center" charoff="50" valign="top">0.04%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">145534</td>
+<td align="center" charoff="50" valign="top">Anal atresia</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">933288</td>
+<td align="center" charoff="50" valign="top">GMDS-AS1</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.84</td>
+<td align="center" charoff="50" valign="top">0.23%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">59058</td>
+<td align="center" charoff="50" valign="top">Arthrogryposis multiplex congenita</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">840627</td>
+<td align="center" charoff="50" valign="top">APOL4</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.84</td>
+<td align="center" charoff="50" valign="top">0.25%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">33260</td>
+<td align="center" charoff="50" valign="top">Hearing impairment</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">2641573</td>
+<td align="center" charoff="50" valign="top">CLDN5</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.84</td>
+<td align="center" charoff="50" valign="top">0.25%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">59358</td>
+<td align="center" charoff="50" valign="top">Attention deficit hyperactivity disorder</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">2158318</td>
+<td align="center" charoff="50" valign="top">INADL</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.83</td>
+<td align="center" charoff="50" valign="top">0.29%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">57809</td>
+<td align="center" charoff="50" valign="top">Proteinuria</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">4121281</td>
+<td align="center" charoff="50" valign="top">AHSA1</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.83</td>
+<td align="center" charoff="50" valign="top">0.29%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">58696</td>
+<td align="center" charoff="50" valign="top">Total anomalous pulmonary venous return</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">6350820</td>
+<td align="center" charoff="50" valign="top">KRT39</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.81</td>
+<td align="center" charoff="50" valign="top">0.39%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">155396</td>
+<td align="center" charoff="50" valign="top">Tracheomalacia</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">1865737</td>
+<td align="center" charoff="50" valign="top">RGS14</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.80</td>
+<td align="center" charoff="50" valign="top">0.54%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">57591</td>
+<td align="center" charoff="50" valign="top">Growth delay</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">7912990</td>
+<td align="center" charoff="50" valign="top">RFX4</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.79</td>
+<td align="center" charoff="50" valign="top">0.58%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">60244</td>
+<td align="center" charoff="50" valign="top">Arachnoid cyst</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">9625433</td>
+<td align="center" charoff="50" valign="top">GTF2IRD2</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.78</td>
+<td align="center" charoff="50" valign="top">0.65%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">57341</td>
+<td align="center" charoff="50" valign="top">Epispadias</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">747247</td>
+<td align="center" charoff="50" valign="top">MIR1243</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.77</td>
+<td align="center" charoff="50" valign="top">0.80%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">155202</td>
+<td align="center" charoff="50" valign="top">Leukodystrophy</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">1058291</td>
+<td align="center" charoff="50" valign="top">GJA9-MYCBP</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.75</td>
+<td align="center" charoff="50" valign="top">0.95%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">153687</td>
+<td align="center" charoff="50" valign="top">Sepsis</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">5756016</td>
+<td align="center" charoff="50" valign="top">DDX41</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.74</td>
+<td align="center" charoff="50" valign="top">1.02%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">57240</td>
+<td align="center" charoff="50" valign="top">Ambiguous genitalia</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">1500151</td>
+<td align="center" charoff="50" valign="top">ATL2</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.72</td>
+<td align="center" charoff="50" valign="top">1.16%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">22234151</td>
+<td align="center" charoff="50" valign="top">Polydactyly type 1</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">926183</td>
+<td align="center" charoff="50" valign="top">IHH</td>
+<td align="center" charoff="50" valign="top">22234151</td>
+<td align="center" charoff="50" valign="top">0.72</td>
+<td align="center" charoff="50" valign="top">1.16%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">25959774.1</td>
+<td align="center" charoff="50" valign="top">F-syndrome Type 2</td>
+<td align="center" charoff="50" valign="top">Inversion</td>
+<td align="center" charoff="50" valign="top">1098179</td>
+<td align="center" charoff="50" valign="top">WNT6</td>
+<td align="center" charoff="50" valign="top">25959774</td>
+<td align="center" charoff="50" valign="top">0.72</td>
+<td align="center" charoff="50" valign="top">1.16%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">18272352</td>
+<td align="center" charoff="50" valign="top">Polydactyly</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">623734</td>
+<td align="center" charoff="50" valign="top">EPHA4</td>
+<td align="center" charoff="50" valign="top">18272352</td>
+<td align="center" charoff="50" valign="top">0.72</td>
+<td align="center" charoff="50" valign="top">1.16%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">57202</td>
+<td align="center" charoff="50" valign="top">Pneumonia</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">2914266</td>
+<td align="center" charoff="50" valign="top">DGCR6</td>
+<td align="center" charoff="50" valign="top">21844811</td>
+<td align="center" charoff="50" valign="top">0.72</td>
+<td align="center" charoff="50" valign="top">1.16%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">33463</td>
+<td align="center" charoff="50" valign="top">Microcephaly</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">2734514</td>
+<td align="center" charoff="50" valign="top">TXNRD2</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.72</td>
+<td align="center" charoff="50" valign="top">1.16%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">144137</td>
+<td align="center" charoff="50" valign="top">Spina bifida occulta</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">2785959</td>
+<td align="center" charoff="50" valign="top">TTC3-AS1</td>
+<td align="center" charoff="50" valign="top">20466091</td>
+<td align="center" charoff="50" valign="top">0.70</td>
+<td align="center" charoff="50" valign="top">1.43%</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t1-fn1">
+<p>CR ID: ID in 3Disease Browser. Gene is the candidate gene name affected by CR events. SI Score (hESC) is calculated using hESC cell line’s data.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t2" position="float">
+<label>Table 2</label>
+<caption>
+<title>Five CRs associated with limb developmental disorders.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">CR ID</th>
+<th align="center" charoff="50" valign="top">Disease Name</th>
+<th align="center" charoff="50" valign="top">CR Type</th>
+<th align="center" charoff="50" valign="top">Genome Loci</th>
+<th align="center" charoff="50" valign="top">Gene</th>
+<th align="center" charoff="50" valign="top">SI Score (hESC)</th>
+<th align="center" charoff="50" valign="top">FDR (SI score)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">25959774.3</td>
+<td align="center" charoff="50" valign="top">Brachydactyly</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">Chr2:221278232-223014332</td>
+<td align="center" charoff="50" valign="top">PAX3</td>
+<td align="center" charoff="50" valign="top">0.017</td>
+<td align="center" charoff="50" valign="top">38.7%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">25959774.1</td>
+<td align="center" charoff="50" valign="top">F-syndrome</td>
+<td align="center" charoff="50" valign="top">Inversion</td>
+<td align="center" charoff="50" valign="top">Chr2:219741632-220839811</td>
+<td align="center" charoff="50" valign="top">WNT6</td>
+<td align="center" charoff="50" valign="top">0.724</td>
+<td align="center" charoff="50" valign="top">1.1%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">25959774.2</td>
+<td align="center" charoff="50" valign="top">F-syndrome</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">Chr2:219295343-220501540</td>
+<td align="center" charoff="50" valign="top">WNT6</td>
+<td align="center" charoff="50" valign="top">0.724</td>
+<td align="center" charoff="50" valign="top">1.1%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">22234151</td>
+<td align="center" charoff="50" valign="top">Polydactyly</td>
+<td align="center" charoff="50" valign="top">Duplication</td>
+<td align="center" charoff="50" valign="top">Chr2:219876448-220786974</td>
+<td align="center" charoff="50" valign="top">IHH</td>
+<td align="center" charoff="50" valign="top">0.724</td>
+<td align="center" charoff="50" valign="top">1.1%</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">18272352</td>
+<td align="center" charoff="50" valign="top">Polydactyly</td>
+<td align="center" charoff="50" valign="top">Deletion</td>
+<td align="center" charoff="50" valign="top">Chr2:220019492-220643226</td>
+<td align="center" charoff="50" valign="top">IHH</td>
+<td align="center" charoff="50" valign="top">0.724</td>
+<td align="center" charoff="50" valign="top">1.1%</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t2-fn1">
+<p>CR ID: ID in 3Disease Browser. SI Score (hESC) is calculated using hESC cell line’s data.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t3" position="float">
+<label>Table 3</label>
+<caption>
+<title>Comparison of 3D genome browsers.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">Web server or software</th>
+<th align="center" charoff="50" valign="top">Hi-C heatmap display</th>
+<th align="center" charoff="50" valign="top">Annotation tracks</th>
+<th align="center" charoff="50" valign="top">Gene search</th>
+<th align="center" charoff="50" valign="top">Disease search</th>
+<th align="center" charoff="50" valign="top">GWAS variants search</th>
+<th align="center" charoff="50" valign="top">3D model display</th>
+<th align="center" charoff="50" valign="top">PubMed ID</th>
+<th align="center" charoff="50" valign="top">Website</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">3Disease Browser</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">—</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://3dgb.cbi.pku.edu.cn/disease" xmlns:xlink="http://www.w3.org/1999/xlink">http://3dgb.cbi.pku.edu.cn/disease</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">ChromContact</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">26666652</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://bioinfo.sls.kyushu-u.ac.jp/chromcontact/" xmlns:xlink="http://www.w3.org/1999/xlink">http://bioinfo.sls.kyushu-u.ac.jp/chromcontact/</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">HiView</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">26969411</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://www.unc.edu/~yunmli/HiView/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.unc.edu/~yunmli/HiView/</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Hi-C data Browser (Dekker lab)</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">—</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://hic.umassmed.edu/welcome/welcome.php" xmlns:xlink="http://www.w3.org/1999/xlink">http://hic.umassmed.edu/welcome/welcome.php</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">HiC-3DViewer</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">—</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://bioinfo.au.tsinghua.edu.cn/member/nadhir/HiC3DViewer" xmlns:xlink="http://www.w3.org/1999/xlink">http://bioinfo.au.tsinghua.edu.cn/member/nadhir/HiC3DViewer</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Hi-C data Browser (Yue lab)</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">—</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://yuelab.org/hi-c/database.php" xmlns:xlink="http://www.w3.org/1999/xlink">http://yuelab.org/hi-c/database.php</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">WashU EpiGenome Browser (Wang lab)</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">23629413</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://vizhub.wustl.edu/" xmlns:xlink="http://www.w3.org/1999/xlink">http://vizhub.wustl.edu/</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Juicebox (Lieberman- Aiden lab)</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">25497547</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://www.aidenlab.org/juicebox/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.aidenlab.org/juicebox/</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">4DGenome Browser</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">25788621</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://4dgenome.int-med.uiowa.edu" xmlns:xlink="http://www.w3.org/1999/xlink">http://4dgenome.int-med.uiowa.edu</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Genomic HyperBrowser</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">21182759</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="https://hyperbrowser.uio.no/hb/" xmlns:xlink="http://www.w3.org/1999/xlink">https://hyperbrowser.uio.no/hb/</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">GMOL</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">26868282</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="https://sourceforge.net/projects/gmol/" xmlns:xlink="http://www.w3.org/1999/xlink">https://sourceforge.net/projects/gmol/</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Genome3D</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">25348407</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://www.genome3d.eu" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.genome3d.eu</ext-link>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Tadkit</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">✓</td>
+<td align="center" charoff="50" valign="top">—</td>
+<td align="center" charoff="50" valign="top">
+<ext-link ext-link-type="uri" xlink:href="http://sgt.cnag.cat/3dg/tadkit/" xmlns:xlink="http://www.w3.org/1999/xlink">http://sgt.cnag.cat/3dg/tadkit/</ext-link>
+</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

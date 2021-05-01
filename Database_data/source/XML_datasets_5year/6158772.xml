@@ -1,0 +1,2810 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="review-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Comput Struct Biotechnol J</journal-id>
+<journal-id journal-id-type="iso-abbrev">Comput Struct Biotechnol J</journal-id>
+<journal-title-group>
+<journal-title>Computational and Structural Biotechnology Journal</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2001-0370</issn>
+<publisher>
+<publisher-name>Research Network of Computational and Structural Biotechnology</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">30275937</article-id>
+<article-id pub-id-type="pmc">6158772</article-id>
+<article-id pub-id-type="publisher-id">S2001-0370(17)30100-9</article-id>
+<article-id pub-id-type="doi">10.1016/j.csbj.2018.02.005</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Review Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>A Review of Matched-pairs Feature Selection Methods for Gene Expression Data Analysis</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Liang</surname>
+<given-names>Sen</given-names>
+</name>
+<xref ref-type="aff" rid="af0005">a</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>Anjun</given-names>
+</name>
+<xref ref-type="aff" rid="af0010">b</xref>
+<xref ref-type="aff" rid="af0015">c</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>Sen</given-names>
+</name>
+<xref ref-type="aff" rid="af0005">a</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Yan</given-names>
+</name>
+<email>wy6868@jlu.edu.cn</email>
+<xref ref-type="aff" rid="af0005">a</xref>
+<xref ref-type="corresp" rid="cr0005">⁎</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>Qin</given-names>
+</name>
+<email>qin.ma@sdstate.edu</email>
+<xref ref-type="aff" rid="af0010">b</xref>
+<xref ref-type="aff" rid="af0015">c</xref>
+<xref ref-type="corresp" rid="cr0010">⁎⁎</xref>
+</contrib>
+</contrib-group>
+<aff id="af0005"><label>a</label>Key Laboratory of Symbol Computation and Knowledge Engineering of Ministry of Education, College of Computer Science and Technology, Jilin University, Changchun 130012, China</aff>
+<aff id="af0010"><label>b</label>Bioinformatics and Mathematical Biosciences Lab, Department of Agronomy, Horticulture and Plant Science, Department of Mathematics and Statistics, South Dakota State University, Brookings, SD 57007, USA</aff>
+<aff id="af0015"><label>c</label>BioSNTR, Brookings, SD, USA</aff>
+<author-notes>
+<corresp id="cr0005"><label>⁎</label>Corresponding author. <email>wy6868@jlu.edu.cn</email></corresp>
+<corresp id="cr0010"><label>⁎⁎</label>Correspondence to: Q. Ma, Bioinformatics and Mathematical Biosciences Lab, Department of Agronomy, Horticulture and Plant Science, Department of Mathematics and Statistics, South Dakota State University, Brookings, SD 57007, USA. <email>qin.ma@sdstate.edu</email></corresp>
+</author-notes>
+<pub-date pub-type="pmc-release">
+<day>25</day>
+<month>2</month>
+<year>2018</year>
+</pub-date>
+<!-- PMC Release delay is 0 months and 0 days and was based on <pub-date
+						pub-type="epub">.-->
+<pub-date pub-type="collection">
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>25</day>
+<month>2</month>
+<year>2018</year>
+</pub-date>
+<volume>16</volume>
+<fpage>88</fpage>
+<lpage>97</lpage>
+<history>
+<date date-type="received">
+<day>18</day>
+<month>9</month>
+<year>2017</year>
+</date>
+<date date-type="rev-recd">
+<day>14</day>
+<month>2</month>
+<year>2018</year>
+</date>
+<date date-type="accepted">
+<day>19</day>
+<month>2</month>
+<year>2018</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2018 The Authors</copyright-statement>
+<copyright-year>2018</copyright-year>
+<license license-type="CC BY" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).</license-p>
+</license>
+</permissions>
+<abstract id="ab0005">
+<p>With the rapid accumulation of gene expression data from various technologies, e.g., microarray, RNA-sequencing (RNA-seq), and single-cell RNA-seq, it is necessary to carry out dimensional reduction and feature (signature genes) selection in support of making sense out of such high dimensional data. These computational methods significantly facilitate further data analysis and interpretation, such as gene function enrichment analysis, cancer biomarker detection, and drug targeting identification in precision medicine. Although numerous methods have been developed for feature selection in bioinformatics, it is still a challenge to choose the appropriate methods for a specific problem and seek for the most reasonable ranking features. Meanwhile, the paired gene expression data under matched case-control design (MCCD) is becoming increasingly popular, which has often been used in multi-omics integration studies and may increase feature selection efficiency by offsetting similar distributions of confounding features. The appropriate feature selection methods specifically designed for the paired data, which is named as matched-pairs feature selection (MPFS), however, have not been maturely developed in parallel. In this review, we compare the performance of 10 feature-selection methods (eight MPFS methods and two traditional unpaired methods) on two real datasets by applied three classification methods, and analyze the algorithm complexity of these methods through the running of their programs. This review aims to induce and comprehensively present the MPFS in such a way that readers can easily understand its characteristics and get a clue in selecting the appropriate methods for their analyses.</p>
+</abstract>
+<kwd-group id="ks0005">
+<title>Keywords</title>
+<kwd>Matched-pairs feature selection</kwd>
+<kwd>Matched case-control design</kwd>
+<kwd>Paired data</kwd>
+<kwd>Gene expression</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="s0005">
+<label>1</label>
+<title>Introduction</title>
+<p id="p0005">During the last two decades, feature selection techniques have become an active and fruitful research field in machine learning [<xref ref-type="bibr" rid="bb0005">[1]</xref>, <xref ref-type="bibr" rid="bb0010">[2]</xref>, <xref ref-type="bibr" rid="bb0015">[3]</xref>, <xref ref-type="bibr" rid="bb0020">[4]</xref>], pattern recognition [<xref ref-type="bibr" rid="bb0025">5</xref>,<xref ref-type="bibr" rid="bb0030">6</xref>], and bioinformatics [<xref ref-type="bibr" rid="bb0035">[7]</xref>, <xref ref-type="bibr" rid="bb0040">[8]</xref>, <xref ref-type="bibr" rid="bb0045">[9]</xref>]. Feature selection, a.k.a. Variable selection or gene selection (in bioinformatics), is the process of selecting a subset of relevant features for model construction or interpretation of results. It improves model predictive accuracy and reduces model complexity by eliminating irrelevant and redundant features and provides a better understanding of the underlying processes [<xref ref-type="bibr" rid="bb0050">10</xref>]. Many novel methods have been proposed recently, such as the minimum-Redundancy-Maximum-Relevancy (mRMR) method proposed by Peng et al. which selects features using mutual information as a proxy for computing relevance and redundancy among features [<xref ref-type="bibr" rid="bb0055">11</xref>], and the Max-Relevance-Max-Distance (MRMD) method proposed by Zou et al. that selects features with strong correlation with labeled and lowest redundancy features subset [<xref ref-type="bibr" rid="bb0060">12</xref>]. With the rapid expansion of gene expression data, higher gene dimensionality has been generated in limited samples. The feature selection techniques are playing more and more pivotal roles in high-dimensional data analyses, especially in gene function enrichment analysis, cancer biomarker detection, and drug targeting identification in precision medicine. Recently, Zou et al. proposed a new method to predict TATA-binding proteins with feature selection and dimensionality reduction strategy [<xref ref-type="bibr" rid="bb0065">13</xref>]. Tang et al. proposed novel selection strategies to identify highly tissue-specific CpG sites and then constructed classifiers to predict primary sites of tumors [<xref ref-type="bibr" rid="bb0070">14</xref>].</p>
+<p id="p0010">However, it is still a challenge to choose the appropriate methods for specific problems and retrieve the most reasonable ranking features in gene expression data analysis. Nowadays, using the existing next-generation sequencing techniques, such as microarray and RNA-seq, developed for gene expression profiling, the paired gene expression data under matched case-control design (MCCD) is becoming increasingly popular. Such data has frequently been used in multi-omics studies and may increase the feature selection efficiency by offsetting similar distributions of confounding features [<xref ref-type="bibr" rid="bb0075">15</xref>]. Nevertheless, the appropriate feature selection methods specifically designed for paired data accounting on MCCD, which is so-called matched-pairs feature selection (MPFS), have not been maturely developed in parallel.</p>
+<p id="p0015">There are many popular MPFS methods and strategies for bioinformatics research. Several studies have been managed to account for paired data in their algorithms, which can be categorized into three groups. First, the test statistic uses original and modified paired <italic>t</italic>-test to rank relevant features by evaluating significant levels which is often followed by a classification approach to improve model predictive accuracy. Such kind of methods is comparatively time-consuming and may return a preliminary feature selection results. Second, the conditional logistic regression (CLR) [<xref ref-type="bibr" rid="bb0080">16</xref>] is a modeling approach widely be used in MCCD studies to identify features significantly associated with case-control status. CLR has considerations of the interaction between features and make a better selection results when potential correlations exist. Third, the boosting strategy addresses classification problems with matched case-control responses. In machine learning, boosting is usually combined with many weak classifiers to build a powerful committee. Since Friedman et al. [<xref ref-type="bibr" rid="bb0085">17</xref>] described boosting as a method for the additive model using an exponential loss criterion, researchers employed boosting to identify significant features with paired data within a classifier task [<xref ref-type="bibr" rid="bb0090">18</xref>]. The boosting strategy is more powerful and time-consuming, which always need to be wrapped with a classifier, e.g., support vector machines (SVM) [<xref ref-type="bibr" rid="bb0095">19</xref>].</p>
+<p id="p0020">This review provides a survey of existing MPFS methods and applications for paired gene expression data under MCCD. Two real gene expression datasets from The Cancer Gene Atlas database (TCGA) [<xref ref-type="bibr" rid="bb0100">20</xref>] and Gene Expression Omnibus database (GEO) [<xref ref-type="bibr" rid="bb0105">21</xref>] were selected to evaluate the performance of MPFS methods and traditional unpaired feature selection methods. The rest of the paper is organized as follows: <xref ref-type="sec" rid="s0010">Section 2</xref> introduces the feature selection techniques in general and presents overall classification strategies according to different data properties. In <xref ref-type="sec" rid="s0025">Section 3</xref>, the MPFS problem is defined and then the existing MPFS methods are summarized according to the above three feature selection groups. In <xref ref-type="sec" rid="s0095">Section 4</xref>, we compare the performance of ten methods, including eight MPFS methods and two traditional unpaired methods on the two real datasets and three classification methods, i.e., SVM, Gaussian Naïve Bayesian (GNB) [<xref ref-type="bibr" rid="bb0110">22</xref>], and Logistic Regression [<xref ref-type="bibr" rid="bb0115">23</xref>]. The running times of these methods are also recorded simultaneously as another vital criterion to help readers select the appropriate method for different environments. We further discuss several challenges for the development of the MPFS techniques and their further applications in many other bioinformatics research fields in <xref ref-type="sec" rid="s0100">Section 5</xref>. Finally, the conclusions are clearly drawn in the last section.</p>
+</sec>
+<sec id="s0010">
+<label>2</label>
+<title>Feature Selection Techniques</title>
+<p id="p0025">The most acceptable benefit of feature selection is to help improving accuracy and reducing model complexity, as it can remove redundant and irrelevant features to reduce the input dimensionality and help biologists identify the underlying mechanism that connects gene expression with diseases or interested phenotype.</p>
+<p id="p0030">Feature selection techniques have been successfully applied in many real-world applications, such as large-scale biological data analysis [<xref ref-type="bibr" rid="bb0120">[24]</xref>, <xref ref-type="bibr" rid="bb0125">[25]</xref>, <xref ref-type="bibr" rid="bb0130">[26]</xref>], text classification [<xref ref-type="bibr" rid="bb0135">27</xref>], information retrieval [<xref ref-type="bibr" rid="bb0140">28</xref>], near-infrared spectroscopy [<xref ref-type="bibr" rid="bb0145">29</xref>], mass spectroscopy data analysis [<xref ref-type="bibr" rid="bb0150">30</xref>], drug design [<xref ref-type="bibr" rid="bb0155">31</xref>,<xref ref-type="bibr" rid="bb0160">32</xref>], and especially the quantitative structure-activity relationship (QSAR) modeling [<xref ref-type="bibr" rid="bb0165">33</xref>,<xref ref-type="bibr" rid="bb0170">34</xref>]. In cancer research community, feature selection has also been widely applied in different omics data analyses: mRNA data [<xref ref-type="bibr" rid="bb0045">9</xref>,<xref ref-type="bibr" rid="bb0175">35</xref>], miRNA data [<xref ref-type="bibr" rid="bb0180">36</xref>,<xref ref-type="bibr" rid="bb0185">37</xref>], whole exome sequencing data [<xref ref-type="bibr" rid="bb0190">38</xref>], DNA-methylation data [<xref ref-type="bibr" rid="bb0195">39</xref>,<xref ref-type="bibr" rid="bb0200">40</xref>], and proteomics data [<xref ref-type="bibr" rid="bb0205">41</xref>,<xref ref-type="bibr" rid="bb0210">42</xref>]. Recently, some researchers have applied feature selection techniques on integrative analysis of multi-omics data. Chen et al. reviewed multivariate dimension reduction approaches which can be applied to the integrative exploratory analysis of multi-omics data [<xref ref-type="bibr" rid="bb0215">43</xref>]; Mallik et al. developed a new feature selection framework for identifying statistically significant epigenetic biomarkers using maximal-relevance and minimal-redundancy criterion based on multi-omics dataset [<xref ref-type="bibr" rid="bb0220">44</xref>]; and Liu et al. [<xref ref-type="bibr" rid="bb0225">45</xref>] developed two methods based on the proportional hazards regression [<xref ref-type="bibr" rid="bb0230">46</xref>], named SKI-Cox and wLASSO-Cox approaches, to perform feature selection on different multi-omics datasets.</p>
+<sec id="s0015">
+<label>2.1</label>
+<title>Unpaired Feature Selection Methods</title>
+<p id="p0035">It is not trivial to choose the appropriate feature selection method for a given scenario, hence, several classification strategies of unpaired feature selection techniques have been approached. The most widely-used classification strategy classified the methods into the filter, wrapper and embedded, based on the integrated classifiers [<xref ref-type="bibr" rid="bb0035">7</xref>,<xref ref-type="bibr" rid="bb0050">10</xref>,<xref ref-type="bibr" rid="bb0235">47</xref>]. The filter approach separates feature selection from classifier construction and assesses the relevance of features only relying on the intrinsic properties of data [<xref ref-type="bibr" rid="bb0240">48</xref>,<xref ref-type="bibr" rid="bb0245">49</xref>], which have frequently been used in high dimensional data analysis (e.g., microarray data). The wrapper approach evaluates classification performance of selected features and keeps searching/optimizing until certain accuracy criterion is satisfied [<xref ref-type="bibr" rid="bb0250">50</xref>,<xref ref-type="bibr" rid="bb0255">51</xref>]. The embedded approach embeds feature selection within classifier constructions to perform less computationally intensive than wrapper methods [<xref ref-type="bibr" rid="bb0260">52</xref>,<xref ref-type="bibr" rid="bb0265">53</xref>] and has the advantage to interact with the classification models [<xref ref-type="bibr" rid="bb0235">47</xref>]. Except for utilizing each feature selection method individually, the ensemble feature selection has come up by integrating multiple methods into one algorithm. It has the most prominent advantageous ability to handle stability issues which are usually poor in the existing feature selection methods, under the assumption that the output of multi-model is better than any individual model [<xref ref-type="bibr" rid="bb0270">54</xref>].</p>
+<p id="p0040">Besides, various taxonomies for feature selection are also developed. Depending on whether the original features are transformed into new features, the terminology “feature extraction” is specifically defined from the feature selection technologies [<xref ref-type="bibr" rid="bb0275">55</xref>]. Furthermore, feature selection can also be divided into univariate and multivariate types, based on feature independence [<xref ref-type="bibr" rid="bb0040">8</xref>]. With the search optimal feature perspectives, Wang et al. formulated feature selection as a combinatorial optimization or search problem, and categorized the methods into exhaustive search, heuristic search, and hybrid method [<xref ref-type="bibr" rid="bb0280">56</xref>].</p>
+</sec>
+<sec id="s0020">
+<label>2.2</label>
+<title>A Different Perspective of Feature Selection By Data Properties</title>
+<p id="p0045">Recently, some researchers began to consider the data properties in developing or choosing appropriate feature selection methods. Ang et al. observed the gene expression data can be fully labeled, unlabeled, or partially labeled [<xref ref-type="bibr" rid="bb0285">57</xref>]. With such a fact, they correspondingly separated feature selection methods into three categories: supervised, unsupervised and semi-supervised. Tan et al. found the popular MCCD in microarray experiments lacked appropriate feature selection method. To solve the problem, they proposed a method based on modified <italic>t</italic>-statistic in their study [<xref ref-type="bibr" rid="bb0290">58</xref>]. From then on, many researchers began to develop new feature selection methods for paired data under MCCD [<xref ref-type="bibr" rid="bb0090">18</xref>,<xref ref-type="bibr" rid="bb0295">[59]</xref>, <xref ref-type="bibr" rid="bb0300">[60]</xref>, <xref ref-type="bibr" rid="bb0305">[61]</xref>, <xref ref-type="bibr" rid="bb0310">[62]</xref>, <xref ref-type="bibr" rid="bb0315">[63]</xref>, <xref ref-type="bibr" rid="bb0320">[64]</xref>, <xref ref-type="bibr" rid="bb0325">[65]</xref>]. Additionally, the paired gene expression data under MCCD is often referred to obtain two gene expression profiles from case tissues and control tissues, respectively. In cancer research study, case tissue often relates to tumor tissue and control tissue is the corresponding adjacent non-tumor tissue.</p>
+</sec>
+</sec>
+<sec id="s0025">
+<label>3</label>
+<title>Matched-pairs Feature Selection</title>
+<sec id="s0030">
+<label>3.1</label>
+<title>Problem Description</title>
+<p id="p0050">Before we survey the feature selection methods on paired data, it is worthwhile to give descriptions of MPFS problems and the corresponding goals.</p>
+<p id="p0055">Considering <italic>n</italic> Npaired data samples for <italic>X</italic> = {<italic>x</italic><sub><italic>i</italic></sub>| <italic>i</italic> = 1, 2, …, <italic>n</italic>} under 1 : <italic>m</italic> MCCD. <italic>p</italic> and <italic>q</italic> are used to represent the number of case experiments and control experiments, respectively, where <italic>q</italic> = <italic>mp</italic>. For each paired data <italic>i</italic>, there is <italic>X</italic><sub><italic>i</italic></sub> = {<italic>x</italic><sub><italic>ij</italic></sub>| <italic>j</italic> = 1, 2, …, <italic>p</italic> + <italic>q</italic>}, and let <italic>Z</italic><sub><italic>i</italic></sub> denotes the case-control status of <italic>X</italic><sub><italic>i</italic></sub> with <italic>Z</italic><sub><italic>i</italic></sub> = {<italic>z</italic><sub><italic>ij</italic></sub>| <italic>j</italic> = 1, 2, …, <italic>p</italic> + <italic>q</italic>}, such that <italic>Z</italic><sub><italic>ij</italic></sub> = 1 for case and 0 for control. Given each sample <italic>K</italic> features, as <italic>L</italic> = (<italic>l</italic><sub><italic>k</italic></sub>| <italic>k</italic> = 1, 2, …, <italic>K</italic>), we denote <italic>X</italic><sub><italic>ij</italic></sub> = (<italic>x</italic><sub><italic>ijk</italic></sub>| <italic>k</italic> = 1, 2, …, <italic>K</italic>); as the vector data with <italic>K</italic> features of the <italic>i</italic><sup><italic>th</italic></sup> paired data under the <italic>j</italic><sup><italic>th</italic></sup> paired element. The aim of MPFS method is to find out the optimal subset features from all <italic>K</italic> features, account on the 1 : <italic>m</italic> MCCD.</p>
+<p id="p0060">Recently, almost all algorithms were developed under 1:1 MCCD, as data are paired and easy analysis, where <italic>m</italic> = 1 so that <italic>p</italic> = <italic>q</italic>, <italic>X</italic><sub><italic>i</italic></sub> = (<italic>X</italic><sub><italic>i</italic> 1</sub>, …, <italic>X</italic><sub><italic>i</italic> <italic>p</italic></sub>, <italic>X</italic><sub><italic>i</italic> <italic>p</italic>+1</sub>, …, <italic>X</italic><sub><italic>i</italic> <italic>p</italic>+<italic>q</italic></sub>) and <italic>Z</italic><sub><italic>i</italic></sub> = (<italic>Z</italic><sub><italic>i</italic> 1</sub>, …, <italic>Z</italic><sub><italic>i</italic> <italic>p</italic></sub>, <italic>Z</italic><sub><italic>i</italic> <italic>p</italic>+1</sub>, …, <italic>Z</italic><sub><italic>i</italic> <italic>p</italic>+<italic>q</italic></sub>). In paired gene expression data, <italic>p</italic> and <italic>q</italic> often equal to 1, so that <italic>X</italic><sub><italic>i</italic></sub> = (<italic>X</italic><sub><italic>i</italic>1</sub>, <italic>X</italic><sub><italic>i</italic>2</sub>). In <xref ref-type="fig" rid="f0005">Fig. 1</xref>, we illustrate the matched-pairs features problem with matched <italic>p</italic> cases and <italic>q</italic> controls.<fig id="f0005"><label>Fig. 1</label><caption><p>Matched-pairs feature selection problem description. Paired data with matched <italic>p</italic> cases and <italic>q</italic> controls as input for the MPFS method and getting selected features as output.</p></caption><alt-text id="al0005">Fig. 1</alt-text><graphic xlink:href="gr1"></graphic></fig></p>
+</sec>
+<sec id="s0035">
+<label>3.2</label>
+<title>Methods Survey</title>
+<p id="p0065">As mentioned, depending on the underlying methods, MPFS approaches can be divided into three categories: test statistic, CLR, and boosting strategy (<xref ref-type="table" rid="t0005">Table 1</xref>). Here we surveyed most of the MPFS methods from literature and discussed each one in detail.<table-wrap id="t0005" position="float"><label>Table 1</label><caption><p>Matched-pairs feature selection survey. This table lists the matched-pairs feature selection methods in this article with its method name (second column), software (third column) and literature (fourth column) through three groups: test statistic, CLR, and boosting strategy.</p></caption><alt-text id="al0025">Table 1</alt-text><table frame="hsides" rules="groups"><thead><tr><th></th><th>Method</th><th>Software<xref ref-type="table-fn" rid="tf0005">a</xref></th><th>Literature</th></tr></thead><tbody><tr><td rowspan="3">Test statistic</td><td>Paired <italic>t</italic>-test</td><td>R package “PairedData”</td><td>Hsu et al. [<xref ref-type="bibr" rid="bb0330">66</xref>]</td></tr><tr><td>Modified paired <italic>t</italic>-test</td><td>–</td><td>Tan et al. [<xref ref-type="bibr" rid="bb0290">58</xref>]</td></tr><tr><td>Fold-change paired <italic>t</italic>-test</td><td>–</td><td>Cao et al. [<xref ref-type="bibr" rid="bb0310">62</xref>]</td></tr><tr><td rowspan="3">Conditional logistic regression</td><td>RP-CLR</td><td>R package “RPCLR”</td><td>Balasubramanian et al. [<xref ref-type="bibr" rid="bb0320">64</xref>]</td></tr><tr><td>PCU-CLR</td><td>R package “penalized”</td><td>Qian et al. [<xref ref-type="bibr" rid="bb0075">15</xref>]</td></tr><tr><td>BVS-CLR</td><td>R package “coda”</td><td>Asafu-Adjei et al. [<xref ref-type="bibr" rid="bb0325">65</xref>]</td></tr><tr><td rowspan="2">Boosting strategy</td><td>WL2Boost</td><td>Source code in paper</td><td>Adewale et al. [<xref ref-type="bibr" rid="bb0090">18</xref>]</td></tr><tr><td>1-step PQLBoost</td><td>–</td><td>Adewale et al. [<xref ref-type="bibr" rid="bb0090">18</xref>]</td></tr></tbody></table><table-wrap-foot><fn id="tf0005"><label>a</label><p id="np0005">Using “–” if no specific software found for the method.</p></fn></table-wrap-foot></table-wrap></p>
+<sec id="s0040">
+<label>3.2.1</label>
+<title>Test Statistic for MPFS</title>
+<p id="p0070">Test statistic methods are widely used in testing if two groups data obey one distribution, which has a low computational complexity and is easy to carry out. Paired <italic>t</italic>-test methods are suite for paired data, especially in gene expression analysis [<xref ref-type="bibr" rid="bb0330">66</xref>,<xref ref-type="bibr" rid="bb0335">67</xref>]. Modified paired <italic>t</italic>-test method and fold-change paired <italic>t</italic>-test method are more adapted to MCCD settings.</p>
+<sec id="s0045">
+<label>3.2.1.1</label>
+<title>Paired <italic>t</italic>-Test</title>
+<p id="p0075">The original statistic method of paired <italic>t</italic>-test [<xref ref-type="bibr" rid="bb0330">66</xref>,<xref ref-type="bibr" rid="bb0335">67</xref>] has been widely used in paired data analysis, especially in identifying differential gene expression. Given 1:1 matched case-control setting, where <italic>Z</italic> = (1, 0), the difference between paired case and control <italic>X</italic> with the <italic>k</italic><sup><italic>th</italic></sup> feature is given<disp-formula id="fo0005"><label>(1)</label><mml:math altimg="si1.gif" display="block" id="M1" overflow="scroll"><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:math></disp-formula></p>
+<p id="p0080">For all <italic>n</italic> samples, The mean difference <inline-formula><mml:math altimg="si2.gif" id="M2" overflow="scroll"><mml:msub><mml:mover accent="true"><mml:mi>d</mml:mi><mml:mo stretchy="true">¯</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub></mml:math></inline-formula> with the <italic>k</italic><sup><italic>th</italic></sup> feature can be given by <inline-formula><mml:math altimg="si3.gif" id="M3" overflow="scroll"><mml:msub><mml:mover accent="true"><mml:mi>d</mml:mi><mml:mo stretchy="true">¯</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:mfenced><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:msubsup><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula>, and the standard error of d under the <italic>k</italic><sup><italic>th</italic></sup> feature is <inline-formula><mml:math altimg="si4.gif" id="M4" overflow="scroll"><mml:msub><mml:mi>s</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msqrt><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:msubsup><mml:msup><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>d</mml:mi><mml:mo stretchy="true">¯</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mo>/</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:mi>n</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mrow></mml:msqrt></mml:math></inline-formula>. Combining <inline-formula><mml:math altimg="si2.gif" id="M5" overflow="scroll"><mml:msub><mml:mover accent="true"><mml:mi>d</mml:mi><mml:mo stretchy="true">¯</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub></mml:math></inline-formula> and <italic>s</italic><sub><italic>k</italic></sub>, the paired <italic>t</italic>-test statistic for the <italic>k</italic><sup><italic>th</italic></sup> feature is defined as<disp-formula id="fo0010"><label>(2)</label><mml:math altimg="si6.gif" display="block" id="M6" overflow="scroll"><mml:msub><mml:mi>t</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>d</mml:mi><mml:mo stretchy="true">¯</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo>/</mml:mo><mml:msub><mml:mi>s</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math></disp-formula></p>
+<p id="p0085">With each feature's statistic and its corresponding <italic>p-value</italic>, we can rank it and make the feature selection analysis.</p>
+</sec>
+<sec id="s0050">
+<label>3.2.1.2</label>
+<title>Modified Paired <italic>t</italic>-Test</title>
+<p id="p0090">Tan et al. developed a modified paired <italic>t</italic>-test statistic to identify a subset of relevant features that served as a basis for classification via support vector machines (SVM) [<xref ref-type="bibr" rid="bb0290">58</xref>]. The gene and feature selection were optimized by setting thresholds in a leaving one-pair out cross-validation procedure using SVM [<xref ref-type="bibr" rid="bb0340">68</xref>].</p>
+<p id="p0095">In this method, the authors added a positive constant <italic>s</italic><sub>0</sub> to the denominator of Eq. <xref ref-type="disp-formula" rid="fo0010">(2)</xref> to induce a modified paired <italic>t</italic>-test statistic, denoted as <italic>t</italic><sub><italic>k</italic></sub><sup>'</sup> and shown as:<disp-formula id="fo0015"><label>(3)</label><mml:math altimg="si7.gif" display="block" id="M7" overflow="scroll"><mml:msubsup><mml:mi>t</mml:mi><mml:mi>k</mml:mi><mml:mo>'</mml:mo></mml:msubsup><mml:mo>=</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>d</mml:mi><mml:mo stretchy="true">¯</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub><mml:mo>/</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>s</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>s</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mrow><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:msub><mml:mi>s</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>/</mml:mo><mml:msub><mml:mi>s</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:math></disp-formula></p>
+<p id="p0100">According to a study of Tibshirani et al. [<xref ref-type="bibr" rid="bb0345">69</xref>], <italic>s</italic><sub>0</sub> is the median of <italic>s</italic><sub><italic>k</italic></sub>. They also specified a threshold Δ for selecting features with the condition of |<italic>t</italic><sub><italic>k</italic></sub><sup>'</sup>| − Δ &gt; 0, and obtained the optimal subset features through a leaving one-pair out cross-validation.</p>
+</sec>
+<sec id="s0055">
+<label>3.2.1.3</label>
+<title>Fold-change Paired <italic>t</italic>-Test</title>
+<p id="p0105">Cao et al. proposed another modified version of paired <italic>t</italic>-test statistic using the fold-change value instead of <italic>d</italic><sub><italic>i</italic>, <italic>k</italic></sub> between case and control samples in Eq. <xref ref-type="disp-formula" rid="fo0005">(1)</xref> [<xref ref-type="bibr" rid="bb0310">62</xref>]. They utilized <italic>q-value</italic> in the False Discovery Rate method [<xref ref-type="bibr" rid="bb0350">70</xref>] to measure statistical significance for each feature.</p>
+<p id="p0110">The author hypothesized that different paired data have different experimental environments and conditions. It is believed that the measurement of the difference between case and control in originally paired <italic>t</italic>-test is unstable and lack of enough generalization ability among different data sets. To address such problem, they used the fold-change value between case and control to replace Eq. <xref ref-type="disp-formula" rid="fo0005">(1)</xref>, which is given by<disp-formula id="fo0020"><label>(4)</label><mml:math altimg="si8.gif" display="block" id="M8" overflow="scroll"><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfenced open="{"><mml:mtable columnalign="center"><mml:mtr><mml:mtd><mml:msub><mml:mi mathvariant="italic">FC</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mspace width="1.3em"></mml:mspace><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi mathvariant="italic">FC</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>≥</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:msub><mml:mi mathvariant="italic">FC</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mspace width="0.4em"></mml:mspace><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi mathvariant="italic">FC</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>&lt;</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mtd></mml:mtr></mml:mtable></mml:mfenced></mml:math></disp-formula>where the fold-change value <italic>FC</italic><sub><italic>i</italic>, <italic>k</italic></sub> equals to <italic>X</italic><sub><italic>i</italic>1, <italic>k</italic></sub>/<italic>X</italic><sub><italic>i</italic>2, <italic>k</italic></sub>.</p>
+</sec>
+</sec>
+<sec id="s0060">
+<label>3.2.2</label>
+<title>Conditional Logistic Regression for MPFS</title>
+<p id="p0115">In matched-pairs studies, the standard analytical approach uses CLR to identify features significantly associated with case-control status [<xref ref-type="bibr" rid="bb0355">71</xref>]. A CLR model is a specialized logistic regression that allows users to consider stratification and matching, which are usually employed to investigate the relationship between case and control data. However, with dramatically increasing data dimension, CLR strategy becomes computationally intensive, and model convergence problems are foreseeable [<xref ref-type="bibr" rid="bb0325">65</xref>]. So far, several new feature selection algorithms have been developed to solve the issue and are presented as follows.</p>
+<sec id="s0065">
+<label>3.2.2.1</label>
+<title>Random Penalized Conditional Logistic Regression (RP-CLR)</title>
+<p id="p0120">Balasubramanian et al. proposed an RP-CLR method to assess variable importance associated with matched case-control status in high dimensional data setting [<xref ref-type="bibr" rid="bb0320">64</xref>]. The algorithm is based on penalized conditional likelihood model for adjusting for the matched case-control design and accounting the two-way interaction among features and incorporates some attractive characteristics in the random forest to assess variable importance. The method is proposed for 1:1 matched studies and can be generalized to 1:m matched studies. Specifically, the algorithm contains three steps: (i) bootstrap <italic>M</italic> paired datasets to form the original paired data set; (ii) for each bootstrap paired data set, a random subset of <italic>K</italic> features are selected to fit a conditional logistic model with penalty, and the significance of each feature is assessed; and (iii) the average variable significance score in overall <italic>M</italic> bootstrap is calculated for users to achieve the goal of feature selection.</p>
+</sec>
+<sec id="s0070">
+<label>3.2.2.2</label>
+<title>Penalized Conditional and Unconditional Logistic Regression (PCU-CLR)</title>
+<p id="p0125">Qian et al. presented a two-stage procedure, based on penalized conditional and unconditional logistic regression approaches, to tackle the dual goals of variable selection and prediction problems under MCCD [<xref ref-type="bibr" rid="bb0075">15</xref>]. In the first stage, variable selection is carried out to estimate regression coefficients <italic>β</italic> by using the penalized log-likelihood as<disp-formula id="fo0025"><label>(5)</label><mml:math altimg="si9.gif" display="block" id="M9" overflow="scroll"><mml:mo mathvariant="italic">log</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>l</mml:mi><mml:mi>C</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mi>β</mml:mi></mml:mfenced></mml:mrow></mml:mfenced><mml:mo>−</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>p</mml:mi></mml:munderover><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>λ</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mfenced close=")" open="("><mml:mfenced close="|" open="|"><mml:msub><mml:mi>β</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced></mml:mfenced><mml:mo>−</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>p</mml:mi></mml:munderover><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>j</mml:mi><mml:mo>&gt;</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>p</mml:mi></mml:munderover><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>λ</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mfenced close=")" open="("><mml:mfenced close="|" open="|"><mml:msub><mml:mi>β</mml:mi><mml:mi mathvariant="italic">ij</mml:mi></mml:msub></mml:mfenced></mml:mfenced></mml:math></disp-formula>where <italic>log</italic>(<italic>l</italic><sub><italic>C</italic></sub>(<italic>β</italic>)) is the log conditional likelihood function of <italic>β</italic>. <italic>g</italic><sub><italic>λ</italic>1</sub>(·) and <italic>g</italic><sub><italic>λ</italic>2</sub>(·) are penalty functions for variables and two-way interactions, respectively. To select the optimal penalty parameters, <italic>λ</italic>1 and <italic>λ</italic>2, ten-fold cross-validation method is employed in the model [<xref ref-type="bibr" rid="bb0360">72</xref>]. At last, variable selection stage can be completed by maximizing the likelihood function (Eq. <xref ref-type="disp-formula" rid="fo0025">(5)</xref>). In the second stage, estimated <italic>β</italic> can be used to fit an unconditional logistic regression model with matched case-control data for prediction.</p>
+</sec>
+<sec id="s0075">
+<label>3.2.2.3</label>
+<title>Bayesian Variable Selection Conditional Logistic Regression (BVS-CLR)</title>
+<p id="p0130">Compared to penalized methods on a CLR model, the Bayesian method has more advantages in feature selection, as it provides exact inference and a natural way of combining prior information with data. Penalized methods select features by determining coefficient estimates only in non-zero models, yet in Bayesian methods, more information is provided by offering coefficient estimates and giving probability estimates for each feature. Combining the key benefits of the Bayesian method and CLR for feature selection technique, Asafu-Adjei et al. proposed a new approach that formulated Bayesian variable selection (BVS) in a CLR framework, called BVS-CLR [<xref ref-type="bibr" rid="bb0325">65</xref>]. Although this method mainly focuses on 1:1 case-control matching, Asafu-Adjei claimed that it could indeed handle more general cases of 1 : <italic>m</italic> matching. The simple description of the approach is shown below.</p>
+<p id="p0135">Considering the 1:1 matched case-control setting, in the first place, the likelihood function is specified based on a CLR model. The conditional log-likelihood function is given by<disp-formula id="fo0030"><label>(6)</label><mml:math altimg="si10.gif" display="block" id="M10" overflow="scroll"><mml:msub><mml:mi>l</mml:mi><mml:mi>C</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mi>β</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mo mathvariant="italic">log</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:msubsup><mml:mo>∏</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:msubsup><mml:msubsup><mml:mi>p</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow><mml:msub><mml:mi>Z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:msubsup></mml:mrow></mml:mfenced></mml:math></disp-formula>where the coefficient vector <italic>β</italic> = (<italic>β</italic><sub>1</sub>, …, <italic>β</italic><sub><italic>K</italic></sub>) so that <italic>β</italic><sub><italic>k</italic></sub> denotes the coefficient for feature <italic>L</italic><sub><italic>k</italic></sub>. <italic>p</italic><sub><italic>i</italic>1</sub> is the probability that the first member of pair <italic>i</italic> is a case. Given (<italic>X</italic><sub><italic>i</italic>1</sub>, <italic>X</italic><sub><italic>i</italic>2</sub>) and <italic>Z</italic><sub><italic>i</italic>1</sub> + <italic>Z</italic><sub><italic>i</italic>2</sub> = 1, <italic>p</italic><sub><italic>i</italic>1</sub> is defined as<disp-formula id="fo0035"><label>(7)</label><mml:math altimg="si11.gif" display="block" id="M11" overflow="scroll"><mml:msub><mml:mi>p</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators="|,,"><mml:mrow><mml:msub><mml:mi>Z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:msub><mml:mi>Z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>Z</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub></mml:mfenced><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="}" open="{"><mml:mrow><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:mo>exp</mml:mo><mml:mfenced close="]" open="["><mml:mrow><mml:mo>−</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mn>1</mml:mn><mml:mi>K</mml:mi></mml:munderover><mml:msub><mml:mi>β</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced><mml:mrow><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></disp-formula></p>
+<p id="p0140">Next, by applying the Bayesian method, the posterior distribution of <italic>γ</italic> and <italic>β</italic> can be obtained, where <italic>γ</italic> = (<italic>γ</italic><sub>1</sub>, …, <italic>γ</italic><sub><italic>K</italic></sub>) is a binary vector to denote whether the features are retained or not. Let <italic>γ</italic><sub><italic>k</italic></sub> equals 1 for retained feature <italic>k</italic>, and 0 otherwise. Given the prior distribution of <italic>β</italic> and <italic>γ</italic> as <italic>π</italic>(<italic>β</italic>| <italic>γ</italic>)  and <italic>π</italic>(<italic>γ</italic>), respectively, the posterior distribution is given by<disp-formula id="fo0040"><label>(8)</label><mml:math altimg="si12.gif" display="block" id="M12" overflow="scroll"><mml:mi>p</mml:mi><mml:mfenced close=")" open="(" separators=",|,"><mml:mi>β</mml:mi><mml:mi>γ</mml:mi><mml:mi>X</mml:mi><mml:mi>Z</mml:mi></mml:mfenced><mml:mspace width="0.3em"></mml:mspace><mml:mo>∝</mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mi>C</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mi>β</mml:mi></mml:mfenced><mml:mo>×</mml:mo><mml:mi>π</mml:mi><mml:mfenced close=")" open="(" separators="|"><mml:mi>β</mml:mi><mml:mi>γ</mml:mi></mml:mfenced><mml:mo>×</mml:mo><mml:mi>π</mml:mi><mml:mfenced close=")" open="("><mml:mi>γ</mml:mi></mml:mfenced></mml:math></disp-formula></p>
+<p id="p0145">At last, Markov chain Monte Carlo (MCMC) [<xref ref-type="bibr" rid="bb0365">73</xref>] sampling via the Metropolis-Hastings (MH) [<xref ref-type="bibr" rid="bb0370">74</xref>] algorithm is used to estimate the posterior distribution of Eq. <xref ref-type="disp-formula" rid="fo0040">(8)</xref>. After MCMC sampling and iterations, the sequence {(<italic>β</italic><sup>[1]</sup>, <italic>γ</italic><sup>[1]</sup>), …, (<italic>β</italic><sup>[<italic>S</italic>]</sup>, <italic>γ</italic><sup>[<italic>S</italic>]</sup>)} can be obtained from each iteration. Employed with MH algorithms, they estimated the posterior inclusion probabilities <italic>p</italic>(<italic>γ</italic><sub><italic>k</italic></sub> = 1| <italic>X</italic>, <italic>Z</italic>) and the coefficients <italic>β</italic><sub><italic>k</italic></sub>, which can be used to rank features and determine the optimal models.</p>
+</sec>
+</sec>
+<sec id="s0080">
+<label>3.2.3</label>
+<title>Boosting Strategy for MPFS</title>
+<p id="p0150">Boosting is another successful strategy for high-dimensional feature selection. Adewale et al. developed two modified boosting methods for correlated binary response data [<xref ref-type="bibr" rid="bb0090">18</xref>].</p>
+<sec id="s0085">
+<label>3.2.3.1</label>
+<title>Boosting Weighted L<sub>2</sub> Loss (WL<sub>2</sub>Boost)</title>
+<p id="p0155">The first method based on the functional gradient decent boosting was dubbed “WL<sub>2</sub>Boost” [<xref ref-type="bibr" rid="bb0375">75</xref>,<xref ref-type="bibr" rid="bb0380">76</xref>]. The loss function adopts to the L<sub>2</sub> loss if the weights are taken to be an identity matrix. The weight matrix represents the unknown variance-covariance matrix of response. Compared to the standard functional gradient descent approach, the loss function is modified by updating the variance-covariance matrix as the boosting iteration progresses.</p>
+</sec>
+<sec id="s0090">
+<label>3.2.3.2</label>
+<title>1-Step Penalized Quasi-Likelihood (1-Step PQLBoost)</title>
+<p id="p0160">The second method is called 1-step PQLBoost, which modifies the likelihood optimization boosting algorithm via a generalized linear mixed modeling approach, described by Friedman et al. [<xref ref-type="bibr" rid="bb0085">17</xref>] and Tutz et al. [<xref ref-type="bibr" rid="bb0385">77</xref>]. It is similar to the penalized quasi-likelihood (PQL) approach, and its numerical approximation of integrals can be achieved via fitting linear mixed models (random intercept) to pseudo-responses. In the implementation, the authors employed a one-step fitting instead of iterative fitting of linear mixed models in PQL. Therefore, they dubbed this method as one-step penalized quasi-likelihood boosting (1-step PQLBoost). After the model classifier <inline-formula><mml:math altimg="si13.gif" id="M13" overflow="scroll"><mml:msub><mml:mover accent="true"><mml:mi>F</mml:mi><mml:mo stretchy="true">^</mml:mo></mml:mover><mml:mi>M</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mi>X</mml:mi></mml:mfenced></mml:math></inline-formula> is obtained from both methods, the relative influence of each feature in the boosting procedure can be calculated via the following influence measurement [<xref ref-type="bibr" rid="bb0375">75</xref>]:<disp-formula id="fo0045"><label>(9)</label><mml:math altimg="si14.gif" display="block" id="M14" overflow="scroll"><mml:msub><mml:mi>I</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msup><mml:mfenced close=")" open="("><mml:mrow><mml:mi>E</mml:mi><mml:mfenced close="]" open="["><mml:mrow><mml:mi>∂</mml:mi><mml:mi>F</mml:mi><mml:mfenced close=")" open="("><mml:mi>X</mml:mi></mml:mfenced><mml:mo>/</mml:mo><mml:mi>∂</mml:mi><mml:msub><mml:mi>x</mml:mi><mml:mi>l</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mspace width="0.3em"></mml:mspace><mml:mo>/</mml:mo><mml:mo>var</mml:mo><mml:mfenced close=")" open="("><mml:msub><mml:mi>x</mml:mi><mml:mi>l</mml:mi></mml:msub></mml:mfenced></mml:mrow></mml:mfenced><mml:mrow><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mn>2</mml:mn></mml:mrow></mml:msup><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>…</mml:mo><mml:mi>p</mml:mi></mml:math></disp-formula></p>
+<p id="p0165">Above all, we have described three groups MPFS methods: test statistic, conditional logistic regression, and boosting strategy. The test statistic methods use original and modified paired <italic>t</italic>-test to rank relevant features and are often followed by a classification approach to improve model predictive accuracy. The conditional logistic regression methods are widely used in MCCD studies to identify features significantly associated with case-control status and have taken the interaction between features into consideration. The boosting strategy addresses classification problems with matched case-control responses.</p>
+</sec>
+</sec>
+</sec>
+</sec>
+<sec id="s0095">
+<label>4</label>
+<title>Experimental Validation</title>
+<p id="p0170">To compare the performance of the above-mentioned eight MPFS methods and two traditional unpaired feature selection methods (mRMR and MRMD [<xref ref-type="bibr" rid="bb0060">12</xref>]), two breast cancer gene expression datasets were extracted from the TCGA [<xref ref-type="bibr" rid="bb0100">20</xref>] and GEO [<xref ref-type="bibr" rid="bb0105">21</xref>] databases and three classification methods [<xref ref-type="bibr" rid="bb0115">23</xref>] were applied for the following experiments.</p>
+<p id="p0175">Both datasets contain gene information from tumor tissue and matched-pair normal tissue. The TCGA-BRCA dataset, downloaded from TCGA, contains 113 samples of case-control patients, and the GSE70947 dataset, downloaded from GEO, contains 143 samples of case-control patients. The experiments include three main steps: (i) data pre-processing and normalization, (ii) generalization of gene significance ranking list for each method, and (iii) comparison of the performance of all ten methods by applying three classification methods based on the generated ranking lists.</p>
+<p id="p0180">The two datasets have been pre-analyzed by the following processes: (i) Merging different probes of the same gene by selecting the maximum value to present the gene expression level; (ii) Substitution of missing value is performed using the mean of the expression values, once only &lt;1% missing data exists. Otherwise, such a gene will be discarded; (iii) Normalizing the two datasets by scaling to 0–1; and (iv) Filtering genes by <italic>p</italic>-value &lt; 0.005 (<italic>t</italic>-test), variance &gt;0.1, and the absolute fold-change &gt;0.5 between case and control data.</p>
+<p id="p0185">After the above pre-processing steps for the case and control data matrix, the ten feature selection methods are implemented to both datasets to obtain gene ranking lists. The lists were then integrated into a classifier to obtain the accuracy curves by ten-fold cross-validation [<xref ref-type="bibr" rid="bb0360">72</xref>], which compares the performance of each feature selection method to assess their effectiveness and stability. Here we used three classifiers to validate the performance of ten methods: SVM, Gaussian Naive Bayesian, and Logistic Regression.</p>
+<p id="p0190">The accuracy curves of the top 1500 genes in each method are shown in <xref ref-type="fig" rid="f0010">Fig. 2</xref>. The results showed that WL2Boot method has the highest accuracy and most stable performance among all the ten methods and two gene lists; and PQLBoost was also competitive but showed less satisfied accuracy compare to WL2Boot. Meanwhile, the three types of <italic>t</italic>-test methods, pttest, mpttest and fcpttest performed less satisfied as they only identify differential genes when the case data and control data are obeying to the same distribution without additional feature information. The performances of the three conditional logistic regression methods, PCU-CLR, RP-CLU and BVS-CLR, and one classic unpaired method, MRMD, were shown moderate for both small gene counts (100) and large gene counts (1500), while mRMR was only better than the <italic>t</italic>-test methods. All the ten methods showed great accuracy higher than 0.85 with gene counts grew, except for SVM-GEO. Additionally, in both datasets, the ten methods showed unsatisfied or slow-growing accuracy for SVM classifier at the lower gene counts. As a result, under the matched-pairs data setting, most MPFS methods, except the modified <italic>t</italic>-test methods, are the better choices for feature selection tasks than traditional unpaired feature selection methods.<fig id="f0010"><label>Fig. 2</label><caption><p>Performances of the ten methods on two datasets. Fig. (A1–A3) are the classification performance of each method with top 1500 ranked gene list on TCGA dataset, and Fig. (B1–B3) are on GEO dataset. Fig. A1–B1, A2–B2, and A3–B3 are the comparison of SVM, GNB and Logistic Regression (LR) methods for both datasets, respectively. Each figure includes performance comparing the result of top 1500 ranked gene list, and a zoomed-in figure indicating the detail the of the top 100 ranked gene list. The accuracy data of PQLBoost and BVS-CLR methods are omitted after 1000 gene counts due to the need of enormous running time (exceeding 48 h).</p></caption><alt-text id="al0010">Fig. 2</alt-text><graphic xlink:href="gr2"></graphic></fig></p>
+<p id="p0195">On the other hand, running time is also a crucial indicator to evaluate the performance of methods. Here, we only record the running times of generation of gene list with specific gene counts, 10, 50, 100, 1000 and 1500 (<xref ref-type="fig" rid="f0015">Fig. 3</xref>), as the executing time for accuracy validation is almost the same among three classification methods. In both datasets, more time was required for 1-Step PQLBoost, BVS-CLR, and WL2Boost methods compared with the other seven. Moreover, more running time was needed for higher gene counts for all ten methods. Combining with the accuracy results, we concluded that (i) WL2Boost method is the optimized method with high accuracy and low running time when the gene count is low; (ii) PCU-CLR and RP-CLR show higher tradeoff for higher gene counts, with acceptable running time and high accuracy compared to the other methods; (iii) Though BVS-CLR and PQLBoost also show satisfied accuracy performances, their running times are unacceptable, and are not recommended for normal feature selection; and (iv) the three modified <italic>t</italic>-test methods are suitable for high gene counts analysis, since their accuracy have no significant difference and required the least running time compared to other methods.<fig id="f0015"><label>Fig. 3</label><caption><p>Comparison of running time. It should be noted that the running time is the time for producing the gene lists for each method. Left figure is the comparison of ten methods on TCGA dataset, and right figure is on GEO dataset.</p></caption><alt-text id="al0015">Fig. 3</alt-text><graphic xlink:href="gr3"></graphic></fig></p>
+</sec>
+<sec id="s0100">
+<label>5</label>
+<title>Discussion</title>
+<p id="p0200">This paper presented a review of current matched-pairs feature selection (MPFS) methods for paired gene expression data. With a description of feature selection application and MPFS problem, we reviewed the current approaches of MPFS through three categories, i.e., test statistic, CLR, and boosting strategy. Differ from the commonly categorized feature selection approaches (filter, wrapper, and embedded), we dealt feature selection with gene expression data as unpaired and MPFS methods by considering MCCD or not.</p>
+<p id="p0205">The paired data can be divided into pure-paired data and mixed-paired data under MCCD, and the mixed-paired data is regarded as pure-paired to reduce the model complexity and minimize the mixing effect. However, the unpaired data, which contains mixture case data without matched data, is usually obtained when matched data is missing or MCCD experiment is not performed. In <xref ref-type="fig" rid="f0020">Fig. 4</xref>, we illustrate the differences among the three pair types. In the sequencing transcriptomic data, such as microarray and RNA-seq, the formation of tumor tissue is a mixture of more tumor cells (cases) and few non-tumor cells (controls), while the adjacent non-tumor tissue contains more non-tumor cells (controls) and few tumor cells (cases). In this case, we denote the paired data as mixed-paired data. To address the mixing degree, TCGA project [<xref ref-type="bibr" rid="bb0390">78</xref>] uses the property of normal cells percentage based on the tumor tissue image. However, with the up-to-date RNA-seq technique, we can get gene expression profile for every single tumor or normal cell on cell resolution level, described as pure-paired data whose case and control data are not mixed at all.<fig id="f0020"><label>Fig. 4</label><caption><p>Paired and unpaired data diagram. Three data types for feature selection: (a) pure-paired data type, which has pure case and control data; (b) mixed-paired data type, which has different mixing degree of mixture case and control data, (c) unpaired data type, which contains mixture case data without matched control data. It is noteworthy that the mixing degree is referred to the ratio between control part (blue) and case part (red) on one case sample, and vice versa on a control sample.</p></caption><alt-text id="al0020">Fig. 4</alt-text><graphic xlink:href="gr4"></graphic></fig></p>
+<p id="p0210">The originally paired <italic>t</italic>-test is most commonly used in practical paired gene expression data analysis, as it is easy to implement and very efficient. The modifications of paired <italic>t</italic>-test methods have higher sensitivity and specificity than the original. However, they only involve univariate tests, which do not control the effects of other features and can lead to the fallacious identification of relevant features. The CLR model is a standard and effective analytical approach to significantly identify features associated with case-control status yet with higher computational intensity and convergence problems. To solve the issue, Balasubramanian et al. designed the RPCLR algorithm [<xref ref-type="bibr" rid="bb0320">64</xref>], and Qian et al. designed a two-stage procedure based on penalized conditional and unconditional logistic regression approaches [<xref ref-type="bibr" rid="bb0075">15</xref>]. Moreover, Asafu-Adjei et al. proposed the BVS-CLR method [<xref ref-type="bibr" rid="bb0325">65</xref>] to provide more information by offering coefficient estimates and giving probability estimates for each feature, while it may remain problems with selection accuracy when the correlation between features increases. Boosting strategy feature selection approaches successfully dealt high-dimensional data, as it can combine with many weak classifiers to build a powerful committee. Adewale et al.'s two variant versions of boosting algorithm [<xref ref-type="bibr" rid="bb0090">18</xref>] focused on high-dimensional data with correlated binary outcomes, but may also have troubles in identifying interactions when dealing with different features or small sample sizes data.</p>
+<p id="p0215">MPFS can be widely applied in bioinformatics, e.g., gene function enrichment analyses, cancer biomarker detection, drug targeting identification, etc. To be specific, here are several examples: (i) Identifying important CpG sites. CpG site refers to a double-stranded sequence where cytosine and guanine are separated by only one phosphate, and gene expression can be altered by cytosine methylation on that site. Sun et al. [<xref ref-type="bibr" rid="bb0300">60</xref>] selected important methylated CpG sites between ovarian cancer cases and healthy controls using DNA methylation data. (ii) Identifying clinical risk features for diseases. Scott et al. [<xref ref-type="bibr" rid="bb0395">79</xref>] used matched case-control study to clinical exam features for utility optimization to identify the risks of early transition from depression to bipolar disorders in youth; and Giuliano et al. [<xref ref-type="bibr" rid="bb0400">80</xref>] studied the effect of age, sex and clinical features on the volume of Corpus Callosum in preschoolers with Autism Spectrum Disorder using case-control study. (iii) Biomarker discovery. Xu et al. [<xref ref-type="bibr" rid="bb0405">81</xref>], Anglim et al. [<xref ref-type="bibr" rid="bb0410">82</xref>] and Tsou et al. [<xref ref-type="bibr" rid="bb0415">83</xref>] have reported the results of cancer biomarker discovery using MCCS; and Zak et al. [<xref ref-type="bibr" rid="bb0420">84</xref>] discovered a blood RNA signature related to tuberculosis disease by comparing data from participants who developed active tuberculosis disease (progresses) and those who remained healthy (matched controls). (iv) Image biomarkers discovery. Kloppel et al. [<xref ref-type="bibr" rid="bb0425">85</xref>] described an investigation involving a matched design to discover imaging biomarkers for Alzheimer's disease. (v) Identifying drug targets. Gronich et al. [<xref ref-type="bibr" rid="bb0430">86</xref>] evaluated the association between tyrosine kinase-targeting drugs and the risk of new-onset heart failure, using nested case-control analysis. (vi) Clinical supplementary diagnosis. By comparing several predicted models, Holsbø et al. [<xref ref-type="bibr" rid="bb0435">87</xref>] proposed a biologically motivated variable selection scheme for predicting breast cancer metastasis based on the assumption that gene expression intensity, as a function of time, should be diverged between cases and controls.</p>
+<p id="p0220">Although numbers of researchers have explored MPFS with numerous methods, challenges are still ahead of us. First of all, as discussed in <xref ref-type="sec" rid="s0010">Section 2</xref>, the paired data can be divided into either mixed-paired data or pure-paired data. To our best knowledge, insufficient studies have been developed for such differentiation in gene expression data analysis. Meanwhile, the mix-paired data from RNA-seq and microarray is always regarded as pure-paired data. Considering the involvement of mixing the degree of paired data in MPFS, it may be a direction with quite a developmental potentiality in the future. Furthermore, no study has been carried out to purpose feature selection methods for pure Single-Cell paired data. Another promising direction for MPFS is to develop hybrid and ensemble frameworks to enhance the robustness of selected feature subsets. Beatriz et al. reviewed [<xref ref-type="bibr" rid="bb0440">88</xref>] the evolutional computation on feature selection and suggested that more attentions should be given to the issue of robustness of the feature selection methods.</p>
+<p id="p0225">Besides that, the stability of gene selection is also extremely important in bioinformatics [<xref ref-type="bibr" rid="bb0445">[89]</xref>, <xref ref-type="bibr" rid="bb0450">[90]</xref>, <xref ref-type="bibr" rid="bb0455">[91]</xref>]. To this end, the research of stability of feature selection can be split into two categories: stability testing &amp; measurement and method devisal for stability improvement. For testing and measurement, a lot of merits have already been developed, such as cross-validation [<xref ref-type="bibr" rid="bb0460">92</xref>], bootstrapping [<xref ref-type="bibr" rid="bb0465">93</xref>], and fixed overlap partitioning. To improve the stability, the most popular idea is using the ensemble method. However, the method for stability improvement of MPFS under MCCD is still needed.</p>
+<p id="p0230">The last challenge, as another interesting future direction, is to integrate two or more omics data using MPFS in cancer research. Chen et al. reviewed multivariate dimensional reduction approaches that can be applied to the integrative exploratory analysis of multi-omics data [<xref ref-type="bibr" rid="bb0215">43</xref>]. Mallik et al. developed a new framework for identifying statistically significant epigenetic biomarkers using the maximal-relevance and minimal-redundancy criterion based feature selection for multi-omics dataset [<xref ref-type="bibr" rid="bb0220">44</xref>]. Liu et al. developed two methods based on the proportional hazards regression, named SKI-Cox and wLASSO-Cox, to perform feature selection on different omics datasets [<xref ref-type="bibr" rid="bb0225">45</xref>].</p>
+<p id="p0235">Besides the challenges discussed above, other issues on feature selection methods still exist, as the same as MPFS approaches, such as the problem of small sample size in big dimensional data sets, data class imbalance, computational complexity, especially for the conditional logistical regression model, and the assessment of MPFS.</p>
+</sec>
+<sec id="s0105">
+<label>6</label>
+<title>Conclusion</title>
+<p id="p0240">In this review, we recalled the concepts of feature selection techniques and focused on MPFS methods for gene expression data analysis. We classified the existing algorithms into three groups: test statistic, CLR, and boosting strategy, and evaluated the performance using two breast cancer datasets. From the experimental results of 10 methods on two datasets with three classifiers, we concluded that (1) WL2Boost method may get the best performance when the feature list is not too big, and the users do not care about the running time; and (2) RP-CLR and PCU-CLR methods may get a better tradeoff between high dimensional features and time consuming. At last, we discussed some challenges and exciting directions for the development of MPFS. It is worth noting that, most of algorithms have been proposed in recent years were dedicating to address the feature selection problem associated with the paired data. Based on the development of gene expression profiling technique and the extensive use of MCCD, MPFS approach is a promising technique in the bioinformatics and machine learning cross-field in future.</p>
+</sec>
+<sec id="s0110">
+<title>Conflict of Interest</title>
+<p id="p0245">The authors claim no conflict of interest.</p>
+</sec>
+</body>
+<back>
+<ref-list id="bi0005">
+<title>References</title>
+<ref id="bb0005">
+<label>1</label>
+<element-citation id="rf0005" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kourou</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Exarchos</surname>
+<given-names>T.P.</given-names>
+</name>
+<name>
+<surname>Exarchos</surname>
+<given-names>K.P.</given-names>
+</name>
+<name>
+<surname>Karamouzis</surname>
+<given-names>M.V.</given-names>
+</name>
+<name>
+<surname>Fotiadis</surname>
+<given-names>D.I.</given-names>
+</name>
+</person-group>
+<article-title>Machine learning applications in cancer prognosis and prediction</article-title>
+<source/>Comput Struct Biotechnol J
+          <volume>13</volume>
+<year>2015</year>
+<fpage>8</fpage>
+<lpage>17</lpage>
+<pub-id pub-id-type="pmid">25750696</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0010">
+<label>2</label>
+<element-citation id="rf0010" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Challita</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Khalil</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Beauseroy</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<chapter-title>New feature selection method based on neural network and machine learning</chapter-title>
+<source/>2016 IEEE Int Multidiscip Conf Eng Technol
+          <year>2016</year>
+<fpage>81</fpage>
+<lpage>84</lpage>
+</element-citation>
+</ref>
+<ref id="bb0015">
+<label>3</label>
+<element-citation id="rf0015" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sheikhpour</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Sarram</surname>
+<given-names>M.A.</given-names>
+</name>
+<name>
+<surname>Gharaghani</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Chahooki</surname>
+<given-names>M.A.Z.</given-names>
+</name>
+</person-group>
+<article-title>A survey on semi-supervised feature selection methods</article-title>
+<source/>Pattern Recog
+          <volume>64</volume>
+<year>2017</year>
+<fpage>141</fpage>
+<lpage>158</lpage>
+</element-citation>
+</ref>
+<ref id="bb0020">
+<label>4</label>
+<element-citation id="rf0020" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chandrashekar</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Sahin</surname>
+<given-names>F.</given-names>
+</name>
+</person-group>
+<article-title>A survey on feature selection methods</article-title>
+<source/>Comput Electr Eng
+          <volume>40</volume>
+<year>2014</year>
+<fpage>16</fpage>
+<lpage>28</lpage>
+</element-citation>
+</ref>
+<ref id="bb0025">
+<label>5</label>
+<element-citation id="rf0025" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cheng</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>X.</given-names>
+</name>
+</person-group>
+<article-title>Sparse representation and learning in visual recognition: theory and applications</article-title>
+<source/>Signal Process
+          <volume>93</volume>
+<year>2013</year>
+<fpage>1408</fpage>
+<lpage>1425</lpage>
+</element-citation>
+</ref>
+<ref id="bb0030">
+<label>6</label>
+<element-citation id="rf0030" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Song</surname>
+<given-names>Q.J.</given-names>
+</name>
+<name>
+<surname>Jiang</surname>
+<given-names>H.Y.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Feature selection based on FDA and F-score for multi-class classification</article-title>
+<source/>Expert Syst Appl
+          <volume>81</volume>
+<year>2017</year>
+<fpage>22</fpage>
+<lpage>27</lpage>
+</element-citation>
+</ref>
+<ref id="bb0035">
+<label>7</label>
+<element-citation id="rf0035" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Saeys</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Inza</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Larrañaga</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>A review of feature selection techniques in bioinformatics</article-title>
+<source/>Bioinformatics
+          <volume>23</volume>
+<year>2007</year>
+<fpage>2507</fpage>
+<lpage>2517</lpage>
+<pub-id pub-id-type="pmid">17720704</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0040">
+<label>8</label>
+<element-citation id="rf0040" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bolón-Canedo</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Sánchez-Maroño</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Alonso-Betanzos</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>A review of feature selection methods on synthetic data</article-title>
+<source/>Knowl Inf Syst
+          <volume>34</volume>
+<year>2013</year>
+<fpage>483</fpage>
+<lpage>519</lpage>
+</element-citation>
+</ref>
+<ref id="bb0045">
+<label>9</label>
+<element-citation id="rf0045" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bolón-Canedo</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Sánchez-Maroño</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Alonso-Betanzos</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Benítez</surname>
+<given-names>J.M.</given-names>
+</name>
+<name>
+<surname>Herrera</surname>
+<given-names>F.</given-names>
+</name>
+</person-group>
+<article-title>A review of microarray datasets and applied feature selection methods</article-title>
+<source/>Inf Sci (Ny)
+          <volume>282</volume>
+<year>2014</year>
+<fpage>111</fpage>
+<lpage>135</lpage>
+</element-citation>
+</ref>
+<ref id="bb0050">
+<label>10</label>
+<element-citation id="rf0050" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Singh</surname>
+<given-names>K.P.</given-names>
+</name>
+<name>
+<surname>Basant</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Gupta</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Support vector machines in water quality management</article-title>
+<source/>Anal Chim Acta
+          <volume>703</volume>
+<year>2011</year>
+<fpage>152</fpage>
+<lpage>162</lpage>
+<pub-id pub-id-type="pmid">21889629</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0055">
+<label>11</label>
+<element-citation id="rf0055" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ding</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Peng</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Minimum redundancy feature selection from microarray gene expression data</article-title>
+<source/>J Bioinform Comput Biol
+          <volume>3</volume>
+<year>2005</year>
+<fpage>185</fpage>
+<lpage>205</lpage>
+<pub-id pub-id-type="pmid">15852500</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0060">
+<label>12</label>
+<element-citation id="rf0060" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zou</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Zeng</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cao</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Ji</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>A novel features ranking metric with application to scalable visual and bioinformatics data classification</article-title>
+<source/>Neurocomputing
+          <volume>173</volume>
+<year>2016</year>
+<fpage>346</fpage>
+<lpage>354</lpage>
+</element-citation>
+</ref>
+<ref id="bb0065">
+<label>13</label>
+<element-citation id="rf0065" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zou</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Wan</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Ju</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Zeng</surname>
+<given-names>X.</given-names>
+</name>
+</person-group>
+<article-title>Pretata: predicting TATA binding proteins with novel features and dimensionality reduction strategy</article-title>
+<source/>BMC Syst Biol
+          <volume>10</volume>
+<year>2016</year>
+</element-citation>
+</ref>
+<ref id="bb0070">
+<label>14</label>
+<element-citation id="rf0070" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tang</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Wan</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Teschendorff</surname>
+<given-names>A.E.</given-names>
+</name>
+<name>
+<surname>Zou</surname>
+<given-names>Q.</given-names>
+</name>
+</person-group>
+<article-title>Tumor origin detection with tissue-specific miRNA and DNA methylation markers</article-title>
+<source/>Bioinformatics
+          <year>2017</year>
+</element-citation>
+</ref>
+<ref id="bb0075">
+<label>15</label>
+<element-citation id="rf0075" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Qian</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Payabvash</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Kemmling</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Lev</surname>
+<given-names>M.H.</given-names>
+</name>
+<name>
+<surname>Schwamm</surname>
+<given-names>L.H.</given-names>
+</name>
+<name>
+<surname>Betensky</surname>
+<given-names>R.A.</given-names>
+</name>
+</person-group>
+<article-title>Variable selection and prediction using a nested, matched case-control study: application to hospital acquired pneumonia in stroke patients</article-title>
+<source/>Biometrics
+          <volume>70</volume>
+<year>2014</year>
+<fpage>153</fpage>
+<lpage>163</lpage>
+<pub-id pub-id-type="pmid">24320930</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0080">
+<label>16</label>
+<element-citation id="rf0080" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Breslow</surname>
+<given-names>N.E.</given-names>
+</name>
+<name>
+<surname>Day</surname>
+<given-names>N.E.</given-names>
+</name>
+<name>
+<surname>Halvorsen</surname>
+<given-names>K.T.</given-names>
+</name>
+<name>
+<surname>Prentice</surname>
+<given-names>R.L.</given-names>
+</name>
+<name>
+<surname>Sabai</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Estimation of multiple relative risk functions in matched case-control studies</article-title>
+<source/>Am J Epidemiol
+          <volume>108</volume>
+<year>1978</year>
+<fpage>299</fpage>
+<lpage>307</lpage>
+<pub-id pub-id-type="pmid">727199</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0085">
+<label>17</label>
+<element-citation id="rf0085" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Friedman</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Tibshirani</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Hastie</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>Additive logistic regression: a statistical view of boosting (with discussion and a rejoinder by the authors)</article-title>
+<source/>Ann Stat
+          <volume>28</volume>
+<year>2000</year>
+<fpage>337</fpage>
+<lpage>407</lpage>
+</element-citation>
+</ref>
+<ref id="bb0090">
+<label>18</label>
+<element-citation id="rf0090" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Adewale</surname>
+<given-names>A.J.</given-names>
+</name>
+<name>
+<surname>Dinu</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Yasui</surname>
+<given-names>Y.</given-names>
+</name>
+</person-group>
+<article-title>Boosting for correlated binary classification</article-title>
+<source/>J Comput Graph Stat
+          <volume>19</volume>
+<year>2010</year>
+<fpage>140</fpage>
+<lpage>153</lpage>
+</element-citation>
+</ref>
+<ref id="bb0095">
+<label>19</label>
+<element-citation id="rf0095" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bennett</surname>
+<given-names>K.P.</given-names>
+</name>
+<name>
+<surname>Campbell</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Support vector machines</article-title>
+<source/>ACM SIGKDD Explor Newsl
+          <volume>2</volume>
+<year>2000</year>
+<fpage>1</fpage>
+<lpage>13</lpage>
+</element-citation>
+</ref>
+<ref id="bb0100">
+<label>20</label>
+<element-citation id="rf0100" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tomczak</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Czerwińska</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Wiznerowicz</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>The Cancer Genome Atlas (TCGA): an immeasurable source of knowledge</article-title>
+<source/>Wspolczesna Onkol
+          <volume>1A</volume>
+<year>2015</year>
+<fpage>A68</fpage>
+<lpage>77</lpage>
+</element-citation>
+</ref>
+<ref id="bb0105">
+<label>21</label>
+<element-citation id="rf0105" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Clough</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Barrett</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>The gene expression omnibus database</article-title>
+<source/>Methods Mol Biol
+          <volume>1418</volume>
+<year>2016</year>
+<fpage>93</fpage>
+<lpage>110</lpage>
+<pub-id pub-id-type="pmid">27008011</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0110">
+<label>22</label>
+<element-citation id="rf0110" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>John</surname>
+<given-names>G.H.</given-names>
+</name>
+<name>
+<surname>Langley</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<chapter-title>Estimating continuous distribution in Bayesian classifiers</chapter-title>
+<source/>UAI'95 Proc. Elev. Conf. Uncertain. Artif. Intell.
+          <year>1995</year>
+<fpage>338</fpage>
+<lpage>345</lpage>
+</element-citation>
+</ref>
+<ref id="bb0115">
+<label>23</label>
+<element-citation id="rf0115" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gortmaker</surname>
+<given-names>S.L.</given-names>
+</name>
+<name>
+<surname>Hosmer</surname>
+<given-names>D.W.</given-names>
+</name>
+<name>
+<surname>Lemeshow</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Applied logistic regression</article-title>
+<source/>Contemp Sociol
+          <volume>23</volume>
+<year>1994</year>
+<fpage>159</fpage>
+</element-citation>
+</ref>
+<ref id="bb0120">
+<label>24</label>
+<element-citation id="rf0120" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bermingham</surname>
+<given-names>M.L.</given-names>
+</name>
+<name>
+<surname>Pong-Wong</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Spiliopoulou</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Hayward</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Rudan</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Campbell</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Application of high-dimensional feature selection: evaluation for genomic prediction in man</article-title>
+<source/>Sci Rep
+          <volume>5</volume>
+<year>2015</year>
+<fpage>10312</fpage>
+<pub-id pub-id-type="pmid">25988841</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0125">
+<label>25</label>
+<element-citation id="rf0125" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>H.J.</given-names>
+</name>
+<name>
+<surname>Guo</surname>
+<given-names>Y.Y.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>D.J.</given-names>
+</name>
+</person-group>
+<article-title>Predicting novel salivary biomarkers for the detection of pancreatic cancer using biological feature-based classification</article-title>
+<source/>Pathol Res Pract
+          <volume>213</volume>
+<year>2017</year>
+<fpage>394</fpage>
+<lpage>399</lpage>
+<pub-id pub-id-type="pmid">28283209</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0130">
+<label>26</label>
+<element-citation id="rf0130" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Ouyang</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Gu</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Radiomic machine-learning classifiers for prognostic biomarkers of advanced nasopharyngeal carcinoma</article-title>
+<source/>Cancer Lett
+          <volume>403</volume>
+<year>2017</year>
+<fpage>21</fpage>
+<lpage>27</lpage>
+<pub-id pub-id-type="pmid">28610955</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0135">
+<label>27</label>
+<element-citation id="rf0135" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Shah</surname>
+<given-names>F.P.</given-names>
+</name>
+<name>
+<surname>Patel</surname>
+<given-names>V.</given-names>
+</name>
+</person-group>
+<chapter-title>A review on feature selection and feature extraction for text classification</chapter-title>
+<source/>Proc 2016 IEEE Int Conf Wirel Commun Signal Process Networking, WiSPNET 2016
+          <year>2016</year>
+<fpage>2264</fpage>
+<lpage>2268</lpage>
+</element-citation>
+</ref>
+<ref id="bb0140">
+<label>28</label>
+<element-citation id="rf0140" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Elalami</surname>
+<given-names>M.E.</given-names>
+</name>
+</person-group>
+<article-title>A new matching strategy for content based image retrieval system</article-title>
+<source/>Appl Soft Comput J
+          <volume>14</volume>
+<year>2014</year>
+<fpage>407</fpage>
+<lpage>418</lpage>
+</element-citation>
+</ref>
+<ref id="bb0145">
+<label>29</label>
+<element-citation id="rf0145" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xiaobo</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Jiewen</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Povey</surname>
+<given-names>M.J.W.</given-names>
+</name>
+<name>
+<surname>Holmes</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Hanpin</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Variables selection methods in near-infrared spectroscopy</article-title>
+<source/>Anal Chim Acta
+          <volume>667</volume>
+<year>2010</year>
+<fpage>14</fpage>
+<lpage>32</lpage>
+<pub-id pub-id-type="pmid">20441862</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0150">
+<label>30</label>
+<element-citation id="rf0150" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Datta</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Pihur</surname>
+<given-names>V.</given-names>
+</name>
+</person-group>
+<article-title>Feature selection and machine learning with mass spectrometry data</article-title>
+<source/>Methods Mol Biol
+          <volume>593</volume>
+<year>2010</year>
+<fpage>205</fpage>
+<lpage>229</lpage>
+<pub-id pub-id-type="pmid">19957152</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0155">
+<label>31</label>
+<element-citation id="rf0155" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Demel</surname>
+<given-names>M. a</given-names>
+</name>
+<name>
+<surname>AGK</surname>
+<given-names>Janecek</given-names>
+</name>
+<name>
+<surname>Thai</surname>
+<given-names>K.-M.</given-names>
+</name>
+<name>
+<surname>Ecker</surname>
+<given-names>G.F.</given-names>
+</name>
+<name>
+<surname>Gansterer</surname>
+<given-names>W.N.</given-names>
+</name>
+</person-group>
+<article-title>Predictive QSAR models for polyspecific drug targets: the importance of feature selection</article-title>
+<source/>Curr Comput Aided Drug Des
+          <volume>4</volume>
+<year>2008</year>
+<fpage>91</fpage>
+<lpage>110</lpage>
+</element-citation>
+</ref>
+<ref id="bb0160">
+<label>32</label>
+<element-citation id="rf0160" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>González</surname>
+<given-names>M.P.</given-names>
+</name>
+<name>
+<surname>Terán</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Saíz-Urra</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Teijeira</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Variable selection methods in QSAR: an overview</article-title>
+<source/>Curr Top Med Chem
+          <volume>8</volume>
+<year>2008</year>
+<fpage>1606</fpage>
+<lpage>1627</lpage>
+<pub-id pub-id-type="pmid">19075770</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0165">
+<label>33</label>
+<element-citation id="rf0165" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tsygankova</surname>
+<given-names>I.</given-names>
+</name>
+</person-group>
+<article-title>Variable selection in QSAR models for drug design</article-title>
+<source/>Curr Comput Aided Drug Des
+          <volume>4</volume>
+<year>2008</year>
+<fpage>132</fpage>
+<lpage>142</lpage>
+</element-citation>
+</ref>
+<ref id="bb0170">
+<label>34</label>
+<element-citation id="rf0170" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Inglis</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Kalmokoff</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Brooks</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Selinger</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Molecular methods to measure intestinal bacteria: a review</article-title>
+<source/>J AOAC Int
+          <volume>95</volume>
+<year>2012</year>
+<fpage>5</fpage>
+<lpage>24</lpage>
+<pub-id pub-id-type="pmid">22468337</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0175">
+<label>35</label>
+<element-citation id="rf0175" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>L.-T.</given-names>
+</name>
+<name>
+<surname>Cao</surname>
+<given-names>Y.-H.</given-names>
+</name>
+<name>
+<surname>Lv</surname>
+<given-names>L.-L.</given-names>
+</name>
+<name>
+<surname>Ma</surname>
+<given-names>K.-L.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>P.-S.</given-names>
+</name>
+<name>
+<surname>Ni</surname>
+<given-names>H.-F.</given-names>
+</name>
+</person-group>
+<article-title>Feature selection and classification of urinary mRNA microarray data by iterative random forest to diagnose renal fibrosis: a two-stage study</article-title>
+<source/>Sci Rep
+          <volume>7</volume>
+<year>2017</year>
+<fpage>39832</fpage>
+<pub-id pub-id-type="pmid">28045061</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0180">
+<label>36</label>
+<element-citation id="rf0180" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Yousef</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Allmer</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Khalifa</surname>
+<given-names>W.</given-names>
+</name>
+</person-group>
+<chapter-title>Feature selection for MicroRNA target prediction - comparison of one-class feature selection methodologies</chapter-title>
+<source/>Proc 9th Int Jt Conf Biomed Eng Syst Technol
+          <year>2016</year>
+<fpage>216</fpage>
+<lpage>225</lpage>
+</element-citation>
+</ref>
+<ref id="bb0185">
+<label>37</label>
+<element-citation id="rf0185" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khalifa</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Yousef</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Saçar Demirci</surname>
+<given-names>M.D.</given-names>
+</name>
+<name>
+<surname>Allmer</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>The impact of feature selection on one and two-class classification performance for plant microRNAs</article-title>
+<source/>Peer J
+          <volume>4</volume>
+<year>2016</year>
+<object-id pub-id-type="publisher-id">e2135</object-id>
+</element-citation>
+</ref>
+<ref id="bb0190">
+<label>38</label>
+<element-citation id="rf0190" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dong</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Jian</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Gibbs</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Boerwinkle</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Comparison and integration of deleteriousness prediction methods for nonsynonymous SNVs in whole exome sequencing studies</article-title>
+<source/>Hum Mol Genet
+          <volume>24</volume>
+<year>2015</year>
+<fpage>2125</fpage>
+<lpage>2137</lpage>
+<pub-id pub-id-type="pmid">25552646</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0195">
+<label>39</label>
+<element-citation id="rf0195" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pavlovic</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Ray</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Pavlovic</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Kotamarti</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>M.Q.</given-names>
+</name>
+</person-group>
+<article-title>DIRECTION: a machine learning framework for predicting and characterizing DNA methylation and hydroxymethylation in mammalian genomes</article-title>
+<source/>Bioinformatics
+          <year>2017</year>
+<object-id pub-id-type="publisher-id">btx316</object-id>
+</element-citation>
+</ref>
+<ref id="bb0200">
+<label>40</label>
+<element-citation id="rf0200" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xu</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Le</surname>
+<given-names>T.D.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Su</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>CancerSubtypes: an R/Bioconductor package for molecular cancer subtype identification, validation and visualization</article-title>
+<source/>Bioinformatics
+          <year>2017</year>
+<object-id pub-id-type="publisher-id">btx378</object-id>
+</element-citation>
+</ref>
+<ref id="bb0205">
+<label>41</label>
+<element-citation id="rf0205" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goh</surname>
+<given-names>W.W. Bin</given-names>
+</name>
+<name>
+<surname>Wong</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>NetProt: complex-based feature selection</article-title>
+<source/>J Proteome Res
+          <volume>16</volume>
+<year>2017</year>
+<fpage>3102</fpage>
+<lpage>3112</lpage>
+<pub-id pub-id-type="pmid">28664733</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0210">
+<label>42</label>
+<element-citation id="rf0210" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Sue</surname>
+<given-names>A.C.H.</given-names>
+</name>
+<name>
+<surname>Goh</surname>
+<given-names>W.W.B.</given-names>
+</name>
+</person-group>
+<article-title>Feature selection in clinical proteomics: with great power comes great reproducibility</article-title>
+<source/>Drug Discov Today
+          <volume>22</volume>
+<year>2017</year>
+<fpage>912</fpage>
+<lpage>918</lpage>
+<pub-id pub-id-type="pmid">27988358</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0215">
+<label>43</label>
+<element-citation id="rf0215" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Meng</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Zeleznik</surname>
+<given-names>O.A.</given-names>
+</name>
+<name>
+<surname>Thallinger</surname>
+<given-names>G.G.</given-names>
+</name>
+<name>
+<surname>Kuster</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Gholami</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Culhane</surname>
+<given-names>A.C.</given-names>
+</name>
+</person-group>
+<article-title>Dimension reduction techniques for the integrative analysis of multi-omics data</article-title>
+<source/>Brief Bioinform
+          <volume>17</volume>
+<year>2016</year>
+<fpage>628</fpage>
+<lpage>641</lpage>
+<pub-id pub-id-type="pmid">26969681</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0220">
+<label>44</label>
+<element-citation id="rf0220" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mallik</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Bhadra</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Maulik</surname>
+<given-names>U.</given-names>
+</name>
+</person-group>
+<article-title>Identifying epigenetic biomarkers using maximal relevance and minimal redundancy based feature selection for multi-omics data</article-title>
+<source/>IEEE Trans Nanobioscience
+          <volume>16</volume>
+<year>2017</year>
+<fpage>3</fpage>
+<lpage>10</lpage>
+<pub-id pub-id-type="pmid">28092570</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0225">
+<label>45</label>
+<element-citation id="rf0225" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Genchev</surname>
+<given-names>G.Z.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Multi-omics facilitated variable selection in Cox-regression model for cancer prognosis prediction</article-title>
+<source/>Methods
+          <volume>124</volume>
+<year>2017</year>
+<fpage>100</fpage>
+<lpage>107</lpage>
+<pub-id pub-id-type="pmid">28627406</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0230">
+<label>46</label>
+<element-citation id="rf0230" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cox</surname>
+<given-names>D.R.</given-names>
+</name>
+</person-group>
+<article-title>Regression models and life tables</article-title>
+<source/>J R Stat Soc Ser B
+          <volume>34</volume>
+<year>1972</year>
+<fpage>187</fpage>
+<lpage>220</lpage>
+</element-citation>
+</ref>
+<ref id="bb0235">
+<label>47</label>
+<element-citation id="rf0235" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Penalized feature selection and classification in bioinformatics</article-title>
+<source/>Brief Bioinform
+          <volume>9</volume>
+<year>2008</year>
+<fpage>392</fpage>
+<lpage>403</lpage>
+<pub-id pub-id-type="pmid">18562478</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0240">
+<label>48</label>
+<element-citation id="rf0240" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lorena</surname>
+<given-names>L.H.N.</given-names>
+</name>
+<name>
+<surname>Carvalho</surname>
+<given-names>A.C.P.L.F.</given-names>
+</name>
+<name>
+<surname>Lorena</surname>
+<given-names>A.C.</given-names>
+</name>
+</person-group>
+<article-title>Filter feature selection for one-class classification</article-title>
+<source/>J Intell Robot Syst Theory Appl
+          <volume>80</volume>
+<year>2015</year>
+<fpage>227</fpage>
+<lpage>243</lpage>
+</element-citation>
+</ref>
+<ref id="bb0245">
+<label>49</label>
+<element-citation id="rf0245" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Hall</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>L. a</given-names>
+</name>
+</person-group>
+<chapter-title>Feature selection for machine learning: comparing a correlation-based filter approach to the wrapper</chapter-title>
+<series>Int FLAIRS Conf</series>
+<volume>vol. 1999</volume>
+<year>1999</year>
+<fpage>235</fpage>
+<lpage>239</lpage>
+</element-citation>
+</ref>
+<ref id="bb0250">
+<label>50</label>
+<element-citation id="rf0250" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kohavi</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>John</surname>
+<given-names>G.H.</given-names>
+</name>
+</person-group>
+<article-title>Wrappers for feature subset selection</article-title>
+<source/>Artif Intell
+          <volume>97</volume>
+<year>1997</year>
+<fpage>273</fpage>
+<lpage>324</lpage>
+</element-citation>
+</ref>
+<ref id="bb0255">
+<label>51</label>
+<element-citation id="rf0255" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Inza</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Larrañaga</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Blanco</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Cerrolaza</surname>
+<given-names>A.J.</given-names>
+</name>
+</person-group>
+<article-title>Filter versus wrapper gene selection approaches in DNA microarray domains</article-title>
+<source/>Artif Intell Med
+          <volume>31</volume>
+<year>2004</year>
+<fpage>91</fpage>
+<lpage>103</lpage>
+<pub-id pub-id-type="pmid">15219288</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0260">
+<label>52</label>
+<element-citation id="rf0260" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Sheng</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Pique-Regi</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Asgharzadeh</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Ortega</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<chapter-title>Microarray classification by block diagonal linear discriminant analysis with embedded feature selection</chapter-title>
+<source/>IEEE Int. Conf. Acoust. Speech Signal Process.
+          <year>2009</year>
+<publisher-name>IEEE</publisher-name>
+<fpage>1757</fpage>
+<lpage>1760</lpage>
+</element-citation>
+</ref>
+<ref id="bb0265">
+<label>53</label>
+<element-citation id="rf0265" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Peikert</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>Feature extraction stud fuzziness</article-title>
+<source/>Soft Comput
+          <volume>207</volume>
+<year>2009</year>
+<fpage>1</fpage>
+<lpage>5</lpage>
+</element-citation>
+</ref>
+<ref id="bb0270">
+<label>54</label>
+<element-citation id="rf0270" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guan</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>Y.-K.</given-names>
+</name>
+<name>
+<surname>Najeebullah</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Rasel</surname>
+<given-names>M.K.</given-names>
+</name>
+</person-group>
+<article-title>A review of ensemble learning based feature selection</article-title>
+<source/>IETE Tech Rev
+          <volume>31</volume>
+<year>2014</year>
+<fpage>190</fpage>
+<lpage>198</lpage>
+</element-citation>
+</ref>
+<ref id="bb0275">
+<label>55</label>
+<element-citation id="rf0275" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hira</surname>
+<given-names>Z.M.</given-names>
+</name>
+<name>
+<surname>Gillies</surname>
+<given-names>D.F.</given-names>
+</name>
+</person-group>
+<article-title>A review of feature selection and feature extraction methods applied on microarray data</article-title>
+<source/>Adv Bioinform
+          <volume>2015</volume>
+<year>2015</year>
+<fpage>198363</fpage>
+</element-citation>
+</ref>
+<ref id="bb0280">
+<label>56</label>
+<element-citation id="rf0280" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Chang</surname>
+<given-names>Q.</given-names>
+</name>
+</person-group>
+<article-title>Feature selection methods for big data bioinformatics: a survey from the search perspective</article-title>
+<source/>Methods
+          <volume>111</volume>
+<year>2016</year>
+<fpage>21</fpage>
+<lpage>31</lpage>
+<pub-id pub-id-type="pmid">27592382</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0285">
+<label>57</label>
+<element-citation id="rf0285" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ang</surname>
+<given-names>J.C.</given-names>
+</name>
+<name>
+<surname>Mirzal</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Haron</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Hamed</surname>
+<given-names>H.N.A.</given-names>
+</name>
+</person-group>
+<article-title>Supervised, unsupervised, and semi-supervised feature selection: a review on gene selection</article-title>
+<source/>IEEE/ACM Trans Comput Biol Bioinform
+          <volume>13</volume>
+<year>2016</year>
+<fpage>971</fpage>
+<lpage>989</lpage>
+<pub-id pub-id-type="pmid">26390495</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0290">
+<label>58</label>
+<element-citation id="rf0290" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tan</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Thomassen</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Kruse</surname>
+<given-names>T.A.</given-names>
+</name>
+</person-group>
+<article-title>Feature selection for predicting tumor metastases in microarray experiments using paired design</article-title>
+<source/>Cancer Inform
+          <volume>3</volume>
+<year>2007</year>
+<fpage>133</fpage>
+<lpage>138</lpage>
+</element-citation>
+</ref>
+<ref id="bb0295">
+<label>59</label>
+<element-citation id="rf0295" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bunea</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Barbu</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Dimension reduction and variable selection in case control studies via regularized likelihood optimization</article-title>
+<source/>Electron J Stat
+          <volume>3</volume>
+<year>2009</year>
+<fpage>32</fpage>
+</element-citation>
+</ref>
+<ref id="bb0300">
+<label>60</label>
+<element-citation id="rf0300" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sun</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Penalized logistic regression for high-dimensional DNA methylation data with case-control studies</article-title>
+<source/>Bioinformatics
+          <volume>28</volume>
+<year>2012</year>
+<fpage>1368</fpage>
+<lpage>1375</lpage>
+<pub-id pub-id-type="pmid">22467913</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0305">
+<label>61</label>
+<element-citation id="rf0305" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Du</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Cao</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Liang</surname>
+<given-names>Y.</given-names>
+</name>
+</person-group>
+<article-title>A novel multi-stage feature selection method for microarray expression data analysis</article-title>
+<source/>Int J Data Min Bioinform
+          <volume>7</volume>
+<year>2013</year>
+<fpage>58</fpage>
+<pub-id pub-id-type="pmid">23437515</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0310">
+<label>62</label>
+<element-citation id="rf0310" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Cao</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Du</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Liang</surname>
+<given-names>Y.</given-names>
+</name>
+</person-group>
+<chapter-title>Effective and stable feature selection method based on filter for gene signature identification in paired microarray data</chapter-title>
+<source/>2013 IEEE Int. Conf. Bioinforma. Biomed.
+          <year>2013</year>
+<fpage>189</fpage>
+<lpage>192</lpage>
+</element-citation>
+</ref>
+<ref id="bb0315">
+<label>63</label>
+<element-citation id="rf0315" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sun</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Network-based regularization for matched case-control analysis of high-dimensional DNA methylation data</article-title>
+<source/>Stat Med
+          <volume>32</volume>
+<year>2013</year>
+<fpage>2127</fpage>
+<lpage>2139</lpage>
+<pub-id pub-id-type="pmid">23212810</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0320">
+<label>64</label>
+<element-citation id="rf0320" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Balasubramanian</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Andres Houseman</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Coull</surname>
+<given-names>B.A.</given-names>
+</name>
+<name>
+<surname>Lev</surname>
+<given-names>M.H.</given-names>
+</name>
+<name>
+<surname>Schwamm</surname>
+<given-names>L.H.</given-names>
+</name>
+<name>
+<surname>Betensky</surname>
+<given-names>R.A.</given-names>
+</name>
+</person-group>
+<article-title>Variable importance in matched case-control studies in settings of high dimensional data</article-title>
+<source/>J R Stat Soc Ser C Appl Stat
+          <volume>63</volume>
+<year>2014</year>
+<fpage>639</fpage>
+<lpage>655</lpage>
+</element-citation>
+</ref>
+<ref id="bb0325">
+<label>65</label>
+<element-citation id="rf0325" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Asafu-Adjei</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Tadesse</surname>
+<given-names>M.G.</given-names>
+</name>
+<name>
+<surname>Coull</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Balasubramanian</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Lev</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Schwamm</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Bayesian variable selection methods for matched case-control studies</article-title>
+<source/>Int J Biostat
+          <volume>13</volume>
+<year>2017</year>
+</element-citation>
+</ref>
+<ref id="bb0330">
+<label>66</label>
+<element-citation id="rf0330" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hsu</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Lachenbruch</surname>
+<given-names>P.A.</given-names>
+</name>
+</person-group>
+<article-title>Paired <italic>t</italic> test</article-title>
+<source/>Wiley Encycl Clin Trials
+          <year>2008</year>
+<fpage>1</fpage>
+<lpage>3</lpage>
+</element-citation>
+</ref>
+<ref id="bb0335">
+<label>67</label>
+<element-citation id="rf0335" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>David</surname>
+<given-names>H.A.</given-names>
+</name>
+<name>
+<surname>Gunnink</surname>
+<given-names>J.L.</given-names>
+</name>
+</person-group>
+<article-title>The paired t test under artificial pairing</article-title>
+<source/>Am Stat
+          <volume>51</volume>
+<year>1997</year>
+<fpage>9</fpage>
+<lpage>12</lpage>
+</element-citation>
+</ref>
+<ref id="bb0340">
+<label>68</label>
+<element-citation id="rf0340" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kearns</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Ron</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>Algorithmic stability and sanity-check bounds for leave-one-out cross-validation</article-title>
+<source/>Neural Comput
+          <volume>11</volume>
+<year>1999</year>
+<fpage>1427</fpage>
+<lpage>1453</lpage>
+<pub-id pub-id-type="pmid">10423502</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0345">
+<label>69</label>
+<element-citation id="rf0345" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tibshirani</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Hastie</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Narasimhan</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Chu</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Diagnosis of multiple cancer types by shrunken centroids of gene expression</article-title>
+<source/>Proc Natl Acad Sci
+          <volume>99</volume>
+<year>2002</year>
+<fpage>6567</fpage>
+<lpage>6572</lpage>
+<pub-id pub-id-type="pmid">12011421</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0350">
+<label>70</label>
+<element-citation id="rf0350" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Story</surname>
+<given-names>J.D.</given-names>
+</name>
+</person-group>
+<article-title>A direct approach to false discovery rates</article-title>
+<source/>J R Stat Soc
+          <volume>64</volume>
+<year>2002</year>
+<fpage>479</fpage>
+<lpage>498</lpage>
+</element-citation>
+</ref>
+<ref id="bb0355">
+<label>71</label>
+<element-citation id="rf0355" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Connolly</surname>
+<given-names>M.A.L.K.-Y.</given-names>
+</name>
+</person-group>
+<article-title>Condition logistic regression models for correlated binary data</article-title>
+<source/>Biometrika
+          <volume>75</volume>
+<year>1988</year>
+<fpage>501</fpage>
+<lpage>506</lpage>
+</element-citation>
+</ref>
+<ref id="bb0360">
+<label>72</label>
+<element-citation id="rf0360" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Model selection via multifold cross-validation</article-title>
+<source/>Ann Stat
+          <volume>21</volume>
+<year>1993</year>
+<fpage>299</fpage>
+<lpage>313</lpage>
+</element-citation>
+</ref>
+<ref id="bb0365">
+<label>73</label>
+<element-citation id="rf0365" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Gilks</surname>
+<given-names>W.</given-names>
+</name>
+</person-group>
+<chapter-title>Markov chain Monte Carlo in practice</chapter-title>
+<year>1998</year>
+<publisher-name>CRC Press</publisher-name>
+</element-citation>
+</ref>
+<ref id="bb0370">
+<label>74</label>
+<element-citation id="rf0370" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chib</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Greenberg</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Understanding the metropolis-hastings algorithm</article-title>
+<source/>Am Stat
+          <volume>49</volume>
+<year>1995</year>
+<fpage>327</fpage>
+<lpage>335</lpage>
+</element-citation>
+</ref>
+<ref id="bb0375">
+<label>75</label>
+<element-citation id="rf0375" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Friedman</surname>
+<given-names>J.H.</given-names>
+</name>
+</person-group>
+<article-title>Greedy function approximation: A gradient boosting machine 1 function estimation 2 numerical optimization in function space</article-title>
+<source/>North
+          <volume>1</volume>
+<year>1999</year>
+<fpage>1</fpage>
+<lpage>10</lpage>
+</element-citation>
+</ref>
+<ref id="bb0380">
+<label>76</label>
+<element-citation id="rf0380" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bühlmann</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Boosting with the L 2 loss</article-title>
+<source/>J Am Stat Assoc
+          <volume>98</volume>
+<year>2003</year>
+<fpage>324</fpage>
+<lpage>339</lpage>
+</element-citation>
+</ref>
+<ref id="bb0385">
+<label>77</label>
+<element-citation id="rf0385" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tutz</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Reithinger</surname>
+<given-names>F.</given-names>
+</name>
+</person-group>
+<article-title>A boosting approach to flexible semiparametric mixed models</article-title>
+<source/>Stat Med
+          <volume>26</volume>
+<year>2007</year>
+<fpage>2872</fpage>
+<lpage>2900</lpage>
+<pub-id pub-id-type="pmid">17133647</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0390">
+<label>78</label>
+<element-citation id="rf0390" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chang</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Creighton</surname>
+<given-names>C.J.</given-names>
+</name>
+<name>
+<surname>Davis</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Donehower</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Drummond</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Wheeler</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>The cancer genome atlas pan-cancer analysis project</article-title>
+<source/>Nat Genet
+          <volume>45</volume>
+<year>2013</year>
+<fpage>1113</fpage>
+<lpage>1120</lpage>
+<pub-id pub-id-type="pmid">24071849</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0395">
+<label>79</label>
+<element-citation id="rf0395" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Scott</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Marwaha</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Ratheesh</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Macmillan</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Yung</surname>
+<given-names>A.R.</given-names>
+</name>
+<name>
+<surname>Morriss</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>Bipolar at-risk criteria: an examination of which clinical features have optimal utility for identifying youth at risk of early transition from depression to bipolar disorders</article-title>
+<source/>Schizophr Bull
+          <volume>43</volume>
+<year>2017</year>
+<fpage>737</fpage>
+<lpage>744</lpage>
+<pub-id pub-id-type="pmid">27872258</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0400">
+<label>80</label>
+<element-citation id="rf0400" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Giuliano</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Saviozzi</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Brambilla</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Muratori</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Retico</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Calderoni</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>The effect of age, sex and clinical features on the volume of Corpus Callosum in pre-schoolers with Autism Spectrum Disorder: a case-control study</article-title>
+<source/>Eur J Neurosci
+          <year>2017</year>
+</element-citation>
+</ref>
+<ref id="bb0405">
+<label>81</label>
+<element-citation id="rf0405" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xu</surname>
+<given-names>S.-Y.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Ma</surname>
+<given-names>W.-J.</given-names>
+</name>
+<name>
+<surname>Sheyhidin</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>S.-T.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>X.-M.</given-names>
+</name>
+</person-group>
+<article-title>New potential biomarkers in the diagnosis of esophageal squamous cell carcinoma</article-title>
+<source/>Biomarkers
+          <volume>14</volume>
+<year>2009</year>
+<fpage>340</fpage>
+<lpage>346</lpage>
+<pub-id pub-id-type="pmid">19552569</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0410">
+<label>82</label>
+<element-citation id="rf0410" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anglim</surname>
+<given-names>P.P.</given-names>
+</name>
+<name>
+<surname>Galler</surname>
+<given-names>J.S.</given-names>
+</name>
+<name>
+<surname>Koss</surname>
+<given-names>M.N.</given-names>
+</name>
+<name>
+<surname>Hagen</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Turla</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Campan</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Identification of a panel of sensitive and specific DNA methylation markers for squamous cell lung cancer</article-title>
+<source/>Mol Cancer
+          <volume>7</volume>
+<year>2008</year>
+<fpage>62</fpage>
+<pub-id pub-id-type="pmid">18616821</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0415">
+<label>83</label>
+<element-citation id="rf0415" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tsou</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Galler</surname>
+<given-names>J.S.</given-names>
+</name>
+<name>
+<surname>Siegmund</surname>
+<given-names>K.D.</given-names>
+</name>
+<name>
+<surname>Laird</surname>
+<given-names>P.W.</given-names>
+</name>
+<name>
+<surname>Turla</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Cozen</surname>
+<given-names>W.</given-names>
+</name>
+</person-group>
+<article-title>Identification of a panel of sensitive and specific DNA methylation markers for lung adenocarcinoma</article-title>
+<source/>Mol Cancer
+          <volume>6</volume>
+<year>2007</year>
+<fpage>70</fpage>
+<pub-id pub-id-type="pmid">17967182</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0420">
+<label>84</label>
+<element-citation id="rf0420" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zak</surname>
+<given-names>D.E.</given-names>
+</name>
+<name>
+<surname>Penn-Nicholson</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Scriba</surname>
+<given-names>T.J.</given-names>
+</name>
+<name>
+<surname>Thompson</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Suliman</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Amon</surname>
+<given-names>L.M.</given-names>
+</name>
+</person-group>
+<article-title>A blood RNA signature for tuberculosis disease risk: a prospective cohort study</article-title>
+<source/>Lancet
+          <volume>387</volume>
+<year>2016</year>
+<fpage>2312</fpage>
+<lpage>2322</lpage>
+<pub-id pub-id-type="pmid">27017310</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0425">
+<label>85</label>
+<element-citation id="rf0425" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Klöppel</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Stonnington</surname>
+<given-names>C.M.</given-names>
+</name>
+<name>
+<surname>Barnes</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Chu</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Good</surname>
+<given-names>C.D.</given-names>
+</name>
+</person-group>
+<article-title>Accuracy of dementia diagnosis - a direct comparison between radiologists and a computerized method</article-title>
+<source/>Brain
+          <volume>131</volume>
+<year>2008</year>
+<fpage>2969</fpage>
+<lpage>2974</lpage>
+<pub-id pub-id-type="pmid">18835868</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0430">
+<label>86</label>
+<element-citation id="rf0430" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gronich</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Lavi</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Barnett-Griness</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Saliba</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Abernethy</surname>
+<given-names>D.R.</given-names>
+</name>
+<name>
+<surname>Rennert</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Tyrosine kinase-targeting drugs-associated heart failure</article-title>
+<source/>Br J Cancer
+          <volume>116</volume>
+<year>2017</year>
+<fpage>1366</fpage>
+<lpage>1373</lpage>
+<pub-id pub-id-type="pmid">28399109</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0435">
+<label>87</label>
+<element-citation id="rf0435" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Holsbø</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Perduca</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Bongo</surname>
+<given-names>L.A.</given-names>
+</name>
+<name>
+<surname>Lund</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Birmelé</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Curve selection for predicting breast cancer metastasis from prospective gene expression in blood</article-title>
+<source/>bioRxiv
+          <year>2017</year>
+<fpage>1</fpage>
+<lpage>16</lpage>
+</element-citation>
+</ref>
+<ref id="bb0440">
+<label>88</label>
+<element-citation id="rf0440" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>de la Iglesia</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Evolutionary computation for feature selection in classification problems</article-title>
+<source/>Wiley Interdiscip Rev Data Min Knowl Discov
+          <volume>3</volume>
+<year>2013</year>
+<fpage>381</fpage>
+<lpage>407</lpage>
+</element-citation>
+</ref>
+<ref id="bb0445">
+<label>89</label>
+<element-citation id="rf0445" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Kalousis</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Prados</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Hilario</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<chapter-title>Stability of feature selection algorithms</chapter-title>
+<source/>Fifth IEEE Int. Conf. Data Min.
+          <year>2005</year>
+<publisher-name>IEEE</publisher-name>
+<fpage>218</fpage>
+<lpage>225</lpage>
+</element-citation>
+</ref>
+<ref id="bb0450">
+<label>90</label>
+<element-citation id="rf0450" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>He</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>W.</given-names>
+</name>
+</person-group>
+<article-title>Stable feature selection for biomarker discovery</article-title>
+<source/>Comput Biol Chem
+          <volume>34</volume>
+<year>2010</year>
+<fpage>215</fpage>
+<lpage>225</lpage>
+<pub-id pub-id-type="pmid">20702140</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0455">
+<label>91</label>
+<element-citation id="rf0455" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Awada</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Khoshgoftaar</surname>
+<given-names>T.M.</given-names>
+</name>
+<name>
+<surname>Dittman</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Wald</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Napolitano</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<chapter-title>A review of the stability of feature selection techniques for bioinformatics data</chapter-title>
+<source/>Proc. 2012 IEEE 13th Int. Conf. Inf. Reuse Integr.
+          <year>2012</year>
+<publisher-name>IEEE</publisher-name>
+<fpage>356</fpage>
+<lpage>363</lpage>
+</element-citation>
+</ref>
+<ref id="bb0460">
+<label>92</label>
+<element-citation id="rf0460" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Browne</surname>
+<given-names>M.W.</given-names>
+</name>
+</person-group>
+<article-title>Cross-validation methods</article-title>
+<source/>J Math Psychol
+          <volume>44</volume>
+<year>2000</year>
+<fpage>108</fpage>
+<lpage>132</lpage>
+<pub-id pub-id-type="pmid">10733860</pub-id>
+</element-citation>
+</ref>
+<ref id="bb0465">
+<label>93</label>
+<element-citation id="rf0465" publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Mooney</surname>
+<given-names>C.Z.D.R.D.</given-names>
+</name>
+</person-group>
+<chapter-title>Bootstrapping: a nonparametric approach to statistical inference</chapter-title>
+<volume>vol. 94–95</volume>
+<year>1993</year>
+<publisher-name>Sage</publisher-name>
+</element-citation>
+</ref>
+</ref-list>
+<ack id="ac0005">
+<title>Acknowledgment</title>
+<p>This work is supported by the <funding-source id="gts0005">National Natural Science Foundation of China</funding-source> (Nos. 61472159, 61572227), Projects of International Cooperation and Exchanges <funding-source id="gts0010">NSFC</funding-source> (No. 81320108025), and Development Project of <funding-source id="gts0015">Jilin Province</funding-source> of China (Nos. 20160204022GX, 2017C033, 20180414012GH). This work was also supported by <funding-source id="gts0020">National Science Foundation</funding-source>/EPSCoR Award No. IIA-1355423, the State of <funding-source id="gts0025">South Dakota Research Innovation Center</funding-source>, the Agriculture Experiment Station of <funding-source id="gts0030">South Dakota State University</funding-source>, and the Sanford Health – <funding-source id="gts0035">South Dakota State University Collaborative Research Seed Grant Program</funding-source>. This work used the Extreme Science and Engineering Discovery Environment (XSEDE), which is supported by National Science Foundation grant number ACI-1548562.</p>
+</ack>
+</back>
+</article>
+</pmc-articleset>

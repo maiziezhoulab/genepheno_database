@@ -1,0 +1,1489 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Front Comput Neurosci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Front Comput Neurosci</journal-id>
+<journal-id journal-id-type="publisher-id">Front. Comput. Neurosci.</journal-id>
+<journal-title-group>
+<journal-title>Frontiers in Computational Neuroscience</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1662-5188</issn>
+<publisher>
+<publisher-name>Frontiers Media S.A.</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31632258</article-id>
+<article-id pub-id-type="pmc">6779816</article-id>
+<article-id pub-id-type="doi">10.3389/fncom.2019.00068</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Neuroscience</subject>
+<subj-group>
+<subject>Original Research</subject>
+</subj-group>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Response Dynamics in an Olivocerebellar Spiking Neural Network With Non-linear Neuron Properties</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Geminiani</surname>
+<given-names>Alice</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="corresp" rid="c001">
+<sup>*</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/352569/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Pedrocchi</surname>
+<given-names>Alessandra</given-names>
+</name>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/132960/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>D’Angelo</surname>
+<given-names>Egidio</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/219/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Casellato</surname>
+<given-names>Claudia</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/83957/overview" xlink:type="simple"></uri>
+</contrib>
+</contrib-group>
+<aff id="aff1"><sup>1</sup><institution>Department of Brain and Behavioral Sciences, University of Pavia</institution>, <addr-line>Pavia</addr-line>, <country>Italy</country></aff>
+<aff id="aff2"><sup>2</sup><institution>NEARLab, Department of Electronics, Information and Bioengineering, Politecnico di Milano</institution>, <addr-line>Milan</addr-line>, <country>Italy</country></aff>
+<aff id="aff3"><sup>3</sup><institution>IRCCS Mondino Foundation</institution>, <addr-line>Pavia</addr-line>, <country>Italy</country></aff>
+<author-notes>
+<fn fn-type="edited-by">
+<p>Edited by: Mario Senden, Maastricht University, Netherlands</p>
+</fn>
+<fn fn-type="edited-by">
+<p>Reviewed by: Christian Hansel, The University of Chicago, United States; Pablo Varona, Autonomous University of Madrid, Spain</p>
+</fn>
+<corresp id="c001">*Correspondence: Alice Geminiani, <email>alice.geminiani@unipv.it</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>01</day>
+<month>10</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2019</year>
+</pub-date>
+<volume>13</volume>
+<elocation-id>68</elocation-id>
+<history>
+<date date-type="received">
+<day>28</day>
+<month>6</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>10</day>
+<month>9</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2019 Geminiani, Pedrocchi, D’Angelo and Casellato.</copyright-statement>
+<copyright-year>2019</copyright-year>
+<copyright-holder>Geminiani, Pedrocchi, D’Angelo and Casellato</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Sensorimotor signals are integrated and processed by the cerebellar circuit to predict accurate control of actions. In order to investigate how single neuron dynamics and geometrical modular connectivity affect cerebellar processing, we have built an olivocerebellar Spiking Neural Network (SNN) based on a novel simplification algorithm for single point models (Extended Generalized Leaky Integrate and Fire, EGLIF) capturing essential non-linear neuronal dynamics (e.g., pacemaking, bursting, adaptation, oscillation and resonance). EGLIF models specifically tuned for each neuron type were embedded into an olivocerebellar scaffold reproducing realistic spatial organization and physiological convergence and divergence ratios of connections. In order to emulate the circuit involved in an eye blink response to two associated stimuli, we modeled two adjacent olivocerebellar microcomplexes with a common mossy fiber input but different climbing fiber inputs (either on or off). EGLIF-SNN model simulations revealed the emergence of fundamental response properties in Purkinje cells (burst-pause) and deep nuclei cells (pause-burst) similar to those reported <italic>in vivo</italic>. The expression of these properties depended on the specific activation of climbing fibers in the microcomplexes and did not emerge with scaffold models using simplified point neurons. This result supports the importance of embedding SNNs with realistic neuronal dynamics and appropriate connectivity and anticipates the scale-up of EGLIF-SNN and the embedding of plasticity rules required to investigate cerebellar functioning at multiple scales.</p>
+</abstract>
+<kwd-group>
+<kwd>olivocerebellar circuit</kwd>
+<kwd>spiking neural network (SNN)</kwd>
+<kwd>point neuron</kwd>
+<kwd>non-linear neuronal dynamics</kwd>
+<kwd>eyeblink response</kwd>
+</kwd-group>
+<counts>
+<fig-count count="8"></fig-count>
+<table-count count="2"></table-count>
+<equation-count count="3"></equation-count>
+<ref-count count="82"></ref-count>
+<page-count count="15"></page-count>
+<word-count count="0"></word-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec id="S1">
+<title>Introduction</title>
+<p>A broad set of experimental observations has suggested that cerebellar circuit functioning relies on a number of detailed features distributed over multiple scales. Single neuron properties along with an organized modular connectivity shape population-specific spiking patterns and spatio-temporal network dynamics, which in turn determine the relationship between input stimuli and responses. The precise encoding of spatio-temporal features into the output (which is in motor domain) corresponds to the cerebellar contribution in sensorimotor tasks (<xref ref-type="bibr" rid="B48">Llinas and Negrello, 2011</xref>; <xref ref-type="bibr" rid="B49">Llinás, 2014</xref>; <xref ref-type="bibr" rid="B11">D’Angelo, 2018</xref>). Indeed, together with synaptic plasticity, single neuron electroresponsiveness and network connectivity affect motor learning and alterations of these elements can significantly compromise movement adaptation (<xref ref-type="bibr" rid="B59">Peter et al., 2016</xref>).</p>
+<p>At the cerebellar input, the Granular layer is thought to act as a spatio-temporal filter of sensory inputs (<xref ref-type="bibr" rid="B53">Marr, 1969</xref>). This operation has been related to specific properties of Golgi cells (GoCs) and Granule cells (GrCs), such as oscillatory and resonant dynamics, along with the arrangement of microcircuit connectivity, which includes recurrent GoC-GrC inhibitory loops and GoC local networks (<xref ref-type="bibr" rid="B16">D’Angelo et al., 2013</xref>; <xref ref-type="bibr" rid="B24">Gandolfi et al., 2013</xref>). The GoCs contribute to process sensory signals coming from Mossy Fibers (MFs) by shaping the activity of GrCs. GrC signals converge to the Molecular and Purkinje cell layers through Ascending Axons (AAs) and Parallel Fibers (PFs), with a very precise geometrical organization. Purkinje cells (PCs) are the final integrators of the cerebellar cortex, inhibiting the cerebellar output that drives motor responses (<xref ref-type="bibr" rid="B35">Heiney et al., 2014</xref>). <italic>In vivo</italic>, intrinsic simple spikes of PCs are modulated by excitation from GrCs and inhibition from Molecular Layer Interneurons (MLIs). Moreover, inputs from Inferior Olive (IO), through Climbing Fibers (CFs), elicit PC complex spikes (<xref ref-type="bibr" rid="B17">Davie et al., 2008</xref>). Deep Cerebellar Nuclei cells (DCNs) are the only output of the cerebellar circuit, projecting centrally to multiple brain areas, and peripherally to the motor pathways. Integrating the inputs from the cerebellar cortex and MFs, DCNs can modify their spontaneous firing and generate pauses and bursts. Burst-pauses in PCs and pause-bursts in DCN cells are thought to be essential to finely tune the motor responses (<xref ref-type="bibr" rid="B69">Shadmehr, 2017</xref>). DCNs also continuously control learning processes through inhibitory feedback loops to the IO (<xref ref-type="bibr" rid="B19">De Zeeuw et al., 2011</xref>). The PC-DCN-IO loop connections are organized to form microcomplexes: CFs from IO sub-regions project to different sagittal stripes of PCs, which in turn receive signals from subvolumes of the granular layer and of the molecular layer (i.e., microzones); then, PCs of a microcomplex target the corresponding nuclear regions reached by the same CFs (<xref ref-type="bibr" rid="B48">Llinas and Negrello, 2011</xref>; <xref ref-type="bibr" rid="B66">Ruigrok, 2011</xref>; <xref ref-type="bibr" rid="B16">D’Angelo et al., 2013</xref>). On the other hand, GrCs project in the medio-lateral direction by PFs (<xref ref-type="bibr" rid="B75">Uusisaari and de Schutter, 2011</xref>), carrying the same signals transversally to multiple microcomplexes. The result is a modular geometrically-organized architecture, where each microcomplex integrates sensorimotor information from different sources and emits spike patterns that, in turn, correlate with specific aspects of behavior (<xref ref-type="bibr" rid="B82">Zhou et al., 2014</xref>; <xref ref-type="bibr" rid="B60">Powell et al., 2015</xref>).</p>
+<p>In this scenario, single neuron properties and cerebellar connectivity are sufficiently well characterized and can be simplified to simulate behavioral tasks using bioinspired cerebellar models (<xref ref-type="bibr" rid="B79">Yamazaki and Igarashi, 2013</xref>; <xref ref-type="bibr" rid="B7">Casellato et al., 2014</xref>; <xref ref-type="bibr" rid="B1">Antonietti et al., 2016</xref>). However, the key causal relationships across scales, i.e., from neuron properties to network dynamics and finally to behavior, are still unclear. To what extent do intrinsic excitability and synaptic inputs contribute to the spiking patterns of PCs and DCN cells during a behavioral task? How do complex firing patterns emerge in cascade within the network?</p>
+<p>Here, we have reconstructed and simulated an olivocerebellar microcircuit by integrating monocompartmental neurons with complex electroresponsiveness into the geometrically-organized connectivity of a spiking neural network (SNN). The simulations provide the network with sensory-like stimulation patterns and monitor the microcircuit responses. Such a computational tool compromises between biological plausibility and computational load, allowing a multiscale investigation of the cerebellar network. This is achieved by integrating two main aspects. The first one is the Extended-Generalized Leaky Integrate and Fire (EGLIF) point neuron that maintains salient electrophysiological features – autorhythm, bursts, adaptation, oscillations and resonance – by using just a few state variables (<xref ref-type="bibr" rid="B27">Geminiani et al., 2018b</xref>). The EGLIF proved capable to reproduce the rich set of firing patterns of the main olivocerebellar neurons: GoCs, GrCs, PCs, MLIs, DCNs, and IO (<xref ref-type="bibr" rid="B28">Geminiani et al., 2019</xref>). The second aspect is network geometry derived from a cerebellar scaffold model, which reproduces the physiological convergence and divergence ratios of connections with a realistic spatial organization (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>). Here, EGLIF neurons are here evaluated within the whole SNN, where positioning and connectivity of each neuron type are based on their morphology and density within the cerebellar microcircuit (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>). Therefore, the EGLIF-SNN is exploited to investigate how single neuron properties and network architecture allow the emergence of spatio-temporal dynamic properties, such as burst-pause in PCs and pause-burst in DCN cells. In particular, the EGLIF-SNN is tested by using input patterns encoding two types of sensory signals, whose timing association elicits an eyeblink motor response with multiple afferent pathways specifically activating interconnected microcomplexes (<xref ref-type="bibr" rid="B19">De Zeeuw et al., 2011</xref>). The simulations using EGLIF-SNN have been compared to others using simple LIF neurons, in order to understand the impact of single neuron dynamics on network functioning and signal encoding. These results provide a critical assessment of the role of microcircuit properties needed for future closed-loop simulations of cerebellum-driven learning tasks (<xref ref-type="bibr" rid="B13">D’Angelo et al., 2016</xref>).</p>
+</sec>
+<sec id="S2" sec-type="materials|methods">
+<title>Materials and Methods</title>
+<sec id="S2.SS1">
+<title>Reconstruction of the Olivocerebellar Network</title>
+<p>To evaluate the role of single neuron electrophysiology and, at the same time, of geometrical and statistical connectivity, a SNN was developed, reproducing an olivocerebellar volume. The reconstructed volume included 96′767 neurons and 4′151′182 total synapses and represented a portion of two cerebellar microcomplexes with the corresponding olivary nuclei (<xref ref-type="fig" rid="F1">Figure 1</xref>). The SNN was built based on the cerebellar scaffold developed in <xref ref-type="bibr" rid="B6">Casali et al. (2019)</xref>. In this scaffold, neurons were placed in the selected volume based on known cell densities from neurophysiology and geometric features. Then, they were connected according to connectivity rules based on proximity of neuronal processes (pre-synaptic axon span extension and post-synaptic dendritic field extension) and on statistical convergence/divergence ratios (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>). The starting network version was made up of cells distributed in a multi-layered volume including the Molecular, Purkinje and Granular layers of the cerebellar cortex – 400 × 330 × 400 μm<sup>3</sup>, and the underlying cerebellar nuclei – 200 × 600 × 200 μm<sup>3</sup> (<xref ref-type="table" rid="T1">Table 1</xref>). The thickness (along y-direction) was fixed based on neurophysiology (330 μm for cortex + 600 μm for nuclei), while the other two sizes (x and z) were flexible, and there defined in order to have a complete exemplificative reconstruction, able to include all the elements in a functional representative module. Here, we subdivided the scaffold cortex into two sub-volumes, by a parasagittal plane, so obtaining two microzones with a transversal length of 200 μm each (along <italic>z</italic>-axis). Consequently, we reorganized the PC-DCN connections to be confined within the same subvolumes, with a neurophysiological crosstalk. This way, two adjacent microcomplex volumes were reconstructed (<xref ref-type="bibr" rid="B75">Uusisaari and de Schutter, 2011</xref>). Then, we added an olivary volume of 100 × 200 × 40 μm<sup>3</sup> chosen to maintain the ratio between the cerebellar cortical volume and the olivary one measured in mice, i.e., ∼ 66–68:1 (<xref ref-type="bibr" rid="B46">Lein et al., 2007</xref>). Based on IO neuron density (i.e., ∼ 15′172 cells/mm<sup>3</sup>), we positioned 12 cells in the olivary scaffold volume (<xref ref-type="bibr" rid="B80">Zanjani et al., 2004</xref>). The neurons were placed using self-avoiding bounded random walk procedure. For each olivocerebellar microcomplex, six IO neurons were included.</p>
+<fig id="F1" position="float">
+<label>FIGURE 1</label>
+<caption>
+<p>Olivocerebellar scaffold with neurons placed in the selected volume, including two cortical microzones (granular, molecular and PC layers) with their corresponding nuclear and olivary cells. Connections between PCs from each microzone and the corresponding target cells in the cerebellar nuclei are highlighted. The two microcomplexes are labeled in yellow (1) and blue (2). Granular and molecular layer cells are subsampled and GrC in the two microzones are not differently labeled for figure readability.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g001"></graphic>
+</fig>
+<table-wrap id="T1" position="float">
+<label>TABLE 1</label>
+<caption>
+<p>Neuron types and numbers in the olivocerebellar scaffold.</p>
+</caption>
+<table cellpadding="5" cellspacing="5" frame="hsides" rules="groups">
+<thead>
+<tr>
+<td align="justify" colspan="1" rowspan="1" valign="top">
+<bold>Neuron type</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Number of neurons</bold>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MF</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">7073</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GoC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">219</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GrC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">88164</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MLI</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1206</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">69</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>DCNp</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">12</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>DCNi</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">12</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>IO</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">12</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<p>In the cerebellar nuclei, we considered two types of neurons: non-GABAergic DCNs, which are the principal large neurons projecting outside the cerebellum in an excitatory way (DCNp), and GABAergic interneurons (DCNi), which send inhibitory feedback signals to IO. For each DCNp, already present in the previous scaffold release (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>), we added one DCNi, positioned around the corresponding DCNp, at a random distance <italic>d</italic> in the range between <italic>d</italic><sub>1</sub> (minimum to avoid somata overlap) and <italic>d</italic><sub>2</sub> (maximum in order to have a DCNi as a satellite of a specific DCNp, i.e., closer to that DCNp than to the other DCNp neurons):</p>
+<disp-formula id="S2.Ex1">
+<mml:math id="M1">
+<mml:mrow>
+<mml:mi>d</mml:mi>
+<mml:mmultiscripts>
+<mml:mpadded width="+3.3pt">
+<mml:mtext>=</mml:mtext>
+</mml:mpadded>
+<mml:mprescripts></mml:mprescripts>
+<mml:mn>1</mml:mn>
+<mml:none></mml:none>
+</mml:mmultiscripts>
+<mml:mi>r</mml:mi>
+<mml:mmultiscripts>
+<mml:mo rspace="5.8pt">+</mml:mo>
+<mml:mprescripts></mml:mprescripts>
+<mml:mrow>
+<mml:mi>D</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>C</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>p</mml:mi>
+</mml:mrow>
+<mml:none></mml:none>
+</mml:mmultiscripts>
+<mml:mi>r</mml:mi>
+<mml:msub>
+<mml:mi></mml:mi>
+<mml:mrow>
+<mml:mi>D</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>C</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>i</mml:mi>
+</mml:mrow>
+</mml:msub>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<disp-formula id="S2.Ex2">
+<mml:math id="M2">
+<mml:mrow>
+<mml:mi>d</mml:mi>
+<mml:mmultiscripts>
+<mml:mpadded width="+3.3pt">
+<mml:mtext>=</mml:mtext>
+</mml:mpadded>
+<mml:mprescripts></mml:mprescripts>
+<mml:mn>2</mml:mn>
+<mml:none></mml:none>
+</mml:mmultiscripts>
+<mml:mi>m</mml:mi>
+<mml:mi>e</mml:mi>
+<mml:mi>a</mml:mi>
+<mml:mi>n</mml:mi>
+<mml:mi mathvariant="normal">_</mml:mi>
+<mml:mi>d</mml:mi>
+<mml:mi>i</mml:mi>
+<mml:mi>s</mml:mi>
+<mml:mi>t</mml:mi>
+<mml:mo>/</mml:mo>
+<mml:mn>4</mml:mn>
+<mml:mo>-</mml:mo>
+<mml:mi>r</mml:mi>
+<mml:mmultiscripts>
+<mml:mo>-</mml:mo>
+<mml:mprescripts></mml:mprescripts>
+<mml:mrow>
+<mml:mi>D</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>C</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>p</mml:mi>
+</mml:mrow>
+<mml:none></mml:none>
+</mml:mmultiscripts>
+<mml:mi>r</mml:mi>
+<mml:msub>
+<mml:mi></mml:mi>
+<mml:mrow>
+<mml:mi>D</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>C</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>i</mml:mi>
+</mml:mrow>
+</mml:msub>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<p>where:</p>
+<p>
+<inline-formula>
+<mml:math id="M3">
+<mml:mrow>
+<mml:mi>r</mml:mi>
+<mml:mmultiscripts>
+<mml:mo>,</mml:mo>
+<mml:mprescripts></mml:mprescripts>
+<mml:mrow>
+<mml:mi>D</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>C</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>p</mml:mi>
+</mml:mrow>
+<mml:none></mml:none>
+</mml:mmultiscripts>
+<mml:mi>r</mml:mi>
+<mml:mmultiscripts>
+<mml:mpadded width="+3.3pt">
+<mml:mtext>=</mml:mtext>
+</mml:mpadded>
+<mml:mprescripts></mml:mprescripts>
+<mml:mrow>
+<mml:mi>D</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>C</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>i</mml:mi>
+</mml:mrow>
+<mml:none></mml:none>
+</mml:mmultiscripts>
+<mml:mi>r</mml:mi>
+<mml:mi>a</mml:mi>
+<mml:mi>d</mml:mi>
+<mml:mi>i</mml:mi>
+<mml:mi>u</mml:mi>
+<mml:mpadded width="+5pt">
+<mml:mi>s</mml:mi>
+</mml:mpadded>
+<mml:mi>o</mml:mi>
+<mml:mpadded width="+5pt">
+<mml:mi>f</mml:mi>
+</mml:mpadded>
+<mml:mi>D</mml:mi>
+<mml:mi>C</mml:mi>
+<mml:mpadded width="+5pt">
+<mml:mi>N</mml:mi>
+</mml:mpadded>
+<mml:mi>n</mml:mi>
+<mml:mi>e</mml:mi>
+<mml:mi>u</mml:mi>
+<mml:mi>r</mml:mi>
+<mml:mi>o</mml:mi>
+<mml:mi>n</mml:mi>
+<mml:mpadded width="+5pt">
+<mml:msup>
+<mml:mi>s</mml:mi>
+<mml:mo>′</mml:mo>
+</mml:msup>
+</mml:mpadded>
+<mml:mi>s</mml:mi>
+<mml:mi>o</mml:mi>
+<mml:mi>m</mml:mi>
+<mml:mi>a</mml:mi>
+<mml:mi>t</mml:mi>
+<mml:mi>a</mml:mi>
+<mml:mo>;</mml:mo>
+</mml:mrow>
+</mml:math>
+</inline-formula>
+</p>
+<p><italic>mean_dist</italic> = mean pairwise distance between DCNp in the scaffold (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>).</p>
+<p>Connections to and from IO were organized to mimic the geometry of microcomplexes. IO and DCN neurons were divided into two clusters based on their position and connected to PCs in homologous microzones. This topological segregation was maintained also in connecting IO to DCNp, and DCNi to IO cells.</p>
+<p>Furthermore, also the connections from IO to MLIs were introduced following the microcomplex correspondence (<xref ref-type="bibr" rid="B72">Szapiro and Barbour, 2007</xref>; <xref ref-type="bibr" rid="B42">Jörntell et al., 2010</xref>). The resulting convergence/divergence values of the connections within the entire olivocerebellar scaffold are reported in <xref ref-type="table" rid="T2">Table 2</xref>.</p>
+<table-wrap id="T2" position="float">
+<label>TABLE 2</label>
+<caption>
+<p>Olivocerebellar scaffold connections with convergence/divergence ratios (reported as mean ± Standard Deviation, SD) and corresponding synaptic parameters.</p>
+</caption>
+<table cellpadding="5" cellspacing="5" frame="hsides" rules="groups">
+<thead>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Convergence (mean ± SD)</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Divergence (mean ± SD)</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Weight [nS]</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Delay [ms]</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>τ <sub>α</sub> [ms]</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Connection type</bold>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MF-GrC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4</td>
+<td align="center" colspan="1" rowspan="1" valign="top">50 ± 22</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.15</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5.8<break></break>(<xref ref-type="bibr" rid="B61">Prestori et al., 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MF-GoC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">65 ± 27</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2 ± 1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.5</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.23<break></break>(<xref ref-type="bibr" rid="B44">Kanichay and Silver, 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GoC-GrC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2 ± 1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">624 ± 267</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">13.6<break></break>(<xref ref-type="bibr" rid="B52">Mapelli et al., 2009</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GoC-GoC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">34 ± 8</td>
+<td align="center" colspan="1" rowspan="1" valign="top">34 ± 9</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.3</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">10</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>AA-GoC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">360 ± 81</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.5<break></break>(<xref ref-type="bibr" rid="B44">Kanichay and Silver, 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PF-GoC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1600</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4 ± 2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.05</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.5<break></break>(<xref ref-type="bibr" rid="B44">Kanichay and Silver, 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MLI-MLI</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4 ± 2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PF-MLI</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1004 ± 221 (BC) 1021 ± 221 (SC)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">12 ± 4 (BC)<break></break>12 ± 5 (SC)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.015</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.64</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MLI-PC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">20</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3 ± 1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.3</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0 (BC)<break></break>5.0 (SC)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.8<break></break>(<xref ref-type="bibr" rid="B33">He et al., 2015</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>AA-PC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">249 ± 13</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.7</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.1<break></break>(<xref ref-type="bibr" rid="B56">Miyazaki et al., 2004</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PF-PC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">28401 ± 776</td>
+<td align="center" colspan="1" rowspan="1" valign="top">23 ± 3</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.007</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.1<break></break>(<xref ref-type="bibr" rid="B56">Miyazaki et al., 2004</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PC-DCNp</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">26 ± 2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5 ± 1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.4</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.7<break></break>(<xref ref-type="bibr" rid="B76">Uusisaari and Knöpfel, 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PC-DCNi</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">26 ± 4</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5 ± 1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.12</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.14<break></break>(<xref ref-type="bibr" rid="B76">Uusisaari and Knöpfel, 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>MF-DCNp</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">147</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.05</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1<break></break>(<xref ref-type="bibr" rid="B78">Wu and Raman, 2017</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>CF-PC</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6 ± 1 (min = 4; max = 8)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">350.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0<break></break>(<xref ref-type="bibr" rid="B49">Llinás, 2014</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.4<break></break>(<xref ref-type="bibr" rid="B56">Miyazaki et al., 2004</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>CF-MLI</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3 ± 1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">115 ± 23</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">70.0 ± 10.0<break></break>(<xref ref-type="bibr" rid="B19">De Zeeuw et al., 2011</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.2<break></break>(<xref ref-type="bibr" rid="B72">Szapiro and Barbour, 2007</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>IO-DCNp</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.1</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.0<break></break>(<xref ref-type="bibr" rid="B37">Hoebeek et al., 2010</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1<break></break>(<xref ref-type="bibr" rid="B78">Wu and Raman, 2017</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>IO-DCNi</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3.64<break></break>(<xref ref-type="bibr" rid="B76">Uusisaari and Knöpfel, 2008</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>exc</italic>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>DCNi-IO</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">6</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3.0</td>
+<td align="center" colspan="1" rowspan="1" valign="top">20.0<break></break>(<xref ref-type="bibr" rid="B4">Best and Regehr, 2009</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">60.0<break></break>(<xref ref-type="bibr" rid="B4">Best and Regehr, 2009</xref>)</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<italic>inh</italic>
+</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<p>Single neurons in the SNN were modeled as EGLIF, able to reproduce the full set of spiking patterns of cerebellar neurons (<xref ref-type="bibr" rid="B27">Geminiani et al., 2018b</xref>). In details, a cell-specific parameter set was applied to meet the electroresponsive phenotype of each olivocerebellar neuron (e.g., GoC: autorhythm, adaptation, rebound bursting, phase reset, subthreshold oscillations, resonance; GrC: subthreshold oscillations and resonance; PC: autorhythm and bursting; DCN: autorhythm, adaptation and rebound bursting; IO: subthreshold oscillations, rebound spiking, phase reset), as optimized in <xref ref-type="bibr" rid="B28">Geminiani et al. (2019)</xref> (<xref ref-type="supplementary-material" rid="SM1">Supplementary Material</xref>). Only the firing irregularity parameters were modified with respect to <xref ref-type="bibr" rid="B28">Geminiani et al. (2019)</xref>, to account during network simulations for higher noise components that are absent during <italic>in vitro</italic> experiments (<xref ref-type="supplementary-material" rid="SM1">Supplementary  Material</xref>). As a result, we obtained physiological Coefficient of Variation of Inter-Spike Intervals (CV<sub>ISI</sub>) and average firing frequency (<italic>f</italic><sub><italic>tonic</italic></sub>) observed <italic>in vivo</italic> (<xref ref-type="bibr" rid="B74">Ten Brinke et al., 2017</xref>; <xref ref-type="bibr" rid="B5">Boele et al., 2018</xref>). Specifically, PCs showed <italic>f</italic><sub><italic>tonic</italic></sub> = 85 Hz and CV<sub>ISI</sub> = 0.2, and DCNp, <italic>f</italic><sub><italic>tonic</italic></sub> = 65 Hz and CV<sub>ISI</sub> = 0.2.</p>
+<p>Then, the same reconstructed circuit was populated by basic LIF neurons (LIF-SNN). The passive membrane parameters were set equal for EGLIF and LIF neurons, specific for each neuron type (<xref ref-type="supplementary-material" rid="SM1">Supplementary Material</xref>). The intrinsic current generating spontaneous firing was tuned in the LIF neurons using trial and error, to obtain the same desired autorhythm rates.</p>
+<p>Synaptic transmission was regulated by alpha-shaped conductance-based synapses, where reversal potentials were set to 0 mV for all excitatory synapses and −80 mV for inhibitory synapses (<xref ref-type="bibr" rid="B8">Cavallari et al., 2014</xref>). Multiple synapses on the same post-synaptic neuron were introduced in order to modulate the impact of different pre-synaptic populations, by using <italic>ad hoc</italic> synaptic parameters. The time constants of the conductance functions (τ<sub>α</sub>) and the synaptic delays were defined based on scaffold values (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>) and literature data (<xref ref-type="table" rid="T2">Table 2</xref>). Synaptic weights were set through trial and error in order to generate reference firing rates of each neural population, during baseline state of the network, i.e., without external stimuli. In setting those synaptic weights, qualitative and comparative information were taken as constraints, e.g., the robust connections from IOs to PCs through CFs, and the stronger effect of GrCs on the post-synaptic neuron when the connection is through AAs than through PFs (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>). Since the non-synaptic “spill-over” interaction between CFs and MLIs (<xref ref-type="bibr" rid="B72">Szapiro and Barbour, 2007</xref>; <xref ref-type="bibr" rid="B42">Jörntell et al., 2010</xref>), delay values of CF-MLI connections were set not all equal, but randomly chosen within a normal distribution to represent the slow and gradual neurotransmitter release. Short 1 ms delays (corresponding to the simulation resolution) were used in the interneuron inhibitory subnetworks (GoCs-GoCs and MLIs-MLIs) to mimic gap junctions (<xref ref-type="bibr" rid="B31">Hahne et al., 2015</xref>). The same synaptic delays and weights were used in both EGLIF-SNN and LIF-SNN, to ensure that the response differences between the two models could be ascribed unequivocally to different single neuron dynamics.</p>
+</sec>
+<sec id="S2.SS2">
+<title>Network Stimulation Protocol and Data Analysis</title>
+<p>The reconstructed olivocerebellar network with optimized cell-specific neuron models (<xref ref-type="bibr" rid="B28">Geminiani et al., 2019</xref>) was then simulated in PyNEST (<xref ref-type="bibr" rid="B21">Diesmann and Gewaltig, 2002</xref>; <xref ref-type="bibr" rid="B23">Eppler et al., 2009</xref>). The emergent spatio-temporal dynamics was analyzed, such as the responses of all neuron populations to sensory signals involving different input pathways. To understand the impact of single neuron dynamics in emerging properties at network and signal encoding level, the same simulation protocols were applied in the two network models, EGLIF-SNN and LIF-SNN.</p>
+<p>The chosen input signals mimic those used in EyeBlink classical conditioning (EBCC), a well-known cerebellum-driven task, commonly used to investigate cerebellar learning and the underlying circuit mechanisms (<xref ref-type="bibr" rid="B40">Jirenhed et al., 2007</xref>). Recruiting different sensory pathways, the input signals during EBCC are usually a continuous light signal (a LED) and a time-locked short air puff stimulation on the eye. On the other hand, the motor response is an eye closure. Our model focused on the beginning of this task, when timing associative learning has not occurred yet, and only the second stimulus is supposed to generate an attention-triggered motor response. Within our SNN, the light stimulus was encoded as a 40 Hz Poisson process conveyed through a wide MF bundle investing both microcomplexes. Moreover, transversal PF projections from the Granular layer and MF collaterals to DCN cells allow the signals to travel across adjacent microcomplexes (<xref ref-type="bibr" rid="B43">Kalmbach et al., 2010</xref>). The air puff was a 500 Hz burst conveyed to CFs belonging specifically to one microcomplex (<xref ref-type="bibr" rid="B73">Ten Brinke et al., 2015</xref>, <xref ref-type="bibr" rid="B74">2017</xref>). The output motor response was decoded from the net spiking activity of DCNp neurons.</p>
+<p>The network testing protocol included a first 1-s baseline phase with a 4 Hz Poisson process to MFs. This baseline input simulated the typical <italic>in vivo</italic> background noise (<xref ref-type="bibr" rid="B63">Rancz et al., 2007</xref>). Afterward, a 40-Hz MF spike train (associated to LED light) started, lasting 260 ms. It co-terminated with the 500-Hz CF burst (associated to air puff) which lasted 10 ms. A final 500-ms phase was added after this stimulation pair, to evaluate the capability of the network to return to baseline rest condition (<xref ref-type="bibr" rid="B73">Ten Brinke et al., 2015</xref>, <xref ref-type="bibr" rid="B74">2017</xref>).</p>
+<p>The input spike train activated a MF bundle in the scaffold network, specifically a cylinder with a basis radius of 150 μm at the center of the transversal <italic>x</italic>–<italic>z</italic> plane, and a height of 150 μm thus including the whole granular layer thickness. This activation pattern was chosen based on the experimental observation that cerebellar activation is region specific and topographically organized, with MFs activating in bundles eliciting local responses (<xref ref-type="bibr" rid="B57">Morissette and Bower, 1996</xref>; <xref ref-type="bibr" rid="B22">Diwakar et al., 2011</xref>). In addition, this pattern allowed to avoid edge effects due to truncated connectivity close to the borders. As a result, about 80% of glomeruli received the afferent input.</p>
+<p>To avoid unnatural synchronization of populations’ initial spikes, the membrane potential of each neuron was initialized to a random value between the population-specific resting potential and threshold potential, in both EGLIF-SNN and LIF-SNN.</p>
+<p>Raster plots of example neurons were used to visualize single neuron responses, while the network activity was represented as PeriStimulus time histograms (PSTH) with time bin = 5 ms, for each neural population at rest and during the imposed stimulation patterns.</p>
+<p>PC and DCNp populations represented the convergence stages of both input stimuli pathways. Therefore, the instantaneous firing rates of PC and DCNp neurons in the first microcomplex (the one receiving both MF input and CF burst) were computed as the convolution between the neuron spiking patterns and a gaussian sliding window of 5 ms and 10 ms, respectively (<xref ref-type="bibr" rid="B18">Dayan and Abbott, 2001</xref>). To evaluate the difference in the responses between EGLIF-SNN and LIF-SNN, for each PC and DCNp neuron, we measured the activity change – response <italic>speed</italic> – following the second stimulus (i.e., CF burst):</p>
+<disp-formula id="S2.Ex3">
+<mml:math id="M4">
+<mml:mrow>
+<mml:mrow>
+<mml:mrow>
+<mml:mi>s</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>p</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>e</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>e</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mpadded width="+2.8pt">
+<mml:msub>
+<mml:mi>d</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+</mml:mpadded>
+</mml:mrow>
+<mml:mo rspace="5.3pt">=</mml:mo>
+<mml:mrow>
+<mml:mfrac>
+<mml:mrow>
+<mml:mrow>
+<mml:mi>m</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>a</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>x</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi mathvariant="normal">_</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>r</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>a</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>t</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mpadded width="+2.8pt">
+<mml:msub>
+<mml:mi>e</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+</mml:mpadded>
+</mml:mrow>
+<mml:mo rspace="5.3pt">-</mml:mo>
+<mml:mrow>
+<mml:mi>m</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>n</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi mathvariant="normal">_</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>r</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>a</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>t</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:msub>
+<mml:mi>e</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+</mml:mrow>
+</mml:mrow>
+<mml:mrow>
+<mml:mi mathvariant="normal">Δ</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>t</mml:mi>
+</mml:mrow>
+</mml:mfrac>
+<mml:mo mathvariant="italic" separator="true">    </mml:mo>
+<mml:mrow>
+<mml:mi>f</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>o</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mpadded width="+3.3pt">
+<mml:mi>r</mml:mi>
+</mml:mpadded>
+<mml:mo>⁢</mml:mo>
+<mml:mi>e</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>a</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>c</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mpadded width="+3.3pt">
+<mml:mi>h</mml:mi>
+</mml:mpadded>
+<mml:mo>⁢</mml:mo>
+<mml:mi>n</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>e</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>u</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>r</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>o</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mpadded width="+3.3pt">
+<mml:mi>n</mml:mi>
+</mml:mpadded>
+<mml:mo>⁢</mml:mo>
+<mml:mi>i</mml:mi>
+</mml:mrow>
+</mml:mrow>
+</mml:mrow>
+<mml:mo>,</mml:mo>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<p>being <inline-formula><mml:math id="INEQ7"><mml:mrow><mml:mi>m</mml:mi><mml:mo>⁢</mml:mo><mml:mi>a</mml:mi><mml:mo>⁢</mml:mo><mml:mi>x</mml:mi><mml:mo>⁢</mml:mo><mml:mi mathvariant="normal">_</mml:mi><mml:mo>⁢</mml:mo><mml:mi>r</mml:mi><mml:mo>⁢</mml:mo><mml:mi>a</mml:mi><mml:mo>⁢</mml:mo><mml:mi>t</mml:mi><mml:mo>⁢</mml:mo><mml:msub><mml:mi>e</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> and <italic>m</italic><italic>i</italic><italic>n</italic>_<italic>r</italic><italic>a</italic><italic>t</italic><italic>e</italic><sub><italic>i</italic></sub>, the maximum and minimum firing rate of the <italic>i-th</italic> neuron within the 100-ms interval starting 5 ms after the CF burst onset, and Δ<italic>t</italic> the time interval between them.</p>
+<p>Finally, the resulting motor response was computed from DCNp activity: the spiking pattern of each microcomplex was first decoded using an update and decay rule (update constant: 1.0; decay time constant: 10 ms) and then filtered with a moving average filter using a 50-sample window. The final eyeblink response was computed from the net decoded activity of both microcomplexes.</p>
+</sec>
+</sec>
+<sec id="S3">
+<title>Results</title>
+<p>The olivocerebellar SNN was organized into two cortical <italic>microzones</italic>, distinguished by their connections from CFs while sharing information from the granular layer (<xref ref-type="bibr" rid="B77">Voogd and Glickstein, 1998</xref>). The two microzones, differentially connected to DCN and IO, formed two distinct <italic>microcomplexes</italic> (<xref ref-type="bibr" rid="B38">Ito, 1984</xref>; <xref ref-type="fig" rid="F1">Figure 1</xref>). The olivocerebellar SNN was able to encode different inputs into output spike patterns. We have analyzed in detail the response to spike trains imitating EBCC-like sensory inputs. The comparison between the EGLIF-SNN and LIF-SNN allowed to identify the contribution of non-linear single neuron properties to ensemble network dynamics.</p>
+<p>The basal activity of cerebellar neurons and their response to MF and CF inputs is illustrated in <xref ref-type="fig" rid="F2">Figures 2</xref>–<xref ref-type="fig" rid="F7">7</xref>. In both EGLIF-SNN and LIF-SNN models, during baseline MF activation with random noise at 4 Hz (<xref ref-type="bibr" rid="B63">Rancz et al., 2007</xref>), the GrCs were driven into low frequency firing, and the GoC, MLI, PC and DCN neurons slightly increased their firing rate compared to intrinsic pacemaking (<xref ref-type="bibr" rid="B28">Geminiani et al., 2019</xref>).</p>
+<fig id="F2" position="float">
+<label>FIGURE 2</label>
+<caption>
+<p>Raster plots of three examplar GrC and GoC neurons from EGLIF SNN <bold>(A)</bold> and LIF-SNN <bold>(B)</bold> simulations. The stimulation paradigm (MF input) is indicated.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g002"></graphic>
+</fig>
+<fig id="F3" position="float">
+<label>FIGURE 3</label>
+<caption>
+<p>PSTH of all Granular layer neurons in EGLIF-SNN <bold>(A)</bold> and LIF-SNN <bold>(B)</bold>. In both cases, stimulation of a MF bundle common to both microcomplexes (top panel) causes the mean firing rate of granule cells and Golgi cells to increase. Note the similar patterns of neuronal activity in the two networks. The absolute values of firing rates are within physiological ranges <italic>in vivo</italic>. Each PSTH bin is 5 ms long.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g003"></graphic>
+</fig>
+<fig id="F4" position="float">
+<label>FIGURE 4</label>
+<caption>
+<p>Raster plots of three example IO, MLI, PC, DCNp and DCNi neurons in the first microcomplex, from EGLIF-SNN <bold>(A)</bold> and LIF-SNN <bold>(B)</bold> simulations. The stimulation paradigm (MF input and CF burst) is indicated.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g004"></graphic>
+</fig>
+<fig id="F5" position="float">
+<label>FIGURE 5</label>
+<caption>
+<p>PSTH of IO, MLI, PC and DCN neurons in microcomplex (1) in EGLIF-SNN <bold>(A)</bold> and LIF-SNN <bold>(B).</bold> The first stimulus (MF input) increases the firing rate in MLI, PC and DCNp neurons during the 260 ms interval, while DCNi cells that do not receive MF inputs, get inhibited by the increased PC firing. The air puff is encoded as a burst from CFs. MLIs receive the CF stimulus through the IO pathway causing a delayed protracted increase in firing rate about 70 ms after the stimulus, due to neurotransmitter spillover from CFs. At PC level, CF stimulation results in a complex spike (burst-pause, black arrow) causing a pause-burst in DCN neurons (white arrow). Note that these dynamic behaviors are observed only in the EGLIF-SNN due to the complex intrinsic dynamics of EGLIF neuron models. In LIF-SNN, the PC burst caused by CF input is not followed by the pause, while in DCNp neurons the pause due to PC complex spike inhibition is followed by a synchronous restart of firing (causing the increased instantaneous frequency) without any rebound burst. Note that the lower irregularity of firing in LIF-SNN simulations resulted in apparent higher firing rates, due to non-physiological synchronization of population spikes. Each PSTH bin is 5 ms long.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g005"></graphic>
+</fig>
+<fig id="F6" position="float">
+<label>FIGURE 6</label>
+<caption>
+<p>Raster plots of three example MLI, PC, DCNp and DCNi neurons in the second microcomplex, from EGLIF-SNN <bold>(A)</bold> and LIF-SNN <bold>(B)</bold> simulations. The stimulation paradigm (MF input) is indicated.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g006"></graphic>
+</fig>
+<fig id="F7" position="float">
+<label>FIGURE 7</label>
+<caption>
+<p>PSTH of MLI, PC and DCN neurons inmicrocomplex (2) in EGLIF-SNN <bold>(A)</bold> and LIF-SNN <bold>(B).</bold> The stimulus causes an increased firing rate in MLIs and PCs. In the nuclear layers, DCNp neurons receive both a higher excitation from MFs and an increased inhibition from PCs due to the stimulus, resulting in a net non-significant change of their firing rate. Conversely, DCNp neurons get silenced by the PCs during the stimulation, as they do not receive MF excitation. Each PSTH bin is 5 ms long.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g007"></graphic>
+</fig>
+<p>The activity of EGLIF-SNN and LIF-SNN changed during stimulation of the MFs (260 ms at 40 Hz on a MFs bundle, see section “Materials and Methods”) and when a burst was generated in CFs coming from the IO (10 ms at 500 Hz on one microcomplex, see section “Materials and Methods”). At the onset of stimulation, when only MFs were active, the firing rates for all neural populations of the cortical microzones increased with average frequency values within the physiological range. In particular, an increase of about 10 Hz in PC firing rate with respect to 85 Hz baseline emerged, consistent with experimental observations showing that PC activity is largely sustained by pacemaking (<xref ref-type="bibr" rid="B9">Cerminara and Rawson, 2004</xref>). The responses of DCN neurons demonstrated a reduction in DCNi, which received only inhibition from PCs, and almost no change in DCNp, which received balanced excitation from MFs and inhibition from PCs, revealing the regulatory power of the system on the cerebellar output. On the other hand, when also the CF burst was injected, complex dynamic spiking patterns were elicited, differentiated in the two microcomplexes; and here the superiority of EGLIF-SNN with respect to LIF-SNN to simulate non-linear responses emerged.</p>
+<sec id="S3.SS1">
+<title>Granular Layer</title>
+<p>Both in EGLIF-SNN and LIF-SNN, the GrCs showed a background low-frequency sparse activation that increased and then recovered to baseline without apparent rebounds. The GoCs also increased firing frequency during the MF stimulus, and then showed a rapid reduction at its end lasting about 30 ms. This was due to slow recovery of the pacemaker cycle reflecting a phase-reset mechanism (<xref ref-type="bibr" rid="B71">Solinas et al., 2007</xref>; <xref ref-type="bibr" rid="B27">Geminiani et al., 2018b</xref>). The GrCs did not show a corresponding remarkable rebound in their firing rate, probably because of the prolonged effect of GoC-GrC synaptic inhibition, which lasts for about 50 ms (<xref ref-type="bibr" rid="B3">Bengtsson et al., 2013</xref>).</p>
+</sec>
+<sec id="S3.SS2">
+<title>Molecular Layer, PC, and DCN – Microcomplex 1</title>
+<p>The activation of IO neurons connected to microcomplex 1 caused a characteristic spiking pattern. In the EGLIF-SNN, the IO input burst induced a typical response in connected PCs, consisting of synchronous complex spikes followed by a pause (<italic>burst-pause</italic>). Each complex spike included a first burst approximating dendritic spikelets, induced by the 10-ms IO input, and a subsequent pause/hyperpolarization, resulting from intrinsic neuron model mechanisms (<xref ref-type="bibr" rid="B19">De Zeeuw et al., 2011</xref>; <xref ref-type="bibr" rid="B28">Geminiani et al., 2019</xref>). After the burst-pause response, firing recovered but a second firing decrease occurred, caused by spillover-mediated inhibition from MLIs (about 70 ms after the IO burst onset). The PC complex spikes triggered by the IO silenced DCNp neurons (pause), which, after the hyperpolarization, generated a rebound burst. The DCNp <italic>pause-burst</italic> response matches neurophysiological observations (<xref ref-type="bibr" rid="B62">Pugh and Raman, 2006</xref>; <xref ref-type="bibr" rid="B81">Zheng and Raman, 2010</xref>). DCNi received only PC and IO inputs but not MF excitation, they generated a rebound spike after the strong inhibition from PC complex spikes. In the LIF-SNN, the burst-pause regime of PCs and pause-burst regime of DCN cells did not emerge.</p>
+</sec>
+<sec id="S3.SS3">
+<title>Molecular Layer, PC, and DCN – Microcomplex 2</title>
+<p>Neurons belonging to microcomplex 2 received only the MF stimulus causing a net increase of firing rates in MLI, PC and DCNp neurons, and a pause in DCNi cells not receiving MF excitation.</p>
+<p>For PC and DCNp in the microcomplex 1, where PF and CF stimuli converged, the average firing rate response was sharper in the EGLIF-SNN (<xref ref-type="fig" rid="F8">Figure 8A</xref>), impacting on the timing precision of the network output. Indeed, the dynamic modulation of spike patterns observed using EGLIF could not be reproduced with LIF network models, since the simplified dynamics of single neurons prevented from generating bursting, pause and rebound responses. Consequently, the response <italic>speed</italic> was significantly higher in PC and DCNp neural populations within EGLIF-SNN (PC <italic>speed</italic>: −23.82 ± 1.96 Hz/ms in EGLIF-SNN vs. −2.25 ± 0.91 Hz/ms in LIF-SNN, <italic>t</italic>-test: <italic>p</italic> &lt; 0.01; DCNp <italic>speed</italic>: 1.72 ± 0.83 Hz/ms in EGLIF-SNN vs. 1 ± 0.06 Hz/ms in LIF-SNN, <italic>t</italic>-test: <italic>p</italic> &lt; 0.01).</p>
+<fig id="F8" position="float">
+<label>FIGURE 8</label>
+<caption>
+<p><bold>(A)</bold> Mean instantaneous population firing rate of PC and DCNp neurons from microcomplex (1), averaging all neurons (35 PC and 6 DCNp) and all simulations (<italic>n</italic> = 5), comparing EGLIF-SNN (continuous line) and LIF-SNN (dashed line). The presence of burst-pause and pause-burst responses in EGLIF PC and DCNp neuronal populations, results in a faster and more precise change of the overall population activity (more sensitivity). <bold>(B)</bold> Eyeblink response signal averaged over the five simulations; the DCNp activity of microcomplexes (1) and (2) is first decoded and then the net signal of both microcomplexes is computed to obtain the final response. As a result of the underlying neural mechanisms, the motor response is faster and sharper in the EGLIF-SNN simulations. The orange bar represents the time of the CF bursting input.</p>
+</caption>
+<graphic xlink:href="fncom-13-00068-g008"></graphic>
+</fig>
+<p>As a result, the eyeblink response computed from the net decoded activity of DCNp neurons was faster and sharper in the EGLIF-SNN simulations (<xref ref-type="fig" rid="F8">Figure 8B</xref>).</p>
+</sec>
+</sec>
+<sec id="S4">
+<title>Discussion</title>
+<p>The main observation in this study is that neuron models with realistic non-linear properties EGLIF (<xref ref-type="bibr" rid="B27">Geminiani et al., 2018b</xref>, <xref ref-type="bibr" rid="B28">2019</xref>), once embedded into networks with realistic geometry and connectivity (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>), have a significant impact on ensemble response dynamics compared to simpler models (LIF). The effectiveness of EGLIF emerged as a pattern of burst-pause and pause-burst responses in PC and DCNp neurons reproducing observations <italic>in vivo</italic> (<xref ref-type="bibr" rid="B36">Herzfeld et al., 2015</xref>; <xref ref-type="bibr" rid="B58">Moscato et al., 2019</xref>) and was most evident when the microcomplex received the CF stimuli. Since we used stimulus patterns emulating those occurring in the eye-blink reflex, it is anticipated that single neuron properties will reverberate on sensorimotor control in closed-loop.</p>
+<sec id="S4.SS1">
+<title>Single Neuron Activity and SNN Responses to Stimuli</title>
+<p>In EGLIF-SNN simulations, the integration of bursts on the CFs and spike trains on PFs proved fundamental for generating a realistic PC output. These stimuli caused PCs to shift from spontaneous background activity to complex spikes and simple spike trains taking the form of a burst-pause response. The burst-pause was the consequence of intrinsic PC non-linear electroresponsive dynamics engaged by patterned synaptic inputs from PFs, MLIs, and IO (<xref ref-type="bibr" rid="B41">Jirenhed et al., 2013</xref>). Always in EGLIF-SNN simulations, DCNp neurons showed pause-burst responses deriving from intrinsic DCNp neuron electroresponsiveness engaged by synaptic inputs from PCs, MF and CF collaterals (<xref ref-type="bibr" rid="B36">Herzfeld et al., 2015</xref>; <xref ref-type="bibr" rid="B58">Moscato et al., 2019</xref>). Indeed, these spiking patterns proved to have a crucial impact on response speed and time precision (<xref ref-type="fig" rid="F8">Figure 8</xref>) providing a potential advantage for cerebellum-driven tasks, in which the cerebellum acts as a millisecond-precise controller (<xref ref-type="bibr" rid="B2">Bareš et al., 2019</xref>; <xref ref-type="bibr" rid="B34">Heck et al., 2013</xref>). The intrinsic bursting properties of the EGLIF model, already proved in simulations of single neuron responses to current steps (<xref ref-type="bibr" rid="B28">Geminiani et al., 2019</xref>), here proved fundamental to capture emergent network dynamics. It should be noted that, in LIF-SNN simulations, burst-pause and pause-burst responses did not emerge. These results therefore support the adequacy of EGLIF neurons for realistic simulations of cerebellar SNNs in closed-loop.</p>
+<p>The impact of EGLIF neurons on oscillatory network dynamics, that are expected to emerge from feedback circuit loops in the granular layer (<xref ref-type="bibr" rid="B16">D’Angelo et al., 2013</xref>; <xref ref-type="bibr" rid="B51">Maex and De Schutter, 2013</xref>), remains to be investigated. Indeed, the intrinsic membrane potential oscillations of EGLIF in single neuron stimulation protocols could impact on network oscillations, and should be further investigated (<xref ref-type="bibr" rid="B28">Geminiani et al., 2019</xref>). An open question is also how the EGLIF representation compromises with non-linear dendritic processing in PCs, in which the excitatory post-synaptic potentials are locally amplified by Calcium spikes and integrated into complex spatio-temporal sequences (<xref ref-type="bibr" rid="B55">Masoli et al., 2015</xref>; <xref ref-type="bibr" rid="B54">Masoli and D’Angelo, 2017</xref>). A similar case applies to DCN cells too, in which the inhibitory post-synaptic potentials set up non-linear interactions with low-threshold calcium spikes (<xref ref-type="bibr" rid="B70">Si Feng et al., 2013</xref>). These aspects need to be further investigated by comparison with detailed multicompartmental neuron models.</p>
+</sec>
+<sec id="S4.SS2">
+<title>Neuronal Wiring and Synaptic Transmission in the SNN</title>
+<p>The importance of geometry and connectivity was recently addressed using LIF neurons in a scaffold cerebellar network (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>). Here the network has been upgraded with EGLIF neurons and extended to include the IO-DCN sub-circuit to form two different microcomplexes, demonstrating additional network properties. In the current configuration, as said, the network generated spiking patterns similar to those observed <italic>in vivo</italic>. A critical issue in this context is the definition of synaptic models (<xref ref-type="bibr" rid="B8">Cavallari et al., 2014</xref>). Here we have chosen conductance-based synaptic models implemented with alpha functions, which accounted in an accurate yet simplified form for neurotransmission kinetics (<xref ref-type="table" rid="T2">Table 2</xref>). A future improvement could be to define conductance changes using specific NMDA, AMPA and GABA kinetics in each neuron type [e.g., see (<xref ref-type="bibr" rid="B78">Wu and Raman, 2017</xref>)]. In addition, the more precise spiking patterns of the EGLIF-SNN make this network a better candidate also to investigate short-term plasticity mechanisms. For example, it could be possible to evaluate whether short-term facilitation can further enhance the time precision of the response, amplifying bursting mechanism. In addition, EGLIF-SNN simulations with short-term plasticity could allow to clarify how single neuron and synaptic dynamics interact to generate proper network dynamics.</p>
+<p>Finally, phenomena like neurotransmitter spillover and electrical transmission through gap-junctions were approximated here by tuning delay parameters, but could be better reproduced by customized models (<xref ref-type="bibr" rid="B45">Latorre et al., 2013</xref>). In GoC and IO neuronal populations, more realistic gap junctions would allow, for instance, to investigate more in detail circuit oscillation properties (<xref ref-type="bibr" rid="B47">Leznik and Llinás, 2005</xref>).</p>
+</sec>
+<sec id="S4.SS3">
+<title>Implications for Eyeblink Conditioning and Other Cerebellum-Driven Paradigms</title>
+<p>The stimulation patterns used here mimicked the typical input signals that are used in EBCC tasks including a prolonged and spatially distributed sensory stimulus (CS, light) and a short attentional signal [Unconditioned Stimulus (US), air puff]. The current study focused on the response before learning: CS excited the granular layer across microzones, consistent with the operation of signal analysis (through recombinatorial expansion) carried out by the granular layer (<xref ref-type="bibr" rid="B16">D’Angelo et al., 2013</xref>; <xref ref-type="bibr" rid="B30">Gilmer and Person, 2017</xref>). The granular layer output was then synthesized and further processed in the PC layer (<xref ref-type="bibr" rid="B20">Dean and Porrill, 2011</xref>). US influenced individual microcomplexes through specific IO projections, segregating the attention (or error) signal within the network. These modular activation patterns represent the most elementary instantiation of cerebellar functioning, i.e., the ability to correlate neural signals transmitted along different afferent pathways, the MFs and CFs. These signals, in a behavioral context, are needed to allow the cerebellum <italic>to learn to predict the precise timing of correlated events</italic>, setting the basis for cerebellar contribution to motor and cognitive control (<xref ref-type="bibr" rid="B39">Ivry, 2000</xref>; <xref ref-type="bibr" rid="B14">D’Angelo and Casali, 2013</xref>). It seems therefore highly relevant that the emerging burst-pause and pause-burst responses in PC and DCNp neurons are precisely reproduced using EGLIF-SNN. These activity patterns will be critical for generating the proper time-locked response in future simulations of EBCC (<xref ref-type="bibr" rid="B64">Rasmussen et al., 2008</xref>). This will require to endow the current SNN model with distributed long-term plasticity to simulate learning mechanisms (<xref ref-type="bibr" rid="B1">Antonietti et al., 2016</xref>). While the current work evaluated the impact of non-linear single neuron dynamics and network topology on stimulus-response spiking patterns, closed-loop simulations of a full cerebellum-driven learning task with the EGLIF-SNN will allow to evaluate the impact of long-term plasticity, mainly spike-timing dependent plasticity mechanisms, driven by IO and PC spikes.</p>
+<p>As a result of modularity and specific connectivity to various brain regions, different cerebellar modules are engaged in different tasks (<xref ref-type="bibr" rid="B14">D’Angelo and Casali, 2013</xref>). The modules receive various kinds of input signals, which carry information about specific sensory modalities or specific body parts as well as about activity in motor and associative cortical areas. The modules can differ not only in terms of sources and pathways of the incoming signals, but also in terms of specific electroresponsive properties of neurons. For example, differences in the autorhythm of PCs were observed between regions involved in EBCC and vestibulo-ocular reflexes (<xref ref-type="bibr" rid="B82">Zhou et al., 2014</xref>). Similarly, a modulation of oscillatory properties emerge in the IO neural population when encoding either somatosensory or visual stimuli (<xref ref-type="bibr" rid="B49">Llinás, 2014</xref>). The possibility to easily modify neuron models and connectivity in our olivocerebellar EGLIF-SNN would allow to fine tune specific features associated to sensorimotor loops and functional cerebellar regions (<xref ref-type="bibr" rid="B7">Casellato et al., 2014</xref>; <xref ref-type="bibr" rid="B29">Geminiani et al., 2017</xref>; <xref ref-type="bibr" rid="B50">Luque et al., 2019</xref>).</p>
+<p>According to the modular organization of the cerebellum, these microcomplexes could be multiplied and reconnected to investigate how input signals are integrated and elaborated to control complex movements, for example in whisking and locomotion (<xref ref-type="bibr" rid="B65">Romano et al., 2018</xref>). Scaling-up the network modular architecture would require to re-organize connectivity among microcomplexes, which can determine fundamental properties of cerebellar functioning, such as somatotopic organization, fractured somatotopy mapping and multimodal sensory fusion.</p>
+</sec>
+</sec>
+<sec id="S5">
+<title>Conclusion</title>
+<p>Since the model satisfactorily captures fundamental properties of microcomplexes, it can help shedding light on the links between structure, function and dynamics in the cerebellum under physiological and pathological conditions and during learning (<xref ref-type="bibr" rid="B15">D’Angelo and Gandini Wheeler-Kingshott, 2017</xref>). These extended applications are warranted by the flexible structure of the scaffold (<xref ref-type="bibr" rid="B6">Casali et al., 2019</xref>) and the tunable nature of EGLIF neurons (<xref ref-type="bibr" rid="B27">Geminiani et al., 2018b</xref>, <xref ref-type="bibr" rid="B28">2019</xref>). For example, in different species or in pathological conditions, EGLIF-SNN could account for variations in the number of neurons as well as in their connectivity and intrinsic electroresponsiveness, while maintaining high efficiency when running large-scale simulations in closed-loop. Future work will endow the EGLIF-SNN cerebellum models with mechanisms for synaptic plasticity in order to evaluate the impact of single neuron and network properties on motor learning (<xref ref-type="bibr" rid="B32">Hansel et al., 2001</xref>; <xref ref-type="bibr" rid="B68">Schonewille et al., 2010</xref>; <xref ref-type="bibr" rid="B25">Gao et al., 2012</xref>; <xref ref-type="bibr" rid="B10">D’Angelo, 2014</xref>; <xref ref-type="bibr" rid="B5">Boele et al., 2018</xref>). Eventually, the model may be exploited to mimic pathological conditions at multiple scales (<xref ref-type="bibr" rid="B26">Geminiani et al., 2018a</xref>) providing new insights into the role of cerebellum in brain diseases (<xref ref-type="bibr" rid="B14">D’Angelo and Casali, 2013</xref>; <xref ref-type="bibr" rid="B12">D’Angelo, 2019</xref>; <xref ref-type="bibr" rid="B67">Schmahmann, 2019</xref>). It is also envisaged that the EGLIF scaffold strategy could be customized to model and simulate other brain regions (like the cerebral cortex, hippocampus or basal ganglia).</p>
+</sec>
+<sec id="S6" sec-type="data-availability">
+<title>Data Availability Statement</title>
+<p>All datasets generated for this study are included in the manuscript/<xref ref-type="supplementary-material" rid="SM1">Supplementary Files</xref>.</p>
+</sec>
+<sec id="S7">
+<title>Author Contributions</title>
+<p>AG and CC designed and carried out the simulations, performed data analysis and wrote the manuscript. AP, ED’A and CC coordinated the whole work and substantially contributed to the writing of the final manuscript.</p>
+</sec>
+<sec id="conf1">
+<title>Conflict of Interest</title>
+<p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank Cristiano Padrin from CINECA for his technical support.</p>
+</ack>
+<sec id="S8">
+<title>Funding</title>
+<p>This work has been developed within the <italic>CerebNEST</italic> HBP Partnering Project and has received funding from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under Grant Agreement No. 785907 (Human Brain Project SGA2). Supercomputing resources were provided by the Italian Supercomputing Center CINECA, within the ISCRA C(IsC67) project HP10CK7QLR (NEST-EBC).</p>
+</sec>
+<sec id="S10" sec-type="supplementary material">
+<title>Supplementary Material</title>
+<p>The Supplementary Material for this article can be found online at: <ext-link ext-link-type="uri" xlink:href="https://www.frontiersin.org/articles/10.3389/fncom.2019.00068/full#supplementary-material">https://www.frontiersin.org/articles/10.3389/fncom.2019.00068/full#supplementary-material</ext-link></p>
+<supplementary-material content-type="local-data" id="SM1">
+<media xlink:href="Table_1.docx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+<ref-list>
+<title>References</title>
+<ref id="B1">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Antonietti</surname><given-names>A.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>Angelo</surname><given-names>E. D.</given-names></name><name><surname>Pedrocchi</surname><given-names>A.</given-names></name></person-group> (<year>2016</year>). <article-title>Model-driven analysis of eyeblink classical conditioning reveals the underlying structure of cerebellar plasticity and neuronal activity.</article-title>
+<source/><italic>IEEE Trans. Neural Networks Learn. Syst.</italic>
+<volume>28</volume>
+<fpage>2748</fpage>–<lpage>2762</lpage>. <pub-id pub-id-type="doi">10.1109/TNNLS.2016.2598190</pub-id>
+<pub-id pub-id-type="pmid">27608482</pub-id></mixed-citation>
+</ref>
+<ref id="B2">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bareš</surname><given-names>M.</given-names></name><name><surname>Apps</surname><given-names>R.</given-names></name><name><surname>Avanzino</surname><given-names>L.</given-names></name><name><surname>Breska</surname><given-names>A.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Filip</surname><given-names>P.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Consensus paper: decoding the contributions of the cerebellum as a time machine. From neurons to clinical applications.</article-title>
+<source/><italic>Cerebellum</italic>
+<volume>18</volume>
+<fpage>266</fpage>–<lpage>286</lpage>. <pub-id pub-id-type="doi">10.1007/s12311-018-0979-5</pub-id>
+<pub-id pub-id-type="pmid">30259343</pub-id></mixed-citation>
+</ref>
+<ref id="B3">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bengtsson</surname><given-names>F.</given-names></name><name><surname>Geborek</surname><given-names>P.</given-names></name><name><surname>Jörntell</surname><given-names>H.</given-names></name></person-group> (<year>2013</year>). <article-title>Cross-correlations between pairs of neurons in cerebellar cortex in vivo.</article-title>
+<source/><italic>Neural Netw.</italic>
+<volume>47</volume>
+<fpage>88</fpage>–<lpage>94</lpage>. <pub-id pub-id-type="doi">10.1016/J.NEUNET.2012.11.016</pub-id>
+<pub-id pub-id-type="pmid">23265415</pub-id></mixed-citation>
+</ref>
+<ref id="B4">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Best</surname><given-names>A. R.</given-names></name><name><surname>Regehr</surname><given-names>W. G.</given-names></name></person-group> (<year>2009</year>). <article-title>Inhibitory regulation of electrically coupled neurons in the inferior olive is mediated by asynchronous release of GABA.</article-title>
+<source/><italic>Neuron</italic>
+<volume>62</volume>
+<fpage>555</fpage>–<lpage>565</lpage>. <pub-id pub-id-type="doi">10.1016/j.neuron.2009.04.018</pub-id>
+<pub-id pub-id-type="pmid">19477156</pub-id></mixed-citation>
+</ref>
+<ref id="B5">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Boele</surname><given-names>H.</given-names></name><name><surname>Peter</surname><given-names>S.</given-names></name><name><surname>Brinke</surname><given-names>M. M.</given-names></name><name><surname>Ten Verdonschot</surname><given-names>L.</given-names></name><name><surname>Ijpelaar</surname><given-names>A. C. H.</given-names></name><name><surname>Rizopoulos</surname><given-names>D.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Impact of parallel fiber to Purkinje cell long-term depression is unmasked in absence of inhibitory input.</article-title>
+<source/><italic>Sci. Adv.</italic>
+<volume>4</volume>
+<fpage>1</fpage>–<lpage>8</lpage>. <pub-id pub-id-type="doi">10.1126/sciadv.aas9426</pub-id>
+<pub-id pub-id-type="pmid">30306129</pub-id></mixed-citation>
+</ref>
+<ref id="B6">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Casali</surname><given-names>S.</given-names></name><name><surname>Marenzi</surname><given-names>E.</given-names></name><name><surname>Medini</surname><given-names>C.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2019</year>). <article-title>Reconstruction and simulation of a scaffold model of the cerebellar network.</article-title>
+<source/><italic>Front. Neuroinform.</italic>
+<volume>13</volume>:<issue>37</issue>. <pub-id pub-id-type="doi">10.3389/fninf.2019.00037</pub-id>
+<pub-id pub-id-type="pmid">31156416</pub-id></mixed-citation>
+</ref>
+<ref id="B7">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>Antonietti</surname><given-names>A.</given-names></name><name><surname>Garrido</surname><given-names>J. A.</given-names></name><name><surname>Carrillo</surname><given-names>R. R.</given-names></name><name><surname>Luque</surname><given-names>N. R.</given-names></name><name><surname>Ros</surname><given-names>E.</given-names></name><etal></etal></person-group> (<year>2014</year>). <article-title>Adaptive robotic control driven by a versatile spiking cerebellar network.</article-title>
+<source/><italic>PLoS One</italic>
+<volume>9</volume>:<issue>e0118518</issue>. <pub-id pub-id-type="doi">10.1371/journal.pone.0112265</pub-id>
+<pub-id pub-id-type="pmid">25390365</pub-id></mixed-citation>
+</ref>
+<ref id="B8">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cavallari</surname><given-names>S.</given-names></name><name><surname>Panzeri</surname><given-names>S.</given-names></name><name><surname>Mazzoni</surname><given-names>A.</given-names></name></person-group> (<year>2014</year>). <article-title>Comparison of the dynamics of neural interactions between current-based and conductance-based integrate-and-fire recurrent networks.</article-title>
+<source/><italic>Front. Neural Circuits</italic>
+<volume>8</volume>:<issue>12</issue>. <pub-id pub-id-type="doi">10.3389/fncir.2014.00012</pub-id>
+<pub-id pub-id-type="pmid">24634645</pub-id></mixed-citation>
+</ref>
+<ref id="B9">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cerminara</surname><given-names>N. L.</given-names></name><name><surname>Rawson</surname><given-names>J. A.</given-names></name></person-group> (<year>2004</year>). <article-title>Evidence that climbing fibers control an intrinsic spike generator in cerebellar Purkinje cells.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>24</volume>
+<fpage>4510</fpage>–<lpage>4517</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.4530-03.2004</pub-id>
+<pub-id pub-id-type="pmid">15140921</pub-id></mixed-citation>
+</ref>
+<ref id="B10">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2014</year>). <article-title>The organization of plasticity in the cerebellar cortex: from synapses to control.</article-title>
+<source/><italic>Prog. Brain Res.</italic>
+<volume>210</volume>
+<fpage>31</fpage>–<lpage>58</lpage>. <pub-id pub-id-type="doi">10.1016/B978-0-444-63356-9.00002-9</pub-id>
+<pub-id pub-id-type="pmid">24916288</pub-id></mixed-citation>
+</ref>
+<ref id="B11">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2018</year>). “<article-title>Physiology of the cerebellum</article-title>,” in <source/><italic>The Cerebellum: From Embryology to Diagnostic Investigations</italic>, <role>ed.</role>
+<person-group person-group-type="editor"><name><surname>Plaitakis</surname><given-names>A.</given-names></name></person-group> (<publisher-loc>Boston, MA</publisher-loc>: <publisher-name>Springer</publisher-name>), <fpage>85</fpage>–<lpage>108</lpage>. <pub-id pub-id-type="doi">10.1016/B978-0-444-63956-1.00006-0</pub-id>
+</mixed-citation>
+</ref>
+<ref id="B12">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2019</year>). <article-title>The cerebellum gets social.</article-title>
+<source/><italic>Science.</italic>
+<volume>363</volume>:<issue>229</issue>
+<pub-id pub-id-type="doi">10.1093/cercor/bhy322</pub-id></mixed-citation>
+</ref>
+<ref id="B13">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Antonietti</surname><given-names>A.</given-names></name><name><surname>Casali</surname><given-names>S.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>Garrido</surname><given-names>J. A.</given-names></name><name><surname>Luque</surname><given-names>N. R.</given-names></name><etal></etal></person-group> (<year>2016</year>). <article-title>Modeling the cerebellar microcircuit: new strategies for a long-standing issue.</article-title>
+<source/><italic>Front. Cell. Neurosci.</italic>
+<volume>10</volume>:<issue>176</issue>. <pub-id pub-id-type="doi">10.3389/fncel.2016.00176</pub-id>
+<pub-id pub-id-type="pmid">27458345</pub-id></mixed-citation>
+</ref>
+<ref id="B14">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Casali</surname><given-names>S.</given-names></name></person-group> (<year>2013</year>). <article-title>Seeking a unified framework for cerebellar function and dysfunction: from circuit operations to cognition.</article-title>
+<source/><italic>Front. Neural Circuits</italic>
+<volume>6</volume>:<issue>116</issue>. <pub-id pub-id-type="doi">10.3389/fncir.2012.00116</pub-id>
+<pub-id pub-id-type="pmid">23335884</pub-id></mixed-citation>
+</ref>
+<ref id="B15">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Gandini Wheeler-Kingshott</surname><given-names>C.</given-names></name></person-group> (<year>2017</year>). <article-title>Modelling the brain: elementary components to explain ensemble functions.</article-title>
+<source/><italic>Riv. del nuovo Cim.</italic>
+<volume>40</volume>
+<fpage>273</fpage>–<lpage>333</lpage>. <pub-id pub-id-type="doi">10.1393/ncr/i2017-10137-5</pub-id></mixed-citation>
+</ref>
+<ref id="B16">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Solinas</surname><given-names>S.</given-names></name><name><surname>Mapelli</surname><given-names>J.</given-names></name><name><surname>Gandolfi</surname><given-names>D.</given-names></name><name><surname>Mapelli</surname><given-names>L.</given-names></name><name><surname>Prestori</surname><given-names>F.</given-names></name></person-group> (<year>2013</year>). <article-title>The cerebellar Golgi cell and spatiotemporal organization of granular layer activity.</article-title>
+<source/><italic>Front. Neural Circuits</italic>
+<volume>7</volume>:<issue>93</issue>. <pub-id pub-id-type="doi">10.3389/fncir.2013.00093</pub-id>
+<pub-id pub-id-type="pmid">23730271</pub-id></mixed-citation>
+</ref>
+<ref id="B17">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Davie</surname><given-names>J. T.</given-names></name><name><surname>Clark</surname><given-names>B. A.</given-names></name><name><surname>Häusser</surname><given-names>M.</given-names></name></person-group> (<year>2008</year>). <article-title>The origin of the complex spike in cerebellar Purkinje cells.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>28</volume>
+<fpage>7599</fpage>–<lpage>7609</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.0559-08.2008</pub-id>
+<pub-id pub-id-type="pmid">18650337</pub-id></mixed-citation>
+</ref>
+<ref id="B18">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Dayan</surname><given-names>P.</given-names></name><name><surname>Abbott</surname><given-names>L. F.</given-names></name></person-group> (<year>2001</year>). <source/><italic>Theoretical Neuroscience: Computational and Mathematical Nodeling of Neural Systems.</italic>
+<publisher-loc>Cambridge, MA</publisher-loc>: <publisher-name>Massachusetts Institute of Technology Press</publisher-name>.</mixed-citation>
+</ref>
+<ref id="B19">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>De Zeeuw</surname><given-names>C. I.</given-names></name><name><surname>Hoebeek</surname><given-names>F. E.</given-names></name><name><surname>Bosman</surname><given-names>L. W. J.</given-names></name><name><surname>Schonewille</surname><given-names>M.</given-names></name><name><surname>Witter</surname><given-names>L.</given-names></name><name><surname>Koekkoek</surname><given-names>S. K.</given-names></name></person-group> (<year>2011</year>). <article-title>Spatiotemporal firing patterns in the cerebellum.</article-title>
+<source/><italic>Nat. Rev. Neurosci.</italic>
+<volume>12</volume>
+<fpage>327</fpage>–<lpage>344</lpage>. <pub-id pub-id-type="doi">10.1038/nrn3011</pub-id>
+<pub-id pub-id-type="pmid">21544091</pub-id></mixed-citation>
+</ref>
+<ref id="B20">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dean</surname><given-names>P.</given-names></name><name><surname>Porrill</surname><given-names>J.</given-names></name></person-group> (<year>2011</year>). <article-title>Evaluating the adaptive-filter model of the cerebellum.</article-title>
+<source/><italic>J. Physiol.</italic>
+<volume>589</volume>
+<fpage>3459</fpage>–<lpage>3470</lpage>. <pub-id pub-id-type="doi">10.1113/jphysiol.2010.201574</pub-id>
+<pub-id pub-id-type="pmid">21502289</pub-id></mixed-citation>
+</ref>
+<ref id="B21">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Diesmann</surname><given-names>M.</given-names></name><name><surname>Gewaltig</surname><given-names>M.-O.</given-names></name></person-group> (<year>2002</year>). “<article-title>NEST: an environment for neural systems simulations</article-title>,” in <source/><italic>Forsch. und Wisschenschaftliches Rechn. Beitrage zum Heinz-billing-pr. 2001, GWDG-Bericht</italic>, <role>eds</role>
+<person-group person-group-type="editor"><name><surname>Plesser</surname><given-names>T.</given-names></name><name><surname>Macho</surname><given-names>V.</given-names></name></person-group> (<publisher-loc>Göttingen</publisher-loc>: <publisher-name>Ges. für Wiss. Datenverarbeitung</publisher-name>), <fpage>43</fpage>–<lpage>70</lpage>.</mixed-citation>
+</ref>
+<ref id="B22">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Diwakar</surname><given-names>S.</given-names></name><name><surname>Lombardo</surname><given-names>P.</given-names></name><name><surname>Solinas</surname><given-names>S.</given-names></name><name><surname>Naldi</surname><given-names>G.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2011</year>). <article-title>Local field potential modeling predicts dense activation in cerebellar granule cells clusters under LTP and LTD Control.</article-title>
+<source/><italic>PLoS One</italic>
+<volume>6</volume>:<issue>e21928</issue>. <pub-id pub-id-type="doi">10.1371/journal.pone.0021928</pub-id>
+<pub-id pub-id-type="pmid">21818278</pub-id></mixed-citation>
+</ref>
+<ref id="B23">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Eppler</surname><given-names>J. M.</given-names></name><name><surname>Helias</surname><given-names>M.</given-names></name><name><surname>Muller</surname><given-names>E.</given-names></name><name><surname>Diesmann</surname><given-names>M.</given-names></name><name><surname>Gewaltig</surname><given-names>M.</given-names></name><name><surname>Stewart</surname><given-names>T. C.</given-names></name></person-group> (<year>2009</year>). <article-title>PyNEST?: a convenient interface to the NEST simulator.</article-title>
+<source/><italic>Front. Neuroinform.</italic>
+<volume>2</volume>:<issue>12</issue>. <pub-id pub-id-type="doi">10.3389/neuro.11.012.2008</pub-id>
+<pub-id pub-id-type="pmid">19198667</pub-id></mixed-citation>
+</ref>
+<ref id="B24">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gandolfi</surname><given-names>D.</given-names></name><name><surname>Lombardo</surname><given-names>P.</given-names></name><name><surname>Mapelli</surname><given-names>J.</given-names></name><name><surname>Solinas</surname><given-names>S.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2013</year>). <article-title>Theta-frequency resonance at the cerebellum input stage improves spike timing on the millisecond time-scale.</article-title>
+<source/><italic>Front. Neural Circuits</italic>
+<volume>7</volume>:<issue>64</issue>. <pub-id pub-id-type="doi">10.3389/fncir.2013.00064</pub-id>
+<pub-id pub-id-type="pmid">23596398</pub-id></mixed-citation>
+</ref>
+<ref id="B25">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gao</surname><given-names>Z.</given-names></name><name><surname>van Beugen</surname><given-names>B. J.</given-names></name><name><surname>De Zeeuw</surname><given-names>C. I.</given-names></name></person-group> (<year>2012</year>). <article-title>Distributed synergistic plasticity and cerebellar learning.</article-title>
+<source/><italic>Nat. Rev. Neurosci.</italic>
+<volume>13</volume>
+<fpage>619</fpage>–<lpage>635</lpage>. <pub-id pub-id-type="doi">10.1038/nrn3312</pub-id>
+<pub-id pub-id-type="pmid">22895474</pub-id></mixed-citation>
+</ref>
+<ref id="B26">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Geminiani</surname><given-names>A.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>Antonietti</surname><given-names>A.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Pedrocchi</surname><given-names>A.</given-names></name></person-group> (<year>2018a</year>). <article-title>A multiple-plasticity spiking neural network embedded in a closed-loop control system to model cerebellar pathologies.</article-title>
+<source/><italic>Int. J. Neural Syst.</italic>
+<volume>28</volume>:<issue>1750017</issue>. <pub-id pub-id-type="doi">10.1142/S0129065717500174</pub-id>
+<pub-id pub-id-type="pmid">28264639</pub-id></mixed-citation>
+</ref>
+<ref id="B27">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Geminiani</surname><given-names>A.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>Locatelli</surname><given-names>F.</given-names></name><name><surname>Prestori</surname><given-names>F.</given-names></name><name><surname>Pedrocchi</surname><given-names>A.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2018b</year>). <article-title>Complex dynamics in simplified neuronal models: reproducing Golgi cell electroresponsiveness.</article-title>
+<source/><italic>Front. Neuroinform.</italic>
+<volume>12</volume>:<issue>88</issue>. <pub-id pub-id-type="doi">10.3389/fninf.2018.00088</pub-id>
+<pub-id pub-id-type="pmid">31354465</pub-id></mixed-citation>
+</ref>
+<ref id="B28">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Geminiani</surname><given-names>A.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name><name><surname>D‘Angelo</surname><given-names>E.</given-names></name><name><surname>Pedrocchi</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>). <article-title>Complex electroresponsive dynamics in olivocerebellar neurons represented with extended-generalized leaky integrate and fire models.</article-title>
+<source/><italic>Front. Comput. Neurosci.</italic>
+<volume>13</volume>:<issue>35</issue>. <pub-id pub-id-type="doi">10.3389/FNCOM.2019.00035</pub-id>
+<pub-id pub-id-type="pmid">31244635</pub-id></mixed-citation>
+</ref>
+<ref id="B29">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Geminiani</surname><given-names>A.</given-names></name><name><surname>Pedrocchi</surname><given-names>A.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name><name><surname>Casellato</surname><given-names>C.</given-names></name></person-group> (<year>2017</year>). “<article-title>Spiking cerebellar model with damaged cortical neural population reproduces human ataxic behaviors in perturbed upper limb reaching</article-title>,” in <source/><italic>Proceedings of the 2017 8th International IEEE/EMBS Conference on Neural Engineering (NER)</italic>, (<publisher-loc>Shanghai</publisher-loc>), <pub-id pub-id-type="doi">10.1109/NER.2017.8008396</pub-id></mixed-citation>
+</ref>
+<ref id="B30">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gilmer</surname><given-names>J. I.</given-names></name><name><surname>Person</surname><given-names>A. L.</given-names></name></person-group> (<year>2017</year>). <article-title>Morphological constraints on cerebellar granule cell combinatorial diversity.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>37</volume>
+<fpage>12153</fpage>–<lpage>12166</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.0588-17.2017</pub-id>
+<pub-id pub-id-type="pmid">29118107</pub-id></mixed-citation>
+</ref>
+<ref id="B31">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hahne</surname><given-names>J.</given-names></name><name><surname>Helias</surname><given-names>M.</given-names></name><name><surname>Kunkel</surname><given-names>S.</given-names></name><name><surname>Igarashi</surname><given-names>J.</given-names></name><name><surname>Bolten</surname><given-names>M.</given-names></name><name><surname>Frommer</surname><given-names>A.</given-names></name><etal></etal></person-group> (<year>2015</year>). <article-title>A unified framework for spiking and gap-junction interactions in distributed neuronal network simulations.</article-title>
+<source/><italic>Front. Neuroinform.</italic>
+<volume>9</volume>:<issue>22</issue>. <pub-id pub-id-type="doi">10.3389/fninf.2015.00022</pub-id>
+<pub-id pub-id-type="pmid">26441628</pub-id></mixed-citation>
+</ref>
+<ref id="B32">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hansel</surname><given-names>C.</given-names></name><name><surname>Linden</surname><given-names>D. J.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2001</year>). <article-title>Beyond parallel fiber LTD: the diversity of synaptic and non-synaptic plasticity in the cerebellum.</article-title>
+<source/><italic>Nat. Neurosci.</italic>
+<volume>4</volume>
+<fpage>467</fpage>–<lpage>475</lpage>. <pub-id pub-id-type="doi">10.1038/87419</pub-id>
+<pub-id pub-id-type="pmid">11319554</pub-id></mixed-citation>
+</ref>
+<ref id="B33">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>He</surname><given-names>Q.</given-names></name><name><surname>Duguid</surname><given-names>I.</given-names></name><name><surname>Clark</surname><given-names>B.</given-names></name><name><surname>Panzanelli</surname><given-names>P.</given-names></name><name><surname>Patel</surname><given-names>B.</given-names></name><name><surname>Thomas</surname><given-names>P.</given-names></name><etal></etal></person-group> (<year>2015</year>). <article-title>Interneuron- and GABAA receptor-specific inhibitory synaptic plasticity in cerebellar Purkinje cells.</article-title>
+<source/><italic>Nat. Commun.</italic>
+<volume>6</volume>
+<fpage>1</fpage>–<lpage>13</lpage>. <pub-id pub-id-type="doi">10.1038/ncomms8364</pub-id>
+<pub-id pub-id-type="pmid">26179122</pub-id></mixed-citation>
+</ref>
+<ref id="B34">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Heck</surname><given-names>D. H.</given-names></name><name><surname>De Zeeuw</surname><given-names>C. I.</given-names></name><name><surname>Jaeger</surname><given-names>D.</given-names></name><name><surname>Khodakhah</surname><given-names>K.</given-names></name><name><surname>Person</surname><given-names>A. L.</given-names></name></person-group> (<year>2013</year>). <article-title>The neuronal code(s) of the cerebellum.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>33</volume>
+<fpage>17603</fpage>–<lpage>17609</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.2759-13.2013</pub-id>
+<pub-id pub-id-type="pmid">24198351</pub-id></mixed-citation>
+</ref>
+<ref id="B35">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Heiney</surname><given-names>S. A.</given-names></name><name><surname>Kim</surname><given-names>J.</given-names></name><name><surname>Augustine</surname><given-names>G. J.</given-names></name><name><surname>Medina</surname><given-names>J. F.</given-names></name></person-group> (<year>2014</year>). <article-title>Precise control of movement kinematics by optogenetic inhibition of Purkinje Cell activity.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>34</volume>
+<fpage>2321</fpage>–<lpage>2330</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.4547-13.2014</pub-id>
+<pub-id pub-id-type="pmid">24501371</pub-id></mixed-citation>
+</ref>
+<ref id="B36">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Herzfeld</surname><given-names>D. J.</given-names></name><name><surname>Kojima</surname><given-names>Y.</given-names></name><name><surname>Soetedjo</surname><given-names>R.</given-names></name><name><surname>Shadmehr</surname><given-names>R.</given-names></name></person-group> (<year>2015</year>). <article-title>Encoding of action by the Purkinje cells of the cerebellum.</article-title>
+<source/><italic>Nature</italic>
+<volume>526</volume>
+<fpage>439</fpage>–<lpage>442</lpage>. <pub-id pub-id-type="doi">10.1038/nature15693</pub-id>
+<pub-id pub-id-type="pmid">26469054</pub-id></mixed-citation>
+</ref>
+<ref id="B37">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hoebeek</surname><given-names>F. E.</given-names></name><name><surname>Witter</surname><given-names>L.</given-names></name><name><surname>Ruigrok</surname><given-names>T. J. H.</given-names></name><name><surname>De Zeeuw</surname><given-names>C. I.</given-names></name></person-group> (<year>2010</year>). <article-title>Differential olivo-cerebellar cortical control of rebound activity in the cerebellar nuclei.</article-title>
+<source/><italic>Proc. Natl. Acad. Sci. U.S.A.</italic>
+<volume>107</volume>
+<fpage>8410</fpage>–<lpage>8415</lpage>. <pub-id pub-id-type="doi">10.1073/PNAS.0907118107</pub-id>
+<pub-id pub-id-type="pmid">20395550</pub-id></mixed-citation>
+</ref>
+<ref id="B38">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ito</surname><given-names>M.</given-names></name></person-group> (<year>1984</year>). <article-title>The modifiable neuronal network of the cerebellum.</article-title>
+<source/><italic>Jpn. J. Physiol.</italic>
+<volume>34</volume>
+<fpage>781</fpage>–<lpage>792</lpage>. <pub-id pub-id-type="doi">10.2170/jjphysiol.34.781</pub-id>
+<pub-id pub-id-type="pmid">6099855</pub-id></mixed-citation>
+</ref>
+<ref id="B39">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ivry</surname><given-names>R.</given-names></name></person-group> (<year>2000</year>). <article-title>Exploring the role of the cerebellum in sensory anticipation and timing: commentary on Tesche and Karhu.</article-title>
+<source/><italic>Hum. Brain Mapp.</italic>
+<volume>9</volume>
+<fpage>115</fpage>–<lpage>118</lpage>. <pub-id pub-id-type="doi">10.1002/(sici)1097-0193(200003)9:3&lt;115::aid-hbm1&gt;3.0.co;2-5</pub-id>
+<pub-id pub-id-type="pmid">10739363</pub-id></mixed-citation>
+</ref>
+<ref id="B40">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jirenhed</surname><given-names>D.-A.</given-names></name><name><surname>Bengtsson</surname><given-names>F.</given-names></name><name><surname>Hesslow</surname><given-names>G.</given-names></name></person-group> (<year>2007</year>). <article-title>Acquisition, extinction, and reacquisition of a cerebellar cortical memory trace.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>27</volume>
+<fpage>2493</fpage>–<lpage>2502</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.4202-06.2007</pub-id>
+<pub-id pub-id-type="pmid">17344387</pub-id></mixed-citation>
+</ref>
+<ref id="B41">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jirenhed</surname><given-names>D.-A.</given-names></name><name><surname>Bengtsson</surname><given-names>F.</given-names></name><name><surname>Jörntell</surname><given-names>H.</given-names></name></person-group> (<year>2013</year>). <article-title>Parallel fiber and climbing fiber responses in rat cerebellar cortical neurons in vivo.</article-title>
+<source/><italic>Front. Syst. Neurosci.</italic>
+<volume>7</volume>:<issue>16</issue>. <pub-id pub-id-type="doi">10.3389/fnsys.2013.00016</pub-id>
+<pub-id pub-id-type="pmid">23730272</pub-id></mixed-citation>
+</ref>
+<ref id="B42">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jörntell</surname><given-names>H.</given-names></name><name><surname>Bengtsson</surname><given-names>F.</given-names></name><name><surname>Schonewille</surname><given-names>M.</given-names></name><name><surname>De Zeeuw</surname><given-names>C. I.</given-names></name></person-group> (<year>2010</year>). <article-title>Cerebellar molecular layer interneurons - computational properties and roles in learning.</article-title>
+<source/><italic>Trends Neurosci.</italic>
+<volume>33</volume>
+<fpage>524</fpage>–<lpage>535</lpage>. <pub-id pub-id-type="doi">10.1016/j.tins.2010.08.004</pub-id>
+<pub-id pub-id-type="pmid">20869126</pub-id></mixed-citation>
+</ref>
+<ref id="B43">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kalmbach</surname><given-names>B. E.</given-names></name><name><surname>Ohyama</surname><given-names>T.</given-names></name><name><surname>Mauk</surname><given-names>M. D.</given-names></name></person-group> (<year>2010</year>). <article-title>Temporal patterns of inputs to cerebellum necessary and sufficient for trace eyelid conditioning.</article-title>
+<source/><italic>J. Neurophysiol.</italic>
+<volume>104</volume>
+<fpage>627</fpage>–<lpage>640</lpage>. <pub-id pub-id-type="doi">10.1152/JN.00169.2010</pub-id>
+<pub-id pub-id-type="pmid">20484534</pub-id></mixed-citation>
+</ref>
+<ref id="B44">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kanichay</surname><given-names>R. T.</given-names></name><name><surname>Silver</surname><given-names>R. A.</given-names></name></person-group> (<year>2008</year>). <article-title>Synaptic and cellular properties of the feedforward inhibitory circuit within the input layer of the cerebellar cortex.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>28</volume>
+<fpage>8955</fpage>–<lpage>8967</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.5469-07.2008</pub-id>
+<pub-id pub-id-type="pmid">18768689</pub-id></mixed-citation>
+</ref>
+<ref id="B45">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Latorre</surname><given-names>R.</given-names></name><name><surname>Aguirre</surname><given-names>C.</given-names></name><name><surname>Rabinovich</surname><given-names>M. I.</given-names></name><name><surname>Varona</surname><given-names>P.</given-names></name></person-group> (<year>2013</year>). <article-title>Transient dynamics and rhythm coordination of inferior olive spatio-temporal patterns.</article-title>
+<source/><italic>Front. Neural Circuits</italic>
+<volume>7</volume>:<issue>138</issue>. <pub-id pub-id-type="doi">10.3389/fncir.2013.00138</pub-id>
+<pub-id pub-id-type="pmid">24046731</pub-id></mixed-citation>
+</ref>
+<ref id="B46">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lein</surname><given-names>E. S.</given-names></name><name><surname>Hawrylycz</surname><given-names>M. J.</given-names></name><name><surname>Ao</surname><given-names>N.</given-names></name><name><surname>Ayres</surname><given-names>M.</given-names></name><name><surname>Bensinger</surname><given-names>A.</given-names></name><name><surname>Bernard</surname><given-names>A.</given-names></name><etal></etal></person-group> (<year>2007</year>). <article-title>Genome-wide atlas of gene expression in the adult mouse brain.</article-title>
+<source/><italic>Nature</italic>
+<volume>445</volume>
+<fpage>168</fpage>–<lpage>176</lpage>. <pub-id pub-id-type="doi">10.1038/nature05453</pub-id>
+<pub-id pub-id-type="pmid">17151600</pub-id></mixed-citation>
+</ref>
+<ref id="B47">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Leznik</surname><given-names>E.</given-names></name><name><surname>Llinás</surname><given-names>R.</given-names></name></person-group> (<year>2005</year>). <article-title>Role of gap junctions in synchronized neuronal oscillations in the inferior olive.</article-title>
+<source/><italic>J. Neurophysiol.</italic>
+<volume>94</volume>
+<fpage>2447</fpage>–<lpage>2456</lpage>. <pub-id pub-id-type="doi">10.1152/jn.00353.2005</pub-id>
+<pub-id pub-id-type="pmid">15928056</pub-id></mixed-citation>
+</ref>
+<ref id="B48">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Llinas</surname><given-names>R.</given-names></name><name><surname>Negrello</surname><given-names>M.</given-names></name></person-group> (<year>2011</year>). <article-title>Cerebellum.</article-title>
+<source/><italic>Scholarpedia</italic>
+<volume>10</volume>:<issue>4606</issue>.</mixed-citation>
+</ref>
+<ref id="B49">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Llinás</surname><given-names>R. R.</given-names></name></person-group> (<year>2014</year>). <article-title>The olivo-cerebellar system: a key to understanding the functional significance of intrinsic oscillatory brain properties.</article-title>
+<source/><italic>Front. Neural Circuits</italic>
+<volume>7</volume>:<issue>96</issue>. <pub-id pub-id-type="doi">10.3389/fncir.2013.00096</pub-id>
+<pub-id pub-id-type="pmid">24478634</pub-id></mixed-citation>
+</ref>
+<ref id="B50">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Luque</surname><given-names>N. R.</given-names></name><name><surname>Naveros</surname><given-names>F.</given-names></name><name><surname>Carrillo</surname><given-names>R. R.</given-names></name><name><surname>Ros</surname><given-names>E.</given-names></name><name><surname>Arleo</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>). <article-title>Spike burst-pause dynamics of Purkinje cells regulate sensorimotor adaptation.</article-title>
+<source/><italic>PLoS Comput. Biol.</italic>
+<volume>15</volume>:<issue>e1006298</issue>. <pub-id pub-id-type="doi">10.1371/journal.pcbi.1006298</pub-id>
+<pub-id pub-id-type="pmid">30860991</pub-id></mixed-citation>
+</ref>
+<ref id="B51">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Maex</surname><given-names>R.</given-names></name><name><surname>De Schutter</surname><given-names>E.</given-names></name></person-group> (<year>2013</year>). <article-title>Synchronization of golgi and granule cell firing in a detailed network model of the cerebellar granule cell layer.</article-title>
+<source/><italic>J. Neurophysiol.</italic>
+<volume>80</volume>
+<fpage>2521</fpage>–<lpage>2537</lpage>. <pub-id pub-id-type="doi">10.1152/jn.1998.80.5.2521</pub-id>
+<pub-id pub-id-type="pmid">9819260</pub-id></mixed-citation>
+</ref>
+<ref id="B52">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mapelli</surname><given-names>L.</given-names></name><name><surname>Rossi</surname><given-names>P.</given-names></name><name><surname>Nieus</surname><given-names>T.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2009</year>). <article-title>Tonic activation of GABA B receptors reduces release probability at inhibitory connections in the cerebellar glomerulus.</article-title>
+<source/><italic>J. Neurophysiol.</italic>
+<volume>101</volume>
+<fpage>3089</fpage>–<lpage>3099</lpage>. <pub-id pub-id-type="doi">10.1152/jn.91190.2008</pub-id>
+<pub-id pub-id-type="pmid">19339456</pub-id></mixed-citation>
+</ref>
+<ref id="B53">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Marr</surname><given-names>D.</given-names></name></person-group> (<year>1969</year>). <article-title>A theory of cerebellar cortex.</article-title>
+<source/><italic>J. Physiol.</italic>
+<volume>202</volume>
+<fpage>437</fpage>–<lpage>470</lpage>. <pub-id pub-id-type="doi">10.1113/jphysiol.1969.sp008820</pub-id>
+<pub-id pub-id-type="pmid">5784296</pub-id></mixed-citation>
+</ref>
+<ref id="B54">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Masoli</surname><given-names>S.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2017</year>). <article-title>Synaptic activation of a detailed Purkinje cell model predicts voltage-dependent control of burst-pause responses in active dendrites.</article-title>
+<source/><italic>Front. Cell. Neurosci.</italic>
+<volume>11</volume>:<issue>278</issue>. <pub-id pub-id-type="doi">10.3389/fncel.2017.00278</pub-id>
+<pub-id pub-id-type="pmid">28955206</pub-id></mixed-citation>
+</ref>
+<ref id="B55">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Masoli</surname><given-names>S.</given-names></name><name><surname>Solinas</surname><given-names>S.</given-names></name><name><surname>Angelo</surname><given-names>E. D.</given-names></name></person-group> (<year>2015</year>). <article-title>Action potential processing in a detailed Purkinje cell model reveals a critical role for axonal compartmentalization.</article-title>
+<source/><italic>Front. Cell. Neurosci.</italic>
+<volume>9</volume>:<fpage>1</fpage>–<lpage>22</lpage>. <pub-id pub-id-type="doi">10.3389/fncel.2015.00047</pub-id>
+<pub-id pub-id-type="pmid">25667569</pub-id></mixed-citation>
+</ref>
+<ref id="B56">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miyazaki</surname><given-names>T.</given-names></name><name><surname>Hashimoto</surname><given-names>K.</given-names></name><name><surname>Shin</surname><given-names>H.-S.</given-names></name><name><surname>Kano</surname><given-names>M.</given-names></name><name><surname>Watanabe</surname><given-names>M.</given-names></name></person-group> (<year>2004</year>). <article-title>P/Q-type Ca2+ channel alpha1A regulates synaptic competition on developing cerebellar Purkinje cells.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>24</volume>
+<fpage>1734</fpage>–<lpage>1743</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.4208-03.2004</pub-id>
+<pub-id pub-id-type="pmid">14973254</pub-id></mixed-citation>
+</ref>
+<ref id="B57">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Morissette</surname><given-names>J.</given-names></name><name><surname>Bower</surname><given-names>J.</given-names></name></person-group> (<year>1996</year>). <article-title>Contribution of somatosensory cortex to responses in the rat cerebellar granule cell layer following peripheral tactile stimulation.</article-title>
+<source/><italic>Exp. Brain Res.</italic>
+<volume>109</volume>
+<fpage>240</fpage>–<lpage>250</lpage>. <pub-id pub-id-type="doi">10.1007/BF00231784</pub-id>
+<pub-id pub-id-type="pmid">8738373</pub-id></mixed-citation>
+</ref>
+<ref id="B58">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Moscato</surname><given-names>L.</given-names></name><name><surname>Montagna</surname><given-names>I.</given-names></name><name><surname>De Propris</surname><given-names>L.</given-names></name><name><surname>Tritto</surname><given-names>S.</given-names></name><name><surname>Mapelli</surname><given-names>L.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2019</year>). <article-title>Long-lasting response changes in deep cerebellar nuclei in vivo correlate with low-frequency oscillations.</article-title>
+<source/><italic>Front. Cell. Neurosci.</italic>
+<volume>13</volume>:<issue>84</issue>. <pub-id pub-id-type="doi">10.3389/fncel.2019.00084</pub-id>
+<pub-id pub-id-type="pmid">30894802</pub-id></mixed-citation>
+</ref>
+<ref id="B59">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Peter</surname><given-names>S.</given-names></name><name><surname>ten Brinke</surname><given-names>M. M.</given-names></name><name><surname>Stedehouder</surname><given-names>J.</given-names></name><name><surname>Reinelt</surname><given-names>C. M.</given-names></name><name><surname>Wu</surname><given-names>B.</given-names></name><name><surname>Zhou</surname><given-names>H.</given-names></name><etal></etal></person-group> (<year>2016</year>). <article-title>Dysfunctional cerebellar Purkinje cells contribute to autism-like behaviour in Shank2- deficient mice.</article-title>
+<source/><italic>Nat. Commun.</italic>
+<volume>7</volume>:<issue>12627</issue>. <pub-id pub-id-type="doi">10.1038/ncomms12627</pub-id>
+<pub-id pub-id-type="pmid">27581745</pub-id></mixed-citation>
+</ref>
+<ref id="B60">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Powell</surname><given-names>K.</given-names></name><name><surname>Mathy</surname><given-names>A.</given-names></name><name><surname>Duguid</surname><given-names>I.</given-names></name><name><surname>Häusser</surname><given-names>M.</given-names></name></person-group> (<year>2015</year>). <article-title>Synaptic representation of locomotion in single cerebellar granule cells.</article-title>
+<source/><italic>eLife</italic>
+<volume>4</volume>:<issue>e07290</issue>. <pub-id pub-id-type="doi">10.7554/eLife.07290</pub-id>
+<pub-id pub-id-type="pmid">26083712</pub-id></mixed-citation>
+</ref>
+<ref id="B61">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Prestori</surname><given-names>F.</given-names></name><name><surname>Rossi</surname><given-names>P.</given-names></name><name><surname>Bearzatto</surname><given-names>B.</given-names></name><name><surname>Lainé</surname><given-names>J.</given-names></name><name><surname>Necchi</surname><given-names>D.</given-names></name><name><surname>Diwakar</surname><given-names>S.</given-names></name><etal></etal></person-group> (<year>2008</year>). <article-title>Altered neuron excitability and synaptic plasticity in the cerebellar granular layer of Juvenile prion protein knock-out mice with impaired motor control.</article-title>
+<source/><italic>Neurobiol. Dis.</italic>
+<volume>28</volume>
+<fpage>7091</fpage>–<lpage>7103</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.0409-08.2008</pub-id>
+<pub-id pub-id-type="pmid">18614678</pub-id></mixed-citation>
+</ref>
+<ref id="B62">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pugh</surname><given-names>J. R.</given-names></name><name><surname>Raman</surname><given-names>I. M.</given-names></name></person-group> (<year>2006</year>). <article-title>Potentiation of mossy fiber EPSCs in the cerebellar nuclei by NMDA receptor activation followed by postinhibitory rebound current.</article-title>
+<source/><italic>Neuron</italic>
+<volume>51</volume>
+<fpage>113</fpage>–<lpage>123</lpage>. <pub-id pub-id-type="doi">10.1016/j.neuron.2006.05.021</pub-id>
+<pub-id pub-id-type="pmid">16815336</pub-id></mixed-citation>
+</ref>
+<ref id="B63">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rancz</surname><given-names>E. A.</given-names></name><name><surname>Ishikawa</surname><given-names>T.</given-names></name><name><surname>Duguid</surname><given-names>I.</given-names></name><name><surname>Chadderton</surname><given-names>P.</given-names></name><name><surname>Mahon</surname><given-names>S.</given-names></name><name><surname>Häusser</surname><given-names>M.</given-names></name></person-group> (<year>2007</year>). <article-title>High-fidelity transmission of sensory information by single cerebellar mossy fibre boutons.</article-title>
+<source/><italic>Nature</italic>
+<volume>450</volume>
+<fpage>1245</fpage>–<lpage>1248</lpage>. <pub-id pub-id-type="doi">10.1038/nature05995</pub-id>
+<pub-id pub-id-type="pmid">18097412</pub-id></mixed-citation>
+</ref>
+<ref id="B64">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rasmussen</surname><given-names>A.</given-names></name><name><surname>Jirenhed</surname><given-names>D.-A.</given-names></name><name><surname>Hesslow</surname><given-names>G.</given-names></name></person-group> (<year>2008</year>). <article-title>Simple and complex spike firing patterns in Purkinje cells during classical conditioning.</article-title>
+<source/><italic>Cerebellum</italic>
+<volume>7</volume>
+<fpage>563</fpage>–<lpage>566</lpage>. <pub-id pub-id-type="doi">10.1007/s12311-008-0068-2</pub-id>
+<pub-id pub-id-type="pmid">18931885</pub-id></mixed-citation>
+</ref>
+<ref id="B65">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Romano</surname><given-names>V.</given-names></name><name><surname>De Propris</surname><given-names>L.</given-names></name><name><surname>Bosman</surname><given-names>L. W.</given-names></name><name><surname>Warnaar</surname><given-names>P.</given-names></name><name><surname>ten Brinke</surname><given-names>M. M.</given-names></name><name><surname>Lindeman</surname><given-names>S.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Potentiation of cerebellar Purkinje cells facilitates whisker reflex adaptation through increased simple spike activity.</article-title>
+<source/><italic>eLife</italic>
+<volume>7</volume>:<issue>e38852</issue>. <pub-id pub-id-type="doi">10.7554/eLife.38852</pub-id>
+<pub-id pub-id-type="pmid">30561331</pub-id></mixed-citation>
+</ref>
+<ref id="B66">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ruigrok</surname><given-names>T. J. H.</given-names></name></person-group> (<year>2011</year>). <article-title>Ins and outs of cerebellar modules.</article-title>
+<source/><italic>Cerebellum</italic>
+<volume>10</volume>
+<fpage>464</fpage>–<lpage>474</lpage>. <pub-id pub-id-type="doi">10.1007/s12311-010-0164-y</pub-id>
+<pub-id pub-id-type="pmid">20232190</pub-id></mixed-citation>
+</ref>
+<ref id="B67">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schmahmann</surname><given-names>J. D.</given-names></name></person-group> (<year>2019</year>). <article-title>The cerebellum and cognition.</article-title>
+<source/><italic>Neurosci. Lett.</italic>
+<volume>688</volume>
+<fpage>62</fpage>–<lpage>75</lpage>. <pub-id pub-id-type="doi">10.1016/J.NEULET.2018.07.005</pub-id>
+<pub-id pub-id-type="pmid">29997061</pub-id></mixed-citation>
+</ref>
+<ref id="B68">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schonewille</surname><given-names>M.</given-names></name><name><surname>Belmeguenai</surname><given-names>A.</given-names></name><name><surname>Koekkoek</surname><given-names>S. K.</given-names></name><name><surname>Houtman</surname><given-names>S. H.</given-names></name><name><surname>Boele</surname><given-names>H. J.</given-names></name><name><surname>van Beugen</surname><given-names>B. J.</given-names></name><etal></etal></person-group> (<year>2010</year>). <article-title>Purkinje cell-specific knockout of the protein phosphatase PP2B impairs potentiation and cerebellar motor learning.</article-title>
+<source/><italic>Neuron</italic>
+<volume>67</volume>
+<fpage>618</fpage>–<lpage>628</lpage>. <pub-id pub-id-type="doi">10.1016/j.neuron.2010.07.009</pub-id>
+<pub-id pub-id-type="pmid">20797538</pub-id></mixed-citation>
+</ref>
+<ref id="B69">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Shadmehr</surname><given-names>R.</given-names></name></person-group> (<year>2017</year>). <article-title>Learning to predict and control the physics of our movements.</article-title>
+<source/><italic>J. Neurosci.</italic>
+<volume>37</volume>
+<fpage>1663</fpage>–<lpage>1671</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.1675-16.2016</pub-id>
+<pub-id pub-id-type="pmid">28202784</pub-id></mixed-citation>
+</ref>
+<ref id="B70">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Si Feng</surname><given-names>S.</given-names></name><name><surname>Lin</surname><given-names>R.</given-names></name><name><surname>Gauck</surname><given-names>V.</given-names></name><name><surname>Jaeger</surname><given-names>D.</given-names></name></person-group> (<year>2013</year>). <article-title>Gain control of synaptic response function in cerebellar nuclear neurons by a calcium activated potassium conductance.</article-title>
+<source/><italic>Cerebellum</italic>
+<volume>12</volume>
+<fpage>692</fpage>–<lpage>706</lpage>. <pub-id pub-id-type="doi">10.1007/s12311-013-0476-9</pub-id>
+<pub-id pub-id-type="pmid">23605187</pub-id></mixed-citation>
+</ref>
+<ref id="B71">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Solinas</surname><given-names>S.</given-names></name><name><surname>Forti</surname><given-names>L.</given-names></name><name><surname>Cesana</surname><given-names>E.</given-names></name><name><surname>Mapelli</surname><given-names>J.</given-names></name><name><surname>De Schutter</surname><given-names>E.</given-names></name><name><surname>D’Angelo</surname><given-names>E.</given-names></name></person-group> (<year>2007</year>). <article-title>Fast-reset of pacemaking and theta-frequency resonance patterns in cerebellar golgi cells: simulations of their impact in vivo.</article-title>
+<source/><italic>Front. Cell. Neurosci.</italic>
+<volume>1</volume>:<issue>4</issue>. <pub-id pub-id-type="doi">10.3389/neuro.03.004.2007</pub-id>
+<pub-id pub-id-type="pmid">18946522</pub-id></mixed-citation>
+</ref>
+<ref id="B72">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Szapiro</surname><given-names>G.</given-names></name><name><surname>Barbour</surname><given-names>B.</given-names></name></person-group> (<year>2007</year>). <article-title>Multiple climbing fibers signal to molecular layer interneurons exclusively via glutamate spillover.</article-title>
+<source/><italic>Nat. Neurosci.</italic>
+<volume>10</volume>
+<fpage>735</fpage>–<lpage>742</lpage>. <pub-id pub-id-type="doi">10.1038/nn1907</pub-id>
+<pub-id pub-id-type="pmid">17515900</pub-id></mixed-citation>
+</ref>
+<ref id="B73">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ten Brinke</surname><given-names>M. M.</given-names></name><name><surname>Boele</surname><given-names>H. J.</given-names></name><name><surname>Spanke</surname><given-names>J. K.</given-names></name><name><surname>Potters</surname><given-names>J. W.</given-names></name><name><surname>Kornysheva</surname><given-names>K.</given-names></name><name><surname>Wulff</surname><given-names>P.</given-names></name><etal></etal></person-group> (<year>2015</year>). <article-title>Evolving models of pavlovian conditioning: cerebellar cortical dynamics in awake behaving mice.</article-title>
+<source/><italic>Cell Rep.</italic>
+<volume>13</volume>
+<fpage>1977</fpage>–<lpage>1988</lpage>. <pub-id pub-id-type="doi">10.1016/j.celrep.2015.10.057</pub-id>
+<pub-id pub-id-type="pmid">26655909</pub-id></mixed-citation>
+</ref>
+<ref id="B74">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ten Brinke</surname><given-names>M. M.</given-names></name><name><surname>Heiney</surname><given-names>S. A.</given-names></name><name><surname>Wang</surname><given-names>X.</given-names></name><name><surname>Proietti-Onori</surname><given-names>M.</given-names></name><name><surname>Boele</surname><given-names>H. J.</given-names></name><name><surname>Bakermans</surname><given-names>J.</given-names></name><etal></etal></person-group> (<year>2017</year>). <article-title>Dynamic modulation of activity in cerebellar nuclei neurons during pavlovian eyeblink conditioning in mice.</article-title>
+<source/><italic>eLife</italic>
+<volume>6</volume>:<issue>e28132</issue>. <pub-id pub-id-type="doi">10.7554/eLife.28132</pub-id>
+<pub-id pub-id-type="pmid">29243588</pub-id></mixed-citation>
+</ref>
+<ref id="B75">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Uusisaari</surname><given-names>M.</given-names></name><name><surname>de Schutter</surname><given-names>E.</given-names></name></person-group> (<year>2011</year>). <article-title>The mysterious microcircuitry of the cerebellar nuclei.</article-title>
+<source/><italic>J. Physiol.</italic>
+<volume>589</volume>
+<fpage>3441</fpage>–<lpage>3457</lpage>. <pub-id pub-id-type="doi">10.1113/jphysiol.2010.201582</pub-id>
+<pub-id pub-id-type="pmid">21521761</pub-id></mixed-citation>
+</ref>
+<ref id="B76">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Uusisaari</surname><given-names>M.</given-names></name><name><surname>Knöpfel</surname><given-names>T.</given-names></name></person-group> (<year>2008</year>). <article-title>GABAergic synaptic communication in the GABAergic and non-GABAergic cells in the deep cerebellar nuclei.</article-title>
+<source/><italic>Neuroscience</italic>
+<volume>156</volume>
+<fpage>537</fpage>–<lpage>549</lpage>. <pub-id pub-id-type="doi">10.1016/J.NEUROSCIENCE.2008.07.060</pub-id>
+<pub-id pub-id-type="pmid">18755250</pub-id></mixed-citation>
+</ref>
+<ref id="B77">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Voogd</surname><given-names>J.</given-names></name><name><surname>Glickstein</surname><given-names>M.</given-names></name></person-group> (<year>1998</year>). <article-title>The anatomy of the cerebellum.</article-title>
+<source/><italic>Trends Cogn. Sci.</italic>
+<volume>2</volume>
+<fpage>307</fpage>–<lpage>313</lpage>. <pub-id pub-id-type="doi">10.1016/0166-2236(95)93903-B</pub-id>
+<pub-id pub-id-type="pmid">21227226</pub-id></mixed-citation>
+</ref>
+<ref id="B78">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wu</surname><given-names>Y.</given-names></name><name><surname>Raman</surname><given-names>I. M.</given-names></name></person-group> (<year>2017</year>). <article-title>Facilitation of mossy fibre-driven spiking in the cerebellar nuclei by the synchrony of inhibition.</article-title>
+<source/><italic>J. Physiol.</italic>
+<volume>595</volume>
+<fpage>5245</fpage>–<lpage>5264</lpage>. <pub-id pub-id-type="doi">10.1113/JP274321</pub-id>
+<pub-id pub-id-type="pmid">28513836</pub-id></mixed-citation>
+</ref>
+<ref id="B79">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yamazaki</surname><given-names>T.</given-names></name><name><surname>Igarashi</surname><given-names>J.</given-names></name></person-group> (<year>2013</year>). <article-title>Realtime cerebellum: a large-scale spiking network model of the cerebellum that runs in realtime using a graphics processing unit.</article-title>
+<source/><italic>Neural Netw.</italic>
+<volume>47</volume>
+<fpage>103</fpage>–<lpage>111</lpage>. <pub-id pub-id-type="doi">10.1016/J.NEUNET.2013.01.019</pub-id>
+<pub-id pub-id-type="pmid">23434303</pub-id></mixed-citation>
+</ref>
+<ref id="B80">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zanjani</surname><given-names>H.</given-names></name><name><surname>Herrup</surname><given-names>K.</given-names></name><name><surname>Mariani</surname><given-names>J.</given-names></name></person-group> (<year>2004</year>). <article-title>Cell number in the inferior olive of nervous and leaner mutant mice.</article-title>
+<source/><italic>J. Neurogenet.</italic>
+<volume>18</volume>
+<fpage>327</fpage>–<lpage>339</lpage>. <pub-id pub-id-type="doi">10.1080/01677060390449482</pub-id>
+<pub-id pub-id-type="pmid">15370195</pub-id></mixed-citation>
+</ref>
+<ref id="B81">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zheng</surname><given-names>N.</given-names></name><name><surname>Raman</surname><given-names>I. M.</given-names></name></person-group> (<year>2010</year>). <article-title>Synaptic inhibition, excitation, and plasticity in neurons of the cerebellar nuclei.</article-title>
+<source/><italic>Cerebellum</italic>
+<volume>9</volume>
+<fpage>56</fpage>–<lpage>66</lpage>. <pub-id pub-id-type="doi">10.1007/s12311-009-0140-6</pub-id>
+<pub-id pub-id-type="pmid">19847585</pub-id></mixed-citation>
+</ref>
+<ref id="B82">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhou</surname><given-names>H.</given-names></name><name><surname>Lin</surname><given-names>Z.</given-names></name><name><surname>Voges</surname><given-names>K.</given-names></name><name><surname>Ju</surname><given-names>C.</given-names></name><name><surname>Gao</surname><given-names>Z.</given-names></name><name><surname>Bosman</surname><given-names>L. W.</given-names></name><etal></etal></person-group> (<year>2014</year>). <article-title>Cerebellar modules operate at different frequencies.</article-title>
+<source/><italic>eLife</italic>
+<volume>3</volume>:<issue>e02536</issue>. <pub-id pub-id-type="doi">10.7554/elife.02536</pub-id>
+<pub-id pub-id-type="pmid">24843004</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 import dns
 import pymongo
 # comment out import CORS in the deployment mode
-# from flask_cors import CORS
+from flask_cors import CORS
 
 
 # create the app
@@ -14,7 +14,7 @@ import pymongo
 app = Flask(__name__, static_url_path='', static_folder='build', template_folder="build")
 app.config["MONGO_URI"] = "mongodb+srv://maizie:qwertyuiop123@gene.njw4a.mongodb.net/Gene?retryWrites=true&w=majority"
 # comment out CORS(app) in the deployment mode
-# CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 mongo = PyMongo(app)
 
 @app.route("/*")
@@ -93,7 +93,7 @@ def search_gene():
 
 if __name__ == '__main__':
     # deployment mode
-    app.run(host='0.0.0.0') # start the flask program
+    # app.run(host='0.0.0.0') # start the flask program
     
     # local mode
-    # app.run(debug=True)
+    app.run(debug=True)

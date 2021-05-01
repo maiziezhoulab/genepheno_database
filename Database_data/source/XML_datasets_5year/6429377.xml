@@ -1,0 +1,2615 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="publisher-id">ijms</journal-id>
+<journal-title-group>
+<journal-title>International Journal of Molecular Sciences</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1422-0067</issn>
+<publisher>
+<publisher-name>MDPI</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">30866437</article-id>
+<article-id pub-id-type="pmc">6429377</article-id>
+<article-id pub-id-type="doi">10.3390/ijms20051166</article-id>
+<article-id pub-id-type="publisher-id">ijms-20-01166</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>GeneAnalytics Pathways and Profiling of Shared Autism and Cancer Genes</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Gabrielli</surname>
+<given-names>Alexander P.</given-names>
+</name>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-9283-7809</contrib-id>
+<name>
+<surname>Manzardo</surname>
+<given-names>Ann M.</given-names>
+</name>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-2911-0524</contrib-id>
+<name>
+<surname>Butler</surname>
+<given-names>Merlin G.</given-names>
+</name>
+<xref ref-type="corresp" rid="c1-ijms-20-01166">*</xref>
+</contrib>
+</contrib-group>
+<aff id="af1-ijms-20-01166">Departments of Psychiatry, Behavioral Sciences &amp; Pediatrics, University of Kansas Medical Center, Kansas City, KS 66160, USA; <email>a228g039@kumc.edu</email> (A.P.G.); <email>amanzardo@kumc.edu</email> (A.M.M.)</aff>
+<author-notes>
+<corresp id="c1-ijms-20-01166"><label>*</label>Correspondence: <email>mbutler4@kumc.edu</email>; Tel.: +1-913-588-1800</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>07</day>
+<month>3</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>3</month>
+<year>2019</year>
+</pub-date>
+<volume>20</volume>
+<issue>5</issue>
+<elocation-id>1166</elocation-id>
+<history>
+<date date-type="received">
+<day>16</day>
+<month>1</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>01</day>
+<month>3</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2019 by the authors.</copyright-statement>
+<copyright-year>2019</copyright-year>
+<license license-type="open-access">
+<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Recent research revealed that autism spectrum disorders (ASD) and cancer may share common genetic architecture, with evidence first reported with the <italic>PTEN</italic> gene. There are approximately 800 autism genes and 3500 genes associated with cancer. The VarElect phenotype program was chosen to identify genes jointly associated with both conditions based on genomic information stored in GeneCards. In total, 138 overlapping genes were then profiled with GeneAnalytics, an analysis pathway enrichment tool utilizing existing gene datasets to identify shared pathways, mechanisms, and phenotypes. Profiling the shared gene data identified seven significantly associated diseases of 2310 matched disease entities with factors implicated in shared pathology of ASD and cancer. These included 371 super-pathways of 455 matched entities reflecting major cell-signaling pathways and metabolic disturbances (e.g., CREB, AKT, GPCR); 153 gene ontology (GO) biological processes of 226 matched processes; 41 GO molecular functions of 78 matched functions; and 145 phenotypes of 232 matched phenotypes. The entries were scored and ranked using a matching algorithm that takes into consideration genomic expression, sequencing, and microarray datasets with cell or tissue specificity. Shared mechanisms may lead to the identification of a common pathology and a better understanding of causation with potential treatment options to lessen the severity of ASD-related symptoms in those affected.</p>
+</abstract>
+<kwd-group>
+<kwd>autism spectrum disorders (ASD)</kwd>
+<kwd>cancer</kwd>
+<kwd>overlapping genes and gene profiling</kwd>
+<kwd>super-pathways</kwd>
+<kwd>phenotypes and diseases</kwd>
+<kwd>molecular functions and processes</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1-ijms-20-01166" sec-type="intro">
+<title>1. Introduction</title>
+<p>Autism spectrum disorders (ASD) include an array of conditions arising from neurodevelopmental defects during a crucial stage of brain formation characterized by deficits in communication ability, a paucity of social skills, repetitive behaviors, and narrow interests [<xref ref-type="bibr" rid="B1-ijms-20-01166">1</xref>]. Environmental factors and perinatal care may play a role in both ASD onset and severity, but often arises from a substantial genetic burden. Colvert et al. [<xref ref-type="bibr" rid="B2-ijms-20-01166">2</xref>] found heritability estimates of 56% to 95% among monozygotic twins, with additive genetic factors comprising a significant share of the burden. </p>
+<p>Morphologically, the brains of individuals diagnosed with ASD contain abnormal neuronal growth patterns, including an overabundance of neurons and unusual dendritic spine profiles [<xref ref-type="bibr" rid="B3-ijms-20-01166">3</xref>,<xref ref-type="bibr" rid="B4-ijms-20-01166">4</xref>]. Butler and others in 2005 [<xref ref-type="bibr" rid="B5-ijms-20-01166">5</xref>] suggested that common causal factors could contribute to both abnormal neuronal development, autism, and risk for malignancy in patients with autism, with macrocephaly and <italic>PTEN</italic> gene mutations seen in about one-fifth of affected individuals. <italic>PTEN</italic> is an important tumor-suppressor gene reported to play a role in tumor growth, hamartoma disorders (e.g., Cowden, Proteus, Bannayan–Riley–Ruvalcaba syndrome), overgrowth, and cancer [<xref ref-type="bibr" rid="B6-ijms-20-01166">6</xref>,<xref ref-type="bibr" rid="B7-ijms-20-01166">7</xref>,<xref ref-type="bibr" rid="B8-ijms-20-01166">8</xref>]. Several of these overgrowth-related disorders are also at risk of developing malignancy, particularly colorectal cancer.</p>
+<p>The genetic architecture of ASD was extensively surveyed through genome-wide association studies (GWAS) and candidate gene approaches [<xref ref-type="bibr" rid="B9-ijms-20-01166">9</xref>,<xref ref-type="bibr" rid="B10-ijms-20-01166">10</xref>,<xref ref-type="bibr" rid="B11-ijms-20-01166">11</xref>]. Several pathways and mechanisms were proposed as mediating factors in the pathogenesis of disorders, although the causative agents of the vast majority of cases remain elusive. However, cross-talk between the canonical Wnt pathway, the Notch signaling cascade [<xref ref-type="bibr" rid="B12-ijms-20-01166">12</xref>], and other disturbed genes and pathways [<xref ref-type="bibr" rid="B13-ijms-20-01166">13</xref>,<xref ref-type="bibr" rid="B14-ijms-20-01166">14</xref>] are believed to play a potential role and helpful in explaining an association with malignancy [<xref ref-type="bibr" rid="B15-ijms-20-01166">15</xref>,<xref ref-type="bibr" rid="B16-ijms-20-01166">16</xref>]. Furthermore, MAPK and calcium signaling pathways, particularly overlapping calcium-PKC–Ras–Raf–MAPK/ERK processes are strongly associated with ASD. These pathways play a central role in a large range of biological processes and, when abnormal, may compromise biological output and contribute to neuropsychiatric disorders, cell growth, and malignancy [<xref ref-type="bibr" rid="B17-ijms-20-01166">17</xref>,<xref ref-type="bibr" rid="B18-ijms-20-01166">18</xref>,<xref ref-type="bibr" rid="B19-ijms-20-01166">19</xref>,<xref ref-type="bibr" rid="B20-ijms-20-01166">20</xref>].</p>
+<p>The <italic>PTEN</italic> gene product behaves as an inhibitor of the phosphoinositol 3-kinase/AKT pathway [<xref ref-type="bibr" rid="B21-ijms-20-01166">21</xref>]. Disturbances contribute to dysregulation in the pathway leading to excessive uncontrolled cell growth and malignancy. Butler et al. [<xref ref-type="bibr" rid="B5-ijms-20-01166">5</xref>] and Varga et al. [<xref ref-type="bibr" rid="B21-ijms-20-01166">21</xref>] previously reported elevated frequencies of heterozygous germline <italic>PTEN</italic> gene mutations in the ASD population, suggesting that mutations serve as a critical component of the shared cancer and ASD etiology requiring further research. Investigation into the connection of other genetic factors contributing to ASD and cancer could be of clinical utility. Individuals diagnosed with autism should be screened more frequently for cancers for which they may have a genetic susceptibility. </p>
+<p>In the investigation herein, we utilized GeneAnalytics, which incorporates a computer-based bioinformatics pipeline developed by GeneCards, to identify and interrogate shared genes and their architecture between cancer and ASD. We explored influential shared pathways in overlapping genes which could represent potential therapeutic targets. We reviewed reports on the overlap between approximately 800 autism and over 3500 cancer-related genes utilizing this bioinformatics/pathway analysis program. GeneCards was used as an integrated, human genomic database to leverage information from 125 scholarly databases including genetic, transcriptomic, proteomic, functional, and clinical information to interrogate genomic-related data for our study [<xref ref-type="bibr" rid="B22-ijms-20-01166">22</xref>,<xref ref-type="bibr" rid="B23-ijms-20-01166">23</xref>]. This novel study may supply information helpful to stimulate or address a potential medical or genetic conundrum and may provide a research-based foundation of common pathology in ASD and cancer.</p>
+</sec>
+<sec id="sec2-ijms-20-01166" sec-type="results">
+<title>2. Results</title>
+<p>Using the VarElect program, autism and cancer genes were screened for overlapping units, according to phenotype category. VarElect identified 138 genes in common between the 792 reported known, susceptible, or clinically relevant genes for autism or ASD (17.4%), and 3.9% of approximately 3500 genes implicated in cancer. The 138 genes and their underlying biological functions were profiled by the commercially available GeneAnalytics program, previously validated in studies of random genes to test the interpretation power or relationship to the gene set under investigation [<xref ref-type="bibr" rid="B22-ijms-20-01166">22</xref>]. </p>
+<p>The GeneAnalytics output furnished a list of diseases highly associated with the combined cancer and autism gene set. The resulting high score matches (<italic>p</italic> &lt; 0.05) are presented, ranked by score, and categorized by disease type in <xref ref-type="table" rid="ijms-20-01166-t001">Table 1</xref>. The number of matched genes between the indicated disease and the autism and cancer gene set is included for context. Seven diseases were found to be significantly associated with the dataset, all of which pertain to cancer (see <xref ref-type="fig" rid="ijms-20-01166-f001">Figure 1</xref>). Three of the cancers are reproductive in nature (breast, prostate, and endometrial), while two are gastrointestinal (colorectal and pancreatic). </p>
+<p>Super-pathways were likewise ranked and scored based on degree of association with the gene set. Top-scoring super-pathways are presented with matching rates in <xref ref-type="table" rid="ijms-20-01166-t002">Table 2</xref>, restricted to the top 30 of 371 significant entries (<italic>p</italic> &lt; 0.05). These included ubiquitous signaling super-pathways such as GPCR (score = 166, 54% match with gene set) and ERK (score = 146, 38% match). Numerous additional signaling super-pathways were found to be significantly associated with the combined gene set, including AKT, HGF development, CREB, cAMP-dependent PKA, fMLP, P70S6K, RET, TGF-β, PEDF induced, MTOR, and PI3K/AKT. Cancer-specific super-pathways, including “glioma” and “pathways in cancer”, were also implicated at a statistically significant level (<italic>p</italic> &lt; 0.05) (see <xref ref-type="fig" rid="ijms-20-01166-f002">Figure 2</xref>).</p>
+<p>Statistically significant Gene Ontology (GO) biological processes are presented in <xref ref-type="table" rid="ijms-20-01166-t003">Table 3</xref>, which are limited to the top 30 of 153 total high-scoring matches. The top three entries directly relate to the regulation of gene expression. These include “positive regulation of transcription, DNA-templated”, “positive regulation of transcription from RNA polymerase II promoter”, and “positive regulation of gene expression”, which exhibited matching rates of 21%, 25%, and 15%, respectively, with the combined 138 overlapping gene set (see <xref ref-type="fig" rid="ijms-20-01166-f003">Figure 3</xref>). </p>
+<p>The top 30 significant GO molecular functions, of 41 total significant entries, are delineated in <xref ref-type="table" rid="ijms-20-01166-t004">Table 4</xref>. Prominent entries include protein (score = 67, 83% match rate), enzyme (score = 43, 15% match rate), and β-catenin binding (score = 36, 8% match rate). Kinases and phosphatases were well represented in the analysis as well, with several obtaining high scores, including “protein kinase activity”, “kinase activity”, “TRK activity”, “protein kinase binding”, “protein tyrosine kinase activity”, and “protein phosphatase binding” (see <xref ref-type="fig" rid="ijms-20-01166-f004">Figure 4</xref>).</p>
+<p>The 30 top scoring phenotypes, of 145 significant matches, are outlined in <xref ref-type="table" rid="ijms-20-01166-t005">Table 5</xref>. Phenotypes reflect the importance of ASD and cancer-associated genes in growth and development-related processes (see <xref ref-type="fig" rid="ijms-20-01166-f005">Figure 5</xref>). The top phenotypes include “premature death” (score = 70, 28% match rate), “complete embryonic lethality during organogenesis” (score = 53, 20% match rate), and “decreased body size” (score = 51, 22% match rate). </p>
+</sec>
+<sec id="sec3-ijms-20-01166" sec-type="discussion">
+<title>3. Discussion</title>
+<p>As anticipated in our examination of gene data and profiling, the diseases found most in common with the combined autism and malignancy gene set did pertain to cancer. Moreover, colorectal cancer accounted for 32% of overlapping genes, followed by breast and prostate cancer (see <xref ref-type="table" rid="ijms-20-01166-t001">Table 1</xref>). Two notable exceptions of our own cut-off criteria that may deserve further inspection include Alzheimer disease and amyotrophic lateral sclerosis (ALS), both of which approached but did not attain significance in their association with the gene set, achieving medium scores. Alzheimer disease and ALS are progressive neurodegenerative diseases [<xref ref-type="bibr" rid="B23-ijms-20-01166">23</xref>,<xref ref-type="bibr" rid="B24-ijms-20-01166">24</xref>,<xref ref-type="bibr" rid="B25-ijms-20-01166">25</xref>]. Alzheimer disease and ALS exhibited 11% and 8% overlap with the ASD and cancer gene set, which is a small, though not trivial connection. Enrichment of genes associated with neurodegenerative illnesses among the autism and cancer gene set may be indicative of shared disturbances in neurological growth and development which could contribute to the divergent morphology of autism, cancer, Alzheimer disease, and ALS.</p>
+<p>Regarding diseases cited in <xref ref-type="table" rid="ijms-20-01166-t001">Table 1</xref>, one unusual observation was the lack of representation of brain and neurological diseases. Of the seven high-score matches and six selected borderline (medium-score) matches, only medulloblastoma qualified as a cancer of the brain and nervous system. Reproductive cancers (breast, prostate, and endometrial) and gastrointestinal cancers (colorectal, pancreatic, and hepatocellular carcinoma) were more prevalent. Notably, most of the cancers listed in <xref ref-type="table" rid="ijms-20-01166-t001">Table 1</xref> tend to be acquired diseases with a genetic diathesis (e.g., breast and prostate), as opposed to congenital diseases that arise early in development (medulloblastoma). It should also be noted that tumors of the ectoderm and endoderm were disproportionately represented relative to the mesoderm. This may reflect the tissue-specific nature of neural development in the onset of autism. Of note, ASD did not achieve statistical significance with the shared dataset, despite being a requisite for selection and receiving a relatively high-scoring entry. This may be a testament to the complexity of autism spectrum disorder. Even though the gene set was filtered by ASD connection, collectively, the combined genes were more diagnostic of cancer than ASD.</p>
+<p>Overall, the highest-scoring super-pathways correlated more strongly with the autism and cancer combined gene set (as evidenced by the higher scores), compared to GO biological processes and GO molecular functions, which were not as strongly correlated, as reflected by their lower scores. The majority of super-pathways (see <xref ref-type="table" rid="ijms-20-01166-t002">Table 2</xref>) in the top 30 reported entries in the high-scoring category achieved a match rate of at least 20% with the gene set, indicating the relative importance of these super-pathways in the autism and cancer connection. The GeneAnalytics output of the highest scores strongly implicated the ERK signaling pathway in shared pathogenesis based on super-pathway analysis, with a score of 166 and a match rate of 54%, followed by the GPCR pathway at 38%. The MAPK/ERK signaling pathway occupies a key role in mitogen signaling and cell growth with survival [<xref ref-type="bibr" rid="B26-ijms-20-01166">26</xref>]. Disturbances in the ERK pathway can disrupt the cell cycle, leading to anomalous cell proliferation and malignant growth. Gene mutations or aberrant functioning in the pathway during early development could contribute to abnormal neuronal growth in ASD. Alterations in GPCR signaling could further contribute to the onset of ASD through aberrant cell signaling and neurotransmitter dysregulation, both of which might lead to changes in cognitive functioning characteristic of ASD. </p>
+<p>For GO biological processes, the three highest-scoring entries pertain to the regulation of gene expression. The outcome of the analysis suggests that an important mechanism in the mutual pathology of autism and cancer may be attributed to variation in transcription factors and nongenic sequences and, hence, differences in the regulation and rate of gene expression. Processes involved in the growth, development, and death of cells were found to be highly associated with the gene set. Indeed, “positive regulation of apoptotic process”, “apoptotic process”, and “negative regulation of apoptotic process” were each flagged as biological processes significantly associated with the combined gene set, with scores of 39 (matching rate of 14%), 37 (18%), and 34 (15%), respectively. Additional growth and death biological processes were also found to be enriched in the gene set, including “heart development”, “negative regulation of cell proliferation”, “nervous system development”, “positive regulation of cell proliferation”, and the “canonical Wnt signaling pathway”.</p>
+<p>In terms of the GO molecular functions underlying cancer and autism pathology, the results strongly implicate “protein binding”, which exhibited a score of 67, over 20 points larger than the second, less inclusive entry, “enzyme binding”. Furthermore, 83% of the autism and cancer gene set with 115 out of 138 matched genes was associated with protein binding, suggesting that dysfunction in protein binding may play a significant role in the shared autism and cancer diathesis. In many respects, this paradigm is reflective of the pivotal role of protein binding in the diverse metabolic processes underlying growth and survival. There was a substantial disparity between the high matching rate of protein binding (83%) and that of enzyme binding specifically (15%). The remaining 68% of protein binding that is not explained by enzyme binding and activation by kinase pathways may be attributed to structural protein and signal–receptor binding. This may suggest that structural and signaling mechanisms are disproportionately involved in the shared pathology of cancer and autism as noted previously. MAPK and calcium signaling pathways in genes associated with autism are found in other disorders including cancer [<xref ref-type="bibr" rid="B19-ijms-20-01166">19</xref>]. Enzymes may play more of a peripheral role. Enzyme binding overlaps with kinase pathways, many of which are involved in enzyme activation. Kinase and phosphatase activities were also prevalent among the high-scoring entries. Ten of the 30 highest-scoring molecular functions pertain to kinase or phosphatase activity. Both protein binding and kinase activities align with “protein kinase binding”.</p>
+<p>The report also implicated β-catenin binding (score of 36; 8% matching rate); β-catenin functions as both a moderator of gene transcription and as an agent of intercellular adhesion [<xref ref-type="bibr" rid="B27-ijms-20-01166">27</xref>]. Overexpression of β-catenin, which is encoded by the <italic>CTNNB1</italic> gene, is well characterized as a candidate in the pathogenesis of numerous cancers, as well as heart disease (this may serve as a potential link to the high-scoring GO biological process of “heart development”) (score = 44; match rate = 13%) [<xref ref-type="bibr" rid="B28-ijms-20-01166">28</xref>]. The relationship between β-catenin signaling and autism was reported, as β-catenin is dependent on the absence of Wnt [<xref ref-type="bibr" rid="B29-ijms-20-01166">29</xref>,<xref ref-type="bibr" rid="B30-ijms-20-01166">30</xref>]. Its role in mediating cell adhesion and cellular development suggests it may be a candidate in the pathogenesis of both autism and cancer.</p>
+<p>The two highest-scoring phenotypes, “premature death” and “complete embryonic lethality during organogenesis”, reflect the delicacy of neurogenesis and embryonic development. It is likely that only certain combinations of mutations inherited from the autism and cancer gene set can be tolerated and that, at a certain genetic burden, dysfunction in pathways associated with these genes results in irretrievable failure to develop. Designated decreased body size and body weight may also reflect the vital importance of these genes in mediating development, early cell division and number, and the potential consequences of dysfunction.</p>
+<p>Three functional pathways are potentially involved, which include genes and pathways for chromatin remodeling, (e.g., <italic>CHD7</italic>, <italic>MECP2</italic>, <italic>DNMT3A</italic>, and <italic>PHF2</italic>), Wnt (e.g., <italic>CHD8</italic>, <italic>PAX5</italic>, and <italic>ATRX</italic>), and other signaling super-pathways (e.g., GPCR, ERK, RET, and AKT) and mitochondrial dysfunction in ASD (e.g., Reference [<xref ref-type="bibr" rid="B30-ijms-20-01166">30</xref>]). Theoretically, drugs could be targeted to treat ASD. By developing a rank-ordered list of functional categories significantly associated with autism and cancer using GeneAnalytics pathways and profiling of shared autism and cancer genes, we identified potentially high-impact pathways and common mechanisms which may serve as therapeutic targets in future studies.</p>
+<p>The interconnected relationship between autism and cancer invites further investigation in the pathogenesis of the two seemingly unrelated disorders, and it warrants a pharmacological basis of treatment. <italic>PTEN</italic> is an example of a shared gene for autism and cancer and the direct and indirect subject of several formally approved cancer therapeutics including cisplatin, erlotinib, everolimus, cetuximab, and estradiol. For example, cisplatin circumscribes DNA synthesis, activates caspase-3, and facilitates apoptosis, thus rescuing the function of mutant <italic>PTEN</italic> [<xref ref-type="bibr" rid="B31-ijms-20-01166">31</xref>]. Considering the role of cisplatin in complementing <italic>PTEN</italic> function, strategic application of the drug could potentially address the autism-associated symptoms arising from <italic>PTEN</italic> dysfunction. Another drug example is everolimus, which behaves as an inhibitor of the mammalian target of rapamycin, and it could impact cancer predisposition and possibly autism development in a manner similar to cisplatin [<xref ref-type="bibr" rid="B32-ijms-20-01166">32</xref>].</p>
+<p>Although invasive drugs and treatments exist for many types of cancer, a drug is yet to be successfully developed to prevent the onset or progression of ASD symptomology. The unexpected shared etiology with overlapping genes between cancer and autism, particularly those involved in cell-signaling pathways such as MAPK and calcium signaling [<xref ref-type="bibr" rid="B19-ijms-20-01166">19</xref>], encourages cautious speculation that, as our knowledge of the staging and mechanisms of ASD improves and applied to animal model testing, the leverage of anti-cancer drugs at minimal dosages could be postulated. For example, the 16p11.2 chromosome deletion is one of the most common copy number variants linked to autism in humans and reportedly involves the <italic>ERK1</italic> gene and other related genes converging in the ERK/MAP kinase pathway. This pathway was the most recognized super-pathway found in our profiling analysis of autism and cancer genes (see <xref ref-type="table" rid="ijms-20-01166-t002">Table 2</xref>). Perturbations of this pathway can contribute to neuropsychiatric disorders, cell growth, and malignancy; therefore, treatment could lessen these manifestations. To investigate whether pharmacological approaches could be helpful, researchers used a 16p11.2 equivalent deletion mouse model with the <italic>ERK1</italic> gene deleted, and they found that pharmacological inhibitions of ERK signaling (i.e., RB1 and RB3 peptides) rescued cortical cytoarchitecture abnormalities and the abnormal behavioral phenotype associated with this deletion, providing evidence for a potential targeted therapeutic intervention for autism [<xref ref-type="bibr" rid="B33-ijms-20-01166">33</xref>]. Hypothetically, treatment could lessen the effects of autism when recognized early and during brain plasticity. </p>
+<p>Furthermore, genetic analysis linked autism with mutations in tumor suppression genes and other cancer-associated genes and pathways reflected in our gene profiling analysis. Important candidate genes (e.g., <italic>PTEN</italic>, <italic>NF1</italic>, and <italic>BRCA2</italic>) are found meeting criteria clearly associated with predisposition to cancer such as colorectal, other gastrointestinal tumors, and breast reported in the top seven autism and cancer-associated diseases (see <xref ref-type="table" rid="ijms-20-01166-t001">Table 1</xref>). For example, mutations in the <italic>PTEN</italic> gene are linked to colorectal, thyroid, head, neck, prostate, skin, breast, and lung cancer and about 10% of children with autism have <italic>PTEN</italic> gene mutations, making this an important gene to target regarding therapeutic intervention for autism with predisposition to cancer. ASDs and cancer overlap extensively in signal transduction pathways as illustrated by our study, involving metabolic processes; these areas should be targeted by treatment strategies. Such insights may enable more accurate gene-informed cancer risk assessment for targeted therapeutic and medical management.</p>
+<p>To date, there were a few preclinical models tested with anticancer medication on ASD symptoms. For example, Kilincaslan et al. [<xref ref-type="bibr" rid="B34-ijms-20-01166">34</xref>] reported the beneficial effects of everolimus on autism and attention-deficit hyperactivity disorder (ADHD) symptoms in a group of patients with tuberous sclerosis complex (TSC). This drug inhibits mTOR, one of the top 30 super-pathways identified with high scores when comparing shared autism and cancer genes. It is a treatment for TSC in which autism is a finding, along with renal angiomyolipomas and astrocytomas. The drug reduced tumor growth, decreased seizures, and improved autistic, ADHD, and depression symptoms. However, there is a paucity of studies on the effects of this drug on neuro-psychiatric symptoms, which merit further consideration. Treatment would be a new avenue to pursue and further explore, particularly in those with ASD, the involvement of shared autism and cancer-related genes.</p>
+</sec>
+<sec id="sec4-ijms-20-01166">
+<title>4. Materials and Methods </title>
+<p>Shared genetic architecture between cancer and ASD was examined firstly using VarElect, a sequence phenotyper affiliated with GeneAnalytics (Alameda, CA, USA) [<xref ref-type="bibr" rid="B35-ijms-20-01166">35</xref>,<xref ref-type="bibr" rid="B36-ijms-20-01166">36</xref>]. A reported list of 792 clinically relevant, susceptible, or known genes for ASD, summarized previously by Butler et al. [<xref ref-type="bibr" rid="B37-ijms-20-01166">37</xref>], and over 3500 recognized cancer genes found in the GeneAnalytics databases were entered into the VarElect phenotyper program to identify overlapping genes.</p>
+<p>The ASD genes were filtered by their association with the query “cancer” and limited to those with established pathways. Based on the above parameters, VarElect produced 138 genes with known connections to both cancer and ASD. The refined list of 138 genes was then entered into GeneAnalytics, a gene set analytical tool which uses GeneCards, an integrated genomic database, to parse genes and their relationships, as previously reported [<xref ref-type="bibr" rid="B22-ijms-20-01166">22</xref>,<xref ref-type="bibr" rid="B38-ijms-20-01166">38</xref>,<xref ref-type="bibr" rid="B39-ijms-20-01166">39</xref>,<xref ref-type="bibr" rid="B40-ijms-20-01166">40</xref>].</p>
+<p>The GeneAnalytics program produces a report containing seven categories: diseases, pathways, tissues and cells, phenotypes, Gene Ontology (GO) molecular functions, GO biological processes, and compounds related to the query of interest (i.e., cancer and ASD gene). Each entry in these functional categories was sorted with the GeneAnalytics proprietary matching and scoring algorithm following protocols published previously in the study of psychiatric, behavior, and obesity-related genes by our research group [<xref ref-type="bibr" rid="B22-ijms-20-01166">22</xref>,<xref ref-type="bibr" rid="B39-ijms-20-01166">39</xref>,<xref ref-type="bibr" rid="B40-ijms-20-01166">40</xref>]. Only those genes with the highest calculated scores were further analyzed for each of the seven GeneAnalytics categories. In addition to scoring fields based on their relevance to the gene set, fields were subdivided into three categories, “high-score matches”, “medium-score matches”, and “low-score matches”. High-score matches exhibited a corrected <italic>p</italic>-value of less than 0.05, while medium-score matches exhibited a corrected <italic>p</italic>-value between 0.05 and 0.1. For the purposes of this investigation, medium- and low-score matches were excluded from the results. The reporting of high-score matches was restricted to the top 30 entries, in instances where more than 30 were found to be significant (<italic>p</italic> &lt; 0.05). Corrections were made based on multiple testing (Bonferroni correction).</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>We thank Charlotte Weber for help with manuscript preparation and Humaira Masoud for assistance in data collection.</p>
+</ack>
+<notes>
+<title>Author Contributions</title>
+<p>M.G.B. and A.M.M. conceived and designed the study; A.P.G., A.M.M., and M.G.B. analyzed the data; A.P.G., A.M.M., and M.G.B. wrote the manuscript. </p>
+</notes>
+<notes>
+<title>Funding</title>
+<p>The authors acknowledge support from the National Institute of Child Health and Human Development (NICHD) and grant number HD02528. </p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Conflicts of Interest</title>
+<p>The authors declare no conflicts of interest. </p>
+</notes>
+<glossary>
+<title>Abbreviations</title>
+<array orientation="portrait">
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">ASD</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Autism spectrum disorders</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">GWAS</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Genome-wide association studies</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">RNA</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Ribonucleic acid</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">DNA</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Deoxyribonucleic acid</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">GO</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Gene ontology</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">KEGG</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Kyoto Encyclopedia of Genes and Genomes</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">NICHD</td>
+<td align="left" colspan="1" rowspan="1" valign="top">National Institute of Child Health and Human Development</td>
+</tr>
+</tbody>
+</array>
+</glossary>
+<ref-list>
+<title>References</title>
+<ref id="B1-ijms-20-01166">
+<label>1.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<collab>American Psychiatric Association</collab>
+</person-group>
+<source/>Diagnostic and Statistical Manual of Mental Disorders
+          <edition>4th ed.</edition>
+<publisher-name>American Psychiatric Association Press</publisher-name>
+<publisher-loc>Washington, DC, USA</publisher-loc>
+<year>2013</year>
+</element-citation>
+</ref>
+<ref id="B2-ijms-20-01166">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Colvert</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Tick</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>McEwen</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Stewart</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Curran</surname>
+<given-names>S.R.</given-names>
+</name>
+<name>
+<surname>Woodhouse</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Gillan</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Hallett</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Lietz</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Garnett</surname>
+<given-names>T.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Heritability of autism spectrum disorder in a UK population-based twin sample</article-title>
+<source/>JAMA Psychiatry
+          <year>2015</year>
+<volume>72</volume>
+<fpage>415</fpage>
+<lpage>423</lpage>
+<pub-id pub-id-type="doi">10.1001/jamapsychiatry.2014.3028</pub-id>
+<pub-id pub-id-type="pmid">25738232</pub-id>
+</element-citation>
+</ref>
+<ref id="B3-ijms-20-01166">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hua</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Thompson</surname>
+<given-names>P.M.</given-names>
+</name>
+<name>
+<surname>Leow</surname>
+<given-names>A.D.</given-names>
+</name>
+<name>
+<surname>Madsen</surname>
+<given-names>S.K.</given-names>
+</name>
+<name>
+<surname>Caplan</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Alger</surname>
+<given-names>J.R.</given-names>
+</name>
+<name>
+<surname>O’Neill</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Joshi</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Smalley</surname>
+<given-names>S.L.</given-names>
+</name>
+<name>
+<surname>Toga</surname>
+<given-names>A.W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Brain growth rate abnormalities visualized in adolescents with autism</article-title>
+<source/>Hum. Brain Mapp.
+          <year>2013</year>
+<volume>34</volume>
+<fpage>425</fpage>
+<lpage>436</lpage>
+<pub-id pub-id-type="doi">10.1002/hbm.21441</pub-id>
+<pub-id pub-id-type="pmid">22021093</pub-id>
+</element-citation>
+</ref>
+<ref id="B4-ijms-20-01166">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Phillips</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Pozzo-Miller</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Dendritic spine dysgenesis in autism related disorders</article-title>
+<source/>Neurosci. Lett.
+          <year>2015</year>
+<volume>601</volume>
+<fpage>30</fpage>
+<lpage>40</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neulet.2015.01.011</pub-id>
+<pub-id pub-id-type="pmid">25578949</pub-id>
+</element-citation>
+</ref>
+<ref id="B5-ijms-20-01166">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Butler</surname>
+<given-names>M.G.</given-names>
+</name>
+<name>
+<surname>Dasouki</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Talebizadeh</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Brown</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Takahashi</surname>
+<given-names>T.N.</given-names>
+</name>
+<name>
+<surname>Miles</surname>
+<given-names>J.H.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>C.H.</given-names>
+</name>
+<name>
+<surname>Stratton</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Pilarski</surname>
+<given-names>R.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Subset of individuals with autism spectrum disorders and extreme macrocephaly associated with germline PTEN tumour suppressor gene mutations</article-title>
+<source/>J. Med. Genet.
+          <year>2005</year>
+<volume>42</volume>
+<fpage>318</fpage>
+<lpage>321</lpage>
+<pub-id pub-id-type="doi">10.1136/jmg.2004.024646</pub-id>
+<pub-id pub-id-type="pmid">15805158</pub-id>
+</element-citation>
+</ref>
+<ref id="B6-ijms-20-01166">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marsh</surname>
+<given-names>D.J.</given-names>
+</name>
+<name>
+<surname>Kum</surname>
+<given-names>J.B.</given-names>
+</name>
+<name>
+<surname>Lunetta</surname>
+<given-names>K.L.</given-names>
+</name>
+<name>
+<surname>Bennett</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Gorlin</surname>
+<given-names>R.J.</given-names>
+</name>
+<name>
+<surname>Ahmed</surname>
+<given-names>S.F.</given-names>
+</name>
+<name>
+<surname>Bodurtha</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Crowe</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Curtis</surname>
+<given-names>M.A.</given-names>
+</name>
+<name>
+<surname>Dasouki</surname>
+<given-names>M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>PTEN mutation spectrum and genotype-phenotype correlations in Bannayan-Riley-Ruvalcaba syndrome suggest a single entity with Cowden syndrome</article-title>
+<source/>Hum. Mol. Genet.
+          <year>1999</year>
+<volume>8</volume>
+<fpage>1461</fpage>
+<lpage>1472</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/8.8.1461</pub-id>
+<pub-id pub-id-type="pmid">10400993</pub-id>
+</element-citation>
+</ref>
+<ref id="B7-ijms-20-01166">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cristofano</surname>
+<given-names>A.D.</given-names>
+</name>
+<name>
+<surname>Pandolfi</surname>
+<given-names>P.P.</given-names>
+</name>
+</person-group>
+<article-title>The multiple roles of PTEN in tumor suppression</article-title>
+<source/>Cell
+          <year>2000</year>
+<volume>100</volume>
+<fpage>387</fpage>
+<lpage>390</lpage>
+<pub-id pub-id-type="doi">10.1016/S0092-8674(00)80674-1</pub-id>
+<pub-id pub-id-type="pmid">10693755</pub-id>
+</element-citation>
+</ref>
+<ref id="B8-ijms-20-01166">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goffin</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Hoefsloot</surname>
+<given-names>L.H.</given-names>
+</name>
+<name>
+<surname>Bosgoed</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Swillen</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Fryns</surname>
+<given-names>J.P.</given-names>
+</name>
+</person-group>
+<article-title>PTEN mutation in a family with Cowden syndrome and autism</article-title>
+<source/>Am. J. Med. Genet.
+          <year>2001</year>
+<volume>105</volume>
+<fpage>521</fpage>
+<lpage>524</lpage>
+<pub-id pub-id-type="doi">10.1002/ajmg.1477</pub-id>
+<pub-id pub-id-type="pmid">11496368</pub-id>
+</element-citation>
+</ref>
+<ref id="B9-ijms-20-01166">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yonan</surname>
+<given-names>A.L.</given-names>
+</name>
+<name>
+<surname>Alarcon</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Cheng</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Magnusson</surname>
+<given-names>P.K.</given-names>
+</name>
+<name>
+<surname>Spence</surname>
+<given-names>S.J.</given-names>
+</name>
+<name>
+<surname>Palmer</surname>
+<given-names>A.A.</given-names>
+</name>
+<name>
+<surname>Grunn</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Juo</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Terwilliger</surname>
+<given-names>J.D.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A genomewide screen of 345 families for autism-susceptibility loci</article-title>
+<source/>Am. J. Hum. Genet.
+          <year>2003</year>
+<volume>73</volume>
+<fpage>886</fpage>
+<lpage>897</lpage>
+<pub-id pub-id-type="doi">10.1086/378778</pub-id>
+<pub-id pub-id-type="pmid">13680528</pub-id>
+</element-citation>
+</ref>
+<ref id="B10-ijms-20-01166">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yu</surname>
+<given-names>T.W.</given-names>
+</name>
+<name>
+<surname>Chahrour</surname>
+<given-names>M.H.</given-names>
+</name>
+<name>
+<surname>Coulter</surname>
+<given-names>M.E.</given-names>
+</name>
+<name>
+<surname>Jiralerspong</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Okamura-Ikeda</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Ataman</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Schmitz-Abe</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Harmin</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>Adli</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Malik</surname>
+<given-names>A.N.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Using whole exome sequencing to identify inherited causes of autism</article-title>
+<source/>Neuron
+          <year>2013</year>
+<volume>77</volume>
+<fpage>259</fpage>
+<lpage>273</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2012.11.002</pub-id>
+<pub-id pub-id-type="pmid">23352163</pub-id>
+</element-citation>
+</ref>
+<ref id="B11-ijms-20-01166">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Butler</surname>
+<given-names>M.G.</given-names>
+</name>
+<name>
+<surname>Rafi</surname>
+<given-names>S.K.</given-names>
+</name>
+<name>
+<surname>Hossain</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Stephan</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>Manzardo</surname>
+<given-names>A.M.</given-names>
+</name>
+</person-group>
+<article-title>Whole exome sequencing in females with autism implicates novel and candidate genes</article-title>
+<source/>Int. J. Mol. Sci.
+          <year>2015</year>
+<volume>15</volume>
+<fpage>1312</fpage>
+<lpage>1335</lpage>
+<pub-id pub-id-type="doi">10.3390/ijms16011312</pub-id>
+<pub-id pub-id-type="pmid">25574603</pub-id>
+</element-citation>
+</ref>
+<ref id="B12-ijms-20-01166">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>The canonical Wnt signaling pathway in autism</article-title>
+<source/>CNS Neurol. Disord. Drug Targets
+          <year>2014</year>
+<volume>13</volume>
+<fpage>765</fpage>
+<lpage>770</lpage>
+<pub-id pub-id-type="doi">10.2174/1871527312666131223114149</pub-id>
+<pub-id pub-id-type="pmid">24365182</pub-id>
+</element-citation>
+</ref>
+<ref id="B13-ijms-20-01166">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Crawley</surname>
+<given-names>J.N.</given-names>
+</name>
+<name>
+<surname>Heyer</surname>
+<given-names>W.D.</given-names>
+</name>
+<name>
+<surname>LaSalle</surname>
+<given-names>J.M.</given-names>
+</name>
+</person-group>
+<article-title>Autism and cancer share risk genes, pathways, and drug targets</article-title>
+<source/>Trends Genet.
+          <year>2016</year>
+<volume>32</volume>
+<fpage>139</fpage>
+<lpage>146</lpage>
+<pub-id pub-id-type="doi">10.1016/j.tig.2016.01.001</pub-id>
+<pub-id pub-id-type="pmid">26830258</pub-id>
+</element-citation>
+</ref>
+<ref id="B14-ijms-20-01166">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Darbro</surname>
+<given-names>B.W.</given-names>
+</name>
+<name>
+<surname>Singh</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Zimmerman</surname>
+<given-names>M.B.</given-names>
+</name>
+<name>
+<surname>Mahajan</surname>
+<given-names>V.B.</given-names>
+</name>
+<name>
+<surname>Bassuk</surname>
+<given-names>A.G.</given-names>
+</name>
+</person-group>
+<article-title>Autism linked to increased oncogene mutations but decreased cancer rate</article-title>
+<source/>PLoS ONE
+          <year>2016</year>
+<volume>11</volume>
+<elocation-id>e0149041</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0149041</pub-id>
+<pub-id pub-id-type="pmid">26934580</pub-id>
+</element-citation>
+</ref>
+<ref id="B15-ijms-20-01166">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Blatt</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Deal</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Mesibov</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Autism in children and adolescents with cancer</article-title>
+<source/>Pediatr. Blood Cancer
+          <year>2010</year>
+<volume>54</volume>
+<fpage>144</fpage>
+<lpage>147</lpage>
+<pub-id pub-id-type="doi">10.1002/pbc.22303</pub-id>
+<pub-id pub-id-type="pmid">19774639</pub-id>
+</element-citation>
+</ref>
+<ref id="B16-ijms-20-01166">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Crespi</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Autism and cancer risk</article-title>
+<source/>Autism. Res.
+          <year>2011</year>
+<volume>4</volume>
+<fpage>302</fpage>
+<lpage>310</lpage>
+<pub-id pub-id-type="doi">10.1002/aur.208</pub-id>
+<pub-id pub-id-type="pmid">21823244</pub-id>
+</element-citation>
+</ref>
+<ref id="B17-ijms-20-01166">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dhillon</surname>
+<given-names>A.S.</given-names>
+</name>
+<name>
+<surname>Hagan</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Rath</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Kolch</surname>
+<given-names>W.</given-names>
+</name>
+</person-group>
+<article-title>MAP kinase signalling pathways in cancer</article-title>
+<source/>Oncogene
+          <year>2007</year>
+<volume>26</volume>
+<fpage>3279</fpage>
+<lpage>3290</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.onc.1210421</pub-id>
+<pub-id pub-id-type="pmid">17496922</pub-id>
+</element-citation>
+</ref>
+<ref id="B18-ijms-20-01166">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pópulo</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Lopes</surname>
+<given-names>J.M.</given-names>
+</name>
+<name>
+<surname>Soares</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>The mTOR signalling pathway in human cancer</article-title>
+<source/>Int. J. Mol. Sci.
+          <year>2012</year>
+<volume>13</volume>
+<fpage>1886</fpage>
+<lpage>1918</lpage>
+<pub-id pub-id-type="doi">10.3390/ijms13021886</pub-id>
+<pub-id pub-id-type="pmid">22408430</pub-id>
+</element-citation>
+</ref>
+<ref id="B19-ijms-20-01166">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wen</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Alshikho</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Herbert</surname>
+<given-names>M.R.</given-names>
+</name>
+</person-group>
+<article-title>Pathway network analyses for autism reveal multisystem involvement, major overlaps with other diseases and convergence upon MAPK and calcium signaling</article-title>
+<source/>PLoS ONE
+          <year>2016</year>
+<volume>11</volume>
+<elocation-id>e0153329</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0153329</pub-id>
+<pub-id pub-id-type="pmid">27055244</pub-id>
+</element-citation>
+</ref>
+<ref id="B20-ijms-20-01166">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wen</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Herbert</surname>
+<given-names>M.R.</given-names>
+</name>
+</person-group>
+<article-title>Connecting the dots: Overlaps between autism and cancer suggest possible common mechanisms regarding signaling pathways related to metabolic alterations</article-title>
+<source/>Med. Hypotheses
+          <year>2017</year>
+<volume>103</volume>
+<fpage>118</fpage>
+<lpage>123</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mehy.2017.05.004</pub-id>
+<pub-id pub-id-type="pmid">28571796</pub-id>
+</element-citation>
+</ref>
+<ref id="B21-ijms-20-01166">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Varga</surname>
+<given-names>E.A.</given-names>
+</name>
+<name>
+<surname>Pastore</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Prior</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Herman</surname>
+<given-names>G.E.</given-names>
+</name>
+<name>
+<surname>Mcbride</surname>
+<given-names>K.L.</given-names>
+</name>
+</person-group>
+<article-title>The prevalence of PTEN mutations in a clinical pediatric cohort with autism spectrum disorders, developmental delay, and macrocephaly</article-title>
+<source/>Genet. Med.
+          <year>2009</year>
+<volume>11</volume>
+<fpage>111</fpage>
+<lpage>117</lpage>
+<pub-id pub-id-type="doi">10.1097/GIM.0b013e31818fd762</pub-id>
+<pub-id pub-id-type="pmid">19265751</pub-id>
+</element-citation>
+</ref>
+<ref id="B22-ijms-20-01166">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sundararajan</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Manzardo</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Butler</surname>
+<given-names>M.G.</given-names>
+</name>
+</person-group>
+<article-title>Functional analysis of schizophrenia genes using GeneAnalytics program and integrated databases</article-title>
+<source/>Gene
+          <year>2018</year>
+<volume>641</volume>
+<fpage>25</fpage>
+<lpage>34</lpage>
+<pub-id pub-id-type="doi">10.1016/j.gene.2017.10.035</pub-id>
+<pub-id pub-id-type="pmid">29032150</pub-id>
+</element-citation>
+</ref>
+<ref id="B23-ijms-20-01166">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wenk</surname>
+<given-names>G.L.</given-names>
+</name>
+</person-group>
+<article-title>Neuropathologic changes in Alzheimer’s disease</article-title>
+<source/>J. Clin. Psychiatry
+          <year>2003</year>
+<volume>64</volume>
+<fpage>7</fpage>
+<lpage>10</lpage>
+<pub-id pub-id-type="pmid">12934968</pub-id>
+</element-citation>
+</ref>
+<ref id="B24-ijms-20-01166">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tiraboschi</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Hansen</surname>
+<given-names>L.A.</given-names>
+</name>
+<name>
+<surname>Thal</surname>
+<given-names>L.J.</given-names>
+</name>
+<name>
+<surname>Corey-Bloom</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>The importance of neuritic plaques and tangles to the development and evolution of AD</article-title>
+<source/>Neurology
+          <year>2004</year>
+<volume>62</volume>
+<fpage>1984</fpage>
+<lpage>1989</lpage>
+<pub-id pub-id-type="doi">10.1212/01.WNL.0000129697.01779.0A</pub-id>
+<pub-id pub-id-type="pmid">15184601</pub-id>
+</element-citation>
+</ref>
+<ref id="B25-ijms-20-01166">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zarei</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Carr</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Reiley</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Diaz</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Guerra</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Altamirano</surname>
+<given-names>P.F.</given-names>
+</name>
+<name>
+<surname>Pagani</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Lodin</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Orozco</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Chinea</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>A comprehensive review of amyotrophic lateral sclerosis</article-title>
+<source/>Surg. Neurol. Int.
+          <year>2015</year>
+<volume>6</volume>
+<fpage>171</fpage>
+<pub-id pub-id-type="doi">10.4103/2152-7806.169561</pub-id>
+<pub-id pub-id-type="pmid">26629397</pub-id>
+</element-citation>
+</ref>
+<ref id="B26-ijms-20-01166">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Meloche</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Pouyssegur</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>The ERK1/2 mitogen-activated protein kinase pathway as a master regulator of the G1- to S-phase transition</article-title>
+<source/>Oncogene
+          <year>2007</year>
+<volume>26</volume>
+<fpage>3227</fpage>
+<lpage>3239</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.onc.1210414</pub-id>
+<pub-id pub-id-type="pmid">17496918</pub-id>
+</element-citation>
+</ref>
+<ref id="B27-ijms-20-01166">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>MacDonald</surname>
+<given-names>B.T.</given-names>
+</name>
+<name>
+<surname>Tamai</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>X.</given-names>
+</name>
+</person-group>
+<article-title>Wnt/beta-catenin signaling: Components, mechanisms, and diseases</article-title>
+<source/>Dev. Cell
+          <year>2009</year>
+<volume>17</volume>
+<fpage>9</fpage>
+<lpage>26</lpage>
+<pub-id pub-id-type="doi">10.1016/j.devcel.2009.06.016</pub-id>
+<pub-id pub-id-type="pmid">19619488</pub-id>
+</element-citation>
+</ref>
+<ref id="B28-ijms-20-01166">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morin</surname>
+<given-names>P.J.</given-names>
+</name>
+</person-group>
+<article-title>Beta-catenin signaling and cancer</article-title>
+<source/>BioEssays
+          <year>1999</year>
+<volume>21</volume>
+<fpage>1021</fpage>
+<lpage>1030</lpage>
+<pub-id pub-id-type="doi">10.1002/(SICI)1521-1878(199912)22:1&lt;1021::AID-BIES6&gt;3.0.CO;2-P</pub-id>
+<pub-id pub-id-type="pmid">10580987</pub-id>
+</element-citation>
+</ref>
+<ref id="B29-ijms-20-01166">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yi</surname>
+<given-names>J.J.</given-names>
+</name>
+<name>
+<surname>Paranjape</surname>
+<given-names>S.R.</given-names>
+</name>
+<name>
+<surname>Walker</surname>
+<given-names>M.P.</given-names>
+</name>
+<name>
+<surname>Choudhury</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Wolter</surname>
+<given-names>J.M.</given-names>
+</name>
+<name>
+<surname>Fragola</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Emanuele</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Major</surname>
+<given-names>M.B.</given-names>
+</name>
+<name>
+<surname>Zylka</surname>
+<given-names>M.J.</given-names>
+</name>
+</person-group>
+<article-title>The autism-linked UBE3A T485A mutant E3 ubiquitin ligase activates the Wnt/?-catenin pathway by inhibiting the proteasome</article-title>
+<source/>J. Biol. Chem.
+          <year>2017</year>
+<volume>292</volume>
+<fpage>12503</fpage>
+<lpage>12515</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.M117.788448</pub-id>
+<pub-id pub-id-type="pmid">28559284</pub-id>
+</element-citation>
+</ref>
+<ref id="B30-ijms-20-01166">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bae</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Hong</surname>
+<given-names>J.Y.</given-names>
+</name>
+</person-group>
+<article-title>The Wnt signaling pathway and related therapeutic drugs in autism spectrum disorder</article-title>
+<source/>Clin. Psychopharmacol. Neurosci.
+          <year>2018</year>
+<volume>16</volume>
+<fpage>129</fpage>
+<lpage>135</lpage>
+<pub-id pub-id-type="doi">10.9758/cpn.2018.16.2.129</pub-id>
+<pub-id pub-id-type="pmid">29739125</pub-id>
+</element-citation>
+</ref>
+<ref id="B31-ijms-20-01166">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dasari</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Tchounwou</surname>
+<given-names>P.B.</given-names>
+</name>
+</person-group>
+<article-title>Cisplatin in cancer therapy: Molecular mechanisms of action</article-title>
+<source/>Eur. J. Pharmacol.
+          <year>2014</year>
+<volume>740</volume>
+<fpage>364</fpage>
+<lpage>378</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ejphar.2014.07.025</pub-id>
+<pub-id pub-id-type="pmid">25058905</pub-id>
+</element-citation>
+</ref>
+<ref id="B32-ijms-20-01166">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hasskarl</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Everolimus. Recent results</article-title>
+<source/>Cancer Res.
+          <year>2014</year>
+<volume>201</volume>
+<fpage>373</fpage>
+<lpage>392</lpage>
+</element-citation>
+</ref>
+<ref id="B33-ijms-20-01166">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pucilowska</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Vithayathil</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Pagani</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Kelly</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Karlo</surname>
+<given-names>J.C.</given-names>
+</name>
+<name>
+<surname>Robol</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Morella</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Gozzi</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Brambilla</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Landreth</surname>
+<given-names>G.E.</given-names>
+</name>
+</person-group>
+<article-title>Pharmacological inhibition of ERK signaling rescues pathophysiology and behavioral phenotype associated with 16p11.2 chromosomal deletion in mice</article-title>
+<source/>J. Neurosci.
+          <year>2018</year>
+<volume>38</volume>
+<fpage>6640</fpage>
+<lpage>6652</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.0515-17.2018</pub-id>
+<pub-id pub-id-type="pmid">29934348</pub-id>
+</element-citation>
+</ref>
+<ref id="B34-ijms-20-01166">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kilincaslan</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Kok</surname>
+<given-names>B.E.</given-names>
+</name>
+<name>
+<surname>Tekturk</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Yalcinkaya</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Ozkara</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Yapici</surname>
+<given-names>Z.</given-names>
+</name>
+</person-group>
+<article-title>Beneficial effects of everolimus on autism and attention-deficit/hyperactivity disorder symptoms in a group of patients with tuberous sclerosis complex</article-title>
+<source/>J. Child Adolesc. Psychopharmacol.
+          <year>2017</year>
+<volume>27</volume>
+<fpage>383</fpage>
+<lpage>388</lpage>
+<pub-id pub-id-type="doi">10.1089/cap.2016.0100</pub-id>
+<pub-id pub-id-type="pmid">27797585</pub-id>
+</element-citation>
+</ref>
+<ref id="B35-ijms-20-01166">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stelzer</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Plaschkes</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Oz Levi</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Alkelai</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Olender</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Zimmerman</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Twik</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Belinky</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Fishilevich</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Nudel</surname>
+<given-names>R.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>VarElect: The phenotype—Based variation prioritizer of the GeneCards suite</article-title>
+<source/>BMC Genom.
+          <year>2016</year>
+<volume>17</volume>
+<elocation-id>444</elocation-id>
+<pub-id pub-id-type="doi">10.1186/s12864-016-2722-2</pub-id>
+<pub-id pub-id-type="pmid">27357693</pub-id>
+</element-citation>
+</ref>
+<ref id="B36-ijms-20-01166">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stelzer</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Rosen</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Plaschkes</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Zimmerman</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Twik</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Fishilevich</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Stein</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Nudel</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Lieder</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Mazor</surname>
+<given-names>Y.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The GeneCards suite: From gene data mining to disease genome sequence analysis</article-title>
+<source/>Curr. Protoc. Bioinform.
+          <year>2016</year>
+<volume>54</volume>
+<fpage>1</fpage>
+<lpage>30</lpage>
+</element-citation>
+</ref>
+<ref id="B37-ijms-20-01166">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Butler</surname>
+<given-names>M.G.</given-names>
+</name>
+<name>
+<surname>Rafi</surname>
+<given-names>S.K.</given-names>
+</name>
+<name>
+<surname>Manzardo</surname>
+<given-names>A.M.</given-names>
+</name>
+</person-group>
+<article-title>High-resolution chromosome ideogram representation of currently recognized genes for autism spectrum disorders</article-title>
+<source/>Int. J. Mol. Sci.
+          <year>2015</year>
+<volume>16</volume>
+<fpage>6464</fpage>
+<lpage>6495</lpage>
+<pub-id pub-id-type="doi">10.3390/ijms16036464</pub-id>
+<pub-id pub-id-type="pmid">25803107</pub-id>
+</element-citation>
+</ref>
+<ref id="B38-ijms-20-01166">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ben-Ari Fuchs</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Lieder</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Stelzer</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Mazor</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Buzhor</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Kaplan</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Bogoch</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Plaschkes</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Shitrit</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Rappaport</surname>
+<given-names>N.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>GeneAnalytics: An integrative gene set analysis tool for Next generation sequencing, RNAseq and microarray data</article-title>
+<source/>OMICS
+          <year>2016</year>
+<volume>20</volume>
+<fpage>139</fpage>
+<lpage>151</lpage>
+<pub-id pub-id-type="doi">10.1089/omi.2015.0168</pub-id>
+<pub-id pub-id-type="pmid">26983021</pub-id>
+</element-citation>
+</ref>
+<ref id="B39-ijms-20-01166">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gabrielli</surname>
+<given-names>A.P.</given-names>
+</name>
+<name>
+<surname>Manzardo</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Butler</surname>
+<given-names>M.G.</given-names>
+</name>
+</person-group>
+<article-title>Exploring genetic susceptibility to obesity through genome functional pathway analysis</article-title>
+<source/>Obesity
+          <year>2017</year>
+<volume>25</volume>
+<fpage>1136</fpage>
+<lpage>1143</lpage>
+<pub-id pub-id-type="doi">10.1002/oby.21847</pub-id>
+<pub-id pub-id-type="pmid">28474384</pub-id>
+</element-citation>
+</ref>
+<ref id="B40-ijms-20-01166">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khanzada</surname>
+<given-names>N.S.</given-names>
+</name>
+<name>
+<surname>Butler</surname>
+<given-names>M.G.</given-names>
+</name>
+<name>
+<surname>Manzardo</surname>
+<given-names>A.M.</given-names>
+</name>
+</person-group>
+<article-title>GeneAnalytics pathway analysis and genetic overlap among autism spectrum disorder, bipolar disorder and schizophrenia</article-title>
+<source/>Int. J. Mol. Sci.
+          <year>2017</year>
+<volume>18</volume>
+<elocation-id>527</elocation-id>
+<pub-id pub-id-type="doi">10.3390/ijms18030527</pub-id>
+<pub-id pub-id-type="pmid">28264500</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="ijms-20-01166-f001" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Diseases ranked by score and match rate (size of circle).</p>
+</caption>
+<graphic xlink:href="ijms-20-01166-g001"></graphic>
+</fig>
+<fig id="ijms-20-01166-f002" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Phenotypes ranked by score and match rate (size of circle) for top ten phenotypes.</p>
+</caption>
+<graphic xlink:href="ijms-20-01166-g002"></graphic>
+</fig>
+<fig id="ijms-20-01166-f003" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Gene Ontology (GO) biological processes ranked by score and match rate (size of circle) for top ten processes.</p>
+</caption>
+<graphic xlink:href="ijms-20-01166-g003"></graphic>
+</fig>
+<fig id="ijms-20-01166-f004" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>GO molecular function ranked by score and match rate (size of circle) for top ten functions.</p>
+</caption>
+<graphic xlink:href="ijms-20-01166-g004"></graphic>
+</fig>
+<fig id="ijms-20-01166-f005" orientation="portrait" position="float">
+<label>Figure 5</label>
+<caption>
+<p>Pathways ranked by score and match rate (size of circle) for top ten pathways.</p>
+</caption>
+<graphic xlink:href="ijms-20-01166-g005"></graphic>
+</fig>
+<table-wrap id="ijms-20-01166-t001" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-20-01166-t001_Table 1</object-id>
+<label>Table 1</label>
+<caption>
+<p>Profiling of high scores in overlapping genes for autism and cancer-associated diseases.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Score</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Disease</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Disease Categories</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Matched Genes (% of 138 Overlapping Genes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">33.84</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Colorectal cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Gastrointestinal diseases, genetic diseases, rare diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">44 (32%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30.70</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Breast cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Reproductive diseases, genetic diseases, rare diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">39 (28%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">24.13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Prostate cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Reproductive diseases, genetic diseases, rare diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">31 (22%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">19.01</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Lung cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Respiratory diseases, genetic diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">25 (18%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">18.43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Endometrial cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Reproductive diseases, genetic diseases, rare diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">19 (14%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">13.94</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Leukemia, acute myeloid</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Immune diseases, blood diseases, genetic diseases, rare diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">15 (11%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">13.64</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Pancreatic cancer</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Gastrointestinal diseases, endocrine diseases, genetic diseases, rare diseases, cancer diseases</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">15 (11%)</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="ijms-20-01166-t002" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-20-01166-t002_Table 2</object-id>
+<label>Table 2</label>
+<caption>
+<p>Profiling of high scores in overlapping genes for autism and cancer-associated super-pathways.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Score</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Super-Pathways</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Total Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Super-Pathway Matched Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">% of 138 Overlapping Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">166.10</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Elk-related tyrosine kinase (ERK) signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1177</td>
+<td align="left" colspan="1" rowspan="1" valign="top">74</td>
+<td align="left" colspan="1" rowspan="1" valign="top">54%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">145.73</td>
+<td align="left" colspan="1" rowspan="1" valign="top">glioma</td>
+<td align="left" colspan="1" rowspan="1" valign="top">313</td>
+<td align="left" colspan="1" rowspan="1" valign="top">44</td>
+<td align="left" colspan="1" rowspan="1" valign="top">32%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">131.74</td>
+<td align="left" colspan="1" rowspan="1" valign="top">G-protein coupled receptor (GPCR) pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">708</td>
+<td align="left" colspan="1" rowspan="1" valign="top">53</td>
+<td align="left" colspan="1" rowspan="1" valign="top">38%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">122.48</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Pathways in cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">395</td>
+<td align="left" colspan="1" rowspan="1" valign="top">42</td>
+<td align="left" colspan="1" rowspan="1" valign="top">30%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">116.32</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Signaling by GPCR</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2601</td>
+<td align="left" colspan="1" rowspan="1" valign="top">80</td>
+<td align="left" colspan="1" rowspan="1" valign="top">58%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">113.29</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Phospholipase-C pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">498</td>
+<td align="left" colspan="1" rowspan="1" valign="top">43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">31%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">98.91</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Human immune-deficiency virus (HIV) life cycle</td>
+<td align="left" colspan="1" rowspan="1" valign="top">865</td>
+<td align="left" colspan="1" rowspan="1" valign="top">48</td>
+<td align="left" colspan="1" rowspan="1" valign="top">35%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">97.32</td>
+<td align="left" colspan="1" rowspan="1" valign="top">NANOG in mammalian embryonic stem cell pluripotency</td>
+<td align="left" colspan="1" rowspan="1" valign="top">533</td>
+<td align="left" colspan="1" rowspan="1" valign="top">40</td>
+<td align="left" colspan="1" rowspan="1" valign="top">29%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">95.18</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Apoptotic pathways in synovial fibroblasts</td>
+<td align="left" colspan="1" rowspan="1" valign="top">725</td>
+<td align="left" colspan="1" rowspan="1" valign="top">44</td>
+<td align="left" colspan="1" rowspan="1" valign="top">32%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">95.13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">AKT murine thymoma viral oncogene homolog (AKT) signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">681</td>
+<td align="left" colspan="1" rowspan="1" valign="top">43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">31%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">94.06</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Development HGF signaling </td>
+<td align="left" colspan="1" rowspan="1" valign="top">234</td>
+<td align="left" colspan="1" rowspan="1" valign="top">30</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">90.05</td>
+<td align="left" colspan="1" rowspan="1" valign="top">CAMP response element-binding protein (CREB) pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">528</td>
+<td align="left" colspan="1" rowspan="1" valign="top">38</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">81.54</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Integrated breast cancer pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">154</td>
+<td align="left" colspan="1" rowspan="1" valign="top">24</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">81.30</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Proteoglycans in cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">203</td>
+<td align="left" colspan="1" rowspan="1" valign="top">26</td>
+<td align="left" colspan="1" rowspan="1" valign="top">19%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">80.40</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Nuclear factor of activated (NFAT)<break></break>T cells and cardiac hypertrophy</td>
+<td align="left" colspan="1" rowspan="1" valign="top">326</td>
+<td align="left" colspan="1" rowspan="1" valign="top">30</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">78.97</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Integrin pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">568</td>
+<td align="left" colspan="1" rowspan="1" valign="top">36</td>
+<td align="left" colspan="1" rowspan="1" valign="top">26%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">78.26</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Development of vascular endothelial growth factor (VEGF) signaling via VEGFR2, generic cascades</td>
+<td align="left" colspan="1" rowspan="1" valign="top">147</td>
+<td align="left" colspan="1" rowspan="1" valign="top">23</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">77.70</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Activation of cyclic adenosine monophosphate (CAMP)-dependent protein kinase A (PKA)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">628</td>
+<td align="left" colspan="1" rowspan="1" valign="top">37</td>
+<td align="left" colspan="1" rowspan="1" valign="top">27%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">77.43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Formyl peptide receptor (FMLP) pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">317</td>
+<td align="left" colspan="1" rowspan="1" valign="top">29</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">77.00</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P70S6K signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">390</td>
+<td align="left" colspan="1" rowspan="1" valign="top">31</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">74.95</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Rearranged during transfection (RET) signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">974</td>
+<td align="left" colspan="1" rowspan="1" valign="top">43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">31%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">72.42</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Transforming growth factor (TGF)-beta pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">652</td>
+<td align="left" colspan="1" rowspan="1" valign="top">36</td>
+<td align="left" colspan="1" rowspan="1" valign="top">26%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">72.03</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Glioblastoma multiforme</td>
+<td align="left" colspan="1" rowspan="1" valign="top">111</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">71.00</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Pigment epithelium-deprived factor (PEDF) induced signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">721</td>
+<td align="left" colspan="1" rowspan="1" valign="top">37</td>
+<td align="left" colspan="1" rowspan="1" valign="top">27%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">70.30</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P21-activated kinase (PAK) pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">682</td>
+<td align="left" colspan="1" rowspan="1" valign="top">36</td>
+<td align="left" colspan="1" rowspan="1" valign="top">26%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">69.39</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Endometrial cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">122</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">67.08</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Mechanistic target of rapamycin (MTOR) signaling pathway (KEGG)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">209</td>
+<td align="left" colspan="1" rowspan="1" valign="top">23</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">66.63</td>
+<td align="left" colspan="1" rowspan="1" valign="top">PI3K/AKT signaling pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">342</td>
+<td align="left" colspan="1" rowspan="1" valign="top">27</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">66.33</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Developmental biology</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1079</td>
+<td align="left" colspan="1" rowspan="1" valign="top">42</td>
+<td align="left" colspan="1" rowspan="1" valign="top">30%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">65.44</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Focal adhesion</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">283</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">25</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">18%</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="ijms-20-01166-t003" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-20-01166-t003_Table 3</object-id>
+<label>Table 3</label>
+<caption>
+<p>Profiling of high scores in overlapping genes for autism and cancer-associated Gene Ontology (GO) biological processes.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Score</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">GO Biological Processes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Total Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Matched Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">% of 138 Overlapping Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">53.00</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of transcription, DNA-templated</td>
+<td align="left" colspan="1" rowspan="1" valign="top">596</td>
+<td align="left" colspan="1" rowspan="1" valign="top">29</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">46.66</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of transcription from RNA polymerase II promoter</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1016</td>
+<td align="left" colspan="1" rowspan="1" valign="top">34</td>
+<td align="left" colspan="1" rowspan="1" valign="top">25%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">44.49</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of gene expression</td>
+<td align="left" colspan="1" rowspan="1" valign="top">346</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21</td>
+<td align="left" colspan="1" rowspan="1" valign="top">15%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">44.10</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Heart development</td>
+<td align="left" colspan="1" rowspan="1" valign="top">232</td>
+<td align="left" colspan="1" rowspan="1" valign="top">18</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">42.44</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Negative regulation of cell proliferation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">419</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">41.44</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Nervous system development</td>
+<td align="left" colspan="1" rowspan="1" valign="top">535</td>
+<td align="left" colspan="1" rowspan="1" valign="top">24</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">39.38</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Intracellular signal transduction</td>
+<td align="left" colspan="1" rowspan="1" valign="top">467</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">39.37</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein phosphorylation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">629</td>
+<td align="left" colspan="1" rowspan="1" valign="top">25</td>
+<td align="left" colspan="1" rowspan="1" valign="top">18%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">39.02</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of apoptotic process</td>
+<td align="left" colspan="1" rowspan="1" valign="top">330</td>
+<td align="left" colspan="1" rowspan="1" valign="top">19</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">37.45</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of protein phosphorylation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">155</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">36.52</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Apoptotic process</td>
+<td align="left" colspan="1" rowspan="1" valign="top">690</td>
+<td align="left" colspan="1" rowspan="1" valign="top">25</td>
+<td align="left" colspan="1" rowspan="1" valign="top">18%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">36.16</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of sequence-specific DNA-binding transcription factor activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">105</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">34.58</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Positive regulation of cell proliferation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">500</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21</td>
+<td align="left" colspan="1" rowspan="1" valign="top">15%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">34.22</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Negative regulation of apoptotic process</td>
+<td align="left" colspan="1" rowspan="1" valign="top">507</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21</td>
+<td align="left" colspan="1" rowspan="1" valign="top">15%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">33.45</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Phosphorylation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">700</td>
+<td align="left" colspan="1" rowspan="1" valign="top">24</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">31.65</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Canonical Wnt signaling pathway</td>
+<td align="left" colspan="1" rowspan="1" valign="top">80</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">31.62</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Cell adhesion</td>
+<td align="left" colspan="1" rowspan="1" valign="top">620</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">31.02</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Phosphatidylinositol-mediated signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">112</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30.96</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Signal transduction</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2032</td>
+<td align="left" colspan="1" rowspan="1" valign="top">40</td>
+<td align="left" colspan="1" rowspan="1" valign="top">29%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29.94</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Response to drug</td>
+<td align="left" colspan="1" rowspan="1" valign="top">323</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29.83</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Thymus development</td>
+<td align="left" colspan="1" rowspan="1" valign="top">44</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29.33</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Visual learning</td>
+<td align="left" colspan="1" rowspan="1" valign="top">46</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">28.92</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Extracellular matrix organization</td>
+<td align="left" colspan="1" rowspan="1" valign="top">203</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">28.09</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein autophosphorylation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">173</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.55</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Negative regulation of transcription from RNA polymerase II promoter</td>
+<td align="left" colspan="1" rowspan="1" valign="top">724</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.40</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Cell-cycle arrest</td>
+<td align="left" colspan="1" rowspan="1" valign="top">143</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.05</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Regulation of phosphatidylinositol 3-kinase signaling</td>
+<td align="left" colspan="1" rowspan="1" valign="top">82</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">26.20</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Substrate adhesion-dependent cell spreading</td>
+<td align="left" colspan="1" rowspan="1" valign="top">39</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25.00</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Negative regulation of cysteine-type endopeptidase activity involved in apoptotic process</td>
+<td align="left" colspan="1" rowspan="1" valign="top">68</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">24.79</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Peptidyl-tyrosine phosphorylation</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">171</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">8%</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="ijms-20-01166-t004" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-20-01166-t004_Table 4</object-id>
+<label>Table 4</label>
+<caption>
+<p>Profiling of high scores in overlapping genes for autism and cancer-associated GO molecular functions.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Score</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">GO Molecular Functions</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Total Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Matched Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">% of 138 Overlapping Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">66.97</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9013</td>
+<td align="left" colspan="1" rowspan="1" valign="top">115</td>
+<td align="left" colspan="1" rowspan="1" valign="top">83%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">43.40</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Enzyme binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">360</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21</td>
+<td align="left" colspan="1" rowspan="1" valign="top">15%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">36.09</td>
+<td align="left" colspan="1" rowspan="1" valign="top">β-Catenin binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">80</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">35.87</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein kinase activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">530</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30.98</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Kinase activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">698</td>
+<td align="left" colspan="1" rowspan="1" valign="top">23</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30.91</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Transcription factor binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">308</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.55</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Transmembrane receptor protein tyrosine kinase activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">54</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.38</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Identical protein binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">797</td>
+<td align="left" colspan="1" rowspan="1" valign="top">23</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25.54</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein kinase binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">402</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25.40</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein tyrosine kinase activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">164</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">23.70</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Transcription regulatory region DNA binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">229</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">21.10</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Phosphatidylinositol-4,5-bisphosphate 3-kinase activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">66</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">20.68</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein phosphatase binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">69</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">20.58</td>
+<td align="left" colspan="1" rowspan="1" valign="top">RNA polymerase II Core promoter proximal region sequence-specific DNA binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">336</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">20.43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein C-terminus binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">185</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">19.66</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Ubiquitin protein ligase binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">299</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">18.88</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Transcriptional activator activity, RNA polymerase II core promoter proximal region sequence-specific binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">260</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">17.81</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Repressing transcription factor binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">34</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">17.69</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein homodimerization activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">758</td>
+<td align="left" colspan="1" rowspan="1" valign="top">18</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">17.69</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Chromatin binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">404</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">17.45</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Cell adhesion molecule binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">63</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">17.27</td>
+<td align="left" colspan="1" rowspan="1" valign="top">C–X3–C chemokine binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">16.82</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein heterodimerization activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">495</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">16.48</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Nitric-oxide synthase regulator activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">16.19</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Androgen receptor binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">43</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">15.95</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein domain specific binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">264</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">15.57</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Transferase activity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1759</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">15.54</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Receptor binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">398</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">15.50</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Nuclear hormone receptor binding</td>
+<td align="left" colspan="1" rowspan="1" valign="top">23</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">15.28</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Transcription factor activity, sequence-specific DNA binding</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">1029</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">20</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">14%</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="ijms-20-01166-t005" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-20-01166-t005_Table 5</object-id>
+<label>Table 5</label>
+<caption>
+<p>Profiling of high scores in overlapping genes for autism and cancer-associated phenotypes.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Score</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Phenotypes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Total Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">Number of Matched Genes</th>
+<th align="left" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="top">% of 138 Overlapping Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">70.49</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Premature death</td>
+<td align="left" colspan="1" rowspan="1" valign="top">832</td>
+<td align="left" colspan="1" rowspan="1" valign="top">39</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">53.00</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Complete embryonic lethality during organogenesis</td>
+<td align="left" colspan="1" rowspan="1" valign="top">540</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">51.00</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Decreased body size</td>
+<td align="left" colspan="1" rowspan="1" valign="top">742</td>
+<td align="left" colspan="1" rowspan="1" valign="top">31</td>
+<td align="left" colspan="1" rowspan="1" valign="top">22%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">46.85</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Decreased body weight</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1144</td>
+<td align="left" colspan="1" rowspan="1" valign="top">36</td>
+<td align="left" colspan="1" rowspan="1" valign="top">26%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">37.37</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Decreased embryo size</td>
+<td align="left" colspan="1" rowspan="1" valign="top">450</td>
+<td align="left" colspan="1" rowspan="1" valign="top">21</td>
+<td align="left" colspan="1" rowspan="1" valign="top">15%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">36.64</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Decreased thymocyte number</td>
+<td align="left" colspan="1" rowspan="1" valign="top">102</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">34.08</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Embryonic growth retardation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">404</td>
+<td align="left" colspan="1" rowspan="1" valign="top">19</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">33.98</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Increased leukocyte cell number</td>
+<td align="left" colspan="1" rowspan="1" valign="top">120</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">33.98</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Enlarged heart</td>
+<td align="left" colspan="1" rowspan="1" valign="top">120</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">33.25</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal heart development</td>
+<td align="left" colspan="1" rowspan="1" valign="top">158</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">33.05</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Decreased B-cell number</td>
+<td align="left" colspan="1" rowspan="1" valign="top">196</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29.78</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Partial embryonic lethality during organogenesis</td>
+<td align="left" colspan="1" rowspan="1" valign="top">234</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29.60</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Partial postnatal lethality</td>
+<td align="left" colspan="1" rowspan="1" valign="top">546</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29.50</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Increased tumor incidence</td>
+<td align="left" colspan="1" rowspan="1" valign="top">124</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">28.15</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Enlarged spleen</td>
+<td align="left" colspan="1" rowspan="1" valign="top">256</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.97</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal sensory neuron innervation pattern</td>
+<td align="left" colspan="1" rowspan="1" valign="top">52</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.76</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal rostral–caudal axis patterning</td>
+<td align="left" colspan="1" rowspan="1" valign="top">53</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.60</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Complete prenatal lethality</td>
+<td align="left" colspan="1" rowspan="1" valign="top">264</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.18</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Partial perinatal lethality</td>
+<td align="left" colspan="1" rowspan="1" valign="top">225</td>
+<td align="left" colspan="1" rowspan="1" valign="top">13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.13</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Hyperactivity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">271</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.09</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal blood vessel morphology</td>
+<td align="left" colspan="1" rowspan="1" valign="top">146</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27.04</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Increased mammary adenocarcinoma incidence</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">26.94</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Complete lethality throughout fetal growth and development</td>
+<td align="left" colspan="1" rowspan="1" valign="top">186</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">26.90</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal response/metabolism to endogenous compounds</td>
+<td align="left" colspan="1" rowspan="1" valign="top">83</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">26.76</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Complete postnatal lethality</td>
+<td align="left" colspan="1" rowspan="1" valign="top">378</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25.78</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal B-cell differentiation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">91</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25.38</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal definitive hematopoiesis</td>
+<td align="left" colspan="1" rowspan="1" valign="top">94</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">24.21</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Abnormal heart morphology</td>
+<td align="left" colspan="1" rowspan="1" valign="top">178</td>
+<td align="left" colspan="1" rowspan="1" valign="top">11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">24.05</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Decreased sensory neuron number</td>
+<td align="left" colspan="1" rowspan="1" valign="top">14</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">23.89</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Partial prenatal lethality</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">274</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">13</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">9%</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

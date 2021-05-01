@@ -1,0 +1,1799 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">iScience</journal-id>
+<journal-id journal-id-type="iso-abbrev">iScience</journal-id>
+<journal-title-group>
+<journal-title>iScience</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2589-0042</issn>
+<publisher>
+<publisher-name>Elsevier</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31377530</article-id>
+<article-id pub-id-type="pmc">6682328</article-id>
+<article-id pub-id-type="publisher-id">S2589-0042(19)30259-7</article-id>
+<article-id pub-id-type="doi">10.1016/j.isci.2019.07.032</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Kevlar: A Mapping-Free Framework for Accurate Discovery of <italic>De Novo</italic> Variants</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Standage</surname>
+<given-names>Daniel S.</given-names>
+</name>
+<email>daniel.standage@nbacc.dhs.gov</email>
+<xref ref-type="aff" rid="aff1">1</xref>
+<xref ref-type="fn" rid="fn1">5</xref>
+<xref ref-type="corresp" rid="cor1">∗</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Brown</surname>
+<given-names>C. Titus</given-names>
+</name>
+<email>ctbrown@ucdavis.edu</email>
+<xref ref-type="aff" rid="aff1">1</xref>
+<xref ref-type="aff" rid="aff2">2</xref>
+<xref ref-type="corresp" rid="cor2">∗∗</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hormozdiari</surname>
+<given-names>Fereydoun</given-names>
+</name>
+<email>fhormozd@ucdavis.edu</email>
+<xref ref-type="aff" rid="aff2">2</xref>
+<xref ref-type="aff" rid="aff3">3</xref>
+<xref ref-type="aff" rid="aff4">4</xref>
+<xref ref-type="fn" rid="fn2">6</xref>
+<xref ref-type="corresp" rid="cor3">∗∗∗</xref>
+</contrib>
+</contrib-group>
+<aff id="aff1"><label>1</label>Population Health and Reproduction, University of California, Davis, USA</aff>
+<aff id="aff2"><label>2</label>Genome Center, University of California, Davis, USA</aff>
+<aff id="aff3"><label>3</label>MIND Institute, University of California, Davis, USA</aff>
+<aff id="aff4"><label>4</label>Biochemistry and Molecular Medicine, University of California, Davis, 1 Shields Avenue, Davis, CA 95616, USA</aff>
+<author-notes>
+<corresp id="cor1"><label>∗</label>Corresponding author <email>daniel.standage@nbacc.dhs.gov</email></corresp>
+<corresp id="cor2"><label>∗∗</label>Corresponding author <email>ctbrown@ucdavis.edu</email></corresp>
+<corresp id="cor3"><label>∗∗∗</label>Corresponding author <email>fhormozd@ucdavis.edu</email></corresp>
+<fn id="fn1">
+<label>5</label>
+<p id="ntpara0010">Present address: National Biodefense Analysis and Countermeasures Center, Fort Detrick, MD 21702, USA</p>
+</fn>
+<fn id="fn2">
+<label>6</label>
+<p id="ntpara0015">Lead Contact</p>
+</fn>
+</author-notes>
+<pub-date pub-type="pmc-release">
+<day>23</day>
+<month>7</month>
+<year>2019</year>
+</pub-date>
+<!-- PMC Release delay is 0 months and 0 days and was based on <pub-date
+						pub-type="epub">.-->
+<pub-date pub-type="collection">
+<day>30</day>
+<month>8</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>23</day>
+<month>7</month>
+<year>2019</year>
+</pub-date>
+<volume>18</volume>
+<fpage>28</fpage>
+<lpage>36</lpage>
+<history>
+<date date-type="received">
+<day>11</day>
+<month>2</month>
+<year>2019</year>
+</date>
+<date date-type="rev-recd">
+<day>24</day>
+<month>6</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>19</day>
+<month>7</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2019 The Authors</copyright-statement>
+<copyright-year>2019</copyright-year>
+<license license-type="CC BY-NC-ND" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+<license-p>This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).</license-p>
+</license>
+</permissions>
+<abstract id="abs0010">
+<title>Summary</title>
+<p><italic>De novo</italic> genetic variants are an important source of causative variation in complex genetic disorders. Many methods for variant discovery rely on mapping reads to a reference genome, detecting numerous inherited variants irrelevant to the phenotype of interest. To distinguish between inherited and <italic>de novo</italic> variation, sequencing of families (parents and siblings) is commonly pursued. However, standard mapping-based approaches tend to have a high false-discovery rate for <italic>de novo</italic> variant prediction. Kevlar is a mapping-free method for <italic>de novo</italic> variant discovery, based on direct comparison of sequences between related individuals. Kevlar identifies high-abundance <italic>k</italic>-mers unique to the individual of interest. Reads containing these <italic>k</italic>-mers are partitioned into disjoint sets by shared <italic>k</italic>-mer content for variant calling, and preliminary variant predictions are sorted using a probabilistic score. We evaluated Kevlar on simulated and real datasets, demonstrating its ability to detect both <italic>de novo</italic> single-nucleotide variants and indels with high accuracy.</p>
+</abstract>
+<abstract abstract-type="graphical" id="abs0015">
+<title>Graphical Abstract</title>
+<fig id="undfig1" position="anchor">
+<graphic xlink:href="fx1"></graphic>
+</fig>
+</abstract>
+<abstract abstract-type="author-highlights" id="abs0020">
+<title>Highlights</title>
+<p>
+<list id="ulist0010" list-type="simple">
+<list-item id="u0010">
+<label>•</label>
+<p id="p0010">Method for discovery of <italic>de novo</italic> variants without mapping reads to a reference genome</p>
+</list-item>
+<list-item id="u0015">
+<label>•</label>
+<p id="p0015">Novel probabilistic score for ranking variant predictions as confidently <italic>de novo</italic></p>
+</list-item>
+<list-item id="u0020">
+<label>•</label>
+<p id="p0020">Predicts <italic>de novo</italic> SNVs, indels, and structural variants with high accuracy</p>
+</list-item>
+<list-item id="u0025">
+<label>•</label>
+<p id="p0025">Higher accuracy than competing methods for predicting long (&gt;100 bp) variants</p>
+</list-item>
+</list>
+</p>
+</abstract>
+<abstract abstract-type="teaser" id="abs0025">
+<p>Bioinformatics; Biological Sciences; Genetics</p>
+</abstract>
+<kwd-group id="kwrds0010">
+<title>Subject Areas</title>
+<kwd>Bioinformatics</kwd>
+<kwd>Biological Sciences</kwd>
+<kwd>Genetics</kwd>
+</kwd-group>
+</article-meta>
+<notes>
+<p id="misc0010">Published: August 30, 2019</p>
+</notes>
+</front>
+<body>
+<sec id="sec1">
+<title>Introduction</title>
+<p id="p0030">It is speculated that genetic variation is a major contributing factor in complex genetic disorders. The genetic heritability of many disorders is estimated to be relatively high. For example, the heritability of autism spectrum disorder is over 0.6, and the heritability of schizophrenia is over 0.5 (<xref ref-type="bibr" rid="bib4">Cardno et al., 1999</xref>, <xref ref-type="bibr" rid="bib12">Hallmayer et al., 2011</xref>). Only a fraction of this heritability is explained by known genetic variants, however, a phenomenon termed <italic>missing heritability</italic> (<xref ref-type="bibr" rid="bib19">Manolio et al., 2009</xref>). One hypothesis is that <italic>de novo</italic> mutations, in particular indels and structural variants (SVs), are a large source of causative variation (and consequently missing heritability) in developmental disorders (<xref ref-type="bibr" rid="bib8">Eichler et al., 2010</xref>, <xref ref-type="bibr" rid="bib19">Manolio et al., 2009</xref>, <xref ref-type="bibr" rid="bib37">Veltman and Brunner, 2012</xref>). However, the complexity of <italic>de novo</italic> variant discovery, especially <italic>de novo</italic> indel and SV discovery, has resulted in incomplete accounting of their contribution to these disorders. The discovery of genetic variants in general, and <italic>de novo</italic> variants in particular, remains a topic of intense research interest. In addition to illuminating the role of genetic variation in the etiology of complex disorders, improved discovery and cataloging of <italic>de novo</italic> variants across many samples or cohorts will shed additional light on important unresolved questions in human genomics, including rates, biases, and mechanisms of new mutation.</p>
+<p id="p0035">Whole genome sequencing of simplex families (presenting an isolated case of a genetic disorder) is a proven successful approach for discovery of novel genetic variants resulting from <italic>de novo</italic> mutation in the germline (<xref ref-type="bibr" rid="bib10">Fromer et al., 2014</xref>, <xref ref-type="bibr" rid="bib14">Iossifov et al., 2014</xref>, <xref ref-type="bibr" rid="bib24">O’Roak et al., 2012</xref>, <xref ref-type="bibr" rid="bib37">Veltman and Brunner, 2012</xref>, <xref ref-type="bibr" rid="bib41">Zaidi et al., 2013</xref>). A “trio” composed of an individual affected by the disorder (the proband), the mother, and the father (alternatively, a “quad” or “quartet” composed of the proband, mother, father, and a sibling) provides a rich information source for discriminating between shared and unique variation. Following standard variant calling protocols, mapping-based methods for <italic>de novo</italic> variant prediction begin by aligning reads to the reference genome. Variants are then predicted for each individual based on artifacts observed in the read alignments, such as mismatches, gaps, abrupt shifts in coverage, and discordant read pair distances or orientations (<xref ref-type="bibr" rid="bib13">Hormozdiari et al., 2009</xref>, <xref ref-type="bibr" rid="bib18">Layer et al., 2014</xref>, <xref ref-type="bibr" rid="bib21">Medvedev et al., 2010</xref>, <xref ref-type="bibr" rid="bib28">Rausch et al., 2012</xref>, <xref ref-type="bibr" rid="bib31">Sindi et al., 2012</xref>, <xref ref-type="bibr" rid="bib32">Soylev et al., 2017</xref>, <xref ref-type="bibr" rid="bib40">Ye et al., 2009</xref>). This initial process typically results in millions of variant predictions, which <italic>de novo</italic> variant discovery algorithms must examine to discern between inherited variation, true <italic>de novo</italic> variation, and spurious variant calls.</p>
+<p id="p0040">Although reference-based variant discovery methods have proved valuable in the study of complex genetic disorders, we note some of their limitations. Despite consistent improvements in read alignment algorithms, finding the correct mapping for each read is still complicated by sequencing errors, repetitive DNA content, and misassemblies in the reference. Reads that do not map to the reference genome because they span mutation breakpoints or contain novel sequence are ignored completely by mapping-based variant predictors. Also, few methods are able to predict multiple variant types simultaneously using a single strategy, instead focusing exclusively on single-nucleotide variants (SNVs), short indels, or SVs separately. Finally, most variant calls determined by analysis of read alignments are not unique to the individual of interest (child, or <italic>proband</italic>) but instead reflect divergence in ancestry between the family and the reference genome donors. Estimates of human germline mutation rates give an expectation of approximately 80 novel mutations per generation (<xref ref-type="bibr" rid="bib3">Campbell and Eichler, 2013</xref>), and distinguishing true <italic>de novo</italic> variation events from millions of inherited or false variants is a substantial challenge.</p>
+<p id="p0045">More generally, accurate and comprehensive <italic>de novo</italic> variant discovery is complicated by several computational and biological factors, and remains an elusive goal. Any algorithm must be confident not only in the <italic>existence</italic> of the variant in the proband but also in its <italic>non-existence</italic> in both parents. And although SNVs are the most common variant type, larger variants that are less frequent, nevertheless, affect more nucleotides overall and are hypothesized to have an even greater impact in genetic disorders. Accurate discovery of these larger <italic>de novo</italic> variants is particularly challenging due to the inherent complexity of indel and SV prediction. In a reference-mapping context, calling indels with confidence requires accurate mapping of each read spanning the indel, with all gaps arranged consistently. This is possible only for short indels and tends to be prone to error and misalignment. Thus prediction of indels with length <inline-formula><mml:math altimg="si1.gif" id="M1"><mml:mo>&gt;</mml:mo></mml:math></inline-formula>10 bp has proved to be very challenging and accompanied by high false-positive and false-negative rates. Furthermore, the prediction of SVs via read mapping is only possible through indirect signatures such as alterations in read depth or read-pair signatures. These signatures can be quite noisy and result in high rate of false-negative and false-positive prediction. As a result, some basic properties of <italic>de novo</italic> SVs, including their rate of occurrence, remain unknown. It is important to note that there also exists no method for predicting more complex types of <italic>de novo</italic> SVs, such as inversion-duplication.</p>
+<p id="p0050">Many of the challenges with <italic>de novo</italic> variant prediction can be mitigated by an approach that compares sequence content between related individuals directly, rather than indirectly via a reference genome. Such an approach neither requires any read alignments nor is it sensitive to off-target shared or inherited variation. What a mapping-free approach <italic>does</italic> require is a signature of variation that is not defined in terms of artifacts observed in read alignments.</p>
+<p id="p0055">One of the first tools to explore a mapping-free strategy for predicting and genotyping variants was Cortex, which introduced the concept of a “colored de Bruijn graph” to compare sequence content from two or more samples and predict variants between samples (<xref ref-type="bibr" rid="bib15">Iqbal et al., 2012</xref>). Cortex was used successfully for predicting variants in the 1000 Genomes Project. The <sc>D</sc>isco<sc>S</sc>np method (<xref ref-type="bibr" rid="bib36">Uricaru et al., 2014</xref>) implemented a very efficient strategy for scanning a de Bruijn graph for “bubbles” reflective of isolated SNVs. More recently, DiscoSnp++ has improved on this strategy and is capable of predicting isolated SNVs, proximal SNVs, and indels without the use of a reference genome (<xref ref-type="bibr" rid="bib26">Peterlongo et al., 2017</xref>). At the core of both methods is the analysis of <italic>k</italic>-mers, or sequences of a fixed length <italic>k</italic>.</p>
+<p id="p0060">Increased attention is being given to these kinds of <italic>k</italic>-mer-based methods that avoid read alignments altogether. Indeed, mapping-free strategies for a variety of genomic and transcriptomic applications have become increasingly prominent, in large part due to their efficiency and robustness to the shortcomings of reference genomes. (It is important to note that these and other developments have greatly benefited from the availability of software libraries for rapid exact and approximate <italic>k</italic>-mers; these libraries include Jellyfish, <xref ref-type="bibr" rid="bib20">Marçais and Kingsford, 2011</xref>; khmer, <xref ref-type="bibr" rid="bib6">Crusoe et al., 2015</xref>; ntHash, <xref ref-type="bibr" rid="bib22">Mohamadi et al., 2016</xref>; DSK, <xref ref-type="bibr" rid="bib29">Rizk et al., 2013</xref>; and KMC, <xref ref-type="bibr" rid="bib7">Deorowicz et al., 2013</xref>). In the realm of transcriptome analysis, tools such as Kallisto (<xref ref-type="bibr" rid="bib2">Bray et al., 2016</xref>) and Sailfish (<xref ref-type="bibr" rid="bib25">Patro et al., 2014</xref>) are capable of accurate RNA-sequencing quantification at a fraction of the time and computational cost of previous mapping-based strategies. A recent study has also introduced a novel mapping-free method for performing genome-wide association studies from whole-genome sequence data (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>) using <italic>k</italic>-mer counts. The tool <sc>Hawk</sc> (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>) performs rapid and accurate discovery of variant-phenotype associations by directly comparing <italic>k</italic>-mer frequencies between arbitrary numbers of case and control samples. <sc>Hawk</sc> counts all <italic>k</italic>-mers in the sequenced samples and finds <italic>k</italic>-mers that are significantly associated with the phenotype or trait of interest (“significant <italic>k</italic>-mers”), and then performs a local assembly of these significant <italic>k</italic>-mers to predict the corresponding significant variants associated with the traits. This approach provides an efficient method for discovery of significant associations between all types of variants (i.e., SNVs, indels, and SVs) and the phenotype or trait of interest (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>).</p>
+<p id="p0065">Developments in variant prediction frameworks continue to spur improvements in a variety of contexts. Scalpel (<xref ref-type="bibr" rid="bib23">Narzisi et al., 2014</xref>) implements a hybrid method for <italic>de novo</italic> indel discovery from whole-exome sequencing of quads. Read mapping is used only to localize reads to the reference genome. In subsequent steps, Scalpel performs localized <italic>de novo</italic> assembly of reads at loci of interest and aligns assembled contigs back to the loci to annotate any <italic>de novo</italic> variants present (<xref ref-type="bibr" rid="bib23">Narzisi et al., 2014</xref>). More recently, NovoBreak (<xref ref-type="bibr" rid="bib5">Chong et al., 2017</xref>) introduced a method that utilizes <italic>k</italic>-mer counts to predict somatic variants, including SVs, by comparison of paired tumor and normal whole-genome sequence samples. COBASI (<xref ref-type="bibr" rid="bib11">Gómez-Romero et al., 2018</xref>) performs rapid and accurate <italic>de novo</italic> SNV discovery on whole-genome sequencing of trios by computing perfect matches to unique strings in the reference genome and then identifying abrupt shifts in the coverage of the resulting alignments. Finally, mapping-free approaches such as LAVA (<xref ref-type="bibr" rid="bib30">Shajii et al., 2016</xref>), VarGeno (<xref ref-type="bibr" rid="bib33">Sun and Medvedev, 2018</xref>), MALVA (<xref ref-type="bibr" rid="bib1">Bernardini et al., 2019</xref>), and Nebula (<xref ref-type="bibr" rid="bib16">Khorsand and Hormozdiari, 2019</xref>) were recently developed for fast and accurate genotyping of common variation using whole-genome sequencing data.</p>
+<p id="p0070">The present study introduces a new mapping-free strategy grounded on a <italic>k</italic>-mer-based formulation of the <italic>de novo</italic> variant discovery problem—see <xref ref-type="fig" rid="fig1">Figure 1</xref>A. Intuitively, a novel germline mutation should result in new sequence content in the proband compared with the parental genomes. Even in the simplest case, a single-nucleotide substitution, most of the <italic>k</italic>-mers spanning the mutation should be unique, given a sufficiently large value of <italic>k</italic>. Incidentally, this is also true for other classes of variants, such as indels and various types of structural variation. And with sufficiently deep sampling of the proband genome, the expectation is that these novel <italic>k</italic>-mers are present in the read data at levels that can be readily distinguished from sequencing errors. Thus, it should be possible to detect both SNVs and larger variants (indels, SVs) simultaneously using a single mapping-free model.<fig id="fig1"><label>Figure 1</label><caption><p>Overview of Kevlar</p><p>(A) Visual summary of the mapping-free approach for <italic>de novo</italic> variant discovery.</p><p>(B) The likelihood that novel mutation results in unique mutation-spanning <italic>k</italic>-mers, determined by simulating single-nucleotide substitutions genome-wide and measuring the proportion of SNV-spanning <italic>k</italic>-mers that are not observed elsewhere in the genome. The trend observed for <inline-formula><mml:math altimg="si5.gif" id="M2"><mml:mrow><mml:mi>k</mml:mi><mml:mo linebreak="goodbreak" linebreakstyle="after">=</mml:mo><mml:mn>31</mml:mn></mml:mrow></mml:math></inline-formula> holds for a wide range of <italic>k</italic> values (approximately 20–60).</p><p>(C) The same as (B) except for 5-bp deletion mutations.</p><p>(D) An overview of the Kevlar workflow.</p></caption><graphic xlink:href="gr1"></graphic></fig></p>
+<p id="p0075">Building on this intuition, we developed Kevlar, a new method based on a mapping-free formulation of the <italic>de novo</italic> variant discovery problem. Kevlar examines <italic>k</italic>-mer abundances to identify “interesting” <italic>k</italic>-mers, which we define as having significantly high abundance in the proband or child reads, whereas being effectively absent in the reads from both parents. These interesting <italic>k</italic>-mers are an indicator of the potential existence of a <italic>de novo</italic> variant in the proband and are conceptually similar to the “significant” <italic>k</italic>-mers used by <sc>Hawk</sc> (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>). We next group the reads containing interesting <italic>k</italic>-mers into disjoint sets, each reflecting a putative variant, based on the <italic>k</italic>-mers shared between pairs of reads. Kevlar then uses standard algorithms to assemble each set of reads into contigs and align the assembled contigs to a reference genome to make preliminary variant calls. Finally, Kevlar employs a probabilistic model to score predicted variants to distinguish between miscalled inherited variants and true <italic>de novo</italic> mutations.</p>
+<p id="p0080">We demonstrate the utility of this new method on simulated and real data. We show that Kevlar achieves similar predictive performance to best-in-class tools for SNV and short indel discovery, while at the same time predicting larger events with high accuracy. We also demonstrate Kevlar's ability to accurately predict large-scale SV events, defining breakpoints with nucleotide-level precision.</p>
+<p id="p0085">Kevlar is available as an open source software project and can be invoked via a Python API, a command-line interface, or a standard Snakemake workflow (<xref ref-type="bibr" rid="bib17">Köster and Rahmann, 2012</xref>). The stable and actively developed source code is available at <ext-link ext-link-type="uri" id="intref0010" xlink:href="https://github.com/kevlar-dev/kevlar">https://github.com/kevlar-dev/kevlar</ext-link>, and documentation is available at <ext-link ext-link-type="uri" id="intref0015" xlink:href="https://kevlar.readthedocs.io">https://kevlar.readthedocs.io</ext-link>.</p>
+</sec>
+<sec id="sec2">
+<title>Results</title>
+<p id="p0090">We present a novel framework for discovery of <italic>de novo</italic> variants based on direct comparisons of sequence content between related individuals, requiring no mapping of short reads to a reference genome. This framework utilizes a single strategy that accurately predicts SNVs, insertions and deletions (indels), and structural variation events simultaneously.</p>
+<sec id="sec2.1">
+<title>Overview of Kevlar</title>
+<p id="p0095">Our variant discovery strategy is fundamentally a search for novel DNA content in the sample of interest. It is based on the observation that <italic>k</italic>-mers (short subsequences of fixed length <italic>k</italic>) spanning a <italic>de novo</italic> mutation will be novel with high probability (<xref ref-type="fig" rid="fig1">Figures 1</xref>B and 1C). Often the subject is a child affected by a disorder or other trait of interest (referred to as <italic>proband</italic>), with related individuals being the two parents.</p>
+<p id="p0100"><xref ref-type="fig" rid="fig1">Figure 1</xref>D summarizes the Kevlar workflow. In brief, DNA sequence reads from the case and control samples are processed independently. For each sample, the reads are split into <italic>k</italic>-mers and the abundance of each <italic>k</italic>-mer is stored for subsequent lookup. A second pass over reads from the case sample then identifies all <italic>k</italic>-mers that are unique to the proband—that is, <italic>k</italic>-mers that are abundant in the proband but effectively absent in both parents. Reads containing any novel <italic>k</italic>-mers are retained for subsequent processing.</p>
+<p id="p0105">After applying filters for contamination and erroneous <italic>k</italic>-mer abundances, the reads containing novel <italic>k</italic>-mers are partitioned such that any two reads sharing at least one novel <italic>k</italic>-mer are grouped together. The reads in each partition are then analyzed independently: they are assembled into a contig, the contig is aligned to the reference genome, and the alignment is used to assess the presence of a variant and make a variant call. Finally, Kevlar employs a likelihood-based score to rank and filter the variant calls.</p>
+<p id="p0110">Each step of the Kevlar workflow is discussed in detail in the <xref ref-type="supplementary-material" rid="mmc1">Transparent Methods</xref>.</p>
+</sec>
+<sec id="sec2.2">
+<title>Performance on Simulated Data</title>
+<p id="p0115">We simulated whole-genome shotgun sequencing of a mock family for a fine-grained assessment of Kevlar's accuracy in identifying different variant types at different levels of sequencing depth. Our simulation not only realistically modeled the inheritance of parental variants but also included hundreds of “<italic>de novo</italic>” (unique to the proband) SNVs and indels ranging in size from <inline-formula><mml:math altimg="si2.gif" id="M3"><mml:mo>&lt;</mml:mo></mml:math></inline-formula>10 to 400 bp. The sequencing was simulated at 10x, 20x, 30x, and 50x coverage with low error rate. We compared Kevlar's accuracy on this dataset with two widely used mapping-based <italic>de novo</italic> variant callers (GATK PhaseByTransmission, <xref ref-type="bibr" rid="bib9">Francioli et al., 2016</xref>; and TrioDenovo, <xref ref-type="bibr" rid="bib38">Wei et al., 2015</xref>) as well as two mapping-free or hybrid variant callers (Scalpel, <xref ref-type="bibr" rid="bib23">Narzisi et al., 2014</xref>; and DiscoSnp++, <xref ref-type="bibr" rid="bib26">Peterlongo et al., 2017</xref>).</p>
+<p id="p0120">The accuracy of all variant callers evaluated is poor at low (10x) coverage (see <xref ref-type="supplementary-material" rid="mmc1">Figure S1</xref>). GATK PhaseByTransmission makes very few variant predictions at 10x coverage. The remaining variant callers report numerous predictions, but in general suffer from both low sensitivity (failing to predict many true variants) and poor specificity (predicting many false variants). TrioDenovo shows the best prediction performance for SNVs and short (1–100 bp) indels at 10x coverage. At 20x coverage (<xref ref-type="supplementary-material" rid="mmc1">Figure S2</xref>), all five algorithms show marked improvement in SNV detection, in particular TrioDenovo, which achieves <inline-formula><mml:math altimg="si3.gif" id="M4"><mml:mo>≥</mml:mo></mml:math></inline-formula>90% sensitivity. Scalpel exhibits both improved sensitivity and improved specificity at 20x coverage and approaches or surpasses TrioDenovo's performance for indels of most lengths. Kevlar's ability to accurately detect indels <inline-formula><mml:math altimg="si1.gif" id="M5"><mml:mo>&gt;</mml:mo></mml:math></inline-formula>100 bp becomes evident at 20x coverage.</p>
+<p id="p0125">At higher levels of coverage (30x and 50x), Kevlar consistently achieves top performance across all variant types (see <xref ref-type="fig" rid="fig2">Figures 2</xref> and <xref ref-type="supplementary-material" rid="mmc1">S3</xref>). Notably, Kevlar recovers <inline-formula><mml:math altimg="si3.gif" id="M6"><mml:mo>≥</mml:mo></mml:math></inline-formula>90% of true variants while making very few false predictions across all variant types at high coverage. TrioDenovo shows marginally better sensitivity than Kevlar for predicting SNVs at 30x and 50x (as does GATK PhaseByTransmission at 50x), but at the expense of numerous false predictions. Kevlar also rivals Scalpel's impressive short indel prediction performance and exceeds it for predicting long (<inline-formula><mml:math altimg="si1.gif" id="M7"><mml:mo>&gt;</mml:mo></mml:math></inline-formula>100 bp) indels.<fig id="fig2"><label>Figure 2</label><caption><p>Accuracy of Five <italic>De Novo</italic> Variant Prediction Algorithms</p><p>Receiver operating characteristic (ROC) curves compare variant prediction performance on a simulated dataset. Average sequencing depth was approximately 30x. Each of the six panes shows prediction accuracy for a different variant type: SNVs, insertions or deletions (indels) 1–10 bp in length, 11- to 100-bp indels, 101- to 200-bp indels; 201- to 300-bp indels; and 301- to 400-bp indels. Note that the scale of the x axis for long indels is an order of magnitude smaller than the x axis scale for SNVs and short (<inline-formula><mml:math altimg="si2.gif" id="M8"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 100 bp) indels.</p></caption><graphic xlink:href="gr2"></graphic></fig></p>
+</sec>
+<sec id="sec2.3">
+<title>Performance on the SSC 14153 Autism Trio</title>
+<p id="p0130">To assess Kevlar's performance on real data, we applied Kevlar to predict <italic>de novo</italic> variants in the proband of an autism trio from the Simons Simplex Collection (family 14153). As a reference for comparison, we obtained a potential “truth set” from the denovo-db database (<ext-link ext-link-type="uri" id="intref0020" xlink:href="http://denovo-db.gs.washington.edu/denovo-db/">http://denovo-db.gs.washington.edu/denovo-db/</ext-link>). This truth set includes 196 <italic>de novo</italic> variant predictions and represents the union of predictions made for this trio by several recent studies (<xref ref-type="bibr" rid="bib35">Turner et al., 2016</xref>, <xref ref-type="bibr" rid="bib34">Turner et al., 2017</xref>, <xref ref-type="bibr" rid="bib39">Werling et al., 2018</xref>). Note that the expected number of <italic>de novo</italic> variants per generation is estimated to be around 100 (<xref ref-type="bibr" rid="bib3">Campbell and Eichler, 2013</xref>, <xref ref-type="bibr" rid="bib35">Turner et al., 2016</xref>), or about half of the number of predictions in the truth set. Annotations in the denovo-db database indicate that experimental validation has confirmed 14 of the 196 calls.</p>
+<p id="p0135">In total, Kevlar predicts 219 <italic>de novo</italic> variants for trio 14153, including 150 SNVs, 68 indels/SVs, and a single 2-bp multinucleotide variant. We note that Kevlar assigned many of these predicted variants a low likelihood of the variant being a true <italic>de novo</italic> event. <xref ref-type="fig" rid="fig3">Figure 3</xref> shows the congruence between the 100 top-ranked Kevlar calls and the denovo-db calls for this trio.<fig id="fig3"><label>Figure 3</label><caption><p>Performance of Kevlar on SSC Trio 14153</p><p>ROC curves showing congruence between <italic>de novo</italic> variant calls made by Kevlar on the SSC 14153 trio and corresponding calls from the denovo-db variant database. The red curve shows Kevlar's performance compared with all denovo-db calls, and the blue curve shows Kevlar's performance compared with denovo-db calls with experimental validation.</p></caption><graphic xlink:href="gr3"></graphic></fig></p>
+<p id="p0140">Of the 14 denovo-db calls with experimental validation, 13 (92.9%) were predicted accurately by Kevlar and assigned a high likelihood score, indicative of a confident <italic>de novo</italic> variant call. Overall, the 100 Kevlar variant calls ranked highest by the likelihood score include only four calls not present in denovo-db (probable false calls). On the other hand, only five Kevlar variant calls present in denovo-db (probable true variants) are not among the 100 highest ranked Kevlar calls. Of the 196 denovo-db calls, 95 are absent from the Kevlar predictions. The majority of these calls (75/95, <inline-formula><mml:math altimg="si4.gif" id="M9"><mml:mo>≈</mml:mo></mml:math></inline-formula> 80%) occur in regions of repetitive DNA and have shown to be unreliable in experimental validation (Tychele Turner, personal communication).</p>
+<p id="p0145">Finally, a recent study verified the presence of a <italic>de novo</italic> deletion of approximately 6 kbp in the proband of this trio (<xref ref-type="bibr" rid="bib35">Turner et al., 2016</xref>), removing the 5′ UTR of the gene <italic>CANX</italic>. Kevlar also predicted this <italic>de novo</italic> deletion successfully and identified the precise (and previously undetermined) breakpoints at chr5:179,122,593 and chr15:179,128,130 (GRCh37). Inspection of the variant reveals that both the deletions' breakpoints occur in <italic>Alu</italic> repeat elements abundant throughout the genome (<xref ref-type="fig" rid="fig4">Figure 4</xref>). As a result, only seven of the <italic>k</italic>-mers spanning the variant are unique signatures of mutation not already present elsewhere in the genome. We observe with interest that both breakpoints occur inside a 20-bp identical repeat, indicating this <italic>de novo</italic> deletion is the result of non-allelic homologous recombination.<fig id="fig4"><label>Figure 4</label><caption><p>An Experimentally Validated 6-kbp <italic>De Novo</italic> Deletion as Predicted by Kevlar</p><p>The interesting <italic>k</italic>-mers, their abundances in each sample, the variant-spanning contig assembly, and the breakpoints are depicted.</p></caption><graphic xlink:href="gr4"></graphic></fig></p>
+</sec>
+</sec>
+<sec id="sec3">
+<title>Discussion</title>
+<p id="p0150"><italic>De novo</italic> variants are a major contributing factor in many disorders (e.g., intellectual disability, autism, and epilepsy). Accurate discovery of these variants has been challenging as prediction methods need to be confident not only in the existence of the event in the proband or child but also in the absence of the variant in the parents. Current approaches depend on correct alignments of sequence reads to a reference genome. Any complications in computing read alignments due to repeats, gaps in the reference, or variant complexity can result in false predictions or failure to discover a true <italic>de novo</italic> variant.</p>
+<p id="p0155">The method proposed in this study compares <italic>k</italic>-mers between related individuals to find the <italic>k</italic>-mers indicating a <italic>de novo</italic> variant in the sample of interest. We acknowledge recently proposed methods NovoBreak (<xref ref-type="bibr" rid="bib5">Chong et al., 2017</xref>) and <sc>Hawk</sc> (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>), which are conceptually similar and likewise capable of accurately predicting <italic>de novo</italic> variants. Kevlar, <sc>Hawk</sc> (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>), and other related methods do not depend on mapping reads to a reference genome, but instead rely on direct comparison of sequence content between related individuals. This strategy enables Kevlar to accurately predict several classes of <italic>de novo</italic> mutations (substitutions, insertions, deletions, SVs) simultaneously with a single simple mathematical model. As long as the <italic>de novo</italic> mutation creates a <italic>k</italic>-mer not already present in the reference genome, the proposed algorithm should be able to accurately discover the event. We have also developed a <italic>k</italic>-mer-based likelihood model for scoring and ranking variant calls according to their probability of being true <italic>de novo</italic> events. This likelihood score is effective in discerning <italic>de novo</italic> variants from inherited mutations and false variant calls. We have demonstrated the effectiveness of our discovery method and scoring model using both simulated and real data. Kevlar is competitive with best-in-class tools for discovery of a variety of variant types, and substantially outperforms available methods for discovery of larger <italic>de novo</italic> variants. Kevlar not only predicts indels and SVs with high sensitivity and specificity but also reports the exact breakpoints of these variants with single base pair precision.</p>
+<p id="p0160"><italic>De novo</italic> variants are, by definition, expected to be unique for each individual. Aggregating multiple simplex trios will not increase the rate of recall. However, multiple trios could potentially be aggregated to identify any systematic errors resulting in the same <italic>k</italic>-mers being marked as “interesting” in multiple samples. Identifying and removing these <italic>k</italic>-mers and any corresponding variant calls could improve precision.</p>
+<p id="p0165">Development of completely reference-free methods is tremendously valuable in scenarios where the availability, quality, or relevance of a reference genome is insufficient. Kevlar's preliminary steps—identifying variant-spanning reads, binning reads into groups corresponding to distinct putative variants, and assembling each read group into a variant-spanning contig—are performed without the use of a reference genome. We note, however, that subsequent steps in the Kevlar workflow to annotate, filter, and score the preliminary variant calls still depend on a reference genome. One promising approach to developing a completely reference-free <italic>de novo</italic> variant discovery method would be to annotate variants by aligning variant-spanning contigs directly to an assembly or variation graph.</p>
+<sec id="sec3.1">
+<title>Limitations of the Study</title>
+<p id="p0170">Misclassification of heterozygous inherited variants as <italic>de novo</italic> is one of the main sources of false prediction. These errors are enriched at loci with low coverage in the donor parent. This is due to the difficulty of distinguishing true variation from sequencing error. It is possible that utilizing a probabilistic approach for selecting “interesting” <italic>k</italic>-mers, as proposed in <sc>Hawk</sc> (<xref ref-type="bibr" rid="bib27">Rahman et al., 2018</xref>), can reduce the false <italic>de novo</italic> prediction rate.</p>
+<p id="p0175">Kevlar will successfully annotate <italic>k</italic>-mers that span the breakpoints of large insertions. It will also assemble the reads containing these <italic>k</italic>-mers into breakpoint-spanning contigs. However, unless the inserted sequence is entirely novel, Kevlar is unlikely to assemble a single contig that spans the entire variant and is thus capable of annotating its precise coordinates.</p>
+<p id="p0180">Even using a probabilistic <italic>k</italic>-mer counting strategy, Kevlar's memory requirements can be quite demanding. Applying error correction to the input reads will substantially reduce Kevlar's memory requirements, but this typically leads to a small reduction in sensitivity for discovering SNVs.</p>
+<p id="p0185">Finally, in scoring and ranking of the predicted <italic>de novo</italic> variants Kevlar assumes independence between <italic>k</italic>-mers in likelihood calculation. While this assumption simplifies the likelihood calculation, a more sophisticated formulation that does not have this limitation may yield improvements in scoring and ranking the final variant calls.</p>
+</sec>
+</sec>
+<sec id="sec4">
+<title>Methods</title>
+<p id="p0190">All methods can be found in the accompanying <xref ref-type="supplementary-material" rid="mmc1">Transparent Methods supplemental file</xref>.</p>
+</sec>
+</body>
+<back>
+<ref-list id="cebib0010">
+<title>References</title>
+<ref id="bib1">
+<element-citation id="sref1" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bernardini</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Bonizzoni</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Denti</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Previtali</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Schönhuth</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Malva: genotyping by mapping-free allele detection of known variants</article-title>
+<source/>bioRxiv
+          <year>2019</year>
+<fpage>575126</fpage>
+</element-citation>
+</ref>
+<ref id="bib2">
+<element-citation id="sref2" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bray</surname>
+<given-names>N.L.</given-names>
+</name>
+<name>
+<surname>Pimentel</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Melsted</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Pachter</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Near-optimal probabilistic RNA-seq quantification</article-title>
+<source/>Nat. Biotechnol.
+          <volume>34</volume>
+<year>2016</year>
+<fpage>525</fpage>
+<pub-id pub-id-type="pmid">27043002</pub-id>
+</element-citation>
+</ref>
+<ref id="bib3">
+<element-citation id="sref3" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Campbell</surname>
+<given-names>C.D.</given-names>
+</name>
+<name>
+<surname>Eichler</surname>
+<given-names>E.E.</given-names>
+</name>
+</person-group>
+<article-title>Properties and rates of germline mutations in humans</article-title>
+<source/>Trends Genet.
+          <volume>29</volume>
+<year>2013</year>
+<fpage>575</fpage>
+<lpage>584</lpage>
+<pub-id pub-id-type="pmid">23684843</pub-id>
+</element-citation>
+</ref>
+<ref id="bib4">
+<element-citation id="sref4" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cardno</surname>
+<given-names>A.G.</given-names>
+</name>
+<name>
+<surname>Marshall</surname>
+<given-names>E.J.</given-names>
+</name>
+<name>
+<surname>Coid</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Macdonald</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Ribchester</surname>
+<given-names>T.R.</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>N.J.</given-names>
+</name>
+<name>
+<surname>Venturi</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>L.A.</given-names>
+</name>
+<name>
+<surname>Lewis</surname>
+<given-names>S.W.</given-names>
+</name>
+<name>
+<surname>Sham</surname>
+<given-names>P.C.</given-names>
+</name>
+</person-group>
+<article-title>Heritability estimates for psychotic disorders: the Maudsley twin psychosis series</article-title>
+<source/>Arch. Gen. Psychiatry
+          <volume>56</volume>
+<year>1999</year>
+<fpage>162</fpage>
+<lpage>168</lpage>
+<pub-id pub-id-type="pmid">10025441</pub-id>
+</element-citation>
+</ref>
+<ref id="bib5">
+<element-citation id="sref5" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chong</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Ruan</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Gao</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Fan</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Ding</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>A.Y.</given-names>
+</name>
+<name>
+<surname>Boutros</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>novobreak: local assembly for breakpoint detection in cancer genomes</article-title>
+<source/>Nat. Methods
+          <volume>14</volume>
+<year>2017</year>
+<fpage>65</fpage>
+<pub-id pub-id-type="pmid">27892959</pub-id>
+</element-citation>
+</ref>
+<ref id="bib6">
+<element-citation id="sref6" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Crusoe</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Alameldin</surname>
+<given-names>H.F.</given-names>
+</name>
+<name>
+<surname>Awad</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Boucher</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Caldwell</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Cartwright</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Charbonneau</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Constantinides</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Edvenson</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Fay</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>The Khmer software package: enabling efficient nucleotide sequence analysis</article-title>
+<source/>F1000Res.
+          <volume>4</volume>
+<year>2015</year>
+<fpage>900</fpage>
+<pub-id pub-id-type="pmid">26535114</pub-id>
+</element-citation>
+</ref>
+<ref id="bib7">
+<element-citation id="sref7" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Deorowicz</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Debudaj-Grabysz</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Grabowski</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Disk-based k-mer counting on a pc</article-title>
+<source/>BMC Bioinformatics
+          <volume>14</volume>
+<year>2013</year>
+<fpage>160</fpage>
+<pub-id pub-id-type="pmid">23679007</pub-id>
+</element-citation>
+</ref>
+<ref id="bib8">
+<element-citation id="sref8" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Eichler</surname>
+<given-names>E.E.</given-names>
+</name>
+<name>
+<surname>Flint</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Gibson</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Kong</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Leal</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>J.H.</given-names>
+</name>
+<name>
+<surname>Nadeau</surname>
+<given-names>J.H.</given-names>
+</name>
+</person-group>
+<article-title>Missing heritability and strategies for finding the underlying causes of complex disease</article-title>
+<source/>Nat. Rev. Genet.
+          <volume>11</volume>
+<year>2010</year>
+<fpage>446</fpage>
+<pub-id pub-id-type="pmid">20479774</pub-id>
+</element-citation>
+</ref>
+<ref id="bib9">
+<element-citation id="sref9" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Francioli</surname>
+<given-names>L.C.</given-names>
+</name>
+<name>
+<surname>Cretu-Stancu</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Garimella</surname>
+<given-names>K.V.</given-names>
+</name>
+<name>
+<surname>Fromer</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Kloosterman</surname>
+<given-names>W.P.</given-names>
+</name>
+<collab>Genome of the Netherlands consortium</collab>
+<name>
+<surname>Samocha</surname>
+<given-names>K.E.</given-names>
+</name>
+<name>
+<surname>Neale</surname>
+<given-names>B.M.</given-names>
+</name>
+<name>
+<surname>Daly</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Banks</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>DePristo</surname>
+<given-names>M.A.</given-names>
+</name>
+<name>
+<surname>de Bakker</surname>
+<given-names>P.I.</given-names>
+</name>
+</person-group>
+<article-title>A framework for the detection of <italic>de novo</italic> mutations in family-based sequencing data</article-title>
+<source/>Eur. J. Hum. Genet.
+          <volume>25</volume>
+<year>2016</year>
+<fpage>227</fpage>
+<lpage>233</lpage>
+<pub-id pub-id-type="pmid">27876817</pub-id>
+</element-citation>
+</ref>
+<ref id="bib10">
+<element-citation id="sref10" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fromer</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Pocklington</surname>
+<given-names>A.J.</given-names>
+</name>
+<name>
+<surname>Kavanagh</surname>
+<given-names>D.H.</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>H.J.</given-names>
+</name>
+<name>
+<surname>Dwyer</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Gormley</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Georgieva</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Rees</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Palta</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Ruderfer</surname>
+<given-names>D.M.</given-names>
+</name>
+</person-group>
+<article-title><italic>De novo</italic> mutations in schizophrenia implicate synaptic networks</article-title>
+<source/>Nature
+          <volume>506</volume>
+<year>2014</year>
+<fpage>179</fpage>
+<pub-id pub-id-type="pmid">24463507</pub-id>
+</element-citation>
+</ref>
+<ref id="bib11">
+<element-citation id="sref11" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gómez-Romero</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Palacios-Flores</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Reyes</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>García</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Boege</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Dávila</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Flores</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Schatz</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Palacios</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>Precise detection of de novo single nucleotide variants in human genomes</article-title>
+<source/>Proc. Natl. Acad. Sci. U S A
+          <volume>115</volume>
+<year>2018</year>
+<fpage>5516</fpage>
+<lpage>5521</lpage>
+<pub-id pub-id-type="pmid">29735690</pub-id>
+</element-citation>
+</ref>
+<ref id="bib12">
+<element-citation id="sref12" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hallmayer</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cleveland</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Phillips</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cohen</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Torigoe</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Miller</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Fedele</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Genetic heritability and shared environmental factors among twin pairs with autism</article-title>
+<source/>Arch. Gen. Psychiatry
+          <volume>68</volume>
+<year>2011</year>
+<fpage>1095</fpage>
+<lpage>1102</lpage>
+<pub-id pub-id-type="pmid">21727249</pub-id>
+</element-citation>
+</ref>
+<ref id="bib13">
+<element-citation id="sref13" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Alkan</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Eichler</surname>
+<given-names>E.E.</given-names>
+</name>
+<name>
+<surname>Sahinalp</surname>
+<given-names>S.C.</given-names>
+</name>
+</person-group>
+<article-title>Combinatorial algorithms for structural variation detection in high-throughput sequenced genomes</article-title>
+<source/>Genome Res.
+          <volume>19</volume>
+<year>2009</year>
+<fpage>1270</fpage>
+<lpage>1278</lpage>
+<pub-id pub-id-type="pmid">19447966</pub-id>
+</element-citation>
+</ref>
+<ref id="bib14">
+<element-citation id="sref14" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iossifov</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>O’Roak</surname>
+<given-names>B.J.</given-names>
+</name>
+<name>
+<surname>Sanders</surname>
+<given-names>S.J.</given-names>
+</name>
+<name>
+<surname>Ronemus</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Krumm</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Levy</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Stessman</surname>
+<given-names>H.A.</given-names>
+</name>
+<name>
+<surname>Witherspoon</surname>
+<given-names>K.T.</given-names>
+</name>
+<name>
+<surname>Vives</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Patterson</surname>
+<given-names>K.E.</given-names>
+</name>
+</person-group>
+<article-title>The contribution of <italic>de novo</italic> coding mutations to autism spectrum disorder</article-title>
+<source/>Nature
+          <volume>515</volume>
+<year>2014</year>
+<fpage>216</fpage>
+<pub-id pub-id-type="pmid">25363768</pub-id>
+</element-citation>
+</ref>
+<ref id="bib15">
+<element-citation id="sref15" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iqbal</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Caccamo</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Turner</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Flicek</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>McVean</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>De novo assembly and genotyping of variants using colored de bruijn graphs</article-title>
+<source/>Nat. Genet.
+          <volume>44</volume>
+<year>2012</year>
+<fpage>226</fpage>
+<pub-id pub-id-type="pmid">22231483</pub-id>
+</element-citation>
+</ref>
+<ref id="bib16">
+<element-citation id="sref16" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khorsand</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F.</given-names>
+</name>
+</person-group>
+<article-title>Nebula: Ultra-efficient mapping-free structural variant genotyper</article-title>
+<source/>bioRxiv
+          <year>2019</year>
+<fpage>566620</fpage>
+</element-citation>
+</ref>
+<ref id="bib17">
+<element-citation id="sref17" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Köster</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Rahmann</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Snakemake: a scalable bioinformatics workflow engine</article-title>
+<source/>Bioinformatics
+          <volume>28</volume>
+<year>2012</year>
+<fpage>2520</fpage>
+<lpage>2522</lpage>
+<pub-id pub-id-type="pmid">22908215</pub-id>
+</element-citation>
+</ref>
+<ref id="bib18">
+<element-citation id="sref18" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Layer</surname>
+<given-names>R.M.</given-names>
+</name>
+<name>
+<surname>Chiang</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Quinlan</surname>
+<given-names>A.R.</given-names>
+</name>
+<name>
+<surname>Hall</surname>
+<given-names>I.M.</given-names>
+</name>
+</person-group>
+<article-title>Lumpy: a probabilistic framework for structural variant discovery</article-title>
+<source/>Genome Biol.
+          <volume>15</volume>
+<year>2014</year>
+<fpage>R84</fpage>
+<pub-id pub-id-type="pmid">24970577</pub-id>
+</element-citation>
+</ref>
+<ref id="bib19">
+<element-citation id="sref19" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Manolio</surname>
+<given-names>T.A.</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>F.S.</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>N.J.</given-names>
+</name>
+<name>
+<surname>Goldstein</surname>
+<given-names>D.B.</given-names>
+</name>
+<name>
+<surname>Hindorff</surname>
+<given-names>L.A.</given-names>
+</name>
+<name>
+<surname>Hunter</surname>
+<given-names>D.J.</given-names>
+</name>
+<name>
+<surname>McCarthy</surname>
+<given-names>M.I.</given-names>
+</name>
+<name>
+<surname>Ramos</surname>
+<given-names>E.M.</given-names>
+</name>
+<name>
+<surname>Cardon</surname>
+<given-names>L.R.</given-names>
+</name>
+<name>
+<surname>Chakravarti</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Finding the missing heritability of complex diseases</article-title>
+<source/>Nature
+          <volume>461</volume>
+<year>2009</year>
+<fpage>747</fpage>
+<pub-id pub-id-type="pmid">19812666</pub-id>
+</element-citation>
+</ref>
+<ref id="bib20">
+<element-citation id="sref20" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marçais</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Kingsford</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>A fast, lock-free approach for efficient parallel counting of occurrences of k-mers</article-title>
+<source/>Bioinformatics
+          <volume>27</volume>
+<year>2011</year>
+<fpage>764</fpage>
+<lpage>770</lpage>
+<pub-id pub-id-type="pmid">21217122</pub-id>
+</element-citation>
+</ref>
+<ref id="bib21">
+<element-citation id="sref21" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Medvedev</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Fiume</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Dzamba</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Brudno</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Detecting copy number variation with mated short reads</article-title>
+<source/>Genome Res.
+          <volume>20</volume>
+<year>2010</year>
+<fpage>1613</fpage>
+<lpage>1622</lpage>
+<pub-id pub-id-type="pmid">20805290</pub-id>
+</element-citation>
+</ref>
+<ref id="bib22">
+<element-citation id="sref22" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mohamadi</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Chu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Vandervalk</surname>
+<given-names>B.P.</given-names>
+</name>
+<name>
+<surname>Birol</surname>
+<given-names>I.</given-names>
+</name>
+</person-group>
+<article-title>ntHash: recursive nucleotide hashing</article-title>
+<source/>Bioinformatics
+          <volume>32</volume>
+<year>2016</year>
+<fpage>3492</fpage>
+<lpage>3494</lpage>
+<pub-id pub-id-type="pmid">27423894</pub-id>
+</element-citation>
+</ref>
+<ref id="bib23">
+<element-citation id="sref23" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Narzisi</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>O’Rawe</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Iossifov</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Fang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>Y.-h.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Lyon</surname>
+<given-names>G.J.</given-names>
+</name>
+<name>
+<surname>Wigler</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Schatz</surname>
+<given-names>M.C.</given-names>
+</name>
+</person-group>
+<article-title>Accurate <italic>de novo</italic> and transmitted indel detection in exome-capture data using microassembly</article-title>
+<source/>Nat. Methods
+          <volume>11</volume>
+<year>2014</year>
+<fpage>1033</fpage>
+<pub-id pub-id-type="pmid">25128977</pub-id>
+</element-citation>
+</ref>
+<ref id="bib24">
+<element-citation id="sref24" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>O’Roak</surname>
+<given-names>B.J.</given-names>
+</name>
+<name>
+<surname>Vives</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Girirajan</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Karakoc</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Krumm</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Coe</surname>
+<given-names>B.P.</given-names>
+</name>
+<name>
+<surname>Levy</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Ko</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>J.D.</given-names>
+</name>
+</person-group>
+<article-title>Sporadic autism exomes reveal a highly interconnected protein network of <italic>de novo</italic> mutations</article-title>
+<source/>Nature
+          <volume>485</volume>
+<year>2012</year>
+<fpage>246</fpage>
+<pub-id pub-id-type="pmid">22495309</pub-id>
+</element-citation>
+</ref>
+<ref id="bib25">
+<element-citation id="sref25" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Patro</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Mount</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Kingsford</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Sailfish enables alignment-free isoform quantification from rna-seq reads using lightweight algorithms</article-title>
+<source/>Nat. Biotechnol.
+          <volume>32</volume>
+<year>2014</year>
+<fpage>462</fpage>
+<pub-id pub-id-type="pmid">24752080</pub-id>
+</element-citation>
+</ref>
+<ref id="bib26">
+<element-citation id="sref26" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Peterlongo</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Riou</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Drezen</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Lemaitre</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Discosnp++: de novo detection of small variants from raw unassembled read set(s)</article-title>
+<source/>bioRxiv
+          <year>2017</year>
+<fpage>209965</fpage>
+</element-citation>
+</ref>
+<ref id="bib27">
+<element-citation id="sref27" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rahman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Hallgrímsdóttir</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Eisen</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Pachter</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Association mapping from sequencing reads using k-mers</article-title>
+<source/>Elife
+          <volume>7</volume>
+<year>2018</year>
+<fpage>e32920</fpage>
+<pub-id pub-id-type="pmid">29897334</pub-id>
+</element-citation>
+</ref>
+<ref id="bib28">
+<element-citation id="sref28" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rausch</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Zichner</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Schlattl</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Stütz</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Benes</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Korbel</surname>
+<given-names>J.O.</given-names>
+</name>
+</person-group>
+<article-title>DELLY: structural variant discovery by integrated paired-end and split-read analysis</article-title>
+<source/>Bioinformatics
+          <volume>28</volume>
+<year>2012</year>
+<fpage>i333</fpage>
+<lpage>i339</lpage>
+<pub-id pub-id-type="pmid">22962449</pub-id>
+</element-citation>
+</ref>
+<ref id="bib29">
+<element-citation id="sref29" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rizk</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Lavenier</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Chikhi</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>DSK: k-mer counting with very low memory usage</article-title>
+<source/>Bioinformatics
+          <volume>29</volume>
+<year>2013</year>
+<fpage>652</fpage>
+<lpage>653</lpage>
+<pub-id pub-id-type="pmid">23325618</pub-id>
+</element-citation>
+</ref>
+<ref id="bib30">
+<element-citation id="sref30" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shajii</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Yorukoglu</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>William Yu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Berger</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Fast genotyping of known snps through approximate k-mer matching</article-title>
+<source/>Bioinformatics
+          <volume>32</volume>
+<year>2016</year>
+<fpage>i538</fpage>
+<lpage>i544</lpage>
+<pub-id pub-id-type="pmid">27587672</pub-id>
+</element-citation>
+</ref>
+<ref id="bib31">
+<element-citation id="sref31" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sindi</surname>
+<given-names>S.S.</given-names>
+</name>
+<name>
+<surname>Önal</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Peng</surname>
+<given-names>L.C.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>H.-T.</given-names>
+</name>
+<name>
+<surname>Raphael</surname>
+<given-names>B.J.</given-names>
+</name>
+</person-group>
+<article-title>An integrative probabilistic model for identification of structural variation in sequencing data</article-title>
+<source/>Genome Biol.
+          <volume>13</volume>
+<year>2012</year>
+<fpage>R22</fpage>
+<pub-id pub-id-type="pmid">22452995</pub-id>
+</element-citation>
+</ref>
+<ref id="bib32">
+<element-citation id="sref32" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Soylev</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Kockan</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Alkan</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Toolkit for automated and rapid discovery of structural variants</article-title>
+<source/>Methods
+          <volume>129</volume>
+<year>2017</year>
+<fpage>3</fpage>
+<lpage>7</lpage>
+<pub-id pub-id-type="pmid">28583483</pub-id>
+</element-citation>
+</ref>
+<ref id="bib33">
+<element-citation id="sref33" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sun</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Medvedev</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Toward fast and accurate SNP genotyping from whole genome sequencing data for bedside diagnostics</article-title>
+<source/>bioRxiv
+          <year>2018</year>
+<fpage>239871</fpage>
+</element-citation>
+</ref>
+<ref id="bib34">
+<element-citation id="sref34" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turner</surname>
+<given-names>T.N.</given-names>
+</name>
+<name>
+<surname>Coe</surname>
+<given-names>B.P.</given-names>
+</name>
+<name>
+<surname>Dickel</surname>
+<given-names>D.E.</given-names>
+</name>
+<name>
+<surname>Hoekzema</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>B.J.</given-names>
+</name>
+<name>
+<surname>Zody</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Kronenberg</surname>
+<given-names>Z.N.</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Raja</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Pennacchio</surname>
+<given-names>L.A.</given-names>
+</name>
+</person-group>
+<article-title>Genomic patterns of <italic>de novo</italic> mutation in simplex autism</article-title>
+<source/>Cell
+          <volume>171</volume>
+<year>2017</year>
+<fpage>710</fpage>
+<lpage>722</lpage>
+<pub-id pub-id-type="pmid">28965761</pub-id>
+</element-citation>
+</ref>
+<ref id="bib35">
+<element-citation id="sref35" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turner</surname>
+<given-names>T.N.</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Duyzend</surname>
+<given-names>M.H.</given-names>
+</name>
+<name>
+<surname>McClymont</surname>
+<given-names>S.A.</given-names>
+</name>
+<name>
+<surname>Hook</surname>
+<given-names>P.W.</given-names>
+</name>
+<name>
+<surname>Iossifov</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Raja</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Baker</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Hoekzema</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Stessman</surname>
+<given-names>H.A.</given-names>
+</name>
+</person-group>
+<article-title>Genome sequencing of autism-affected families reveals disruption of putative noncoding regulatory dna</article-title>
+<source/>Am. J. Hum. Genet.
+          <volume>98</volume>
+<year>2016</year>
+<fpage>58</fpage>
+<lpage>74</lpage>
+<pub-id pub-id-type="pmid">26749308</pub-id>
+</element-citation>
+</ref>
+<ref id="bib36">
+<element-citation id="sref36" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Uricaru</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Rizk</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Lacroix</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Quillery</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Plantard</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Chikhi</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Lemaitre</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Peterlongo</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Reference-free detection of isolated snps</article-title>
+<source/>Nucleic Acids Res.
+          <volume>43</volume>
+<year>2014</year>
+<fpage>e11</fpage>
+<pub-id pub-id-type="pmid">25404127</pub-id>
+</element-citation>
+</ref>
+<ref id="bib37">
+<element-citation id="sref37" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Veltman</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Brunner</surname>
+<given-names>H.G.</given-names>
+</name>
+</person-group>
+<article-title><italic>De novo</italic> mutations in human genetic disease</article-title>
+<source/>Nat. Rev. Genet.
+          <volume>13</volume>
+<year>2012</year>
+<fpage>565</fpage>
+<pub-id pub-id-type="pmid">22805709</pub-id>
+</element-citation>
+</ref>
+<ref id="bib38">
+<element-citation id="sref38" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Zhan</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Zhong</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>A Bayesian framework for <italic>de novo</italic> mutation calling in parents-offspring trios</article-title>
+<source/>Bioinformatics
+          <volume>31</volume>
+<year>2015</year>
+<fpage>1375</fpage>
+<lpage>1381</lpage>
+<pub-id pub-id-type="pmid">25535243</pub-id>
+</element-citation>
+</ref>
+<ref id="bib39">
+<element-citation id="sref39" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Werling</surname>
+<given-names>D.M.</given-names>
+</name>
+<name>
+<surname>Brand</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>An</surname>
+<given-names>J.-Y.</given-names>
+</name>
+<name>
+<surname>Stone</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Glessner</surname>
+<given-names>J.T.</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>R.L.</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Layer</surname>
+<given-names>R.M.</given-names>
+</name>
+<name>
+<surname>Markenscoff-Papadimitriou</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>An analytical framework for whole-genome sequence association studies and its implications for autism spectrum disorder</article-title>
+<source/>Nat. Genet.
+          <volume>50</volume>
+<year>2018</year>
+<fpage>727</fpage>
+<lpage>736</lpage>
+<pub-id pub-id-type="pmid">29700473</pub-id>
+</element-citation>
+</ref>
+<ref id="bib40">
+<element-citation id="sref40" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ye</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Schulz</surname>
+<given-names>M.H.</given-names>
+</name>
+<name>
+<surname>Long</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Apweiler</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Ning</surname>
+<given-names>Z.</given-names>
+</name>
+</person-group>
+<article-title>Pindel: a pattern growth approach to detect break points of large deletions and medium sized insertions from paired-end short reads</article-title>
+<source/>Bioinformatics
+          <volume>25</volume>
+<year>2009</year>
+<fpage>2865</fpage>
+<lpage>2871</lpage>
+<pub-id pub-id-type="pmid">19561018</pub-id>
+</element-citation>
+</ref>
+<ref id="bib41">
+<element-citation id="sref41" publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zaidi</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Choi</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Wakimoto</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Ma</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Jiang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Overton</surname>
+<given-names>J.D.</given-names>
+</name>
+<name>
+<surname>Romano-Adesman</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Bjornson</surname>
+<given-names>R.D.</given-names>
+</name>
+<name>
+<surname>Breitbart</surname>
+<given-names>R.E.</given-names>
+</name>
+<name>
+<surname>Brown</surname>
+<given-names>K.K.</given-names>
+</name>
+</person-group>
+<article-title><italic>De novo</italic> mutations in histone-modifying genes in congenital heart disease</article-title>
+<source/>Nature
+          <volume>498</volume>
+<year>2013</year>
+<fpage>220</fpage>
+<pub-id pub-id-type="pmid">23665959</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+<sec id="appsec1">
+<title>Data and Code Availability</title>
+<p id="p0215">The Kevlar software is hosted as an open source software project at <ext-link ext-link-type="uri" id="intref0025" xlink:href="https://github.com/kevlar-dev/kevlar">https://github.com/kevlar-dev/kevlar</ext-link> and is freely available under the MIT license. User documentation is available at <ext-link ext-link-type="uri" id="intref0030" xlink:href="https://kevlar.readthedocs.io">https://kevlar.readthedocs.io</ext-link>. Reads from the simulated dataset are available in FASTQ format from DOI <ext-link ext-link-type="uri" id="interref0010" xlink:href="https://doi.org/10.1706/ODF.IO/4CHPB">https://doi.org/10.1706/ODF.IO/4CHPB</ext-link>. Reads from the 14153 trio are available in BAM format from the Simons Simplex Collection at <ext-link ext-link-type="uri" id="intref0040" xlink:href="https://www.sfari.org/2015/12/11/whole-genome-analysis-of-the-simons-simplex-collection-ssc-2/#chapter-how-to-access-the-data">https://www.sfari.org/2015/12/11/whole-genome-analysis-of-the-simons-simplex-collection-ssc-2/#chapter-how-to-access-the-data</ext-link>.</p>
+</sec>
+<sec id="appsec3" sec-type="supplementary-material">
+<title>Supplemental Information</title>
+<p id="p0225">
+<supplementary-material content-type="local-data" id="mmc1">
+<caption>
+<title>Document S1. Transparent Methods and Figures S1–S3</title>
+</caption>
+<media xlink:href="mmc1.pdf"></media>
+</supplementary-material>
+</p>
+</sec>
+<ack id="ack0010">
+<title>Acknowledgments</title>
+<p>We would like to acknowledge Dr. Tamer Mansour, Luiz Irber Jr., Camille Scott, and Lisa Johnson for helpful discussions on method development and implementation and Dr. Tychele Turner for helpful discussions on the method evaluation. We also thank reviewers and several colleagues for comments on earlier versions of the manuscript, which have improved the final paper.</p>
+<p>This work is funded in part by the <funding-source id="gs1">Gordon and Betty Moore Foundation</funding-source>'s Data-Driven Discovery Initiative through Grant GBMF4551 and <funding-source id="gs2">NIH</funding-source> R01 HG007513, both to C.T.B., and by the Sloan Research Fellowship number FG-2017-9159 to F.H..</p>
+<sec id="sec5">
+<title>Author Contributions</title>
+<p id="p0205">D.S.S., C.T.B., and F.H. conceived the study. D.S.S. implemented the method and performed the experiments. D.S.S. and F.H. designed the experiments and wrote the manuscript. D.S.S., C.T.B., and F.H. edited and approved the final manuscript.</p>
+</sec>
+<sec id="sec6" sec-type="COI-statement">
+<title>Declaration of Interests</title>
+<p id="p0210">The authors declare no competing interests.</p>
+</sec>
+</ack>
+<fn-group>
+<fn fn-type="supplementary-material" id="appsec2">
+<p id="p0220">Supplemental Information can be found online at <ext-link ext-link-type="uri" id="intref0045" xlink:href="https://doi.org/10.1016/j.isci.2019.07.032">https://doi.org/10.1016/j.isci.2019.07.032</ext-link>.</p>
+</fn>
+</fn-group>
+</back>
+</article>
+</pmc-articleset>

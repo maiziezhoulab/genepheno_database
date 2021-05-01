@@ -1,0 +1,2366 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32807865</article-id>
+<article-id pub-id-type="pmc">7431412</article-id>
+<article-id pub-id-type="publisher-id">70383</article-id>
+<article-id pub-id-type="doi">10.1038/s41598-020-70383-6</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Systems biology reveals reprogramming of the S-nitroso-proteome in the cortical and striatal regions of mice during aging process</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Kartawy</surname>
+<given-names>Maryam</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Khaliulin</surname>
+<given-names>Igor</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Amal</surname>
+<given-names>Haitham</given-names>
+</name>
+<address>
+<email>Haitham.amal@mail.huji.ac.il</email>
+</address>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<aff id="Aff1"><institution-wrap><institution-id institution-id-type="GRID">grid.9619.7</institution-id><institution-id institution-id-type="ISNI">0000 0004 1937 0538</institution-id><institution>School of Pharmacy, Faculty of Medicine, Institute for Drug Research, </institution><institution>The Hebrew University of Jerusalem, </institution></institution-wrap>Jerusalem, Israel </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>17</day>
+<month>8</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>17</day>
+<month>8</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>10</volume>
+<elocation-id>13913</elocation-id>
+<history>
+<date date-type="received">
+<day>8</day>
+<month>3</month>
+<year>2020</year>
+</date>
+<date date-type="accepted">
+<day>28</day>
+<month>7</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2020</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">Cell aging depends on the rate of cumulative oxidative and nitrosative damage to DNA and proteins. Accumulated data indicate the involvement of protein S-nitrosylation (SNO), the nitric oxide (NO)-mediated posttranslational modification (PTM) of cysteine thiols, in different brain disorders. However, the changes and involvement of SNO in aging including the development of the organism from juvenile to adult state is still unknown. In this study, using the state-of-the-art mass spectrometry technology to identify S-nitrosylated proteins combined with large-scale computational biology, we tested the S-nitroso-proteome in juvenile and adult mice in both cortical and striatal regions. We found reprogramming of the S-nitroso-proteome in adult mice of both cortex and striatum regions. Significant biological processes and protein–protein clusters associated with synaptic and neuronal terms were enriched in adult mice. Extensive quantitative analysis revealed a large set of potentially pathological proteins that were significantly upregulated in adult mice. Our approach, combined with large scale computational biology allowed us to perform a system-level characterization and identification of the key proteins and biological processes that can serve as drug targets for aging and brain disorders in future studies.</p>
+</abstract>
+<kwd-group kwd-group-type="npg-subject">
+<title>Subject terms</title>
+<kwd>Molecular neuroscience</kwd>
+<kwd>Gene ontology</kwd>
+<kwd>Proteome informatics</kwd>
+<kwd>Proteomics</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2020</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1">
+<title>Introduction</title>
+<p id="Par2">Nitric oxide (NO) is produced in different organs and tissues, including the central and peripheral nervous system, and is one of the most important signaling molecules in the body<sup><xref ref-type="bibr" rid="CR1">1</xref>,<xref ref-type="bibr" rid="CR2">2</xref></sup>. At low concentrations, it participates in cell signaling and may have therapeutic value for brain injury<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. However, at higher concentrations, NO may incur cell damage and death<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR5">5</xref></sup>. Thus, the chemical reactions of the target proteins containing the sulfhydryl groups of cysteine with NO cause posttranslational modifications (PTMs) leading to the formation of <italic>S</italic>-nitrosothiols producing <italic>S</italic>-nitrosylated proteins<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>. Protein S-nitrosylation (SNO) regulates the localization and activity of many key enzymes and receptors<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR7">7</xref></sup> resulting in modulation of signal transduction pathways, synaptic plasticity, axonal elongation, protein assembly and movement of proteins to the cell membrane<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR8">8</xref></sup>. SNO can be a mediator of different kinds of brain disorder, such as Alzheimer's disease (AD)<sup><xref ref-type="bibr" rid="CR9">9</xref>–<xref ref-type="bibr" rid="CR11">11</xref></sup>, Parkinson’s disease (PD)<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, Huntington’s disease (HD)<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR9">9</xref></sup>, and other neurodegenerative diseases<sup><xref ref-type="bibr" rid="CR10">10</xref>,<xref ref-type="bibr" rid="CR13">13</xref>–<xref ref-type="bibr" rid="CR15">15</xref></sup>. Recently, we have also found SNO involvement in an autism spectrum disorder mouse model<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Abnormal protein SNO can cause protein misfolding, synaptic damage, mitochondrial fission, or apoptosis<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>. Recently, we have found differences in SNO between both sexes<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>.</p>
+<p id="Par3">Brain aging can weaken the endogenous defence systems, such as antioxidant enzyme and molecular chaperone systems, elevating NO levels in the brain. The accumulated data suggest that excessive production of NO is attributed to nitrosative stress, which exacerbates the disease-related risk factors<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>. Thus, it has been shown that the increase in oxidative/nitrosative stress is accompanied by the mitochondrial dysfunction, increase in superoxide levels, RNA oxidation, NADPH oxidase (NOX) activity, and inducible nitric oxide synthase (iNOS) expression in the hippocampal astrocytes isolated from aged and adult rats<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>. The inflammatory response and oxidative/nitrosative stress in these cells could be mediated by NFκB because its activation brings about increased expression of iNOS, resulting in elevated NO production and proinflammatory cytokine release. The MAPK pathway has also been implicated in oxidative/nitrosative stress and inflammatory response through p38 MAPK and NFκB activation<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>. Aged-related increase in SNO of the small GTPase Dexras1 has also been discovered by Zhang et al.<sup><xref ref-type="bibr" rid="CR20">20</xref></sup> in APP/PS1 mice, a transgenic mouse model of Alzheimer’s disease.</p>
+<p id="Par4">S-nitrosoglutathione reductase (GSNOR) expression has found to be reduced in primary senescent cells during aging in rodents and humans<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. This was accompanied by the increased level of SNO of Dynamin-related protein 1 (Drp1) and Parkin with the downstream effect of the impaired mitophagy, pointing to mitochondrial nitrosative stress<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. Likewise, Rizza et al. have shown that due to epigenetic events, GSNOR expression declined with age in the GSNOR-deficient mice promoting mitochondrial nitrosative stress, including excessive SNO of Drp1 and Parkin, and resulted in the impairment of mitochondrial dynamics and mitophagy<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>. Popa-Wagner et al. have also recently demonstrated the age-related imbalance in the processes of mitochondrial biogenesis and mitophagy, particularly related to the complexes III and IV of the electron transport chain, that may have a negative impact on the energy production in the cerebellum in old mice<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. These results can be supported by the data<sup><xref ref-type="bibr" rid="CR23">23</xref></sup> showing that excessive SNO in aging impairs the E3 ubiquitin ligase activity of Parkin, and its ability to act as an enhancer of mitophagy<sup><xref ref-type="bibr" rid="CR24">24</xref>,<xref ref-type="bibr" rid="CR25">25</xref></sup>. Interestingly that excessive SNO accompanied by GSNOR deficiency may also inhibit mitophagy independently of the PINK/Parkin pathway<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>. Thus, the accumulated data indicate the increased protein SNO in the brain of aged animals and long-lived humans. However, the changes in SNO in aging and specifically from young to adult age remain unknown. In this study, we investigate SNO in aging process and compare for the first time the effects and mechanisms of protein SNO in the brain of the juvenile (6–8 week-old) and adult (3–5 month-old) mice in both cortical and striatal regions.</p>
+</sec>
+<sec id="Sec2">
+<title>Results</title>
+<p id="Par5">To test the hypothesis that age regulates NO production, which may lead to reprogramming of the S-nitroso-proteome, we mapped the S-nitroso-proteome in WT juvenile (J, 6–8 weeks-old) and adult mice (A, 3–4 months-old) using SNOTRAP-based mass-spectrometry technology<sup><xref ref-type="bibr" rid="CR16">16</xref>,<xref ref-type="bibr" rid="CR26">26</xref></sup>. Two regions, the cortex and striatum, were studied for their well-known role in brain disorders such as ASD, AD, HD and others<sup><xref ref-type="bibr" rid="CR27">27</xref>–<xref ref-type="bibr" rid="CR32">32</xref></sup>. This was followed by systems biology analysis combined with bioinformatic to gain the systems-level insight into SNO-proteins’ functionalities, and to test whether enriched processes are changed within age. Four groups were tested: J-cortex, J-striatum, A-cortex, and A-striatum. Further, large scale quantitative analysis of the overlapped SNO-proteins between the two ages was conducted in the cortex and in the striatum.</p>
+<sec id="Sec3">
+<title>Age leads to reprogramming of the S-nitroso-proteome in both cortex and striatum regions</title>
+<p id="Par6">Identification of the SNO-proteins using SNOTRAP technology revealed reprogramming of the S-nitroso-proteome in age dependent manner. Different sets of proteins were detected in juvenile and adult mice in both cortex and striatum regions. In the cortex, we identified a total of 221 proteins that were SNOed exclusively in juvenile mice, and a total of 233 proteins were SNOed exclusively in adult mice (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>a). In the striatum, 269 proteins were SNOed in juvenile mice only, and total of 213 proteins were SNOed only in adults (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>a). The list of the tested proteins of each group can be found in Supplementary Table <xref ref-type="media" rid="MOESM8">S1</xref>.<fig id="Fig1"><label>Figure 1</label><caption><p>Differences in the S-nitroso-proteome between the cortex of adult and juvenile mice according to the systems biology analysis. (<bold>a</bold>) Venn diagram representing the SNO-proteins that were identified in the juvenile and adult cortex. Biological processes (BP) (<bold>b</bold>), molecular functions (MF) (<bold>c</bold>) and cellular components (CC) (<bold>d</bold>) analysis was conducted on the SNO proteins exclusive to the juvenile cortex. BP (<bold>e</bold>), MF (<bold>f</bold>), and CC (<bold>g</bold>) analysis was conducted on the SNO proteins exclusive to the adult cortex. *<italic>Protein localization</italic> regulation of the protein localization to the membrane; *<italic>Receptor internalization</italic> neurotransmitter receptor internalization. MetaCore from Clarivate Analytics (MetaCore version 6.34 build 69200) was used to generate this figure.</p></caption><graphic id="MO1" xlink:href="41598_2020_70383_Fig1_HTML"></graphic></fig><fig id="Fig2"><label>Figure 2</label><caption><p>Differences in the S-nitroso-proteome between the striatum of adult and juvenile mice according to the systems biology analysis. (<bold>a</bold>) Venn Diagram representing the SNO-proteins that were identified in the juvenile striatum and adult striatum. BP (<bold>b</bold>), MF (<bold>c</bold>) and CC (<bold>d</bold>) analysis was conducted on the SNO proteins exclusive to the juvenile cortex. BP (<bold>e</bold>), MF (<bold>f</bold>), and CC (<bold>g</bold>) analysis was conducted on the SNO proteins exclusive to the adult striatum. *<italic>Regulation of GTPase activity</italic>—<italic>positive regulation of GTPase activity</italic>. MetaCore from Clarivate Analytics (MetaCore version 6.34 build 69200) was used to generate this figure.</p></caption><graphic id="MO2" xlink:href="41598_2020_70383_Fig2_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec4">
+<title>Systems biology analysis of the S-nitroso-proteome in juvenile and adult mice</title>
+<p id="Par7">To better understand the underlying biological and functional processes of the SNO-proteins, we performed a large-scale systems biology analysis by dissecting the Biological processes (BP), molecular functions (MF) and cellular components (CC). In both J-cortex and J-striatum groups, the BP analysis revealed significant enrichment of general metabolic and biological regulation processes. On the other hand, in A-cortex and A-striatum, the analysis revealed that the SNO proteins significantly enriched synaptic and neuronal-associated processes.</p>
+<p id="Par8">In juvenile cortex, BP analysis showed significant enrichment of norepinephrine metabolic processes (False discovery rate (FDR) = 0.00098), regulation of protein localization to membrane (FDR = 0.0023) etc. (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>b), whereas, in adult cortex, BP analysis indicated enrichment of neurogenesis (FDR = 9.10E−06), synaptic vesicle exocytosis (FDR = 0.0015) etc. (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>e). In J-cortex, the MF analysis revealed significant enrichment of ATPase activity (FDR = 0.00028) and ion binding (FDR = 0.00013) (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>c), whilst, in A-cortex, the MF analysis showed enrichment of the biochemical activities that are associated with synaptic and neuronal processes, such as syntaxin binding (FDR = 0.00016), clatherin binding (FDR = 0.0011) and others (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>f). Also, in J-cortex, the CC analysis demonstrated that the SNO proteins were significantly enriched in axon (FDR = 0.000253), cilium (FDR = 7.02E−06) and others (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>d). In A-cortex, the CC analysis showed significant enrichment of glutamatergic synapse (FDR = 2.03E−07), pre-synapse (FDR = 3.89E−11) and others (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>g).</p>
+<p id="Par9">In the striatum of juvenile mice, the BP analysis revealed enrichment of protein metabolic processes (FDR = 0.0034), regulation of cell cycle (FDR = 0.0433) etc. (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>b). This was different compared to the striatum of adult mice, where the BP analysis revealed significant enrichment of synaptic vesicle cycle (FDR = 6.71E−07), axonogenesis (FDR = 7.3E−09) and others (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>e). In J-striatum, at MF level, the SNO proteins were significantly enriched in ATP binding (FDR = 0.0264), Ras GTPase binding (FDR = 0.0337) and others (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>c). In A-striatum, the MF analysis showed enrichment of SNARE binding (FDR = 9.24E−05), calmodulin binding (FDR = 0.0462), and others (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>f). In J-striatum, the CC analysis showed significant enrichment of cytosol (FDR = 1.39E−08), cytoskeleton (FDR = 1.64E−08) and others (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>d). Meanwhile, the CC analysis in the adult striatum displayed significant enrichment of axon (FDR = 1.08E−20), post-synaptic density (FDR = 1.81E−07) and others (see Fig. <xref ref-type="fig" rid="Fig2">2</xref>g).</p>
+<p id="Par10">The detailed lists of the BP, MF and CC enriched in all 4 tested groups can be found in Supplementary Table <xref ref-type="media" rid="MOESM9">S2</xref> (J-cortex), Table <xref ref-type="media" rid="MOESM10">S3</xref> (A-cortex), Table <xref ref-type="media" rid="MOESM11">S4</xref> (J-striatum) and Table <xref ref-type="media" rid="MOESM12">S5</xref> (A-striatum).</p>
+<p id="Par11">To test the shared affected signaling pathways of adult mice in the two regions, we conducted pathway analysis of the SNO proteins in the cortex and striatum. The analysis revealed significant enrichment in neuronal and synaptic pathways (see Supplementary Fig. <xref ref-type="media" rid="MOESM2">S1</xref>). For example, “Adult neurogenesis” pathway was enriched with FDR = 9.12E−06. “Synaptic vesicle fusion and recycling” pathway was also significantly enriched with FDR = 8.54E−04. The detailed cell trafficking of both signaling pathways is described in Supplementary Figs. <xref ref-type="media" rid="MOESM3">S2</xref> and <xref ref-type="media" rid="MOESM4">S3</xref>, respectively.</p>
+</sec>
+<sec id="Sec5">
+<title>Proteins classification analysis in the cortex and striatum of both ages</title>
+<p id="Par12">Proteins Classification enrichment analysis was conducted to examine the functions of the SNO-proteins in both ages. We identified diverse protein families in both juvenile and adult mice, such as hydrolases, receptors, transferases, ligases, immunity proteins, etc<bold>.</bold></p>
+<p id="Par13">We found a higher number of SNOed kinases (e.g. AAK1, NADK and others) and phosphatases (e.g. SYNJ1, DNML1, PTPRA and others) in adult mice compared to juvenile mice in the cortex (see Supplementary Fig. <xref ref-type="media" rid="MOESM5">S4</xref>), which may lead to alteration of critical signaling pathways in adults. Phosphatases, such as SYNJ1 and DNML1, play an essential role in synaptic vesicle recycling, regulation of endocytosis and regulation of neurotransmitter levels<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. SNOed kinases also play a critical role in brain functioning. For example, NAD kinase acts as a mediator of calcium homeostasis<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>, AP-2 associated kinase 1 (AAK1) has a vital role in clatherin-mediated endocytosis<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> and so forth.</p>
+<p id="Par14">In Striatum, no difference in the SNOed phosphatases of both ages was found. Two essential kinases SNOed in adult striatum, the PRKCA and PIP5K1, are functionally related to the synaptic vesicle endocytosis<sup><xref ref-type="bibr" rid="CR36">36</xref>,<xref ref-type="bibr" rid="CR37">37</xref></sup> (see Supplementary Fig. <xref ref-type="media" rid="MOESM5">S4</xref>).</p>
+</sec>
+<sec id="Sec6">
+<title>Protein–protein interaction network and clustering analysis of the S-nitroso-proteome</title>
+<p id="Par15">To test whether clusters of SNO-proteins orchestrate in critical biological processes, we conducted functional and physical interactions network analysis (for all networks and clusters, see Supplementary Figs. <xref ref-type="media" rid="MOESM6">S5</xref>, <xref ref-type="media" rid="MOESM7">S6</xref>, respectively).</p>
+<p id="Par16">Physical interaction analysis revealed a total of 245 and 273 interactions in the juvenile cortex and juvenile striatum, respectively. BP analysis of the clusters showed that they are involved in multiple general cellular and metabolic processes, such as metabolism, regulation and developmental processes, including regulation of protein localization to membrane, regulation of cell cycle and others. A total of 548 and 635 interactions found in the adult cortex and adult striatum, respectively, appeared to be involved in the synaptic and neuronal processes, such as vesicle-mediated transport in the synapse, neurotransmitter receptor internalization and others.</p>
+<p id="Par17">To get further functional insight into the data, we applied functional clustering analysis to the SNOed proteins found exclusively in the cortex and striatum of the adult mice. We used the gene ontology (GO) classification system in order to classify the proteins into different clusters based on their enriched biological processes (see Fig. <xref ref-type="fig" rid="Fig3">3</xref>). Several of the identified cortical and striatal SNOed protein clusters formed four distinct functional clusters. These clusters showed to be involved in the neuronal and synaptic processes. In the adult cortex, the yellow nodes correspond to the SNOed proteins involved in synaptic vesicle recycling. The cluster included AMPH, SYT1, NAPB and others (see Fig. <xref ref-type="fig" rid="Fig3">3</xref>a). The purple nodes correspond to the SNOed proteins involved in the neurogenesis. These were DNM1L, SYNJ1, SYT1, NCAM1, SNAP25, LRP1 and other proteins (see Fig. <xref ref-type="fig" rid="Fig3">3</xref>b). In the adult striatum, the blue nodes correspond to the SNOed proteins involved in the synaptic vesicle cycle. They included SYN1, DNM3, STX1B, SYP, CPIX1 and others (see Fig. <xref ref-type="fig" rid="Fig3">3</xref>c). The red nodes correspond to the SNOed proteins, including SNAP91, STXBP1, MAPT, CNP, ATG7 and others. These proteins were found to be involved in the axonogenesis (see Fig. <xref ref-type="fig" rid="Fig3">3</xref>d).<fig id="Fig3"><label>Figure 3</label><caption><p>Clustering analysis of the cortical and striatal SNO-proteins. The synaptic vesicle recycling in the adult cortex (<bold>a</bold>; n = 6, FDR = 0.00022) and neurogenesis (<bold>b</bold>; n = 42, FDR = 9.10E−06) clusters were enriched. The synaptic vesicle cycle in the adult striatum (<bold>c</bold>; n = 11, FDR = 6.71E−07) and axonogenesis (<bold>d</bold>; n = 20, FDR = 7.30E−09) clusters were enriched. STRING, version 10.0 and Cytoscape software version 3.3.0 were used to generate this figure.</p></caption><graphic id="MO3" xlink:href="41598_2020_70383_Fig3_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec7">
+<title>Quantitative analysis of the S-nitroso-proteome</title>
+<p id="Par18">To promote a deeper and further understanding of the changes (the reprogramming) in S-nitroso-proteome, we performed a large-scale quantitative analysis. We studied the shared proteins that were SNOed in adult and in the juvenile cortex and striatum.</p>
+<p id="Par19">Volcano plot analysis was conducted to visualize and identify the significant changes that occur among the SNOed proteins at the two different ages. The fold change (log2(FC)) was plotted against the level of statistical significance (− log10(P value)) on X and Y axes, respectively. The fold change was calculated as the difference of the protein’s abundance in both ages divided to the protein’s abundance at the juvenile state. Statistical significance thresholds of FC &gt; 1.3 and P &lt; 0.05 indicate significantly upregulated proteins, and of FC &lt;  − 1.3 and P &lt; 0.05 indicate significantly downregulated proteins.</p>
+<p id="Par20">In the cortex, 100 proteins were identified as shared proteins between the two ages. Among them, 34 proteins appeared to be significantly upregulated in adult cortex (see Fig. <xref ref-type="fig" rid="Fig4">4</xref>a). Strikingly, GO enrichment analysis of the significantly upregulated proteins revealed the involvement of these proteins in the neurodevelopmental and synaptic processes, such as synaptic vesicle cycle (SYN1, DNM1, STXBP1), brain development (SLCLA2, CNP, MT3, DPYSI2) and other processes (see Fig. <xref ref-type="fig" rid="Fig4">4</xref>b). Heat map analysis was conducted to visualize the quantitative differences of the relative abundance of the shared proteins between the juvenile and adult cortex (see Fig. <xref ref-type="fig" rid="Fig4">4</xref>c).<fig id="Fig4"><label>Figure 4</label><caption><p>Quantitative analysis of the shared SNO-proteins in the juvenile (J) and adult (A) cortex. (<bold>a</bold>) Volcano Plot analysis was conducted on the shared SNO proteins in the J cortex <italic>vs.</italic> A cortex. The fold change (FC) was calculated as the difference of the relative abundance between A and J divided to J [FC = <inline-formula id="IEq1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\frac{{{\text{Relative}}{\mkern 1mu} {\text{abundnce}}\left( {\text{A}} \right) - {\text{Relative}}{\mkern 1mu} {\text{abundance}}({\text{J}})}}{{{\text{relative}}{\mkern 1mu} {\text{abundance}}({\text{J}})}}$$\end{document}</tex-math><mml:math id="M2"><mml:mfrac><mml:mrow><mml:mtext>Relative</mml:mtext><mml:mspace width="0.55542pt"></mml:mspace><mml:mtext>abundnce</mml:mtext><mml:mfenced close=")" open="("><mml:mtext>A</mml:mtext></mml:mfenced><mml:mo>-</mml:mo><mml:mtext>Relative</mml:mtext><mml:mspace width="0.55542pt"></mml:mspace><mml:mtext>abundance</mml:mtext><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mtext>J</mml:mtext><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mtext>relative</mml:mtext><mml:mspace width="0.55542pt"></mml:mspace><mml:mtext>abundance</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mtext>J</mml:mtext><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:math><inline-graphic xlink:href="41598_2020_70383_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula>] and normalized using log2. The horizontal line represents a significance level of P value= 0.05. The vertical lines represent the threshold of the FC = 1.3. The upregulated proteins are those that appear on the right side of the plot. These proteins meet the statistical significance criteria of both P &lt; 0.05 and a FC &gt; 1.3. (<bold>b</bold>) Biological processes of the significant up-regulated SNO-proteins. (<bold>c</bold>) Heat map analysis representing the differential relative abundance of the shared SNO-proteins in the J and A cortex. The abundance scale was normalized by – log10. Prism-GraphPad 8 was used to generate this figure.</p></caption><graphic id="MO4" xlink:href="41598_2020_70383_Fig4_HTML"></graphic></fig></p>
+<p id="Par21">In the striatum, 94 proteins were identified as shared proteins between the two ages. 11 proteins out of the 94 were significantly upregulated in the adult striatum (see Fig. <xref ref-type="fig" rid="Fig5">5</xref>a). Due to the small number of upregulated proteins; GO analysis showed no significant difference in the BP analysis compared to the juvenile cortex. Heat map analysis was conducted to visualize the quantitative differences of the relative abundance of the shared proteins between the juvenile and adult striatum (see Fig. <xref ref-type="fig" rid="Fig5">5</xref>b).<fig id="Fig5"><label>Figure 5</label><caption><p>Quantitative analysis of the shared SNO-proteins in the adult (A) and juvenile (J) striatum. (<bold>a</bold>) Volcano Plot analysis was conducted on the shared SNO Proteins in the J <italic>vs.</italic> A striatum. The fold change (FC) was calculated as the difference of the relative abundance between A and J divided to J [FC = <inline-formula id="IEq2"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\frac{{{\text{Relative}}{\mkern 1mu} {\text{abundnce}}\left( {\text{A}} \right) - {\text{Relative}}{\mkern 1mu} {\text{abundance}}({\text{J}})}}{{{\text{relative}}{\mkern 1mu} {\text{abundance}}({\text{J}})}}$$\end{document}</tex-math><mml:math id="M4"><mml:mfrac><mml:mrow><mml:mtext>Relative</mml:mtext><mml:mspace width="0.55542pt"></mml:mspace><mml:mtext>abundnce</mml:mtext><mml:mfenced close=")" open="("><mml:mtext>A</mml:mtext></mml:mfenced><mml:mo>-</mml:mo><mml:mtext>Relative</mml:mtext><mml:mspace width="0.55542pt"></mml:mspace><mml:mtext>abundance</mml:mtext><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mtext>J</mml:mtext><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mtext>relative</mml:mtext><mml:mspace width="0.55542pt"></mml:mspace><mml:mtext>abundance</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mtext>J</mml:mtext><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:math><inline-graphic xlink:href="41598_2020_70383_Article_IEq2.gif"></inline-graphic></alternatives></inline-formula>] and normalized using log2. The horizontal line represents a significance level of P = 0.05. The vertical lines represent the threshold of the fold change (FC) = 1.3. The upregulated proteins are those that appear on the right side of the plot. These proteins meet the statistical significance criteria of both P &lt; 0.05 and a FC &gt; 1.3. (<bold>b</bold>) Heat map analysis representing the differential relative abundance of the shared SNO-proteins in the juvenile and adult striatum. The abundance scale was normalized by − log10. Prism-GraphPad 8 was used to generate this figure.</p></caption><graphic id="MO5" xlink:href="41598_2020_70383_Fig5_HTML"></graphic></fig></p>
+</sec>
+</sec>
+<sec id="Sec8">
+<title>Discussion</title>
+<p id="Par22">In our work, we employed the novel MS method SNOTRAP, to identify the S-nitroso-proteome, combined with systems biology analysis, to test the hypothesis that aging leads to changes of the NO biochemistry and to reprogramming of the S-nitroso-proteome in the cortex and striatum of adult mice. Here we would like to emphasize, that although a popular understanding of the term “aging” can be described by the definition: “Age-progressive decline in intrinsic physiological function, leading to an increase in age-specific mortality rate and a decrease in age-specific reproductive rate”<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>, in our work, we use this term with a broader meaning of the “age-related changes”, which does not necessarily mean becoming old. This approach is consistent with the Developmental Aging Theory, proposed by Dilman in 1971<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>, suggesting that “aging is part of the same molecular mechanism that promotes tissue development and embryonic maturation during development, continuing throughout adult life”<sup><xref ref-type="bibr" rid="CR40">40</xref>,<xref ref-type="bibr" rid="CR41">41</xref></sup>.</p>
+<p id="Par23">Our study combined SNOTRAP-based MS technology that enables global identification of SNO proteins<sup><xref ref-type="bibr" rid="CR16">16</xref>,<xref ref-type="bibr" rid="CR26">26</xref></sup> with system biology analysis and bioinformatics. This allowed us to identify the key processes and pathways that are enriched among the proteins undergoing S-nitrosylation in the brain<sup><xref ref-type="bibr" rid="CR42">42</xref></sup>. We tested the cortex and striatum of the juvenile mice (6–8 weeks) and adult mice (3–5 months). We conducted BP, pathways and clusters analysis of both ages and found that aging regulates NO and leads to reprogramming of the S-nitroso-proteome, resulting in the changes in biological and functional processes in the adult mice compared to the juvenile mice.</p>
+<p id="Par24">S-nitrosylation is the NO-mediated PTM that regulates protein function leading to modulation of the signal transduction pathways<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR8">8</xref>,<xref ref-type="bibr" rid="CR16">16</xref>,<xref ref-type="bibr" rid="CR43">43</xref></sup>. Growing body of evidence has showed that under the pathophysiological conditions, aberrant S-nitrosylation plays a fundamental role in the pathogenesis of neurodegenerative disorders, including ASD<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, AD<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR8">8</xref>,<xref ref-type="bibr" rid="CR11">11</xref>,<xref ref-type="bibr" rid="CR16">16</xref></sup>, PD and HD<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR8">8</xref>,<xref ref-type="bibr" rid="CR9">9</xref>,<xref ref-type="bibr" rid="CR12">12</xref>,<xref ref-type="bibr" rid="CR16">16</xref></sup>. Thereby, we suggest that NO and S-nitrosylation play a major role in aging, which is one of the risk factors of multiple neurodegenerative diseases.</p>
+<p id="Par25">The analysis of the SNO proteins exclusive for adult cortex and adult striatum revealed enrichment of the neuronal and synaptic associated processes that previously have been reported to be affected in brain disorders. This points to the possibility that S-nitrosylation has a key role in neurodegenerative disorders. For example, in both adult cortex and adult striatum, the BP analysis showed enrichment of the biological events associated with synaptic and vesicle processes, such as synaptic vesicle recycling, vesicle-mediated transport in the synapse, neurotransmitter receptor internalization and synaptic vesicle localization (see Figs. <xref ref-type="fig" rid="Fig1">1</xref>e, <xref ref-type="fig" rid="Fig2">2</xref>e). Our data is consistent with the previous investigations that revealed the involvement of these processes in the progression of neurological and neurodegenerative disorders, including ASD, AD, PD, HD, schizophrenia and bipolar disorder<sup><xref ref-type="bibr" rid="CR44">44</xref>–<xref ref-type="bibr" rid="CR47">47</xref></sup>.</p>
+<p id="Par26">Further, pathway analysis of the SNO-proteins in the cortex and striatum of the adult mice revealed enrichment of neuronal and synaptic pathways that had been proposed previously as major pathways of neurodegenerative disorders (see Supplementary Fig. <xref ref-type="media" rid="MOESM2">S1</xref>). For example, this included “adult neurogenesis in the subventricular zone” and “synaptic vesicle fusion and recycling in nerve terminals” (see Supplementary Fig. <xref ref-type="media" rid="MOESM3">S2</xref>, <xref ref-type="media" rid="MOESM4">S3</xref>). One of the major processes that was found to be significant in the adult mice was “neurogenesis”. Perturbations in neurogenesis have been suggested as an early and common hallmark in neurological disorders including AD, PD, HD, epilepsy and schizophrenia<sup><xref ref-type="bibr" rid="CR48">48</xref>–<xref ref-type="bibr" rid="CR53">53</xref></sup>. NCAM1 is one of the proteins that appeared to be S-nitrosylated in the adult cortex and adult striatum and found to be involved in neurogenesis. It is neuronal cell adhesion molecule that plays a key role in synaptic plasticity, neuronal migration and axonal\dendritic growth. Recent studies suggest that these functions may be altered in the brain disorders, thus implicating NCAM1 in the pathogenesis of brain disorders including AD, PD, bipolar depression and schizophrenia<sup><xref ref-type="bibr" rid="CR54">54</xref></sup>. Due to the fact that S-nitrosylation can modulate protein function, we suggest that SNO-NCAM1 might provide a potential mechanism of the pathogenesis of neurological disorders.</p>
+<p id="Par27">Synaptic vesicle fusion and recycling process, which were enriched in the adult groups, represent a pivotal mechanism for the synaptic transmission and neuronal function<sup><xref ref-type="bibr" rid="CR33">33</xref>,<xref ref-type="bibr" rid="CR55">55</xref>,<xref ref-type="bibr" rid="CR56">56</xref></sup>. The critical proteins, which mediate the synaptic transmission were detected to be S-nitrosylated in adult cortex and the adult striatum. These were SNARE proteins (SYB, SNAP25), SNARE-associated proteins (CPLX1, SYN1, MUNC18) and endocytic protein DNM1<sup><xref ref-type="bibr" rid="CR33">33</xref>,<xref ref-type="bibr" rid="CR55">55</xref>,<xref ref-type="bibr" rid="CR57">57</xref>,<xref ref-type="bibr" rid="CR58">58</xref></sup>. Modulation by NO or uncontrolled S-nitrosylation mechanism may induce functional changes that affect synaptic transmission and might contribute to the pathogenesis of several neurodegenerative disorders<sup><xref ref-type="bibr" rid="CR59">59</xref></sup>. Various lines of observations showed that altered expression of the synaptic proteins is linked to neurological and neurodegenerative disorders. Thus, SYB2 alteration has been identified in AD and HD<sup><xref ref-type="bibr" rid="CR60">60</xref>,<xref ref-type="bibr" rid="CR61">61</xref></sup>. Deletion of SNAP25 results in ADHD phenotype<sup><xref ref-type="bibr" rid="CR62">62</xref>–<xref ref-type="bibr" rid="CR64">64</xref></sup>. Moreover, reduced expression of SNAP25 was observed in patients with schizophrenia<sup><xref ref-type="bibr" rid="CR65">65</xref></sup>. Changes in MUNC18 have been linked to epileptic disorders<sup><xref ref-type="bibr" rid="CR66">66</xref>,<xref ref-type="bibr" rid="CR67">67</xref></sup>, whilst changes in SYT1 were seen in individuals with severe cognitive and motor deficits<sup><xref ref-type="bibr" rid="CR68">68</xref></sup>.</p>
+<p id="Par28">CPLX1 was one of the proteins S-nitrosylated in both adult cortex and adult striatum. It is a hydrophilic protein that regulates rapid neurotransmitter release by its binding to the SNARE complex with high affinity<sup><xref ref-type="bibr" rid="CR55">55</xref>,<xref ref-type="bibr" rid="CR69">69</xref>,<xref ref-type="bibr" rid="CR70">70</xref></sup>. This protein functionally co-operates with SYT1 that functions as a Ca<sup>2+</sup> sensor for evoked synchronous neurotransmitter release<sup><xref ref-type="bibr" rid="CR55">55</xref>,<xref ref-type="bibr" rid="CR71">71</xref></sup>. Recent study identified CPLX1 as a specific target for NO. At high levels of NO, CPLX1 undergoes S-nitrosylation that induces functional and synaptic localization changes and that may alter its interaction with the SNARE complex, thus leading to neurotransmission modulation<sup><xref ref-type="bibr" rid="CR72">72</xref></sup>. Changes in CPLX have been documented in several neurodegenerative and psychiatric disorders, including HD, AD, schizophrenia and bipolar disorder<sup><xref ref-type="bibr" rid="CR73">73</xref>,<xref ref-type="bibr" rid="CR74">74</xref></sup>. Collectively, we suggest that SNO-CPLX1 might provide an additional mechanism for neurological disorders.</p>
+<p id="Par29">DNM1 is a large GTPase that plays an essential role in endocytosis due to the vesicle membrane fission, which can be induced by DNM1<sup><xref ref-type="bibr" rid="CR55">55</xref>,<xref ref-type="bibr" rid="CR75">75</xref>,<xref ref-type="bibr" rid="CR76">76</xref></sup>. Altered expression of DNM1 has been detected in AD, epilepsy and schizophrenia<sup><xref ref-type="bibr" rid="CR77">77</xref>–<xref ref-type="bibr" rid="CR82">82</xref></sup>. Emerging evidence suggests that S-nitrosylation of DNM1 at Cys-607 increases the GTPase activity followed by activation of endocytosis<sup><xref ref-type="bibr" rid="CR59">59</xref>,<xref ref-type="bibr" rid="CR83">83</xref></sup>.</p>
+<p id="Par30">Using proteins classification enrichment analysis, we identified a higher number of SNOed phosphatases and kinases in the cortex of the adult mice (see Supplementary Fig. <xref ref-type="media" rid="MOESM5">S4</xref>). S-nitrosylation of phosphatases and kinases can affect a wide range of signal transduction cascades. In some cases, S-nitrosylation induces an inhibitory effect on protein phosphatases (PP) and protein kinases (PK) since it suppresses the kinase and phosphatase activity<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. Subsequently, under the pathological conditions, aberrant regulation mechanisms on PP or PK that might alter their activity or modulate their interaction with the substrates may contribute to the progression of several neurological disorders<sup><xref ref-type="bibr" rid="CR84">84</xref>–<xref ref-type="bibr" rid="CR87">87</xref></sup>.</p>
+<p id="Par32">In summary, our findings show that age leads to reprogramming of the S-nitroso-proteome in the adult cortex and adult striatum. The analysis reveals that age leads to S-nitrosylation of the synaptic and neuron-associated proteins that regulate the key processes and pathways known to be involved in neurological disorders. We suggest that S-nitrosylation of these proteins might contribute to the pathogenesis of several brain disorders. Our MS approach, combined with large scale computational biology allowed us to perform a system-level characterization and identification of the key proteins and biological processes that can serve as drug targets for aging and brain disorders in the future studies.</p>
+</sec>
+<sec id="Sec9">
+<title>Material and methods</title>
+<sec id="Sec10">
+<title>Materials and reagents</title>
+<p id="Par33">Vivapsin 10 kDa molecular weight cut off (MWCO) filters were procured from Satorious AG (Germany). For High-Performance Liquid Chromatography (HPLC) and Liquid Chromatography–Mass Spectrometry (LC–MS), HPLC grade solvents were used. Biotin-PEG3-propionic acid was obtained from Chem Pep Inc (Florida, USA). For Mass Spectrometry (MS), protease inhibitor cocktail, acetonitrile (ACN) and distilled water were purchased from Sigma-Aldrich (St. Louis, MO). Sequencing-grade modified trypsin was provided by Promega (Wisconsin, USA). SNOTRAP-biotin synthesis and Nuclear magnetic resonance (NMR) analysis were performed as described previously<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. All methods were carried out in accordance with the Hebrew University guidelines and regulations. The animal’s data we generated previously were taken from the Pride Software as mentioned below. The animals’ experiments were done in accordance with the Institutional Animal Care and Use Committee and the Association for Assessment and Accreditation of Laboratory Animal Care International.</p>
+</sec>
+<sec id="Sec11">
+<title>Brain tissue sample preparation for mass spectrometry (MS)</title>
+<p id="Par34">All samples were prepared at room temperature in the dark.</p>
+<p id="Par35">Brain tissues were isolated from 6–8-week (Juvenile) to 3–4-month-old (adults) WT mice following decapitation during the day time. The brain samples were immediately transferred into liquid nitrogen for storage at − 80 °C for further analysis. For each biological replicate, 3–4 cortex tissue samples from 3 to 4 mice and 4 striatal tissue samples from 4 mice were pooled. Further, tissues were homogenized on ice in freshly prepared lysis buffer: 250 mM HEPES–NaOH, 0.1 mM neocuproine, 1 mM EDTA, 1% NP-40, 20 mM IAM, 1% protease inhibitors cocktail, pH 7.7. The homogenates were centrifuged (12,000–13,000×<italic>g</italic> for 10 min at 4 °C), the supernatant was collected and protein concentration was estimated by Bradford assay (Bio-Rad, California USA, Cat. No. 500-0006). Next, in the presence of 2.5% SDS, samples were alkylated with 30 mM IAM in the dark at 37 °C. After alkylation, samples were washed twice with 3 times volume of 8 M Urea (in 50 mM HEPES, pH 7.7) and once with 50 mM HEPES (pH 7.7) by centrifugation at 5,000×<italic>g</italic> for 30 min at 4 °C with 10 K MWCO spin filters pre-rinsed once with water (Satorious AG, Germany, Cat. No. VS15T01). After the centrifugation, SNOTRAP labeling stock solutions (in 50% ACN) were added to all samples to reach a final concentration of 1.25 mM. This was performed with the purpose of converting SNO to stable disulfide-iminophosphorane. Further, at 25 °C, all samples were incubated for 1.5 h in SNOTRAP solution. After the SNOTRAP labeling, reagents were removed by three consecutive washing with 50 mM HEPES (pH 7.7) buffer with 10 K filters. After ultrafiltration, each sample was incubated with 200 μl pre-rinsed Streptavidin agarose beads (Pierce, Cat. No. 20349) for 1 h at room temperature with gentle shaking. The beads were washed with washing buffer (50 mM HEPES, 150 mM NaCl, 0.1% SDS, pH 7.7) three times and then with washing buffer (50 mM HEPES, pH 7.7) three times. After washing, proteins were eluted (with 10 mM TCEP in 50 mM HEPES, pH 7.7) and then alkylated with 10 mM IAM. Protein samples were then trypsinized (Promega, Wisconsin, USA, Cat. No. V5111) at 37 °C for 4 h and then desalted with C18 StageTips as described previously<sup><xref ref-type="bibr" rid="CR88">88</xref></sup>.</p>
+</sec>
+<sec id="Sec12">
+<title>Analysis flowchart of mass spectrometry</title>
+<p id="Par36">The digested peptides were analysed using 6550 Nano-HPLC-Chip/MS system of Agilent, coupled with a micro-autosampler, pumps of a capillary and nanoflow, and the Chip-Cube connected to the LC modules and the MS instrument. H<sub>2</sub>O with 0.1% FA was used as a mobile phase A and ACN with 0.1% FA was used as a mobile phase B. Polaris-HR-Chip-3C18 HPLC-Chip (Agilent Technologies, Cat. No. G4240-62030) separated the peptides. It consisted of a 360 nl enrichment column, a 75 μm × 150 mm analytical column and a 3 μm stationary phase. We loaded the peptides onto the enrichment column. The gradient was set for 55 min, starting from 3% B at 300 nl/min, increased to 30% B and kept from the 2nd to 35th min, then increased to 60% B at the 40th min, to 90% B at the 45th min and then kept stable for 5 min followed by a 5 min after-run at 3% B. We acquired the positive-ion MS spectra using 1,700 Da extended dynamic range mode: ESI capillary voltage was set on 1,960 V; fragmentor on 360 V; Octopole RF peak on 750 V; drying gas on 13 L/min; drying temperature on 225 °C. The data were acquired at the rate of 6 MS spectra/second and 3 MS/MS spectra/second in the range of m/z 300 to 1,700 for MS and 50 to 1,700 for MS/MS. The Max number of precursors per cycle was set at 20, setting the threshold at 5,000 ions in a precursor abundance-based scan speed in peptide isotope model with plus 2, plus 3 and above charge-state preference, and with active exclusion after 1 spectrum and released after 0.15 min. We set the fragmentation energy at a slope of 3.1 V/100 Da, including a 1.0 offset for doubly charged precursors, 3.6 V/100 Da with a − 4.8 offset for triply and also multiply-charged precursors. We used Agilent MassHunter Workstation software for the data acquisition. Two biological replicates with three technical replicates of each biological replicate were run. The mass accuracy was preserved using ion <italic>m/z</italic> 1,221.9906 as an internal reference. Detailed information on this is found in our previous work found in Ref.<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>.</p>
+</sec>
+<sec id="Sec13">
+<title>Processing of the mass spectrometry data</title>
+<p id="Par37">For peak the list generation, database searching, and false discovery rate (FDR) estimation, we used Agilent Spectrum Mill MS proteomics Workbench B.05. We used the following parameters for data extractions: precursor MH + 300–8,000 Da, scan time range from 0 to 200 min, cysteine carbamidomethylation for fixed modification, sequence tag length of &gt; 1, default for precursor charge, true for find 12C precursor, merge scans with the same precursor at ± 30 s and ± 0.05 m/z, and MS noise threshold of 100 counts. MS/MS spectra were searched against the mouse SwissProt protein database with ± 20 ppm precursor ion tolerance and ± 50 ppm fragment ion tolerance. We included different modifications of methionine oxidation, deamidation of asparagine, and fixed modification of cysteine carbamidomethylation. The generated FDR was set to 1.2% for both peptide and protein identification. The MS proteomics data, which we have generated previously, were taken from ProteomeXchange Consortium (<ext-link ext-link-type="uri" xlink:href="https://proteomecentral.proteomexchange.org">https://proteomecentral.proteomexchange.org</ext-link>) via the PRIDE partner repository with the dataset identifier &lt; PXD006907 &gt; and used in this study.</p>
+</sec>
+<sec id="Sec14">
+<title>Statistics and systems biology analysis</title>
+<p id="Par38">For the systems biology analysis of the Cellular Compartments (CC), Biological Processes (BP) and KEGG pathways, we uploaded the lists of all SNO-proteins into MetaCore from Clarivate Analytics (MetaCore version 6.34 build 69200). The Benjamini–Hochberg correction<sup><xref ref-type="bibr" rid="CR89">89</xref></sup> was used to calculate the P value and generate FDR, and terms with FDR values below 0.05 were accepted. The search tool for the interacting proteins (STRING, version 10.0) was used to analyze the protein–protein interaction of SNO-proteins (<ext-link ext-link-type="uri" xlink:href="https://string-db.org">https://string-db.org</ext-link>)<sup><xref ref-type="bibr" rid="CR9">90</xref></sup>. High reliability interactions (score &gt; 0.4) from the neighborhood, gene fusion, co-occurrence, co-expression, experiments, databases and textmining lists were used. Cytoscape software (version 3.3.0) was used for visualization of the protein–protein interaction. MetaCore from Clarivate Analytics (MetaCore version 6.34 build 69,200) was used for the networks generation after submitting the lists of SNO-proteins. For this, we also used Benjamini–Hochberg correction<sup><xref ref-type="bibr" rid="CR89">89</xref></sup> to calculate the P value and generate FDR. The processes/terms with the FDR values of below 0.05 were included. PRISM graphpad 8 was used to generate heatmaps and Volcano plots.</p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec15">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2020_70383_MOESM1_ESM.pdf"><caption><p>Supplementary Legends</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="41598_2020_70383_MOESM2_ESM.tiff"><caption><p>Supplementary Figure S1.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3"><media xlink:href="41598_2020_70383_MOESM3_ESM.tiff"><caption><p>Supplementary Figure S2.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4"><media xlink:href="41598_2020_70383_MOESM4_ESM.tiff"><caption><p>Supplementary Figure S3.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5"><media xlink:href="41598_2020_70383_MOESM5_ESM.tiff"><caption><p>Supplementary Figure S4.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6"><media xlink:href="41598_2020_70383_MOESM6_ESM.tiff"><caption><p>Supplementary Figure S5.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7"><media xlink:href="41598_2020_70383_MOESM7_ESM.tiff"><caption><p>Supplementary Figure S6.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8"><media xlink:href="41598_2020_70383_MOESM8_ESM.xlsx"><caption><p>Supplementary Table S1.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9"><media xlink:href="41598_2020_70383_MOESM9_ESM.xlsx"><caption><p>Supplementary Table S2.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10"><media xlink:href="41598_2020_70383_MOESM10_ESM.xlsx"><caption><p>Supplementary Table S3.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11"><media xlink:href="41598_2020_70383_MOESM11_ESM.xlsx"><caption><p>Supplementary Table S4.</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM12"><media xlink:href="41598_2020_70383_MOESM12_ESM.xlsx"><caption><p>Supplementary Table S5.</p></caption></media></supplementary-material></p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p>
+<bold>Publisher's note</bold>
+</p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p>is available for this paper at 10.1038/s41598-020-70383-6.</p>
+</sec>
+<notes notes-type="author-contribution">
+<title>Author contributions</title>
+<p>M.K. Analysing samples and data, generating figures, writing manuscript. I.K. Analysing data and writing manuscript. H.A. Supervision of the project, writing and reviewing manuscript.</p>
+</notes>
+<notes id="FPar1" notes-type="COI-statement">
+<title>Competing interests</title>
+<p id="Par39">The authors declare no competing interests.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Snyder</surname>
+<given-names>SH</given-names>
+</name>
+<name>
+<surname>Bredt</surname>
+<given-names>DS</given-names>
+</name>
+</person-group>
+<article-title>Biological roles of nitric oxide</article-title>
+<source/>Sci. Am.
+          <year>1992</year>
+<volume>266</volume>
+<issue>68–71</issue>
+<fpage>74</fpage>
+<pub-id pub-id-type="doi">10.1038/scientificamerican0592-68</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bredt</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Snyder</surname>
+<given-names>SH</given-names>
+</name>
+</person-group>
+<article-title>Nitric oxide: A physiologic messenger molecule</article-title>
+<source/>Annu. Rev. Biochem.
+          <year>1994</year>
+<volume>63</volume>
+<fpage>175</fpage>
+<lpage>195</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev.bi.63.070194.001135</pub-id>
+<pub-id pub-id-type="pmid">7526779</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Garry</surname>
+<given-names>PS</given-names>
+</name>
+<name>
+<surname>Ezra</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Rowland</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Westbrook</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Pattinson</surname>
+<given-names>KT</given-names>
+</name>
+</person-group>
+<article-title>The role of the nitric oxide pathway in brain injury and its treatment—from bench to bedside</article-title>
+<source/>Exp. Neurol.
+          <year>2015</year>
+<volume>263</volume>
+<fpage>235</fpage>
+<lpage>243</lpage>
+<pub-id pub-id-type="doi">10.1016/j.expneurol.2014.10.017</pub-id>
+<pub-id pub-id-type="pmid">25447937</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nakamura</surname>
+<given-names>T</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Aberrant protein S-nitrosylation contributes to the pathophysiology of neurodegenerative diseases</article-title>
+<source/>Neurobiol. Dis.
+          <year>2015</year>
+<volume>84</volume>
+<fpage>99</fpage>
+<lpage>108</lpage>
+<pub-id pub-id-type="doi">10.1016/j.nbd.2015.03.017</pub-id>
+<pub-id pub-id-type="pmid">25796565</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Amal</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Low doses of arsenic in a mouse model of human exposure and in neuronal culture lead to S-nitrosylation of synaptic proteins and apoptosis via nitric oxide</article-title>
+<source/>Int. J. Mol. Sci.
+          <year>2020</year>
+<volume>21</volume>
+<fpage>3948</fpage>
+<pub-id pub-id-type="doi">10.3390/ijms21113948</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>QF</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>JT</given-names>
+</name>
+<name>
+<surname>Tan</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>S-nitrosylation in Alzheimer's disease</article-title>
+<source/>Mol. Neurobiol.
+          <year>2015</year>
+<volume>51</volume>
+<fpage>268</fpage>
+<lpage>280</lpage>
+<pub-id pub-id-type="doi">10.1007/s12035-014-8672-2</pub-id>
+<pub-id pub-id-type="pmid">24664522</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Seth</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A multiplex enzymatic machinery for cellular protein S-nitrosylation</article-title>
+<source/>Mol. Cell
+          <year>2018</year>
+<volume>69</volume>
+<fpage>451</fpage>
+<lpage>464</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molcel.2017.12.025</pub-id>
+<pub-id pub-id-type="pmid">29358078</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nakamura</surname>
+<given-names>T</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Aberrant protein S-nitrosylation in neurodegenerative diseases</article-title>
+<source/>Neuron
+          <year>2013</year>
+<volume>78</volume>
+<fpage>596</fpage>
+<lpage>614</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2013.05.005</pub-id>
+<pub-id pub-id-type="pmid">23719160</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Haun</surname>
+<given-names>F</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosylation of dynamin-related protein 1 mediates mutant huntingtin-induced mitochondrial fragmentation and neuronal injury in Huntington's disease</article-title>
+<source/>Antioxid. Redox Signal
+          <year>2013</year>
+<volume>19</volume>
+<fpage>1173</fpage>
+<lpage>1184</lpage>
+<pub-id pub-id-type="doi">10.1089/ars.2012.4928</pub-id>
+<pub-id pub-id-type="pmid">23641925</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Qu</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-Nitrosylation activates Cdk5 and contributes to synaptic spine loss induced by beta-amyloid peptide</article-title>
+<source/>Proc. Natl. Acad. Sci. U.S.A.
+          <year>2011</year>
+<volume>108</volume>
+<fpage>14330</fpage>
+<lpage>14335</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1105172108</pub-id>
+<pub-id pub-id-type="pmid">21844361</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Amal</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosylation of E3 ubiquitin-protein ligase RNF213 alters non-canonical Wnt/Ca+2 signaling in the P301S mouse model of tauopathy</article-title>
+<source/>Transl. Psychiatry
+          <year>2019</year>
+<volume>9</volume>
+<fpage>44</fpage>
+<pub-id pub-id-type="doi">10.1038/s41398-019-0388-7</pub-id>
+<pub-id pub-id-type="pmid">30696811</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chung</surname>
+<given-names>KK</given-names>
+</name>
+<name>
+<surname>Dawson</surname>
+<given-names>VL</given-names>
+</name>
+<name>
+<surname>Dawson</surname>
+<given-names>TM</given-names>
+</name>
+</person-group>
+<article-title>S-nitrosylation in Parkinson's disease and related neurodegenerative disorders</article-title>
+<source/>Methods Enzymol.
+          <year>2005</year>
+<volume>396</volume>
+<fpage>139</fpage>
+<lpage>150</lpage>
+<pub-id pub-id-type="doi">10.1016/s0076-6879(05)96014-x</pub-id>
+<pub-id pub-id-type="pmid">16291229</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Uehara</surname>
+<given-names>T</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosylated protein-disulphide isomerase links protein misfolding to neurodegeneration</article-title>
+<source/>Nature
+          <year>2006</year>
+<volume>441</volume>
+<fpage>513</fpage>
+<lpage>517</lpage>
+<pub-id pub-id-type="doi">10.1038/nature04782</pub-id>
+<pub-id pub-id-type="pmid">16724068</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shi</surname>
+<given-names>ZQ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosylated SHP-2 contributes to NMDA receptor-mediated excitotoxicity in acute ischemic stroke</article-title>
+<source/>Proc. Natl. Acad. Sci. U.S.A.
+          <year>2013</year>
+<volume>110</volume>
+<fpage>3137</fpage>
+<lpage>3142</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1215501110</pub-id>
+<pub-id pub-id-type="pmid">23382182</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tripathi</surname>
+<given-names>MK</given-names>
+</name>
+<name>
+<surname>Kartawy</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Amal</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>The role of nitric oxide in brain disorders: Autism spectrum disorder and other psychiatric, neurological, and neurodegenerative disorders</article-title>
+<source/>Redox Biol.
+          <year>2020</year>
+<pub-id pub-id-type="doi">10.1016/j.redox.2020.101567</pub-id>
+<pub-id pub-id-type="pmid">32464501</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Amal</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Shank3 mutation in a mouse model of autism leads to changes in the S-nitroso-proteome and affects key proteins involved in vesicle release and synaptic function</article-title>
+<source/>Mol. Psychiatry
+          <year>2018</year>
+<pub-id pub-id-type="doi">10.1038/s41380-018-0113-6</pub-id>
+<pub-id pub-id-type="pmid">29988084</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Larrick</surname>
+<given-names>JW</given-names>
+</name>
+<name>
+<surname>Mendelsohn</surname>
+<given-names>AR</given-names>
+</name>
+</person-group>
+<article-title>Regulation of S-nitrosylation in aging and senescence</article-title>
+<source/>Rejuvenation Res.
+          <year>2019</year>
+<volume>22</volume>
+<fpage>171</fpage>
+<lpage>174</lpage>
+<pub-id pub-id-type="doi">10.1089/rej.2019.2194</pub-id>
+<pub-id pub-id-type="pmid">30943847</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khaliulin</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Kartawy</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Amal</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Sex differences in biological processes and nitrergic signaling in mouse brain</article-title>
+<source/>Biomedicines
+          <year>2020</year>
+<volume>8</volume>
+<fpage>124</fpage>
+<pub-id pub-id-type="doi">10.3390/biomedicines8050124</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bellaver</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Souza</surname>
+<given-names>DG</given-names>
+</name>
+<name>
+<surname>Souza</surname>
+<given-names>DO</given-names>
+</name>
+<name>
+<surname>Quincozes-Santos</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Hippocampal astrocyte cultures from adult and aged rats reproduce changes in glial functionality observed in the aging brain</article-title>
+<source/>Mol. Neurobiol.
+          <year>2017</year>
+<volume>54</volume>
+<fpage>2969</fpage>
+<lpage>2985</lpage>
+<pub-id pub-id-type="doi">10.1007/s12035-016-9880-8</pub-id>
+<pub-id pub-id-type="pmid">27026184</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>nNOS-CAPON interaction mediates amyloid-beta-induced neurotoxicity, especially in the early stages</article-title>
+<source/>Aging Cell
+          <year>2018</year>
+<volume>17</volume>
+<fpage>e12754</fpage>
+<pub-id pub-id-type="doi">10.1111/acel.12754</pub-id>
+<pub-id pub-id-type="pmid">29577585</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rizza</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosylation drives cell senescence and aging in mammals by controlling mitochondrial dynamics and mitophagy</article-title>
+<source/>Proc. Natl. Acad. Sci. U.S.A.
+          <year>2018</year>
+<volume>115</volume>
+<fpage>E3388</fpage>
+<lpage>e3397</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1722452115</pub-id>
+<pub-id pub-id-type="pmid">29581312</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Popa-Wagner</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Increased degradation rates in the components of the mitochondrial oxidative phosphorylation chain in the cerebellum of old mice</article-title>
+<source/>Front. Aging Neurosci.
+          <year>2018</year>
+<volume>10</volume>
+<fpage>32</fpage>
+<pub-id pub-id-type="doi">10.3389/fnagi.2018.00032</pub-id>
+<pub-id pub-id-type="pmid">29503614</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chung</surname>
+<given-names>KK</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosylation of parkin regulates ubiquitination and compromises parkin's protective function</article-title>
+<source/>Science
+          <year>2004</year>
+<volume>304</volume>
+<fpage>1328</fpage>
+<lpage>1331</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1093891</pub-id>
+<pub-id pub-id-type="pmid">15105460</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Narendra</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Tanaka</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Suen</surname>
+<given-names>DF</given-names>
+</name>
+<name>
+<surname>Youle</surname>
+<given-names>RJ</given-names>
+</name>
+</person-group>
+<article-title>Parkin is recruited selectively to impaired mitochondria and promotes their autophagy</article-title>
+<source/>J. Cell Biol.
+          <year>2008</year>
+<volume>183</volume>
+<fpage>795</fpage>
+<lpage>803</lpage>
+<pub-id pub-id-type="doi">10.1083/jcb.200809125</pub-id>
+<pub-id pub-id-type="pmid">19029340</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pickrell</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Youle</surname>
+<given-names>RJ</given-names>
+</name>
+</person-group>
+<article-title>The roles of PINK1, parkin, and mitochondrial fidelity in Parkinson's disease</article-title>
+<source/>Neuron
+          <year>2015</year>
+<volume>85</volume>
+<fpage>257</fpage>
+<lpage>273</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2014.12.007</pub-id>
+<pub-id pub-id-type="pmid">25611507</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Seneviratne</surname>
+<given-names>U</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>S-nitrosation of proteins relevant to Alzheimer's disease during early stages of neurodegeneration</article-title>
+<source/>Proc. Natl. Acad. Sci. U.S.A.
+          <year>2016</year>
+<volume>113</volume>
+<fpage>4152</fpage>
+<lpage>4157</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1521318113</pub-id>
+<pub-id pub-id-type="pmid">27035958</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kohls</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Yerys</surname>
+<given-names>BE</given-names>
+</name>
+<name>
+<surname>Schultz</surname>
+<given-names>RT</given-names>
+</name>
+</person-group>
+<article-title>Striatal development in autism: Repetitive behaviors and the reward circuitry</article-title>
+<source/>Biol. Psychiatry
+          <year>2014</year>
+<volume>76</volume>
+<fpage>358</fpage>
+<lpage>359</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2014.07.010</pub-id>
+<pub-id pub-id-type="pmid">25103541</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pappas</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>Leventhal</surname>
+<given-names>DK</given-names>
+</name>
+<name>
+<surname>Albin</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Dauer</surname>
+<given-names>WT</given-names>
+</name>
+</person-group>
+<article-title>Mouse models of neurodevelopmental disease of the basal ganglia and associated circuits</article-title>
+<source/>Curr. Top. Dev. Biol.
+          <year>2014</year>
+<volume>109</volume>
+<fpage>97</fpage>
+<lpage>169</lpage>
+<pub-id pub-id-type="doi">10.1016/b978-0-12-397920-9.00001-9</pub-id>
+<pub-id pub-id-type="pmid">24947237</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Simpson</surname>
+<given-names>EH</given-names>
+</name>
+<name>
+<surname>Kellendonk</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kandel</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>A possible role for the striatum in the pathogenesis of the cognitive symptoms of schizophrenia</article-title>
+<source/>Neuron
+          <year>2010</year>
+<volume>65</volume>
+<fpage>585</fpage>
+<lpage>596</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2010.02.014</pub-id>
+<pub-id pub-id-type="pmid">20223196</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ha</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Sohn</surname>
+<given-names>IJ</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Sim</surname>
+<given-names>HJ</given-names>
+</name>
+<name>
+<surname>Cheon</surname>
+<given-names>KA</given-names>
+</name>
+</person-group>
+<article-title>Characteristics of brains in autism spectrum disorder: Structure, function and connectivity across the lifespan</article-title>
+<source/>Exp. Neurobiol.
+          <year>2015</year>
+<volume>24</volume>
+<fpage>273</fpage>
+<lpage>284</lpage>
+<pub-id pub-id-type="doi">10.5607/en.2015.24.4.273</pub-id>
+<pub-id pub-id-type="pmid">26713076</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schuetze</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Morphological alterations in the thalamus, striatum, and pallidum in autism spectrum disorder</article-title>
+<source/>Neuropsychopharmacology
+          <year>2016</year>
+<volume>41</volume>
+<fpage>2627</fpage>
+<lpage>2637</lpage>
+<pub-id pub-id-type="doi">10.1038/npp.2016.64</pub-id>
+<pub-id pub-id-type="pmid">27125303</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>De Lacoste</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>White</surname>
+<given-names>CL</given-names>
+<suffix>3rd</suffix>
+</name>
+</person-group>
+<article-title>The role of cortical connectivity in Alzheimer's disease pathogenesis: A review and model system</article-title>
+<source/>Neurobiol. Aging
+          <year>1993</year>
+<volume>14</volume>
+<fpage>1</fpage>
+<lpage>16</lpage>
+<pub-id pub-id-type="doi">10.1016/0197-4580(93)90015-4</pub-id>
+<pub-id pub-id-type="pmid">8450928</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rizzoli</surname>
+<given-names>SO</given-names>
+</name>
+</person-group>
+<article-title>Synaptic vesicle recycling: Steps and principles</article-title>
+<source/>EMBO J.
+          <year>2014</year>
+<volume>33</volume>
+<fpage>788</fpage>
+<lpage>822</lpage>
+<pub-id pub-id-type="doi">10.1002/embj.201386357</pub-id>
+<pub-id pub-id-type="pmid">24596248</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ying</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>NAD+ and NADH in brain functions, brain diseases and brain aging</article-title>
+<source/>Front. Biosci.
+          <year>2007</year>
+<volume>12</volume>
+<fpage>1863</fpage>
+<lpage>1888</lpage>
+<pub-id pub-id-type="doi">10.2741/2194</pub-id>
+<pub-id pub-id-type="pmid">17127427</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Conner</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Schmid</surname>
+<given-names>SL</given-names>
+</name>
+</person-group>
+<article-title>Differential requirements for AP-2 in clathrin-mediated endocytosis</article-title>
+<source/>J. Cell Biol.
+          <year>2003</year>
+<volume>162</volume>
+<fpage>773</fpage>
+<lpage>779</lpage>
+<pub-id pub-id-type="doi">10.1083/jcb.200304069</pub-id>
+<pub-id pub-id-type="pmid">12952931</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jin</surname>
+<given-names>YH</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Protein kinase C and Calmodulin serve as calcium sensors for calcium-stimulated endocytosis at synapses</article-title>
+<source/>J. Neurosci.
+          <year>2019</year>
+<volume>39</volume>
+<fpage>9478</fpage>
+<lpage>9490</lpage>
+<pub-id pub-id-type="doi">10.1523/jneurosci.0182-19.2019</pub-id>
+<pub-id pub-id-type="pmid">31628181</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Funakoshi</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hasegawa</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kanaho</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Regulation of PIP5K activity by Arf6 and its physiological significance</article-title>
+<source/>J. Cell Physiol.
+          <year>2011</year>
+<volume>226</volume>
+<fpage>888</fpage>
+<lpage>895</lpage>
+<pub-id pub-id-type="doi">10.1002/jcp.22482</pub-id>
+<pub-id pub-id-type="pmid">20945365</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Flatt</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>A new definition of aging?</article-title>
+<source/>Front. Genet.
+          <year>2012</year>
+<volume>3</volume>
+<fpage>148</fpage>
+<pub-id pub-id-type="doi">10.3389/fgene.2012.00148</pub-id>
+<pub-id pub-id-type="pmid">22936945</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dilman</surname>
+<given-names>V</given-names>
+</name>
+</person-group>
+<article-title>Age-associated elevation of hypothalamic threshold to feedback control, and its role in development, ageing, and disease</article-title>
+<source/>The Lancet
+          <year>1971</year>
+<volume>297</volume>
+<fpage>1211</fpage>
+<lpage>1219</lpage>
+<pub-id pub-id-type="doi">10.1016/S0140-6736(71)91721-1</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>de Magalhães</surname>
+<given-names>JP</given-names>
+</name>
+<name>
+<surname>Church</surname>
+<given-names>GM</given-names>
+</name>
+</person-group>
+<article-title>Genomes optimize reproduction: Aging as a consequence of the developmental program</article-title>
+<source/>Physiology
+          <year>2005</year>
+<volume>20</volume>
+<fpage>252</fpage>
+<lpage>259</lpage>
+<pub-id pub-id-type="doi">10.1152/physiol.00010.2005</pub-id>
+<pub-id pub-id-type="pmid">16024513</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Feltes</surname>
+<given-names>BC</given-names>
+</name>
+<name>
+<surname>de Faria Poloni</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bonatto</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>The developmental aging and origins of health and disease hypotheses explained by different protein networks</article-title>
+<source/>Biogerontology
+          <year>2011</year>
+<volume>12</volume>
+<fpage>293</fpage>
+<lpage>308</lpage>
+<pub-id pub-id-type="doi">10.1007/s10522-011-9325-8</pub-id>
+<pub-id pub-id-type="pmid">21380541</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ashburner</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene ontology: Tool for the unification of biology. The gene ontology consortium</article-title>
+<source/>Nat. Genet.
+          <year>2000</year>
+<volume>25</volume>
+<fpage>25</fpage>
+<lpage>29</lpage>
+<pub-id pub-id-type="doi">10.1038/75556</pub-id>
+<pub-id pub-id-type="pmid">10802651</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hess</surname>
+<given-names>DT</given-names>
+</name>
+<name>
+<surname>Stamler</surname>
+<given-names>JS</given-names>
+</name>
+</person-group>
+<article-title>Regulation by S-nitrosylation of protein post-translational modification</article-title>
+<source/>J. Biol. Chem.
+          <year>2012</year>
+<volume>287</volume>
+<fpage>4411</fpage>
+<lpage>4418</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.R111.285742</pub-id>
+<pub-id pub-id-type="pmid">22147701</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Giovedi</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Corradi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Fassio</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Benfenati</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<article-title>Involvement of synaptic genes in the pathogenesis of autism spectrum disorders: The case of synapsins</article-title>
+<source/>Front. Pediatr.
+          <year>2014</year>
+<volume>2</volume>
+<fpage>94</fpage>
+<pub-id pub-id-type="doi">10.3389/fped.2014.00094</pub-id>
+<pub-id pub-id-type="pmid">25237665</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Taoufik</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Kouroupi</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Zygogianni</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Matsas</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Synaptic dysfunction in neurodegenerative and neurodevelopmental diseases: An overview of induced pluripotent stem-cell-based disease models</article-title>
+<source/>Open Biol.
+          <year>2018</year>
+<pub-id pub-id-type="doi">10.1098/rsob.180138</pub-id>
+<pub-id pub-id-type="pmid">30185603</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tampellini</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Synaptic activity and Alzheimer's disease: A critical update</article-title>
+<source/>Front. Neurosci.
+          <year>2015</year>
+<volume>9</volume>
+<fpage>423</fpage>
+<pub-id pub-id-type="doi">10.3389/fnins.2015.00423</pub-id>
+<pub-id pub-id-type="pmid">26582973</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Esposito</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Ana Clara</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Verstreken</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Synaptic vesicle trafficking and Parkinson's disease</article-title>
+<source/>Dev. Neurobiol.
+          <year>2012</year>
+<volume>72</volume>
+<fpage>134</fpage>
+<lpage>144</lpage>
+<pub-id pub-id-type="doi">10.1002/dneu.20916</pub-id>
+<pub-id pub-id-type="pmid">21563316</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Winner</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Winkler</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Adult neurogenesis in neurodegenerative diseases</article-title>
+<source/>Cold Spring Harb. Perspect. Biol.
+          <year>2015</year>
+<volume>7</volume>
+<fpage>a021287</fpage>
+<pub-id pub-id-type="doi">10.1101/cshperspect.a021287</pub-id>
+<pub-id pub-id-type="pmid">25833845</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Haughey</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Nath</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Borchard</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Mattson</surname>
+<given-names>MP</given-names>
+</name>
+</person-group>
+<article-title>Disruption of neurogenesis in the subventricular zone of adult mice, and in human cortical neuronal precursor cells in culture, by amyloid beta-peptide: Implications for the pathogenesis of Alzheimer's disease</article-title>
+<source/>Neuromol. Med.
+          <year>2002</year>
+<volume>1</volume>
+<fpage>125</fpage>
+<lpage>135</lpage>
+<pub-id pub-id-type="doi">10.1385/nmm:1:2:125</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cheyuo</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Aziz</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Neurogenesis in neurodegenerative diseases: Role of MFG-E8</article-title>
+<source/>Front. Neurosci.
+          <year>2019</year>
+<volume>13</volume>
+<fpage>569</fpage>
+<pub-id pub-id-type="doi">10.3389/fnins.2019.00569</pub-id>
+<pub-id pub-id-type="pmid">31213977</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shohayeb</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Diab</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ahmed</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ng</surname>
+<given-names>DCH</given-names>
+</name>
+</person-group>
+<article-title>Factors that influence adult neurogenesis as potential therapy</article-title>
+<source/>Transl. Neurodegener.
+          <year>2018</year>
+<volume>7</volume>
+<fpage>4</fpage>
+<pub-id pub-id-type="doi">10.1186/s40035-018-0109-9</pub-id>
+<pub-id pub-id-type="pmid">29484176</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Braun</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Jessberger</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Adult neurogenesis: Mechanisms and functional significance</article-title>
+<source/>Development
+          <year>2014</year>
+<volume>141</volume>
+<fpage>1983</fpage>
+<lpage>1986</lpage>
+<pub-id pub-id-type="doi">10.1242/dev.104596</pub-id>
+<pub-id pub-id-type="pmid">24803647</pub-id>
+</element-citation>
+</ref>
+<ref id="CR53">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Deng</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Gage</surname>
+<given-names>FH</given-names>
+</name>
+</person-group>
+<article-title>Mechanisms and functional implications of adult neurogenesis</article-title>
+<source/>Cell
+          <year>2008</year>
+<volume>132</volume>
+<fpage>645</fpage>
+<lpage>660</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2008.01.033</pub-id>
+<pub-id pub-id-type="pmid">18295581</pub-id>
+</element-citation>
+</ref>
+<ref id="CR54">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brennaman</surname>
+<given-names>LH</given-names>
+</name>
+<name>
+<surname>Maness</surname>
+<given-names>PF</given-names>
+</name>
+</person-group>
+<article-title>NCAM in neuropsychiatric and neurodegenerative disorders</article-title>
+<source/>Adv. Exp. Med. Biol.
+          <year>2010</year>
+<volume>663</volume>
+<fpage>299</fpage>
+<lpage>317</lpage>
+<pub-id pub-id-type="doi">10.1007/978-1-4419-1170-4_19</pub-id>
+<pub-id pub-id-type="pmid">20017030</pub-id>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>YC</given-names>
+</name>
+<name>
+<surname>Kavalali</surname>
+<given-names>ET</given-names>
+</name>
+</person-group>
+<article-title>Synaptic vesicle-recycling machinery components as potential therapeutic targets</article-title>
+<source/>Pharmacol. Rev.
+          <year>2017</year>
+<volume>69</volume>
+<fpage>141</fpage>
+<lpage>160</lpage>
+<pub-id pub-id-type="doi">10.1124/pr.116.013342</pub-id>
+<pub-id pub-id-type="pmid">28265000</pub-id>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xia</surname>
+<given-names>ZM</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>YE</given-names>
+</name>
+</person-group>
+<article-title>Synaptic vesicle recycling and Alzheimer's disease</article-title>
+<source/>Sheng Li Ke Xue Jin Zhan
+          <year>2012</year>
+<volume>43</volume>
+<fpage>5</fpage>
+<lpage>10</lpage>
+<pub-id pub-id-type="pmid">22582591</pub-id>
+</element-citation>
+</ref>
+<ref id="CR57">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hosoi</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Holt</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sakaba</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Calcium dependence of exo- and endocytotic coupling at a glutamatergic synapse</article-title>
+<source/>Neuron
+          <year>2009</year>
+<volume>63</volume>
+<fpage>216</fpage>
+<lpage>229</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2009.06.010</pub-id>
+<pub-id pub-id-type="pmid">19640480</pub-id>
+</element-citation>
+</ref>
+<ref id="CR58">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shin</surname>
+<given-names>OH</given-names>
+</name>
+</person-group>
+<article-title>Exocytosis and synaptic vesicle function</article-title>
+<source/>Compr. Physiol.
+          <year>2014</year>
+<volume>4</volume>
+<fpage>149</fpage>
+<lpage>175</lpage>
+<pub-id pub-id-type="doi">10.1002/cphy.c130021</pub-id>
+<pub-id pub-id-type="pmid">24692137</pub-id>
+</element-citation>
+</ref>
+<ref id="CR59">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bradley</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Steinert</surname>
+<given-names>JR</given-names>
+</name>
+</person-group>
+<article-title>Nitric oxide-mediated posttranslational modifications: Impacts at the synapse</article-title>
+<source/>Oxid. Med Cell. Longev.
+          <year>2016</year>
+<volume>2016</volume>
+<fpage>5681036</fpage>
+<pub-id pub-id-type="doi">10.1155/2016/5681036</pub-id>
+<pub-id pub-id-type="pmid">26635909</pub-id>
+</element-citation>
+</ref>
+<ref id="CR60">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shimohama</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Kamiya</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Taniguchi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Akagawa</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kimura</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Differential involvement of synaptic vesicle and presynaptic plasma membrane proteins in Alzheimer's disease</article-title>
+<source/>Biochem. Biophys. Res. Commun.
+          <year>1997</year>
+<volume>236</volume>
+<fpage>239</fpage>
+<lpage>242</lpage>
+<pub-id pub-id-type="doi">10.1006/bbrc.1997.6940</pub-id>
+<pub-id pub-id-type="pmid">9240416</pub-id>
+</element-citation>
+</ref>
+<ref id="CR61">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morton</surname>
+<given-names>AJ</given-names>
+</name>
+<name>
+<surname>Faull</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Edwardson</surname>
+<given-names>JM</given-names>
+</name>
+</person-group>
+<article-title>Abnormalities in the synaptic vesicle fusion machinery in Huntington's disease</article-title>
+<source/>Brain Res. Bull.
+          <year>2001</year>
+<volume>56</volume>
+<fpage>111</fpage>
+<lpage>117</lpage>
+<pub-id pub-id-type="doi">10.1016/s0361-9230(01)00611-6</pub-id>
+<pub-id pub-id-type="pmid">11704347</pub-id>
+</element-citation>
+</ref>
+<ref id="CR62">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brophy</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Hawi</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Kirley</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Fitzgerald</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gill</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Synaptosomal-associated protein 25 (SNAP-25) and attention deficit hyperactivity disorder (ADHD): Evidence of linkage and association in the Irish population</article-title>
+<source/>Mol. Psychiatry
+          <year>2002</year>
+<volume>7</volume>
+<fpage>913</fpage>
+<lpage>917</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.mp.4001092</pub-id>
+<pub-id pub-id-type="pmid">12232787</pub-id>
+</element-citation>
+</ref>
+<ref id="CR63">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mill</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association study of a SNAP-25 microsatellite and attention deficit hyperactivity disorder</article-title>
+<source/>Am. J. Med. Genet.
+          <year>2002</year>
+<volume>114</volume>
+<fpage>269</fpage>
+<lpage>271</lpage>
+<pub-id pub-id-type="doi">10.1002/ajmg.10253</pub-id>
+<pub-id pub-id-type="pmid">11920846</pub-id>
+</element-citation>
+</ref>
+<ref id="CR64">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hawi</surname>
+<given-names>Z</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>DNA variation in the SNAP25 gene confers risk to ADHD and is associated with reduced expression in prefrontal cortex</article-title>
+<source/>PLoS ONE
+          <year>2013</year>
+<volume>8</volume>
+<fpage>e60274</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0060274</pub-id>
+<pub-id pub-id-type="pmid">23593184</pub-id>
+</element-citation>
+</ref>
+<ref id="CR65">
+<label>65.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Thompson</surname>
+<given-names>PM</given-names>
+</name>
+<name>
+<surname>Egbufoama</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Vawter</surname>
+<given-names>MP</given-names>
+</name>
+</person-group>
+<article-title>SNAP-25 reduction in the hippocampus of patients with schizophrenia</article-title>
+<source/>Prog. Neuropsychopharmacol. Biol. Psychiatry
+          <year>2003</year>
+<volume>27</volume>
+<fpage>411</fpage>
+<lpage>417</lpage>
+<pub-id pub-id-type="doi">10.1016/s0278-5846(03)00027-7</pub-id>
+<pub-id pub-id-type="pmid">12691775</pub-id>
+</element-citation>
+</ref>
+<ref id="CR66">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barcia</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Early epileptic encephalopathies associated with STXBP1 mutations: Could we better delineate the phenotype?</article-title>
+<source/>Eur. J. Med. Genet.
+          <year>2014</year>
+<volume>57</volume>
+<fpage>15</fpage>
+<lpage>20</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ejmg.2013.10.006</pub-id>
+<pub-id pub-id-type="pmid">24189369</pub-id>
+</element-citation>
+</ref>
+<ref id="CR67">
+<label>67.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vatta</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A novel STXBP1 mutation causes focal seizures with neonatal onset</article-title>
+<source/>J. Child Neurol.
+          <year>2012</year>
+<volume>27</volume>
+<fpage>811</fpage>
+<lpage>814</lpage>
+<pub-id pub-id-type="doi">10.1177/0883073811435246</pub-id>
+<pub-id pub-id-type="pmid">22596016</pub-id>
+</element-citation>
+</ref>
+<ref id="CR68">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Baker</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification of a human synaptotagmin-1 mutation that perturbs synaptic vesicle cycling</article-title>
+<source/>J. Clin. Investig.
+          <year>2015</year>
+<volume>125</volume>
+<fpage>1670</fpage>
+<lpage>1678</lpage>
+<pub-id pub-id-type="doi">10.1172/jci79765</pub-id>
+<pub-id pub-id-type="pmid">25705886</pub-id>
+</element-citation>
+</ref>
+<ref id="CR69">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chang</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Complexin stabilizes newly primed synaptic vesicles and prevents their premature fusion at the mouse calyx of held synapse</article-title>
+<source/>J. Neurosci.
+          <year>2015</year>
+<volume>35</volume>
+<fpage>8272</fpage>
+<lpage>8290</lpage>
+<pub-id pub-id-type="doi">10.1523/jneurosci.4841-14.2015</pub-id>
+<pub-id pub-id-type="pmid">26019341</pub-id>
+</element-citation>
+</ref>
+<ref id="CR70">
+<label>70.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lin</surname>
+<given-names>MY</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Complexin facilitates exocytosis and synchronizes vesicle release in two secretory model systems</article-title>
+<source/>J. Physiol.
+          <year>2013</year>
+<volume>591</volume>
+<fpage>2463</fpage>
+<lpage>2473</lpage>
+<pub-id pub-id-type="doi">10.1113/jphysiol.2012.244517</pub-id>
+<pub-id pub-id-type="pmid">23401610</pub-id>
+</element-citation>
+</ref>
+<ref id="CR71">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>Q</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The primed SNARE-complexin-synaptotagmin complex for neuronal exocytosis</article-title>
+<source/>Nature
+          <year>2017</year>
+<volume>548</volume>
+<fpage>420</fpage>
+<lpage>425</lpage>
+<pub-id pub-id-type="doi">10.1038/nature23484</pub-id>
+<pub-id pub-id-type="pmid">28813412</pub-id>
+</element-citation>
+</ref>
+<ref id="CR72">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Robinson</surname>
+<given-names>SW</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Nitric oxide-mediated posttranslational modifications control neurotransmitter release by modulating complexin farnesylation and enhancing its clamping ability</article-title>
+<source/>PLoS Biol.
+          <year>2018</year>
+<volume>16</volume>
+<fpage>e2003611</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pbio.2003611</pub-id>
+<pub-id pub-id-type="pmid">29630591</pub-id>
+</element-citation>
+</ref>
+<ref id="CR73">
+<label>73.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Harrison</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Eastwood</surname>
+<given-names>SL</given-names>
+</name>
+</person-group>
+<article-title>Preferential involvement of excitatory neurons in medial temporal lobe in schizophrenia</article-title>
+<source/>Lancet
+          <year>1998</year>
+<volume>352</volume>
+<fpage>1669</fpage>
+<lpage>1673</lpage>
+<pub-id pub-id-type="doi">10.1016/s0140-6736(98)03341-8</pub-id>
+<pub-id pub-id-type="pmid">9853440</pub-id>
+</element-citation>
+</ref>
+<ref id="CR74">
+<label>74.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tannenberg</surname>
+<given-names>RK</given-names>
+</name>
+<name>
+<surname>Scott</surname>
+<given-names>HL</given-names>
+</name>
+<name>
+<surname>Tannenberg</surname>
+<given-names>AE</given-names>
+</name>
+<name>
+<surname>Dodd</surname>
+<given-names>PR</given-names>
+</name>
+</person-group>
+<article-title>Selective loss of synaptic proteins in Alzheimer's disease: Evidence for an increased severity with APOE varepsilon4</article-title>
+<source/>Neurochem. Int.
+          <year>2006</year>
+<volume>49</volume>
+<fpage>631</fpage>
+<lpage>639</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuint.2006.05.004</pub-id>
+<pub-id pub-id-type="pmid">16814428</pub-id>
+</element-citation>
+</ref>
+<ref id="CR75">
+<label>75.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Singh</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Jadhav</surname>
+<given-names>HR</given-names>
+</name>
+<name>
+<surname>Bhatt</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Dynamin functions and ligands: Classical mechanisms behind</article-title>
+<source/>Mol. Pharmacol.
+          <year>2017</year>
+<volume>91</volume>
+<fpage>123</fpage>
+<lpage>134</lpage>
+<pub-id pub-id-type="doi">10.1124/mol.116.105064</pub-id>
+<pub-id pub-id-type="pmid">27879341</pub-id>
+</element-citation>
+</ref>
+<ref id="CR76">
+<label>76.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sundborger</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Hinshaw</surname>
+<given-names>JE</given-names>
+</name>
+</person-group>
+<article-title>Regulating dynamin dynamics during endocytosis</article-title>
+<source/>F1000Prime Rep.
+          <year>2014</year>
+<volume>6</volume>
+<fpage>85</fpage>
+<pub-id pub-id-type="doi">10.12703/p6-85</pub-id>
+<pub-id pub-id-type="pmid">25374663</pub-id>
+</element-citation>
+</ref>
+<ref id="CR77">
+<label>77.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pennington</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Prominent synaptic and metabolic abnormalities revealed by proteomic analysis of the dorsolateral prefrontal cortex in schizophrenia and bipolar disorder</article-title>
+<source/>Mol. Psychiatry
+          <year>2008</year>
+<volume>13</volume>
+<fpage>1102</fpage>
+<lpage>1117</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.mp.4002098</pub-id>
+<pub-id pub-id-type="pmid">17938637</pub-id>
+</element-citation>
+</ref>
+<ref id="CR78">
+<label>78.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Focking</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Common proteomic changes in the hippocampus in schizophrenia and bipolar disorder and particular evidence for involvement of cornu ammonis regions 2 and 3</article-title>
+<source/>Arch. Gen. Psychiatry
+          <year>2011</year>
+<volume>68</volume>
+<fpage>477</fpage>
+<lpage>488</lpage>
+<pub-id pub-id-type="doi">10.1001/archgenpsychiatry.2011.43</pub-id>
+<pub-id pub-id-type="pmid">21536977</pub-id>
+</element-citation>
+</ref>
+<ref id="CR79">
+<label>79.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cottrell</surname>
+<given-names>JR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Working memory impairment in calcineurin knock-out mice is associated with alterations in synaptic vesicle cycling and disruption of high-frequency synaptic and network activity in prefrontal cortex</article-title>
+<source/>J. Neurosci.
+          <year>2013</year>
+<volume>33</volume>
+<fpage>10938</fpage>
+<lpage>10949</lpage>
+<pub-id pub-id-type="doi">10.1523/jneurosci.5362-12.2013</pub-id>
+<pub-id pub-id-type="pmid">23825400</pub-id>
+</element-citation>
+</ref>
+<ref id="CR80">
+<label>80.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>YY</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Upregulated dynamin 1 in an acute seizure model and in epileptic patients</article-title>
+<source/>Synapse
+          <year>2015</year>
+<volume>69</volume>
+<fpage>67</fpage>
+<lpage>77</lpage>
+<pub-id pub-id-type="doi">10.1002/syn.21788</pub-id>
+<pub-id pub-id-type="pmid">25318457</pub-id>
+</element-citation>
+</ref>
+<ref id="CR81">
+<label>81.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dhindsa</surname>
+<given-names>RS</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Epileptic encephalopathy-causing mutations in DNM1 impair synaptic vesicle endocytosis</article-title>
+<source/>Neurol. Genet.
+          <year>2015</year>
+<volume>1</volume>
+<fpage>e4</fpage>
+<pub-id pub-id-type="doi">10.1212/01.NXG.0000464295.65736.da</pub-id>
+<pub-id pub-id-type="pmid">27066543</pub-id>
+</element-citation>
+</ref>
+<ref id="CR82">
+<label>82.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kelly</surname>
+<given-names>BL</given-names>
+</name>
+<name>
+<surname>Vassar</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Ferreira</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Beta-amyloid-induced dynamin 1 depletion in hippocampal neurons. A potential mechanism for early cognitive decline in Alzheimer disease</article-title>
+<source/>J. Biol. Chem.
+          <year>2005</year>
+<volume>280</volume>
+<fpage>31746</fpage>
+<lpage>31753</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.M503259200</pub-id>
+<pub-id pub-id-type="pmid">16002400</pub-id>
+</element-citation>
+</ref>
+<ref id="CR83">
+<label>83.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Moniri</surname>
+<given-names>NH</given-names>
+</name>
+<name>
+<surname>Ozawa</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Stamler</surname>
+<given-names>JS</given-names>
+</name>
+<name>
+<surname>Daaka</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Nitric oxide regulates endocytosis by S-nitrosylation of dynamin</article-title>
+<source/>Proc. Natl. Acad. Sci. U.S.A.
+          <year>2006</year>
+<volume>103</volume>
+<fpage>1295</fpage>
+<lpage>1300</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0508354103</pub-id>
+<pub-id pub-id-type="pmid">16432212</pub-id>
+</element-citation>
+</ref>
+<ref id="CR84">
+<label>84.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Braithwaite</surname>
+<given-names>SP</given-names>
+</name>
+<name>
+<surname>Stock</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Lombroso</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Nairn</surname>
+<given-names>AC</given-names>
+</name>
+</person-group>
+<article-title>Protein phosphatases and Alzheimer's disease</article-title>
+<source/>Prog. Mol. Biol. Transl. Sci.
+          <year>2012</year>
+<volume>106</volume>
+<fpage>343</fpage>
+<lpage>379</lpage>
+<pub-id pub-id-type="doi">10.1016/b978-0-12-396456-4.00012-2</pub-id>
+<pub-id pub-id-type="pmid">22340724</pub-id>
+</element-citation>
+</ref>
+<ref id="CR85">
+<label>85.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bononi</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Protein kinases and phosphatases in the control of cell fate</article-title>
+<source/>Enzyme Res.
+          <year>2011</year>
+<volume>2011</volume>
+<fpage>329098</fpage>
+<pub-id pub-id-type="doi">10.4061/2011/329098</pub-id>
+<pub-id pub-id-type="pmid">21904669</pub-id>
+</element-citation>
+</ref>
+<ref id="CR86">
+<label>86.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chico</surname>
+<given-names>LK</given-names>
+</name>
+<name>
+<surname>Van Eldik</surname>
+<given-names>LJ</given-names>
+</name>
+<name>
+<surname>Watterson</surname>
+<given-names>DM</given-names>
+</name>
+</person-group>
+<article-title>Targeting protein kinases in central nervous system disorders</article-title>
+<source/>Nat. Rev. Drug Discov.
+          <year>2009</year>
+<volume>8</volume>
+<fpage>892</fpage>
+<lpage>909</lpage>
+<pub-id pub-id-type="doi">10.1038/nrd2999</pub-id>
+<pub-id pub-id-type="pmid">19876042</pub-id>
+</element-citation>
+</ref>
+<ref id="CR87">
+<label>87.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Perluigi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Barone</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Di Domenico</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Butterfield</surname>
+<given-names>DA</given-names>
+</name>
+</person-group>
+<article-title>Aberrant protein phosphorylation in Alzheimer disease brain disturbs pro-survival and cell death pathways</article-title>
+<source/>Biochim. Biophys. Acta
+          <year>1862</year>
+<volume>1871–1882</volume>
+<fpage>2016</fpage>
+<pub-id pub-id-type="doi">10.1016/j.bbadis.2016.07.005</pub-id>
+</element-citation>
+</ref>
+<ref id="CR88">
+<label>88.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rappsilber</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Mann</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ishihama</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Protocol for micro-purification, enrichment, pre-fractionation and storage of peptides for proteomics using StageTips</article-title>
+<source/>Nat. Protoc.
+          <year>2007</year>
+<volume>2</volume>
+<fpage>1896</fpage>
+<lpage>1906</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2007.261</pub-id>
+<pub-id pub-id-type="pmid">17703201</pub-id>
+</element-citation>
+</ref>
+<ref id="CR89">
+<label>89.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Benjamini</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hochberg</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Controlling the false discovery rate: A practical and powerful approach to multiple testing</article-title>
+<source/>J. R. Stat. Soc. Ser. B (Methodol.)
+          <year>1995</year>
+<volume>57</volume>
+<fpage>289</fpage>
+<lpage>300</lpage>
+</element-citation>
+</ref>
+<ref id="CR90">
+<label>90.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Szklarczyk</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>STRING v10: Protein–protein interaction networks, integrated over the tree of life</article-title>
+<source/>Nucleic Acids Res.
+          <year>2015</year>
+<volume>43</volume>
+<fpage>D447</fpage>
+<lpage>452</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku1003</pub-id>
+<pub-id pub-id-type="pmid">25352553</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

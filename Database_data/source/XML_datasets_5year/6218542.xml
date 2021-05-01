@@ -1,0 +1,2054 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">30397248</article-id>
+<article-id pub-id-type="pmc">6218542</article-id>
+<article-id pub-id-type="publisher-id">34642</article-id>
+<article-id pub-id-type="doi">10.1038/s41598-018-34642-x</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Machine Learning Reveals Protein Signatures in CSF and Plasma Fluids of Clinical Value for ALS</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Bereman</surname>
+<given-names>Michael S.</given-names>
+</name>
+<address>
+<email>michaelbereman@ncsu.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Beri</surname>
+<given-names>Joshua</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Enders</surname>
+<given-names>Jeffrey R.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Nash</surname>
+<given-names>Tara</given-names>
+</name>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2173 6074</institution-id><institution-id institution-id-type="GRID">grid.40803.3f</institution-id><institution>Department of Biological Sciences, </institution><institution>North Carolina State University, </institution></institution-wrap>Raleigh, NC 27695 USA </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2173 6074</institution-id><institution-id institution-id-type="GRID">grid.40803.3f</institution-id><institution>Department of Chemistry, </institution><institution>North Carolina State University, </institution></institution-wrap>Raleigh, NC 27695 USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2173 6074</institution-id><institution-id institution-id-type="GRID">grid.40803.3f</institution-id><institution>Center for Human Health and the Environment, </institution><institution>North Carolina State University, </institution></institution-wrap>Raleigh, NC 27695 USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>5</day>
+<month>11</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>5</day>
+<month>11</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2018</year>
+</pub-date>
+<volume>8</volume>
+<elocation-id>16334</elocation-id>
+<history>
+<date date-type="received">
+<day>19</day>
+<month>6</month>
+<year>2018</year>
+</date>
+<date date-type="accepted">
+<day>23</day>
+<month>10</month>
+<year>2018</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2018</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">We use shotgun proteomics to identify biomarkers of diagnostic and prognostic value in individuals diagnosed with amyotrophic lateral sclerosis. Matched cerebrospinal and plasma fluids were subjected to abundant protein depletion and analyzed by nano-flow liquid chromatography high resolution tandem mass spectrometry. Label free quantitation was used to identify differential proteins between individuals with ALS (n = 33) and healthy controls (n = 30) in both fluids. In CSF, 118 (p-value &lt; 0.05) and 27 proteins (q-value &lt; 0.05) were identified as significantly altered between ALS and controls. In plasma, 20 (p-value &lt; 0.05) and 0 (q-value &lt; 0.05) proteins were identified as significantly altered between ALS and controls. Proteins involved in complement activation, acute phase response and retinoid signaling pathways were significantly enriched in the CSF from ALS patients. Subsequently various machine learning methods were evaluated for disease classification using a repeated Monte Carlo cross-validation approach. A linear discriminant analysis model achieved a median area under the receiver operating characteristic curve of 0.94 with an interquartile range of 0.88–1.0. Three proteins composed a prognostic model (p = 5e-4) that explained 49% of the variation in the ALS-FRS scores. Finally we investigated the specificity of two promising proteins from our discovery data set, chitinase-3 like 1 protein and alpha-1-antichymotrypsin, using targeted proteomics in a separate set of CSF samples derived from individuals diagnosed with ALS (n = 11) and other neurological diseases (n = 15). These results demonstrate the potential of a panel of targeted proteins for objective measurements of clinical value in ALS.</p>
+</abstract>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">https://doi.org/10.13039/100000066</institution-id>
+<institution>U.S. Department of Health &amp;amp; Human Services | NIH | National Institute of Environmental Health Sciences (NIEHS)</institution>
+</institution-wrap>
+</funding-source>
+<award-id>P30ES025128</award-id>
+<award-id>P30ES025128</award-id>
+<award-id>P30ES025128</award-id>
+<principal-award-recipient>
+<name>
+<surname>Bereman</surname>
+<given-names>Michael S.</given-names>
+</name>
+<name>
+<surname>Enders</surname>
+<given-names>Jeffrey R.</given-names>
+</name>
+<name>
+<surname>Nash</surname>
+<given-names>Tara</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+</funding-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2018</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par2">Amyotrophic Lateral Sclerosis (ALS) is a progressive fatal disease with a median survival period of three years from symptom onset. It is the most frequent neurodegenerative disease of mid-life often striking individuals seemingly at random between 40 and 55 years of age<sup><xref ref-type="bibr" rid="CR1">1</xref>,<xref ref-type="bibr" rid="CR2">2</xref></sup>. There are no effective disease modifying therapeutics<sup><xref ref-type="bibr" rid="CR3">3</xref></sup> and the etiology of the disease remains largely outstanding with a small percentage of cases due to inherited gene mutations (5–10%)<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>. Moreover, no molecular biomarkers of diagnostic nor prognostic value exist. Diagnosis is often delayed 1–2 years from symptom onset while other confounding disorders are excluded and appropriate phenotypes (i.e. upper and lower motor neuron deterioration) present themselves. This qualitative disease assessment leads to misdiagnoses, prevents early intervention where future therapies are likely to be most effective, leads to both unnecessary expenditures (e.g., tests, surgeries) and patient anxiety. In addition, the ability to quantitatively assess disease progression and efficacy of therapeutic intervention in individuals diagnosed with ALS would be paramount in both the context of disease categorization and clinical trials.</p>
+<p id="Par3">Consequently the search for sensitive and specific markers in biological fluids is a highly active research area with enormous implications spanning ALS research, clinical care, and drug discovery. Studies have focused on small molecules, targeted proteins and modifications, oxidative stress markers, miRNAs, magnetic resonance imaging, and novel phenotypic markers<sup><xref ref-type="bibr" rid="CR5">5</xref>–<xref ref-type="bibr" rid="CR7">7</xref></sup>. Several studies have employed high-throughput proteomic approaches using mass spectrometry to discover novel markers. For the majority, these studies have been limited by small sample size<sup><xref ref-type="bibr" rid="CR8">8</xref></sup> and utilization of low peak capacity SELDI or MALDI-TOF techniques<sup><xref ref-type="bibr" rid="CR9">9</xref>–<xref ref-type="bibr" rid="CR12">12</xref></sup>. Ultimately these experimental designs limit the dynamic range of protein identifications, the accuracy of identifications, and or the precision of quantification. A recent study used liquid chromatography tandem mass spectrometry coupled with spectral counting based quantification was used to develop a classifier for separation of ALS and non ALS CSF samples with high sensitivity and specificity<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>.</p>
+<p id="Par4">Since CSF is proximal to site of injury, it is more likely to be enriched with biomarkers of ALS compared to plasma and is often the fluid of choice for ALS and other diseases of the central nervous system<sup><xref ref-type="bibr" rid="CR13">13</xref>–<xref ref-type="bibr" rid="CR18">18</xref></sup>. However, due to the ease of sampling and low probability of adverse effects, plasma remains an attractive yet challenging biological fluid for identification of ALS biomarkers. These challenges include the large dynamic range of plasma proteins<sup><xref ref-type="bibr" rid="CR19">19</xref></sup> and both intra- and inter-individual protein variability<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>. Despite these obstacles, it is critical to probe both fluids for diagnostic and prognostic markers using state of the art proteomic technologies. In addition the power of matched CSF and plasma samples could yield notable intra-individual protein comparisons which may lend insight into disease processes that are systemic or even more distal and support the hypothesis that ALS is a systems-wide disease that affects multiple organs<sup><xref ref-type="bibr" rid="CR21">21</xref>–<xref ref-type="bibr" rid="CR25">25</xref></sup>.</p>
+<p id="Par5">In this study nanoflow liquid chromatography coupled to high-resolution tandem mass spectrometry is used to investigate protein biomarkers in a set of matched plasma and CSF fluids derived from individuals diagnosed with ALS (n = 33) and healthy controls (n = 30). Intensity based relative quantification is used to identify differentially abundant proteins followed by evaluation of advanced machine learning algorithms to develop both diagnostic and prognostic models for use in ALS. Next we developed a targeted proteomic assay to investigate the specificity of two protein markers in a separate set of CSF samples from individuals with ALS and other neurological diseases. These data are then compared to targeted protein data from the healthy sample set. These results emphasize the power of a multi protein panel for clinical value in ALS.</p>
+</sec>
+<sec id="Sec2" sec-type="materials|methods">
+<title>Materials and Methods</title>
+<sec id="Sec3">
+<title>Materials</title>
+<p id="Par6">Sodium deoxycholate (SDC) and urea were obtained from Sigma Aldrich (St. Louis, MO). Sequencing grade trypsin was from Promega (Madison, WI). Vivacon500® 30 kDa molecular weight cut off (MWCO) spin filters were purchased from ThermoFisher Scientific (Waltham, MA). Pierce top 12 abundant protein depletion spin columns were from ThermoFisher (#85164). HPLC grade acetonitrile, methanol, and water were from Burdick &amp; Jackson (Muskegon, MI). Pico-frit columns were purchased from New Objective (Woburn, MA), and reversed phase ReproSil-Pur 120 C-18-AQ 3 µm particles were purchased from Dr. Maisch (Ammerbuch-Entringen, Germany). High purity nitrogen gas was purchased from Machine &amp; Welding Supply Co (Raleigh, NC).</p>
+</sec>
+<sec id="Sec4">
+<title>Methods</title>
+<sec id="Sec5">
+<title>Sample Preparation</title>
+<p id="Par7">De-identified plasma and CSF samples were obtained from the Northeastern Amyotrophic Lateral Sclerosis Consortium (NEALS) sample repository. Samples were prepared/analyzed following the agreement between the Bereman Laboratory and NEALS which focused on identification of protein biomarkers in plasma and CSF.</p>
+<p id="Par8">For plasma fluid, the manufacturer’s protocol for protein depletion was followed. However for CSF fluid, the amount of depletion material used was explored. Pooled CSF fluid was subjected to protein depletion with the following volumes of manufacturer depletion material: 45, 65, 85, and 105 µL in quadruplet. The number of protein identifications, efficiency of protein depletion, reproducibility, and cost were used to choose the optimal volume of material (85 µL). After depletion, protein concentration was quantified using a commercial BCA assay. All samples were normalized to the lowest total protein concentration by dilution with buffer. Samples were digested using established laboratory procedures and a modified filter aided sample preparation method. Trypsin was added at a 1:50 enzyme/protein ratio and digestion proceeded for 4 hours at 37 °C with agitation.</p>
+<p id="Par9">To control for variability and minimize any bias in the measurements, CSF and plasma samples were prepared using a randomized block design. All CSF or plasma samples were depleted of abundant proteins on the same day. Samples were then allocated to one of three cycles for sample digestion in efforts to minimize the variability in age, sex, and disease status across each group. CSF and plasma samples were prepared separately and each cycle contained approximately 20 samples. Within each cycle, samples were assigned a random number in order to blind the scientist to disease status throughout the entire sample preparation and database search.</p>
+</sec>
+<sec id="Sec6">
+<title>LC MS/MS</title>
+<p id="Par10">Nanoflow LC MS/MS was performed using a 120-minute gradient ramp from 100% A (98/2 H2O/ACN 0.1% formic acid) to 40% B (100% ACN 0.1% formic acid). A 5 min wash (80% B) was followed by a 10 min column equilibration (100% A). Peptides were loaded directly on column at a flow rate of 400 nl/min. Peptides were separated at a flow rate of 300 nl/min using a 30 cm self-packed column. Data were collected using a top 12 data-dependent acquisition method on a quadrupole orbitrap (QE-Plus, Breman Germany). A resolving power @ m/z 200 of 70,000 and 17,500 were used for MS1 and MS2 scans, respectively. Automatic gain control was 1e6 and 1e5 for MS1 and MS2 scans respectively. Dynamic exclusion was set to 20 seconds to avoid repeated interrogation of abundant species and peptide match was set to ‘preferred’. A quality control bovine serum albumin digest was run every fifth injection to ensure proper LC-MS/MS reproducibility<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. QC data were uploaded to Panorama using Panorama AutoQC<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>, and data showed retention time and full width at half-maximum median CV of 0.9% and 14.6%, respectively throughout the experiment. Parteo analysis of the cumulative sum control chart<sup><xref ref-type="bibr" rid="CR28">28</xref></sup> showed 2 and 1 outliers in peptide retention time and full width at half-maximum, respectively. The plasma data set yielded a median CV 1.6%, and 18.4% in retention time and full width at half-maximum, respectively. Parteo analysis identified 2 and 0 outliers in peptide retention time, full width at half-maximum, respectively. Careful examination of these outlier runs yielded no clear indicator of special cause variation in either dataset. All quantitative proteomics data used in these analyses are available in Supplemental File 1. All raw data collected for this study have been uploaded to the Chorus LC-MS/MS repository, project #1439.</p>
+</sec>
+<sec id="Sec7">
+<title>Database Search</title>
+<p id="Par11">Database searches were first conducted using Proteome Discoverer 1.4 and the Sequest hyper-threaded algorithm. Protein data were searched against the SwissProt human proteome database (88,421 sequences, 2014). Cysteine carbamidomethylation was searched as a static peptide modification, and methionine oxidation was searched as a dynamic peptide modification. This search was used as an initial screen of sample quality to ensure a reproducible number of proteins were identified across all samples. One CSF sample was then removed from further analysis due to extremely low number of IDs. Label free quantitation was then performed in MaxQuant<sup><xref ref-type="bibr" rid="CR29">29</xref></sup> using the fast LFQ algorithm and the LFQ minimum ratio count set to 1<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>. Modifications for the MaxQuant search were the same as described <italic>vide supra</italic> with the addition of N-terminal protein acetylation. All other search parameters were left as default.</p>
+</sec>
+<sec id="Sec8">
+<title>Targeted Protein Method Development &amp; Analysis</title>
+<p id="Par12">Peptide surrogates for the two targeted proteins of interest were determined using an empirical refinement approach<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. Peptides were initially filtered based on uniqueness, abundance, and chromatographic performance. We then investigated 24 hour peptide stability in the autosampler, optimized digestion times, an evaluated the necessity for protein depletion. All measurements were performed in triplicate. Two peptides were chosen for each protein and stable isotope labeled peptides (<sup>13</sup>C<sub>6</sub><sup>15</sup>N<sub>2</sub> lysine or <sup>13</sup>C<sub>6</sub><sup>15</sup>N<sub>4</sub> arginine) were synthesized (New England Peptide, Gardner MA). A separate set of CSF samples from individuals diagnosed with ALS (n = 11) and disease controls (n = 15) were acquired from NEALS biorepository. A set of 12 healthy csf samples were randomly selected from the cohort used for the discovery investigations in addition to 3 new healthy samples and prepared alongside the two new sample sets. Sample preparation proceeded in a similar fashion as described <italic>vide supra</italic>. A mixture of SIL peptides were spiked just prior to digestion. A notable difference was protein depletion was not performed. Samples were analyzed using parallel reaction monitoring on a Q-Exactive HF and data analysis were performed in Skyline. A permutation test (n = 10,000) was performed to assess the difference in the median normalized peptide response amongst groups. A permutation test was used due to the significant deviation of the distribution of normalized peptide response from normality. The Skyline data has been uploaded to Panorama <ext-link ext-link-type="uri" xlink:href="http://www.tinyurl.com/ALSMarker">www.tinyurl.com/ALSMarker</ext-link>.</p>
+</sec>
+<sec id="Sec9">
+<title>Univariate Statistics</title>
+<p id="Par13">CSF and plasma protein data were then separately imported into Perseus<sup><xref ref-type="bibr" rid="CR32">32</xref></sup>. Protein abundances were log<sub>2</sub> transformed. Proteins with more than 25% missing values in both groups (ALS and healthy) were removed from further analysis. Remaining missing values were then imputed with a random number selected from a normal distribution with a width of 0.3 and shifted 1.8 standard deviation units down from the mean abundance of each sample. The difference in the mean protein abundance between ALS and healthy samples was evaluated using a two tailed t-test. Multiple hypothesis testing correction was performed in Perseus using a permutation (n = 250) based FDR method.</p>
+<p id="Par14">To evaluate intra-individual protein correlation in plasma and CSF, two tests were performed. The intersection of all proteins that were identified in both CSF and plasma that met the describe filters was obtained. First simple linear regression was performed and the probability that the slope of the regression line was significantly greater than 0 was determined. To gain further confidence of significance, the Pearson correlation coefficient of each protein abundance between CSF and plasma in ALS versus healthy was calculated. A distribution of correlation coefficients was created between each permutation of the plasma (n = 10000) and the original CSF protein abundance. The p-value for significance was calculated by determining the number of values in the permutation distribution that were greater than the absolute value of the original Pearson correlation coefficient. This number was divided by the number of permutations (n = 10,000) and multiplied by 2 (two-tailed).</p>
+</sec>
+<sec id="Sec10">
+<title>Multivariate Statistics</title>
+<p id="Par15">Data were imported into RStudio (v1.0.143). Several packages were used for multivariate analysis of the data including Applied Predictive modeling, e1071, carett, pROC, plyr and several other embedded packages. For classification, an unsupervised feature selection approach was utilized to choose 5 proteins. The protein list was first filtered by significance (q &lt; 0.05) and then by correlation. If two proteins were correlated (Pearson coefficient &gt; 0.6) then the protein with the lowest average correlation among all other proteins was retained. Finally the remaining top five most significant proteins were chosen for classification. Four different commonly used machine learning algorithms were evaluated including linear discriminant analysis, random forests, support vector machines, and generalized linear models. Data were first centered and scaled. Then five-fold repeated (n = 50) cross-validation was performed on the data using each method. For the GLM model, the logit link function was utilized. To ensure optimal performance both the cost parameter (2<sup>−2</sup>, 2<sup>−1</sup>, 2<sup>0</sup>…2<sup>12</sup>) and the number of randomly selected predictors at each split (m<sub>try</sub> = 2:5) for the svm and random forest classifier were tuned, respectively. The sigma parameter for the radial basis function used in the svm was held constant and its predicted value<sup><xref ref-type="bibr" rid="CR33">33</xref></sup> (σ = 0.0333). Performance was evaluated using the accuracy, sensitivity, specificity, area under receiver operating characteristic curve (AUC) and Cohen’s Kappa statistic<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>. Since each model was trained and tested on identical subsets of data, a paired t-test was used to statistically assess model performance on the resampled data sets<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>.</p>
+<p id="Par16">Multiple linear regression was used to develop a model of prognostic value. The ALS functional rating score was used as a metric to gauge disease progression. Feature selection was similar as described vide supra with one change. After removing proteins that correlated (Pearson coefficient &gt; 0.6), best subset selection was performed in which every combination of 1 to 7 (out of 16) protein variables were selected for the model. Models were evaluated by the adjusted r-squared value, <italic>Mallows</italic> C<sub>p</sub><sup><xref ref-type="bibr" rid="CR36">36</xref></sup>, and the <italic>Bayesian information criterion</italic><sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. The fit of the final model was assessed by qualitative evaluation of the residuals versus fitted plot, density and QQ plots of the residuals.</p>
+<p id="Par17">For the plasma classifier, a supervised feature selection technique called recursive feature elimination<sup><xref ref-type="bibr" rid="CR38">38</xref></sup> was utilized to identify which proteins to include in the model. Three models were evaluated including linear and nonlinear support vector machines and random forests. The protein list was first filtered by correlation. If two proteins were correlated (Pearson coefficient &gt; 0.6) then the protein with the lowest average correlation among all other proteins was retained. Data were then centered and scaled. Feature selection coincided with the model building process such as to encompass the variability of feature selection in the final results. Using a repeated (n = 5) 10 fold cross-validation approach, the model was first constructed using all 122 proteins with 90% of the data. Protein features were then ranked based on performance and subset sizes ranging from 1:25, 30, 40, 50, 60, 70, 80, 90, and 100 proteins were evaluated on the hold out sample set (10%). This inner-loop was repeated 9 additional times and then the whole process was repeated 5 times. The average area under the receiver operating characteristic curve, calculated from the resampled data sets (n = 50), was plotted as a function subset size for each model type to identify the optimal size. A paired t-test was used to statistically assess each optimized model’s performance on the resampled data sets<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>.</p>
+</sec>
+<sec id="Sec11">
+<title>Pathway Analysis</title>
+<p id="Par18">Proteins found to be significant in the cerebrospinal fluid (p &lt; 0.05) were submitted to Ingenuity Pathway Analysis. We followed specific guidelines for using the hypergeometric test to evaluate pathway enrichment including the submission of an empirical background protein database<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>. The database was created by using all of the proteins that were detected in at least two samples. P-value and Z-score were used to evaluate pathway enrichment. Protein interaction networks were created using the stringAPP application within Cytoscape<sup><xref ref-type="bibr" rid="CR40">40</xref></sup>.</p>
+</sec>
+</sec>
+</sec>
+<sec id="Sec12" sec-type="results">
+<title>Results and Discussion</title>
+<p id="Par19">Figure <xref ref-type="fig" rid="Fig1">1</xref> describes the sample cohort and the overall workflow of the study. Matched de-identified plasma and CSF samples derived from healthy and individuals diagnosed with ALS were obtained from the Northeastern Amyotrophic Lateral Sclerosis (NEALS) Consortium biorepository. We received samples from 33 patients with ALS of which 66% were males. Our control set consisted of 30 individuals that were considered healthy (Fig. <xref ref-type="fig" rid="Fig1">1B</xref>). Samples were divided into 3 cycles for sample preparation and LC MS/MS analysis as shown in Fig. <xref ref-type="fig" rid="Fig1">1C</xref>. Sex, age, and disease status were blocked to minimize measurement bias. Each cycle consisted of 21 samples: 11 ALS and 10 controls. Based on the 95% confidence interval, the difference in the median age amongst the 3 cycles was insignificant (Fig. <xref ref-type="fig" rid="Fig1">1D</xref>).<fig id="Fig1"><label>Figure 1</label><caption><p>An overview of the sample set and experimental design. (<bold>A</bold>) Matched plasma and CSF samples derived from individuals diagnosed with ALS and healthy controls were obtained from the NEALS biorepository. (<bold>B</bold>) Pie charts of the number of males and females in the ALS and healthy sample set. (<bold>C</bold>) Mosaic plots describing the characteristics of the three cycles used for sample preparation. (<bold>D</bold>) Box plots of the age distribution in each cycle. (<bold>E</bold>) Samples were depleted of abundant proteins, digested using standard laboratory procedures, and analyzed by LC-MS/MS followed by protein identification and label free quantitation. (<bold>F</bold>) A combination of univariate and multivariate techniques were used to identify biomarkers, investigate perturbed pathways, and develop diagnostic and prognostic models. (<bold>G</bold>) Set of samples used for targeted proteomic experiments. *While the ALS and disease controls were unique to the targeted experiment, the majority of the heathy samples were the same in both experiments. Figure was partially created using images purchased in the PPT Drawing Toolkits-BIOLOGY Bundle from Motifolio, Inc.</p></caption><graphic id="d29e550" xlink:href="41598_2018_34642_Fig1_HTML"></graphic></fig></p>
+<p id="Par20">Samples were subjected to abundant protein depletion and then digested using standard laboratory procedures. Peptide mixtures were analyzed by LC-MS/MS and label free quantitation was performed using the LFQ intensity calculated from MaxQuant. A combination of univariate and multivariate statistics were then used to identify biomarkers, gain insight into the perturbed molecular pathways and develop both diagnostic and prognostic models.</p>
+<sec id="Sec13">
+<title>Univariate Analysis</title>
+<p id="Par21">Figure <xref ref-type="fig" rid="Fig2">2A and B</xref> display volcano plots of proteins quantified in CSF and plasma between ALS and healthy controls respectively. A larger number of significant proteins (p &lt; 0.05) were identified in the CSF compared to the plasma samples (118 vs. 20). The small number of significant proteins found in the plasma samples is most likely due to its distal nature, large dynamic range of plasma proteins<sup><xref ref-type="bibr" rid="CR19">19</xref></sup> and both intra- and inter-individual protein variability<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>. After adjustment for multiple hypothesis testing (q &lt; 0.05), 27 and 0 proteins were identified as differentially abundant between healthy and ALS in CSF and plasma, respectively. A complete list of proteins quantified in CSF and plasma can be found in Supplemental File 1. Table <xref ref-type="table" rid="Tab1">1</xref> lists the top 10 most significant proteins (based on p-value) identified in CSF and plasma. Using the Ingenuity Knowledge Base, several of the most significant proteins in CSF and plasma have been previously associated with one or more neurodegenerative diseases including ALS. Gene ontology analysis revealed proteolysis as a conserved molecular function amongst the significant proteins quantified which corresponded to protein metabolism as a common biological process in both fluids. These findings could support a more systemic role for these processes in ALS.<fig id="Fig2"><label>Figure 2</label><caption><p>Volcano plots of the −log<sub>10</sub> (p-value) versus the log<sub>2</sub> fold change of proteins in ALS versus control for (<bold>A</bold>) CSF and (<bold>B</bold>) plasma fluids. Points colored gray, red, black indicate proteins with a p-value &gt; 0.05, p-value &lt; 0.05, and q-value &lt; 0.05, respectively. GO analysis of biological processes and molecular function in CSF (<bold>C</bold> and <bold>E</bold>) and plasma fluids (<bold>D</bold> and <bold>F</bold>).</p></caption><graphic id="d29e605" xlink:href="41598_2018_34642_Fig2_HTML"></graphic></fig><table-wrap id="Tab1"><label>Table 1</label><caption><p>A list of the top 10 most significant proteins found in <bold>A</bold> CSF and <bold>B</bold> plasma fluids.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>gene name</th><th>protein name</th><th>p-value</th><th>q-value</th><th>fold change</th><th>neurodegeneration</th></tr></thead><tbody><tr><td colspan="6">
+<bold>A</bold>
+</td></tr><tr><td>CHI3L1</td><td>Chitinase-3-like protein 1</td><td>5.0E-07</td><td>0.000</td><td>0.80</td><td>ALS,H,A</td></tr><tr><td>SERPINA3</td><td>Alpha-1-antichymotrypsin</td><td>4.0E-06</td><td>0.002</td><td>0.77</td><td>A,P,FTD,ALS,H</td></tr><tr><td>APOD</td><td>Apolipoprotein D</td><td>2.1E-04</td><td>0.011</td><td>0.45</td><td>A,H,P</td></tr><tr><td>CHI3L2</td><td>Chitinase-3-like protein 2</td><td>2.2E-04</td><td>0.008</td><td>0.93</td><td>A</td></tr><tr><td>APP</td><td>Amyloid beta A4 protein</td><td>3.0E-04</td><td>0.010</td><td>−0.48</td><td>A,P,FTD,ALS</td></tr><tr><td>FAT2</td><td>Protocadherin Fat 2</td><td>4.1E-04</td><td>0.013</td><td>−0.98</td><td>n/a</td></tr><tr><td>CBLN1</td><td>Cerebellin-1</td><td>4.8E-04</td><td>0.014</td><td>−0.87</td><td>X</td></tr><tr><td>CPE</td><td>Carboxypeptidase E</td><td>5.3E-04</td><td>0.014</td><td>−0.36</td><td>X</td></tr><tr><td>CNTN2</td><td>Contactin-2</td><td>5.3E-04</td><td>0.012</td><td>−0.34</td><td>X</td></tr><tr><td>CFB</td><td>Complement factor B</td><td>6.2E-04</td><td>0.014</td><td>0.37</td><td>A</td></tr><tr><td colspan="6">
+<bold>B</bold>
+</td></tr><tr><td>PRG4</td><td>Proteoglycan 4</td><td>3.7E-04</td><td>0.068</td><td>0.83</td><td>n/a</td></tr><tr><td>SERPINA6</td><td>Corticosteroid-binding globulin</td><td>4.3E-03</td><td>0.410</td><td>−0.33</td><td>n/a</td></tr><tr><td>CFH</td><td>Complement factor H</td><td>4.8E-03</td><td>0.311</td><td>0.21</td><td>A</td></tr><tr><td>SERPINC1 </td><td>Antithrombin-III</td><td>5.2E-03</td><td>0.254</td><td>−0.18</td><td>A</td></tr><tr><td>CP</td><td>Ceruloplasmin</td><td>6.4E-03</td><td>0.254</td><td>−0.24</td><td>A,H,W</td></tr><tr><td>APOB</td><td>Apolipoprotein B-100</td><td>7.4E-03</td><td>0.246</td><td>0.27</td><td>VD</td></tr><tr><td>HBA1</td><td>Hemoglobin subunit alpha</td><td>8.0E-03</td><td>0.231</td><td>0.58</td><td>n/a</td></tr><tr><td>GSN</td><td>Gelsolin</td><td>9.9E-03</td><td>0.254</td><td>−0.25</td><td>ALS</td></tr><tr><td>IGHV3-23</td><td>Ig heavy chain V-III region TIL</td><td>1.1E-02</td><td>0.244</td><td>1.10</td><td>n/a</td></tr><tr><td>PEPD</td><td>Xaa-Pro dipeptidase</td><td>1.1E-02</td><td>0.232</td><td>−0.51</td><td>n/a</td></tr></tbody></table><table-wrap-foot><p>X = General motor difficulties P = Parkinson’s disease H = Huntington’s disease A = Alzheimer’s disease VD = Vascular Dementia n/a = Not associated with neurodegenerative disease in the Ingenuity Knowledge Base.</p></table-wrap-foot></table-wrap></p>
+<p id="Par22">Figure <xref ref-type="fig" rid="Fig3">3A</xref> shows the significantly (p ≤ 0.05) enriched pathways from the differentially abundant proteins in CSF. Also displayed are the percentage of significant proteins in each pathway that were found to be up- or down-regulated. Several pathways were found to be significant which have previously been shown to be perturbed in ALS patients. These include activation of the complement system, a component of innate immunity, which has been shown to be activated both in cerebrospinal fluid, spinal cord, and motor cortex of ALS patients<sup><xref ref-type="bibr" rid="CR41">41</xref>–<xref ref-type="bibr" rid="CR43">43</xref></sup> as well as rodent models of ALS<sup><xref ref-type="bibr" rid="CR44">44</xref></sup>. Other pathways notably affected were several pertaining to the retinoid X receptor, RXR, including FXR/RXR, VDR/RXR, and LXR/RXR activation pathways. Retinoid signaling pathways, which are critical for neural development and neural regeneration<sup><xref ref-type="bibr" rid="CR45">45</xref></sup> and have been shown to promote neural regeneration in adult rodents<sup><xref ref-type="bibr" rid="CR46">46</xref></sup>, have previously been observed to be disrupted in ALS<sup><xref ref-type="bibr" rid="CR47">47</xref></sup>.<fig id="Fig3"><label>Figure 3</label><caption><p>(<bold>A</bold>) A stacked bar chart of significantly enriched pathways derived from the differential proteins in the CSF data. Gray solid bars represent proteins that were not detected as differentially abundant. Horizontal and diagonal dashed bars represent proteins that are up- and down regulated, respectively. Left axis is the percentage of proteins detected in that pathway (top number) as unchanged or different. Right axis displays the significance of the enrichment. (<bold>B</bold>) Interaction network analysis of differentially abundant proteins. The size of the circle is proportional to the significance (i.e., p-value) while the shade is indicative of the fold change. Clusters of proteins were isolated and subjected to GO analysis to determine biological function.</p></caption><graphic id="d29e1088" xlink:href="41598_2018_34642_Fig3_HTML"></graphic></fig></p>
+<p id="Par23">Figure <xref ref-type="fig" rid="Fig3">3B</xref> shows visualization of known protein interactions. Protein data were analyzed within Cytoscape<sup><xref ref-type="bibr" rid="CR40">40</xref></sup> version 3.6.0 using the stringAPP plugin for protein interaction network analysis. Groups of interacting proteins were isolated and individually subjected to gene ontology analysis using DAVID 6.8<sup><xref ref-type="bibr" rid="CR48">48</xref></sup> to determine biological function. Groups deemed significant (Benjamini-corrected p-value ≤ 0.05) were assigned to the biological function with the lowest p-value. Multiple protein group functions were identified as significant which have previously been demonstrated to be perturbed within ALS patients, including activation of the complement system, nervous system and axon development, and bulk transport functions (i.e., exocytosis and endocytosis). In particular, exocytotic and endocytotic functions play a role which are fundamental to many processes known to be disrupted in ALS development, including neurotransmitter release and membrane signal regulation<sup><xref ref-type="bibr" rid="CR49">49</xref></sup> as well as ejection of misfolded protein from the cell. Interestingly, it has been found that misfolded mutant SOD1 can cause misfolding of wild-type SOD1<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>, and that this conversion may be propagated between cells through transmission of mutant SOD1 from cell to cell through an exocytotic process<sup><xref ref-type="bibr" rid="CR51">51</xref></sup>.</p>
+<p id="Par24">While mass transfer of small molecules and to a lesser extent peptides and proteins can occur across the blood cerebral spinal fluid barrier<sup><xref ref-type="bibr" rid="CR52">52</xref></sup>, the two fluids are believed to be independently regulated<sup><xref ref-type="bibr" rid="CR53">53</xref></sup>. It was hypothesized that protein abundances that were correlated between CSF and plasma fluids but not healthy controls may indicate a role for these proteins outside the central nervous system. We took the intersection of the significant proteins found in CSF data with the proteins identified in plasma regardless of statistical significance. Complement component 7 (p = 0.03) and retinol binding protein 4 (p = 0.003) displayed a statistical positive correlation in plasma and CSF in ALS patients yet an insignificant negative correlation (p &gt; 0.3) in fluids from controls (Supplemental Fig. <xref ref-type="media" rid="MOESM2">1</xref>). While the biological significance of this observation is unclear, these results do suggest a systemic or even coordinated role of C7 and RBP4 within and outside the central nervous system in ALS. Both complement<sup><xref ref-type="bibr" rid="CR54">54</xref></sup> and retinol signaling pathways<sup><xref ref-type="bibr" rid="CR55">55</xref>–<xref ref-type="bibr" rid="CR58">58</xref></sup> have been proposed as therapeutic targets. These markers could act as a plasma proxy for such intervention.</p>
+</sec>
+<sec id="Sec14">
+<title>Multivariate Analysis</title>
+<p id="Par25">A major theme of this research was to identify a protein signature capable of separating individuals with ALS and controls. Diagnosis of ALS is performed by exclusion of other confounding diseases coupled with the eventual presentation of appropriate phenotypes. Consequently the need for sensitive and specific markers that can be measured objectively is sorely needed in the clinic. The first step in this process is the identification of markers and development of models that can differentiate individuals with ALS from control samples.</p>
+<p id="Par26">We investigated both the use of proteins in CSF and plasma for construction of a machine learning algorithm of diagnostic value. The procedure for the CSF data, outlined in Fig. <xref ref-type="fig" rid="Fig4">4A</xref>, consisted of feature selection, evaluation of the performance of different machine learning algorithms using repeated (n = 50) 5-fold cross validation, and statistical analysis of the results for each model on the resampled data sets. Five of the most significant uncorrelated proteins were chosen for inclusion in the model. The performance of four different algorithms was evaluated including linear discriminant analysis, support vector machine, random forest, and generalized linear model. Figure <xref ref-type="fig" rid="Fig4">4B</xref> shows box plots of the 5 standard metrics used for evaluation of classification algorithms on the resampled data sets (n = 250). Based on AUC, the linear discriminant analysis and GLM algorithms were identical and both significantly outperformed the other two models based on this metric (p &lt; 0.05). Notably, the LDA model achieved higher sensitivity (p &lt; 0.05) yet similar specificity (p &gt; 0.05) compared to the GLM model. Finally the Youden Index (YI)<sup><xref ref-type="bibr" rid="CR59">59</xref></sup>, which is a measure of the probability of making an informed decision (true positive or true negative), was compared using the resampled data. The Youden Index was highest (p &lt; 0.01) for the LDA model (YI = 0.69; 63–0.83) followed by GLM (YI = 0.66; 0.5–0.83), SVM (YI = 0.66; 0.51–0.83), and RF models (YI = 0.55; 0.40–0.67). Due to its superior performance and interpretability the LDA model would be preferred. Based on the magnitude of the LDA coefficients and the area under the curve for individual proteins, the two most important proteins for classification were chitinase-3 like 1 and alpha-1-antichymotrypsin. Further data comparing the performance of the models can be found in Supplemental Fig. <xref ref-type="media" rid="MOESM2">2</xref>.<fig id="Fig4"><label>Figure 4</label><caption><p>(<bold>A</bold>) An outline of the procedure used to develop and evaluate different algorithms for disease status prediction. (<bold>B</bold>) Comparison of the performance of 4 different machine learning algorithms on the resampled data using a repeated (n = 50) 5-fold cross validation approach. The coefficients of the LDA model and area under the curve rank the most important features for classification.</p></caption><graphic id="d29e1173" xlink:href="41598_2018_34642_Fig4_HTML"></graphic></fig></p>
+<p id="Par27">In addition to diagnostic markers, objective measures of prognostic value in ALS would be transformative. Currently disease progression/stage is assessed using a 12 question functional survey. Each question is scored (0–4) and the sum is referred to the patient’s ALS functional rating score<sup><xref ref-type="bibr" rid="CR60">60</xref></sup>. ALS-FRS is the most widely used outcome measure of disease progression in ALS. The survey is often subjective and the scale is not linear in relation to the severity of functional impairment. Despite these limitations it is a measure of progression that has been used throughout clinical trials with success. Although it is well recognized that more quantitative metrics including markers related to specific biological pathways would greatly benefit the field.</p>
+<p id="Par28">The use of these markers for potential prognostic value was then investigated. A similar filtering method in which all proteins with a q &lt; 0.05 were retained for evaluation was performed. After removing correlative features (Supplemental Fig. <xref ref-type="media" rid="MOESM2">3</xref>), we used multiple linear regression to develop a model of prognostic value. Figure <xref ref-type="fig" rid="Fig5">5A</xref> displays plots of 4 statistics that are commonly used to evaluate multiple linear regression models including the residual sum of squares, adjusted r-squared value, the Mallow’s C<sub>P</sub> statistic, and the Bayesian Information Criterion, as a function of the number of variables included in the model. Based on previous recommendations involving the appropriate number of features to include in relation to sample size to minimize the risk of overspecification<sup><xref ref-type="bibr" rid="CR61">61</xref></sup>, combined with the more marginal benefits observed with four or more variables, a 3 protein model was chosen. The model (F-stat = 9.03, p-value = 4.4e-4) explained 49% of the variation in the ALS-FRS scores. Figure <xref ref-type="fig" rid="Fig5">5B</xref> displays the results of the regression procedure and Fig. <xref ref-type="fig" rid="Fig5">5C</xref> shows a plot of actual vs fitted data. Density plot of residuals (Fig. <xref ref-type="fig" rid="Fig5">5C</xref> Inset) shows no deviation from normality (p = 0.8). Assessment of the residuals versus fitted and residual QQ plot reinforce the major assumptions for linear regressions were upheld (Supplemental Fig. <xref ref-type="media" rid="MOESM2">4</xref>). The three proteins in the model were chitinase-3 like 1, alpha-1-antichymotrypsin, and complement factor I. It is noteworthy that chitinase-3 like 1 and alpha-1-antichymotrypsin were identified as having both diagnostic and prognostic value. The exact role of chitinase-3 like 1 protein is unknown but it is believed to be heavily involved in immune response evidenced by its up-regulation in numerous inflammatory related diseases including obesity<sup><xref ref-type="bibr" rid="CR62">62</xref></sup>, cancer<sup><xref ref-type="bibr" rid="CR63">63</xref>,<xref ref-type="bibr" rid="CR64">64</xref></sup>, and multiple sclerosis<sup><xref ref-type="bibr" rid="CR65">65</xref></sup>. Rosa and co-workers<sup><xref ref-type="bibr" rid="CR66">66</xref></sup> showed upregulation of chitinase-3 like 1 transcripts in the spinal cord and motor cortex of sporadic ALS patients. Our results confirm a previous study that demonstrated that chitinase-3 like 1 protein levels were correlated with survival in ALS<sup><xref ref-type="bibr" rid="CR67">67</xref></sup>. However, results described herein indicate that a multi protein model will improve upon the prognostic value of chitinase-3 like 1. Interestingly, all three proteins in the model are synthesized and secreted by the resident immune cells<sup><xref ref-type="bibr" rid="CR68">68</xref>–<xref ref-type="bibr" rid="CR71">71</xref></sup> (microglia and astrocytes) in the brain which both further underscore the perturbation of the immune system in ALS<sup><xref ref-type="bibr" rid="CR72">72</xref></sup> and the non-cell autonomous view of motor neuron disease<sup><xref ref-type="bibr" rid="CR73">73</xref></sup>.<fig id="Fig5"><label>Figure 5</label><caption><p>(<bold>A</bold>) Plots of the residual sum of squares, the adjusted r-squared value, Mallows Cp statistic, and the Bayesian Information Criterion (BIC) as a function of the number of proteins in the model. A three protein model was chosen. (<bold>B</bold>) Results from the regression analysis. (<bold>C</bold>) A plot of the ALS FRS scores as a function of the fitted values. Inset displays a density plot of the residuals.</p></caption><graphic id="d29e1264" xlink:href="41598_2018_34642_Fig5_HTML"></graphic></fig></p>
+<p id="Par29">While the majority of studies have focused on CSF as a fluid for biomarkers of diseases of the central nervous system, plasma remains an attractive biological fluid for detection of biomarkers due to its ease of sampling compared to a CSF draw (i.e., lumbar puncture). We chose to investigate the potential of a protein panel in plasma for disease classification. The procedure was similar to the one outlined in Fig. <xref ref-type="fig" rid="Fig4">4A</xref> except for utilizing a supervised feature selection method called recursive feature elimination (RFE)<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>. RFE avoids the repeated hypothesis testing associated with classical forward and backward selection techniques and is a preferred method when dealing with high dimensionality data. In addition, it aims to maximize accuracy based metrics of the model in comparison to the significance of individual features. Three models were evaluated including linear and nonlinear support vector machines and random forests. Models were chosen based on their innate ability to identify complex relationships in high dimensional data sets.</p>
+<p id="Par30">Figure <xref ref-type="fig" rid="Fig6">6A</xref> displays plots of the mean area under the curve of the resampled data sets as a function of the number of proteins in each model. All three models showed a significant increase followed by a leveling of performance as a function of the number of proteins. This trend emphasizes the power of a multi protein panel for disease separation. The optimal number of features that maximized the classifier performance was 18, 90, and 70 for the nonlinear and linear support vector machine and random forest, respectively. Performance measures of the different models are compared in Fig. <xref ref-type="fig" rid="Fig6">6B</xref>. Using the area under the ROC curve as the gold standard the nonlinear and linear SVMs were equivalent in performance (p = 0.9) and both outperformed the random forest classifier (p &lt; 0.05). Due to the identical performance, the nonlinear support vector machine would be favored due to its simplicity (18 vs. 90 proteins). The nonlinear svm achieved a median area under the curve of 0.89 and interquartile range from 0.78 to 1.0. The model could be further simplified by identifying the least number of features in the model within a certain threshold of the maximum AUC. By employing a 5% threshold, the model was reduced from 18 to 12 proteins with an insignificant effect on both the mean (p = 0.12) and median (p = 0.11) areas under the curve. A complete list of proteins used in the final model can be found in Supplemental Table <xref ref-type="table" rid="Tab1">1</xref>. It is noteworthy that several of the proteins in the model participate in biological processes that are known to be altered in ALS including acute inflammatory response, proteolysis, complement activation, exocytosis, and blood coagulation. Several proteins were significantly correlated with the ALS FRS scores indicating the potential of plasma protein measurements for prognostic purposes. These proteins included ceruloplasmin, X-Pro dipeptidase, Antithrombin-III, and plasma kallikrein. Notably the latter two have opposing functions in the blood coagulation pathway.<fig id="Fig6"><label>Figure 6</label><caption><p>(<bold>A</bold>) The mean area under the curve of the resampled data sets is plotted as a function of the number of proteins used to create the model. (<bold>B</bold>) Comparison of the performance of the machine learning algorithms on the resampled data using the optimal number of proteins determined in (<bold>A</bold>).</p></caption><graphic id="d29e1302" xlink:href="41598_2018_34642_Fig6_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec15">
+<title>Validation of chitinase 3 like 1 protein and alpha-1 antichymotrypsin via targeted proteomics</title>
+<p id="Par31">Next we validated two of the more promising markers identified in a separate ALS CSF sample set using protein cleavage isotope dilution mass spectrometry coupled with targeted proteomics. The goal of this final experiment was two-fold: (1) to confirm the results from the discovery data in relation to differentiating a separate set of ALS from healthy samples; and (2) to evaluate the specificity of these markers to differentiate ALS from other neurological diseases. Surrogate peptides for proteins of interest were determined using an empirical refinement approach<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. Peptides were evaluated based on uniqueness, abundance, and chromatographic performance. Candidate peptides were then screened for autosampler stability and digestion times were optimized (Supplemental Fig. <xref ref-type="media" rid="MOESM2">5A,B</xref>). Notably, protein depletion did not yield an appreciable increase in abundance of these targeted peptides yet was detrimental to quantitative precision (Supplemental Fig. <xref ref-type="media" rid="MOESM2">5C</xref>). Therefore, protein depletion was not performed in the preparation of this sample set. Two peptides per protein were chosen and respective SIL peptides analogues were synthesized and used to normalize response.</p>
+<p id="Par32">The results confirm that alpha-1-antichymotrypsin (Fig. <xref ref-type="fig" rid="Fig7">7A,B</xref>) and chitinase-3 like 1 (Fig. <xref ref-type="fig" rid="Fig7">7C,D</xref>) are significantly elevated in the CSF from ALS patients compared to healthy. However, no significant differences in either protein were found when comparing ALS to other neurological diseases. These data support that the respective biological processes of these proteins (e.g., inflammation, microglia activation) are not unique to ALS but present in other neurological diseases. It could be argued that the clinical phenotype of other neurodegenerative diseases are often rather different from ALS and these markers could be used in conjunction with phenotype to aide diagnosis. However, significantly more research is needed to evaluate the capability of these markers to differentiate early on ALS and disease mimics<sup><xref ref-type="bibr" rid="CR74">74</xref></sup>. In addition, these proteins could serve as an objective measure for future therapeutic interventions geared towards suppression of microglia activation in ALS and other neurodegenerative diseases.<fig id="Fig7"><label>Figure 7</label><caption><p>Boxplots of the abundance of the two peptide surrogates for alpha-1 antichymotrypsin (<bold>A</bold> and <bold>B</bold>) and chitinase-3 like 1 protein (<bold>C</bold> and <bold>D</bold>) across the groups. The 3 highlighted healthy samples in red (star) were new and previously not run in the discovery experiment.</p></caption><graphic id="d29e1350" xlink:href="41598_2018_34642_Fig7_HTML"></graphic></fig></p>
+</sec>
+</sec>
+<sec id="Sec16" sec-type="conclusion">
+<title>Conclusions</title>
+<p id="Par33">The ultimate goals of this study were to (1) identify biomarkers of diagnostic and or prognostic value and (2) further the understanding of the altered processes associated with ALS. To these ends, we performed shotgun proteomics on a set of matched CSF and plasma fluids from individuals diagnosed with ALS and healthy controls. The capability of a protein signature to separate ALS patients from controls was evaluated in both in CSF and plasma fluids using various machine learning algorithms coupled with Monte Carlo cross validation procedures. CSF proved most fruitful, with the development of a LDA model that achieved a medium area under the curve of 0.94 with an interquartile range of 0.88 to 1 on the resampled data sets. Two of the proteins used in the diagnostic classifier were also found to have prognostic potential and formed an MLR model that explained 49% of the variation in the ALS-FRS scores. While plasma is a distal fluid in ALS, the potential for disease separation based on a protein signature exists. We confirmed previous reports of significant enrichment of proteins involved in complement activation, acute phase response and retinoid signaling pathways. Furthermore targeted proteomics confirmed increased abundance of in a separate set of CSF samples compared to healthy yet no differences between ALS and disease controls. Future experiments will focus on targeted analysis of proteins identified in perturbed pathways using longitudinal sampling of biofluids.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Electronic supplementary material</title>
+<sec id="Sec17">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2018_34642_MOESM1_ESM.xlsx"><caption><p>Dataset 1</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="41598_2018_34642_MOESM2_ESM.docx"><caption><p>Supplemental Information</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p><bold>Publisher’s note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Electronic supplementary material</title>
+<p><bold>Supplementary information</bold> accompanies this paper at 10.1038/s41598-018-34642-x.</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>Michael S. Bereman would like to acknowledge NC State University for startup funding, ASMS Research Award, and the Center for Human Health and the Environment (CHHE), P30ES025128. We are appreciative of the access to instrumentation provided by the Molecular Education, Technology and Research Innovation Center (METRIC) at NC State University. We would like to thank the Northeast ALS Consortium (NEALS) for providing all samples used in the study. We are greatful for support from the ALS Biomarker Consortium: ALS Association; ALS Finding a Cure; CreATe; NEALS; MDA; Packard Association for ALS.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author Contributions</title>
+<p>T.N., J.B. and J.R.E. performed method development, sample preparation, and LC MS/MS. Everyone contributed to the experimental design. M.S.B. performed all statistical analyses, modeling, and M.S.B. wrote the manuscript. All authors contributed to its final version.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Data Availability</title>
+<p>All raw data are freely available via public repositories as noted in Methods.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar1">
+<title>Competing Interests</title>
+<p>The authors declare no competing interests.</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brown</surname>
+<given-names>RH</given-names>
+</name>
+<name>
+<surname>Al-Chalabi</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Amyotrophic Lateral Sclerosis</article-title>
+<source/>N Engl J Med
+          <year>2017</year>
+<volume>377</volume>
+<fpage>162</fpage>
+<lpage>172</lpage>
+<pub-id pub-id-type="doi">10.1056/NEJMra1603471</pub-id>
+<pub-id pub-id-type="pmid">28700839</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Corcia</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Causes of death in a post-mortem series of ALS patients</article-title>
+<source/>Amyotrophic Lateral Sclerosis
+          <year>2008</year>
+<volume>9</volume>
+<fpage>59</fpage>
+<lpage>62</lpage>
+<pub-id pub-id-type="doi">10.1080/17482960701656940</pub-id>
+<pub-id pub-id-type="pmid">17924236</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Petrov</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Mansfield</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Moussy</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hermine</surname>
+<given-names>O</given-names>
+</name>
+</person-group>
+<article-title>ALS Clinical Trials Review: 20 Years of Failure. Are We Any Closer to Registering a New Treatment?</article-title>
+<source/>Frontiers in Aging Neuroscience
+          <year>2017</year>
+<volume>9</volume>
+<fpage>68</fpage>
+<pub-id pub-id-type="doi">10.3389/fnagi.2017.00068</pub-id>
+<pub-id pub-id-type="pmid">28382000</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zarei</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A comprehensive review of amyotrophic lateral sclerosis</article-title>
+<source/>Surgical Neurology International
+          <year>2015</year>
+<volume>6</volume>
+<fpage>171</fpage>
+<pub-id pub-id-type="doi">10.4103/2152-7806.169561</pub-id>
+<pub-id pub-id-type="pmid">26629397</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vu</surname>
+<given-names>LT</given-names>
+</name>
+<name>
+<surname>Bowser</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Fluid-Based Biomarkers for Amyotrophic Lateral Sclerosis</article-title>
+<source/>Neurotherapeutics
+          <year>2017</year>
+<volume>14</volume>
+<fpage>119</fpage>
+<lpage>134</lpage>
+<pub-id pub-id-type="doi">10.1007/s13311-016-0503-x</pub-id>
+<pub-id pub-id-type="pmid">27933485</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mitropoulos</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Katsila</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Patrinos</surname>
+<given-names>GP</given-names>
+</name>
+<name>
+<surname>Pampalakis</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Multi-Omics for Biomarker Discovery and Target Validation in Biofluids for Amyotrophic Lateral Sclerosis Diagnosis</article-title>
+<source/>Omics: a journal of integrative biology
+          <year>2018</year>
+<volume>22</volume>
+<fpage>52</fpage>
+<lpage>64</lpage>
+<pub-id pub-id-type="doi">10.1089/omi.2017.0183</pub-id>
+<pub-id pub-id-type="pmid">29356625</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turner</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Kiernan</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Leigh</surname>
+<given-names>PN</given-names>
+</name>
+<name>
+<surname>Talbot</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Biomarkers in amyotrophic lateral sclerosis</article-title>
+<source/>The Lancet Neurology
+          <year>2009</year>
+<volume>8</volume>
+<fpage>94</fpage>
+<lpage>109</lpage>
+<pub-id pub-id-type="doi">10.1016/S1474-4422(08)70293-X</pub-id>
+<pub-id pub-id-type="pmid">19081518</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ramström</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cerebrospinal fluid protein patterns in neurodegenerative disease revealed by liquid chromatography-Fourier transform ion cyclotron resonance mass spectrometry</article-title>
+<source/>PROTEOMICS
+          <year>2004</year>
+<volume>4</volume>
+<fpage>4010</fpage>
+<lpage>4018</lpage>
+<pub-id pub-id-type="doi">10.1002/pmic.200400871</pub-id>
+<pub-id pub-id-type="pmid">15540204</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>von Neuhoff</surname>
+<given-names>N</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Monitoring CSF Proteome Alterations in Amyotrophic Lateral Sclerosis: Obstacles and Perspectives in Translating a Novel Marker Panel to the Clinic</article-title>
+<source/>Plos One
+          <year>2012</year>
+<volume>7</volume>
+<fpage>e44401</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0044401</pub-id>
+<pub-id pub-id-type="pmid">22970211</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ranganathan</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Proteomic profiling of cerebrospinal fluid identifies biomarkers for amyotrophic lateral sclerosis</article-title>
+<source/>J Neurochem
+          <year>2005</year>
+<volume>95</volume>
+<fpage>1461</fpage>
+<lpage>1471</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1471-4159.2005.03478.x</pub-id>
+<pub-id pub-id-type="pmid">16313519</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pasinetti</surname>
+<given-names>GM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification of potential CSF biomarkers in ALS</article-title>
+<source/>Neurology
+          <year>2006</year>
+<volume>66</volume>
+<fpage>1218</fpage>
+<lpage>1222</lpage>
+<pub-id pub-id-type="doi">10.1212/01.wnl.0000203129.82104.07</pub-id>
+<pub-id pub-id-type="pmid">16481598</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brettschneider</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Proteome analysis reveals candidate markers of disease progression in amyotrophic lateral sclerosis (ALS)</article-title>
+<source/>Neurosci Lett
+          <year>2010</year>
+<volume>468</volume>
+<fpage>23</fpage>
+<lpage>27</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neulet.2009.10.053</pub-id>
+<pub-id pub-id-type="pmid">19853641</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Collins</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>An</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hood</surname>
+<given-names>BL</given-names>
+</name>
+<name>
+<surname>Conrads</surname>
+<given-names>TP</given-names>
+</name>
+<name>
+<surname>Bowser</surname>
+<given-names>RP</given-names>
+</name>
+</person-group>
+<article-title>Label-Free LC-MS/MS Proteomic Analysis of Cerebrospinal Fluid Identifies Protein/Pathway Alterations and Candidate Biomarkers for Amyotrophic Lateral Sclerosis</article-title>
+<source/>J Proteome Res
+          <year>2015</year>
+<volume>14</volume>
+<fpage>4486</fpage>
+<lpage>4501</lpage>
+<pub-id pub-id-type="doi">10.1021/acs.jproteome.5b00804</pub-id>
+<pub-id pub-id-type="pmid">26401960</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ryberg</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Bowser</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Protein biomarkers for amyotrophic lateral sclerosis</article-title>
+<source/>Expert Rev Proteomics
+          <year>2008</year>
+<volume>5</volume>
+<fpage>249</fpage>
+<lpage>262</lpage>
+<pub-id pub-id-type="doi">10.1586/14789450.5.2.249</pub-id>
+<pub-id pub-id-type="pmid">18466055</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bowser</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Lacomis</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Applying Proteomics to the Diagnosis and Treatment of ALS and Related Diseases</article-title>
+<source/>Muscle &amp; nerve
+          <year>2009</year>
+<volume>40</volume>
+<fpage>753</fpage>
+<lpage>762</lpage>
+<pub-id pub-id-type="doi">10.1002/mus.21488</pub-id>
+<pub-id pub-id-type="pmid">19670321</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Halbgebauer</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Ockl</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Wirth</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Steinacker</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Otto</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Protein biomarkers in Parkinson’s disease: Focus on cerebrospinal fluid markers and synaptic proteins</article-title>
+<source/>Movement disorders: official journal of the Movement Disorder Society
+          <year>2016</year>
+<volume>31</volume>
+<fpage>848</fpage>
+<lpage>860</lpage>
+<pub-id pub-id-type="doi">10.1002/mds.26635</pub-id>
+<pub-id pub-id-type="pmid">27134134</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shoffner</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>CSF concentrations of 5-methyltetrahydrofolate in cohort of young children with autism</article-title>
+<source/>Neurology
+          <year>2016</year>
+<volume>86</volume>
+<fpage>2258</fpage>
+<lpage>2263</lpage>
+<pub-id pub-id-type="doi">10.1212/wnl.0000000000002766</pub-id>
+<pub-id pub-id-type="pmid">27178705</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anoop</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Singh</surname>
+<given-names>PK</given-names>
+</name>
+<name>
+<surname>Jacob</surname>
+<given-names>RS</given-names>
+</name>
+<name>
+<surname>Maji</surname>
+<given-names>SK</given-names>
+</name>
+</person-group>
+<article-title>CSF Biomarkers for Alzheimer’s Disease Diagnosis</article-title>
+<source/>International Journal of Alzheimer’s Disease
+          <year>2010</year>
+<volume>2010</volume>
+<fpage>606802</fpage>
+<pub-id pub-id-type="doi">10.4061/2010/606802</pub-id>
+<pub-id pub-id-type="pmid">20721349</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anderson</surname>
+<given-names>NL</given-names>
+</name>
+<name>
+<surname>Anderson</surname>
+<given-names>NG</given-names>
+</name>
+</person-group>
+<article-title>The human plasma proteome - History, character, and diagnostic prospects</article-title>
+<source/>Mol Cell Proteomics
+          <year>2002</year>
+<volume>1</volume>
+<fpage>845</fpage>
+<lpage>867</lpage>
+<pub-id pub-id-type="doi">10.1074/mcp.R200007-MCP200</pub-id>
+<pub-id pub-id-type="pmid">12488461</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hawkridge</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Muddiman</surname>
+<given-names>DC</given-names>
+</name>
+</person-group>
+<article-title>Mass Spectrometry-Based Biomarker Discovery: Toward a Global Proteome Index of Individuality</article-title>
+<source/>Annu Rev Anal Chem
+          <year>2009</year>
+<volume>2</volume>
+<fpage>265</fpage>
+<lpage>277</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev.anchem.1.031207.112942</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dadon-Nachum</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Melamed</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Offen</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>The “dying-back” phenomenon of motor neurons in ALS</article-title>
+<source/>J Mol Neurosci
+          <year>2011</year>
+<volume>43</volume>
+<fpage>470</fpage>
+<lpage>477</lpage>
+<pub-id pub-id-type="doi">10.1007/s12031-010-9467-1</pub-id>
+<pub-id pub-id-type="pmid">21057983</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Finkelstein</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Abnormal Changes in NKT Cells, the IGF-1 Axis, and Liver Pathology in an Animal Model of ALS</article-title>
+<source/>Plos One
+          <year>2011</year>
+<volume>6</volume>
+<fpage>e22374</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0022374</pub-id>
+<pub-id pub-id-type="pmid">21829620</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pansarasa</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Rossi</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Berardinelli</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Cereda</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Amyotrophic lateral sclerosis and skeletal muscle: an update</article-title>
+<source/>Molecular neurobiology
+          <year>2014</year>
+<volume>49</volume>
+<fpage>984</fpage>
+<lpage>990</lpage>
+<pub-id pub-id-type="doi">10.1007/s12035-013-8578-4</pub-id>
+<pub-id pub-id-type="pmid">24198230</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nakano</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hirayama</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Terao</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Hepatic ultrastructural changes and liver dysfunction in amyotrophic lateral sclerosis</article-title>
+<source/>Arch Neurol
+          <year>1987</year>
+<volume>44</volume>
+<fpage>103</fpage>
+<lpage>106</lpage>
+<pub-id pub-id-type="doi">10.1001/archneur.1987.00520130079022</pub-id>
+<pub-id pub-id-type="pmid">3800708</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nodera</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Frequent hepatic steatosis in amyotrophic lateral sclerosis: Implication for systemic involvement</article-title>
+<source/>Neurology and Clinical Neuroscience
+          <year>2015</year>
+<volume>3</volume>
+<fpage>58</fpage>
+<lpage>62</lpage>
+<pub-id pub-id-type="doi">10.1111/ncn3.143</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bereman</surname>
+<given-names>MS</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Implementation of Statistical Process Control for Proteomic Experiments Via LC MS/MS</article-title>
+<source/>J Am Soc Mass Spectr
+          <year>2014</year>
+<volume>25</volume>
+<fpage>581</fpage>
+<lpage>587</lpage>
+<pub-id pub-id-type="doi">10.1007/s13361-013-0824-5</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bereman</surname>
+<given-names>Michael S.</given-names>
+</name>
+<name>
+<surname>Beri</surname>
+<given-names>Joshua</given-names>
+</name>
+<name>
+<surname>Sharma</surname>
+<given-names>Vagisha</given-names>
+</name>
+<name>
+<surname>Nathe</surname>
+<given-names>Cory</given-names>
+</name>
+<name>
+<surname>Eckels</surname>
+<given-names>Josh</given-names>
+</name>
+<name>
+<surname>MacLean</surname>
+<given-names>Brendan</given-names>
+</name>
+<name>
+<surname>MacCoss</surname>
+<given-names>Michael J.</given-names>
+</name>
+</person-group>
+<article-title>An Automated Pipeline to Monitor System Performance in Liquid Chromatography–Tandem Mass Spectrometry Proteomic Experiments</article-title>
+<source/>Journal of Proteome Research
+          <year>2016</year>
+<volume>15</volume>
+<issue>12</issue>
+<fpage>4763</fpage>
+<lpage>4769</lpage>
+<pub-id pub-id-type="doi">10.1021/acs.jproteome.6b00744</pub-id>
+<pub-id pub-id-type="pmid">27700092</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dogu</surname>
+<given-names>Eralp</given-names>
+</name>
+<name>
+<surname>Mohammad-Taheri</surname>
+<given-names>Sara</given-names>
+</name>
+<name>
+<surname>Abbatiello</surname>
+<given-names>Susan E.</given-names>
+</name>
+<name>
+<surname>Bereman</surname>
+<given-names>Michael S.</given-names>
+</name>
+<name>
+<surname>MacLean</surname>
+<given-names>Brendan</given-names>
+</name>
+<name>
+<surname>Schilling</surname>
+<given-names>Birgit</given-names>
+</name>
+<name>
+<surname>Vitek</surname>
+<given-names>Olga</given-names>
+</name>
+</person-group>
+<article-title>MSstatsQC: Longitudinal System Suitability Monitoring and Quality Control for Targeted Proteomic Experiments</article-title>
+<source/>Molecular &amp; Cellular Proteomics
+          <year>2017</year>
+<volume>16</volume>
+<issue>7</issue>
+<fpage>1335</fpage>
+<lpage>1347</lpage>
+<pub-id pub-id-type="doi">10.1074/mcp.M116.064774</pub-id>
+<pub-id pub-id-type="pmid">28483925</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cox</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Mann</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>MaxQuant enables high peptide identification rates, individualized p.p.b.-range mass accuracies and proteome-wide protein quantification</article-title>
+<source/>Nat Biotech
+          <year>2008</year>
+<volume>26</volume>
+<fpage>1367</fpage>
+<lpage>1372</lpage>
+<pub-id pub-id-type="doi">10.1038/nbt.1511</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cox</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Accurate Proteome-wide Label-free Quantification by Delayed Normalization and Maximal Peptide Ratio Extraction, Termed MaxLFQ</article-title>
+<source/>Molecular &amp; Cellular Proteomics: MCP
+          <year>2014</year>
+<volume>13</volume>
+<fpage>2513</fpage>
+<lpage>2526</lpage>
+<pub-id pub-id-type="doi">10.1074/mcp.M113.031591</pub-id>
+<pub-id pub-id-type="pmid">24942700</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bereman</surname>
+<given-names>MS</given-names>
+</name>
+<name>
+<surname>Maclean</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Tomazela</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Liebler</surname>
+<given-names>DC</given-names>
+</name>
+<name>
+<surname>Maccoss</surname>
+<given-names>MJ</given-names>
+</name>
+</person-group>
+<article-title>The development of selected reaction monitoring methods for targeted proteomics via empirical refinement</article-title>
+<source/>Proteomics
+          <year>2012</year>
+<volume>12</volume>
+<fpage>1134</fpage>
+<lpage>1141</lpage>
+<pub-id pub-id-type="doi">10.1002/pmic.201200042</pub-id>
+<pub-id pub-id-type="pmid">22577014</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tyanova</surname>
+<given-names>Stefka</given-names>
+</name>
+<name>
+<surname>Temu</surname>
+<given-names>Tikira</given-names>
+</name>
+<name>
+<surname>Sinitcyn</surname>
+<given-names>Pavel</given-names>
+</name>
+<name>
+<surname>Carlson</surname>
+<given-names>Arthur</given-names>
+</name>
+<name>
+<surname>Hein</surname>
+<given-names>Marco Y</given-names>
+</name>
+<name>
+<surname>Geiger</surname>
+<given-names>Tamar</given-names>
+</name>
+<name>
+<surname>Mann</surname>
+<given-names>Matthias</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>Jürgen</given-names>
+</name>
+</person-group>
+<article-title>The Perseus computational platform for comprehensive analysis of (prote)omics data</article-title>
+<source/>Nature Methods
+          <year>2016</year>
+<volume>13</volume>
+<issue>9</issue>
+<fpage>731</fpage>
+<lpage>740</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.3901</pub-id>
+<pub-id pub-id-type="pmid">27348712</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<mixed-citation publication-type="other">Caputo, B., Sim, K., Furesjo, F. &amp; Smola, A. <italic>Appearance-based Object Recognition using SVMs: Which Kernel Should I Us</italic>e (2002).</mixed-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cohen</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Weighted kappa: nominal scale agreement with provision for scaled disagreement or partial credit</article-title>
+<source/>Psychological bulletin
+          <year>1968</year>
+<volume>70</volume>
+<fpage>213</fpage>
+<lpage>220</lpage>
+<pub-id pub-id-type="doi">10.1037/h0026256</pub-id>
+<pub-id pub-id-type="pmid">19673146</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hothorn</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Leisch</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Zeileis</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hornik</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>The Design and Analysis of Benchmark Experiments</article-title>
+<source/>Journal of Computational and Graphical Statistics
+          <year>2005</year>
+<volume>14</volume>
+<fpage>675</fpage>
+<lpage>699</lpage>
+<pub-id pub-id-type="doi">10.1198/106186005X59630</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gilmour</surname>
+<given-names>SG</given-names>
+</name>
+</person-group>
+<article-title>The Interpretation of Mallows’s $C_p$-Statistic. <italic>Journal of the Royal Statistical Society</italic></article-title>
+<source/>Series D (The Statistician)
+          <year>1996</year>
+<volume>45</volume>
+<fpage>49</fpage>
+<lpage>56</lpage>
+<pub-id pub-id-type="doi">10.2307/2348411</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schwarz</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Estimating the Dimension of a Model</article-title>
+<source/>Ann. Statist.
+          <year>1978</year>
+<volume>6</volume>
+<fpage>461</fpage>
+<lpage>464</lpage>
+<pub-id pub-id-type="doi">10.1214/aos/1176344136</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guyon</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Weston</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Barnhill</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Vapnik</surname>
+<given-names>V</given-names>
+</name>
+</person-group>
+<article-title>Gene Selection for Cancer Classification using Support Vector Machines</article-title>
+<source/>Machine Learning
+          <year>2002</year>
+<volume>46</volume>
+<fpage>389</fpage>
+<lpage>422</lpage>
+<pub-id pub-id-type="doi">10.1023/a:1012487302797</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khatri</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Drăghici</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Ontological analysis of gene expression data: current tools, limitations, and open problems</article-title>
+<source/>Bioinformatics
+          <year>2005</year>
+<volume>21</volume>
+<fpage>3587</fpage>
+<lpage>3595</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/bti565</pub-id>
+<pub-id pub-id-type="pmid">15994189</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shannon</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cytoscape: A software environment for integrated models of biomolecular interaction networks</article-title>
+<source/>Genome Res
+          <year>2003</year>
+<volume>13</volume>
+<fpage>2498</fpage>
+<lpage>2504</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.1239303</pub-id>
+<pub-id pub-id-type="pmid">14597658</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Annunziata</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Volpi</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>High-Levels of C3c in the Cerebrospinal-Fluid from Amyotrophic Lateral Sclerosis Patients</article-title>
+<source/>Acta Neurol Scand
+          <year>1985</year>
+<volume>72</volume>
+<fpage>61</fpage>
+<lpage>64</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1600-0404.1985.tb01548.x</pub-id>
+<pub-id pub-id-type="pmid">4050318</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Apostolski</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Serum and Csf Immunological Findings in Als</article-title>
+<source/>Acta Neurol Scand
+          <year>1991</year>
+<volume>83</volume>
+<fpage>96</fpage>
+<lpage>98</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1600-0404.1991.tb04656.x</pub-id>
+<pub-id pub-id-type="pmid">2017904</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goldknopf</surname>
+<given-names>IL</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Complement C3c and related protein biomarkers in amyotrophic lateral sclerosis and Parkinson’s disease</article-title>
+<source/>Biochem Bioph Res Co
+          <year>2006</year>
+<volume>342</volume>
+<fpage>1034</fpage>
+<lpage>1039</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbrc.2006.02.051</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lobsiger</surname>
+<given-names>CS</given-names>
+</name>
+<name>
+<surname>Boillee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Cleveland</surname>
+<given-names>DW</given-names>
+</name>
+</person-group>
+<article-title>Toxicity from different SOD1 mutants dysregulates the complement system and the neuronal regenerative response in ALS motor neurons</article-title>
+<source/>P Natl Acad Sci USA
+          <year>2007</year>
+<volume>104</volume>
+<fpage>7319</fpage>
+<lpage>7326</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0702230104</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wichterle</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Lieberam</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Porter</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Jessell</surname>
+<given-names>TM</given-names>
+</name>
+</person-group>
+<article-title>Directed differentiation of embryonic stem cells into motor neurons</article-title>
+<source/>Cell
+          <year>2002</year>
+<volume>110</volume>
+<fpage>385</fpage>
+<lpage>397</lpage>
+<pub-id pub-id-type="doi">10.1016/S0092-8674(02)00835-8</pub-id>
+<pub-id pub-id-type="pmid">12176325</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wong</surname>
+<given-names>LF</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Retinoic acid receptor beta 2 promotes functional regeneration of sensory axons in the spinal cord</article-title>
+<source/>Nat Neurosci
+          <year>2006</year>
+<volume>9</volume>
+<fpage>243</fpage>
+<lpage>250</lpage>
+<pub-id pub-id-type="doi">10.1038/nn1622</pub-id>
+<pub-id pub-id-type="pmid">16388307</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<mixed-citation publication-type="other">Kolarcik, C. <italic>Beyond Biomarker Discovery: Retinoid Signaling in Motor Neurons and Amyotrophic Lateral Sclerosis</italic>. (d-scholarship.pitt.edu 2010).</mixed-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>DW</given-names>
+</name>
+<name>
+<surname>Sherman</surname>
+<given-names>BT</given-names>
+</name>
+<name>
+<surname>Lempicki</surname>
+<given-names>RA</given-names>
+</name>
+</person-group>
+<article-title>Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources</article-title>
+<source/>Nat Protoc
+          <year>2009</year>
+<volume>4</volume>
+<fpage>44</fpage>
+<lpage>57</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2008.211</pub-id>
+<pub-id pub-id-type="pmid">19131956</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gucek</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Vardjan</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Zorec</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Exocytosis in Astrocytes: Transmitter Release and Membrane Signal Regulation</article-title>
+<source/>Neurochemical Research
+          <year>2012</year>
+<volume>37</volume>
+<fpage>2351</fpage>
+<lpage>2363</lpage>
+<pub-id pub-id-type="doi">10.1007/s11064-012-0773-6</pub-id>
+<pub-id pub-id-type="pmid">22528833</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grad</surname>
+<given-names>LI</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Intermolecular transmission of superoxide dismutase 1 misfolding in living cells</article-title>
+<source/>P Natl Acad Sci USA
+          <year>2011</year>
+<volume>108</volume>
+<fpage>16398</fpage>
+<lpage>16403</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1102645108</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grad</surname>
+<given-names>LI</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Intercellular propagated misfolding of wild-type Cu/Zn superoxide dismutase occurs via exosome-dependent and -independent mechanisms</article-title>
+<source/>P Natl Acad Sci USA
+          <year>2014</year>
+<volume>111</volume>
+<fpage>3620</fpage>
+<lpage>3625</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1312245111</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Johanson</surname>
+<given-names>CE</given-names>
+</name>
+<name>
+<surname>Stopa</surname>
+<given-names>EG</given-names>
+</name>
+<name>
+<surname>McMillan</surname>
+<given-names>PN</given-names>
+</name>
+</person-group>
+<article-title>The blood-cerebrospinal fluid barrier: structure and functional significance</article-title>
+<source/>Methods Mol Biol
+          <year>2011</year>
+<volume>686</volume>
+<fpage>101</fpage>
+<lpage>131</lpage>
+<pub-id pub-id-type="doi">10.1007/978-1-60761-938-3_4</pub-id>
+<pub-id pub-id-type="pmid">21082368</pub-id>
+</element-citation>
+</ref>
+<ref id="CR53">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wilson</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Boumaza</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Lacomis</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Bowser</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Cystatin C: a candidate biomarker for amyotrophic lateral sclerosis</article-title>
+<source/>Plos One
+          <year>2010</year>
+<volume>5</volume>
+<fpage>e15133</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0015133</pub-id>
+<pub-id pub-id-type="pmid">21151566</pub-id>
+</element-citation>
+</ref>
+<ref id="CR54">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Woodruff</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Noakes</surname>
+<given-names>PG</given-names>
+</name>
+</person-group>
+<article-title>Role for terminal complement activation in amyotrophic lateral sclerosis disease progression</article-title>
+<source/>Proc Natl Acad Sci USA
+          <year>2014</year>
+<volume>111</volume>
+<fpage>E3</fpage>
+<lpage>4</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1321248111</pub-id>
+<pub-id pub-id-type="pmid">24381160</pub-id>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Malaspina</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Michael-Titus</surname>
+<given-names>AT</given-names>
+</name>
+</person-group>
+<article-title>Is the modulation of retinoid and retinoid-associated signaling a future therapeutic strategy in neurological trauma and neurodegeneration?</article-title>
+<source/>J Neurochem
+          <year>2008</year>
+<volume>104</volume>
+<fpage>584</fpage>
+<lpage>595</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1471-4159.2007.05071.x</pub-id>
+<pub-id pub-id-type="pmid">18036157</pub-id>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shudo</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Fukasawa</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Nakagomi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Yamagata</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>Towards Retinoid Therapy for Alzheimer’s Disease</article-title>
+<source/>Current Alzheimer Research
+          <year>2009</year>
+<volume>6</volume>
+<fpage>302</fpage>
+<lpage>311</lpage>
+<pub-id pub-id-type="doi">10.2174/156720509788486581</pub-id>
+<pub-id pub-id-type="pmid">19519313</pub-id>
+</element-citation>
+</ref>
+<ref id="CR57">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Szutowicz</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bielarczyk</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Jankowska-Kulawy</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Ronowska</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Pawelczyk</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Retinoic acid as a therapeutic option in Alzheimer’s disease: a focus on cholinergic restoration</article-title>
+<source/>Expert Rev Neurother
+          <year>2015</year>
+<volume>15</volume>
+<fpage>239</fpage>
+<lpage>249</lpage>
+<pub-id pub-id-type="doi">10.1586/14737175.2015.1008456</pub-id>
+<pub-id pub-id-type="pmid">25683350</pub-id>
+</element-citation>
+</ref>
+<ref id="CR58">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Riancho</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Retinoids and motor neuron disease: Potential role in amyotrophic lateral sclerosis</article-title>
+<source/>Journal of the neurological sciences
+          <year>2016</year>
+<volume>360</volume>
+<fpage>115</fpage>
+<lpage>120</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jns.2015.11.058</pub-id>
+<pub-id pub-id-type="pmid">26723986</pub-id>
+</element-citation>
+</ref>
+<ref id="CR59">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Youden</surname>
+<given-names>WJ</given-names>
+</name>
+</person-group>
+<article-title>Index for rating diagnostic tests</article-title>
+<source/>Cancer
+          <year>1950</year>
+<volume>3</volume>
+<fpage>32</fpage>
+<lpage>35</lpage>
+<pub-id pub-id-type="doi">10.1002/1097-0142</pub-id>
+<pub-id pub-id-type="pmid">15405679</pub-id>
+</element-citation>
+</ref>
+<ref id="CR60">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<collab>The ALS CNTF treatment study (ACTS) phase I-II Study Group</collab>
+</person-group>
+<article-title>The Amyotrophic Lateral Sclerosis Functional Rating Scale. Assessment of activities of daily living in patients with amyotrophic lateral sclerosis</article-title>
+<source/>Arch Neurol
+          <year>1996</year>
+<volume>53</volume>
+<fpage>141</fpage>
+<lpage>147</lpage>
+<pub-id pub-id-type="doi">10.1001/archneur.1996.00550020045014</pub-id>
+<pub-id pub-id-type="pmid">8639063</pub-id>
+</element-citation>
+</ref>
+<ref id="CR61">
+<label>61.</label>
+<mixed-citation publication-type="other">Lewis, N. D. <italic>Machine Learning Made Easy with R: An Intuitive Step by Step Blueprint for Beginners</italic> (2017).</mixed-citation>
+</ref>
+<ref id="CR62">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dixon</surname>
+<given-names>AE</given-names>
+</name>
+<name>
+<surname>Poynter</surname>
+<given-names>ME</given-names>
+</name>
+</person-group>
+<article-title>A Common Pathway to Obesity and Allergic Asthma</article-title>
+<source/>American Journal of Respiratory and Critical Care Medicine
+          <year>2015</year>
+<volume>191</volume>
+<fpage>721</fpage>
+<lpage>722</lpage>
+<pub-id pub-id-type="doi">10.1164/rccm.201502-0217ED</pub-id>
+<pub-id pub-id-type="pmid">25830513</pub-id>
+</element-citation>
+</ref>
+<ref id="CR63">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bergmann</surname>
+<given-names>OJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>High serum concentration of YKL-40 is associated with short survival in patients with acute myeloid leukemia</article-title>
+<source/>Clin Cancer Res
+          <year>2005</year>
+<volume>11</volume>
+<fpage>8644</fpage>
+<lpage>8652</lpage>
+<pub-id pub-id-type="doi">10.1158/1078-0432.ccr-05-1317</pub-id>
+<pub-id pub-id-type="pmid">16361549</pub-id>
+</element-citation>
+</ref>
+<ref id="CR64">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schmidt</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Elevated serum level of YKL-40 is an independent prognostic factor for poor survival in patients with metastatic melanoma</article-title>
+<source/>Cancer
+          <year>2006</year>
+<volume>106</volume>
+<fpage>1130</fpage>
+<lpage>1139</lpage>
+<pub-id pub-id-type="doi">10.1002/cncr.21678</pub-id>
+<pub-id pub-id-type="pmid">16456816</pub-id>
+</element-citation>
+</ref>
+<ref id="CR65">
+<label>65.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Canto</surname>
+<given-names>E</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Chitinase 3-like 1 plasma levels are increased in patients with progressive forms of multiple sclerosis</article-title>
+<source/>Multiple sclerosis (Houndmills, Basingstoke, England)
+          <year>2012</year>
+<volume>18</volume>
+<fpage>983</fpage>
+<lpage>990</lpage>
+<pub-id pub-id-type="doi">10.1177/1352458511433063</pub-id>
+</element-citation>
+</ref>
+<ref id="CR66">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sanfilippo</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>CHI3L1 and CHI3L2 overexpression in motor cortex and spinal cord of sALS patients</article-title>
+<source/>Molecular and Cellular Neuroscience
+          <year>2017</year>
+<volume>85</volume>
+<fpage>162</fpage>
+<lpage>169</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mcn.2017.10.001</pub-id>
+<pub-id pub-id-type="pmid">28989002</pub-id>
+</element-citation>
+</ref>
+<ref id="CR67">
+<label>67.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Thompson</surname>
+<given-names>Alexander G.</given-names>
+</name>
+<name>
+<surname>Gray</surname>
+<given-names>Elizabeth</given-names>
+</name>
+<name>
+<surname>Thézénas</surname>
+<given-names>Marie-Laëtitia</given-names>
+</name>
+<name>
+<surname>Charles</surname>
+<given-names>Philip D.</given-names>
+</name>
+<name>
+<surname>Evetts</surname>
+<given-names>Samuel</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>Michele T.</given-names>
+</name>
+<name>
+<surname>Talbot</surname>
+<given-names>Kevin</given-names>
+</name>
+<name>
+<surname>Fischer</surname>
+<given-names>Roman</given-names>
+</name>
+<name>
+<surname>Kessler</surname>
+<given-names>Benedikt M.</given-names>
+</name>
+<name>
+<surname>Turner</surname>
+<given-names>Martin R.</given-names>
+</name>
+</person-group>
+<article-title>Cerebrospinal fluid macrophage biomarkers in amyotrophic lateral sclerosis</article-title>
+<source/>Annals of Neurology
+          <year>2018</year>
+<volume>83</volume>
+<issue>2</issue>
+<fpage>258</fpage>
+<lpage>268</lpage>
+<pub-id pub-id-type="doi">10.1002/ana.25143</pub-id>
+<pub-id pub-id-type="pmid">29331073</pub-id>
+</element-citation>
+</ref>
+<ref id="CR68">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Veerhuis</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Tenner</surname>
+<given-names>AJ</given-names>
+</name>
+</person-group>
+<article-title>Complement in the Brain</article-title>
+<source/>Molecular immunology
+          <year>2011</year>
+<volume>48</volume>
+<fpage>1592</fpage>
+<lpage>1603</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molimm.2011.04.003</pub-id>
+<pub-id pub-id-type="pmid">21546088</pub-id>
+</element-citation>
+</ref>
+<ref id="CR69">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bonneh-Barkay</surname>
+<given-names>Dafna</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Guoji</given-names>
+</name>
+<name>
+<surname>Starkey</surname>
+<given-names>Adam</given-names>
+</name>
+<name>
+<surname>Hamilton</surname>
+<given-names>Ronald L</given-names>
+</name>
+<name>
+<surname>Wiley</surname>
+<given-names>Clayton A</given-names>
+</name>
+</person-group>
+<article-title>In vivo CHI3L1 (YKL-40) expression in astrocytes in acute and chronic neurological diseases</article-title>
+<source/>Journal of Neuroinflammation
+          <year>2010</year>
+<volume>7</volume>
+<issue>1</issue>
+<fpage>34</fpage>
+<pub-id pub-id-type="doi">10.1186/1742-2094-7-34</pub-id>
+<pub-id pub-id-type="pmid">20540736</pub-id>
+</element-citation>
+</ref>
+<ref id="CR70">
+<label>70.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Profiling the genes affected by pathogenic TDP-43 in astrocytes</article-title>
+<source/>J Neurochem
+          <year>2014</year>
+<volume>129</volume>
+<fpage>932</fpage>
+<lpage>939</lpage>
+<pub-id pub-id-type="doi">10.1111/jnc.12660</pub-id>
+<pub-id pub-id-type="pmid">24447103</pub-id>
+</element-citation>
+</ref>
+<ref id="CR71">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ritchie</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Morgan</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kalsheker</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>Allele-specific overexpression in astrocytes of an Alzheimer’s disease associated alpha-1-antichymotrypsin promoter polymorphism</article-title>
+<source/>Molecular Brain Research
+          <year>2004</year>
+<volume>131</volume>
+<fpage>88</fpage>
+<lpage>92</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molbrainres.2004.08.012</pub-id>
+<pub-id pub-id-type="pmid">15530656</pub-id>
+</element-citation>
+</ref>
+<ref id="CR72">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McCombe</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Henderson</surname>
+<given-names>RD</given-names>
+</name>
+</person-group>
+<article-title>The Role of Immune and Inflammatory Mechanisms in ALS</article-title>
+<source/>Current Molecular Medicine
+          <year>2011</year>
+<volume>11</volume>
+<fpage>246</fpage>
+<lpage>254</lpage>
+<pub-id pub-id-type="doi">10.2174/156652411795243450</pub-id>
+<pub-id pub-id-type="pmid">21375489</pub-id>
+</element-citation>
+</ref>
+<ref id="CR73">
+<label>73.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Astrocytes and Microglia as Non-cell Autonomous Players in the Pathogenesis of ALS</article-title>
+<source/>Experimental Neurobiology
+          <year>2016</year>
+<volume>25</volume>
+<fpage>233</fpage>
+<lpage>240</lpage>
+<pub-id pub-id-type="doi">10.5607/en.2016.25.5.233</pub-id>
+<pub-id pub-id-type="pmid">27790057</pub-id>
+</element-citation>
+</ref>
+<ref id="CR74">
+<label>74.</label>
+<mixed-citation publication-type="other">Turner, M. R. &amp; Talbot, K. Mimics and chameleons in motor neurone disease. <italic>Practical Neurology</italic> (2013).</mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

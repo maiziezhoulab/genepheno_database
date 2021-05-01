@@ -1,0 +1,1025 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="review-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Front Genet</journal-id>
+<journal-id journal-id-type="iso-abbrev">Front Genet</journal-id>
+<journal-id journal-id-type="publisher-id">Front. Genet.</journal-id>
+<journal-title-group>
+<journal-title>Frontiers in Genetics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1664-8021</issn>
+<publisher>
+<publisher-name>Frontiers Media S.A.</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32351543</article-id>
+<article-id pub-id-type="pmc">7174742</article-id>
+<article-id pub-id-type="doi">10.3389/fgene.2020.00350</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Genetics</subject>
+<subj-group>
+<subject>Review</subject>
+</subj-group>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Reaching the End-Game for GWAS: Machine Learning Approaches for the Prioritization of Complex Disease Loci</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Nicholls</surname>
+<given-names>Hannah L.</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/906019/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>John</surname>
+<given-names>Christopher R.</given-names>
+</name>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Watson</surname>
+<given-names>David S.</given-names>
+</name>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/904980/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Munroe</surname>
+<given-names>Patricia B.</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/905309/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Barnes</surname>
+<given-names>Michael R.</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+<xref ref-type="aff" rid="aff6">
+<sup>6</sup>
+</xref>
+<xref ref-type="corresp" rid="c001">
+<sup>*</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/254779/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Cabrera</surname>
+<given-names>Claudia P.</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+<xref ref-type="corresp" rid="c002">
+<sup>*</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/820466/overview" xlink:type="simple"></uri>
+</contrib>
+</contrib-group>
+<aff id="aff1"><sup>1</sup><institution>Clinical Pharmacology</institution>, <addr-line>William Harvey Research Institute, Barts and The London School of Medicine and Dentistry, Queen Mary University of London, London</addr-line>, <country>United Kingdom</country></aff>
+<aff id="aff2"><sup>2</sup><institution>Centre for Translational Bioinformatics</institution>, <addr-line>William Harvey Research Institute, Barts and the London School of Medicine and Dentistry, Queen Mary University of London, London</addr-line>, <country>United Kingdom</country></aff>
+<aff id="aff3"><sup>3</sup><institution>Centre for Experimental Medicine and Rheumatology</institution>, <addr-line>William Harvey Research Institute, Barts and the London School of Medicine and Dentistry, Queen Mary University of London, London</addr-line>, <country>United Kingdom</country></aff>
+<aff id="aff4"><sup>4</sup><institution>Oxford Internet Institute, University of Oxford</institution>, <addr-line>Oxford</addr-line>, <country>United Kingdom</country></aff>
+<aff id="aff5"><sup>5</sup><institution>NIHR Barts Biomedical Research Centre</institution>, <addr-line>Barts and The London School of Medicine and Dentistry, Queen Mary University of London, London</addr-line>, <country>United Kingdom</country></aff>
+<aff id="aff6"><sup>6</sup><institution>The Alan Turing Institute</institution>, <addr-line>British Library, London</addr-line>, <country>United Kingdom</country></aff>
+<author-notes>
+<fn fn-type="edited-by">
+<p>Edited by: Ryan Urbanowicz, University of Pennsylvania, United States</p>
+</fn>
+<fn fn-type="edited-by">
+<p>Reviewed by: Le Shu, University of California, Los Angeles, United States; Richa Gupta, DNAnexus, Inc., United States</p>
+</fn>
+<corresp id="c001">*Correspondence: Michael R. Barnes, <email>m.r.barnes@qmul.ac.uk</email></corresp>
+<corresp id="c002">Claudia P. Cabrera, <email>c.cabrera@qmul.ac.uk</email></corresp>
+<fn fn-type="other" id="fn004">
+<p>This article was submitted to Bioinformatics and Computational Biology, a section of the journal Frontiers in Genetics</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>15</day>
+<month>4</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>11</volume>
+<elocation-id>350</elocation-id>
+<history>
+<date date-type="received">
+<day>19</day>
+<month>12</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>23</day>
+<month>3</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2020 Nicholls, John, Watson, Munroe, Barnes and Cabrera.</copyright-statement>
+<copyright-year>2020</copyright-year>
+<copyright-holder>Nicholls, John, Watson, Munroe, Barnes and Cabrera</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Genome-wide association studies (GWAS) have revealed thousands of genetic loci that underpin the complex biology of many human traits. However, the strength of GWAS – the ability to detect genetic association by linkage disequilibrium (LD) – is also its limitation. Whilst the ever-increasing study size and improved design have augmented the power of GWAS to detect effects, differentiation of causal variants or genes from other highly correlated genes associated by LD remains the real challenge. This has severely hindered the biological insights and clinical translation of GWAS findings. Although thousands of disease susceptibility loci have been reported, causal genes at these loci remain elusive. Machine learning (ML) techniques offer an opportunity to dissect the heterogeneity of variant and gene signals in the post-GWAS analysis phase. ML models for GWAS prioritization vary greatly in their complexity, ranging from relatively simple logistic regression approaches to more complex ensemble models such as random forests and gradient boosting, as well as deep learning models, i.e., neural networks. Paired with functional validation, these methods show important promise for clinical translation, providing a strong evidence-based approach to direct post-GWAS research. However, as ML approaches continue to evolve to meet the challenge of causal gene identification, a critical assessment of the underlying methodologies and their applicability to the GWAS prioritization problem is needed. This review investigates the landscape of ML applications in three parts: selected models, input features, and output model performance, with a focus on prioritizations of complex disease associated loci. Overall, we explore the contributions ML has made towards reaching the GWAS end-game with consequent wide-ranging translational impact.</p>
+</abstract>
+<kwd-group>
+<kwd>machine learning</kwd>
+<kwd>artificial intelligence</kwd>
+<kwd>genome-wide association study</kwd>
+<kwd>genomics</kwd>
+<kwd>candidate gene</kwd>
+<kwd>clinical translation</kwd>
+<kwd>deep learning</kwd>
+<kwd>data science</kwd>
+</kwd-group>
+<counts>
+<fig-count count="2"></fig-count>
+<table-count count="2"></table-count>
+<equation-count count="0"></equation-count>
+<ref-count count="69"></ref-count>
+<page-count count="15"></page-count>
+<word-count count="0"></word-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec id="S1">
+<title>Introduction</title>
+<p>A genome-wide association study (GWAS) examines a genome-wide set of genetic variants in a group of individuals to identify variants associated with a trait or phenotype. The goal of GWAS is to identify variants which show a statistically significant association with a phenotype. This enables guided functional investigation of the most likely causal variants and genes driving the genetic association, thus pinpointing genes and pathways of interest for disease diagnosis, drug discovery, and precision medicine.</p>
+<p>As GWAS studies have scaled up to discover ever more disease variants (<xref ref-type="bibr" rid="B14">Evangelou et al., 2018</xref>; <xref ref-type="bibr" rid="B19">Giri et al., 2019</xref>; <xref ref-type="bibr" rid="B42">Nalls et al., 2019</xref>) it has become impractical to perform functional investigation on all disease relevant loci. This limitation arises in part due to variability in reporting of GWAS results, some studies report loci which have been independently replicated in a different cohort (the gold standard approach), and others do not. This reporting can question the confidence of some discovered loci, calling for a balance between stringent <italic>p</italic>-values to correct for multiple testing and false discovery, and conservative correction leading to false negative association. A compounding factor is also the need to differentiate causal variants or genes from other genes associated by linkage disequilibrium (LD), thus confounding the detection of causal genes within a locus – making it unclear which variants and genes warrant further analysis and potential functional study. This range of issues undermines the robustness of GWAS, and challenges the validity of downstream analyses and biological hypothesis development, critically undermining some of the major motivators for performing GWAS in the first place, such as target validation (<xref ref-type="bibr" rid="B23">Hurle et al., 2016</xref>). Ultimately this highlights the need for computational solutions to improve the signal to noise ratio of GWAS results and to highlight genes and variants that are most likely to be causal.</p>
+<p>Machine learning (ML) has been one emerging branch of computational applications (alongside network analysis and tools such as text-mining) built to enhance GWAS performance and downstream interpretation (<xref ref-type="bibr" rid="B59">Seyyedrazzagi and Navimipour, 2017</xref>; <xref ref-type="bibr" rid="B49">Raj and Sreeja, 2018</xref>). Machine learning algorithms build mathematical models that are learnt from training data in order to make predictions or decisions. Machine learning consists of supervised, unsupervised, and reinforcement learning methods, with supervised and unsupervised learning being the most commonly implemented with GWAS data. Supervised learning provides ML algorithms with labeled training data and aims to infer a mapping function from the input variables to the output variable – or label for classification tasks (<xref ref-type="fig" rid="F1">Figure 1</xref>). This mapping function may then be used to predict the labels of new “testing” data. Unsupervised learning, by contrast, has no response variable. Instead, the algorithm must attempt to find patterns in the data, such as clusters or outliers. When tailored for understanding GWAS data, ML predictions can provide an improved statistical foundation of evidence to support or improve GWAS results. For instance, ML in GWAS has been applied to identify loci, increase the statistical power of GWAS (<xref ref-type="bibr" rid="B39">Mieth et al., 2016</xref>), detect epistatic interactions (<xref ref-type="bibr" rid="B31">Leem et al., 2014</xref>), improve polygenic risk scoring produced from GWAS (<xref ref-type="bibr" rid="B48">Pare et al., 2017</xref>), and prioritize genes and variants on post-GWAS analysis (<xref ref-type="bibr" rid="B64">Vitsios and Petrovski, 2019</xref>). Here we will focus on the ML applications developed for post-GWAS prioritization.</p>
+<fig id="F1" position="float">
+<label>FIGURE 1</label>
+<caption>
+<p>Supervised Machine Learning Algorithm Training. <bold>(A)</bold> Data containing labeled genes (e.g., genes labeled as causal or non-causal for blood pressure – BP) and columns of features describing those genes are input into a machine learning algorithm. Machine learning algorithms firstly initialize themselves by applying their rules to a subset of the data (deemed training data) and its features at random. E.g., an algorithm’s first practice iteration can involve assigning feature importance at random (importance denoted by size of feature image). The algorithm uses its feature initialization to classify genes into either affecting BP (red genes) or not affecting BP (blue genes). Algorithms then use the practice predictions to calculate loss (an error rate) and iterate over the data again with applying the previous iteration’s loss calculation to adjust feature handling <bold>(B)</bold>. With using the loss calculations the algorithm aims to improve predictive performance with each training iteration.</p>
+</caption>
+<graphic xlink:href="fgene-11-00350-g001"></graphic>
+</fig>
+<p>The growth of GWAS over the past decade has identified thousands of associated loci, in September 2019 the NHGRI-EBI GWAS catalog contained 161,525 variant-trait associations from 4,298 publications<sup><xref ref-type="fn" rid="footnote1">1</xref></sup>. Thousands of variant associations can now be found within a single complex disease, such is the case for inflammatory bowel diseases (IBD) with 1,829 variant associations and schizophrenia with 3,069 variant associations (see text footnote 1). In the case of blood pressure (BP) with 5,148 associations (see text footnote 1) 2,293 genes are implicated (<xref ref-type="bibr" rid="B14">Evangelou et al., 2018</xref>; <xref ref-type="bibr" rid="B19">Giri et al., 2019</xref>), these represent almost 10% of the known gene complement and 5.82% of the genome by LD alone. These results represent an important insight into the complex systems regulating BP and offer a basis for a better understanding of BP biology and the personalization of hypertension treatment. However, this knowledge still has great potential to confound understanding. Based on the simplifying assumption that each locus is driven by only one gene (whereas gene cluster associations are also possible), if we subtract 901 loci reported by <xref ref-type="bibr" rid="B14">Evangelou et al. (2018)</xref> from 2,605 genes mapping to these loci, 65.4% of “associated” genes can be expected to be unrelated to BP. This level of signal to noise, still presents a considerable problem to the formulation of an efficient follow up strategy.</p>
+<p>Individual GWAS loci have already shown the potential for large scale prioritization by providing novel biological insights and potential drug targets and drug repositioning opportunities (<xref ref-type="bibr" rid="B56">Sanseau et al., 2012</xref>). For example, a GWAS on BP found associations in the <italic>SLC5A1</italic> gene. The association of <italic>SLC5A1</italic> with BP and its role as a target of a type 2 diabetes drug, canagliflozin, highlights the opportunity to re-purpose drugs for treating hypertension (<xref ref-type="bibr" rid="B14">Evangelou et al., 2018</xref>). Currently, research has shown only 38% of essential hypertension patients have effective treatment (<xref ref-type="bibr" rid="B3">Banegas et al., 2011</xref>). Similarly, IBD and schizophrenia both currently have lacking treatment options alongside their thousands of associations (<xref ref-type="bibr" rid="B10">Danese, 2012</xref>; <xref ref-type="bibr" rid="B32">Leucht et al., 2013</xref>) – suggesting that a path to improved therapeutics for complex diseases may lie within the associated loci and the biological functions contained within them.</p>
+<p>Defining functional impact of associated variants is a unique challenge in itself, but it is subsumed by a greater problem. Although it is possible to predict functional impact with some confidence in coding regions and to a lesser extent in non-coding regions, differentiating variants and inferring causality is very challenging without further laboratory investigation. For example, BP associations found in several <italic>SMAD</italic> family genes and the <italic>TGFβ</italic> gene, which collectively participate in the TGFβ pathway, led to the suggestion that these may affect sodium transport in the kidney and ventricular remodeling (<xref ref-type="bibr" rid="B14">Evangelou et al., 2018</xref>). However, multiple genes impacting the same pathway raise the question of which gene should be functionally investigated first. Usually the evidence is not strong enough to warrant laboratory investigation of all the associated genes in a particular pathway. The follow-up GWAS laboratory studies to date have developed without a standardized method for selecting causal genes and consequently they are likely to be susceptible to personal or “cherry picking” bias. These issues highlight the need for a pipeline that methodically triages variants and genes based on their likelihood of affecting a trait. Only then, will there be consistency in follow-up of genetic results using functional analysis with minimized risk of investigating false positives or low impact genes. The standardized <italic>in silico</italic> identification of the most likely causal genes at a genome scale may be an opportunity to gain higher level systems insights into trait biology. This in turn may help to fine-tune ML algorithms, as seen with research using ML variant prioritization as a feature fed into gene prioritization (<xref ref-type="bibr" rid="B28">Khan et al., 2018</xref>).</p>
+<p>The development of systematic prioritization post-GWAS using ML has been researched as early as 2007 (<xref ref-type="bibr" rid="B33">Lewinger et al., 2007</xref>). Since then several computational methods for prioritizing GWAS associated loci have been developed with growing attention on ML applications (<xref ref-type="bibr" rid="B15">Fridley et al., 2011</xref>; <xref ref-type="bibr" rid="B17">Gagliano et al., 2015</xref>; <xref ref-type="bibr" rid="B49">Raj and Sreeja, 2018</xref>; <xref ref-type="bibr" rid="B66">Wu et al., 2018</xref>). ML for prioritizing GWAS results has used common models (<xref ref-type="fig" rid="F2">Figure 2</xref>) such as logistic regression, decision tree classifiers such as – e.g., gradient boosting machines (GBM) and random forests (<xref ref-type="bibr" rid="B65">Wang et al., 2013</xref>; <xref ref-type="bibr" rid="B47">Oh et al., 2017</xref>), – and support vector machines (SVM; <xref ref-type="bibr" rid="B64">Vitsios and Petrovski, 2019</xref>), with more recent advances including deep learning models (<xref ref-type="bibr" rid="B28">Khan et al., 2018</xref>; <xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>).</p>
+<fig id="F2" position="float">
+<label>FIGURE 2</label>
+<caption>
+<p>Supervised Machine Learning Models. Diagram detailing three machine learning model bases used in supervised learning, each providing varying algorithms most commonly used in post-GWAS prioritization.</p>
+</caption>
+<graphic xlink:href="fgene-11-00350-g002"></graphic>
+</fig>
+<p>An increasing number of studies are investigating how ML can be tailored to locus prioritization across diseases, but the ML pipelines for GWAS prioritization are mainly limited by the range and quality of training data. In order for ML models to present reliable guide-posts for post-GWAS research, a critical assessment of developing methods is needed – as the most recent systematic and literature reviews of post-GWAS prioritization cover few ML studies in comparison to other prioritization methods (<xref ref-type="bibr" rid="B59">Seyyedrazzagi and Navimipour, 2017</xref>; <xref ref-type="bibr" rid="B49">Raj and Sreeja, 2018</xref>). Here we will review the current landscape of ML applications for post-GWAS prioritization, and how ML can aid reaching the end-game for GWAS, which we define as a state where all common population variation with impact on a trait is identified; providing solid biological insights and mechanisms with reliable translational capability.</p>
+</sec>
+<sec id="S2">
+<title>Machine Learning Models</title>
+<p>GWAS prioritization as a classification problem has been approached using both simplistic and complex models (<xref ref-type="table" rid="T1">Table 1</xref>) depending on the problem requirements and data available. Primarily five types of models have been implemented: logistic regression, SVM, random forest, gradient boosting, and deep neural networks (<xref ref-type="fig" rid="F2">Figure 2</xref>), each with varying advantages and disadvantages (<xref ref-type="table" rid="T2">Table 2</xref>). Logistic regression is a commonly applied statistical method that when used with categorical variables can be contemplated as a generalized linear model. In a logistic regression, it is typical to apply a regularization term – e.g., L1 (the sum of the absolute value of feature weights) and L2 (the sum of squared feature weights) – that introduce some bias while reducing variance, thereby improving predictive ability (<xref ref-type="bibr" rid="B11">Demir-Kavuk et al., 2011</xref>). <xref ref-type="bibr" rid="B24">Isakov et al. (2017)</xref> used elastic net logistic regression (<xref ref-type="bibr" rid="B69">Zou and Hastie, 2005</xref>) which combines L1 and L2 penalties to prioritize IBD genes. This method performs both variable selection (L1), and shrinks coefficient sizes to reduce variance (L2) (<xref ref-type="bibr" rid="B46">Ogutu et al., 2012</xref>). Regularized logistic regression with elastic net aims to minimize the “curse of dimensionality” – where data has a larger number of features than samples – which is a particular blight on GWAS. For example, <xref ref-type="bibr" rid="B24">Isakov et al. (2017)</xref> used data consisting of 314 positive genes and 1,736 negative genes each annotated with 1,027 features. By applying logistic regression with elastic net they could then select the best data for their models (309 features selected which are predominantly from biological ontologies). However, due to the growing size in genetic data, and the broader range of features becoming available to describe genes and variants, the increased computational demand requires more advanced models.</p>
+<table-wrap id="T1" position="float">
+<label>TABLE 1</label>
+<caption>
+<p>Curation of machine learning studies applied to post-GWAS prioritization of variants and genes.</p>
+</caption>
+<table cellpadding="5" cellspacing="5" frame="hsides" rules="groups">
+<thead>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>PMID</bold>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Models description</bold>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Methods description</bold>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Data and assessment descriptions</bold>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30692607*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">LR; Genes – Crohn’s disease</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Uses backward stepwise regression to build significant expression datasets (with emphasis on epigenetic data) to give prediction in combination with genotype data. Expression data reduces the uncertainty of smaller effect loci shown in fine-mapping and prioritization was followed-up with protein network analyses for validation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10-fold cross validation (2,000 genes per fold)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25935003*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">LR; Genes – Crohn’s disease</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Combines GWAS results with gene expression features and whether genes are associated with other autoimmune diseases to better identify disease-related genes. More powerful for prioritizing rare missense variants</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Cross-validation performed. 50:50 training:testing ratio. Training iterated 500 times. 54 Crohn’s disease genes used as positively labeled training genes</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29407288</td>
+<td align="left" colspan="1" rowspan="1" valign="top">SVM, LASSO, classification-regression trees; Variants – major depressive disorder and adverse drug response (duloxetine)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Models used features selected by LASSO regression and classified variants based on a clinical depression scoring defining drug response and remission</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Dataset size: 186 patients. Nested 5-fold cross-validation. 80:20 training:testing ratio</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">21317188*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">SVM, RF; Variants – arthritis and T1D</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Compares support vector machine and random forest performance to chi-squared ranking</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Dataset size: 452,176 T1D SNPs 63 arthritis SNPs</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">31779641</td>
+<td align="left" colspan="1" rowspan="1" valign="top">RF; Variants – intronic variants associated to cellular sensitivity to clofarabine-induced cytotoxicity</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Focuses on integrating splicing data features with other types. Validates model prioritization with laboratory follow-up – limited by technical noise during laboratory work</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3-fold cross-validation. Training data size: 6,676 variants. Testing data size: 1,222 variants</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">24564704*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Parallel RF Regression; Variants – brain structure and function. Alzheimer’s disease GWAS</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Designed to run on large Hadoop clusters, including those available through cloud computing. Multivariate applications not available on Hadoop</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Each tree bootstraps to form training data (63.2%) with out-of-bag samples for test data. 500 simulated datasets</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">28592878*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">RF Hyper-ensemble; Non-coding variants – curated mendelian diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Addresses class imbalance via resampling using simultaneous oversampling of minority class and undersampling of majority class. HyperSMURF can detect disease variants nearby to non-disease variants</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10-fold cross-validation partitioning variants into chromosomal bands so no variants had same location, gene or disease in training and testing. GWAS total size approximately 2,000 variants</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">25633252*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">GB; Genes – cardiovascular diseases and traits</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Explored prioritization of 38 phenotypes (predominantly cardiovascular). Each tree within model updates a log-odds of disease association per gene. GWA-prediction assigns scores to genes in loci based on reasonings (transcription sites, experimental evidence, etc.) to identify likely positives which are used in training for phenotypes with GWAS training data</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Six rounds of 8-fold cross-validation. Seventy percent of loci as positive training examples with matching numbers of negative samples</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30591030*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">LR and DL; Genes and variants – schizophrenia and autism</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Performed variant prioritization which fed into gene prioritization. Variant prioritization used eQTL and pathogenic scoring data features. Gene prioritization used the variant rank in combination with genotypic data. Used to prioritize an individual’s variants and genes and can be re-applied to GWAS data</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10-fold cross-validation on four training and test sets</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">28795970</td>
+<td align="left" colspan="1" rowspan="1" valign="top">LR with elastic net, RF, SVM with polynomial kernel, extreme GB; Genes – inflammatory bowel diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">All genes in dataset were annotated with 1,027 features. 16,390 genes scored and classified, with prediction as a score between 0 and 1. Models evaluated separately and together in combined performance score</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5-fold cross-validation repeated 10 times. Training data: 314 positive genes and 1,736 negative genes</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30013180*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">DL – ExPecto; Variants – publicly available GWAS for four immune diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Data profiling &gt;140 million promoter-proximal mutations allowed for deep learning to predict variant effect, with effect feeding into the prioritization of SNPs</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Dataset size: 390,085 variants. Whole-chromosome holdout of chromosome 8 with 990 genes – using these genes for testing</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">30859622</td>
+<td align="left" colspan="1" rowspan="1" valign="top">LR with stochastic gradient descent, SVM, RF, K-Nearest Neighbors; Genes – colorectal cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Used a network approach – collecting both global and local data to create an epistasis network. Topology of the network was then used as features in machine learning, with different types of feature selection compared, to prioritize genes biologically relevant to colorectal cancer</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Dataset size: 185,180 SNPs. Training on 90% of the dataset with 10-fold cross validation</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1101/655449">10.1101/655449</ext-link>*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">SVM, RF, extra trees, GB, extreme GB, DNN and a stacking classifier with four base classifiers (RF, extra trees, GB and SVM) followed by a DNN in the second layer. Genes – chronic kidney disease, amyotrophic lateral sclerosis, epilepsy</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Models applied with positive-unlabeled learning – stochastic semi-supervised learning. Explored combinational impact of all models, and chose best performing model for each disease. There was a dependency on existing patterns – beneficial for finding new causal associated genes which may impact known mechanisms</td>
+<td align="left" colspan="1" rowspan="1" valign="top">10-fold cross validation. Gene samples: 25,000 for chronic kidney disease, 17,000 for epilepsy and 79,500 for amyotrophic lateral sclerosis</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">21687685</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Bayesian latent variable model; Variants – ovarian GWAS</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Used features about a SNP to estimate a latent quality score, with SNPs prioritized based on the posterior probability distribution of the rankings of latent quality scores. Incorporated the uncertainty of the ranking into the prioritization via probability calculation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">NA</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">23369106*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Genetic algorithm; Variants – select OMIM diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Algorithm estimates feature weights to characterize SNPs related to an input dataset of genes, biological processes or GWAS results. Users can select features and assign a custom relevance and model relies on data mining of public data</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Leave one out cross validation – single disease in the set used to validate (repeats for each disease)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">29874547*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Network representation learning (random walk); Genes – Parkinson’s, RA, Crohn’s, Ulcerative Colitis, CAD, T2D</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Unsupervised model learns embeddings of genes from multiple gene networks and develops hierarchical statistical model to integrate the learned embeddings of genes with GWAS summary data. Gene-level <italic>p</italic>-values infer each gene’s posterior probability of association, which is in turn used for gene prioritization. Lack of direct biological interpretations available for the learned embeddings of genes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">NA</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">21977986*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Multi-task learning ProDiGe; Genes – 265 diseases and 936 associations</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Model learns from positive and unlabeled examples. The model shared information across diseases to improve the predictive performance for diseases with minimal positive labeled genes. The information shared is weighed depending on similarity of one disease to another</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Training set: at least one known disease gene in training data. Training data per disease &gt;11 genes. Leave one out validation on select diseases</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">26504140*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Unsupervised model – bayes classifier – GenoWAP; Variants – schizophrenia and Crohn’s disease</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Unsupervised learning – integrates GenoCanyon (their previous model) functional prediction and GWAS <italic>p</italic>-values. Reduce noises caused by linkage disequilibrium and rescues marginal signals in GWASs with insufficient sample sizes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">NA</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">27058395*</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Unsupervised model – bayes classifier – Genoskyline; Variants – schizophrenia and coronary artery disease</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Successor of GenoWAP model, building from it by using annotations integrating tissue-specificity. Customizable with researchers able to input many feature annotations. Whilst tissue-specific it also lacked data from all tissue types</td>
+<td align="left" colspan="1" rowspan="1" valign="top">NA</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<attrib>
+<italic>*Software/code available; LR, logistic regression; RF, random forest; GBM, gradient boosting machine; SVM, support vector machine; DL, deep learning; DNN, deep neural networks; ET, extra trees; GWAS; genome wide association study; SNP; single nucleotide polymorphism; CAD, coronary artery disease; T1D, type 1 diabetes; T2D, type 2 diabetes.</italic>
+</attrib>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="T2" position="float">
+<label>TABLE 2</label>
+<caption>
+<p>Comparison of machine learning model performance. Comparison of the most common models used in post-GWAS prioritization including performance metrics, comparing metrics of each model’s highest performance score per study.</p>
+</caption>
+<table cellpadding="5" cellspacing="5" frame="hsides" rules="groups">
+<thead>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Models</bold>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>PMID</bold>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Best performance</bold>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Model advantages and disadvantages</bold>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Logistic regression</td>
+<td align="left" colspan="1" rowspan="1" valign="top">25935003</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.94 (AUC) – Crohn’s disease</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Advantages:<list list-type="simple"><list-item><label>-</label><p>Easy to implement</p></list-item><list-item><label>-</label><p>Efficient to train</p></list-item><list-item><label>-</label><p>High interpretability</p></list-item><list-item><label>-</label><p>Can act as a benchmark for exploring more complex algorithms</p></list-item></list>Disadvantages:<list list-type="simple"><list-item><label>-</label><p>Difficulty recognizing complicated data patterns</p></list-item><list-item><label>-</label><p>Difficulty handling large datasets</p></list-item></list></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">28795970</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.775 (ROC) – inflammatory bowel diseases</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Random forest</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28592878</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.635 (AUCROC) – curated Mendelian diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Advantages:<list list-type="simple"><list-item><label>-</label><p>It can handle large data with higher dimensions</p></list-item><list-item><label>-</label><p>Ensemble method reduces overfitting by several models testing multiple hypotheses</p></list-item></list>Disadvantages:<list list-type="simple"><list-item><label>-</label><p>Many parameters to tune, affecting computational efficiency</p></list-item><list-item><label>-</label><p>Ensemble method lows interpretability</p></list-item></list></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">31779641</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.96 (AUCROC) – cellular sensitivity to clofarabine-induced cytotoxicity</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">21317188</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.81 (AUC) – T1D</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">28795970</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.80 (ROC) – inflammatory bowel diseases</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1101/655449">10.1101/655449</ext-link></td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.85 (AUC) – average between all diseases</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Gradient boosting</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28795970</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.783 (ROC) – inflammatory bowel diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Advantages:<list list-type="simple"><list-item><label>-</label><p>High power performance</p></list-item><list-item><label>-</label><p>Flexible with several parameter tuning options</p></list-item><list-item><label>-</label><p>Ensemble method reduces overfitting by several models testing multiple hypotheses</p></list-item></list>Disadvantages:<list list-type="simple"><list-item><label>-</label><p>Reliance on high quality training data</p></list-item><list-item><label>-</label><p>Many parameters to tune, affecting computational efficiency</p></list-item></list></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1101/655449">10.1101/655449</ext-link></td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.848 (AUC) – average between all diseases</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">25633252</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.959 (ROC) – HCM</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Support vector machine</td>
+<td align="left" colspan="1" rowspan="1" valign="top">28795970</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.786 (ROC) – inflammatory bowel diseases</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Advantages:<list list-type="simple"><list-item><label>-</label><p>Computationally efficient</p></list-item><list-item><label>-</label><p>It handle can handle large data and high dimensions</p></list-item></list>Disadvantages:<list list-type="simple"><list-item><label>-</label><p>Does not provide class probabilities</p></list-item><list-item><label>-</label><p>Difficulty to interpret</p></list-item></list></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">29407288</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.66 (Accuracy) – major depressive disorder and adverse drug response (duloxetine)</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1" valign="top">doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1101/655449">10.1101/655449</ext-link></td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.832 (AUC) – average between all diseases</td>
+<td align="justify" colspan="1" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Deep neural network</td>
+<td align="left" colspan="1" rowspan="1" valign="top">30013180</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.815 (AUCROC) – lymphoblastoid expression</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Advantages:<list list-type="simple"><list-item><label>-</label><p>Recognizes patterns in large complex data</p></list-item><list-item><label>-</label><p>High power performance</p></list-item><list-item><label>-</label><p>Able to handle noisy data</p></list-item></list>Disadvantages:<list list-type="simple"><list-item><label>-</label><p>Difficulty to interpret</p></list-item><list-item><label>-</label><p>Computationally expensive requiring GPUs for high power performance</p></list-item></list></td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<attrib>
+<italic>AUC, area under curve; GPU, graphics processing unit; ROC, receiver operating characteristic; T1D, type 1 diabetes; HCM, hypertrophic cardiomyopathy.</italic>
+</attrib>
+</table-wrap-foot>
+</table-wrap>
+<p>Seven out of 19 ML models for post-GWAS prioritization curated in this review (<xref ref-type="table" rid="T1">Table 1</xref>) are ensemble models, namely random forests and gradient boosting. Ensemble methods combine multiple models to improve performance and are ideal for heterogenous GWAS data. <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> developed a GBM (OPEN – Objective Prioritization for Enhanced Novelty) for prioritizing causal genes in multiple diseases. They used data comprising of more than 40,000 genomic features from public databases [Gene ontology (GO), Mouse Phenotype database, Human Phenotype Ontology (HPO), and Online Mendelian Inheritance in Man (OMIM)] aiming to benefit from unbiased features. GBM is a tree-based model, with tree branches performing yes/no decisions leading to a sample’s classification (<xref ref-type="bibr" rid="B43">Natekin and Knoll, 2013</xref>). GBM operates one tree at a time, attempting to optimize with each tree. <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> made accurate predictions with GBM identifying genes affecting cardiovascular disease (CVD) related traits. Performance was measured by the area under the receiver operating characteristic curve (AUROC), with values ranging between 0.75 and 0.9 across traits (<xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>). The model’s consistently high scores are due to the ensemble methods providing the opportunity for predictive mistakes to be removed in aggregate, due to multiple models testing different hypotheses and taking an average, expanding the representational space of a classification problem (<xref ref-type="bibr" rid="B13">Dietterich, 2000</xref>). This is seen with gradient boosting across research, with the model known for reducing bias and variance and offering improved accuracy (<xref ref-type="bibr" rid="B43">Natekin and Knoll, 2013</xref>). However, there is also a need to benchmark model performance, as whilst ensemble models are reliable, a singular approach into a novel classification problem provides a risk of unnoticed overfitting – which is also a known issue for gradient boosting depending on regularization techniques used.</p>
+<p><xref ref-type="bibr" rid="B64">Vitsios and Petrovski (2019)</xref> built a semi-supervised learning framework in which they benchmarked seven models (random forest, extremely randomized trees, GBM, extreme gradient boosting, SVM, deep neural networks, and a stacking classifier using all models) to prioritize genes for three diseases – amyotrophic lateral sclerosis, chronic kidney disease and epilepsy. In total they used data containing more than 1,200 features describing tens of thousands of genes for each disease. They found that random forest was the top-performing classifier, with this ensemble model consisting of multiple decision trees predicting in parallel (<xref ref-type="bibr" rid="B5">Breiman, 2001</xref>). Gradient boosting was the second most accurate, showing the high performance of tree-based ensemble classification. However, the AUCs between all algorithms were deemed too similar to conclude one model out-performed all others across datasets. These results were also supported by comparison with a combined framework using all models in prioritization, the stacking classifier, ensuring the highest reliability in the chosen classifier for each disease (<xref ref-type="bibr" rid="B64">Vitsios and Petrovski, 2019</xref>). <xref ref-type="bibr" rid="B26">Kafaie et al. (2019)</xref> aimed to prioritize genes associated with colorectal cancer comparing various models (SVM, random forest, logistic regression with stochastic gradient descent, and K−nearest neighbors). They found that logistic regression was the highest performing ML model – emphasizing that a classification problem may require simpler solutions.</p>
+<p>Besides ensemble learning and logistic regression, SVM is also consistently used within studies performing benchmark comparisons (<xref ref-type="bibr" rid="B54">Roshan et al., 2011</xref>; <xref ref-type="bibr" rid="B24">Isakov et al., 2017</xref>; <xref ref-type="bibr" rid="B37">Maciukiewicz et al., 2018</xref>; <xref ref-type="bibr" rid="B64">Vitsios and Petrovski, 2019</xref>). SVM aims to plot a decision boundary between groups by measuring hyperplanes – based on the distances between the most extreme samples of each classification group (<xref ref-type="bibr" rid="B60">Smola and Scholkopf, 2004</xref>; <xref ref-type="fig" rid="F2">Figure 2</xref>). However, within benchmarking studies, SVM has not shown itself to be a top-performing model. For example, <xref ref-type="bibr" rid="B64">Vitsios and Petrovski (2019)</xref> found it had the lowest AUC (0.83, only slightly lower than the top-performing random forest at 0.85) of their seven models, while <xref ref-type="bibr" rid="B26">Kafaie et al. (2019)</xref> found SVM performed better than random forest yet worse than logistic regression. The varying performance of SVM also highlights the importance of input data, as <xref ref-type="bibr" rid="B26">Kafaie et al. (2019)</xref> were one of the only studies to focus on comparing feature selection methods as well as models. <xref ref-type="bibr" rid="B26">Kafaie et al. (2019)</xref> found SVM performed well given certain features, whilst in comparison logistic regression had a more stable high performance regardless of external selection, emphasizing the value of logistic regression’s internal feature selection via regularization.</p>
+<p>Deep learning has also been explored for prioritization, this method can increase sensitivity in larger datasets due to the methods ability to incrementally capture abstract representations of high-level information. In general, this is beneficial for GWAS prioritization where the data is growing dramatically in size and heterogeneity with increasing annotations post-GWAS, and also has few labeled samples (known disease causing variants/genes) for supervised learning. Deep learning becomes advantageous in this scenario as it identifies complex patterns via supervised and unsupervised learning from large datasets (<xref ref-type="bibr" rid="B41">Najafabadi et al., 2015</xref>) and can be applied for further insights into GWAS data. However, whilst deep learning enables the consideration of millions of parameters, its application to date has mostly flourished in image classification and natural language processing (<xref ref-type="bibr" rid="B67">Zeng et al., 2018</xref>;<xref ref-type="bibr" rid="B1">Aung et al., 2019</xref>; <xref ref-type="bibr" rid="B20">Hampe et al., 2019</xref>), requiring an investment in its development and benchmarking with traditional models for developing GWAS application. A deep neural network (ExPecto) applied by <xref ref-type="bibr" rid="B68">Zhou et al. (2018)</xref> prioritized causal variants for immune-related diseases using sequence-based features. This dataset contained more than 140 million promoter-proximal mutations, and allowed for the unidirectional flow of information from base-sequence to functional predictions which enabled variant prioritization. To approach this large dataset ExPecto applies spatial transformation to the data, weighting transformations based on transcription start site distances. This was performed on a tissue-specific basis of over 200 tissues (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>), providing hundreds of features for the model to process. ExPecto is also able to perform pattern recognition and prioritization of rare and unobserved variants. However, whilst models are selected based on their suitability to the data, performance can also be dependent on class balance and data quality available.</p>
+<p>Predominantly, ML studies use cross-validation to ensure a reliable estimate of model performance. However, with GWAS data commonly lacking functionally validated disease causing variants and genes, there are minimal learning opportunities for supervised models. Oversampling or undersampling techniques can be used to address class imbalance. <xref ref-type="bibr" rid="B58">Schubach et al. (2017)</xref> developed a hyper-ensemble model (hyperSMURF) using random forests with imbalance-awareness by using both under- and oversampling. By balancing the training data classes, and exposing the base learners in the hyper-ensemble to different training datasets, the random forests are able to diversify their understanding of the data, improving accuracy regardless of data size. Using hyperSMURF they prioritized thousands of GWAS variants annotated with 1,842 features. Their sampling techniques created balanced training data, where the original GWAS data had a 1:700 label imbalance. However, oversampling techniques develop synthetic samples based on example data points to increase the minority class size, which can create overfitting. <xref ref-type="bibr" rid="B58">Schubach et al. (2017)</xref> addressed this by preventing example variants of the same location/gene to occur in the training and test sets, minimizing the oversampling bias.</p>
+<p>Whilst only one post-GWAS prioritization study has focused on class imbalance (<xref ref-type="bibr" rid="B58">Schubach et al., 2017</xref>), several have targeted data quality with a focus on data labeling. For example, positive unlabeled learning is semi-supervised learning with only positive labeled examples, a common occurrence for GWAS data where only a few causal genes have been functionally validated. For positive unlabeled learning overfitting is avoided using approaches such as classing unlabeled samples as negative and bootstrapping random samples. <xref ref-type="bibr" rid="B64">Vitsios and Petrovski (2019)</xref> applied positive labels to disease genes from the HPO with further validating clinician confirmation, and treated any unlabeled genes as negative samples. They then conducted random sampling of positive and unlabeled samples, aiming to equalize the ratios of the positive and negative genes to expose their models to a balanced dataset. <xref ref-type="bibr" rid="B40">Mordelet and Vert (2011)</xref> also applied their model (ProDiGie) using positive unlabeled learning. Whilst they only had minimal positive samples per disease, the model shared information across diseases – enabling it to use information from causal genes for closely related diseases in prioritization. Despite these benefits, positive unlabeled learning is limited by prior knowledge of known causal genes, leading to potential false negatives, and unlikely scenarios for a model to prioritize genes in novel mechanisms.</p>
+<p>Overall, there is a need for benchmarking in order to select the model best suited to the data, and for post-GWAS prioritization the optimal model currently varies across diseases without a one-size-fits-all winner. An optimal model also hinges on data size and quality for reliability and performance, with studies varying in data size and choice of features – from using hundreds of selected features (<xref ref-type="bibr" rid="B24">Isakov et al., 2017</xref>) to others exploring tens of thousands (<xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>). Further <italic>in silico</italic> methods need to address these aspects of ML, the lack of functionally validated associated genes at the disposal of ML, and how features are used in order to build a model tailored to post-GWAS prioritization.</p>
+</sec>
+<sec id="S3">
+<title>Feature Curation</title>
+<p>To fine-tune a model, researchers must perform data curation and feature quality control to achieve the best possible performance. GWAS associations are typically annotated to a wide range of biological annotations. Biological features range from eQTL (expression quantitative trait loci), RNA, epigenetic, and protein data to describe a variant or gene’s functionality. For example, several studies use eQTL data, providing tissue-specific and population-specific insight, with researchers noting the use of eQTLs can improve the ability for models to distinguish single causal genes within a locus (<xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>). For example, <xref ref-type="bibr" rid="B45">Ning et al. (2015)</xref> built a logistic regression for prioritizing Crohn’s disease associated genes. They found that integration of eQTL data with GWAS data provided an overlap of information between the two that strengthened model performance. Furthermore, the cataloging of eQTLs mapped to non-coding RNA provides a better insight into how non-coding RNA affects gene expression (<xref ref-type="bibr" rid="B4">Branco et al., 2018</xref>), increasing the strength of regulatory information at the disposal of ML models. The growing integration of related biological features suggest this will provide clearer insight for models to be able to pinpoint the most likely disease causing genes in a locus (<xref ref-type="bibr" rid="B4">Branco et al., 2018</xref>; <xref ref-type="bibr" rid="B9">Dai et al., 2019</xref>).</p>
+<p>Other features used by studies are those provided by GO and Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway database. <xref ref-type="bibr" rid="B38">Merelli et al. (2013)</xref> built SNPranker using terms from GO and KEGG to prioritize variants across diseases via a genetic algorithm. This model focuses on user-guided optimization, which is beneficial as SNPranker also takes features from data mining, allowing the researcher to adjust feature weights to minimize bias. <xref ref-type="bibr" rid="B38">Merelli et al. (2013)</xref> also focus on sharing information across ontologies, illuminating similar genes to those with known functional causality, indicating that this can grow the causal gene list (<xref ref-type="bibr" rid="B38">Merelli et al., 2013</xref>). Despite this possibility of increasing the model’s training data, expanding a list of causal genes based on known biological processes alone is likely to create susceptibility to bias and weaker model performance – as the model is then less able to prioritize loci within novel systems which may be affecting a phenotype.</p>
+<p>The use of other biological features, e.g., RNA and epigenomic features, has also grown in recent years. These features may provide further insights into associated loci located in non-coding regions. For example, researchers developed and combined models GenoWAP and GenoSkyline (<xref ref-type="bibr" rid="B35">Lu et al., 2016a</xref>; <xref ref-type="bibr" rid="B6">Casas et al., 2005</xref>). Both methods use unsupervised learning – GenoWAP performs GWAS prioritization and GenoSkyline integrates tissue-specific and epigenomic annotations for predicting tissue-specific functional regions. They found these annotations showed both functional and non-functional tissue-specific variants were enriched, suggesting LD between variants in both regions (<xref ref-type="bibr" rid="B36">Lu et al., 2016b</xref>). For example, one schizophrenia associated locus within an intergenic region, upstream of <italic>MMP16</italic>, had high prioritization by GenoWAP in brain tissue (<xref ref-type="bibr" rid="B36">Lu et al., 2016b</xref>). This result is then augmented as GenoSkyline predicted that this locus plays a role in the functional regions downstream, offering new targets for further research. However, they concluded that their results can be improved with cell-specific data. Since GenoWAP, the ExPecto tool was built to make cell-type-specific predictions with high accuracy which it uses for variant prioritization, providing a novel method for generating cell-specific data <italic>in silico</italic> (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>). Whilst this method of predicting cell-specific data is disadvantageous to manual curation, the systematic collection of cell-specific data is in development and standardized resources have not been widely applied to post-GWAS analysis. Methods such as ExPecto provide a starting point for cell-specific curation and also a potential benchmark for the manual curation as it develops.</p>
+<p>Alongside general biological characterization, disease-specific data is gradually increasing, further enabling accurate prioritization of GWAS associated loci. <xref ref-type="bibr" rid="B64">Vitsios and Petrovski (2019)</xref> for example prioritized chronic kidney disease genes, using annotations from the Chronic Kidney Disease database among their features to improve stratification. Algorithmic scorings are also used for prioritization (e.g., Eigen, CADD, DANN, GWAVA, DeepSea). These scorings predict pathogenicity of variants based on their expected functional consequences, and have been used to aid variant prioritization, however, to the best of our knowledge this is only been demonstrated by <xref ref-type="bibr" rid="B28">Khan et al. (2018)</xref>, requiring further exploration into their benefits as features in ML prioritization.</p>
+<p>Beyond data collection, studies also need to consider feature importance and feature selection to gain an understanding of models “under-the-hood” This is often a part of why researchers choose L1 regularized logistic regression, which automatically performs feature selection. Several studies have used logistic regression, such as <xref ref-type="bibr" rid="B24">Isakov et al. (2017)</xref> with using the elastic net, who found positive feature coefficients (predicting causal genes) were highest for immune and inflammatory response features from GO. Recently <xref ref-type="bibr" rid="B18">Gettler et al. (2019)</xref> also used logistic regression – as part of their gene prioritization regression model (GPRM) – to prioritize genes for Crohn’s disease. While <xref ref-type="bibr" rid="B18">Gettler et al. (2019)</xref> do not discuss the impact of feature importance, they note that GO enrichment analysis showed immune and inflammatory genes were significantly enriched. This enrichment is to be expected from an autoimmune disease, however, it also suggests validation for the feature importance found by <xref ref-type="bibr" rid="B24">Isakov et al. (2017)</xref>. <xref ref-type="bibr" rid="B37">Maciukiewicz et al. (2018)</xref> applied L1 logistic regression to identify significant features, and followed-up with SVM for predicting causal variants for duloxetine response in major depressive disorder. They found a non-coding RNA annotation had the largest positive coefficient. However, unlike the study of IBDs, <xref ref-type="bibr" rid="B37">Maciukiewicz et al. (2018)</xref> is the first prioritization study to focus on their drug response phenotype, requiring further work to validate feature importance and begin to suggest how that may fit into biological understanding of GWAS results. There is also work focused primarily on improving feature selection for GWAS data (<xref ref-type="bibr" rid="B61">Szymczak et al., 2016</xref>; <xref ref-type="bibr" rid="B44">Nembrini et al., 2018</xref>). For example, random forests provide feature importance measures and have been investigated by <xref ref-type="bibr" rid="B61">Szymczak et al. (2016)</xref>. They developed a recurrent relative variable importance measure from random forest to rank important variants in GWAS. This focus on feature importance developed a useful tool for highlighting loci deserving of functional-follow up and could be used to reduce false positive GWAS results (<xref ref-type="bibr" rid="B61">Szymczak et al., 2016</xref>). The only other study investigating feature importance in prioritization has been SNPranker, with <xref ref-type="bibr" rid="B38">Merelli et al. (2013)</xref> finding epigenetic features (namely enhancer, CpG islands, and DNase cluster data) had the highest importance for default prioritization. Additionally to a model’s internal feature weightings, permutation is also able to provide feature importance, doing so for any model by shuffling feature values and viewing model error rate. <xref ref-type="bibr" rid="B64">Vitsios and Petrovski (2019)</xref> use permutation via the boruta algorithm, which creates synthetic features from random permutation to weigh the importance of original features and remove any unimportant annotations. For all studies incorporating feature selection or importance they note an improvement in model performance or understanding of their predictive reasoning.</p>
+</sec>
+<sec id="S4">
+<title>Prioritization of Variants and Candidate Genes</title>
+<p>Prioritization methods post-GWAS have had development for several models that aim to be applicable for multiple diseases – e.g., ExPecto (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>), GenoWAP (<xref ref-type="bibr" rid="B36">Lu et al., 2016b</xref>), HyperSMURF (<xref ref-type="bibr" rid="B58">Schubach et al., 2017</xref>), and SNPRanker (<xref ref-type="bibr" rid="B38">Merelli et al., 2013</xref>). For example, ExPecto used all publicly available GWAS data for prioritizing variants for Crohn’s disease, ulcerative colitis, Behçet’s disease, and hepatitis B virus (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>). On prioritization they found highly ranked variants were also most likely to be replicated across GWAS. For Crohn’s disease the top prioritized variant by ExPecto was rs1174815 (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>), yet neither the variant or gene (<italic>IRGM</italic>) has been highly prioritized by any other study focusing on Crohn’s disease. In comparison with other model rankings for Crohn’s disease loci, there are only a handful of genes that have been highly prioritized in more than one study. An example of this is <italic>GSDMB</italic>, a gasdermin gene known to affect apoptosis in epithelial cells. GPRM prioritized this gene, alongside ExPecto prioritizing a variant in <italic>GSDMB</italic> (rs58989791) (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>; <xref ref-type="bibr" rid="B18">Gettler et al., 2019</xref>). This prioritization has aligned with experimental work recently focusing on <italic>GSDMB</italic> in IBDs, finding an increase in the gene’s expression may have a developmental role for IBDs (<xref ref-type="bibr" rid="B50">Rana and Pizarro, 2019</xref>). Another disease that has been prioritized by multiple studies is Alzheimer’s disease, for which models consistently prioritize <italic>APOE</italic> (<xref ref-type="bibr" rid="B40">Mordelet and Vert, 2011</xref>; <xref ref-type="bibr" rid="B65">Wang et al., 2013</xref>; <xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>). However, this questions model training in these studies, as <italic>APOE</italic> has been reported as affecting Alzheimer’s disease as early as 1993 (<xref ref-type="bibr" rid="B57">Schmechel et al., 1993</xref>).</p>
+<p>An issue with prioritizing variants and genes is the ability to ascertain if the model predictions are accurate. <xref ref-type="bibr" rid="B58">Schubach et al. (2017)</xref> address this by prioritizing regulatory variants for both mendelian diseases and complex diseases, for which the mendelian disease variants had been validated with a biomedical literature review. They found hyperSMURF consistently out-performed other methods (Eigen, GWAVA, CADD, and DeepSea) on both mendelian and GWAS data, suggesting minimized risk of overfitting and the potential for ML to be able to generalize across datasets. In terms of performance metrics, <xref ref-type="bibr" rid="B58">Schubach et al. (2017)</xref> also explore multiple measurements – F1 score, AUROC, precision, recall, and the area under the precision-recall curve (AUPRC) – however, other studies primarily use AUROC. Whilst AUROC is an excellent metric in many cases, it can be highly misleading for imbalanced datasets like those commonly found in GWAS prioritization (<xref ref-type="bibr" rid="B25">Jeni et al., 2013</xref>; <xref ref-type="bibr" rid="B55">Saito and Rehmsmeier, 2015</xref>). Precision-recall curves are a popular alternative in cases of extreme class imbalance, with <xref ref-type="bibr" rid="B58">Schubach et al. (2017)</xref> applying these in combination with other metrics in a particularly rigorous approach. Studies focused on addressing imbalanced data are important for developing reliable GWAS applications, and continuing to focus on imbalance-aware approaches will reinforce the reliability of model predictions as much as possible <italic>in silico</italic>.</p>
+<p>In order to establish model capability past performance metrics, a prioritized variant or gene’s causality can be evidenced with functional follow-up. For example, <xref ref-type="bibr" rid="B34">Lin et al. (2019)</xref> developed RegSNPs-Intron which was a random forest prioritizing intronic variants associated to cellular sensitivity to clofarabine-induced cytotoxicity – with the model primarily relying on splicing data. After prioritization they performed ASSET-seq (ASsay for Splicing using ExonTrap and sequencing), which measures the impact of splicing on an intronic variant. They found 63 out of 82 experimentally tested variants had a significant splicing impact in multiple cell lines (<xref ref-type="bibr" rid="B34">Lin et al., 2019</xref>), suggesting further directions for functional study and validating the RegSNPs-Intron’s prioritization. <xref ref-type="bibr" rid="B68">Zhou et al. (2018)</xref> also performed experimental follow-up, looking at their top prioritized variants with a luciferase assay. This confirmed prioritized variants affect regulatory activity – e.g., variant rs381218 prioritized to affect chronic hepatitis B virus had a significant change in reporter activity, predicted also by ExPecto to impact <italic>HLA-DOA</italic> (<xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>). These functional results improve the interpretation of potential regulatory roles for prioritized loci by validating prioritizations <italic>in vitro</italic>, enabling hypotheses produced by ML to be confirmed and further expanded upon.</p>
+</sec>
+<sec id="S5">
+<title>Past and Present Cardiovascular Machine Learning Prioritization</title>
+<p>ML approaches for post-GWAS prioritization have been applied over the last decade, with applications providing the projected outputs expected from GWAS with biological insights and translational results. In 2014, <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> applied OPEN to prioritize 38 phenotypes, many of which were CVD traits. CVD is a particularly appropriate example to investigate, due to its high powered GWAS with thousands of associated loci, presenting a large benefit to gain from ML prioritization. To the best of our knowledge, this is the only ML study that includes CVD traits. OPEN was applied to prioritize BP associated loci, for which several of its highly ranked genes have since been studied in laboratory experiments and leading to insights on biological mechanisms with possible translational impacts. <italic>NPR3</italic> was the second prioritized gene to affect BP by <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref>. At the time of prioritization GWAS was one line of evidence showing a relationship between <italic>NPR3</italic> and BP, however, <xref ref-type="bibr" rid="B51">Ren et al. (2018)</xref> focused on this gene’s functional roles in vascular smooth muscle. They found variants at this locus were associated with reduced <italic>NPR3</italic> mRNA and changes to chromatin structure, supporting a regulatory role leading to increases in vascular smooth muscle proliferation and suggesting a mechanism which can be a therapeutic target for BP. Overall with examining the top ten prioritized BP genes by <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> (<italic>ANTXR2</italic>, <italic>NPR3</italic>, <italic>MECOM</italic>, <italic>PLCE1</italic>, <italic>ENPEP</italic>, <italic>PDGFRA</italic>, <italic>CACNB2</italic>, <italic>ARID5B, MRVI1</italic>, and <italic>GUCY1B3</italic>) eight of the associations have been validated by GWAS and mechanisms characterized by experimental work and indicate effects on BP (<xref ref-type="bibr" rid="B53">Rippe et al., 2017</xref>; <xref ref-type="bibr" rid="B62">Takeuchi et al., 2018</xref>; <xref ref-type="bibr" rid="B19">Giri et al., 2019</xref>; <xref ref-type="bibr" rid="B29">Kichaev et al., 2019</xref>) – only <italic>ANTXR2</italic><sup><xref ref-type="fn" rid="footnote2">2</xref></sup> and <italic>PDGFRA</italic><sup><xref ref-type="fn" rid="footnote3">3</xref></sup> have not been validated in recent BP GWAS. The gene <italic>GUCY1B3</italic>, ranked tenth by <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref>, and <italic>JAG1</italic> (ranked 11th) have consistently been studied in relation to BP and nitric oxide regulation (<xref ref-type="bibr" rid="B52">Rippe et al., 2019</xref>). <xref ref-type="bibr" rid="B53">Rippe et al. (2017)</xref> identified both genes as affecting Notch pathway signaling in the aorta of mice, rats and humans – this study provided further insight into each gene’s activity across species. Interestingly, variants at <italic>MRVI1</italic> (ranked eighth) have been found to be genome-wide significant in an arterial stiffness GWAS (<xref ref-type="bibr" rid="B16">Fung et al., 2019</xref>), implying a possible relation to BP and opportunity for follow-up investigation such as with colocalization analyses (<xref ref-type="bibr" rid="B27">Kanduri et al., 2019</xref>).</p>
+<p>OPEN also ranked genes without high prioritization but have since been demonstrated to be important to BP regulation and have clinical significance (<xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>). An example of this is uromodulin (<italic>UMOD</italic>), which <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> prioritized approximately in the middle of their rankings of hundreds of associated genes affecting BP. <italic>UMOD</italic> has been replicated in GWAS (<xref ref-type="bibr" rid="B14">Evangelou et al., 2018</xref>) and is a target currently being tested in a clinical trial for its interaction with NKCC2 in hypertension – as <italic>UMOD</italic> genotypes of increased or decreased expression affect salt sensitivity in the kidney and a person’s propensity for hypertension.</p>
+<p>Aside from BP, <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> also report success for other cardiac conditions that have additional evidence and support today. <italic>FLNC</italic> was prioritized as affecting left ventricular diameter. <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> investigated <italic>FLNC</italic> further in a zebrafish model, finding knocked down <italic>FLNC</italic> showed cardiac abnormalities and hypertrophy, and also found one dilated cardiomyopathy patient (who had no known dilated cardiomyopathy gene mutations) with a splice-site mutation in <italic>FLNC</italic>. This work aligned with <italic>FLNC</italic> gaining functional cardiovascular research attention, with its role in cardiomyopathies also being first discovered in 2014 (<xref ref-type="bibr" rid="B63">Valdes-Mas et al., 2014</xref>). This result validates OPEN’s high performance for cardiomyopathies (AUCROCs of 0.88 and 0.96), with its performance ranging from 0.75 to 0.9 for all other cardiac traits. Notably, <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> used known causal genes as their training examples for cardiomyopathies, unlike the use of GWAS associated genes in the training data for other phenotypes, implying the benefit of using well-curated input data.</p>
+<p>The insights into the functions of prioritized genes since 2014 indicate the potential of ML for guiding hypothesis generation, but also outline examples of the experimental work ahead for validating the biological mechanisms of such ranked genes in order to confidently identify drug targets post-GWAS. With 451 BP associated genes gathered by <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> in comparison to 2,993 validated associated genes in 2019 (<xref ref-type="bibr" rid="B14">Evangelou et al., 2018</xref>; <xref ref-type="bibr" rid="B19">Giri et al., 2019</xref>), this suggests that re-running OPEN now with updated data would provide interesting results detailing which genes have withstood the test of time in terms of maintaining their ranking.</p>
+</sec>
+<sec id="S6">
+<title>Discussion</title>
+<p>Machine learning is advancing rapidly but its applications in GWAS are still in their infancy with respect to becoming gold standard methods producing consistently validated biological insights. This review has focused on post-GWAS ML prioritization methodologies ranging from model selection and input features, to performance assessment and output prioritization results. For model selection several studies explore only one algorithm without comparison. Studies using benchmarking comparisons with several models offer a form of standardization for selection, contributing to research transparency which is crucial for work justifying investment in functional study. Recent studies are more frequently incorporating benchmarking comparison showing the development of robust methodology in this field (<xref ref-type="bibr" rid="B24">Isakov et al., 2017</xref>; <xref ref-type="bibr" rid="B26">Kafaie et al., 2019</xref>; <xref ref-type="bibr" rid="B64">Vitsios and Petrovski, 2019</xref>).</p>
+<p>The feature curation also needs improved interpretation of selected features and their importance, as current work highlights the need to account for bias within biological features, and the requirement for continued upkeep of biological data. This interlinks with a broader demand for standardized use of recently discovered datatypes, as prioritization studies differ in their resources, hindering the interpretation of model performance. For example with growing epigenomics resources, <xref ref-type="bibr" rid="B7">Cazaly et al. (2019)</xref> note this is leading to research using varying standardization methods. How that data is collected and recorded then also affects the reliability of ML methods and comparison of model performances. This point can also be made for models such as ExPecto or iMEGES firstly applying variant prediction which feeds into gene prioritization as a feature (<xref ref-type="bibr" rid="B28">Khan et al., 2018</xref>; <xref ref-type="bibr" rid="B68">Zhou et al., 2018</xref>), as there is a risk of the predicted features overfitting, and those features then not being reproducible.</p>
+<p>There are also datatypes, such as clinical datasets and wider ranges of omics data which are underrepresented in ML prioritization studies. Studies focus on genomic features, however, the contributions of transcriptomic, epigenomic and proteomic data are less frequently investigated. This lack is contrasted by studies solely integrating wide-ranging omics data to calculate GWAS prioritization scores (<xref ref-type="bibr" rid="B2">Ayalew et al., 2012</xref>; <xref ref-type="bibr" rid="B8">Ciesielski et al., 2014</xref>) – and identifies potential for collaboration with ML to improve data integration methods. To date ML studies highlight the benefits of multi-omic integration, but few directly investigate that need (<xref ref-type="bibr" rid="B38">Merelli et al., 2013</xref>; <xref ref-type="bibr" rid="B9">Dai et al., 2019</xref>). Building this multi-omic range of data could improve accuracy and provide information specifying not only the most likely causal genes, but the biological functions contributing to their causality. With current data and research there is a disconnect between prioritization of genes and identification of the mechanism that links a feature to gene/variant causality, which could benefit hypothesis specification in functional work.</p>
+<p>As high quality disease-specific data becomes increasingly available to fine-tune model training, ML models may become more efficient in the prioritization of heterogenous data to identify the most likely causal disease genes. However, reliance on specific annotations presents a challenge for the prioritization of novel genes and hence novel mechanisms without prior knowledge. More generally, models including data mining features are also susceptible to this issue, as they contribute to a bias for prioritizing already characterized genes in known disease pathways. These already researched genes may be highly ranked not due to impactful biological knowledge but simply due to having a wealth of study. Overall how feature curation is implemented is a key factor to the developing success of ML applications for GWAS, especially when considering imbalanced data where positively labeled disease genes and variants are limited. This highlights the need for high quality gene annotation and disease resources – if features are not accurately researched and curated, the potential for models to accurately prioritize GWAS results will be diminished, ultimately ML methods are limited by the quality and quantity of input training data.</p>
+<p>When comparing output prioritizations there is a need to appraise the quality of the training data, understanding which genes/variants are included and how they might impact prediction. For example with the prioritization of <italic>APOE</italic> by models for Alzheimer’s disease (<xref ref-type="bibr" rid="B40">Mordelet and Vert, 2011</xref>; <xref ref-type="bibr" rid="B65">Wang et al., 2013</xref>; <xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>), it could also be argued that this validates the model performance, as this gene is expected to be prioritized. However, the studies prioritizing Alzheimer’s disease genes do not provide their training and testing data to explore this further (<xref ref-type="bibr" rid="B40">Mordelet and Vert, 2011</xref>; <xref ref-type="bibr" rid="B65">Wang et al., 2013</xref>; <xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>), showing the need to improve reproducibility. More recent studies prioritizing different phenotypes are beginning to provide both their data and source code, such as <xref ref-type="bibr" rid="B28">Khan et al. (2018)</xref>, enabling the development of more accessible and reliable tools. This development is essential for applications to be used and interpreted by non-computer scientists and for the output biological findings to have a traceable reasoning as to why they were prioritized.</p>
+<p>On investigating OPEN’s prioritizations and comparing them with more recent research, it emphasizes the potential for post-GWAS ML to give GWAS results a wider-impact contribution to complex diseases. The accuracy of the model across multiple diseases identifies the possibility that one model can be applied to several diseases successfully. Furthermore, the early prioritization of diagnostic genes such as <italic>FLNC</italic> shows the power of ML which, when combined with functional follow-up building biological insights, can lead into translational impacts. However, OPEN also showed genes which upon recent review were mis-prioritized (<italic>UMOD</italic> and <italic>ANTXR2</italic>). This ranking may be due to <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> using GWAS results as part of their training data with them also noting that their features may be too weak to prioritize genes a part of novel mechanisms for a pathology (<xref ref-type="bibr" rid="B12">Deo et al., 2014</xref>). These misjudged genes highlight flaws applicable for all ML models, with reliance on current biological data, requiring that data to be high quality for reliable loci prioritization.</p>
+<p>For future applications ML can learn from work such as <xref ref-type="bibr" rid="B12">Deo et al. (2014)</xref> in combination with more recent work on larger datasets, e.g., <xref ref-type="bibr" rid="B68">Zhou et al. (2018)</xref>. Research can develop models aiming to be applied across diseases, and re-used by other researchers, with consideration for the size of present GWAS data, varying datatypes, and feature importance. Doing so could then lead to more accessible, reusable models – for example with source code or web-interfaces that are useable by a wider range of GWAS researchers – and create more globally implemented ML applications for GWAS prioritization, thus accelerating researchers towards the post-GWAS endgame of understanding disease.</p>
+<p>With the creation of accessible models, a role for ML prioritization in personalizing medicine can develop. For example, ML could potentially be used to augment genetic risk scores, identifying which genes contribute to a person’s high risk score, and offering more information at the disposal of clinicians. To build ML tools to a clinically acceptable standard, however, requires comparison with other prioritization methods and ensuring model interpretability. One of the most common other methods used in post-GWAS prioritization is network analysis. This method builds networks ranging from the gene to protein level, enabling a flow of information from GWAS to protein and metabolic pathways (<xref ref-type="bibr" rid="B30">Leal et al., 2019</xref>). However, studies note that gene networks can contain noise, and the analysis is confounded by its aggregation of GWAS data to the gene level, causing a loss of variant information (<xref ref-type="bibr" rid="B66">Wu et al., 2018</xref>; <xref ref-type="bibr" rid="B30">Leal et al., 2019</xref>). Machine learning offers an improvement for this with data integration, that can preserve variant information, and with the ability to handle noisy data. Another method identifying causality is Mendelian randomization, although in some cases this can provide a clear illustration of risk, such as the link between homocysteine concentration and stroke risk (<xref ref-type="bibr" rid="B6">Casas et al., 2005</xref>), it is limited to high risk variants and independent variables (<xref ref-type="bibr" rid="B21">Haycock et al., 2016</xref>). In comparison, unlike other computational methods, the choices ML models make for prioritization are not always clearly available to be understood by the user. However, ML has also been applied in combinational approaches with network modeling (<xref ref-type="bibr" rid="B26">Kafaie et al., 2019</xref>) and Mendelian randomization for causal inference (<xref ref-type="bibr" rid="B22">Hemani et al., 2017</xref>) to overcome the disadvantages of a singular method. Hybrid approaches such as these highlight the many avenues of ML research to be explored for developing optimal GWAS prioritization. Aside from method comparison, improving data curation, and model benchmarking, the interpretability of models is a critical challenge for future research, and one of the largest obstacles for GWAS prioritization by ML to gain widespread reliable use. Developing model interpretability will involve a strong understanding of not only a model’s mechanics but of feature importance and known disease causing genes given in model training – requiring an interdisciplinary effort to explore the potential of ML post-GWAS prioritization in full.</p>
+</sec>
+<sec id="S7">
+<title>Key Concepts</title>
+<p><bold>Supervised learning:</bold> Models learn from labeled training data. Labeled positive and negative examples in training allow a model to practice decision-making before being assessed on new “testing” data.</p>
+<p><bold>Unsupervised learning:</bold> Models learn from unlabeled data. The models recognize patterns between samples that can identify clusters or outliers.</p>
+<p><bold>Semi-supervised learning:</bold> Models use both labeled and unlabeled data during training to perform pattern recognition. This is usually with a larger amount of unlabeled data than labeled data and enables techniques such as positive unlabeled learning.</p>
+<p><bold>Overfitting:</bold> When a model performs well on training data but poorly on test data. Some amount of overfitting is inevitable, but extreme cases can render a model useless.</p>
+<p><bold>Cross-validation:</bold> A procedure for assessing generalization error. Data are split into <italic>k</italic> subsets (or folds) of roughly equal size. Train <italic>k</italic> separate models with each fold held out once for testing. Average error across the <italic>k</italic> trials is reported.</p>
+<p><bold>Class imbalance:</bold> When the ratio of positive to negative labels is far from one, creating less opportunity for a model to learn from the minority class. Imbalance-aware methods perform undersampling or oversampling of majority and minority classes, respectively, to balance the dataset.</p>
+<p><bold>Sensitivity:</bold> The number of true positive samples correctly classified by a model. Also known as the true positive rate or recall.</p>
+<p><bold>Specificity:</bold> The number of true negative samples correctly classified by a model. Also known as the true negative rate or selectivity.</p>
+<p><bold>Precision:</bold> The ratio of true positives to declared positives. Also known as the positive predictive value, and equal to the complement of the false discovery rate.</p>
+<p><bold>AUROC:</bold> Area under the receiver operating characteristic curve, which illustrates the tradeoff between sensitivity and specificity. Can be interpreted as the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one.</p>
+<p><bold>AUPRC:</bold> Area under the precision-recall curve, which illustrates the tradeoff between precision and recall; useful when classes are imbalanced.</p>
+</sec>
+<sec id="S8">
+<title>Conclusion</title>
+<p>Machine Learning is gradually proving itself to be a valuable tool for post-GWAS analysis, as methodology and high quality training data iterates, ML is showing increasingly optimized performance for prioritizing loci. It has begun to output results which have been validated by showing clinical impact. For complex diseases such as CVD, its ability to generate hypotheses has streamlined functional work that has led to biological insights – enabling the unraveling of how the predominantly non-coding associated loci may affect cardiovascular health. However, before ML models can consolidate their role in the post-GWAS analyses, research needs to address several aspects ranging from performance (including model benchmarking and fine-tuning), reproducibility, and accessibility. There also needs to be greater comparison between ML and other prioritization methods in order to understand ML’s place in the post-GWAS pipeline and enable GWAS to truly provide the projected biological insights and translational capability that it has so long promised.</p>
+</sec>
+<sec id="S9">
+<title>Author Contributions</title>
+<p>HN, PM, MB, and CC outlined and drafted the manuscript. All authors contributed and provided critical review of the manuscript.</p>
+</sec>
+<sec id="conf1">
+<title>Conflict of Interest</title>
+<p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn fn-type="financial-disclosure">
+<p><bold>Funding.</bold> HN is funded by the British Heart Foundation as part of their Ph.D. program at Barts and The London School of Medicine and Dentistry. CC and MRB are funded by the National Institute for Health Research (NIHR) as part of the portfolio of translational research of the NIHR Biomedical Research Centre at Barts and The London School of Medicine and Dentistry. PM acknowledges support from the National Institute for Health Research (NIHR).</p>
+</fn>
+</fn-group>
+<ack>
+<p>We would like to dedicate this manuscript to our friend and colleague, Chris John.</p>
+</ack>
+<fn-group>
+<fn id="footnote1">
+<label>1</label>
+<p>
+<ext-link ext-link-type="uri" xlink:href="https://www.ebi.ac.uk/gwas/">https://www.ebi.ac.uk/gwas/</ext-link>
+</p>
+</fn>
+<fn id="footnote2">
+<label>2</label>
+<p>
+<ext-link ext-link-type="uri" xlink:href="https://www.ebi.ac.uk/gwas/genes/ANTXR2">https://www.ebi.ac.uk/gwas/genes/ANTXR2</ext-link>
+</p>
+</fn>
+<fn id="footnote3">
+<label>3</label>
+<p>
+<ext-link ext-link-type="uri" xlink:href="https://www.ebi.ac.uk/gwas/genes/PDGFRA">https://www.ebi.ac.uk/gwas/genes/PDGFRA</ext-link>
+</p>
+</fn>
+</fn-group>
+<ref-list>
+<title>References</title>
+<ref id="B1">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname> Aung</surname><given-names>N.</given-names></name><name><surname>Vargas</surname><given-names>J. D.</given-names></name><name><surname>Yang</surname><given-names>C.</given-names></name><name><surname>Cabrera</surname><given-names>C. P.</given-names></name><name><surname>Warren</surname><given-names>H. R.</given-names></name><name><surname>Fung</surname><given-names>K.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Genome-wide analysis of left ventricular image-derived phenotypes identifies fourteen loci associated with cardiac morphogenesis and heart failure development.</article-title>
+<source/><italic>Circulation</italic>
+<volume>140</volume>
+<fpage>1318</fpage>–<lpage>1330</lpage>. <pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.119.041161</pub-id>
+<pub-id pub-id-type="pmid">31554410</pub-id></mixed-citation>
+</ref>
+<ref id="B2">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ayalew</surname><given-names>M.</given-names></name><name><surname>Le-Niculescu</surname><given-names>H.</given-names></name><name><surname>Levey</surname><given-names>D. F.</given-names></name><name><surname>Jain</surname><given-names>N.</given-names></name><name><surname>Changala</surname><given-names>B.</given-names></name><name><surname>Patel</surname><given-names>S. D.</given-names></name><etal></etal></person-group> (<year>2012</year>). <article-title>Convergent functional genomics of schizophrenia: from comprehensive understanding to genetic risk prediction.</article-title>
+<source/><italic>Mol. Psychiatry</italic>
+<volume>17</volume>
+<fpage>887</fpage>–<lpage>905</lpage>. <pub-id pub-id-type="doi">10.1038/mp.2012.37</pub-id>
+<pub-id pub-id-type="pmid">22584867</pub-id></mixed-citation>
+</ref>
+<ref id="B3">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Banegas</surname><given-names>J. R.</given-names></name><name><surname>Lopez-Garcia</surname><given-names>E.</given-names></name><name><surname>Dallongeville</surname><given-names>J.</given-names></name><name><surname>Guallar</surname><given-names>E.</given-names></name><name><surname>Halcox</surname><given-names>J. P.</given-names></name><name><surname>Borghi</surname><given-names>C.</given-names></name><etal></etal></person-group> (<year>2011</year>). <article-title>Achievement of treatment goals for primary prevention of cardiovascular disease in clinical practice across Europe: the EURIKA study.</article-title>
+<source/><italic>Eur. Heart J.</italic>
+<volume>32</volume>
+<fpage>2143</fpage>–<lpage>2152</lpage>. <pub-id pub-id-type="doi">10.1093/eurheartj/ehr080</pub-id>
+<pub-id pub-id-type="pmid">21471134</pub-id></mixed-citation>
+</ref>
+<ref id="B4">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Branco</surname><given-names>P. R.</given-names></name><name><surname>de Araujo</surname><given-names>G. S.</given-names></name><name><surname>Barrera</surname><given-names>J.</given-names></name><name><surname>Suarez-Kurtz</surname><given-names>G.</given-names></name><name><surname>de Souza</surname><given-names>S. J.</given-names></name></person-group> (<year>2018</year>). <article-title>Uncovering association networks through an eQTL analysis involving human miRNAs and lincRNAs.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>8</volume>:<issue>15050</issue>. <pub-id pub-id-type="doi">10.1038/s41598-018-33420-z</pub-id>
+<pub-id pub-id-type="pmid">30301969</pub-id></mixed-citation>
+</ref>
+<ref id="B5">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Breiman</surname><given-names>L.</given-names></name></person-group> (<year>2001</year>). <article-title>Random forests.</article-title>
+<source/><italic>Machine Learning</italic>
+<volume>45</volume>
+<fpage>5</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1023/A:1010933404324</pub-id></mixed-citation>
+</ref>
+<ref id="B6">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Casas</surname><given-names>J. P.</given-names></name><name><surname>Bautista</surname><given-names>L. E.</given-names></name><name><surname>Smeeth</surname><given-names>L.</given-names></name><name><surname>Sharma</surname><given-names>P.</given-names></name><name><surname>Hingorani</surname><given-names>A. D.</given-names></name></person-group> (<year>2005</year>). <article-title>Homocysteine and stroke: evidence on a causal link from mendelian randomisation.</article-title>
+<source/><italic>Lancet</italic>
+<volume>365</volume>
+<fpage>224</fpage>–<lpage>232</lpage>. <pub-id pub-id-type="doi">10.1016/S0140-6736(05)17742-3</pub-id>
+<pub-id pub-id-type="pmid">15652605</pub-id></mixed-citation>
+</ref>
+<ref id="B7">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cazaly</surname><given-names>E.</given-names></name><name><surname>Saad</surname><given-names>J.</given-names></name><name><surname>Wang</surname><given-names>W.</given-names></name><name><surname>Heckman</surname><given-names>C.</given-names></name><name><surname>Ollikainen</surname><given-names>M.</given-names></name><name><surname>Tang</surname><given-names>J.</given-names></name></person-group> (<year>2019</year>). <article-title>Making sense of the epigenome using data integration approaches.</article-title>
+<source/><italic>Front. Pharmacol.</italic>
+<volume>10</volume>:<issue>126</issue>. <pub-id pub-id-type="doi">10.3389/fphar.2019.00126</pub-id>
+<pub-id pub-id-type="pmid">30837884</pub-id></mixed-citation>
+</ref>
+<ref id="B8">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ciesielski</surname><given-names>T. H.</given-names></name><name><surname>Pendergrass</surname><given-names>S. A.</given-names></name><name><surname>White</surname><given-names>M. J.</given-names></name><name><surname>Kodaman</surname><given-names>N.</given-names></name><name><surname>Sobota</surname><given-names>R. S.</given-names></name><name><surname>Huang</surname><given-names>M.</given-names></name><etal></etal></person-group> (<year>2014</year>). <article-title>Diverse convergent evidence in the genetic analysis of complex disease: coordinating omic, informatic, and experimental evidence to better identify and validate risk factors.</article-title>
+<source/><italic>BioData Min</italic>
+<volume>7</volume>:<issue>10</issue>. <pub-id pub-id-type="doi">10.1186/1756-0381-7-10</pub-id>
+<pub-id pub-id-type="pmid">25071867</pub-id></mixed-citation>
+</ref>
+<ref id="B9">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dai</surname><given-names>Y.</given-names></name><name><surname>Pei</surname><given-names>G.</given-names></name><name><surname>Zhao</surname><given-names>Z.</given-names></name><name><surname>Jia</surname><given-names>P.</given-names></name></person-group> (<year>2019</year>). <article-title>A convergent study of genetic variants associated with Crohn’s disease: evidence from GWAS, gene expression, methylation, eQTL and TWAS.</article-title>
+<source/><italic>Front. Genet.</italic>
+<volume>10</volume>:<issue>318</issue>. <pub-id pub-id-type="doi">10.3389/fgene.2019.00318</pub-id>
+<pub-id pub-id-type="pmid">31024628</pub-id></mixed-citation>
+</ref>
+<ref id="B10">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Danese</surname><given-names>S.</given-names></name></person-group> (<year>2012</year>). <article-title>New therapies for inflammatory bowel disease: from the bench to the bedside.</article-title>
+<source/><italic>Gut</italic>
+<volume>61</volume>
+<fpage>918</fpage>–<lpage>932</lpage>. <pub-id pub-id-type="doi">10.1136/gutjnl-2011-300904</pub-id>
+<pub-id pub-id-type="pmid">22115827</pub-id></mixed-citation>
+</ref>
+<ref id="B11">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Demir-Kavuk</surname><given-names>O.</given-names></name><name><surname>Kamada</surname><given-names>M.</given-names></name><name><surname>Akutsu</surname><given-names>T.</given-names></name><name><surname>Knapp</surname><given-names>E. W.</given-names></name></person-group> (<year>2011</year>). <article-title>Prediction using step-wise L1, L2 regularization and feature selection for small data sets with large number of features.</article-title>
+<source/><italic>BMC Bioinform.</italic>
+<volume>12</volume>:<issue>412</issue>. <pub-id pub-id-type="doi">10.1186/1471-2105-12-412</pub-id>
+<pub-id pub-id-type="pmid">22026913</pub-id></mixed-citation>
+</ref>
+<ref id="B12">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Deo</surname><given-names>R. C.</given-names></name><name><surname>Musso</surname><given-names>G.</given-names></name><name><surname>Tasan</surname><given-names>M.</given-names></name><name><surname>Tang</surname><given-names>P.</given-names></name><name><surname>Poon</surname><given-names>A.</given-names></name><name><surname>Yuan</surname><given-names>C.</given-names></name><etal></etal></person-group> (<year>2014</year>). <article-title>Prioritizing causal disease genes using unbiased genomic features.</article-title>
+<source/><italic>Genome Biol.</italic>
+<volume>15</volume>:<issue>534</issue>. <pub-id pub-id-type="doi">10.1186/s13059-014-0534-8</pub-id>
+<pub-id pub-id-type="pmid">25633252</pub-id></mixed-citation>
+</ref>
+<ref id="B13">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dietterich</surname><given-names>T. G.</given-names></name></person-group> (<year>2000</year>). <article-title>Ensemble methods in machine learning.</article-title>
+<source/><italic>Mult. Classifier Syst.</italic>
+<volume>1857</volume>
+<fpage>1</fpage>–<lpage>15</lpage>.</mixed-citation>
+</ref>
+<ref id="B14">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Evangelou</surname><given-names>E.</given-names></name><name><surname>Warren</surname><given-names>H. R.</given-names></name><name><surname>Mosen-Ansorena</surname><given-names>D.</given-names></name><name><surname>Mifsud</surname><given-names>B.</given-names></name><name><surname>Pazoki</surname><given-names>R.</given-names></name><name><surname>Gao</surname><given-names>H.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Genetic analysis of over 1 million people identifies 535 new loci associated with blood pressure traits.</article-title>
+<source/><italic>Nat. Genet.</italic>
+<volume>50</volume>
+<fpage>1412</fpage>–<lpage>1425</lpage>. <pub-id pub-id-type="doi">10.1038/s41588-018-0205-x</pub-id>
+<pub-id pub-id-type="pmid">30224653</pub-id></mixed-citation>
+</ref>
+<ref id="B15">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fridley</surname><given-names>B. L.</given-names></name><name><surname>Iversen</surname><given-names>E.</given-names></name><name><surname>Tsai</surname><given-names>Y. Y.</given-names></name><name><surname>Jenkins</surname><given-names>G. D.</given-names></name><name><surname>Goode</surname><given-names>E. L.</given-names></name><name><surname>Sellers</surname><given-names>T. A.</given-names></name></person-group> (<year>2011</year>). <article-title>A latent model for prioritization of SNPs for functional studies.</article-title>
+<source/><italic>PLoS One</italic>
+<volume>6</volume>:<issue>e20764</issue>. <pub-id pub-id-type="doi">10.1371/journal.pone.0020764</pub-id>
+<pub-id pub-id-type="pmid">21687685</pub-id></mixed-citation>
+</ref>
+<ref id="B16">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fung</surname><given-names>K.</given-names></name><name><surname>Ramirez</surname><given-names>J.</given-names></name><name><surname>Warren</surname><given-names>H. R.</given-names></name><name><surname>Aung</surname><given-names>N.</given-names></name><name><surname>Lee</surname><given-names>A. M.</given-names></name><name><surname>Tzanis</surname><given-names>E.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Genome-wide association study identifies loci for arterial stiffness index in 127,121 UK biobank participants.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>9</volume>:<issue>9143</issue>. <pub-id pub-id-type="doi">10.1038/s41598-019-45703-0</pub-id>
+<pub-id pub-id-type="pmid">31235810</pub-id></mixed-citation>
+</ref>
+<ref id="B17">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gagliano</surname><given-names>S. A.</given-names></name><name><surname>Ravji</surname><given-names>R.</given-names></name><name><surname>Barnes</surname><given-names>M. R.</given-names></name><name><surname>Weale</surname><given-names>M. E.</given-names></name><name><surname>Knight</surname><given-names>J.</given-names></name></person-group> (<year>2015</year>). <article-title>Smoking gun or circumstantial evidence? Comparison of statistical learning methods using functional annotations for prioritizing risk variants.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>5</volume>:<issue>13373</issue>. <pub-id pub-id-type="doi">10.1038/srep13373</pub-id>
+<pub-id pub-id-type="pmid">26300220</pub-id></mixed-citation>
+</ref>
+<ref id="B18">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gettler</surname><given-names>K.</given-names></name><name><surname>Giri</surname><given-names>M.</given-names></name><name><surname>Kenigsberg</surname><given-names>E.</given-names></name><name><surname>Martin</surname><given-names>J.</given-names></name><name><surname>Chuang</surname><given-names>L. S.</given-names></name><name><surname>Hsu</surname><given-names>N. Y.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Prioritizing Crohn’s disease genes by integrating association signals with gene expression implicates monocyte subsets.</article-title>
+<source/><italic>Genes Immun.</italic>
+<volume>20</volume>
+<fpage>577</fpage>–<lpage>588</lpage>. <pub-id pub-id-type="doi">10.1038/s41435-019-0059-y</pub-id>
+<pub-id pub-id-type="pmid">30692607</pub-id></mixed-citation>
+</ref>
+<ref id="B19">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Giri</surname><given-names>A.</given-names></name><name><surname>Hellwege</surname><given-names>J. N.</given-names></name><name><surname>Keaton</surname><given-names>J. M.</given-names></name><name><surname>Park</surname><given-names>J.</given-names></name><name><surname>Qiu</surname><given-names>C.</given-names></name><name><surname>Warren</surname><given-names>H. R.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Trans-ethnic association study of blood pressure determinants in over 750,000 individuals.</article-title>
+<source/><italic>Nat. Genet.</italic>
+<volume>51</volume>
+<fpage>51</fpage>–<lpage>62</lpage>. <pub-id pub-id-type="doi">10.1038/s41588-018-0303-9</pub-id>
+<pub-id pub-id-type="pmid">30578418</pub-id></mixed-citation>
+</ref>
+<ref id="B20">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hampe</surname><given-names>N.</given-names></name><name><surname>Wolterink</surname><given-names>J. M.</given-names></name><name><surname>van Velzen</surname><given-names>S. G. M.</given-names></name><name><surname>Leiner</surname><given-names>T.</given-names></name><name><surname>Išgum</surname><given-names>I.</given-names></name></person-group> (<year>2019</year>). <article-title>Machine learning for assessment of coronary artery disease in cardiac ct: a survey.</article-title>
+<source/><italic>Front. Cardiovasc. Med.</italic>
+<volume>6</volume>:<issue>172</issue>. <pub-id pub-id-type="doi">10.3389/fcvm.2019.00172</pub-id>
+<pub-id pub-id-type="pmid">32039237</pub-id></mixed-citation>
+</ref>
+<ref id="B21">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Haycock</surname><given-names>P. C.</given-names></name><name><surname>Burgess</surname><given-names>S.</given-names></name><name><surname>Wade</surname><given-names>K. H.</given-names></name><name><surname>Bowden</surname><given-names>J.</given-names></name><name><surname>Relton</surname><given-names>C.</given-names></name><name><surname>Davey Smith</surname><given-names>G.</given-names></name></person-group> (<year>2016</year>). <article-title>Best (but oft-forgotten) practices: the design, analysis, and interpretation of Mendelian randomization studies.</article-title>
+<source/><italic>Am. J. Clin. Nutr.</italic>
+<volume>103</volume>
+<fpage>965</fpage>–<lpage>978</lpage>. <pub-id pub-id-type="doi">10.3945/ajcn.115.118216</pub-id>
+<pub-id pub-id-type="pmid">26961927</pub-id></mixed-citation>
+</ref>
+<ref id="B22">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hemani</surname><given-names>G.</given-names></name><name><surname>Bowden</surname><given-names>J.</given-names></name><name><surname>Haycock</surname><given-names>P.</given-names></name><name><surname>Zheng</surname><given-names>J.</given-names></name><name><surname>Davis</surname><given-names>O.</given-names></name><name><surname>Flach</surname><given-names>P.</given-names></name><etal></etal></person-group> (<year>2017</year>). <article-title>Automating mendelian randomization through machine learning to construct a putative causal map of the human phenome.</article-title>
+<source/><italic>bioRxiv</italic>[<comment>Preprint</comment>]</mixed-citation>
+</ref>
+<ref id="B23">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hurle</surname><given-names>M. R.</given-names></name><name><surname>Nelson</surname><given-names>M. R.</given-names></name><name><surname>Agarwal</surname><given-names>P.</given-names></name><name><surname>Cardon</surname><given-names>L. R.</given-names></name></person-group> (<year>2016</year>). <article-title>Impact of genetically supported target selection on R&amp;D productivity.</article-title>
+<source/><italic>Nat. Rev. Drug Discov.</italic>
+<volume>15</volume>
+<fpage>596</fpage>–<lpage>597</lpage>. <pub-id pub-id-type="doi">10.1038/nrd.2016.187</pub-id></mixed-citation>
+</ref>
+<ref id="B24">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Isakov</surname><given-names>O.</given-names></name><name><surname>Dotan</surname><given-names>I.</given-names></name><name><surname>Ben-Shachar</surname><given-names>S.</given-names></name></person-group> (<year>2017</year>). <article-title>Machine learning-based gene prioritization identifies novel candidate risk genes for inflammatory bowel disease.</article-title>
+<source/><italic>Inflamm. Bowel Dis.</italic>
+<volume>23</volume>
+<fpage>1516</fpage>–<lpage>1523</lpage>. <pub-id pub-id-type="doi">10.1097/MIB.0000000000001222</pub-id>
+<pub-id pub-id-type="pmid">28795970</pub-id></mixed-citation>
+</ref>
+<ref id="B25">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Jeni</surname><given-names>L. A.</given-names></name><name><surname>Cohn</surname><given-names>J. F.</given-names></name><name><surname>De La Torre</surname><given-names>F.</given-names></name></person-group> (<year>2013</year>). “<article-title>Facing imbalanced data recommendations for the use of performance metrics</article-title>,” in <source/><italic>Proceeding of the International Conference on Affective Computing and Intelligent Interaction (ACII)</italic> (<publisher-loc>Geneva</publisher-loc>: <publisher-name>IEEE</publisher-name>), <fpage>245</fpage>–<lpage>251</lpage>. <pub-id pub-id-type="doi">10.1109/ACII.2013.47</pub-id>
+</mixed-citation>
+</ref>
+<ref id="B26">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kafaie</surname><given-names>S.</given-names></name><name><surname>Chen</surname><given-names>Y.</given-names></name><name><surname>Hu</surname><given-names>T.</given-names></name></person-group> (<year>2019</year>). <article-title>A network approach to prioritizing susceptibility genes for genome-wide association studies.</article-title>
+<source/><italic>Genet. Epidemiol.</italic>
+<volume>43</volume>
+<fpage>477</fpage>–<lpage>491</lpage>. <pub-id pub-id-type="doi">10.1002/gepi.22198</pub-id>
+<pub-id pub-id-type="pmid">30859622</pub-id></mixed-citation>
+</ref>
+<ref id="B27">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kanduri</surname><given-names>C.</given-names></name><name><surname>Bock</surname><given-names>C.</given-names></name><name><surname>Gundersen</surname><given-names>S.</given-names></name><name><surname>Hovig</surname><given-names>E.</given-names></name><name><surname>Sandve</surname><given-names>G. K.</given-names></name></person-group> (<year>2019</year>). <article-title>Colocalization analyses of genomic elements: approaches, recommendations and challenges.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>35</volume>
+<fpage>1615</fpage>–<lpage>1624</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bty835</pub-id>
+<pub-id pub-id-type="pmid">30307532</pub-id></mixed-citation>
+</ref>
+<ref id="B28">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Khan</surname><given-names>A.</given-names></name><name><surname>Liu</surname><given-names>Q.</given-names></name><name><surname>Wang</surname><given-names>K.</given-names></name></person-group> (<year>2018</year>). <article-title>iMEGES: integrated mental-disorder GEnome score by deep neural network for prioritizing the susceptibility genes for mental disorders in personal genomes.</article-title>
+<source/><italic>BMC Bioinform.</italic>
+<volume>19</volume><issue>(Suppl. 17):501</issue>. <pub-id pub-id-type="doi">10.1186/s12859-018-2469-7</pub-id>
+<pub-id pub-id-type="pmid">30591030</pub-id></mixed-citation>
+</ref>
+<ref id="B29">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kichaev</surname><given-names>G.</given-names></name><name><surname>Bhatia</surname><given-names>G.</given-names></name><name><surname>Loh</surname><given-names>P. R.</given-names></name><name><surname>Gazal</surname><given-names>S.</given-names></name><name><surname>Burch</surname><given-names>K.</given-names></name><name><surname>Freund</surname><given-names>M. K.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Leveraging polygenic functional enrichment to improve GWAS power.</article-title>
+<source/><italic>Am. J. Hum. Genet.</italic>
+<volume>104</volume>
+<fpage>65</fpage>–<lpage>75</lpage>. <pub-id pub-id-type="doi">10.1016/j.ajhg.2018.11.008</pub-id>
+<pub-id pub-id-type="pmid">30595370</pub-id></mixed-citation>
+</ref>
+<ref id="B30">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Leal</surname><given-names>L. G.</given-names></name><name><surname>David</surname><given-names>A.</given-names></name><name><surname>Jarvelin</surname><given-names>M.-R.</given-names></name><name><surname>Sebert</surname><given-names>S.</given-names></name><name><surname>Männikkö</surname><given-names>M.</given-names></name><name><surname>Karhunen</surname><given-names>V.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Identification of disease-associated loci using machine learning for genotype and network data integration.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>35</volume>
+<fpage>5182</fpage>–<lpage>5190</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btz310</pub-id>
+<pub-id pub-id-type="pmid">31070705</pub-id></mixed-citation>
+</ref>
+<ref id="B31">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Leem</surname><given-names>S.</given-names></name><name><surname>Jeong</surname><given-names>H. H.</given-names></name><name><surname>Lee</surname><given-names>J.</given-names></name><name><surname>Wee</surname><given-names>K.</given-names></name><name><surname>Sohn</surname><given-names>K. A.</given-names></name></person-group> (<year>2014</year>). <article-title>Fast detection of high-order epistatic interactions in genome-wide association studies using information theoretic measure.</article-title>
+<source/><italic>Comput. Biol. Chem.</italic>
+<volume>50</volume>
+<fpage>19</fpage>–<lpage>28</lpage>. <pub-id pub-id-type="doi">10.1016/j.compbiolchem.2014.01.005</pub-id>
+<pub-id pub-id-type="pmid">24581733</pub-id></mixed-citation>
+</ref>
+<ref id="B32">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Leucht</surname><given-names>S.</given-names></name><name><surname>Cipriani</surname><given-names>A.</given-names></name><name><surname>Spineli</surname><given-names>L.</given-names></name><name><surname>Mavridis</surname><given-names>D.</given-names></name><name><surname>Orey</surname><given-names>D.</given-names></name><name><surname>Richter</surname><given-names>F.</given-names></name><etal></etal></person-group> (<year>2013</year>). <article-title>Comparative efficacy and tolerability of 15 antipsychotic drugs in schizophrenia: a multiple-treatments meta-analysis.</article-title>
+<source/><italic>Lancet</italic>
+<volume>382</volume>
+<fpage>951</fpage>–<lpage>962</lpage>. <pub-id pub-id-type="doi">10.1016/S0140-6736(13)60733-3</pub-id>
+<pub-id pub-id-type="pmid">23810019</pub-id></mixed-citation>
+</ref>
+<ref id="B33">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lewinger</surname><given-names>J. P.</given-names></name><name><surname>Conti</surname><given-names>D. V.</given-names></name><name><surname>Baurley</surname><given-names>J. W.</given-names></name><name><surname>Triche</surname><given-names>T. J.</given-names></name><name><surname>Thomas</surname><given-names>D. C.</given-names></name></person-group> (<year>2007</year>). <article-title>Hierarchical bayes prioritization of marker associations from a genome-wide association scan for further investigation.</article-title>
+<source/><italic>Genet. Epidemiol.</italic>
+<volume>31</volume>
+<fpage>871</fpage>–<lpage>882</lpage>. <pub-id pub-id-type="doi">10.1002/gepi.20248</pub-id>
+<pub-id pub-id-type="pmid">17654612</pub-id></mixed-citation>
+</ref>
+<ref id="B34">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lin</surname><given-names>H.</given-names></name><name><surname>Hargreaves</surname><given-names>K. A.</given-names></name><name><surname>Li</surname><given-names>R.</given-names></name><name><surname>Reiter</surname><given-names>J. L.</given-names></name><name><surname>Wang</surname><given-names>Y.</given-names></name><name><surname>Mort</surname><given-names>M.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>RegSNPs-intron: a computational framework for predicting pathogenic impact of intronic single nucleotide variants.</article-title>
+<source/><italic>Genome Biol.</italic>
+<volume>20</volume>:<issue>254</issue>. <pub-id pub-id-type="doi">10.1186/s13059-019-1847-4</pub-id>
+<pub-id pub-id-type="pmid">31779641</pub-id></mixed-citation>
+</ref>
+<ref id="B35">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lu</surname><given-names>Q.</given-names></name><name><surname>Powles</surname><given-names>R. L.</given-names></name><name><surname>Wang</surname><given-names>Q.</given-names></name><name><surname>He</surname><given-names>B. J.</given-names></name><name><surname>Zhao</surname><given-names>H.</given-names></name></person-group> (<year>2016a</year>). <article-title>Integrative tissue-specific functional annotations in the human genome provide novel insights on many complex traits and improve signal prioritization in genome wide association studies.</article-title>
+<source/><italic>PLoS Genet.</italic>
+<volume>12</volume>:<issue>e1005947</issue>. <pub-id pub-id-type="doi">10.1371/journal.pgen.1005947</pub-id>
+<pub-id pub-id-type="pmid">27058395</pub-id></mixed-citation>
+</ref>
+<ref id="B36">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lu</surname><given-names>Q.</given-names></name><name><surname>Yao</surname><given-names>X.</given-names></name><name><surname>Hu</surname><given-names>Y.</given-names></name><name><surname>Zhao</surname><given-names>H.</given-names></name></person-group> (<year>2016b</year>). <article-title>GenoWAP: GWAS signal prioritization through integrated analysis of genomic functional annotation.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>32</volume>
+<fpage>542</fpage>–<lpage>548</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btv610</pub-id>
+<pub-id pub-id-type="pmid">26504140</pub-id></mixed-citation>
+</ref>
+<ref id="B37">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Maciukiewicz</surname><given-names>M.</given-names></name><name><surname>Marshe</surname><given-names>V. S.</given-names></name><name><surname>Hauschild</surname><given-names>A. C.</given-names></name><name><surname>Foster</surname><given-names>J. A.</given-names></name><name><surname>Rotzinger</surname><given-names>S.</given-names></name><name><surname>Kennedy</surname><given-names>J. L.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>GWAS-based machine learning approach to predict duloxetine response in major depressive disorder.</article-title>
+<source/><italic>J. Psychiatr. Res.</italic>
+<volume>99</volume>
+<fpage>62</fpage>–<lpage>68</lpage>. <pub-id pub-id-type="doi">10.1016/j.jpsychires.2017.12.009</pub-id>
+<pub-id pub-id-type="pmid">29407288</pub-id></mixed-citation>
+</ref>
+<ref id="B38">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Merelli</surname><given-names>I.</given-names></name><name><surname>Calabria</surname><given-names>A.</given-names></name><name><surname>Cozzi</surname><given-names>P.</given-names></name><name><surname>Viti</surname><given-names>F.</given-names></name><name><surname>Mosca</surname><given-names>E.</given-names></name><name><surname>Milanesi</surname><given-names>L.</given-names></name></person-group> (<year>2013</year>). <article-title>SNPranker 2.0: a gene-centric data mining tool for diseases associated SNP prioritization in GWAS.</article-title>
+<source/><italic>BMC Bioinform.</italic>
+<volume>14</volume><issue>(Suppl. 1):S9</issue>. <pub-id pub-id-type="doi">10.1186/1471-2105-14-S1-S9</pub-id>
+<pub-id pub-id-type="pmid">23369106</pub-id></mixed-citation>
+</ref>
+<ref id="B39">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mieth</surname><given-names>B.</given-names></name><name><surname>Kloft</surname><given-names>M.</given-names></name><name><surname>Rodriguez</surname><given-names>J. A.</given-names></name><name><surname>Sonnenburg</surname><given-names>S.</given-names></name><name><surname>Vobruba</surname><given-names>R.</given-names></name><name><surname>Morcillo-Suarez</surname><given-names>C.</given-names></name><etal></etal></person-group> (<year>2016</year>). <article-title>Combining multiple hypothesis testing with machine learning increases the statistical power of genome-wide association studies.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>6</volume>:<issue>36671</issue>. <pub-id pub-id-type="doi">10.1038/srep36671</pub-id>
+<pub-id pub-id-type="pmid">27892471</pub-id></mixed-citation>
+</ref>
+<ref id="B40">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mordelet</surname><given-names>F.</given-names></name><name><surname>Vert</surname><given-names>J. P.</given-names></name></person-group> (<year>2011</year>). <article-title>ProDiGe: prioritization of disease genes with multitask machine learning from positive and unlabeled examples.</article-title>
+<source/><italic>BMC Bioinform.</italic>
+<volume>12</volume>:<issue>389</issue>. <pub-id pub-id-type="doi">10.1186/1471-2105-12-389</pub-id>
+<pub-id pub-id-type="pmid">21977986</pub-id></mixed-citation>
+</ref>
+<ref id="B41">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Najafabadi</surname><given-names>M. M.</given-names></name><name><surname>Villanustre</surname><given-names>F.</given-names></name><name><surname>Khoshgoftaar</surname><given-names>T. M.</given-names></name><name><surname>Seliya</surname><given-names>N.</given-names></name><name><surname>Wald</surname><given-names>R.</given-names></name><name><surname>Muharemagic</surname><given-names>E.</given-names></name></person-group> (<year>2015</year>). <article-title>Deep learning applications and challenges in big data analytics.</article-title>
+<source/><italic>J. Big Data</italic>
+<volume>2</volume>:<issue>1</issue>
+<pub-id pub-id-type="doi">10.1186/s40537-014-0007-7</pub-id></mixed-citation>
+</ref>
+<ref id="B42">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nalls</surname><given-names>M. A.</given-names></name><name><surname>Blauwendraat</surname><given-names>C.</given-names></name><name><surname>Vallerga</surname><given-names>C. L.</given-names></name><name><surname>Heilbron</surname><given-names>K.</given-names></name><name><surname>Bandres-Ciga</surname><given-names>S.</given-names></name><name><surname>Chang</surname><given-names>D.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Identification of novel risk loci, causal insights, and heritable risk for Parkinson’s disease: a meta-analysis of genome-wide association studies.</article-title>
+<source/><italic>Lancet Neurol.</italic>
+<volume>18</volume>
+<fpage>1091</fpage>–<lpage>1102</lpage>. <pub-id pub-id-type="doi">10.1016/S1474-4422(19)30320-5</pub-id>
+<pub-id pub-id-type="pmid">31701892</pub-id></mixed-citation>
+</ref>
+<ref id="B43">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Natekin</surname><given-names>A.</given-names></name><name><surname>Knoll</surname><given-names>A.</given-names></name></person-group> (<year>2013</year>). <article-title>Gradient boosting machines, a tutorial.</article-title>
+<source/><italic>Front. Neurorobot.</italic>
+<volume>7</volume>:<issue>21</issue>. <pub-id pub-id-type="doi">10.3389/fnbot.2013.00021</pub-id>
+<pub-id pub-id-type="pmid">24409142</pub-id></mixed-citation>
+</ref>
+<ref id="B44">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nembrini</surname><given-names>S.</given-names></name><name><surname>Konig</surname><given-names>I. R.</given-names></name><name><surname>Wright</surname><given-names>M. N.</given-names></name></person-group> (<year>2018</year>). <article-title>The revival of the gini importance?</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>34</volume>
+<fpage>3711</fpage>–<lpage>3718</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bty373</pub-id>
+<pub-id pub-id-type="pmid">29757357</pub-id></mixed-citation>
+</ref>
+<ref id="B45">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ning</surname><given-names>K.</given-names></name><name><surname>Gettler</surname><given-names>K.</given-names></name><name><surname>Zhang</surname><given-names>W.</given-names></name><name><surname>Ng</surname><given-names>S. M.</given-names></name><name><surname>Bowen</surname><given-names>B. M.</given-names></name><name><surname>Hyams</surname><given-names>J.</given-names></name><etal></etal></person-group> (<year>2015</year>). <article-title>Improved integrative framework combining association data with gene expression features to prioritize Crohn’s disease genes.</article-title>
+<source/><italic>Hum. Mol. Genet.</italic>
+<volume>24</volume>
+<fpage>4147</fpage>–<lpage>4157</lpage>. <pub-id pub-id-type="doi">10.1093/hmg/ddv142</pub-id>
+<pub-id pub-id-type="pmid">25935003</pub-id></mixed-citation>
+</ref>
+<ref id="B46">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ogutu</surname><given-names>J. O.</given-names></name><name><surname>Schulz-Streeck</surname><given-names>T.</given-names></name><name><surname>Piepho</surname><given-names>H. P.</given-names></name></person-group> (<year>2012</year>). <article-title>Genomic selection using regularized linear regression models: ridge regression, lasso, elastic net and their extensions.</article-title>
+<source/><italic>BMC Proc.</italic>
+<volume>6</volume><issue>(Suppl. 2):S10</issue>. <pub-id pub-id-type="doi">10.1186/1753-6561-6-S2-S10</pub-id>
+<pub-id pub-id-type="pmid">22640436</pub-id></mixed-citation>
+</ref>
+<ref id="B47">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Oh</surname><given-names>J. H.</given-names></name><name><surname>Kerns</surname><given-names>S.</given-names></name><name><surname>Ostrer</surname><given-names>H.</given-names></name><name><surname>Powell</surname><given-names>S. N.</given-names></name><name><surname>Rosenstein</surname><given-names>B.</given-names></name><name><surname>Deasy</surname><given-names>J. O.</given-names></name></person-group> (<year>2017</year>). <article-title>Computational methods using genome-wide association studies to predict radiotherapy complications and to identify correlative molecular processes.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>7</volume>:<issue>43381</issue>. <pub-id pub-id-type="doi">10.1038/srep43381</pub-id>
+<pub-id pub-id-type="pmid">28233873</pub-id></mixed-citation>
+</ref>
+<ref id="B48">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pare</surname><given-names>G.</given-names></name><name><surname>Mao</surname><given-names>S.</given-names></name><name><surname>Deng</surname><given-names>W. Q.</given-names></name></person-group> (<year>2017</year>). <article-title>A machine-learning heuristic to improve gene score prediction of polygenic traits.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>7</volume>:<issue>12665</issue>. <pub-id pub-id-type="doi">10.1038/s41598-017-13056-1</pub-id>
+<pub-id pub-id-type="pmid">28979001</pub-id></mixed-citation>
+</ref>
+<ref id="B49">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Raj</surname><given-names>M. R.</given-names></name><name><surname>Sreeja</surname><given-names>A.</given-names></name></person-group> (<year>2018</year>). <article-title>Analysis of computational gene prioritization approaches.</article-title>
+<source/><italic>Procedia Comput. Sci.</italic>
+<volume>143</volume>
+<fpage>395</fpage>–<lpage>410</lpage>. <pub-id pub-id-type="doi">10.1016/j.procs.2018.10.411</pub-id></mixed-citation>
+</ref>
+<ref id="B50">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rana</surname><given-names>N.</given-names></name><name><surname>Pizarro</surname><given-names>T. T.</given-names></name></person-group> (<year>2019</year>). <article-title>Elucidating the expression and role of epithelial-derived gasdermin-B (GSDMB) in the context of chronic intestinal inflammation.</article-title>
+<source/><italic>FASEB J.</italic>
+<volume>33</volume><issue>(Suppl. 1):496.28</issue>
+<pub-id pub-id-type="doi">10.1096/fasebj.2019.33.1_supplement.496.28</pub-id></mixed-citation>
+</ref>
+<ref id="B51">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ren</surname><given-names>M.</given-names></name><name><surname>Ng</surname><given-names>F. L.</given-names></name><name><surname>Warren</surname><given-names>H. R.</given-names></name><name><surname>Witkowska</surname><given-names>K.</given-names></name><name><surname>Baron</surname><given-names>M.</given-names></name><name><surname>Jia</surname><given-names>Z.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>The biological impact of blood pressure-associated genetic variants in the natriuretic peptide receptor C gene on human vascular smooth muscle.</article-title>
+<source/><italic>Hum. Mol. Genet.</italic>
+<volume>27</volume>
+<fpage>199</fpage>–<lpage>210</lpage>. <pub-id pub-id-type="doi">10.1093/hmg/ddx375</pub-id>
+<pub-id pub-id-type="pmid">29040610</pub-id></mixed-citation>
+</ref>
+<ref id="B52">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rippe</surname><given-names>C.</given-names></name><name><surname>Albinsson</surname><given-names>S.</given-names></name><name><surname>Guron</surname><given-names>G.</given-names></name><name><surname>Nilsson</surname><given-names>H.</given-names></name><name><surname>Sward</surname><given-names>K.</given-names></name></person-group> (<year>2019</year>). <article-title>Targeting transcriptional control of soluble guanylyl cyclase via NOTCH for prevention of cardiovascular disease.</article-title>
+<source/><italic>Acta Physiol. (Oxf)</italic>
+<volume>225</volume>:<issue>e13094</issue>. <pub-id pub-id-type="doi">10.1111/apha.13094</pub-id>
+<pub-id pub-id-type="pmid">29754438</pub-id></mixed-citation>
+</ref>
+<ref id="B53">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rippe</surname><given-names>C.</given-names></name><name><surname>Zhu</surname><given-names>B.</given-names></name><name><surname>Krawczyk</surname><given-names>K. K.</given-names></name><name><surname>Bavel</surname><given-names>E. V.</given-names></name><name><surname>Albinsson</surname><given-names>S.</given-names></name><name><surname>Sjolund</surname><given-names>J.</given-names></name><etal></etal></person-group> (<year>2017</year>). <article-title>Hypertension reduces soluble guanylyl cyclase expression in the mouse aorta via the Notch signaling pathway.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>7</volume>:<issue>1334</issue>. <pub-id pub-id-type="doi">10.1038/s41598-017-01392-1</pub-id>
+<pub-id pub-id-type="pmid">28465505</pub-id></mixed-citation>
+</ref>
+<ref id="B54">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Roshan</surname><given-names>U.</given-names></name><name><surname>Chikkagoudar</surname><given-names>S.</given-names></name><name><surname>Wei</surname><given-names>Z.</given-names></name><name><surname>Wang</surname><given-names>K.</given-names></name><name><surname>Hakonarson</surname><given-names>H.</given-names></name></person-group> (<year>2011</year>). <article-title>Ranking causal variants and associated regions in genome-wide association studies by the support vector machine and random forest.</article-title>
+<source/><italic>Nucleic Acids Res.</italic>
+<volume>39</volume>:<issue>e62</issue>. <pub-id pub-id-type="doi">10.1093/nar/gkr064</pub-id>
+<pub-id pub-id-type="pmid">21317188</pub-id></mixed-citation>
+</ref>
+<ref id="B55">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Saito</surname><given-names>T.</given-names></name><name><surname>Rehmsmeier</surname><given-names>M.</given-names></name></person-group> (<year>2015</year>). <article-title>The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets.</article-title>
+<source/><italic>PLoS One</italic>
+<volume>10</volume>:<issue>e0118432</issue>. <pub-id pub-id-type="doi">10.1371/journal.pone.0118432</pub-id>
+<pub-id pub-id-type="pmid">25738806</pub-id></mixed-citation>
+</ref>
+<ref id="B56">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sanseau</surname><given-names>P.</given-names></name><name><surname>Agarwal</surname><given-names>P.</given-names></name><name><surname>Barnes</surname><given-names>M. R.</given-names></name><name><surname>Pastinen</surname><given-names>T.</given-names></name><name><surname>Richards</surname><given-names>J. B.</given-names></name><name><surname>Cardon</surname><given-names>L. R.</given-names></name><etal></etal></person-group> (<year>2012</year>). <article-title>Use of genome-wide association studies for drug repositioning.</article-title>
+<source/><italic>Nat. Biotechnol.</italic>
+<volume>30</volume>
+<fpage>317</fpage>–<lpage>320</lpage>. <pub-id pub-id-type="doi">10.1038/nbt.2151</pub-id><pub-id pub-id-type="pmid">22491277</pub-id></mixed-citation>
+</ref>
+<ref id="B57">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schmechel</surname><given-names>D. E.</given-names></name><name><surname>Saunders</surname><given-names>A. M.</given-names></name><name><surname>Strittmatter</surname><given-names>W. J.</given-names></name><name><surname>Crain</surname><given-names>B. J.</given-names></name><name><surname>Hulette</surname><given-names>C. M.</given-names></name><name><surname>Joo</surname><given-names>S. H.</given-names></name><etal></etal></person-group> (<year>1993</year>). <article-title>Increased amyloid beta-peptide deposition in cerebral cortex as a consequence of apolipoprotein E genotype in late-onset Alzheimer disease.</article-title>
+<source/><italic>Proc. Natl. Acad. Sci. U.S.A</italic>
+<volume>90</volume>
+<fpage>9649</fpage>–<lpage>9653</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.90.20.9649</pub-id>
+<pub-id pub-id-type="pmid">8415756</pub-id></mixed-citation>
+</ref>
+<ref id="B58">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schubach</surname><given-names>M.</given-names></name><name><surname>Re</surname><given-names>M.</given-names></name><name><surname>Robinson</surname><given-names>P. N.</given-names></name><name><surname>Valentini</surname><given-names>G.</given-names></name></person-group> (<year>2017</year>). <article-title>Imbalance-aware machine learning for predicting rare and common disease-associated non-coding variants.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>7</volume>:<issue>2959</issue>. <pub-id pub-id-type="doi">10.1038/s41598-017-03011-5</pub-id>
+<pub-id pub-id-type="pmid">28592878</pub-id></mixed-citation>
+</ref>
+<ref id="B59">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Seyyedrazzagi</surname><given-names>E.</given-names></name><name><surname>Navimipour</surname><given-names>N. J.</given-names></name></person-group> (<year>2017</year>). <article-title>Disease genes prioritizing mechanisms: a comprehensive and systematic literature review.</article-title>
+<source/><italic>Netw. Model. Anal. Health Inform. Bioinform.</italic>
+<volume>6</volume>:<issue>13</issue>
+<pub-id pub-id-type="doi">10.1007/s13721-017-0154-9</pub-id></mixed-citation>
+</ref>
+<ref id="B60">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Smola</surname><given-names>A. J.</given-names></name><name><surname>Scholkopf</surname><given-names>B.</given-names></name></person-group> (<year>2004</year>). <article-title>A tutorial on support vector regression.</article-title>
+<source/><italic>Stat. Comput.</italic>
+<volume>14</volume>
+<fpage>199</fpage>–<lpage>222</lpage>. <pub-id pub-id-type="doi">10.1023/b:stco.0000035301.49549.88</pub-id></mixed-citation>
+</ref>
+<ref id="B61">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Szymczak</surname><given-names>S.</given-names></name><name><surname>Holzinger</surname><given-names>E.</given-names></name><name><surname>Dasgupta</surname><given-names>A.</given-names></name><name><surname>Malley</surname><given-names>J. D.</given-names></name><name><surname>Molloy</surname><given-names>A. M.</given-names></name><name><surname>Mills</surname><given-names>J. L.</given-names></name><etal></etal></person-group> (<year>2016</year>). <article-title>r2VIM: a new variable selection method for random forests in genome-wide association studies.</article-title>
+<source/><italic>BioData Min.</italic>
+<volume>9</volume>:<issue>7</issue>. <pub-id pub-id-type="doi">10.1186/s13040-016-0087-3</pub-id>
+<pub-id pub-id-type="pmid">26839594</pub-id></mixed-citation>
+</ref>
+<ref id="B62">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Takeuchi</surname><given-names>F.</given-names></name><name><surname>Akiyama</surname><given-names>M.</given-names></name><name><surname>Matoba</surname><given-names>N.</given-names></name><name><surname>Katsuya</surname><given-names>T.</given-names></name><name><surname>Nakatochi</surname><given-names>M.</given-names></name><name><surname>Tabara</surname><given-names>Y.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Interethnic analyses of blood pressure loci in populations of East Asian and European descent.</article-title>
+<source/><italic>Nat. Commun.</italic>
+<volume>9</volume>:<issue>5052</issue>. <pub-id pub-id-type="doi">10.1038/s41467-018-07345-0</pub-id>
+<pub-id pub-id-type="pmid">30487518</pub-id></mixed-citation>
+</ref>
+<ref id="B63">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Valdes-Mas</surname><given-names>R.</given-names></name><name><surname>Gutierrez-Fernandez</surname><given-names>A.</given-names></name><name><surname>Gomez</surname><given-names>J.</given-names></name><name><surname>Coto</surname><given-names>E.</given-names></name><name><surname>Astudillo</surname><given-names>A.</given-names></name><name><surname>Puente</surname><given-names>D. A.</given-names></name><etal></etal></person-group> (<year>2014</year>). <article-title>Mutations in filamin C cause a new form of familial hypertrophic cardiomyopathy.</article-title>
+<source/><italic>Nat. Commun.</italic>
+<volume>5</volume>:<issue>5326</issue>. <pub-id pub-id-type="doi">10.1038/ncomms6326</pub-id>
+<pub-id pub-id-type="pmid">25351925</pub-id></mixed-citation>
+</ref>
+<ref id="B64">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Vitsios</surname><given-names>D.</given-names></name><name><surname>Petrovski</surname><given-names>S.</given-names></name></person-group> (<year>2019</year>). <article-title>Stochastic semi-supervised learning to prioritise genes from high-throughput genomic screens.</article-title>
+<source/><italic>bioRxiv</italic>[<comment>Preprint</comment>]</mixed-citation>
+</ref>
+<ref id="B65">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wang</surname><given-names>Y.</given-names></name><name><surname>Goh</surname><given-names>W.</given-names></name><name><surname>Wong</surname><given-names>L.</given-names></name><name><surname>Montana</surname><given-names>G.</given-names></name></person-group>
+<collab>Alzheimer’s Disease Neuroimaging Initiative</collab>, (<year>2013</year>). <article-title>Random forests on hadoop for genome-wide association studies of multivariate neuroimaging phenotypes.</article-title>
+<source/><italic>BMC Bioinform.</italic>
+<volume>14</volume><issue>(Suppl. 16):S6</issue>. <pub-id pub-id-type="doi">10.1186/1471-2105-14-S16-S6</pub-id>
+<pub-id pub-id-type="pmid">24564704</pub-id></mixed-citation>
+</ref>
+<ref id="B66">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wu</surname><given-names>M.</given-names></name><name><surname>Zeng</surname><given-names>W.</given-names></name><name><surname>Liu</surname><given-names>W.</given-names></name><name><surname>Lv</surname><given-names>H.</given-names></name><name><surname>Chen</surname><given-names>T.</given-names></name><name><surname>Jiang</surname><given-names>R.</given-names></name></person-group> (<year>2018</year>). <article-title>Leveraging multiple gene networks to prioritize GWAS candidate genes via network representation learning.</article-title>
+<source/><italic>Methods</italic>
+<volume>145</volume>
+<fpage>41</fpage>–<lpage>50</lpage>. <pub-id pub-id-type="doi">10.1016/j.ymeth.2018.06.002</pub-id>
+<pub-id pub-id-type="pmid">29874547</pub-id></mixed-citation>
+</ref>
+<ref id="B67">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zeng</surname><given-names>W.</given-names></name><name><surname>Wu</surname><given-names>M.</given-names></name><name><surname>Jiang</surname><given-names>R.</given-names></name></person-group> (<year>2018</year>). <article-title>Prediction of enhancer-promoter interactions via natural language processing.</article-title>
+<source/><italic>BMC Genomics</italic>
+<volume>19</volume><issue>(Suppl. 2):84</issue>. <pub-id pub-id-type="doi">10.1186/s12864-018-4459-6</pub-id>
+<pub-id pub-id-type="pmid">29764360</pub-id></mixed-citation>
+</ref>
+<ref id="B68">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhou</surname><given-names>J.</given-names></name><name><surname>Theesfeld</surname><given-names>C. L.</given-names></name><name><surname>Yao</surname><given-names>K.</given-names></name><name><surname>Chen</surname><given-names>K. M.</given-names></name><name><surname>Wong</surname><given-names>A. K.</given-names></name><name><surname>Troyanskaya</surname><given-names>O. G.</given-names></name></person-group> (<year>2018</year>). <article-title>Deep learning sequence-based ab initio prediction of variant effects on expression and disease risk.</article-title>
+<source/><italic>Nat. Genet.</italic>
+<volume>50</volume>
+<fpage>1171</fpage>–<lpage>1179</lpage>. <pub-id pub-id-type="doi">10.1038/s41588-018-0160-6</pub-id>
+<pub-id pub-id-type="pmid">30013180</pub-id></mixed-citation>
+</ref>
+<ref id="B69">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zou</surname><given-names>H.</given-names></name><name><surname>Hastie</surname><given-names>T.</given-names></name></person-group> (<year>2005</year>). <article-title>Regularization and variable selection via the elastic net.</article-title>
+<source/><italic>J. R. Stat. Soc. Ser. B</italic>
+<volume>67</volume>
+<fpage>301</fpage>–<lpage>320</lpage>. <pub-id pub-id-type="doi">10.1111/j.1467-9868.2005.00503.x</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

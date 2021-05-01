@@ -1,0 +1,2237 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sensors (Basel)</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sensors (Basel)</journal-id>
+<journal-id journal-id-type="publisher-id">sensors</journal-id>
+<journal-title-group>
+<journal-title>Sensors (Basel, Switzerland)</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1424-8220</issn>
+<publisher>
+<publisher-name>MDPI</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31968701</article-id>
+<article-id pub-id-type="pmc">7014496</article-id>
+<article-id pub-id-type="doi">10.3390/s20020572</article-id>
+<article-id pub-id-type="publisher-id">sensors-20-00572</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Aging with Autism Departs Greatly from Typical Aging</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>Elizabeth B.</given-names>
+</name>
+<xref ref-type="aff" rid="af1-sensors-20-00572">1</xref>
+<xref ref-type="corresp" rid="c1-sensors-20-00572">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-7624-232X</contrib-id>
+<name>
+<surname>Caballero</surname>
+<given-names>Carla</given-names>
+</name>
+<xref ref-type="aff" rid="af2-sensors-20-00572">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Mistry</surname>
+<given-names>Sejal</given-names>
+</name>
+<xref ref-type="aff" rid="af3-sensors-20-00572">3</xref>
+</contrib>
+</contrib-group>
+<aff id="af1-sensors-20-00572"><label>1</label>Psychology Department Center for Biomedicine Imaging and Modelling, CS Department and Rutgers Center for Cognitive Science, Rutgers University, Camden, NJ 08854, USA</aff>
+<aff id="af2-sensors-20-00572"><label>2</label>Sports Science Department, Miguel Hernandez University of Elche, 03202 Alicante, Spain; <email>ccaballero@umh.es</email></aff>
+<aff id="af3-sensors-20-00572"><label>3</label>Biomathematics Department, Rutgers University, Camden, NJ 08854, USA; <email>Sejal.Mistry@hsc.utah.edu</email></aff>
+<author-notes>
+<corresp id="c1-sensors-20-00572"><label>*</label>Correspondence: <email>ebtorres@psych.rutgers.edu</email>; Tel.: +1-732-208-3158</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>20</day>
+<month>1</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>1</month>
+<year>2020</year>
+</pub-date>
+<volume>20</volume>
+<issue>2</issue>
+<elocation-id>572</elocation-id>
+<history>
+<date date-type="received">
+<day>09</day>
+<month>12</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>14</day>
+<month>1</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2020 by the authors.</copyright-statement>
+<copyright-year>2020</copyright-year>
+<license license-type="open-access">
+<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Autism has been largely portrayed as a psychiatric and childhood disorder. However, autism is a lifelong neurological condition that evolves over time through highly heterogeneous trajectories. These trends have not been studied in relation to normative aging trajectories, so we know very little about aging with autism. One aspect that seems to develop differently is the sense of movement, inclusive of sensory kinesthetic-reafference emerging from continuously sensed self-generated motions. These include involuntary micro-motions eluding observation, yet routinely obtainable in fMRI studies to rid images of motor artifacts. Open-access repositories offer thousands of imaging records, covering 5–65 years of age for both neurotypical and autistic individuals to ascertain the trajectories of involuntary motions. Here we introduce new computational techniques that automatically stratify different age groups in autism according to probability distance in different representational spaces. Further, we show that autistic cross-sectional population trajectories in probability space fundamentally differ from those of neurotypical controls and that after 40 years of age, there is an inflection point in autism, signaling a monotonically increasing difference away from age-matched normative involuntary motion signatures. Our work offers new age-appropriate stochastic analyses amenable to redefine basic research and provide dynamic diagnoses as the person’s nervous systems age.</p>
+</abstract>
+<kwd-group>
+<kwd>stochastic analyses</kwd>
+<kwd>classification methods</kwd>
+<kwd>probability distance</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1-sensors-20-00572" sec-type="intro">
+<title>1. Introduction</title>
+<p>Typical neurodevelopment is highly dynamic and variable, with transient changes that tend to occur asynchronously across a given age group. Starting at early infancy, some babies may grow very fast and develop mature neuromotor control before others of the same age group. Other babies may in contrast, be stunted in their growth and/or neuromotor control development [<xref ref-type="bibr" rid="B1-sensors-20-00572">1</xref>]. These disparate processes span non-uniform trajectories that vary highly from person to person, across the general population. Despite these known features, developmental research tends to assume an overall consistency of the developmental paths characterizing aging trajectories, whereby linear, parametric models use normal distributions and enforce precisely expected developmental milestones. When faced with a neurological condition like Autism Spectrum Disorders (ASD), the high heterogeneity of any given random draw of this population, then poses a challenge to science, since the assumptions of normality and linearity fail in ways that we do not fully understand.</p>
+<p>Open access data can provide information to address these questions on neurodevelopment, so elusive today to basic science. In autism, we know very little about the structure of the probability distribution landscape spanned by the parameters that we can derive from the nervous systems’ self-generated biorhythms. There is a paucity of work with limited sample size addressing the stochastic shifts and maturation trends across the population that is aging with autism [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B3-sensors-20-00572">3</xref>,<xref ref-type="bibr" rid="B4-sensors-20-00572">4</xref>]. Consequently, we have virtually no knowledge about typical trends in the maturation of the nervous systems in large cross-sections of the aging population; let alone on the population aging with autism spectrum disorders (ASD.) Analytical tools in ASD research are largely dominated by a “one size fits all” static model that does not yet consider age-appropriate shifts in probability spaces derived from neuromotor variability.</p>
+<p>There is an increasing need to stratify these heterogeneous data generated by clinical diagnoses rooted in observation of behavior [<xref ref-type="bibr" rid="B3-sensors-20-00572">3</xref>]. Some efforts have been recently appreciated in the literature [<xref ref-type="bibr" rid="B5-sensors-20-00572">5</xref>,<xref ref-type="bibr" rid="B6-sensors-20-00572">6</xref>,<xref ref-type="bibr" rid="B7-sensors-20-00572">7</xref>,<xref ref-type="bibr" rid="B8-sensors-20-00572">8</xref>,<xref ref-type="bibr" rid="B9-sensors-20-00572">9</xref>]. Nevertheless, the recent efforts have yet to consider age-appropriate shifts in statistical landscape and provide a framework that encourages doing so in relation to normative data, also absent from all clinical diagnostics tools that inform and largely steer today basic research in autism [<xref ref-type="bibr" rid="B10-sensors-20-00572">10</xref>]. The exclusion of the motor axis from the current inventories by the Diagnostics Statistical Manual DSM-5 from the American Psychiatric Association APA [<xref ref-type="bibr" rid="B11-sensors-20-00572">11</xref>] and by other tools from psychology (e.g., ADOS [<xref ref-type="bibr" rid="B10-sensors-20-00572">10</xref>,<xref ref-type="bibr" rid="B12-sensors-20-00572">12</xref>]) makes it difficult to use movements and their kinesthetic sensations as aids to objectively categorize different forms of autism as they evolve with aging. Large open access repositories offer a new avenue to complement clinical criteria with physical biometrics derived from variations in human biorhythms from the nervous systems.</p>
+<p>In recent years, the micro-movements spikes (MMS) fluctuations inherently present in and underlying all natural behaviors that clinicians observe and describe using pencil and paper means, have been assessed across a proposed taxonomy of neuromotor control [<xref ref-type="bibr" rid="B13-sensors-20-00572">13</xref>] (<xref ref-type="fig" rid="sensors-20-00572-f001">Figure 1</xref>). This phylogenetically orderly taxonomy proposes different levels of maturation in neuromotor control under typical neurodevelopment. Because e.g., autonomic function matures earlier than voluntary control, and likewise, reflexes evolve in early infancy, etc. the model also proposes that studying autism across these levels may help us stratify the heterogeneity of autism across aging. Over years of peer reviewed work, using this model has served to reveal several stochastic features of voluntary [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B14-sensors-20-00572">14</xref>], spontaneous [<xref ref-type="bibr" rid="B15-sensors-20-00572">15</xref>], involuntary [<xref ref-type="bibr" rid="B15-sensors-20-00572">15</xref>,<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>,<xref ref-type="bibr" rid="B17-sensors-20-00572">17</xref>,<xref ref-type="bibr" rid="B18-sensors-20-00572">18</xref>] and autonomic [<xref ref-type="bibr" rid="B19-sensors-20-00572">19</xref>,<xref ref-type="bibr" rid="B20-sensors-20-00572">20</xref>] motions, offering classification power in autism and other neuropsychiatric and neurological conditions (e.g., schizophrenia [<xref ref-type="bibr" rid="B21-sensors-20-00572">21</xref>], Parkinson’s disease [<xref ref-type="bibr" rid="B22-sensors-20-00572">22</xref>,<xref ref-type="bibr" rid="B23-sensors-20-00572">23</xref>,<xref ref-type="bibr" rid="B24-sensors-20-00572">24</xref>,<xref ref-type="bibr" rid="B25-sensors-20-00572">25</xref>], neuropathies [<xref ref-type="bibr" rid="B26-sensors-20-00572">26</xref>] and impairments of the nervous systems due to traumatic brain injury inducing coma [<xref ref-type="bibr" rid="B27-sensors-20-00572">27</xref>] or stroke [<xref ref-type="bibr" rid="B28-sensors-20-00572">28</xref>]).</p>
+<p>In autism, voluntary MMS have provided evidence for a maturational process absent in the autistic phenotype and served as aid to (cross-sectionally) classify different developmental stages according to levels of motor noise evolution and probability distribution shape well-correlated with measures of IQ [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B4-sensors-20-00572">4</xref>]. Since we always sample neurotypical controls and characterize their signatures first, we can always go back to this taxonomy and measure the departure of autistics from the neurotypical signatures. In this paper, we focus on the involuntary levels of neuromotor control, because involuntary motions contribute to the peripheral feedback that the central nervous system continuously senses as the person behaves. When in excess, or when random and noisy, this source of self-generated neurofeedback may interfere with overall neuromotor control and autonomy of the brain over the body in motion. Yet, because these micro-motions are so subtle, they may scape the naked eye of the observant clinician. We have previously found excess motor noise in autism, but have yet to characterize it as a function of aging [<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>].</p>
+<p>Indeed, this recent body of work points at the use of MMS criteria as a potential tool to track the evolution of some of the biorhythms of the nervous systems as the neurotypical person ages. We could then use the normative data to build a proper notion of stochastic change, in a probabilistic sense. This would enable us to better understand the aging process of the autistic nervous systems in cross-sections of the aging population, beyond developmental periods and define age-dependent biometrics capturing different rates of change in young highly plastic systems vs. in aging systems whereby neurodegenerative processes manifest. A pressing question in any lifelong neurological condition like ASD is, when does the plasticity of a young system phase-transitions into a neurodegenerative process? Forecasting this transition would allow us to provide neuroprotective therapies in the rapidly emerging ASD aging population.</p>
+<p>In this paper, we present new analytical methods to automatically, in a heuristics-free manner, stratify patterns of variability inherently present in the involuntary head motions of neurotypical controls and of participants with ASD. Their involuntary micro-movements spikes data are reconstructed from brain images, registered as they try to volitionally control their body to prevent it from moving. As they deliberately attempt to dampen movements’ fluctuations upon being instructed to remain still in the fMRI setting, their involuntary motion data reveal the probability landscape of undesirable motor noise across sections of the ASD developing children and the ASD aging population. We explore data drawn at random from over 2144 records of the ABIDE repository and report on fundamental departures of the person aging with autism from the typically aging person.</p>
+</sec>
+<sec id="sec2-sensors-20-00572">
+<title>2. Materials and Methods</title>
+<sec id="sec2dot1-sensors-20-00572">
+<title>2.1. Demographics and Boot Strapping Technique to Form Age Groups of Equal Size</title>
+<p>Across all sites of ABIDE, informed consent was obtained from all participants and/or their legal guardians. The following method have been published previously in various papers [<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>,<xref ref-type="bibr" rid="B17-sensors-20-00572">17</xref>,<xref ref-type="bibr" rid="B18-sensors-20-00572">18</xref>], but we provide them here as well to facilitate the flow of the paper. All datasets included in this study are from the Autism Brain Imaging Data Exchange (ABIDE) databases:</p>
+<p>ABIDE I (<uri xlink:href="http://fcon_1000.projects.nitrc.org/indi/abide/abide_I.html">http://fcon_1000.projects.nitrc.org/indi/abide/abide_I.html</uri>) and</p>
+<p>ABIDE II (<uri xlink:href="http://fcon_1000.projects.nitrc.org/indi/abide/abide_II.html">http://fcon_1000.projects.nitrc.org/indi/abide/abide_II.html</uri>).</p>
+<p>ABIDE obeys the following guideline on the use of human subject’s data: “In accordance with HIPAA guidelines and 1000 Functional Connectomes Project/INDI protocols, all datasets have been anonymized, with no protected health information included.”</p>
+<p>The study includes two main comparisons:</p>
+<p>Autism Spectrum Disorder (ASD), and Typical Development (TD), using estimation of stochastic signatures of involuntary head micro-movements of individuals with a formal DSM-ASD [<xref ref-type="bibr" rid="B11-sensors-20-00572">11</xref>] diagnosis of ASD and TD controls.</p>
+<p>Ranges of age. Each group (ASD and TD) was split in seven different groups according to their age to assess how the stochastic signature of involuntary head micro-movements evolves with aging. The ranges of age used to that end were the following: from 5 to 10 years old, from 11 to 15 years old, from 16 to 20 years old, from 21 to 25 years old, from 26 to 30 years old, from 31 to 40 years old and from 41 to 65 years old.</p>
+<p>Inclusion/Exclusion Criteria</p>
+<p>This study includes all sites publicly available through ABIDE I and ABIDE II. They were comprised of 1127 TD and 1017 ASD. As we explained above, those groups were divided by age. <xref ref-type="table" rid="sensors-20-00572-t001">Table 1</xref> provides the number of participants with ASD or TD are in each range of age in ABIDE dataset.</p>
+<sec>
+<title>Bootstrapping Method</title>
+<p>ABIDE has data deposited from various labs whereby two types of data are available: cleaned up data sets (whereby noisy images have been removed according to some threshold of head motion amplitude) and raw data sets (whereby no images have been removed). In this work we use the raw data sets with no removal, because we are precisely interested in the head motion data. To that end, we aim at examining all frames continuously acquired in each scan session. Further, we note that different scanner sampling rates influence the nature of the noise in the images, which in turn is reflected in the noise derived from the variability of the raw extracted from the images reflecting the patterns of head motions. Our lab previously reported these effects on the linear (mm/s) and angular (rad/s) speed data [<xref ref-type="bibr" rid="B18-sensors-20-00572">18</xref>]. Here we focus on the standardized MMS waveform (see explanation below). We analyze the patters of variability in standardized deviations of the raw signal relative to the empirically estimated mean amplitude, considering randomization across all possible samples. To that end, we use bootstrapping and randomize across our original sample sets.</p>
+<p>Furthermore, given the inconsistent group sizes per age groups extracted from the ABIDE datasets (see <xref ref-type="table" rid="sensors-20-00572-t001">Table 1</xref>), we used a bootstrapping method to ensure uniform group numbers for pairwise statistical comparisons across ages. To that end, we used random sampling with replacement and created subgroups drawn from the original size group while considering the minimum number n = 25 at a time. The time series waveforms from these 25 randomly chosen participants were pooled into a representative point of a given age group. We chose 25 because the smallest age’s sub-groups size was n = 30. Thus, after dividing the groups by age, we did extract 100 and 500 random representative points (as described) to form sub-groups of 100 and 500 group sizes from all the age’s sub-groups. The five-year increments were motivated by prior work highlighting medication use and clinical characterizations of this ABIDE ASD cohort. The standardized amplitude using the MMS waveform ensured shuffling of data across all types of sampling resolution in ABIDE and accounted for anatomical disparities across the different age groups [<xref ref-type="bibr" rid="B30-sensors-20-00572">30</xref>]. In this paper we focus on the 500 size groups, but consistent trends were found with 100 size groups.</p>
+</sec>
+</sec>
+<sec id="sec2dot2-sensors-20-00572">
+<title>2.2. Data Processing</title>
+<sec id="sec2dot2dot1-sensors-20-00572">
+<title>2.2.1. Motion Extraction</title>
+<p>Head motion patterns were extracted from imaging data during (rs) fMRI experiments. Motion extraction was performed using the Analysis of Functional NeuroImages (AFNI) software packages [<xref ref-type="bibr" rid="B31-sensors-20-00572">31</xref>]. Single-subject processing scripts were generated using the afni_proc.py interface [<xref ref-type="bibr" rid="B31-sensors-20-00572">31</xref>]. Skull stripping was performed on anatomical data and functional EPI data were co-registered to anatomical images. The median was used as the EPI base in alignment. Motion parameters: three translational (<italic>x</italic>, <italic>y</italic>, and <italic>z</italic>) and three rotational (pitch-about the x axis, roll-about the y axis, and yaw- about the <italic>z</italic> axis), from EPI time-series registration was saved.</p>
+</sec>
+<sec id="sec2dot2dot2-sensors-20-00572">
+<title>2.2.2. Statistical Analyses</title>
+<p>We assess the scan-by-scan speed-dependent variations in the linear displacement of the head during resting-state functional magnetic resonance imaging (rs-fMRI) sessions. The analyses specifically refer to the stochastic signatures of micro-movement spikes (the MMS, defined in prior peer reviewed work [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>,<xref ref-type="bibr" rid="B17-sensors-20-00572">17</xref>,<xref ref-type="bibr" rid="B18-sensors-20-00572">18</xref>]) and their treatment as a continuous random process, under the general rubric of Poison random processes. Specifically, we use a Gamma process and estimate the continuous family of probability distributions using maximum likelihood estimation (MLE) with 95% confidence.</p>
+</sec>
+<sec id="sec2dot2dot3-sensors-20-00572">
+<title>2.2.3. Micro-Movement Spikes Data Type</title>
+<p>The maximum amplitude of the speed (mm/s) was obtained (<xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>A shows the raw waveforms and <xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>B the MMS, which is the normalized version of the raw peaks). The empirically estimated mean speed of each trial was also obtained and used as reference to determine the maximal absolute amplitude deviations from it.</p>
+<p>The time-series of these fluctuations in maximal amplitude deviations from the empirically estimated mean provides the waveform of interest for our analyses. To remove allometric effects of body-size across ages in each trial we computed the normalized peak amplitude (the peak speed amplitude is divided by the sum of the peak speed amplitude and the averaged speed amplitude value comprising points between the two speed minima surrounding the local speed peak amplitude) [<xref ref-type="bibr" rid="B32-sensors-20-00572">32</xref>,<xref ref-type="bibr" rid="B33-sensors-20-00572">33</xref>]. These normalized peaks spanning real values in the [0,1] interval are the spike trains of random fluctuations in signal amplitude (speed in this case) (<xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>C). They are assumed to characterize a continuous random process, where events in the past may (or may not) accumulate evidence towards the prediction of future events. The normalized fluctuations define the MMS of the waveform [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>] (<xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>C).</p>
+</sec>
+</sec>
+<sec id="sec2dot3-sensors-20-00572">
+<title>2.3. Distance in Probability Space: The Earth Mover’s Distance</title>
+<p>The Earth Mover’s Distance (EMD) [<xref ref-type="bibr" rid="B34-sensors-20-00572">34</xref>,<xref ref-type="bibr" rid="B35-sensors-20-00572">35</xref>], also known as the Kantarovich-Wasserstein distance [<xref ref-type="bibr" rid="B36-sensors-20-00572">36</xref>], measures the distance between two discrete probability distributions. Given two discrete distributions <italic>P<sub>r</sub></italic> and <italic>P<sub>θ</sub></italic><sub>,</sub> each with m possible states x or y, respectively; the EMD computes how much mass needs to be moved how far, to turn one distribution into the other. <xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>D shows two sample distributions derived from the linear speed that we obtained from head involuntary motions of two participants, one TD and one ASD, while <xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>A shows the matrix of pairwise EMD quantities across all 500 TD participants in the 5–10-year-old group.</p>
+<p>The problem of finding the amount of work that it takes to turn one distribution into another has been posed as an optimization problem that can be resolved using linear programming [<xref ref-type="bibr" rid="B35-sensors-20-00572">35</xref>,<xref ref-type="bibr" rid="B37-sensors-20-00572">37</xref>] in O(n<sup>2</sup>log(n)) vs. a more recent version in O(n) [<xref ref-type="bibr" rid="B38-sensors-20-00572">38</xref>]. Briefly, if one considers these histograms as two piles of earth, there are infinite ways to move the earth from one pile to the other. The goal is to find the optimal one (a unique value despite non-unique ways to do it). These are known as transport problems, with transport plan <italic>γ</italic>(<italic>x,y</italic>), to distribute the amount of earth from one place x over the domain of y (or vice versa.)</p>
+<p>Here the constraints <inline-formula><mml:math id="mm1"><mml:mrow><mml:mrow><mml:munder><mml:mstyle displaystyle="true" mathsize="140%"><mml:mo>∑</mml:mo></mml:mstyle><mml:mi>x</mml:mi></mml:munder><mml:mi>γ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>y</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> and <inline-formula><mml:math id="mm2"><mml:mrow><mml:mrow><mml:munder><mml:mstyle displaystyle="true" mathsize="140%"><mml:mo>∑</mml:mo></mml:mstyle><mml:mi>x</mml:mi></mml:munder><mml:mi>γ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>θ</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>y</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo> </mml:mo></mml:mrow></mml:mrow></mml:math></inline-formula> apply to ensure that the plan yields the correct distributions (sum over rows and columns respectively). The <italic>γ</italic> is the joint probability distribution such that <inline-formula><mml:math id="mm3"><mml:mrow><mml:mrow><mml:mi>γ</mml:mi><mml:mo>∈</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>θ</mml:mi></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> and <inline-formula><mml:math id="mm4"><mml:mrow><mml:mrow><mml:mi>Π</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>θ</mml:mi></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> is the set of all distributions whose marginals are <italic>P<sub>r</sub></italic> and <italic>P<sub>θ</sub></italic> respectively. To obtain the EMD, every value of the matrix <inline-formula><mml:math id="mm5"><mml:mrow><mml:mi>γ</mml:mi></mml:mrow></mml:math></inline-formula> is multiplied with the Euclidean distance between x and y:<disp-formula id="FD1-sensors-20-00572"><label>(1)</label><mml:math id="mm6"><mml:mrow><mml:mrow><mml:mi>E</mml:mi><mml:mi>M</mml:mi><mml:mi>D</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>θ</mml:mi></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munder><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>f</mml:mi></mml:mrow><mml:mrow><mml:mi>γ</mml:mi><mml:mo>∈</mml:mo><mml:mi>Π</mml:mi></mml:mrow></mml:munder><mml:msub><mml:mrow><mml:mo>⟨</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>Γ</mml:mi><mml:mo>⟩</mml:mo></mml:mrow><mml:mi>F</mml:mi></mml:msub></mml:mrow></mml:mrow></mml:math></disp-formula>
+where <inline-formula><mml:math id="mm7"><mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mo>⟨</mml:mo><mml:mo>,</mml:mo><mml:mo>⟩</mml:mo></mml:mrow><mml:mi>F</mml:mi></mml:msub></mml:mrow></mml:mrow></mml:math></inline-formula> is the Frobenius inner product (the sum of all the element-wise products) and inf is the infimum (minimizing the expression on the right). This represents an expectation with respect to the joint distribution γ where the outcome is unique but the flow from the minimization process is not unique. The product can be physically interpreted as mass times distance, (work), so Equation (1) is thought of as minimizing the work to transform one distribution into another [<xref ref-type="bibr" rid="B35-sensors-20-00572">35</xref>].</p>
+<p>We use the EMD to compute pairwise for each age group of each cohort, the cost of turning one probability distribution into the other.</p>
+</sec>
+<sec id="sec2dot4-sensors-20-00572">
+<title>2.4. Stochastic Analyses</title>
+<p>The foundation of these methods has been explained elsewhere (e.g., [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B3-sensors-20-00572">3</xref>,<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>,<xref ref-type="bibr" rid="B17-sensors-20-00572">17</xref>,<xref ref-type="bibr" rid="B18-sensors-20-00572">18</xref>,<xref ref-type="bibr" rid="B39-sensors-20-00572">39</xref>] among others). The empirically estimated mean was obtained using the continuous Gamma family of probability distributions for every group because it gave the best fit according to maximum likelihood estimation, MLE). Then, the MMS served as input to the Gamma process and a stochastic characterization of their fluctuations in amplitude was used to characterize the signature of involuntary head motions in the ASD vs. typically developing TD groups.</p>
+<p>We examined the frequency histograms of the MMS waveform and use MLE to approximate the best fitting distribution encompassing all cases. To that end, we compared different families of probability distributions (e.g., the Gaussian, Normal, Lognormal, Exponential and Gamma) and chose the best fit in an MLE sense. Owing to our prior works using the ABIDE sets [<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>,<xref ref-type="bibr" rid="B17-sensors-20-00572">17</xref>] we could determine that the Gamma had the best fit in an MLE sense. As such, we settled on the continuous Gamma family of probability distributions [<xref ref-type="bibr" rid="B40-sensors-20-00572">40</xref>]. The estimated parameters were plotted on a Gamma parameter plane, where the <italic>x</italic>-axis represents the shape parameter value and the <italic>y</italic>-axis represents the scale parameter value. <xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>E shows the representation of the estimated Gamma parameters (shape and scale) on the Gamma parameter plane with 95% confidence intervals. <xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>F shows the empirically estimated probability density functions (PDFs), while <xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref>G shows their representation as points on a Gamma moments multidimensional parameter space. There, the mean, variance and skewness are represented as three dimensional points along the x, y, z axes, respectively. The fourth moment, kurtosis, is proportional to the size of the marker (higher kurtosis is represented by larger marker size) and the color conveys other information. For example, here we use the color to represent the participant type (ASD vs. TD) and the arrow marks the shift in ASD signature relative to the normative value. The color can also provide information on pairwise distance in some other space. We examined the cross-sectional trajectories representing the evolution of these parameters using canonical Cartesian coordinates and Euclidean distance to quantify change and their rates, along with the cumulative distances traveled by each cohort, and other kinematic parameters that such a representation of the probability data affords us. We also represented the EMD as explained above.</p>
+</sec>
+<sec id="sec2dot5-sensors-20-00572">
+<title>2.5. Network Connectivity Analyses</title>
+<p>The MMS derived from the linear and angular speed were used to group the normalized peak amplitudes into a frequency histogram for each participant. Then, the EMD [<xref ref-type="bibr" rid="B34-sensors-20-00572">34</xref>,<xref ref-type="bibr" rid="B35-sensors-20-00572">35</xref>,<xref ref-type="bibr" rid="B37-sensors-20-00572">37</xref>] was obtained pairwise across all 500 records to estimate the cost of transforming one probability distribution into another. An adjacency matrix derived from this pairwise distance quantities (<xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>A) was used to obtain an undirected weighted network representation of each group, where the EMD was the weight of the links at entry (<italic>i,j</italic>) connecting two records from participants <italic>i</italic> and <italic>j</italic>. Common network connectivity metrics (e.g., the clustering coefficient, the network’s node-to-node distances and the characteristic pathlength) were used to characterize the neurotypical cohort spanning the 7 age groups with similar number of participants (500 selected at random through bootstrapping, see above) and to provide the normative states of the network. Then, network states generated from the data of the ASD cohort were compared against the normative states.</p>
+<p>The distributions of EMD values was also examined (<xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>B) to ascertain if the values spanned a multimodal distribution or a unimodal one. The Hartigan’s dip test of unimodality was used to that end [<xref ref-type="bibr" rid="B41-sensors-20-00572">41</xref>]. Then, the count per bin and the edges information was used to plot the count curve (as in <xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>C). The curve thus obtained was smoothed using loess algorithm set to 0.1 value using the smooth function in MATLAB version R2018b. The loess algorithm was used to preserve the peaks and valleys. Other smoothing procedures failed to preserve the original local minima and local maxima locations of the original histogram. To automatically separate self-emerging clusters of values using the local minima and local maxima spanned by the smooth count curve, the <italic>findpeaks</italic> function in MATLAB was used. <xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>D, E show one example for the group of neurotypical controls between 31–40 years of age where the procedure was applied to select the peaks and valleys. The peak amplitudes (local maxima) were located and the values of the EMD that they comprised obtained (see arrows delimiting the clusters bounded by local minima values surrounding the local maximum value.) Then all local maxima and minima were pooled, to determine the full range of values across all age groups and both cohorts. This set of EMD values from the entire data set (7000 points from 500 participants in each of the 7 groups of the neurotypical controls and of the ASD) was sorted and used to build a color code for each participant. To that end, each <italic>i</italic>-participant’s EMD value from the <italic>i,j</italic> matrix entry was mapped (as in <xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>D–E) to the corresponding distribution bump and the corresponding local maxima of the bump was used to color the point representing the participant in the scatter of probability points plotted on the Gamma moments parameter space. <xref ref-type="fig" rid="sensors-20-00572-f003">Figure 3</xref>F locates on the normalized color scale the value corresponding to the local EMD maximum for participant <italic>i</italic> (matrix entry <italic>i,j</italic>) taken across all other participants. Then, the point located on the Gamma moments parameter space is colored using this scale.</p>
+<p>The idea was to uncover self-emerging clusters of EMD values in each age-group. Low values represent distributions that are similar, while high values represent distributions that are far apart in probability space. Possible scenarios are to have within each age group, highly heterogeneous values, or highly homogeneous values. Further, across the full scatter representing all age groups, we may have highly heterogeneous values, or homogeneous values. We set to interrogate this probability landscape about the evolution of the age groups, the heterogeneity/homogeneity of the groups and the nature of the cross-sectional trajectories of the groups.</p>
+<p>To interrogate about trajectories, we used the mean values of the three first Gamma moments in each cohort and traced a line connecting each representative point of each age group for each cohort. We also did this for the mode of the age-group scatter, representing the most frequent value and for the median (not shown). The coordinates of the mean values along each axis, were set as the representative point of the scatter and tracked over time. The departure of the coordinates of the point representing the ASD age-group from the neurotypical control age group were obtained using the norm of the vector difference and plotted to ascertain the trends of the trajectories and to identify inflection points of the evolving curve representing the point by point distance between the two cohorts. Lastly, the trajectories were plotted in the scatter of points representing the probability landscape to ascertain their locations within the scatters.</p>
+<p>A measure of the scatter dispersion was built using the Delaunay Triangulation (DT) of each age-group scatter and the area of each of the triangles obtained. The fluctuations in the values of the area were treated as a point process and their MMS obtained as well. The values of the DT-area MMS were used to empirically fit the Gamma distribution (given that this was the best distribution using MLE [<xref ref-type="bibr" rid="B21-sensors-20-00572">21</xref>]) and the estimated shape and scale parameters were plotted on the Gamma parameter plane with 95% confidence intervals for the empirically estimated shape and scale parameters. We used the estimated PDFs to ascertain differences of statistical significance across all age groups of the cohorts and within each age group for the ASD and neurotypical cases.</p>
+</sec>
+</sec>
+<sec id="sec3-sensors-20-00572" sec-type="results">
+<title>3. Results</title>
+<sec id="sec3dot1-sensors-20-00572">
+<title>3.1. High Heterogeneity of ASD is Automatically Captured by the Earth Movers’ Distance</title>
+<p>The stochastic analyses empirically estimating the moments of the continuous family of Gamma probability distributions, derived from the linear speed MMS, provided a way to represent the estimated stochastic signatures in a parameter space. In this space, each point represents a participant, and the scatter is plotted using canonical Cartesian coordinates. They fall at a distance from each other in this space that we can measure through e.g., Euclidean distance. Yet, since these scatters of points are probability functions, an appropriate measure to examine their similarity is the Earth Mover’s Distance (EMD, see methods). Here we use the distribution spanned by the EMD from participant <italic>i</italic> to all other participants and index the maximal value representing the farthest apart a person is from all other members of the age group, to color code the point in the scatter. Doing this through the full cohort, automatically identifies self-emerging clusters of participants, indicating important differences within a group and across age groups. Cross-sectionally, these patterns inform us about the aging trajectories of ASD in relation to the age-matched normative data and in so doing the empirically estimated personalized signatures of involuntary micro-motions automatically stratify ASD by age (<xref ref-type="fig" rid="sensors-20-00572-f004">Figure 4</xref>).</p>
+<p><xref ref-type="fig" rid="sensors-20-00572-f004">Figure 4</xref> shows the fundamental differences between the normative age-groups and those of the ASD age-matched groups. In the neurotypical control group, the EMD shows a more homogeneous quantity in each age group, with higher ranges of EMD. This suggests that each cluster is uniquely positioned in probability space far apart from other clusters. It also indicates that each participant within each age cluster, is unambiguously different from all other participants. In contrast to the normative data, the ASD groups also colored by the EMD, is rather heterogeneous. There, the points in probability space are more mixed, some closer to others and some farther apart. And this is a visible pattern up to 20 years of age.</p>
+<p>A bird’s view of this cohort confirms the notion that ASD is highly variable. But there is another feature that this parameter space and coloring reveals. There is a cluster that completely separates from the rest of the scatter (the oldest group of 41–65 years of age). This indicates a fundamental shift in the signatures of involuntary head micro-motions after 40 years of age. Interestingly, after 20 years of age, the spread in the ASD scatter of each age group decreases, and so does the value of the EMD. The latter, indicating that the participants are getting closer in probability space. This trend is maintained right until 31–40 years of age, when the inflection point marks a fundamental departure in the stochastic signatures of involuntary head motion variations. It is right at this point that the EMD increases maximally as the scatter spread contracts. All participants in this 41–65-year-old group become unambiguously different (far apart) in probability space and rather far from all other age-clusters in the Gamma moments parameter space.</p>
+<p>The breakdown of these scatters by age are shown in <xref ref-type="fig" rid="sensors-20-00572-f005">Figure 5</xref> (for the TD cohort) and <xref ref-type="fig" rid="sensors-20-00572-f006">Figure 6</xref> (for the ASD cohort). There, it is possible to appreciate the above-mentioned shifts of the points across the Gamma moments parameter space, for each age group in the typical cohort of <xref ref-type="fig" rid="sensors-20-00572-f005">Figure 5</xref>. Further, we see the homogeneity and low EMD values of the 31–40-year-old ASD group. Not only they fall tightly close on the Gamma moments parameter space, they are also close in probability space, according to the EMD values. The evolution of the stochastic signatures on the Gamma moments parameter space and those of the EMD in probability space denote a fundamentally different cross-sectional trajectory of the aging process in ASD, relative to the normative data. The oldest age group (41–65 years old) completely separates from the rest of the cohort and this dramatic transition in the involuntary head motions can be forecasted before 40 years of age.</p>
+</sec>
+<sec id="sec3dot2-sensors-20-00572">
+<title>3.2. Differences in the Scatters Representing Each Age Group</title>
+<p>To ascertain the shifting differences in the spread of the scatter of points representing the empirically estimated Gamma moments of the MMS derived from the involuntary linear speed of each participant, we obtained the Delaunay triangulation of the scatter. For each unique triangle found by the Delaunay algorithm, we computed the area and studied the patterns of variability of the triangles’ areas across each age group within each cohort.</p>
+<p><xref ref-type="fig" rid="sensors-20-00572-f007">Figure 7</xref> shows that for each age group, the ASD scatter had a fundamentally different spread signature than the neurotypical scatter. This is shown through the empirically estimated PDF representing the signatures derived from the Delaunay triangulation that we obtained from each group’s scatter. The square symbol localizing the shape and scale of the PDF on the Gamma parameter plane is for ASD participants. The circle symbol is for the age-matched TD participants. Further, the figure reflects the shifting nature of the scatter spread variability. In each age group, the empirically estimated Gamma PDF characterizing the spread of the ASD scatter shifted with respect to the age-matched controls, as shown by the PDF insets of each corresponding Gamma parameter plane. The color range represents the average Earth Mover’s Distance (normalized between 0 and 1) between the PDFs representing the variability of the triangles’ areas in the Delaunay triangulation of the scatter. For example, in the 41–65 group, the yellow circle representing the controls has a triangulation with lower scatter variability than the red square representing the ASD participants of that age group. The shift in PDF is evident in the differences in shape and scale (dispersion) of the empirical distributions.</p>
+</sec>
+<sec id="sec3dot3-sensors-20-00572">
+<title>3.3. Aging with ASD Is Fundamentally Different from Typically Aging</title>
+<p>Tracking the cross-sectional trajectory of the estimated mean value of each age-group scatter, as one moves from age group to age group, revealed a very different cross-sectional aging path in neurotypical controls than in ASD participants. This can be appreciated in <xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>A, where we plot the ASD trajectory in red and the age-matching controls in blue, connecting across each estimated mean along each of the dimensions. There, we can see that ASD starts different from the age matched controls at 5–10 years old. More importantly, we see that the ASD groups evolve at a much lower rate, thus falling behind in the trajectory, as the controls advance to the point representing the 11–15-year-old group. This slow trend remains, so moving onward to the point representing the 16–20-year-old group, upon which they accelerate.</p>
+<p>The Euclidean distance cumulatively traveled in this Gamma parameter space by the ASD groups comprising 5–20 years of age is ½ of that traveled by their age-matched control counterparts. This can also be appreciated in the acceleration and deceleration of the curves in <xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>B and in the shifts of the linear increments along the positional path. This trajectory culminates with a large separation of the oldest ASD group from the age-matched controls, visibly in <xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>A and also captured by the pairwise Euclidean distance plot in <xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>D. <xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>E,F show the scatters of the TD and ASD respectively with the trajectories superimposed and shown in a rotated view that helps visualize the fundamental departure of the oldest group (after 41 years of age) from the rest of the population in ASD.</p>
+</sec>
+<sec id="sec3dot4-sensors-20-00572">
+<title>3.4. Network Connectivity Metrics Derived from the Autistic Cohort Reveal Fundamental Departures from Normative Data</title>
+<p>Comparison of the autistic cohort to the normative data revealed statistically significant differences in the network connectivity metrics derived from the EMD adjacency matrix (see methods). Each entry in this matrix quantified the pairwise distance in probability space between two members of the age group within each cohort. <xref ref-type="fig" rid="sensors-20-00572-f009">Figure 9</xref>A,B illustrate an example of the resulting patterns from the comparisons using the clustering coefficient, a metric that ascertains the degree to which the nodes of the graph tend to cluster together. Higher values indicate higher clustering. From this figure it is evident that the younger ASD groups (5–20 years of age) are significantly more heterogenous than their age-matched controls (<italic>p</italic> &lt;&lt; 0.001, <xref ref-type="fig" rid="sensors-20-00572-f009">Figure 9</xref>C), with several clusters within each age group within those first 20 years of life.</p>
+<p>Each age group within the typical and autistic cohorts had statistically different clustering coefficient values according to the non-parametric Kruskal-Wallis test. Likewise, pairwise comparison between each neurotypical and autistic age-group yielded statistically significant differences according to this non-parametric ANOVA test (<xref ref-type="fig" rid="sensors-20-00572-f009">Figure 9</xref>C) (<italic>p</italic> &lt;&lt; 0.001).</p>
+<p>Another network metric, the characteristic pathlength quantifying the average short-distance paths between a node and all other nodes of the network, was also obtained for each age-group in each cohort (<xref ref-type="fig" rid="sensors-20-00572-f009">Figure 9</xref>D). Large differences were found in the autistic cohort relative to the normative data. The groups with minimum characteristic pathlength (5–10 years old) and that with the maximum characteristic pathlength (31–40 years old) were also quantified. They coincided in both the neurotypical and the autistic cohorts, with large differences of the autistic groups relative to the controls. <xref ref-type="fig" rid="sensors-20-00572-f009">Figure 9</xref>E,F show the representative adjacency matrices for these groups along with the matrix quantifying the pairwise network distances for each age group within each cohort. Here we see that at maximum characteristic pathlength the adjacency matrix has low values indicating pairwise more similarity in the probability distributions of the involuntary micro-movement spikes. This is the case for both controls and ASD, occurring in both cases for the 31–40-year-old groups. The entries in the network distance matrix indicate the length of the shortest distance path between the two nodes (<italic>i, j</italic>) of the matrix entry. This number is computed based on the travel weight of the network edges, which in our case represent the EMD. The length thus denotes how similar (or different) the family of probability distributions are to get from participant <italic>i</italic> to participant <italic>j</italic>. Long travelled distances represent paths along edges that are maximally apart in probability space. At the minimum characteristic pathlength occurring for the 5–10-year-old group, the EDM matrix is much higher for ASD, thus suggesting higher heterogeneity than the age-matched controls. The network distance matrices however have low values, so the shortest pairwise paths are comparable for both groups. Owing to the heterogeneity in probability space, for any two participants within the age group and cohort (ASD or control), it is always possible to find shortest travel path hoping along points of low value in EMD (i.e., points that are close in probability space.).</p>
+<p>In the case of maximum characteristic pathlength, occurring for the age group of 31–40 years old in both the neurotypical control and the ASD cohort, there is appreciably less heterogeneity of shortest distance values in ASD than in the age-matched controls, and the values are significantly lower than those of controls (<italic>p</italic>&lt;&lt;0.001, rank sum test.) Here a more homogeneous ASD group gives rise to lower travel pathlength on average than those of the distribution points from age-match controls. The ASD lower heterogeneity of this age group in probability space appears to be forecasting a dramatic change in the involuntary movements of ASD after 40 years of age (as suggested by <xref ref-type="fig" rid="sensors-20-00572-f006">Figure 6</xref>).</p>
+</sec>
+</sec>
+<sec id="sec4-sensors-20-00572" sec-type="discussion">
+<title>4. Discussion</title>
+<p>This work aimed at using a distribution-free approach to characterize the cross-sectional aging trajectories of the stochastic signatures of involuntary micro-movements in neurotypicals from 5–65 years of age. The work further aimed at quantifying the departure from the normative data of age-matched participants with ASD. To that end, instead of applying a grand average method which would eliminate as noise the important motor fluctuations from the involuntary motions, we examined the MMS in two different spaces. One space was the canonical representation of points located on a Gamma moments parameter space, where differences are measured using Euclidean distance. The other was the probability space, where we use the EMD to measure similarities/differences between points. Each point represents the probability distribution of a person’s MMS derived from involuntary linear displacements of the head, registered as they try to remain still. We used a Gamma process to characterize the spike data. Together, at each age group, these points represent a family of continuous probability distribution functions. This family was well fit by the continuous Gamma family using Maximum Likelihood Estimation (MLE) with 95% confidence [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>].</p>
+<p>We found that each age group could be well characterized by a different family of probability distributions, with different scatter dispersion. The methods provide a new way to automatically stratify the autistic cohort using the EMD on the probability distributions generated by the MMS, and to characterize the differences from the neurotypical cohort by representing the data as weighted connected graphs. The network analyses provided several connectivity metrics amenable to automatically separate atypical autistic development from neurotypical development. More importantly, we were able to automatically identify critical differences in the aging trajectories of the autistic cohort that were absent in the neurotypical cohort for the eldest group (41–65 years of age).</p>
+<p>These results are relevant to autism research in more than one way. They emphasize the importance of not enforcing a priori any statistical assumptions, but rather allowing the variability inherently present in the data to automatically reveal self-emerging patterns. Further, the results show that a “one size fits all” approach is inefficient to cope with the heterogeneity of autism. Each age group in the autistic cohort had a different stochastic signature unique to the group, spanning a family of PDFs. These were distinguishable from other age groups within the ASD cohort. This was also the case for the normative data, which was nonetheless, overall, visibly more homogeneous in nature than the ASD set. At an individual level, each person in each age-group of the normative cohort was unambiguously statistically different from every other person. This was captured by the large values of the EMD, signaling high effort to transform one frequency histogram into any other frequency histogram of the cohort.</p>
+<p>In stark contrast to the normative trends, the ASD group had non-uniform changes in the first 20 years of life. On the Gamma moments parameter space (<xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>A) a representative 11–15-year-old ASD child has stochastic signatures closer to a representative 5–10-year-old neurotypical child, and then accelerates to the 16–20 range, which remains behind normative values. The irregular trends in the acceleration and deceleration period separating the cohorts are visible in <xref ref-type="fig" rid="sensors-20-00572-f008">Figure 8</xref>B,C across ages. As the two cross-sectional cohorts age, these differences increase, suggesting fundamental neurological disparity in the involuntary motions. These results are congruent with prior cross-sectional data from goal-directed voluntary motions, where the dramatically different trajectory in the maturation of the somatic-sensory-motor systems had been revealed and are well characterized by a power law [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B3-sensors-20-00572">3</xref>] and by a parameter space defined by the R-metric [<xref ref-type="bibr" rid="B4-sensors-20-00572">4</xref>]. Here, using new methods, we extend the results from voluntary to involuntary motions across a much larger range of ages and larger cohorts that open-access data can afford us.</p>
+<p>Beyond the MMS related work in ASD, the broader literature of motor control problems studying movements and their sensations in ASD has by now grown considerably [<xref ref-type="bibr" rid="B42-sensors-20-00572">42</xref>,<xref ref-type="bibr" rid="B43-sensors-20-00572">43</xref>], including problems with gait disturbances and vestibular dysfunction from an early age [<xref ref-type="bibr" rid="B44-sensors-20-00572">44</xref>,<xref ref-type="bibr" rid="B45-sensors-20-00572">45</xref>]. The current clinical diagnostics criteria do not include these problems as core symptoms. Yet, for well over two decades now, basic science has provided objective, physical quantification of neurological problems in ASD that supports an earlier neurological model [<xref ref-type="bibr" rid="B46-sensors-20-00572">46</xref>,<xref ref-type="bibr" rid="B47-sensors-20-00572">47</xref>] amenable to explain many of the social and communication issues defining the condition. Patterns of cerebellar dysfunction [<xref ref-type="bibr" rid="B48-sensors-20-00572">48</xref>,<xref ref-type="bibr" rid="B49-sensors-20-00572">49</xref>], motor and vestibular coordination [<xref ref-type="bibr" rid="B44-sensors-20-00572">44</xref>] and sensory-motor integration issues [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>] have been reproduced across tractable biorhythms using non-invasive means [<xref ref-type="bibr" rid="B50-sensors-20-00572">50</xref>,<xref ref-type="bibr" rid="B51-sensors-20-00572">51</xref>,<xref ref-type="bibr" rid="B52-sensors-20-00572">52</xref>,<xref ref-type="bibr" rid="B53-sensors-20-00572">53</xref>,<xref ref-type="bibr" rid="B54-sensors-20-00572">54</xref>,<xref ref-type="bibr" rid="B55-sensors-20-00572">55</xref>,<xref ref-type="bibr" rid="B56-sensors-20-00572">56</xref>]. Perhaps these data can help us derive further criteria to stratify ASD and help design treatments tailored to address the phenotypic features that each subgroup may reveal. More importantly, using the neurological model in combination with the current behavioral descriptors may be effective to tackle these somatic sensory motor issues from an early age.</p>
+<p>Under the current behavioral criteria for diagnosis and treatments of ASD, these neurological issues are treated as comorbid and secondary to the observed behaviors defining the condition. Under such criteria, the adult autistic population, which is rather large today, never received neuroprotective therapies aimed to slow down the progression of neurological issues. Yet, Parkinsonism is more prevalent and has earlier onset in autistic adults than in neurotypicals of comparable age [<xref ref-type="bibr" rid="B57-sensors-20-00572">57</xref>]. Other medical conditions are also more prevalent in autistic adults than in controls of similar age [<xref ref-type="bibr" rid="B58-sensors-20-00572">58</xref>]. According to a recent report by US-Kaiser, medical issues include all major psychiatric disorders such as depression, anxiety, bipolar disorder, obsessive-compulsive disorder, schizophrenia, and suicide attempts. Further the report cites immune conditions, gastrointestinal and sleep disorders, seizure, obesity, dyslipidemia, hypertension, and diabetes with higher prevalence in adults with autism, along with stroke and Parkinson′s disease.</p>
+<p>The results presented here strongly suggest that the involuntary micro-movements can not only provide a way to characterize the lack of volitional control of the brain over the body (i.e., control the body at will to remain still). More importantly, the results offer for the first time the means to differentiate aging with autism from typically aging in this cross section of the population. The methods allowed us to automatically stratify the broad spectrum of autism as a lifelong condition. The cross-sectional aging trajectories of these stochastic signatures pinpoint critical points of change in the statistical landscape of development and aging. These may perhaps forecast important milestones signaling physiological changes in the autistic system.</p>
+<p>Along those lines, a striking feature of the data concerns the separation of the 41–65-year-old cluster from the rest of the scatter. It may be possible that the high penetrance of Fragile X Syndrome in autism accounts for such differentiation, as motor symptoms are common among this part of the population and often result in Parkinsonism after 40 years of age [<xref ref-type="bibr" rid="B59-sensors-20-00572">59</xref>,<xref ref-type="bibr" rid="B60-sensors-20-00572">60</xref>,<xref ref-type="bibr" rid="B61-sensors-20-00572">61</xref>]. It will be important to address this question, as the dramatic change in the involuntary motions for this ASD age group raises concerns about the large number of aging adults with ASD who may face motor issues impeding independent living.</p>
+<sec>
+<title>Limitations</title>
+<p>We note that among the autistic participants of ABIDE, there are those who have taken psychotropic medications and those who have not. We have previously shown that the involuntary MMS are present in both types of participants, but that as the number of meds increases, so does the noise levels and the randomness of these involuntary motions [<xref ref-type="bibr" rid="B4-sensors-20-00572">4</xref>,<xref ref-type="bibr" rid="B16-sensors-20-00572">16</xref>]. This is relevant to these types of analyses, as they are very sensitive to medication effects. Further, we have shown that these MMS can differentiate those individuals with ASD who never took meds from those do did and identify patterns of medication intake across ages in the ABIDE repository. Likewise, the MMS have differentiated ASD with and without comorbidities (e.g., ADHD) and identified levels of severity according to clinical scales commonly used for research (e.g., ADOS and IQ test scores reported on ABIDE.) Although these may be possible advantages of the methods and MMS data type, we note that one limitation is the novelty of the approach, as very few labs have used these methods. Nevertheless, our lab is making them available through various means to invite reproducibility of results across open access databases such as ABIDE, Kaggle.com, the connectome project and others.</p>
+<p>Along those lines, the sensory-motor axes [<xref ref-type="bibr" rid="B62-sensors-20-00572">62</xref>] were only recently added on January of 2019, to the Research Domain Criteria (RDoC) matrix created by the National Institute of Mental Health (NIMH) [<xref ref-type="bibr" rid="B63-sensors-20-00572">63</xref>]. As such, the sensory motor issues discussed here have not been broadly explored in autism, although there is a nascent field researching the neurological issues underlying behaviors across the spectrum of autism (e.g., [<xref ref-type="bibr" rid="B42-sensors-20-00572">42</xref>,<xref ref-type="bibr" rid="B46-sensors-20-00572">46</xref>,<xref ref-type="bibr" rid="B49-sensors-20-00572">49</xref>,<xref ref-type="bibr" rid="B50-sensors-20-00572">50</xref>,<xref ref-type="bibr" rid="B51-sensors-20-00572">51</xref>,<xref ref-type="bibr" rid="B54-sensors-20-00572">54</xref>,<xref ref-type="bibr" rid="B56-sensors-20-00572">56</xref>] among others) is beginning to take advantage of the wearable sensors revolution and measure the biorhythms of the peripheral nervous systems signals [<xref ref-type="bibr" rid="B2-sensors-20-00572">2</xref>,<xref ref-type="bibr" rid="B15-sensors-20-00572">15</xref>]. This is important as this form of feedback, which is disrupted in autism, is critical to continuously guide the central controllers of the brain generating observable behaviors that define autism today. In this sense, the present results warrant further research in autism across the lifespan. This type of work may mark the start of a new medical era for ASD, a prospect that to some may appear as a limitation, while to others, may seem advantageous.</p>
+</sec>
+</sec>
+<sec id="sec5-sensors-20-00572" sec-type="conclusions">
+<title>5. Conclusions</title>
+<p>It is hard to imagine a point whereby a neurodevelopmental condition may turn into a neurodegenerative disorder of the nervous systems, particularly since autism is primarily conceived as a mental illness, a cognitive/communicative childhood disorder and hardly defined and treated as a neurological condition. Perhaps it may be time to rethink autism as a lifelong condition that requires close attention to the physiological changes that may accelerate the process of neurodegeneration in the early adult or elderly years. This paper opens a new conversation regarding autism motor physiology across the human lifespan.</p>
+</sec>
+<sec id="sec6-sensors-20-00572">
+<title>6. Patents</title>
+<p>EBT holds the US Patent “Methods and Systems for the Diagnoses and Treatments of Nervous Systems Disorders” combined in the paper as micro-movement spikes, MMS data type and Gamma process.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>We thank all the participants in the ABIDE studies and the researchers who uploaded their data to ABIDE. We thank the organizers of ABIDE. We thank the Salk Institute of Biological Sciences for hosting the first author during her sabbatical at the Computational Neurobiology Lab, where this paper was written.</p>
+</ack>
+<notes>
+<title>Author Contributions</title>
+<p>Conceptualization, E.B.T.; methodology, E.B.T; formal analysis, E.B.T.; investigation, E.B.T., C.C., S.M.; resources, E.B.T.; data curation, E.B.T., C.C., S.M.; E.B.T.—original draft preparation, C.C. and S.M.; writing—review and editing, E.B.T.; visualization, E.B.T.; supervision, E.B.T.; project administration, E.B.T.; funding acquisition, E.B.T. All authors have read and agreed to the published version of the manuscript.</p>
+</notes>
+<notes>
+<title>Funding</title>
+<p>This research was funded by New Jersey Governor’s Council for the Medical Research and Treatments of Autism CAUT17BSP024 and by the Nancy Lurie Marks Family Foundation to EBT Career Development Award.</p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Conflicts of Interest</title>
+<p>The authors declare no conflict of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript, or in the decision to publish the results.</p>
+</notes>
+<ref-list>
+<title>References</title>
+<ref id="B1-sensors-20-00572">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Mistry</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Brincker</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Whyatt</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Neonatal Diagnostics: Toward Dynamic Growth Charts of Neuromotor Control</article-title>
+<source/>Front. Pediatr.
+          <year>2016</year>
+<volume>4</volume>
+<fpage>121</fpage>
+<pub-id pub-id-type="doi">10.3389/fped.2016.00121</pub-id>
+<pub-id pub-id-type="pmid">27933283</pub-id>
+</element-citation>
+</ref>
+<ref id="B2-sensors-20-00572">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Brincker</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Isenhower</surname>
+<given-names>R.W.</given-names>
+</name>
+<name>
+<surname>Yanovich</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Stigler</surname>
+<given-names>K.A.</given-names>
+</name>
+<name>
+<surname>Nurnberger</surname>
+<given-names>J.I.</given-names>
+</name>
+<name>
+<surname>Metaxas</surname>
+<given-names>D.N.</given-names>
+</name>
+<name>
+<surname>José</surname>
+<given-names>J.V.</given-names>
+</name>
+</person-group>
+<article-title>Autism: The micro-movement perspective</article-title>
+<source/>Front. Integr. Neurosci.
+          <year>2013</year>
+<volume>7</volume>
+<fpage>32</fpage>
+<pub-id pub-id-type="doi">10.3389/fnint.2013.00032</pub-id>
+<pub-id pub-id-type="pmid">23898241</pub-id>
+</element-citation>
+</ref>
+<ref id="B3-sensors-20-00572">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Isenhower</surname>
+<given-names>R.W.</given-names>
+</name>
+<name>
+<surname>Nguyen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Whyatt</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Nurnberger</surname>
+<given-names>J.I.</given-names>
+</name>
+<name>
+<surname>Jose</surname>
+<given-names>J.V.</given-names>
+</name>
+<name>
+<surname>Silverstein</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Papathomas</surname>
+<given-names>T.V.</given-names>
+</name>
+<name>
+<surname>Sage</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cole</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Toward Precision Psychiatry: Statistical Platform for the Personalized Characterization of Natural Behaviors</article-title>
+<source/>Front. Neurol.
+          <year>2016</year>
+<volume>7</volume>
+<fpage>8</fpage>
+<pub-id pub-id-type="doi">10.3389/fneur.2016.00008</pub-id>
+<pub-id pub-id-type="pmid">26869988</pub-id>
+</element-citation>
+</ref>
+<ref id="B4-sensors-20-00572">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>José</surname>
+<given-names>J.V.</given-names>
+</name>
+<name>
+<surname>Nurnberger</surname>
+<given-names>J.I.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>A Biomarker Characterizing Neurodevelopment with applications in Autism</article-title>
+<source/>Sci. Rep.
+          <year>2018</year>
+<volume>8</volume>
+<fpage>614</fpage>
+<pub-id pub-id-type="doi">10.1038/s41598-017-18902-w</pub-id>
+<pub-id pub-id-type="pmid">29330487</pub-id>
+</element-citation>
+</ref>
+<ref id="B5-sensors-20-00572">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Uddin</surname>
+<given-names>L.Q.</given-names>
+</name>
+<name>
+<surname>Guo</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Duan</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Parsing brain structural heterogeneity in males with autism spectrum disorder reveals distinct clinical subtypes</article-title>
+<source/>Hum. Brain Mapp.
+          <year>2019</year>
+<volume>40</volume>
+<fpage>628</fpage>
+<lpage>637</lpage>
+<pub-id pub-id-type="doi">10.1002/hbm.24400</pub-id>
+<pub-id pub-id-type="pmid">30251763</pub-id>
+</element-citation>
+</ref>
+<ref id="B6-sensors-20-00572">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ecker</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>The neuroanatomy of autism spectrum disorder: An overview of structural neuroimaging findings and their translatability to the clinical setting</article-title>
+<source/>Autism
+          <year>2017</year>
+<volume>21</volume>
+<fpage>18</fpage>
+<lpage>28</lpage>
+<pub-id pub-id-type="doi">10.1177/1362361315627136</pub-id>
+<pub-id pub-id-type="pmid">26975670</pub-id>
+</element-citation>
+</ref>
+<ref id="B7-sensors-20-00572">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Korzeniewski</surname>
+<given-names>S.J.</given-names>
+</name>
+</person-group>
+<article-title>Why Stratify Autism Spectrum Disorder by Co-occurrence with Intellectual Disability?</article-title>
+<source/>Paediatr. Perinat. Epidemiol.
+          <year>2017</year>
+<volume>31</volume>
+<fpage>595</fpage>
+<lpage>597</lpage>
+<pub-id pub-id-type="doi">10.1111/ppe.12422</pub-id>
+<pub-id pub-id-type="pmid">29076542</pub-id>
+</element-citation>
+</ref>
+<ref id="B8-sensors-20-00572">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tunc</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Ghanbari</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>A.R.</given-names>
+</name>
+<name>
+<surname>Pandey</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Browne</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Schultz</surname>
+<given-names>R.T.</given-names>
+</name>
+<name>
+<surname>Verma</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>PUNCH: Population Characterization of Heterogeneity</article-title>
+<source/>Neuroimage
+          <year>2014</year>
+<volume>98</volume>
+<fpage>50</fpage>
+<lpage>60</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroimage.2014.04.068</pub-id>
+<pub-id pub-id-type="pmid">24799135</pub-id>
+</element-citation>
+</ref>
+<ref id="B9-sensors-20-00572">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lombardo</surname>
+<given-names>M.V.</given-names>
+</name>
+<name>
+<surname>Lai</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Baron-Cohen</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>Big data approaches to decomposing heterogeneity across the autism spectrum</article-title>
+<source/>Mol. Psychiatry
+          <year>2019</year>
+<volume>24</volume>
+<fpage>1435</fpage>
+<lpage>1450</lpage>
+<pub-id pub-id-type="doi">10.1038/s41380-018-0321-0</pub-id>
+<pub-id pub-id-type="pmid">30617272</pub-id>
+</element-citation>
+</ref>
+<ref id="B10-sensors-20-00572">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lord</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Risi</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Lambrecht</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Cook</surname>
+<given-names>E.H.</given-names>
+<suffix>Jr.</suffix>
+</name>
+<name>
+<surname>Leventhal</surname>
+<given-names>B.L.</given-names>
+</name>
+<name>
+<surname>DiLavore</surname>
+<given-names>P.C.</given-names>
+</name>
+<name>
+<surname>Pickles</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Rutter</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>The autism diagnostic observation schedule-generic: A standard measure of social and communication deficits associated with the spectrum of autism</article-title>
+<source/>J. Autism Dev. Disord.
+          <year>2000</year>
+<volume>30</volume>
+<fpage>205</fpage>
+<lpage>223</lpage>
+<pub-id pub-id-type="doi">10.1023/A:1005592401947</pub-id>
+<pub-id pub-id-type="pmid">11055457</pub-id>
+</element-citation>
+</ref>
+<ref id="B11-sensors-20-00572">
+<label>11.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Association</surname>
+<given-names>A.P.</given-names>
+</name>
+</person-group>
+<source/>Diagnostic and Statistical Manual of Mental Disorders
+          <edition>5th ed.</edition>
+<publisher-name>American Psychiatric Accociation</publisher-name>
+<publisher-loc>Arlington, VA, USA</publisher-loc>
+<year>2013</year>
+</element-citation>
+</ref>
+<ref id="B12-sensors-20-00572">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lord</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Rutter</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Goode</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Heemsbergen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Jordan</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Mawhood</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Schopler</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Autism diagnostic observation schedule: A standardized observation of communicative and social behavior</article-title>
+<source/>J. Autism Dev. Disord.
+          <year>1989</year>
+<volume>19</volume>
+<fpage>185</fpage>
+<lpage>212</lpage>
+<pub-id pub-id-type="doi">10.1007/BF02211841</pub-id>
+<pub-id pub-id-type="pmid">2745388</pub-id>
+</element-citation>
+</ref>
+<ref id="B13-sensors-20-00572">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Two classes of movements in motor control</article-title>
+<source/>Exp. Brain Res.
+          <year>2011</year>
+<volume>215</volume>
+<fpage>269</fpage>
+<lpage>283</lpage>
+<pub-id pub-id-type="doi">10.1007/s00221-011-2892-8</pub-id>
+<pub-id pub-id-type="pmid">22038712</pub-id>
+</element-citation>
+</ref>
+<ref id="B14-sensors-20-00572">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Isenhower</surname>
+<given-names>R.W.</given-names>
+</name>
+<name>
+<surname>Yanovich</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Rehrig</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Stigler</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Nurnberger</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>José</surname>
+<given-names>J.V.</given-names>
+</name>
+</person-group>
+<article-title>Strategies to develop putative biomarkers to characterize the female phenotype with autism spectrum disorders</article-title>
+<source/>J. Neurophysiol.
+          <year>2013</year>
+<volume>110</volume>
+<fpage>1646</fpage>
+<lpage>1662</lpage>
+<pub-id pub-id-type="doi">10.1152/jn.00059.2013</pub-id>
+<pub-id pub-id-type="pmid">23864377</pub-id>
+</element-citation>
+</ref>
+<ref id="B15-sensors-20-00572">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Yanovich</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Metaxas</surname>
+<given-names>D.N.</given-names>
+</name>
+</person-group>
+<article-title>Give spontaneity and self-discovery a chance in ASD: Spontaneous peripheral limb variability as a proxy to evoke centrally driven intentional acts</article-title>
+<source/>Front. Integr. Neurosci.
+          <year>2013</year>
+<volume>7</volume>
+<fpage>46</fpage>
+<pub-id pub-id-type="doi">10.3389/fnint.2013.00046</pub-id>
+<pub-id pub-id-type="pmid">23898243</pub-id>
+</element-citation>
+</ref>
+<ref id="B16-sensors-20-00572">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Denisova</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Motor noise is rich signal in autism research and pharmacological treatments</article-title>
+<source/>Sci. Rep.
+          <year>2016</year>
+<volume>6</volume>
+<fpage>37422</fpage>
+<pub-id pub-id-type="doi">10.1038/srep37422</pub-id>
+<pub-id pub-id-type="pmid">27869148</pub-id>
+</element-citation>
+</ref>
+<ref id="B17-sensors-20-00572">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Mistry</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Caballero</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Whyatt</surname>
+<given-names>C.P.</given-names>
+</name>
+</person-group>
+<article-title>Stochastic Signatures of Involuntary Head Micro-movements Can Be Used to Classify Females of ABIDE into Different Subtypes of Neurodevelopmental Disorders</article-title>
+<source/>Front. Integr. Neurosci.
+          <year>2017</year>
+<volume>11</volume>
+<fpage>10</fpage>
+<pub-id pub-id-type="doi">10.3389/fnint.2017.00010</pub-id>
+<pub-id pub-id-type="pmid">28638324</pub-id>
+</element-citation>
+</ref>
+<ref id="B18-sensors-20-00572">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Caballero</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Mistry</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Vero</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Characterization of Noise Signatures of Involuntary Head Motion in the Autism Brain Imaging Data Exchange Repository</article-title>
+<source/>Front. Integr. Neurosci.
+          <year>2018</year>
+<volume>12</volume>
+<fpage>7</fpage>
+<pub-id pub-id-type="doi">10.3389/fnint.2018.00007</pub-id>
+<pub-id pub-id-type="pmid">29556179</pub-id>
+</element-citation>
+</ref>
+<ref id="B19-sensors-20-00572">
+<label>19.</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Ryu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Vero</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Methods for Tracking Dynamically Coupled Brain-Body Activities during Natural Movement</article-title>
+<source/>Proceedings of the MOCO ‘17: 4th International Conference on Movement Computing
+          <conf-loc>London, UK</conf-loc>
+<conf-date>June 30 2017</conf-date>
+</element-citation>
+</ref>
+<ref id="B20-sensors-20-00572">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ryu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Characterization of Sensory-Motor Behavior Under Cognitive Load Using a New Statistical Platform for Studies of Embodied Cognition</article-title>
+<source/>Front. Hum. Neurosci.
+          <year>2018</year>
+<volume>12</volume>
+<fpage>116</fpage>
+<pub-id pub-id-type="doi">10.3389/fnhum.2018.00116</pub-id>
+<pub-id pub-id-type="pmid">29681805</pub-id>
+</element-citation>
+</ref>
+<ref id="B21-sensors-20-00572">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nguyen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Majmudar</surname>
+<given-names>U.</given-names>
+</name>
+<name>
+<surname>Papathomas</surname>
+<given-names>T.V.</given-names>
+</name>
+<name>
+<surname>Silverstein</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Schizophrenia: The micro-movements perspective</article-title>
+<source/>Neuropsychologia
+          <year>2016</year>
+<volume>85</volume>
+<fpage>310</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuropsychologia.2016.03.003</pub-id>
+<pub-id pub-id-type="pmid">26951932</pub-id>
+</element-citation>
+</ref>
+<ref id="B22-sensors-20-00572">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Heilman</surname>
+<given-names>K.M.</given-names>
+</name>
+<name>
+<surname>Poizner</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Impaired endogenously evoked automated reaching in Parkinson’s disease</article-title>
+<source/>J. Neurosci.
+          <year>2011</year>
+<volume>31</volume>
+<fpage>17848</fpage>
+<lpage>17863</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1150-11.2011</pub-id>
+<pub-id pub-id-type="pmid">22159100</pub-id>
+</element-citation>
+</ref>
+<ref id="B23-sensors-20-00572">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>The rates of change of the stochastic trajectories of acceleration variability are a good predictor of normal aging and of the stage of Parkinson’s disease</article-title>
+<source/>Front. Integr. Neurosci.
+          <year>2013</year>
+<volume>7</volume>
+<fpage>50</fpage>
+<pub-id pub-id-type="doi">10.3389/fnint.2013.00050</pub-id>
+<pub-id pub-id-type="pmid">23882193</pub-id>
+</element-citation>
+</ref>
+<ref id="B24-sensors-20-00572">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yanovich</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Isenhower</surname>
+<given-names>R.W.</given-names>
+</name>
+<name>
+<surname>Sage</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Spatial-orientation priming impedes rather than facilitates the spontaneous control of hand-retraction speeds in patients with Parkinson’s disease</article-title>
+<source/>PLoS ONE
+          <year>2013</year>
+<volume>8</volume>
+<elocation-id>e66757</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0066757</pub-id>
+<pub-id pub-id-type="pmid">23843963</pub-id>
+</element-citation>
+</ref>
+<ref id="B25-sensors-20-00572">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ryu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Vero</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Dobkin</surname>
+<given-names>R.D.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Dynamic Digital Biomarkers of Motor and Cognitive Function in Parkinson’s Disease</article-title>
+<source/>J. Vis. Exp.
+          <year>2019</year>
+<volume>24</volume>
+<pub-id pub-id-type="doi">10.3791/59827</pub-id>
+</element-citation>
+</ref>
+<ref id="B26-sensors-20-00572">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Cole</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Poizner</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Motor output variability, deafferentation, and putative deficits in kinesthetic reafference in Parkinson’s disease</article-title>
+<source/>Front. Hum. Neurosci.
+          <year>2014</year>
+<volume>8</volume>
+<fpage>823</fpage>
+<pub-id pub-id-type="doi">10.3389/fnhum.2014.00823</pub-id>
+<pub-id pub-id-type="pmid">25374524</pub-id>
+</element-citation>
+</ref>
+<ref id="B27-sensors-20-00572">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Lande</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Objective and personalized longitudinal assessment of a pregnant patient with post severe brain trauma</article-title>
+<source/>Front. Hum. Neurosci.
+          <year>2015</year>
+<volume>9</volume>
+<fpage>128</fpage>
+<pub-id pub-id-type="doi">10.3389/fnhum.2015.00128</pub-id>
+<pub-id pub-id-type="pmid">25852516</pub-id>
+</element-citation>
+</ref>
+<ref id="B28-sensors-20-00572">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Raymer</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Gonzalez Rothi</surname>
+<given-names>L.J.</given-names>
+</name>
+<name>
+<surname>Heilman</surname>
+<given-names>K.M.</given-names>
+</name>
+<name>
+<surname>Poizner</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Sensory-spatial transformations in the left posterior parietal cortex may contribute to reach timing</article-title>
+<source/>J. Neurophysiol.
+          <year>2010</year>
+<volume>104</volume>
+<fpage>2375</fpage>
+<lpage>2388</lpage>
+<pub-id pub-id-type="doi">10.1152/jn.00089.2010</pub-id>
+<pub-id pub-id-type="pmid">20810686</pub-id>
+</element-citation>
+</ref>
+<ref id="B29-sensors-20-00572">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mosimann</surname>
+<given-names>J.E.</given-names>
+</name>
+</person-group>
+<article-title>Size allometry: Size and shape variables with characterizations of the lognormal and generalized gamma distributions</article-title>
+<source/>J. Am. Stat. Assoc.
+          <year>1970</year>
+<volume>65</volume>
+<fpage>930</fpage>
+<lpage>945</lpage>
+<pub-id pub-id-type="doi">10.1080/01621459.1970.10481136</pub-id>
+</element-citation>
+</ref>
+<ref id="B30-sensors-20-00572">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cox</surname>
+<given-names>R.W.</given-names>
+</name>
+</person-group>
+<article-title>AFNI: Software for analysis and visualization of functional magnetic resonance neuroimages</article-title>
+<source/>Comput. Biomed. Res.
+          <year>1996</year>
+<volume>29</volume>
+<fpage>162</fpage>
+<lpage>173</lpage>
+<pub-id pub-id-type="doi">10.1006/cbmr.1996.0014</pub-id>
+<pub-id pub-id-type="pmid">8812068</pub-id>
+</element-citation>
+</ref>
+<ref id="B31-sensors-20-00572">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lleonart</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Salat</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>G.J.</given-names>
+</name>
+</person-group>
+<article-title>Removing allometric effects of body size in morphological analysis</article-title>
+<source/>J. Theor. Biol.
+          <year>2000</year>
+<volume>205</volume>
+<fpage>85</fpage>
+<lpage>93</lpage>
+<pub-id pub-id-type="doi">10.1006/jtbi.2000.2043</pub-id>
+<pub-id pub-id-type="pmid">10860702</pub-id>
+</element-citation>
+</ref>
+<ref id="B32-sensors-20-00572">
+<label>32.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Monge</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Memoire sur la theorie des deblais et des remblais</article-title>
+<source/>Histoire de l’ Academie Royale des Science
+          <comment>avec les Memoired de Mathematique et de Physique</comment>
+<publisher-name>De L’imprimerie Royale</publisher-name>
+<publisher-loc>Paris, France</publisher-loc>
+<year>1781</year>
+</element-citation>
+</ref>
+<ref id="B33-sensors-20-00572">
+<label>33.</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Rubner</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Tomasi</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Guibas</surname>
+<given-names>L.J.</given-names>
+</name>
+</person-group>
+<article-title>Metric for Distributions with Applications to Image Databases</article-title>
+<source/>Proceedings of the ICCV 1998
+          <conf-loc>Bombay, India</conf-loc>
+<conf-date>4–7 January 1998</conf-date>
+</element-citation>
+</ref>
+<ref id="B34-sensors-20-00572">
+<label>34.</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author">
+<name>
+<surname>Arjovsky</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Chintala</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Bottou</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Wasserstein Generative Adversarial Networks</article-title>
+<source/>Proceedings of the 34th International Conference on Machine Learning
+          <conf-loc>Sydney, Australia</conf-loc>
+<conf-date>24 February 2017</conf-date>
+</element-citation>
+</ref>
+<ref id="B35-sensors-20-00572">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stolfi</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Guibas</surname>
+<given-names>L.J.</given-names>
+</name>
+</person-group>
+<article-title>The earth mover’s distance as a metric for image retrieval</article-title>
+<source/>Int. J. Comput. Vis.
+          <year>2000</year>
+<volume>40</volume>
+<fpage>99</fpage>
+<lpage>121</lpage>
+</element-citation>
+</ref>
+<ref id="B36-sensors-20-00572">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McClelland</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Koslicki</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>EMDUniFrac: Exact linear time computation of the UniFrac metric and identification of differentially abundant organisms</article-title>
+<source/>J. Math. Biol.
+          <year>2018</year>
+<volume>77</volume>
+<fpage>935</fpage>
+<lpage>949</lpage>
+<pub-id pub-id-type="doi">10.1007/s00285-018-1235-9</pub-id>
+<pub-id pub-id-type="pmid">29691633</pub-id>
+</element-citation>
+</ref>
+<ref id="B37-sensors-20-00572">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+<name>
+<surname>Vero</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Rai</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>Statistical Platform for Individualized Behavioral Analyses Using Biophysical Micro-Movement Spikes</article-title>
+<source/>Sensors
+          <year>2018</year>
+<volume>18</volume>
+<elocation-id>1025</elocation-id>
+<pub-id pub-id-type="doi">10.3390/s18041025</pub-id>
+<pub-id pub-id-type="pmid">29596342</pub-id>
+</element-citation>
+</ref>
+<ref id="B38-sensors-20-00572">
+<label>38.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Ross</surname>
+<given-names>S.M.</given-names>
+</name>
+</person-group>
+<source/>Stochastic Processes
+          <series>Wiley series in probability and mathematical statistics Probability and mathematical statistics</series>
+<publisher-name>Wiley</publisher-name>
+<publisher-loc>New York, NY, USA</publisher-loc>
+<year>1983</year>
+<fpage>309</fpage>
+</element-citation>
+</ref>
+<ref id="B39-sensors-20-00572">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hartigan</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Hartigan</surname>
+<given-names>P.M.</given-names>
+</name>
+</person-group>
+<article-title>The Dip Test of Unimodality</article-title>
+<source/>Ann. Stat.
+          <year>1985</year>
+<volume>13</volume>
+<fpage>70</fpage>
+<lpage>84</lpage>
+<pub-id pub-id-type="doi">10.1214/aos/1176346577</pub-id>
+</element-citation>
+</ref>
+<ref id="B40-sensors-20-00572">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mosconi</surname>
+<given-names>M.W.</given-names>
+</name>
+<name>
+<surname>Mohanty</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Greene</surname>
+<given-names>R.K.</given-names>
+</name>
+<name>
+<surname>Cook</surname>
+<given-names>E.H.</given-names>
+</name>
+<name>
+<surname>Vaillancourt</surname>
+<given-names>D.E.</given-names>
+</name>
+<name>
+<surname>Sweeney</surname>
+<given-names>J.A.</given-names>
+</name>
+</person-group>
+<article-title>Feedforward and feedback motor control abnormalities implicate cerebellar dysfunctions in autism spectrum disorder</article-title>
+<source/>J. Neurosci.
+          <year>2015</year>
+<volume>35</volume>
+<fpage>2015</fpage>
+<lpage>2025</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.2731-14.2015</pub-id>
+<pub-id pub-id-type="pmid">25653359</pub-id>
+</element-citation>
+</ref>
+<ref id="B41-sensors-20-00572">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mosconi</surname>
+<given-names>M.W.</given-names>
+</name>
+<name>
+<surname>Sweeney</surname>
+<given-names>J.A.</given-names>
+</name>
+</person-group>
+<article-title>Sensorimotor dysfunctions as primary features of autism spectrum disorders</article-title>
+<source/>Sci. China Life Sci.
+          <year>2015</year>
+<volume>58</volume>
+<fpage>1016</fpage>
+<lpage>1023</lpage>
+<pub-id pub-id-type="doi">10.1007/s11427-015-4894-4</pub-id>
+<pub-id pub-id-type="pmid">26335740</pub-id>
+</element-citation>
+</ref>
+<ref id="B42-sensors-20-00572">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Maurer</surname>
+<given-names>R.G.</given-names>
+</name>
+<name>
+<surname>Damasio</surname>
+<given-names>A.R.</given-names>
+</name>
+</person-group>
+<article-title>Vestibular dysfunction in autistic children</article-title>
+<source/>Dev. Med. Child Neurol.
+          <year>1979</year>
+<volume>21</volume>
+<fpage>656</fpage>
+<lpage>659</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1469-8749.1979.tb01682.x</pub-id>
+<pub-id pub-id-type="pmid">389718</pub-id>
+</element-citation>
+</ref>
+<ref id="B43-sensors-20-00572">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vilensky</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Damasio</surname>
+<given-names>A.R.</given-names>
+</name>
+<name>
+<surname>Maurer</surname>
+<given-names>R.G.</given-names>
+</name>
+</person-group>
+<article-title>Gait disturbances in patients with autistic behavior: A preliminary study</article-title>
+<source/>Arch. Neurol.
+          <year>1981</year>
+<volume>38</volume>
+<fpage>646</fpage>
+<lpage>649</lpage>
+<pub-id pub-id-type="doi">10.1001/archneur.1981.00510100074013</pub-id>
+<pub-id pub-id-type="pmid">7295109</pub-id>
+</element-citation>
+</ref>
+<ref id="B44-sensors-20-00572">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Damasio</surname>
+<given-names>A.R.</given-names>
+</name>
+<name>
+<surname>Maurer</surname>
+<given-names>R.G.</given-names>
+</name>
+</person-group>
+<article-title>A neurological model for childhood autism</article-title>
+<source/>Arch. Neurol.
+          <year>1978</year>
+<volume>35</volume>
+<fpage>777</fpage>
+<lpage>786</lpage>
+<pub-id pub-id-type="doi">10.1001/archneur.1978.00500360001001</pub-id>
+<pub-id pub-id-type="pmid">718482</pub-id>
+</element-citation>
+</ref>
+<ref id="B45-sensors-20-00572">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Maurer</surname>
+<given-names>R.G.</given-names>
+</name>
+<name>
+<surname>Damasio</surname>
+<given-names>A.R.</given-names>
+</name>
+</person-group>
+<article-title>Childhood autism from the point of view of behavioral neurology</article-title>
+<source/>J. Autism Dev. Disord.
+          <year>1982</year>
+<volume>12</volume>
+<fpage>195</fpage>
+<lpage>205</lpage>
+<pub-id pub-id-type="doi">10.1007/BF01531309</pub-id>
+<pub-id pub-id-type="pmid">7174608</pub-id>
+</element-citation>
+</ref>
+<ref id="B46-sensors-20-00572">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mosconi</surname>
+<given-names>M.W.</given-names>
+</name>
+<name>
+<surname>Luna</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Kay-Stacey</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Nowinski</surname>
+<given-names>C.V.</given-names>
+</name>
+<name>
+<surname>Rubin</surname>
+<given-names>L.H.</given-names>
+</name>
+<name>
+<surname>Scudder</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Minshew</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Sweeney</surname>
+<given-names>J.A.</given-names>
+</name>
+</person-group>
+<article-title>Saccade adaptation abnormalities implicate dysfunction of cerebellar-dependent learning mechanisms in Autism Spectrum Disorders (ASD)</article-title>
+<source/>PLoS ONE
+          <year>2013</year>
+<volume>8</volume>
+<elocation-id>e63709</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0063709</pub-id>
+<pub-id pub-id-type="pmid">23704934</pub-id>
+</element-citation>
+</ref>
+<ref id="B47-sensors-20-00572">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mosconi</surname>
+<given-names>M.W.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Schmitt</surname>
+<given-names>L.M.</given-names>
+</name>
+<name>
+<surname>Tsai</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Sweeney</surname>
+<given-names>J.A.</given-names>
+</name>
+</person-group>
+<article-title>The role of cerebellar circuitry alterations in the pathophysiology of autism spectrum disorders</article-title>
+<source/>Front. Neurosci.
+          <year>2015</year>
+<volume>9</volume>
+<fpage>296</fpage>
+<pub-id pub-id-type="doi">10.3389/fnins.2015.00296</pub-id>
+<pub-id pub-id-type="pmid">26388713</pub-id>
+</element-citation>
+</ref>
+<ref id="B48-sensors-20-00572">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Al Sagheer</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Haida</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Balbous</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Francheteau</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Matas</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Fernagut POJaber</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Motor Impairments Correlate with Social Deficits and Restricted Neuronal Loss in an Environmental Model of Autism</article-title>
+<source/>Int. J. Neuropsychopharmacol.
+          <year>2018</year>
+<volume>21</volume>
+<fpage>871</fpage>
+<lpage>882</lpage>
+<pub-id pub-id-type="doi">10.1093/ijnp/pyy043</pub-id>
+<pub-id pub-id-type="pmid">29762671</pub-id>
+</element-citation>
+</ref>
+<ref id="B49-sensors-20-00572">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Floris</surname>
+<given-names>D.L.</given-names>
+</name>
+<name>
+<surname>Barber</surname>
+<given-names>A.D.</given-names>
+</name>
+<name>
+<surname>Nebel</surname>
+<given-names>M.B.</given-names>
+</name>
+<name>
+<surname>Martinelli</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Lai</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Crocetti</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Baron-Cohen</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Suckling</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Pekar</surname>
+<given-names>J.J.</given-names>
+</name>
+<name>
+<surname>Mostofsky</surname>
+<given-names>S.H.</given-names>
+</name>
+</person-group>
+<article-title>Atypical lateralization of motor circuit functional connectivity in children with autism is associated with motor deficits</article-title>
+<source/>Mol. Autism
+          <year>2016</year>
+<volume>7</volume>
+<fpage>35</fpage>
+<pub-id pub-id-type="doi">10.1186/s13229-016-0096-6</pub-id>
+<pub-id pub-id-type="pmid">27429731</pub-id>
+</element-citation>
+</ref>
+<ref id="B50-sensors-20-00572">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Martineau</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cochin</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Magne</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Barthelemy</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Impaired cortical activation in autistic children: Is the mirror neuron system involved?</article-title>
+<source/>Int. J. Psychophysiol.
+          <year>2008</year>
+<volume>68</volume>
+<fpage>35</fpage>
+<lpage>40</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ijpsycho.2008.01.002</pub-id>
+<pub-id pub-id-type="pmid">18313160</pub-id>
+</element-citation>
+</ref>
+<ref id="B51-sensors-20-00572">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mostofsky</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Burgess</surname>
+<given-names>M.P.</given-names>
+</name>
+<name>
+<surname>Larson</surname>
+<given-names>J.C.G.</given-names>
+</name>
+</person-group>
+<article-title>Increased motor cortex white matter volume predicts motor impairment in autism</article-title>
+<source/>Brain
+          <year>2007</year>
+<volume>130</volume>
+<fpage>2117</fpage>
+<lpage>2122</lpage>
+<pub-id pub-id-type="doi">10.1093/brain/awm129</pub-id>
+<pub-id pub-id-type="pmid">17575280</pub-id>
+</element-citation>
+</ref>
+<ref id="B52-sensors-20-00572">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mostofsky</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Powell</surname>
+<given-names>S.K.</given-names>
+</name>
+<name>
+<surname>Simmonds</surname>
+<given-names>D.J.</given-names>
+</name>
+<name>
+<surname>Goldberg</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Caffo</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Pekar</surname>
+<given-names>J.J.</given-names>
+</name>
+</person-group>
+<article-title>Decreased connectivity and cerebellar activity in autism during motor task performance</article-title>
+<source/>Brain
+          <year>2009</year>
+<volume>132</volume>
+<fpage>2413</fpage>
+<lpage>2425</lpage>
+<pub-id pub-id-type="doi">10.1093/brain/awp088</pub-id>
+<pub-id pub-id-type="pmid">19389870</pub-id>
+</element-citation>
+</ref>
+<ref id="B53-sensors-20-00572">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Müller</surname>
+<given-names>R.A.</given-names>
+</name>
+<name>
+<surname>Pierce</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Ambrose</surname>
+<given-names>J.B.</given-names>
+</name>
+<name>
+<surname>Allen</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Courchesne</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Atypical patterns of cerebral motor activation in autism: A functional magnetic resonance study</article-title>
+<source/>Biol. Psychiatry
+          <year>2001</year>
+<volume>49</volume>
+<fpage>665</fpage>
+<lpage>676</lpage>
+<pub-id pub-id-type="doi">10.1016/S0006-3223(00)01004-0</pub-id>
+<pub-id pub-id-type="pmid">11313034</pub-id>
+</element-citation>
+</ref>
+<ref id="B54-sensors-20-00572">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Théoret</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Halligan</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Kobayashi</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Fregni</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Pascual-Leone</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Impaired motor facilitation during action observation in individuals with autism spectrum disorder</article-title>
+<source/>Curr. Biol.
+          <year>2005</year>
+<volume>15</volume>
+<fpage>R84</fpage>
+<lpage>R85</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cub.2005.01.022</pub-id>
+<pub-id pub-id-type="pmid">15694294</pub-id>
+</element-citation>
+</ref>
+<ref id="B55-sensors-20-00572">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Starkstein</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Gellar</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Parlier</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Payne</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Piven</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>High rates of parkinsonism in adults with autism</article-title>
+<source/>J. Neurodev. Disord.
+          <year>2015</year>
+<volume>7</volume>
+<fpage>29</fpage>
+<pub-id pub-id-type="doi">10.1186/s11689-015-9125-6</pub-id>
+<pub-id pub-id-type="pmid">26322138</pub-id>
+</element-citation>
+</ref>
+<ref id="B56-sensors-20-00572">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Croen</surname>
+<given-names>L.A.</given-names>
+</name>
+<name>
+<surname>Zerbo</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Massolo</surname>
+<given-names>M.L.</given-names>
+</name>
+<name>
+<surname>Rich</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Sidney</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Kripke</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>The health status of adults on the autism spectrum</article-title>
+<source/>Autism
+          <year>2015</year>
+<volume>19</volume>
+<fpage>814</fpage>
+<lpage>823</lpage>
+<pub-id pub-id-type="doi">10.1177/1362361315577517</pub-id>
+<pub-id pub-id-type="pmid">25911091</pub-id>
+</element-citation>
+</ref>
+<ref id="B57-sensors-20-00572">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hall</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>Howard</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Hagerman</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Leehey</surname>
+<given-names>M.A.</given-names>
+</name>
+</person-group>
+<article-title>Parkinsonism in FMR1 premutation carriers may be indistinguishable from Parkinson disease</article-title>
+<source/>Parkinsonism Relat. Disord.
+          <year>2009</year>
+<volume>15</volume>
+<fpage>156</fpage>
+<lpage>159</lpage>
+<pub-id pub-id-type="doi">10.1016/j.parkreldis.2008.04.037</pub-id>
+<pub-id pub-id-type="pmid">18565783</pub-id>
+</element-citation>
+</ref>
+<ref id="B58-sensors-20-00572">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Robertson</surname>
+<given-names>E.E.</given-names>
+</name>
+<name>
+<surname>Hall</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>McAsey</surname>
+<given-names>A.R.</given-names>
+</name>
+<name>
+<surname>O‘Keefe</surname>
+<given-names>J.A.</given-names>
+</name>
+</person-group>
+<article-title>Fragile X-associated tremor/ataxia syndrome: Phenotypic comparisons with other movement disorders</article-title>
+<source/>Clin. Neuropsychol.
+          <year>2016</year>
+<volume>30</volume>
+<fpage>849</fpage>
+<lpage>900</lpage>
+<pub-id pub-id-type="doi">10.1080/13854046.2016.1202239</pub-id>
+<pub-id pub-id-type="pmid">27414076</pub-id>
+</element-citation>
+</ref>
+<ref id="B59-sensors-20-00572">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Khemani</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Schmitt</surname>
+<given-names>L.M.</given-names>
+</name>
+<name>
+<surname>Lui</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Mosconi</surname>
+<given-names>M.W.</given-names>
+</name>
+</person-group>
+<article-title>Static and dynamic postural control deficits in aging fragile X mental retardation 1 (FMR1) gene premutation carriers</article-title>
+<source/>J. Neurodev. Disord.
+          <year>2019</year>
+<volume>11</volume>
+<fpage>2</fpage>
+<pub-id pub-id-type="doi">10.1186/s11689-018-9261-x</pub-id>
+<pub-id pub-id-type="pmid">30665341</pub-id>
+</element-citation>
+</ref>
+<ref id="B60-sensors-20-00572">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bernard</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Mittal</surname>
+<given-names>V.A.</given-names>
+</name>
+</person-group>
+<article-title>Updating the research domain criteria: The utility of a motor dimension</article-title>
+<source/>Psychol. Med.
+          <year>2015</year>
+<volume>45</volume>
+<fpage>2685</fpage>
+<lpage>2689</lpage>
+<pub-id pub-id-type="doi">10.1017/S0033291715000872</pub-id>
+<pub-id pub-id-type="pmid">26005109</pub-id>
+</element-citation>
+</ref>
+<ref id="B61-sensors-20-00572">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Insel</surname>
+<given-names>T.R.</given-names>
+</name>
+</person-group>
+<article-title>The NIMH Research Domain Criteria (RDoC) Project: Precision medicine for psychiatry</article-title>
+<source/>Am. J. Psychiatry
+          <year>2014</year>
+<volume>171</volume>
+<fpage>395</fpage>
+<lpage>397</lpage>
+<pub-id pub-id-type="doi">10.1176/appi.ajp.2014.14020138</pub-id>
+<pub-id pub-id-type="pmid">24687194</pub-id>
+</element-citation>
+</ref>
+<ref id="B62-sensors-20-00572">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cuthbert</surname>
+<given-names>B.N.</given-names>
+</name>
+<name>
+<surname>Insel</surname>
+<given-names>T.R.</given-names>
+</name>
+</person-group>
+<article-title>Toward the future of psychiatric diagnosis: The seven pillars of RDoC</article-title>
+<source/>BMC Med.
+          <year>2013</year>
+<volume>11</volume>
+<elocation-id>126</elocation-id>
+<pub-id pub-id-type="doi">10.1186/1741-7015-11-126</pub-id>
+<pub-id pub-id-type="pmid">23672542</pub-id>
+</element-citation>
+</ref>
+<ref id="B63-sensors-20-00572">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brincker</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Torres</surname>
+<given-names>E.B.</given-names>
+</name>
+</person-group>
+<article-title>Noise from the periphery in autism</article-title>
+<source/>Front. Integr. Neurosci.
+          <year>2013</year>
+<volume>7</volume>
+<fpage>34</fpage>
+<pub-id pub-id-type="doi">10.3389/fnint.2013.00034</pub-id>
+<pub-id pub-id-type="pmid">23898242</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="sensors-20-00572-f001" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Proposed taxonomy of neuromotor control with phylogenetic order of maturation to stratify autism spectrum disorders (figure reproduced from Chapter 1 in [<xref ref-type="bibr" rid="B29-sensors-20-00572">29</xref>], with permission from Elsevier). (<bold>A</bold>) Current wearable biosensors enable non-invasive co-registration of multiple biorhythms streamed from different levels of somatic-sensory-motor control, from the face and body. (<bold>B</bold>) Fluctuations in these biorhythms from the different levels of the taxonomy are modeled as standardized unitless micro-movement spikes MMS. It is proposed that these continuous spikes serve as a form of kinesthetic reafference, mapping the sensory consequences of actions according to different levels of neuromotor control (e.g., autonomic sensory consequences vs. voluntary sensory consequences). These in turn, map differently for trigeminal and dorsal-root ganglia systems defining socio-motor axes that could be used to stratify autism’s social differences (e.g., eye control, auditory, communication, taste, smell and swallowing issues in the face, vs. pointing, balance, gait, coordination, vestibular issues of the body -as possible scenario whereby data is readily available using non-invasive, off-the-shelf means to categorize autism.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g001"></graphic>
+</fig>
+<fig id="sensors-20-00572-f002" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Methods: (<bold>A</bold>) Raw data in the form of linear speed (mm/s) extracted from images of ABIDE using traditional methods to clean the motor artifacts generated by involuntary motions of the head, as the participant attempts to remain still upon instruction during resting state fMRI. Peaks denoting fluctuations in amplitude are highlighted in red dots. Insets show histograms of the raw peaks. (<bold>B</bold>) The micro-movement spikes (MMS see methods explanation) are extracted from the moment by moment fluctuations in peak amplitude (see methods for normalization). They are unitless spike trains and the normalized peaks are gathered in frequency histograms (see insets in A) (<bold>C</bold>) Full micro-movement spikes from all original frames are used to ascertain statistical differences using the same number of frames in the original raw data. (<bold>D</bold>) The frequency histograms of the peaks are compared using the earth mover’s distance (EMD see methods explanation) quantifying the cost to transform one histogram into the other. (<bold>E</bold>) Comparison of stochastic signatures on the Gamma parameter plane spanned by the shape of the empirically estimated distribution and the scale (noise to signal ratio) indicating the dispersion of the PDFs in (<bold>F</bold>). (<bold>G</bold>) Gamma moments are used to build a scatter of points on a parameter space where the first three moments (mean, variance and skewness) are represented as x, y, z axes and the fourth moment, the kurtosis is reflected in the size of the marker. A fifth dimension is used to represent the color of the marker using e.g., the range of EMD values determined in (<bold>D</bold>).</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g002"></graphic>
+</fig>
+<fig id="sensors-20-00572-f003" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Methods: (<bold>A</bold>) Sample adjacency matrix built using the pairwise EMD across all 500 participants of the 5–10-year-old group. (<bold>B</bold>) Multi-modal frequency histogram of EMD values across the matrix entries. (<bold>C</bold>) Curve of the bin count order represented in the jagged dashed curve smoothed using loess method to localize the local minima and maxima. (<bold>D</bold>) Another sample multi-modal histogram and multi-peaked curve derived from it to explain the process of clustering. Each local minima and maxima are automatically detected along the histogram bin count order spanning the red curve and mapped back to the original histogram of EMD values. As such, given a participant i vs. all other participants, we can localize its maximal distance across the entire age group as the blue circle in (<bold>E</bold>). (<bold>F</bold>) These values are then mapped to a normalized scale and used to color the individual points in the scatter according to their values. For example, here the blue dot representing the local maxima from the first bump is localized along the color bar representing the full range spanned by all age groups in the TD and ASD cohorts.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g003"></graphic>
+</fig>
+<fig id="sensors-20-00572-f004" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>Normative stochastic signatures of cross-section of neurotypical population vs. Autism Spectrum Disorders (ASD) signatures from age-matched groups, empirically estimated from the involuntary head displacements (micro-movement spikes reflecting fluctuations in linear speed). Scatters show high heterogeneity in ASD according to the ranges of pairwise Earth Mover’s Distance (EMD) values (color coded normalized while considering the full range of values from both cohorts.).</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g004"></graphic>
+</fig>
+<fig id="sensors-20-00572-f005" orientation="portrait" position="float">
+<label>Figure 5</label>
+<caption>
+<p>Smooth stochastic shifts of Gamma moment parameters characterize typical aging, with broader spread in the scatter for younger years tending to decrease the spread with aging. Pairwise ranges of EMD values are high, denoting unambiguous maximal separation from each member of the age group to every other member. The normalized color map uses the full range of neurotypical controls and ASD values across all age groups in both cohorts.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g005"></graphic>
+</fig>
+<fig id="sensors-20-00572-f006" orientation="portrait" position="float">
+<label>Figure 6</label>
+<caption>
+<p>Stratification of ASD by EMD capturing the pairwise differences in probability distributions empirically estimated from the MMS representing the involuntary fluctuations in the linear displacements of the head. Notice that each scatter is different in spread and range of EMD. Earlier years up to 20 are more heterogeneous than later years in that they have a broader spread in the Gamma moment parameter space that is accompanied by heterogeneous distances in probability space. This trend changes with aging. After 20 years of age, the scatter spread decreases and the EMD maximally separating each individual within the group from the rest of the age group becomes more homogeneous. Each person’s signature is close in probability space. Their fluctuations in involuntary motions become statistically closer. Then, by 40 years of age they are maximally close in probability space and their scatter’s spread tends to shrink. After 40 years of age, there is a fundamental departure of the ASD signatures from the rest of the cohort. Compare these scatters to those in <xref ref-type="fig" rid="sensors-20-00572-f002">Figure 2</xref> representing the normative data, to best appreciate that aging with ASD is different from typical aging. The trajectory evolution of the stochastic signatures in the probability landscape serves as a natural classifier of autism’s involuntary motions.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g006"></graphic>
+</fig>
+<fig id="sensors-20-00572-f007" orientation="portrait" position="float">
+<label>Figure 7</label>
+<caption>
+<p>Characterization of the scatters’ spread using the patterns of variability of the area of the triangles making up the Delaunay triangulation in each age group. Color map represents the average EMD of the triangle area PDFs of each cluster taken as a normalized scale across the full range of values in both TD and ASD scatter spreads. Each three-dimensional scatter in <xref ref-type="fig" rid="sensors-20-00572-f005">Figure 5</xref> and <xref ref-type="fig" rid="sensors-20-00572-f006">Figure 6</xref> representing the stochastic signatures of the involuntary MMS from the linear speed was characterized by a different Delaunay triangulation and the triangles’ areas spanned probability distribution capturing the variability of the scatter. Each age group spanned a statistically separable scatter when comparing normative data vs. ASD, empirically fitted by different probability distribution (dashed PDFs are from the ASD scatters). In the last right most panel, the evolution of the stochastic signatures of involuntary movements’ variability over the 5–65 years of age period can be appreciated as a trajectory on the log-log Gamma plane parameter space.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g007"></graphic>
+</fig>
+<fig id="sensors-20-00572-f008" orientation="portrait" position="float">
+<label>Figure 8</label>
+<caption>
+<p>Aging trajectories captured cross-sectionally in each cohort (<bold>A</bold>) Dots denote the location of the mean values of the empirically estimated Gamma moments of each age-group and group type. These show different trajectories with non-uniform changes in ASD during the early years and large departure from normative data from age-match neurotypically developing controls (TD) throughout aging, particularly after 41 years of age. Notice that the rates of change of the shifts in the points are different in ASD. They do not change as regularly as the controls during the first 15 years. (<bold>B</bold>) The acceleration of the trajectory shows the differences in the rates of change of the shifts in the averaged Gamma moments for each cohort, with inflection points around 26–30 years of age that take the systems into different directions. (<bold>C</bold>) The position plus each increment (trajectory velocity) is also accumulated to examine the trajectory over time. This reveals differences that become more pronounced after 20 years of age and decrease by 40, right before the largest departure from normative data that separates the oldest ASD cohort form the age-matched TD. (<bold>D</bold>) The pointwise difference between the two trajectories reveals a large change after 20 and an inflection point by 40, right before the accelerated change of the 41–65 ASD group. (<bold>E</bold>) The trajectories are embedded in the scatter to give a sense of the differences in relation to the full TD cloud. (<bold>F</bold>) The cloud of ASD with the embedded trajectories highlights the large departure of the 41–65 group from the normative trajectory.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g008"></graphic>
+</fig>
+<fig id="sensors-20-00572-f009" orientation="portrait" position="float">
+<label>Figure 9</label>
+<caption>
+<p>Network connectivity metrics used to separate the two cohorts by age groups and automatically detect significant statistical differences across age groups and between each control and ASD same-age group. (<bold>A</bold>) Values of network’s clustering coefficient for each node (representing a participant) in neurotypical controls distinguish each age group. (<bold>B</bold>) Likewise, the clustering coefficient distinguishes each age group, with higher values in ASD relative to controls. Nodes are more connected in earlier years (up to 20 years of age) in ASD according to the similarity metric of EMD computed pairwise and determining the weighted connected graph of each cohort. (<bold>C</bold>) Non-parametric ANOVA, Kruskal-Wallis test captures the within and between group differences. (<bold>D</bold>) The characteristic pathlength computing the average shortest distance path from all nodes to each node also captures differences within each group and between the two cohorts of typical controls and ASD. Minimum and maximum characteristic pathlength values are shown with corresponding adjacency matrices (<bold>E</bold>) and network distance matrices (<bold>F</bold>) for each cohort.</p>
+</caption>
+<graphic xlink:href="sensors-20-00572-g009"></graphic>
+</fig>
+<table-wrap id="sensors-20-00572-t001" orientation="portrait" position="float">
+<object-id pub-id-type="pii">sensors-20-00572-t001_Table 1</object-id>
+<label>Table 1</label>
+<caption>
+<p>Number of subjects for each age group extracted from ABIDE.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">AGE GROUP</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">ASD</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">TD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<bold>5 TO 10 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">228</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">265</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<bold>11 TO 15 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">374</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">417</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<bold>16 TO 20 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">200</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">178</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<bold>21 TO 25 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">103</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">116</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<bold>26 TO 30 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">43</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">76</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<bold>31 TO 40 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">39</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">43</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<bold>41 TO 65 YEARS OLD</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">30</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">32</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

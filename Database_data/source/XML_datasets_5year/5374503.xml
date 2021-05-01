@@ -1,0 +1,1126 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">28361913</article-id>
+<article-id pub-id-type="pmc">5374503</article-id>
+<article-id pub-id-type="pii">srep45639</article-id>
+<article-id pub-id-type="doi">10.1038/srep45639</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Multi-scale radiomic analysis of sub-cortical regions in MRI related to autism, gender and age</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Chaddad</surname>
+<given-names>Ahmad</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Desrosiers</surname>
+<given-names>Christian</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Toews</surname>
+<given-names>Matthew</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>Laboratory for Imagery, Vision and Artificial Intelligence, École de Technologie Supérieure</institution>, Montréal, Québec, <country>Canada</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>achaddad@livia.etsmtl.ca</email>
+</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>31</day>
+<month>03</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2017</year>
+</pub-date>
+<volume>7</volume>
+<elocation-id>45639</elocation-id>
+<history>
+<date date-type="received">
+<day>20</day>
+<month>09</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>27</day>
+<month>02</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2017, The Author(s)</copyright-statement>
+<copyright-year>2017</copyright-year>
+<copyright-holder>The Author(s)</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>We propose using multi-scale image textures to investigate links between neuroanatomical regions and clinical variables in MRI. Texture features are derived at multiple scales of resolution based on the Laplacian-of-Gaussian (LoG) filter. Three quantifier functions (Average, Standard Deviation and Entropy) are used to summarize texture statistics within standard, automatically segmented neuroanatomical regions. Significance tests are performed to identify regional texture differences between ASD vs. TDC and male vs. female groups, as well as correlations with age (corrected <italic>p</italic> &lt; 0.05). The open-access brain imaging data exchange (ABIDE) brain MRI dataset is used to evaluate texture features derived from 31 brain regions from 1112 subjects including 573 typically developing control (TDC, 99 females, 474 males) and 539 Autism spectrum disorder (ASD, 65 female and 474 male) subjects. Statistically significant texture differences between ASD vs. TDC groups are identified asymmetrically in the right hippocampus, left choroid-plexus and corpus callosum (CC), and symmetrically in the cerebellar white matter. Sex-related texture differences in TDC subjects are found in primarily in the left amygdala, left cerebellar white matter, and brain stem. Correlations between age and texture in TDC subjects are found in the thalamus-proper, caudate and pallidum, most exhibiting bilateral symmetry.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Autism is a complex developmental disability that often appears during infancy, typically in the first three years of life<xref ref-type="bibr" rid="b1">1</xref>. It is a spectrum disorder that affects about one in 300 children, with individuals affected differently and to varying degrees<xref ref-type="bibr" rid="b2">2</xref>. The causes of autism are not yet fully understood, and a combination of developmental, genetic, and environmental factors are believed to be involved<xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b4">4</xref>.</p>
+<p>With the development of <italic>in-vivo</italic> brain imaging technologies such as Magnetic Resonance Imaging (MRI), significant progress has been made toward understanding the physiological characteristics of Autism Spectrum Disorder (ASD). Morphological analysis methods have identified links between regional image measurements and ASD, shedding some light on the mechanisms of this complex disorder. Such methods typically quantify physiological properties of neuroanatomical structures from image data, e.g. volume, thickness, shape, etc., and then identify regions/features for which these properties exhibit statistically significant differences between subject groups (e.g., normal control and ASD) or correlations with variables of interest (e.g., age).</p>
+<p>A number of studies have identified physiological differences between ASD and healthy subjects in several key brain regions, including the putamen<xref ref-type="bibr" rid="b5">5</xref>, cerebellum<xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b7">7</xref>, hippocampus<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b9">9</xref>, amygdala<xref ref-type="bibr" rid="b10">10</xref>, and corpus callosum<xref ref-type="bibr" rid="b11">11</xref>. The majority of these studies have focused on regional volume or intensity measurements, however, and have not fully exploited the rich information contained in MRI. A recent body of research, commonly referred to as <italic>radiomic analysis</italic>, focuses on texture and shape features derived from image data, that provide a source of information complementary to traditional voxel-wise or volumetric measurements. In general, radiomic analysis hypothesizes that texture operators tuned to an appropriate spatial extent or scale may provide information regarding the microstructure of the biological tissues observed, a hypothesis closely tied to results from scale-space theory<xref ref-type="bibr" rid="b12">12</xref>. Texture features can be computed by various means including linear filtering operations (e.g., Laplacian-of-Gaussian (LoG)<xref ref-type="bibr" rid="b13">13</xref>, wavelets) or gray-level co-occurrence matrices (GLCM)<xref ref-type="bibr" rid="b14">14</xref>, and offer a means of characterizing localized image variations arising from tissue heterogeneity, boundary smoothness<xref ref-type="bibr" rid="b15">15</xref>, etc. Such features have been successfully applied in a variety of image analysis contexts, including segmentation and computer-aided diagnosis<xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref><xref ref-type="bibr" rid="b22">22</xref>. In lung and head-and-neck cancer data, radiomic features were shown to have significant prognostic power, their signature relating intra-tumor heterogeneity with gene-expression patterns<xref ref-type="bibr" rid="b23">23</xref>. The links between tumor phenotype diversity, their heterogeneity at cellular and genetic levels, and imaging features derived from different modalities have been validated in numerous studies<xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref><xref ref-type="bibr" rid="b26">26</xref><xref ref-type="bibr" rid="b27">27</xref><xref ref-type="bibr" rid="b28">28</xref>. Radiomic features based on texture have also been used to identify subtle differences between brain tissues in control subjects and those of Alzheimer’s patients, related to cognitive impairment severity<xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b29">29</xref>.</p>
+<p>The primary contribution of this work is to characterize the link between neuroanatomical regions and ASD based on MRI texture features. We propose a region-based radiomics analysis method, whereby textures are first computed across a range of spatial resolutions via multi-scale LoG filtering, after which distributions of filter responses within neuroanatomical regions are summarized by quantifier functions (average, standard deviation and entropy) and compared across groups. While various neuroimaging studies have investigated multi-scale filter or wavelet responses on a voxel-wise basis<xref ref-type="bibr" rid="b30">30</xref>, our approach characterizes distributions of these measurements within neuroanatomical regions, thus capturing tissue-wise heterogeneity on a per-region basis. In contrast to voxel-wise analysis which requires accurate image registration and correction for large numbers of multiple comparisons, texture analysis requires only region segmentation and correction for multiple comparisons needs only to account for the numbers of regions and features, which are typically much fewer than the numbers of voxels per image. Moreover, the proposed analysis identifies numerous regions exhibiting significant textural differences between healthy control and ASD groups, several of which are consistent with previous results in the literature. As an additional contribution, we broaden our analysis to find regional texture differences linked with the sex and age of subjects. Once more, our method identifies various significant regions related to sex and age, most of which are consistent with findings in the literature.</p>
+<p>To our knowledge, this is the first work to investigate the links between MRI textures in neuroanatomical regions and autism, sex and age. MRI textures represent a source of information that is complementary to traditional voxel-wise or volumetric measurements. Our texture analysis method thus provides an additional means of characterizing group differences or correlations in structural MRI. This may potentially lead to a better understanding of the neuroanatomical substrate of diseases such as ASD and the links between normal neuroanatomy and variables such as gender and age.</p>
+<p>The rest of this paper is as follows. A review of related work is first presented in Section 2. We then present our proposed method in Section 3, and apply it on real brain MRI data in Section 4. The main findings of our experiments are then discussed in Section 5. Finally, we conclude by summarizing the contributions of this study and providing potential extension of our work.</p>
+<sec disp-level="1">
+<title>Related Work</title>
+<p>Our review of relevant work focuses on studies using imaging techniques to identify brain regions/characteristics related to autism, gender and age.</p>
+<p>Starting with work related to ASD, various studies using MR imaging have shown that young children with autism had a significantly larger brain volume compared to normally developing peers<xref ref-type="bibr" rid="b31">31</xref><xref ref-type="bibr" rid="b32">32</xref>. Studies on autism have also identified volume differences in specific brain structures including the cerebellum<xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b31">31</xref>, amygdala<xref ref-type="bibr" rid="b31">31</xref>, corpus callosum<xref ref-type="bibr" rid="b33">33</xref>, caudate nucleus<xref ref-type="bibr" rid="b34">34</xref>, hippocampus<xref ref-type="bibr" rid="b31">31</xref><xref ref-type="bibr" rid="b35">35</xref> and putamen<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b36">36</xref>. For example, it was shown that caudate nucleus and pallidus volumes were related to the level of ASD-like symptoms of participants with attention-deficit/hyperactivity disorder, and that the interaction of these two structures was a significant predictor of ASD scores<xref ref-type="bibr" rid="b36">36</xref>. In some cases, contradictory results have been reported. While<xref ref-type="bibr" rid="b8">8</xref> found that autistic children had an increase of hippocampal volume which persisted during adolescence, another study including autistic adolescents and young adults reported a decrease in hippocampal volume<xref ref-type="bibr" rid="b35">35</xref>. Other investigations, such as ref. <xref ref-type="bibr" rid="b37">37</xref>, have shown no significant differences in hippocampal volume between ASD and control subjects. Recent studies on autism have focused on finding abnormalities related to brain development. In ref. <xref ref-type="bibr" rid="b38">38</xref>, it was found that pre-adolescent children with ASD exhibited a lack of normative age-related cortical thinning, volumetric reduction, and an abnormal age-related increase in cortical gyrification. It has been hypothesized that the abnormal trajectories in brain growth, observed in children with autism, alters patterns of functional and structural connectivity during development<xref ref-type="bibr" rid="b39">39</xref>.</p>
+<p>Morphological differences between male and female brains have been explored, such differences are of interest since the prevalence and symptoms of various disorders are linked with gender<xref ref-type="bibr" rid="b40">40</xref>. For instance, autism is diagnosed four to five times more frequently in boys than girls<xref ref-type="bibr" rid="b41">41</xref><xref ref-type="bibr" rid="b42">42</xref>, and multiple sclerosis is four times more frequent in females than males<xref ref-type="bibr" rid="b43">43</xref>. Likewise, anxiety, depression and eating disorders have a markedly higher incidence in females than male, especially during adolescence<xref ref-type="bibr" rid="b44">44</xref><xref ref-type="bibr" rid="b45">45</xref>. The incidence of schizophrenia between males and females also differs across the lifespan<xref ref-type="bibr" rid="b46">46</xref>. In terms of brain development, the growth trajectories of several brain regions have been shown to be linked to the sex of a subject, with some regions developing faster in boys and others in girls<xref ref-type="bibr" rid="b47">47</xref><xref ref-type="bibr" rid="b48">48</xref>. Various studies have also investigated sexual differences associated with autism. A recent study showed that the cortical volume and ventromedial/orbitofrontal prefrontal gyrification of females is greater than males, in both the ASD and healthy subject groups<xref ref-type="bibr" rid="b49">49</xref>. In another study, the severity of repetitive/restricted behaviors, often observed in autism, was found to be associated with sexual differences in the gray matter morphometry of motor regions<xref ref-type="bibr" rid="b50">50</xref>.</p>
+<p>A number of studies have focused on morphometric brain changes associated with aging<xref ref-type="bibr" rid="b4">4</xref>. In refs <xref ref-type="bibr" rid="b51">51</xref>, <xref ref-type="bibr" rid="b52">52</xref>, <xref ref-type="bibr" rid="b53">53</xref>, cross-sectional and longitudinal analyses of brain region volumes revealed that the shrinkage of the hippocampus, the entorhinal cortices, the inferior temporal cortex and the prefrontal white matter increased with age. These studies have also highlighted trends towards age-related atrophy in the amygdala and cingulate gyrus of elderly individuals. Conversely, other investigations found no significant volumetric changes of the temporolimbic and cingulate cortical regions during the aging process<xref ref-type="bibr" rid="b54">54</xref><xref ref-type="bibr" rid="b55">55</xref><xref ref-type="bibr" rid="b56">56</xref>. A recent study applied voxel-based morphometry to compare the white matter, grey matter and cerebral spinal fluid volumes of ASD males to control male subjects<xref ref-type="bibr" rid="b57">57</xref>. The results of this analysis have demonstrated highly age-dependent atypical brain morphometry in ASD subjects. Other investigations have reported that neuroanatomical abnormalities in ASD are highly age-dependent<xref ref-type="bibr" rid="b58">58</xref><xref ref-type="bibr" rid="b59">59</xref>.</p>
+<p>The vast majority of morphometric analyses in this review have focused on voxel-wise or volumetric measurements derived from brain MRI data. Texture features provide a complementary basis for analysis by summarizing distributions of localized image measurements, e.g. filter responses, within meaningful image regions. Several studies have begun to investigate texture in brain MRI, for example to identify differences between Alzheimer’s and control groups<xref ref-type="bibr" rid="b22">22</xref>, to discriminate between ASD and TDC subjects<xref ref-type="bibr" rid="b60">60</xref>, and to evaluate the survival time of GBM patients<xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b61">61</xref>. Texture features can be computed at multiple scales within regions of interest, for example multi-scale textures based on the LoG filter have been proposed for grading cerebral gliomas<xref ref-type="bibr" rid="b16">16</xref>.</p>
+<p>Among the works most closely related to this paper is the approach of Kovalev <italic>et al</italic>.<xref ref-type="bibr" rid="b62">62</xref>, where texture features were used to measure the effects of gender and age on structural brain asymmetry. In this work, 3D texture features based on extended multi-sort co-occurrence matrices were extracted from rectangular or spherical regions in T1-weighted MRI volumes, and compared across left and right hemispheres. This analysis revealed a greater asymmetry in male brains, most pronounced in the superior temporal gyrus, Heschl’s gyrus, thalamus, and posterior cingulate. Asymmetry was also found to increase with age in various areas of the brain, such as the inferior frontal gyrus, anterior insula, and anterior cingulate. While this work also investigated the link between MRI texture, gender and age, it was limited to lateral asymmetry and did not consider textural differences across gender and age groups. Moreover, texture features were obtained from arbitrarily defined sub-volumes that do not correspond to known neuroanatomical regions. In contrast, our work links texture observations to standard neuroanatomical regions obtained from a parcellation atlas, which provide a more physiologically meaningful basis for analysis in comparison to arbitrarily defined regions.</p>
+<p>To our knowledge, no work has yet investigated MRI texture analysis within neuroanatomical regions, obtained from a parcellation atlas, as a basis for studying differences related to autism, sex and age.</p>
+</sec>
+<sec disp-level="1">
+<title>Materials and Methods</title>
+<p>In this paper, we propose identifying associations between neuroanatomical regions and variables of autism, sex and age using texture features derived from brain MRI data. In our method, MRI volumes are first registered to an atlas and parcellated into 31 key sub-cortical regions, e.g. via a processing pipeline such as FreeSurfer<xref ref-type="bibr" rid="b63">63</xref>. While our method could also be used to analyze regions of the cerebral cortex, such regions are typically more prone to registration errors<xref ref-type="bibr" rid="b64">64</xref>. The thinness of the cortex constitutes another obstacle to our approach, which aggregates texture measurements within a 3D volume.</p>
+<p>Multi-scale texture features are then computed from MRI data by applying a Laplacian-of-Gaussian (LoG) filter across a range of resolution scales, and the distributions of texture filter responses are summarized by the mean, standard deviation and entropy on a per-region basis. Finally, a statistical analysis is performed to identify regions exhibiting significant textural differences between discrete subject groups (e.g. ASD vs. TDC, male vs. female) using permutation tests and Fisher’s method, and correlations with continuous variables (e.g. age) using Spearman rank correlation. An overview of the method is shown in the flowchart of <xref ref-type="fig" rid="f1">Fig. 1</xref>. The following sections describe each component of the method in greater detail.</p>
+<sec disp-level="2">
+<title>Participants and data</title>
+<p>T1-weighted MRI data and demographic information for 573 TDC and 539 ASD subjects were obtained from the publicly available ABIDE database (<ext-link ext-link-type="uri" xlink:href="http://fcon_1000.projects.nitrc.org/indi/abide/" xmlns:xlink="http://www.w3.org/1999/xlink">http://fcon_1000.projects.nitrc.org/indi/abide/</ext-link>), an online consortium of MRI and resting-state fMRI data from 17 international sites. In accordance with Health Insurance Portability and Accountability (HIPAA) guidelines, all data are anonymized with no protected health information included. All volumetric images were acquired with a resolution of 1 mm<sup>3</sup>, for a total size of 256 × 256 × 256 voxels.</p>
+<p>The demographic and clinical characteristics of subjects in the database are shown in <xref ref-type="table" rid="t1">Table 1</xref>. A drill-down of this information is also given for the TDC group, which is used in our analyses related to sex and age variables. A number of confounds exist that complicate analysis. Due to the higher incidence of autism in male subjects, data are significantly imbalanced with regard to sex (i.e., 948 males vs. 164 females). Moreover, the database consists primarily of young subjects with developing brains, and inter-subject variations in the shape and size of neuroanatomical regions may impact analysis. Finally, the data is multi-site and thus subject to inter-site variations in MRI intensity. Although various pre-processing steps are applied to normalize the data across sites and subjects, these confounds could influence our analysis and are dealt by performing two types of analyses: a permutation analysis which accounts for inter-subject and inter-site variability in the null distribution, and a bootstrap analysis with multiple balanced data subsets. More details about these analyses are provided in the Statistical Analyses section.</p>
+</sec>
+<sec disp-level="2">
+<title>Image preprocessing and region labelling</title>
+<p>We used a preprocessed version of the ABIDE I database, provided by the Preprocessed Connectomes Project (PCP) and publically available for download at <ext-link ext-link-type="uri" xlink:href="http://preprocessed-connectomes-project.org/abide/" xmlns:xlink="http://www.w3.org/1999/xlink">http://preprocessed-connectomes-project.org/abide/</ext-link>. T1-weighted MRI images from this database were preprocessed using the <italic>recon-all</italic> pipeline of the FreeSurfer 5.1 tool (<ext-link ext-link-type="uri" xlink:href="http://surfer.nmr.mgh.harvard.edu/" xmlns:xlink="http://www.w3.org/1999/xlink">http://surfer.nmr.mgh.harvard.edu/</ext-link>)<xref ref-type="bibr" rid="b63">63</xref>, which involves the following six steps: (1) small-motion correction by averaging the available volumes of subjects, (2) (non-uniform) intensity normalization, (3) affine registration of volumes to the MNI305 atlas, (4) skull-stripping, (5) non-linear registration and further normalization using the Gaussian Classifier Atlas (GCA), and (6) brain parcellation and subcortical region labelling using the GCA. The outputs of this pipeline used in this work are the skull stripped, intensity normalized brain volumes in the subject space (i.e., the <italic>brain.mgz</italic> file), and the sub-cortical labelling of these volumes into 45 hemisphere-distinct regions (i.e., the <italic>aseg.mgz</italic> file). For our analysis, only 31 of the most prominent regions were used. <xref ref-type="fig" rid="f2">Figure 2</xref> shows an example of brain regions labelled using this pipeline.</p>
+<p>A subset of ABIDE preprocessed anatomical volumes are manually labeled as quality assessment (QA) failure cases by two raters (rater 2: 52 volumes, rater 3: 108 volumes). While some of these cases correspond to important motion artifacts or segmentation errors, a visual inspection reveals that most of these failures are due to factors that do not affect the subcortical segmentations used in our method (e.g., erroneous segmentation of the cortex or spinal cord). Our primary analysis is thus performed on all but a subset of 8 volumes where QA failures result in noticeable subcortical segmentation errors (e.g., see <xref ref-type="fig" rid="f3">Fig. 3</xref>). These volumes correspond to the following subject IDs: UM_1_0050288, UM_1_0050309, UCLA_1_0051244, UCLA_1_0051245, UCLA_1_0051246, UCLA_1_0051270, UCLA_2_0051296 and UCLA_2_0051310. To assess the impact of excluding larger sets of subjects on our results, we additionally evaluate our method excluding entire sets of volumes flagged as “fail” or “not assessed” by ABIDE raters. We note that virtually identical sets of significant features are identified, however, at higher corrected <italic>p</italic>-values due to fewer data samples. <xref ref-type="fig" rid="f11">Figures 11</xref> and <xref ref-type="fig" rid="f12">12</xref> show results following exclusion of 52 subjects flagged by rater 2.</p>
+</sec>
+<sec disp-level="2">
+<title>Texture feature extraction</title>
+<p>Once the subject volumes have been segmented into a set of common regions, we then extract texture features from each of these regions. Although various texture descriptors have been proposed in the literature, in this work, we adopt texture features based on the multi-scale Laplacian-of-Gaussian (LoG) filter<xref ref-type="bibr" rid="b65">65</xref>, which has been used successfully in various medical imaging applications<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b66">66</xref>. Texture feature extraction is a two-step process, involving (1) filtering the image over a range of spatial resolutions, and (2) using a set of quantifier functions to summarize filter responses within regions. We applied the LoG filter at three different scales <italic>σ</italic>, on the intensity normalized T1-weighted images of each subject. The LoG filter is a symmetric 2<sup>nd</sup> order spatial derivative filter resulting from a Gaussian smoothing operation with a kernel of standard deviation <italic>σ</italic> followed by the Laplacian operator. In this context of this work, it serves as a generic differential operator that responds to local image variations such as edges or blobs within a volume. We hypothesize that filtered volumes encode properties of tissue heterogeneity and local structure that may be connected to the development abnormalities of ASD. Moreover, by varying the scale parameter <italic>σ</italic>, the LoG filter can capture textural image variations potentially arising from tissues and structures across a range of spatial resolutions. In this study, we considered three different scales: (1) <italic>σ</italic> = 0.5 mm (fine texture), (2) <italic>σ</italic> = 1.5 mm (medium texture), and 3) <italic>σ</italic> = 2 mm (coarse texture). <xref ref-type="fig" rid="f4">Figure 4</xref> shows an example of an image texturized using the LoG filter. The next step of the feature extraction process is to encode texture filter responses within each region. This is done by summarizing distributions of filter responses using three quantifier functions: the average (A) and standard deviation (SD) representing the 1<sup>st</sup> and 2<sup>nd</sup> order moments and the entropy (E) representing the distribution uncertainty. Let <italic>f</italic><sub><italic>σ</italic></sub>(<italic>x, y, z</italic>) be the LoG filter response at voxel (<italic>x, y, z</italic>) with scale parameter <italic>σ</italic> ∈ {0.5, 1.5, 2}, and denote as denote as <sub><italic>i</italic></sub> the set of voxels in region <italic>i</italic> ∈ {1, …, 31}. The quantifier functions are defined as follows:</p>
+<p>
+<disp-formula id="eq1">
+<inline-graphic id="d32e392" xlink:href="srep45639-m1.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>
+<disp-formula id="eq2">
+<inline-graphic id="d32e395" xlink:href="srep45639-m2.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>
+<disp-formula id="eq3">
+<inline-graphic id="d32e398" xlink:href="srep45639-m3.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where <inline-formula id="d32e401"><inline-graphic id="d32e402" xlink:href="srep45639-m4.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is the subset of voxels within the <italic>k</italic>-th interval of values using a uniform discretization into 256 intervals. In the context of this work, each neuroanatomical region <italic>i</italic> is thus represented by a vector <italic>x</italic><sub><italic>i</italic></sub> of 9 texture features:</p>
+<p>
+<disp-formula id="eq5">
+<inline-graphic id="d32e418" xlink:href="srep45639-m5.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>Although the standard deviation and entropy both measure the homogeneity/heterogeneity of filter response, entropy is typically less sensitive to outliers in a region (i.e., voxels with a response significantly different from the region mean) than standard deviation. This is due to the fact that it uses the distribution of voxels within different intervals of filter responses, but not the actual filter response values. Therefore, it may be more robust to errors in the parcellation step than standard deviation.</p>
+</sec>
+<sec disp-level="2">
+<title>Statistical analyses</title>
+<p>We performed three statistical analyses to identify brain regions where texture features are informative regarding differences between discrete subject groups (i.e. autism and sex labels) or correlated with continuous variables (i.e. age). To account for multiple comparisons (i.e., 31 sub-cortical regions × 3 filter scales × 3 texture features = 279 tests), all <italic>p</italic>-values obtained from significance testing were simultaneously corrected according to the Holm-Bonferroni method<xref ref-type="bibr" rid="b67">67</xref>. A threshold of <italic>p</italic> &lt; 0.05 on corrected <italic>p</italic>-values was used to identify statistically significant regions.</p>
+</sec>
+<sec disp-level="2">
+<title>Texture differences related to autism</title>
+<p>A major consideration is to account for differences in imaging protocols and demographics across sites. To avoid this problem, we could perform a similar hypothesis test independently for each site and then combine the obtained <italic>p</italic>-values using a standard approach such as Fisher’s method<xref ref-type="bibr" rid="b68">68</xref>. However, such approach is not feasible due to the data paucity and variability: the number of subjects per site is small and the range of inter-site subject demographic variability is high. Instead, we obtained robust <italic>p</italic>-value estimates using a two-sided permutation test. In this test, we generated 100,000 samples from the null distribution (i.e., same median feature) by randomly permuting the diagnosis group labels of all subjects, and measuring for each sample the absolute difference of median (ABM) between permuted ASD and TDC subjects. We then computed a <italic>p</italic>-value, for each feature, filter scale and region, as the percentage of permutations for which the ABM is greater than the ABM obtained using the true diagnosis group labels. As mentioned above, the 279 <italic>p</italic>-values obtained in this way were corrected using the Holm-Bonferroni procedure. Although the Wilcoxon rank-sum test could also have been used for this analysis, such approach is typically less informative because it measures differences based solely on rank. Moreover, the choice of using the median instead of the mean is justified by the fact that texture features are not necessarily normal distributed.</p>
+<p>For the sake of completeness, we also generated 100 balanced bootstrap samples using the true group diagnosis labels, each one containing 100 ASD and 100 TDC subjects. We then obtained a <italic>p</italic>-value for each sample by applying a Wilcoxon rank-sum test, and used Fisher’s method to combine them in a single aggregate <italic>p</italic>-value. Since the <italic>p</italic>-values of different bootstrap samples are correlated, the aggregate values obtained with Fisher’s method are overly optimistic (high chance of false positives) and cannot be used directly. However, these values can be compared relative to one another to identify potential regions of interest.</p>
+</sec>
+<sec disp-level="2">
+<title>Texture differences related to sex</title>
+<p>A similar analysis was conducted to identify brain regions exhibiting significant texture differences between healthy (i.e., TDC) male and female subjects. A permutation test was first employed to compare the absolute difference of median feature values between male and female subject groups, with those obtained from 100,000 random permutations of sex labels (i.e., null distribution). Once again, <italic>p</italic>-values were estimated as the ratio of permutations leading to a higher absolute difference of median than those obtained with the true sex labels, and were corrected using the Holm-Bonferroni method. Moreover, a probability test based on Fisher’s method was used to combine the <italic>p</italic>-values of 100 balanced bootstrap samples of 50 TDC males and 50 TDC females into a single aggregate <italic>p</italic>-value.</p>
+</sec>
+<sec disp-level="2">
+<title>Texture differences related to age</title>
+<p>Finally, the last analysis identified brain regions for which textures are significantly correlated with age. For this analysis, we first computed the Spearman rank correlation coefficient (SRCC) between the age of TDC subjects and their texture features of each brain region, and considered brain regions having a moderate to high correlation value, i.e. <italic>ρ</italic> &gt; 0.4. To further validate the results of this analysis, we also conducted two additional tests. In the first test, we generated 100,000 samples from the null distribution (i.e., features and age are uncorrelated) by randomly permuting the subjects’ age values, and computing the SRCC of these permutations. We obtained <italic>p</italic>-value as the percentage of permutations having an absolute correlation greater than the true absolute correlation. Once more, these <italic>p</italic>-values were then corrected using the Holm-Bonferroni procedure. In the second test, we generated 100 bootstrap samples of 100 TDC subjects (both male and female) and computed the SRCC for each of these samples. We then obtained a lower-bound on the 95% confidence interval (i.e., the highest SRCC value, smaller than 95% of sampled SRCC values), which we use to further validate the significance of correlation values.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Results</title>
+<p>In this section, we present the results for three proposed analyses: texture differences between subject groups (i.e. autism and sex), and texture correlations with continuous variables (i.e. age).</p>
+<sec disp-level="2">
+<title>Texture differences related to autism</title>
+<p>The heatmap of uncorrected <italic>p</italic>-values (in -log<sub>10</sub> space) obtained from the permutation test is depicted in <xref ref-type="fig" rid="f5">Fig. 5A</xref>. Regions that are significant after Holm-Bonferroni correction, with a confidence level of 0.05, are identified with a green-black circle. We notice several brain regions with significant differences in texture features between ASD and TDC subjects: left and right cerebellar white matter, left choroid-plexus, right hippocampus and posterior of corpus callosum. <xref ref-type="table" rid="t2">Table 2</xref> gives the detailed corrected <italic>p</italic>-values of these regions, which are depicted in <xref ref-type="fig" rid="f5">Fig. 5C</xref>. To analyze properties related to symmetry and scale, <italic>p</italic>-values are reported for both brain hemisphere, when applicable, as well as all three texture scales (i.e., fine, medium, coarse).</p>
+<p>We observe a pronounced bilateral asymmetry for the choroid plexus and hippocampus regions, as well as a notable symmetry for the cerebellar white matter. Moreover, we see that the scale of significant features varies from one region to another, here with fine-scale features being more relevant for small or narrow regions like the hippocampus, and coarser ones for larger regions like the corpus callosum. This indicates the usefulness of multi-scale features in our analysis. With respect to quantifier functions, the average and entropy functions are more relevant than the standard deviation. As previously mentioned, this could be due to the higher sensitivity of the standard deviation to region boundaries obtained from parcellation.</p>
+<p>The <italic>p</italic>-values obtained via Fisher’s method are shown in <xref ref-type="fig" rid="f5">Fig. 5B</xref>. We observe the highest <italic>p</italic>-values for left and right cerebellar white matter, left choroid-plexus, right hippocampus and right pallidum. These results further validate the set of significant regions identified on the permutation test, in addition to their patterns of bilateral symmetry and texture scale.</p>
+</sec>
+<sec disp-level="2">
+<title>Texture differences related to sex</title>
+<p>As in the previous analysis, we summarize the results of the permutation test on sex-related texture differences using a heatmap of uncorrected <italic>p</italic>-values (<xref ref-type="fig" rid="f6">Fig. 6A</xref>). Three regions, namely, brain-stem, left amygdala, and right cerebellar white matter (<xref ref-type="fig" rid="f6">Fig. 6C</xref>), exhibit significant texture differences, with <italic>p</italic> &lt; 0.05 following Holm-Bonferroni correction (see detailed corrected <italic>p</italic>-values in <xref ref-type="table" rid="t3">Table 3</xref>). The link between these regions’ texture and sex is further demonstrated by the results of Fisher’s method (<xref ref-type="fig" rid="f6">Fig. 6B</xref>). Based on these results, we see a skew toward coarse texture features in regions exhibiting the strongest differences, suggesting that texture differences between male and female subjects occur at a greater structural scale. We also observe that differences are more pronounced in the left hemisphere, in particular for the amygdala. Although not fully understood, these structures are known to exhibit functional lateralization (see the Discussion for details).</p>
+</sec>
+<sec disp-level="2">
+<title>Texture correlations with age</title>
+<p>The Spearman rank correlation coefficients between the texture features extracted in each brain region and the age of all 573 healthy control subjects are presented in <xref ref-type="fig" rid="f7">Fig. 7A</xref> and <xref ref-type="table" rid="t4">Table 4</xref>. These results show a moderate negative correlation (i.e. −0.3 to −0.5) in the thalamus, caudate and pallidum regions, as well as a moderate positive moderate correlation (i.e., 0.3 to 0.5) in the vessel region. Moreover, a high negative correlation (i.e., above 0.5) is observed for the coarse entropy feature of the thalamus and pallidum regions. <xref ref-type="fig" rid="f8">Figure 8</xref> shows a scatter plot of texture entropy vs. age, for the thalamus and pallidum regions. Unlike in the case of autism, a general pattern of bilateral symmetry is observed, suggesting similar correlations between regional textures and age in both right and left hemispheres.</p>
+<p><xref ref-type="fig" rid="f7">Figure 7B</xref> provides the uncorrected <italic>p</italic>-values heatmap obtained from the permutation test. These results confirm the statistical significance of correlated regions in <xref ref-type="table" rid="t4">Table 4</xref>, i.e. the hypothesis of no correlation can be rejected with a confidence level of 0.05. The relationship between the regions’ texture and age is also supported by the results of <xref ref-type="fig" rid="f7">Fig. 7C</xref>, which shows the lower bound of the 95% confidence interval on correlation values, computed via the bootstrap analysis.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>We extracted multi-scale texture features from 31 prominent sub-cortical brain regions, and performed a statistical analysis to identify significant region-wise texture differences between healthy (TDC) and autism spectral disorder (ASD) subjects. Similar analyses were also conducted to identify regions exhibiting sex-related texture differences between males and age-related texture correlations in healthy subjects.</p>
+<p>For the autism-related analysis, we identified five regions exhibiting significant textural differences between ASD and TDC groups at a significance level of corrected <italic>p</italic> &lt; 0.05, namely the left and right cerebellar white matter, right hippocampus, left choroid-plexus, and posterior corpus callosum. The amygdala and pallidum also exhibit differences, although these regions are not significant following Holm-Bonferroni correction. These results are generally consistent with previous studies on autism, showing statistically significant volume differences in the cerebellum<xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b31">31</xref>, hippocampus<xref ref-type="bibr" rid="b8">8</xref>, amygdala<xref ref-type="bibr" rid="b10">10</xref>, and corpus callosum<xref ref-type="bibr" rid="b11">11</xref>. Differences observed in the cerebellum could also be linked to the higher curvature and sharpened folds of cerebral white matter exhibited in ASD<xref ref-type="bibr" rid="b69">69</xref>. Although volumetric differences have previously been reported for the putamen<xref ref-type="bibr" rid="b5">5</xref>, we did not observe significant texture differences for this region. To our knowledge, the choroid-plexus has not been linked to autism so far in the literature. However, ASD may be connected to excessive subarachnoid cerebrospinal fluid (CSF), which is mainly produced in this brain region<xref ref-type="bibr" rid="b70">70</xref>.</p>
+<p>The analysis of autism-related differences has also underlined the importance of using a multi-scale approach while comparing features in different brain regions. We investigate the effect of filter scale by computing <italic>p</italic>-values for regional feature significance across a dense sampling of the LoG scale parameter (sigma) using the same procedure as in <xref ref-type="fig" rid="f5">Fig. 5</xref>. The result is shown in <xref ref-type="fig" rid="f9">Fig. 9</xref>, where the scale at which peak significance values are observed varies according to the region as well as the quantifier function (i.e., average, standard deviation or entropy). Similarly, in <xref ref-type="fig" rid="f11">Fig. 11</xref>, we achieve similar significance results (i.e. right CWM and hippocampus) after excluding additional patients (i.e. 52 ABIDE volumes flagged as QA failures).</p>
+<p>Note that the LoG filter response is strongest when the scale parameter matches the spatial extent of local heterogeneity patterns in the image. Observe also that differential filters such as the LoG operator integrate image information across a finite spatial extent as specified by the scale parameter, and filter responses along region boundaries generally combine intensity information from multiple neuroanatomical regions. Thus although texture features are due primarily to region-specific image content, they may generally include content from neighbouring regions. For instance, while the choroid plexus is a relatively small and narrow structure (see <xref ref-type="fig" rid="f5">Fig. 5</xref>), group differences for this structure are more prominent for larger filter scales. This suggests that filter responses from surrounding regions such as the CSF may explain part of these differences.</p>
+<p>Finally, our results pertaining to ASD show average and entropy to be well suited to identifying texture differences in various regions and scales. While both standard deviation and entropy measure feature heterogeneity, which is linked to tissue microstructures, entropy is potentially robust than standard deviation to outlier filter responses, e.g. along tissue boundaries.</p>
+<p>For sex-related texture differences in TDC subjects, we identified three regions which exhibit significance at the corrected <italic>p</italic> &lt; 0.05: left amygdala, right cerebellar white matter and brain-stem. Mild differences were also found for the vessel, accumbens area, hippocampus, and corpus callosum (mid anterior sub-region) regions, which are significant prior to correction. While we used a very different methodology, our results on the amygdala may be linked to previous studies that showed a varying pattern of neural connectivity between males and females in this region<xref ref-type="bibr" rid="b71">71</xref>, as well as sex-related differences in amygdala activity during emotionally influenced memory storage<xref ref-type="bibr" rid="b72">72</xref>. Likewise, results on the vessel region could be related to previous findings in the literature, showing that cerebral arteries in female brains are significantly less responsive to certain vasoconstrictors than for males<xref ref-type="bibr" rid="b73">73</xref>. Previous studies have also shown sex differences associated with the hippocampus<xref ref-type="bibr" rid="b74">74</xref> and corpus callosum<xref ref-type="bibr" rid="b75">75</xref>, in particular with respect to brain aging. However, this is the first study to investigate sex-related texture differences in these regions.</p>
+<p>The analysis of sex-related texture differences also indicates that these differences occur mostly at a coarse texture scale and are more pronounced in the left hemisphere. This can be observed in <xref ref-type="fig" rid="f10">Fig. 10</xref>, showing the significance of male vs. female differences in selected regions across a dense sampling of sigma values. Again, results for sex differences, computed following exclusion of 52 subjects flagged as QA failures in the ABIDE dataset, are highly similar in terms of peak significance values (see <xref ref-type="fig" rid="f12">Fig. 12</xref>). This observation may suggest that differences between male and female brains are mostly structural, and not based on fine-grained tissue properties. Moreover, such differences could be linked to the lateralization of function in brain structures such as the accumbens area and hippocampus. For instance, brain activation in males is lateralized to the left inferior frontal gyrus regions while the pattern of activation is very different in female, engaging more diffuse neural systems that involve both the left and right inferior frontal gyrus<xref ref-type="bibr" rid="b76">76</xref>. Another study showed that the right hippocampus is believed to be responsible of encoding spatial relationships, while the left has the altered function of storing relationships between linguistic entities<xref ref-type="bibr" rid="b77">77</xref>. Moreover, females have been shown to make greater bilateral use of the posterior temporal lobes than males during linguistic processing of global structures in a narrative<xref ref-type="bibr" rid="b78">78</xref>.</p>
+<p>Finally, our analysis of age-related differences reveals moderate to high correlations (with corrected <italic>p</italic> &lt; 0.05) between the subjects’ age and textures in the thalamus, caudate, pallidum and vessel regions. These results are consistent with previous studies on the anatomy of aging brains. For instance, changes in thalamus shape and volume have been associated with age<xref ref-type="bibr" rid="b79">79</xref>, and the volume of the caudate region has been linked to associative memory decline<xref ref-type="bibr" rid="b80">80</xref>. Another study found a negative correlation between age and the volume of the caudate nucleus, pallidum, amygdala and hippocampus<xref ref-type="bibr" rid="b81">81</xref>. While our study has shown a link between age and the texture of various brain regions, further investigation is required to fully understand the physiological process responsible for this connection.</p>
+<p>In summary, our analysis has highlighted significant texture differences between ASD and TDC, sex differences, and age correlations in key sub-cortical regions. Several results of this analysis are consistent with previous neuroanatomical studies pertaining to autism, sex and age. However, this analysis has also found previously unknown connections between specific regions and autism, sex and age, which offer avenues of further exploration.</p>
+<p>Finally, our study has several limitations that merit discussion. First, texture features may be more sensitive to the imaging protocol, noise, and post-processing steps than simple morphological features like volume. In particular, segmentation errors in small and hard to delineate regions could explain some of the significance observed in these regions. Segmentation accuracy is generally worse a priori for regions that are either small or thin, or that exhibit weak intensity contrast along their boundaries. In this work, we used the atlas-based segmentation method of FreeSurfer. While no large-scale study of segmentation accuracy exists for this method, to our knowledge, recent work on sub-cortical parcellation using manually-labelled data have found it to be relatively accurate, with an average Dice coefficient of 78.8% (highest accuracy of 86% in the thalamus, and lowest of accuracy 71% in the pallidum)<xref ref-type="bibr" rid="b82">82</xref>. Studies have also shown FreeSurfer’s registration and segmentation steps to be robust to age-associated bias<xref ref-type="bibr" rid="b83">83</xref>, a useful property for our work which uses the data of both preteen and adult subjects. The impact of segmentation errors is also mitigated by the large cohort of subjects used in our study (over 1000) and by our permutation analysis, which offers robust estimates of <italic>p</italic>-values considering the variance introduced by such errors.</p>
+<p>Another potential confound is the small number of female subjects in the ABIDE dataset, due to the higher incidence of autism in male subjects. This sex imbalance may introduce a bias when comparing textures across the entire population of subjects. Although we considered this factor by performing permutations tests and deriving confidence intervals via a bootstrap analysis, additional steps could further validate our results. For example, our results could be cross-validated using a different database of subjects, such as the ABIDE II dataset (<ext-link ext-link-type="uri" xlink:href="http://fcon_1000.projects.nitrc.org/indi/abide/abide_II.html" xmlns:xlink="http://www.w3.org/1999/xlink">http://fcon_1000.projects.nitrc.org/indi/abide/abide_II.html</ext-link>). Note that this dataset, containing over 1000 additional subjects (both control and ASD), was not used in our study since a preprocessed version of this database is not currently available. In future work, we plan on extending our study by applying the same preprocessing pipeline to this additional database. Another limitation of our study is the lack of longitudinal data, which would allow us to discover neurodevelopmental patterns related to texture. The ABIDE II dataset contains longitudinal data related to autism, and could be used for such analysis.</p>
+</sec>
+<sec disp-level="1">
+<title>Conclusions</title>
+<p>We proposed a region-wise analysis of the brain using multi-scale texture features, and demonstrated its use in identifying regional differences between subject groups (i.e. ASD vs. TDC, male vs. female) and correlations with continuous variables (i.e. age). Findings are generally consistent with results in the literature, with several novel group-related regions identified. To our knowledge, this is the first reported analysis of autism based on MRI texture features.</p>
+<p>We conclude that the texture features extracted from hippocampus and cerebellar white matter regions exhibit the most significant differences between ASD and TDC subjects. The choroid-plexus is also identified, to our knowledge this is the first study reporting a potential link between the choroid-plexus and ASD. The significant difference of texture feature between healthy male and female subjects is identified in the amygdala, brain stem and cerebellar white matter regions. Finally, moderate correlations between texture features and the age of healthy subjects are identified in the thalamus, caudate, and pallidum, which are also significant following Holm-Bonferroni correction for multiple comparisons.</p>
+<p>These findings suggest that texture features can be a useful representation for characterizing differences in brain structure, that is complementary to traditional voxel-wise or volumetric analysis. Moreover, since texture features can be acquired from arbitrary imaging modalities, the usefulness of our texture-based analysis approach could also tested on modalities other than T1-WI, including other MR modalities or CT scans.</p>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article</bold>: Chaddad, A. <italic>et al</italic>. Multi-scale radiomic analysis of sub-cortical regions in MRI related to autism, gender and age. <italic>Sci. Rep.</italic>
+<bold>7</bold>, 45639; doi: 10.1038/srep45639 (2017).</p>
+<p><bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</sec>
+</body>
+<back>
+<ack>
+<p>Research supported by the <italic>Fonds de Recherche du Quebec-Nature et Technologies</italic> (FRQNT) and <italic>National Sciences and Engineering Research Council of Canada</italic> (NSERC) grants. The funding agency has no role in the conceptualization of the study, data collection and analysis, or the decision to publish these results.</p>
+</ack>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal"><name><surname>Minshew</surname><given-names>N. J.</given-names></name> &amp; <name><surname>Payton</surname><given-names>J. B.</given-names></name>
+<article-title>New perspectives in autism, Part I: The clinical spectrum of autism</article-title>. <source/>Curr. Probl. Pediatr.
+<volume>18</volume>, <fpage>561</fpage>–<lpage>610</lpage> (<year>1988</year>).<pub-id pub-id-type="pmid">3064974</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Tidmarsh</surname><given-names>L.</given-names></name> &amp; <name><surname>Volkmar</surname><given-names>F. R.</given-names></name>
+<article-title>Diagnosis and epidemiology of autism spectrum disorders</article-title>. <source/>Can. J. Psychiatry Rev. Can. Psychiatr. <volume>48</volume>, <fpage>517</fpage>–<lpage>525</lpage> (<year>2003</year>).</mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>Stevens</surname><given-names>M. C.</given-names></name>
+<etal></etal>. <article-title>Subgroups of children with autism by cluster analysis: a longitudinal examination</article-title>. <source/>J. Am. Acad. Child Adolesc. Psychiatry
+<volume>39</volume>, <fpage>346</fpage>–<lpage>352</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">10714055</pub-id></mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Geerligs</surname><given-names>L.</given-names></name>, <name><surname>Renken</surname><given-names>R. J.</given-names></name>, <name><surname>Saliasi</surname><given-names>E.</given-names></name>, <name><surname>Maurits</surname><given-names>N. M.</given-names></name> &amp; <name><surname>Lorist</surname><given-names>M. M.</given-names></name>
+<article-title>A Brain-Wide Study of Age-Related Changes in Functional Connectivity</article-title>. <source/>Cereb. Cortex N. Y. N 1991
+<volume>25</volume>, <fpage>1987</fpage>–<lpage>1999</lpage> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Sato</surname><given-names>W.</given-names></name>
+<etal></etal>. <article-title>Increased Putamen Volume in Adults with Autism Spectrum Disorder</article-title>. <source/>Front. Hum. Neurosci. <volume>8</volume> (<year>2014</year>).</mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Rogers</surname><given-names>T. D.</given-names></name>
+<etal></etal>. <article-title>Is autism a disease of the cerebellum? An integration of clinical and pre-clinical research</article-title>. <source/>Front. Syst. Neurosci. <volume>7</volume>, <fpage>15</fpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23717269</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Hampson</surname><given-names>D. R.</given-names></name> &amp; <name><surname>Blatt</surname><given-names>G. J.</given-names></name>
+<article-title>Autism spectrum disorders and neuropathology of the cerebellum</article-title>. <source/>Front. Neurosci. <volume>9</volume>, <fpage>420</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26594141</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Schumann</surname><given-names>C. M.</given-names></name>
+<etal></etal>. <article-title>The amygdala is enlarged in children but not adolescents with autism; the hippocampus is enlarged at all ages</article-title>. <source/>J. Neurosci. Off. J. Soc. Neurosci.
+<volume>24</volume>, <fpage>6392</fpage>–<lpage>6401</lpage> (<year>2004</year>).</mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Nicolson</surname><given-names>R.</given-names></name>
+<etal></etal>. <article-title>Detection and mapping of hippocampal abnormalities in autism</article-title>. <source/>Psychiatry Res.
+<volume>148</volume>, <fpage>11</fpage>–<lpage>21</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">17056234</pub-id></mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>Schumann</surname><given-names>C. M.</given-names></name>, <name><surname>Barnes</surname><given-names>C. C.</given-names></name>, <name><surname>Lord</surname><given-names>C.</given-names></name> &amp; <name><surname>Courchesne</surname><given-names>E.</given-names></name>
+<article-title>Amygdala enlargement in toddlers with autism related to severity of social and communication impairments</article-title>. <source/>Biol. Psychiatry
+<volume>66</volume>, <fpage>942</fpage>–<lpage>949</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19726029</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Hardan</surname><given-names>A. Y.</given-names></name>, <name><surname>Minshew</surname><given-names>N. J.</given-names></name> &amp; <name><surname>Keshavan</surname><given-names>M. S.</given-names></name>
+<article-title>Corpus callosum size in autism</article-title>. <source/>Neurology
+<volume>55</volume>, <fpage>1033</fpage>–<lpage>1036</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">11061265</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Lindeberg</surname><given-names>T.</given-names></name>
+<article-title>Scale-space theory: A basic tool for analyzing structures at different scales</article-title>. <source/>J. Appl. Stat.
+<volume>21</volume>, <fpage>225</fpage>–<lpage>270</lpage> (<year>1994</year>).</mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="journal"><name><surname>Chaddad</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Multi Texture Analysis of Colorectal Cancer Continuum Using Multispectral Imagery</article-title>. <source/>PLOS ONE
+<volume>11</volume>, <fpage>e0149893</fpage> (<year>2016</year>).<pub-id pub-id-type="pmid">26901134</pub-id></mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Haralick</surname><given-names>R. M.</given-names></name>, <name><surname>Shanmugam</surname><given-names>K.</given-names></name> &amp; <name><surname>Dinstein</surname><given-names>I.</given-names></name>
+<article-title>Textural Features for Image Classification</article-title>. <source/>IEEE Trans. Syst. Man Cybern.SMC-3, <fpage>610</fpage>–<lpage>621</lpage> (<year>1973</year>).</mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Lambin</surname><given-names>P.</given-names></name>
+<etal></etal>. <article-title>Radiomics: extracting more information from medical images using advanced feature analysis</article-title>. <source/>Eur. J. Cancer Oxf. Engl. 1990
+<volume>48</volume>, <fpage>441</fpage>–<lpage>446</lpage> (<year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Skogen</surname><given-names>K.</given-names></name>
+<etal></etal>. <article-title>Diagnostic performance of texture analysis on MRI in grading cerebral gliomas</article-title>. <source/>Eur. J. Radiol.
+<volume>85</volume>, <fpage>824</fpage>–<lpage>829</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">26971430</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Chaddad</surname><given-names>A.</given-names></name> &amp; <name><surname>Tanougast</surname><given-names>C.</given-names></name>
+<article-title>Extracted magnetic resonance texture features discriminate between phenotypes and are associated with overall survival in glioblastoma multiforme patients</article-title>. <source/>Med. Biol. Eng. Comput.
+<fpage>1</fpage>–<lpage>12</lpage>, doi: <pub-id pub-id-type="doi">10.1007/s11517-016-1461-5</pub-id> (<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Liu</surname><given-names>W. F.</given-names></name>, <name><surname>Wang</surname><given-names>X.</given-names></name> &amp; <name><surname>Xia</surname><given-names>H.</given-names></name>
+<article-title>3D Texture Analysis of Corpus Caliosum Based on MR Images Inpatients with Alzheimer’s Disease and Mild Cognitive Impairment</article-title>. <source/>Appl. Mech. Mater.
+<volume>533</volume>, <fpage>415</fpage>–<lpage>420</lpage> (<year>2014</year>).</mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"><name><surname>Zhang</surname><given-names>J.</given-names></name>, <name><surname>Yu</surname><given-names>C.</given-names></name>, <name><surname>Jiang</surname><given-names>G.</given-names></name>, <name><surname>Liu</surname><given-names>W.</given-names></name> &amp; <name><surname>Tong</surname><given-names>L.</given-names></name>
+<article-title>3D texture analysis on MRI images of Alzheimer’s disease</article-title>. <source/>Brain Imaging Behav. <volume>6</volume>, <fpage>61</fpage>–<lpage>69</lpage> (<year>2011</year>).</mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Kassner</surname><given-names>A.</given-names></name> &amp; <name><surname>Thornhill</surname><given-names>R. E.</given-names></name>
+<article-title>Texture analysis: a review of neurologic MR imaging applications</article-title>. <source/>AJNR Am. J. Neuroradiol.
+<volume>31</volume>, <fpage>809</fpage>–<lpage>816</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20395383</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Kovalev</surname><given-names>V. A.</given-names></name>, <name><surname>Kruggel</surname><given-names>F.</given-names></name>, <name><surname>Gertz</surname><given-names>H. J.</given-names></name> &amp; <name><surname>von Cramon</surname><given-names>D. Y.</given-names></name>
+<article-title>Three-dimensional texture analysis of MRI brain datasets</article-title>. <source/>IEEE Trans. Med. Imaging
+<volume>20</volume>, <fpage>424</fpage>–<lpage>433</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11403201</pub-id></mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Maani</surname><given-names>R.</given-names></name>, <name><surname>Yang</surname><given-names>Y. H.</given-names></name> &amp; <name><surname>Kalra</surname><given-names>S.</given-names></name>
+<article-title>Voxel-Based Texture Analysis of the Brain</article-title>. <source/>PLoS ONE
+<volume>10</volume> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Aerts</surname><given-names>H. J. W. L.</given-names></name>
+<etal></etal>. <article-title>Decoding tumour phenotype by noninvasive imaging using a quantitative radiomics approach</article-title>. <source/>Nat. Commun.
+<volume>5</volume>, <fpage>4006</fpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24892406</pub-id></mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><name><surname>Henriksson</surname><given-names>E.</given-names></name>
+<etal></etal>. <article-title>2-Deoxy-2-[18F] fluoro-D-glucose uptake and correlation to intratumoral heterogeneity</article-title>. <source/>Anticancer Res.
+<volume>27</volume>, <fpage>2155</fpage>–<lpage>2159</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17695498</pub-id></mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal"><name><surname>Diehn</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Identification of noninvasive imaging surrogates for brain tumor gene-expression modules</article-title>. <source/>Proc. Natl. Acad. Sci. <volume>105</volume>, <fpage>5213</fpage>–<lpage>5218</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18362333</pub-id></mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Basu</surname><given-names>S.</given-names></name>
+<etal></etal>. <article-title>Evolving role of molecular imaging with PET in detecting and characterizing heterogeneity of cancer tissue at the primary and metastatic sites, a plausible explanation for failed attempts to cure malignant disorders</article-title>. <source/>Eur. J. Nucl. Med. Mol. Imaging
+<volume>38</volume>, <fpage>987</fpage>–<lpage>991</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21451997</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Kumar</surname><given-names>V.</given-names></name>
+<etal></etal>. <article-title>Radiomics: the process and the challenges</article-title>. <source/>Magn. Reson. Imaging
+<volume>30</volume>, <fpage>1234</fpage>–<lpage>1248</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22898692</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>Karlo</surname><given-names>C. A.</given-names></name>
+<etal></etal>. <article-title>Radiogenomics of Clear Cell Renal Cell Carcinoma: Associations between CT Imaging Features and Mutations</article-title>. <source/>Radiology
+<volume>270</volume>, <fpage>464</fpage>–<lpage>471</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24029645</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>Chaddad</surname><given-names>A.</given-names></name>, <name><surname>Desrosiers</surname><given-names>C.</given-names></name> &amp; <name><surname>Toews</surname><given-names>M.</given-names></name>
+<source/>Local discriminative characterization of MRI for Alzheimer’s disease. In <fpage>1</fpage>–<lpage>5</lpage>, doi: <pub-id pub-id-type="doi">10.1109/ISBI.2016.7493197</pub-id> (IEEE, <year>2016</year>).</mixed-citation>
+</ref>
+<ref id="b30">
+<mixed-citation publication-type="journal"><name><surname>Hackmack</surname><given-names>K.</given-names></name>
+<etal></etal>. <article-title>Multi-scale classification of disease using structural MRI and wavelet transform</article-title>. <source/>NeuroImage
+<volume>62</volume>, <fpage>48</fpage>–<lpage>58</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22609452</pub-id></mixed-citation>
+</ref>
+<ref id="b31">
+<mixed-citation publication-type="journal"><name><surname>Sparks</surname><given-names>B. F.</given-names></name>
+<etal></etal>. <article-title>Brain structural abnormalities in young children with autism spectrum disorder</article-title>. <source/>Neurology
+<volume>59</volume>, <fpage>184</fpage>–<lpage>192</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12136055</pub-id></mixed-citation>
+</ref>
+<ref id="b32">
+<mixed-citation publication-type="journal"><name><surname>Courchesne</surname><given-names>E.</given-names></name>
+<etal></etal>. <article-title>Unusual brain growth patterns in early life in patients with autistic disorder: an MRI study</article-title>. <source/>Neurology
+<volume>57</volume>, <fpage>245</fpage>–<lpage>254</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11468308</pub-id></mixed-citation>
+</ref>
+<ref id="b33">
+<mixed-citation publication-type="journal"><name><surname>Egaas</surname><given-names>B.</given-names></name>, <name><surname>Courchesne</surname><given-names>E.</given-names></name> &amp; <name><surname>Saitoh</surname><given-names>O.</given-names></name>
+<article-title>Reduced size of corpus callosum in autism</article-title>. <source/>Arch. Neurol.
+<volume>52</volume>, <fpage>794</fpage>–<lpage>801</lpage> (<year>1995</year>).<pub-id pub-id-type="pmid">7639631</pub-id></mixed-citation>
+</ref>
+<ref id="b34">
+<mixed-citation publication-type="journal"><name><surname>McAlonan</surname><given-names>G. M.</given-names></name>
+<etal></etal>. <article-title>Brain anatomy and sensorimotor gating in Asperger’s syndrome</article-title>. <source/>Brain
+<volume>125</volume>, <fpage>1594</fpage>–<lpage>1606</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12077008</pub-id></mixed-citation>
+</ref>
+<ref id="b35">
+<mixed-citation publication-type="journal"><name><surname>Aylward</surname><given-names>E. H.</given-names></name>
+<etal></etal>. <article-title>MRI volumes of amygdala and hippocampus in non-mentally retarded autistic adolescents and adults</article-title>. <source/>Neurology
+<volume>53</volume>, <fpage>2145</fpage>–<lpage>2150</lpage> (<year>1999</year>).<pub-id pub-id-type="pmid">10599796</pub-id></mixed-citation>
+</ref>
+<ref id="b36">
+<mixed-citation publication-type="journal"><name><surname>O’Dwyer</surname><given-names>L.</given-names></name>
+<etal></etal>. <article-title>Decreased Left Caudate Volume Is Associated with Increased Severity of Autistic-Like Symptoms in a Cohort of ADHD Patients and Their Unaffected Siblings</article-title>. <source/>PloS One
+<volume>11</volume>, <fpage>e0165620</fpage> (<year>2016</year>).<pub-id pub-id-type="pmid">27806078</pub-id></mixed-citation>
+</ref>
+<ref id="b37">
+<mixed-citation publication-type="journal"><name><surname>Piven</surname><given-names>J.</given-names></name>, <name><surname>Bailey</surname><given-names>J.</given-names></name>, <name><surname>Ranson</surname><given-names>B. J.</given-names></name> &amp; <name><surname>Arndt</surname><given-names>S.</given-names></name>
+<article-title>No Difference in Hippocampus Volume Detected on Magnetic Resonance Imaging in Autistic Individuals</article-title>. <source/>J. Autism Dev. Disord. <volume>28</volume>, <fpage>105</fpage>–<lpage>110</lpage> (<year>1998</year>).<pub-id pub-id-type="pmid">9586772</pub-id></mixed-citation>
+</ref>
+<ref id="b38">
+<mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>D. Y.-J.</given-names></name>, <name><surname>Beam</surname><given-names>D.</given-names></name>, <name><surname>Pelphrey</surname><given-names>K. A.</given-names></name>, <name><surname>Abdullahi</surname><given-names>S.</given-names></name> &amp; <name><surname>Jou</surname><given-names>R. J.</given-names></name>
+<article-title>Cortical morphological markers in children with autism: a structural magnetic resonance imaging study of thickness, area, volume, and gyrification</article-title>. <source/>Mol. Autism
+<volume>7</volume> (<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="b39">
+<mixed-citation publication-type="journal"><name><surname>Lewis</surname><given-names>J. D.</given-names></name> &amp; <name><surname>Elman</surname><given-names>J. L.</given-names></name>
+<article-title>Growth-related neural reorganization and the autism phenotype: a test of the hypothesis that altered brain growth leads to altered connectivity</article-title>. <source/>Dev. Sci. <volume>11</volume>, <fpage>135</fpage>–<lpage>155</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18171375</pub-id></mixed-citation>
+</ref>
+<ref id="b40">
+<mixed-citation publication-type="journal"><name><surname>Oakley</surname><given-names>A.</given-names></name>
+<source/>Sex, gender and society. (Maurice Temple Smith Ltd., <year>1972</year>).</mixed-citation>
+</ref>
+<ref id="b41">
+<mixed-citation publication-type="journal"><name><surname>Werling</surname><given-names>D. M.</given-names></name> &amp; <name><surname>Geschwind</surname><given-names>D. H.</given-names></name>
+<article-title>Sex differences in autism spectrum disorders</article-title>. <source/>Curr. Opin. Neurol.
+<volume>26</volume>, <fpage>146</fpage>–<lpage>153</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23406909</pub-id></mixed-citation>
+</ref>
+<ref id="b42">
+<mixed-citation publication-type="journal"><name><surname>Halladay</surname><given-names>A. K.</given-names></name>
+<etal></etal>. <article-title>Sex and gender differences in autism spectrum disorder: summarizing evidence gaps and identifying emerging areas of priority</article-title>. <source/>Mol. Autism
+<volume>6</volume>, (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b43">
+<mixed-citation publication-type="journal"><name><surname>Voskuhl</surname><given-names>R.</given-names></name>
+<article-title>Sex differences in autoimmune diseases</article-title>. <source/>Biol. Sex Differ. <volume>2</volume>, <fpage>1</fpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21208397</pub-id></mixed-citation>
+</ref>
+<ref id="b44">
+<mixed-citation publication-type="journal"><name><surname>Hayward</surname><given-names>C.</given-names></name> &amp; <name><surname>Sanborn</surname><given-names>K.</given-names></name>
+<article-title>Puberty and the emergence of gender differences in psychopathology</article-title>. <source/>J. Adolesc. Health Off. Publ. Soc. Adolesc. Med. <volume>30</volume>, <fpage>49</fpage>–<lpage>58</lpage> (<year>2002</year>).</mixed-citation>
+</ref>
+<ref id="b45">
+<mixed-citation publication-type="journal"><name><surname>Swanson</surname><given-names>S. A.</given-names></name>, <name><surname>Crow</surname><given-names>S. J.</given-names></name>, <name><surname>Le Grange</surname><given-names>D.</given-names></name>, <name><surname>Swendsen</surname><given-names>J.</given-names></name> &amp; <name><surname>Merikangas</surname><given-names>K. R.</given-names></name>
+<article-title>Prevalence and correlates of eating disorders in adolescents. Results from the national comorbidity survey replication adolescent supplement</article-title>. <source/>Arch. Gen. Psychiatry
+<volume>68</volume>, <fpage>714</fpage>–<lpage>723</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21383252</pub-id></mixed-citation>
+</ref>
+<ref id="b46">
+<mixed-citation publication-type="journal"><name><surname>Abel</surname><given-names>K. M.</given-names></name>, <name><surname>Drake</surname><given-names>R.</given-names></name> &amp; <name><surname>Goldstein</surname><given-names>J. M.</given-names></name>
+<article-title>Sex differences in schizophrenia</article-title>. <source/>Int. Rev. Psychiatry Abingdon Engl. <volume>22</volume>, <fpage>417</fpage>–<lpage>428</lpage> (<year>2010</year>).</mixed-citation>
+</ref>
+<ref id="b47">
+<mixed-citation publication-type="journal"><name><surname>Raznahan</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Longitudinally mapping the influence of sex and androgen signaling on the dynamics of human cortical maturation in adolescence</article-title>. <source/>Proc. Natl. Acad. Sci. <volume>107</volume>, <fpage>16988</fpage>–<lpage>16993</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20841422</pub-id></mixed-citation>
+</ref>
+<ref id="b48">
+<mixed-citation publication-type="journal"><name><surname>Lenroot</surname><given-names>R. K.</given-names></name>
+<etal></etal>. <article-title>Sexual dimorphism of brain developmental trajectories during childhood and adolescence</article-title>. <source/>NeuroImage
+<volume>36</volume>, <fpage>1065</fpage>–<lpage>1073</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17513132</pub-id></mixed-citation>
+</ref>
+<ref id="b49">
+<mixed-citation publication-type="journal"><name><surname>Schaer</surname><given-names>M.</given-names></name>, <name><surname>Kochalka</surname><given-names>J.</given-names></name>, <name><surname>Padmanabhan</surname><given-names>A.</given-names></name>, <name><surname>Supekar</surname><given-names>K.</given-names></name> &amp; <name><surname>Menon</surname><given-names>V.</given-names></name>
+<article-title>Sex differences in cortical volume and gyrification in autism</article-title>. <source/>Mol. Autism
+<volume>6</volume>, <fpage>42</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26146534</pub-id></mixed-citation>
+</ref>
+<ref id="b50">
+<mixed-citation publication-type="journal"><name><surname>Supekar</surname><given-names>K.</given-names></name> &amp; <name><surname>Menon</surname><given-names>V.</given-names></name>
+<article-title>Sex differences in structural organization of motor systems and their dissociable links with repetitive/restricted behaviors in children with autism</article-title>. <source/>Mol. Autism
+<volume>6</volume>, <fpage>50</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26347127</pub-id></mixed-citation>
+</ref>
+<ref id="b51">
+<mixed-citation publication-type="journal"><name><surname>Jernigan</surname><given-names>T. L.</given-names></name>
+<etal></etal>. <article-title>Effects of age on tissues and regions of the cerebrum and cerebellum</article-title>. <source/>Neurobiol. Aging
+<volume>22</volume>, <fpage>581</fpage>–<lpage>594</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11445259</pub-id></mixed-citation>
+</ref>
+<ref id="b52">
+<mixed-citation publication-type="journal"><name><surname>Resnick</surname><given-names>S. M.</given-names></name>, <name><surname>Pham</surname><given-names>D. L.</given-names></name>, <name><surname>Kraut</surname><given-names>M. A.</given-names></name>, <name><surname>Zonderman</surname><given-names>A. B.</given-names></name> &amp; <name><surname>Davatzikos</surname><given-names>C.</given-names></name>
+<article-title>Longitudinal magnetic resonance imaging studies of older adults: a shrinking brain</article-title>. <source/>J. Neurosci. Off. J. Soc. Neurosci.
+<volume>23</volume>, <fpage>3295</fpage>–<lpage>3301</lpage> (<year>2003</year>).</mixed-citation>
+</ref>
+<ref id="b53">
+<mixed-citation publication-type="journal"><name><surname>Raz</surname><given-names>N.</given-names></name>
+<etal></etal>. <article-title>Regional brain changes in aging healthy adults: general trends, individual differences and modifiers</article-title>. <source/>Cereb. Cortex N. Y. N 1991
+<volume>15</volume>, <fpage>1676</fpage>–<lpage>1689</lpage> (<year>2005</year>).</mixed-citation>
+</ref>
+<ref id="b54">
+<mixed-citation publication-type="journal"><name><surname>Sullivan</surname><given-names>Edith, V.</given-names></name>
+<article-title>Age-Related Decline in MRI Volumes of Temporal Lobe Gray Matter But Not Hippocampus</article-title>. <source/>Neurobiol. Aging
+<volume>16</volume>, <fpage>591</fpage>–<lpage>606</lpage> (<year>1995</year>).<pub-id pub-id-type="pmid">8544910</pub-id></mixed-citation>
+</ref>
+<ref id="b55">
+<mixed-citation publication-type="journal"><name><surname>Kalpouzos</surname><given-names>G.</given-names></name>
+<etal></etal>. <article-title>Voxel-based mapping of brain gray matter volume and glucose metabolism profiles in normal aging</article-title>. <source/>Neurobiol. Aging
+<volume>30</volume>, <fpage>112</fpage>–<lpage>124</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">17630048</pub-id></mixed-citation>
+</ref>
+<ref id="b56">
+<mixed-citation publication-type="journal"><name><surname>Abe</surname><given-names>O.</given-names></name>
+<etal></etal>. <article-title>Aging in the CNS: comparison of gray/white matter volume and diffusion tensor data</article-title>. <source/>Neurobiol. Aging
+<volume>29</volume>, <fpage>102</fpage>–<lpage>116</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">17023094</pub-id></mixed-citation>
+</ref>
+<ref id="b57">
+<mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>H.-Y.</given-names></name>, <name><surname>Ni</surname><given-names>H.-C.</given-names></name>, <name><surname>Lai</surname><given-names>M.-C.</given-names></name>, <name><surname>Tseng</surname><given-names>W.-Y. I.</given-names></name> &amp; <name><surname>Gau</surname><given-names>S. S.-F.</given-names></name>
+<article-title>Regional brain volume differences between males with and without autism spectrum disorder are highly age-dependent</article-title>. <source/>Mol. Autism
+<volume>6</volume>, <fpage>29</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26045942</pub-id></mixed-citation>
+</ref>
+<ref id="b58">
+<mixed-citation publication-type="journal"><name><surname>Zielinski</surname><given-names>B. A.</given-names></name>
+<etal></etal>. <article-title>Longitudinal changes in cortical thickness in autism and typical development</article-title>. <source/>Brain J. Neurol. <volume>137</volume>, <fpage>1799</fpage>–<lpage>1812</lpage> (<year>2014</year>).</mixed-citation>
+</ref>
+<ref id="b59">
+<mixed-citation publication-type="journal"><name><surname>Hadjikhani</surname><given-names>N.</given-names></name>, <name><surname>Joseph</surname><given-names>R. M.</given-names></name>, <name><surname>Snyder</surname><given-names>J.</given-names></name> &amp; <name><surname>Tager-Flusberg</surname><given-names>H.</given-names></name>
+<article-title>Anatomical differences in the mirror neuron system and social cognition network in autism</article-title>. <source/>Cereb. Cortex N. Y. N 1991
+<volume>16</volume>, <fpage>1276</fpage>–<lpage>1282</lpage> (<year>2006</year>).</mixed-citation>
+</ref>
+<ref id="b60">
+<mixed-citation publication-type="journal"><name><surname>El-Baz</surname><given-names>A.</given-names></name>, <name><surname>Casanova</surname><given-names>M. F.</given-names></name>, <name><surname>Gimel’farb</surname><given-names>G.</given-names></name>, <name><surname>Mott</surname><given-names>M.</given-names></name> &amp; <name><surname>Switala</surname><given-names>A. E.</given-names></name> In <source/>Medical Image Computing and Computer-Assisted Intervention – MICCAI 2007(eds <name><surname>Ayache</surname><given-names>N.</given-names></name>, <name><surname>Ourselin</surname><given-names>S.</given-names></name> &amp; <name><surname>Maeder</surname><given-names>A.</given-names></name>) <fpage>882</fpage>–<lpage>890</lpage>, doi: <pub-id pub-id-type="doi">10.1007/978-3-540-75759-7_107</pub-id> (Springer: Berlin Heidelberg, <year>2007</year>).</mixed-citation>
+</ref>
+<ref id="b61">
+<mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>J.</given-names></name>
+<etal></etal>. <article-title>Texture Feature Ratios from Relative CBV Maps of Perfusion MRI Are Associated with Patient Survival in Glioblastoma</article-title>. <source/>Am. J. Neuroradiol., doi: <pub-id pub-id-type="doi">10.3174/ajnr.A4534</pub-id> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b62">
+<mixed-citation publication-type="journal"><name><surname>Kovalev</surname><given-names>V. A.</given-names></name>, <name><surname>Kruggel</surname><given-names>F.</given-names></name> &amp; <name><surname>von Cramon</surname><given-names>D. Y.</given-names></name>
+<article-title>Gender and age effects in structural brain asymmetry as measured by MRI texture analysis</article-title>. <source/>NeuroImage
+<volume>19</volume>, <fpage>895</fpage>–<lpage>905</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12880818</pub-id></mixed-citation>
+</ref>
+<ref id="b63">
+<mixed-citation publication-type="journal"><name><surname>Fischl</surname><given-names>B.</given-names></name>
+<article-title>FreeSurfer</article-title>. <source/>NeuroImage
+<volume>62</volume>, <fpage>774</fpage>–<lpage>781</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22248573</pub-id></mixed-citation>
+</ref>
+<ref id="b64">
+<mixed-citation publication-type="journal"><name><surname>Linguraru</surname><given-names>M. G.</given-names></name>, <name><surname>Vercauteren</surname><given-names>T.</given-names></name>, <name><surname>Reyes-Aguirre</surname><given-names>M.</given-names></name>, <name><surname>González</surname><given-names>B.</given-names></name> &amp; <name><surname>Ayache</surname><given-names>N.</given-names></name>
+<article-title>Segmentation propagation from deformable atlases for brain mapping and analysis</article-title>. <source/>Brain Res. J. <volume>1</volume>, <fpage>1</fpage>–<lpage>18</lpage> (<year>2007</year>).</mixed-citation>
+</ref>
+<ref id="b65">
+<mixed-citation publication-type="journal"><name><surname>Ganeshan</surname><given-names>B.</given-names></name>, <name><surname>Miles</surname><given-names>K. A.</given-names></name>, <name><surname>Young</surname><given-names>R. C. D.</given-names></name> &amp; <name><surname>Chatwin</surname><given-names>C. R.</given-names></name>
+<article-title>In search of biologic correlates for liver texture on portal-phase CT</article-title>. <source/>Acad. Radiol.
+<volume>14</volume>, <fpage>1058</fpage>–<lpage>1068</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17707313</pub-id></mixed-citation>
+</ref>
+<ref id="b66">
+<mixed-citation publication-type="journal"><name><surname>Ganeshan</surname><given-names>B.</given-names></name>
+<etal></etal>. <article-title>Three-dimensional textural analysis of brain images reveals distributed grey-matter abnormalities in schizophrenia</article-title>. <source/>Eur. Radiol. <volume>20</volume>, <fpage>941</fpage>–<lpage>948</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">19760235</pub-id></mixed-citation>
+</ref>
+<ref id="b67">
+<mixed-citation publication-type="journal"><name><surname>Holm</surname><given-names>S.</given-names></name>
+<article-title>A simple sequentially rejective multiple test procedure</article-title>. <source/>Scand. J. Stat., <fpage>65</fpage>–<lpage>70</lpage> (<year>1979</year>).</mixed-citation>
+</ref>
+<ref id="b68">
+<mixed-citation publication-type="journal">Statistical methods for research workers. <article-title>By Sir Ronald A. Fisher. Edinburgh (Oliver and Boyd), 12th Ed., 1954. Pp. xv, 356; 12 Figs, 74 Tables. 16s</article-title>. <source/>Q. J. R. Meteorol. Soc.
+<volume>82</volume>, <fpage>119</fpage>–<lpage>119</lpage> (<year>1956</year>).</mixed-citation>
+</ref>
+<ref id="b69">
+<mixed-citation publication-type="journal"><name><surname>Ismail</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Detection of white matter abnormalities in MR brain images for diagnosis of autism in children</article-title>. In <source/>2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI)
+<fpage>6</fpage>–<lpage>9</lpage>, doi: <pub-id pub-id-type="doi">10.1109/ISBI.2016.7493198</pub-id> (<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="b70">
+<mixed-citation publication-type="journal"><name><surname>Lun</surname><given-names>M. P.</given-names></name>, <name><surname>Monuki</surname><given-names>E. S.</given-names></name> &amp; <name><surname>Lehtinen</surname><given-names>M. K.</given-names></name>
+<article-title>Development and functions of the choroid plexus-cerebrospinal fluid system</article-title>. <source/>Nat. Rev. Neurosci.
+<volume>16</volume>, <fpage>445</fpage>–<lpage>457</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26174708</pub-id></mixed-citation>
+</ref>
+<ref id="b71">
+<mixed-citation publication-type="journal"><name><surname>Kilpatrick</surname><given-names>L. A.</given-names></name>, <name><surname>Zald</surname><given-names>D. H.</given-names></name>, <name><surname>Pardo</surname><given-names>J. V.</given-names></name> &amp; <name><surname>Cahill</surname><given-names>L. F.</given-names></name>
+<article-title>Sex-related differences in amygdala functional connectivity during resting conditions</article-title>. <source/>NeuroImage
+<volume>30</volume>, <fpage>452</fpage>–<lpage>461</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16326115</pub-id></mixed-citation>
+</ref>
+<ref id="b72">
+<mixed-citation publication-type="journal"><name><surname>Cahill</surname><given-names>L.</given-names></name>
+<etal></etal>. <article-title>Sex-related difference in amygdala activity during emotionally influenced memory storage</article-title>. <source/>Neurobiol. Learn. Mem.
+<volume>75</volume>, <fpage>1</fpage>–<lpage>9</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11124043</pub-id></mixed-citation>
+</ref>
+<ref id="b73">
+<mixed-citation publication-type="journal"><name><surname>Ahnstedt</surname><given-names>H.</given-names></name>
+<etal></etal>. <article-title>Male-Female Differences in Upregulation of Vasoconstrictor Responses in Human Cerebral Arteries</article-title>. <source/>PLOS ONE
+<volume>8</volume>, <fpage>e62698</fpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23658641</pub-id></mixed-citation>
+</ref>
+<ref id="b74">
+<mixed-citation publication-type="journal"><name><surname>Murphy</surname><given-names>D. G.</given-names></name>
+<etal></etal>. <article-title>Sex differences in human brain morphometry and metabolism: an <italic>in vivo</italic> quantitative magnetic resonance imaging and positron emission tomography study on the effect of aging</article-title>. <source/>Arch. Gen. Psychiatry
+<volume>53</volume>, <fpage>585</fpage>–<lpage>594</lpage> (<year>1996</year>).<pub-id pub-id-type="pmid">8660125</pub-id></mixed-citation>
+</ref>
+<ref id="b75">
+<mixed-citation publication-type="journal"><name><surname>Allen</surname><given-names>L. S.</given-names></name>, <name><surname>Richey</surname><given-names>M. F.</given-names></name>, <name><surname>Chai</surname><given-names>Y. M.</given-names></name> &amp; <name><surname>Gorski</surname><given-names>R. A.</given-names></name>
+<article-title>Sex differences in the corpus callosum of the living human being</article-title>. <source/>J. Neurosci. Off. J. Soc. Neurosci.
+<volume>11</volume>, <fpage>933</fpage>–<lpage>942</lpage> (<year>1991</year>).</mixed-citation>
+</ref>
+<ref id="b76">
+<mixed-citation publication-type="journal"><name><surname>Shaywitz</surname><given-names>B. A.</given-names></name>
+<etal></etal>. <article-title>Sex differences in the functional organization of the brain for language</article-title>. <source/>Nature
+<volume>373</volume>, <fpage>607</fpage>–<lpage>609</lpage> (<year>1995</year>).<pub-id pub-id-type="pmid">7854416</pub-id></mixed-citation>
+</ref>
+<ref id="b77">
+<mixed-citation publication-type="journal"><name><surname>Burgess</surname><given-names>N.</given-names></name>, <name><surname>Maguire</surname><given-names>E. A.</given-names></name> &amp; <name><surname>O’Keefe</surname><given-names>J.</given-names></name>
+<article-title>The Human Hippocampus and Spatial and Episodic Memory</article-title>. <source/>Neuron
+<volume>35</volume>, <fpage>625</fpage>–<lpage>641</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12194864</pub-id></mixed-citation>
+</ref>
+<ref id="b78">
+<mixed-citation publication-type="journal"><name><surname>Kansaku</surname><given-names>K.</given-names></name>, <name><surname>Yamaura</surname><given-names>A.</given-names></name> &amp; <name><surname>Kitazawa</surname><given-names>S.</given-names></name>
+<article-title>Sex differences in lateralization revealed in the posterior language areas</article-title>. <source/>Cereb. Cortex N. Y. N 1991
+<volume>10</volume>, <fpage>866</fpage>–<lpage>872</lpage> (<year>2000</year>).</mixed-citation>
+</ref>
+<ref id="b79">
+<mixed-citation publication-type="journal"><name><surname>Hughes</surname><given-names>E. J.</given-names></name>
+<etal></etal>. <article-title>Regional changes in thalamic shape and volume with increasing age</article-title>. <source/>NeuroImage
+<volume>63</volume>, <fpage>1134</fpage>–<lpage>1142</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22846656</pub-id></mixed-citation>
+</ref>
+<ref id="b80">
+<mixed-citation publication-type="journal"><name><surname>Bauer</surname><given-names>E.</given-names></name>, <name><surname>Toepper</surname><given-names>M.</given-names></name>, <name><surname>Gebhardt</surname><given-names>H.</given-names></name>, <name><surname>Gallhofer</surname><given-names>B.</given-names></name> &amp; <name><surname>Sammer</surname><given-names>G.</given-names></name>
+<article-title>The significance of caudate volume for age-related associative memory decline</article-title>. <source/>Brain Res.
+<volume>1622</volume>, <fpage>137</fpage>–<lpage>148</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26119913</pub-id></mixed-citation>
+</ref>
+<ref id="b81">
+<mixed-citation publication-type="journal"><name><surname>Giorgio</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Age-related changes in grey and white matter structure throughout adulthood</article-title>. <source/>NeuroImage
+<volume>51</volume>, <fpage>943</fpage>–<lpage>951</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20211265</pub-id></mixed-citation>
+</ref>
+<ref id="b82">
+<mixed-citation publication-type="journal"><name><surname>Shakeri</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Sub-cortical brain structure segmentation using F-CNN’S</article-title>. In <source/>2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI)
+<fpage>269</fpage>–272 (<year>2016</year>). doi: <pub-id pub-id-type="doi">10.1109/ISBI.2016.7493261</pub-id></mixed-citation>
+</ref>
+<ref id="b83">
+<mixed-citation publication-type="journal"><name><surname>Ghosh</surname><given-names>S. S.</given-names></name>
+<etal></etal>. <article-title>Evaluating the validity of volume-based and surface-based brain image registration for developmental cognitive neuroscience studies in children 4 to 11 years of age</article-title>. <source/>NeuroImage
+<volume>53</volume>, <fpage>85</fpage>–<lpage>93</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20621657</pub-id></mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn fn-type="COI-statement">
+<p>The authors declare no competing financial interests.</p>
+</fn>
+<fn>
+<p><bold>Author Contributions</bold> A.C., C.D. and M.T.: designed the study, devised the models, ran the experiment, analyzed the data, wrote the paper. All of the authors gave final approval for publication.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Schematic diagram of the proposed method for identifying significant texture differences related to autism, sex and age, in various brain regions.</title>
+</caption>
+<graphic xlink:href="srep45639-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>Labeling example of brain regions.</title>
+<p>(<bold>A</bold>) Axial, (<bold>B</bold>) Sagittal, (<bold>C</bold>) Coronal. Each color represents a different region label. Non-brain tissues (e.g., skull) are shown here for visualization purposes.</p>
+</caption>
+<graphic xlink:href="srep45639-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>Examples of excluded data.</title>
+</caption>
+<graphic xlink:href="srep45639-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f4">
+<label>Figure 4</label>
+<caption>
+<title>Example of multiscale texture.</title>
+<p>First row: Texturized T1-WI brain image (<bold>a</bold>) by LoG filter. The corresponding images selectively display, (<bold>b</bold>) fine, (<bold>c</bold>) medium and (<bold>d</bold>) coarse textures. Second row: zoom image illustrates the texture type within an ROI (blue color).</p>
+</caption>
+<graphic xlink:href="srep45639-f4" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f5">
+<label>Figure 5</label>
+<caption>
+<title>Region-wise texture feature differences between ASD and TDC subjects.</title>
+<p>(<bold>A</bold>) Heatmap of uncorrected <italic>p</italic>-values (−log10 space), based on 100,000 permutations of diagnosis group labels. Green-black circles indicate region-scale values with significant <italic>p</italic>-values following Holm-Bonferroni correction. (<bold>B</bold>) Heatmap of Fisher’s method <italic>p</italic>-values (−log10 space), based on 100 bootstrap samples of 100 ASD vs 100 TDC subjects. (<bold>C</bold>) Regions showing significant texture differences with corrected <italic>p</italic> &lt; 0.05.</p>
+</caption>
+<graphic xlink:href="srep45639-f5" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f6">
+<label>Figure 6</label>
+<caption>
+<title>Region-wise texture feature differences between male and female TDC subjects.</title>
+<p>(<bold>A</bold>) Heatmap of uncorrected <italic>p</italic>-values (-log<sub>10</sub> space) based on 100,000 permutations of sex labels. Green-black circles indicate region-scale values with significant <italic>p</italic>-values following Holm-Bonferroni correction. (<bold>B</bold>) Heatmap of Fisher’s method <italic>p</italic>-values (−log<sub>10</sub> space), based on 100 bootstrap samples of 50 males vs 50 females. (<bold>C</bold>) Regions showing significant texture differences with corrected <italic>p</italic> &lt; 0.05.</p>
+</caption>
+<graphic xlink:href="srep45639-f6" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f7">
+<label>Figure 7</label>
+<caption>
+<title>Region-wise correlation between texture features and age in TDC subjects.</title>
+<p>(<bold>A</bold>) Heatmap of Spearman rank correlation coefficients. (<bold>B</bold>) Heatmap of uncorrected <italic>p</italic>-values (−log<sub>10</sub> space), based on 100,000 permutations of age labels. Green-black circles indicate region-scale values with significant <italic>p</italic>-values following Holm-Bonferroni correction. (<bold>C</bold>) Lower bound of the 95% confidence interval of absolute correlation coefficients, based on 100 bootstrap samples of 100 TDC subjects. (<bold>D</bold>) Regions showing significant (moderate or high) correlation between texture and age, with corrected <italic>p</italic> &lt; 0.05.</p>
+</caption>
+<graphic xlink:href="srep45639-f7" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f8">
+<label>Figure 8</label>
+<caption>
+<title>Scatter plots of the Entropy (coarse texture) feature derived from thalamus and pallidum versus age, with Spearman rank correlation coefficients (<italic>ρ</italic>) shown above each panel.</title>
+<p>Note the degree of bilateral symmetry.</p>
+</caption>
+<graphic xlink:href="srep45639-f8" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f9">
+<label>Figure 9</label>
+<caption>
+<title>Significance of ASD vs TDC (uncorrected <italic>p</italic>-values, −log10 scale) in selected regions, for various filter scales (sigma).</title>
+<p>Green-black circles indicate region-scale values with significant <italic>p</italic>-values following Holm-Bonferroni correction.</p>
+</caption>
+<graphic xlink:href="srep45639-f9" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f10">
+<label>Figure 10</label>
+<caption>
+<title>Significance of male vs female (<italic>p</italic>-values, −log10 scale) in selected regions, for various filter scales (sigma).</title>
+<p>Green-black circles indicate region-scale values with significant p-values following Holm-Bonferroni correction.</p>
+</caption>
+<graphic xlink:href="srep45639-f10" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f11">
+<label>Figure 11</label>
+<caption>
+<title>Significance of ASD vs TDC (<italic>p</italic>-values, −log10 scale) in selected regions, for various filter scales (sigma), following exclusion of 52 volumes based on ABIDE QA.</title>
+<p>Green-black circles indicate region-scale values with significant <italic>p</italic>-values following Holm-Bonferroni correction.</p>
+</caption>
+<graphic xlink:href="srep45639-f11" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f12">
+<label>Figure 12</label>
+<caption>
+<title>Significance of male vs female (uncorrected <italic>p</italic>-values, −log10 scale) in selected regions, for various filter scales (sigma), following exclusion of 52 volumes based on ABIDE QA.</title>
+<p>Green-black circles indicate region-scale values with significant <italic>p</italic>-values following Holm-Bonferroni correction.</p>
+</caption>
+<graphic xlink:href="srep45639-f12" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<table-wrap id="t1" position="float">
+<label>Table 1</label>
+<caption>
+<title>Demographic and clinical characteristics of the study groups.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" colspan="5" valign="top">All subjects<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">TDC groups<hr/></th>
+</tr>
+<tr>
+<th align="left" charoff="50" valign="top">Group</th>
+<th align="center" charoff="50" valign="top">
+<italic>n</italic>
+</th>
+<th align="center" charoff="50" valign="top">Male</th>
+<th align="center" charoff="50" valign="top">Female</th>
+<th align="center" charoff="50" valign="top">Age (Average ± StDev)</th>
+<th align="center" charoff="50" valign="top">Group</th>
+<th align="center" charoff="50" valign="top">
+<italic>n</italic>
+</th>
+<th align="center" charoff="50" valign="top">Age (Average ± StDev)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">ASD</td>
+<td align="center" charoff="50" valign="top">539</td>
+<td align="center" charoff="50" valign="top">474</td>
+<td align="center" charoff="50" valign="top">65</td>
+<td align="center" charoff="50" valign="top">17.01 ± 8.36</td>
+<td align="center" charoff="50" valign="top">Male</td>
+<td align="center" charoff="50" valign="top">474</td>
+<td align="center" charoff="50" valign="top">17.42 ± 7.9</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">TDC</td>
+<td align="center" charoff="50" valign="top">573</td>
+<td align="center" charoff="50" valign="top">474</td>
+<td align="center" charoff="50" valign="top">99</td>
+<td align="center" charoff="50" valign="top">17.08 ± 7.72</td>
+<td align="center" charoff="50" valign="top">Female</td>
+<td align="center" charoff="50" valign="top">99</td>
+<td align="center" charoff="50" valign="top">15.43 ± 6.56</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="t2" position="float">
+<label>Table 2</label>
+<caption>
+<title>Summary of corrected permutation test <italic>p</italic>-values for regions with highest texture differences between ASD and TDC subjects.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="center" charoff="50" colspan="2" valign="top">Texture scale<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Fine<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Medium<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Coarse<hr/></th>
+</tr>
+<tr>
+<th align="center" charoff="50" colspan="2" valign="top">Brain regions</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="center" charoff="50" rowspan="2" valign="middle">Left</td>
+<td align="center" charoff="50" valign="top">Cerebellum-WM</td>
+<td align="center" charoff="50" valign="top">0.278</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.027*</td>
+<td align="center" charoff="50" valign="top">0.006*</td>
+<td align="center" charoff="50" valign="top">0.067</td>
+<td align="center" charoff="50" valign="top">0.008*</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.176</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Choroid-plexus</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.059</td>
+<td align="center" charoff="50" valign="top">0.522</td>
+<td align="center" charoff="50" valign="top">0.030*</td>
+<td align="center" charoff="50" valign="top">0.014*</td>
+<td align="center" charoff="50" valign="top">0.979</td>
+<td align="center" charoff="50" valign="top">0.566</td>
+</tr>
+<tr>
+<td align="center" charoff="50" rowspan="3" valign="middle">Right</td>
+<td align="center" charoff="50" valign="top">Cerebellum-WM</td>
+<td align="center" charoff="50" valign="top">0.761</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.540</td>
+<td align="center" charoff="50" valign="top">0.014*</td>
+<td align="center" charoff="50" valign="top">0.014*</td>
+<td align="center" charoff="50" valign="top">0.024*</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.077</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Hippocampus</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.014*</td>
+<td align="center" charoff="50" valign="top">0.321</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.006*</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">CC Posterior</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.498</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.04*</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t2-fn1">
+<p>Significant features (<italic>p</italic> &lt; 0.05) are represented by a ‘*’ symbol.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t3" position="float">
+<label>Table 3</label>
+<caption>
+<title>Summary of corrected permutation test <italic>p</italic>-values for regions with highest texture differences between male and female TDC subjects.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="center" charoff="50" colspan="2" valign="top">Texture scale<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Fine<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Medium<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Coarse<hr/></th>
+</tr>
+<tr>
+<th align="center" charoff="50" colspan="2" valign="top">Brain regions</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="center" charoff="50" valign="top">Left</td>
+<td align="center" charoff="50" valign="top">Amygdala</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.394</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.006*</td>
+<td align="center" charoff="50" valign="top">0.008*</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="center" charoff="50" rowspan="2" valign="middle">Right</td>
+<td align="center" charoff="50" valign="top">Cerebellum-WM</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.047*</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Brain-Stem</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0.022*</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t3-fn1">
+<p>Significant features (<italic>p</italic> &lt; 0.05) are represented by a ‘*’ symbol.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t4" position="float">
+<label>Table 4</label>
+<caption>
+<title>Summary of Spearman rank correlation coefficients and corrected permutation test <italic>p</italic>-values (in parenthesis) for regions with the highest correlation between texture and age in TDC subjects.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="center" charoff="50" rowspan="2" valign="top"> </th>
+<th align="center" charoff="50" valign="top">Texture scale</th>
+<th align="center" charoff="50" colspan="3" valign="top">Fine<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Medium<hr/></th>
+<th align="center" charoff="50" colspan="3" valign="top">Coarse<hr/></th>
+</tr>
+<tr>
+<th align="center" charoff="50" valign="top">Brain regions</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+<th align="center" charoff="50" valign="top">Average</th>
+<th align="center" charoff="50" valign="top">StDev</th>
+<th align="center" charoff="50" valign="top">Entropy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="center" charoff="50" rowspan="4" valign="middle">Left</td>
+<td align="center" charoff="50" valign="top">Thalamus</td>
+<td align="center" charoff="50" valign="top">−0.20 (1)</td>
+<td align="center" charoff="50" valign="top">−0.04 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.47</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top">−0.36 (0.068)</td>
+<td align="center" charoff="50" valign="top">−0.27 (1)</td>
+<td align="center" charoff="50" valign="top">−0.39 (0.022)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.48</bold> (0.005)*</td>
+<td align="center" charoff="50" valign="top">−0.38 (0.043)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.51</bold> (0.003)*</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Caudate</td>
+<td align="center" charoff="50" valign="top">−0.21 (1)</td>
+<td align="center" charoff="50" valign="top">−0.18 (1)</td>
+<td align="center" charoff="50" valign="top">0.12 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.42</bold> (0.005)*</td>
+<td align="center" charoff="50" valign="top">−0.37 (0.043)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.43</bold> (0.008)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.47</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.46</bold> (0.005)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.45</bold> (0.003)*</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Pallidum</td>
+<td align="center" charoff="50" valign="top">−0.39 (0.041)*</td>
+<td align="center" charoff="50" valign="top">−0.26 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.47</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.43</bold> (0.005)*</td>
+<td align="center" charoff="50" valign="top">−0.39 (0.015)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.45</bold> (0.005)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.50</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.46</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.51</bold> (0.003)*</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Vessel</td>
+<td align="center" charoff="50" valign="top">0.38 (0.030)*</td>
+<td align="center" charoff="50" valign="top">0.26 (1)</td>
+<td align="center" charoff="50" valign="top">−0.30 (0.51)</td>
+<td align="center" charoff="50" valign="top"><bold>0.45</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top">0.15 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.46</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top">0.29 (0.679)</td>
+<td align="center" charoff="50" valign="top">0.14 (1)</td>
+<td align="center" charoff="50" valign="top">−0.26 (1)</td>
+</tr>
+<tr>
+<td align="center" charoff="50" rowspan="4" valign="middle">Right</td>
+<td align="center" charoff="50" valign="top">Thalamus</td>
+<td align="center" charoff="50" valign="top">−0.18 (1)</td>
+<td align="center" charoff="50" valign="top">0.03 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.49</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top">−0.35 (0.066)</td>
+<td align="center" charoff="50" valign="top">−0.25 (1)</td>
+<td align="center" charoff="50" valign="top">−0.38 (0.034)*</td>
+<td align="center" charoff="50" valign="top">−0.39 (0.010)*</td>
+<td align="center" charoff="50" valign="top">−0.06 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.51</bold> (0.003)*</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Caudate</td>
+<td align="center" charoff="50" valign="top">−0.25 (1)</td>
+<td align="center" charoff="50" valign="top">−0.22 (1)</td>
+<td align="center" charoff="50" valign="top">0.16 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.42</bold> (0.008)*</td>
+<td align="center" charoff="50" valign="top">−0.37 (0.036)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.42</bold> (0.010)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.42</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top">−0.36 (0.047)*</td>
+<td align="center" charoff="50" valign="top">−0.04 (1)</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Pallidum</td>
+<td align="center" charoff="50" valign="top">−0.37 (0.041)*</td>
+<td align="center" charoff="50" valign="top">−0.25 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>−0.45</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.41</bold> (0.015)*</td>
+<td align="center" charoff="50" valign="top">−0.36 (0.041)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.43</bold> (0.005)*</td>
+<td align="center" charoff="50" valign="top">−0.39 (0.013)*</td>
+<td align="center" charoff="50" valign="top">−0.36 (0.045)*</td>
+<td align="center" charoff="50" valign="top"><bold>−0.41</bold> (0.015)*</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">Vessel</td>
+<td align="center" charoff="50" valign="top"><bold>0.40</bold> (0.017)*</td>
+<td align="center" charoff="50" valign="top">0.32 (0.221)</td>
+<td align="center" charoff="50" valign="top">−0.12 (1)</td>
+<td align="center" charoff="50" valign="top"><bold>0.42</bold> (0.003)*</td>
+<td align="center" charoff="50" valign="top">0.25 (1)</td>
+<td align="center" charoff="50" valign="top">−0.27 (1)</td>
+<td align="center" charoff="50" valign="top">0.25 (1)</td>
+<td align="center" charoff="50" valign="top">0.19 (1)</td>
+<td align="center" charoff="50" valign="top">−0.15 (1)</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t4-fn1">
+<p>Significant features (<italic>p</italic> &lt; 0.05) are represented by a ‘*’ symbol. Correlation coefficients with absolute <italic>ρ</italic> &gt; 0.4 are highlighted using bold font.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

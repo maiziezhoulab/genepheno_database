@@ -1,0 +1,2263 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Mol Syst Biol</journal-id>
+<journal-id journal-id-type="iso-abbrev">Mol. Syst. Biol</journal-id>
+<journal-id journal-id-type="doi">10.1002/(ISSN)1744-4292</journal-id>
+<journal-id journal-id-type="publisher-id">MSB</journal-id>
+<journal-id journal-id-type="hwp">msb</journal-id>
+<journal-title-group>
+<journal-title>Molecular Systems Biology</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1744-4292</issn>
+<publisher>
+<publisher-name>John Wiley and Sons Inc.</publisher-name>
+<publisher-loc>Hoboken</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32627955</article-id>
+<article-id pub-id-type="pmc">7336272</article-id>
+<article-id pub-id-type="doi">10.15252/msb.20199380</article-id>
+<article-id pub-id-type="publisher-id">MSB199380</article-id>
+<article-categories>
+<subj-group subj-group-type="overline">
+<subject>Article</subject>
+</subj-group>
+<subj-group subj-group-type="heading">
+<subject>Articles</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Using deep mutational scanning to benchmark variant effect predictors and identify disease mutations</article-title>
+<alt-title alt-title-type="left-running-head">Benjamin J Livesey &amp; Joseph A Marsh</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" id="msb199380-cr-0001">
+<name>
+<surname>Livesey</surname>
+<given-names>Benjamin J</given-names>
+</name>
+<xref ref-type="aff" rid="msb199380-aff-0001">
+<sup>1</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" id="msb199380-cr-0002">
+<name>
+<surname>Marsh</surname>
+<given-names>Joseph A</given-names>
+</name>
+<contrib-id authenticated="false" contrib-id-type="orcid">https://orcid.org/0000-0003-4132-0628</contrib-id>
+<xref ref-type="aff" rid="msb199380-aff-0001">
+<sup>1</sup>
+</xref>
+<address>
+<email>joseph.marsh@igmm.ed.ac.uk</email>
+</address>
+</contrib>
+</contrib-group>
+<aff id="msb199380-aff-0001">
+<label><sup>1</sup></label>
+<named-content content-type="organisation-division">MRC Human Genetics Unit</named-content>
+<named-content content-type="organisation-division">Institute of Genetics and Molecular Medicine</named-content>
+<institution>University of Edinburgh</institution>
+<city>Edinburgh</city>
+<country country="GB">UK</country>
+</aff>
+<author-notes>
+<corresp id="correspondenceTo"><label>*</label>Corresponding author. Tel: +44 (0) 1316 518538; E‐mail: <email>joseph.marsh@igmm.ed.ac.uk</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>06</day>
+<month>7</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>7</month>
+<year>2020</year>
+</pub-date>
+<volume>16</volume>
+<issue>7</issue>
+<issue-id pub-id-type="doi">10.1002/msb.v16.7</issue-id>
+<elocation-id>e9380</elocation-id>
+<history>
+<date date-type="received">
+<day>27</day>
+<month>11</month>
+<year>2019</year>
+</date>
+<date date-type="rev-recd">
+<day>18</day>
+<month>5</month>
+<year>2020</year>
+</date>
+<date date-type="accepted">
+<day>26</day>
+<month>5</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<!--<copyright-statement content-type="issue-copyright"> &#x000a9; 2020 EMBO <copyright-statement>-->
+<copyright-statement content-type="article-copyright">© 2020 The Authors. Published under the terms of the CC BY 4.0 license</copyright-statement>
+<license license-type="creativeCommonsBy">
+<license-p>This is an open access article under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="file:MSB-16-e9380.pdf"></self-uri>
+<abstract id="msb199380-abs-0001">
+<title>Abstract</title>
+<p>To deal with the huge number of novel protein‐coding variants identified by genome and exome sequencing studies, many computational variant effect predictors (VEPs) have been developed. Such predictors are often trained and evaluated using different variant data sets, making a direct comparison between VEPs difficult. In this study, we use 31 previously published deep mutational scanning (DMS) experiments, which provide quantitative, independent phenotypic measurements for large numbers of single amino acid substitutions, in order to benchmark and compare 46 different VEPs. We also evaluate the ability of DMS measurements and VEPs to discriminate between pathogenic and benign missense variants. We find that DMS experiments tend to be superior to the top‐ranking predictors, demonstrating the tremendous potential of DMS for identifying novel human disease mutations. Among the VEPs, DeepSequence clearly stood out, showing both the strongest correlations with DMS data and having the best ability to predict pathogenic mutations, which is especially remarkable given that it is an unsupervised method. We further recommend SNAP2, DEOGEN2, SNPs&amp;GO, SuSPect and REVEL based upon their performance in these analyses.</p>
+</abstract>
+<abstract abstract-type="graphical" id="msb199380-abs-0003">
+<p>Data from deep mutational scans is used to benchmark computational protein variant effect predictors using fully independent data. The performance of deep mutational scanning is also compared to computational predictors for identifying pathogenic variants.<boxed-text content-type="graphic" id="msb199380-blkfxd-0002" orientation="portrait" position="anchor"><graphic id="nlm-graphic-3" orientation="portrait" position="anchor" xlink:href="MSB-16-e9380-g009.jpg"></graphic></boxed-text>
+</p>
+</abstract>
+<kwd-group kwd-group-type="author-generated">
+<kwd id="msb199380-kwd-0001">missense mutations</kwd>
+<kwd id="msb199380-kwd-0002">phenotype prediction</kwd>
+<kwd id="msb199380-kwd-0003">protein structure</kwd>
+<kwd id="msb199380-kwd-0004">saturation mutagenesis</kwd>
+<kwd id="msb199380-kwd-0005">variant effect</kwd>
+</kwd-group>
+<kwd-group kwd-group-type="subject-categories">
+<title>Subject Categories</title>
+<kwd>Chromatin, Epigenetics, Genomics &amp; Functional Genomics</kwd>
+<kwd>Computational Biology</kwd>
+</kwd-group>
+<funding-group>
+<award-group id="funding-0001">
+<funding-source>UK Research and Innovation, Medical Research Council (MRC)</funding-source>
+<award-id>MR/M02122X/1</award-id>
+</award-group>
+<award-group id="funding-0002">
+<funding-source>
+<institution-wrap>
+<institution>Lister Institute of Preventive Medicine </institution>
+<institution-id institution-id-type="open-funder-registry">10.13039/501100001255</institution-id>
+</institution-wrap>
+</funding-source>
+</award-group>
+</funding-group>
+<counts>
+<fig-count count="7"></fig-count>
+<table-count count="0"></table-count>
+<page-count count="12"></page-count>
+<word-count count="10646"></word-count>
+</counts>
+<custom-meta-group>
+<custom-meta>
+<meta-name>source-schema-version-number</meta-name>
+<meta-value>2.0</meta-value>
+</custom-meta>
+<custom-meta>
+<meta-name>cover-date</meta-name>
+<meta-value>July 2020</meta-value>
+</custom-meta>
+<custom-meta>
+<meta-name>details-of-publishers-convertor</meta-name>
+<meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:5.8.5 mode:remove_FC converted:06.07.2020</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+<notes>
+<p content-type="self-citation">
+<mixed-citation id="msb199380-cit-1001" publication-type="journal">
+<source xml:lang="en"/>Mol Syst Biol (<year>2020</year>) <volume>16</volume>: <elocation-id>e9380</elocation-id>
+</mixed-citation>
+</p>
+</notes>
+</front>
+<body id="msb199380-body-0001">
+<sec id="msb199380-sec-0001">
+<title>Introduction</title>
+<p>Many genetic disorders can be attributed to sequence changes in protein‐coding regions of DNA, yet pathogenic mutations account for only a tiny fraction of the overall genetic variation seen in humans. A typical pair of unrelated individuals will differ by approximately one nonsynonymous single nucleotide variant (SNV) per protein‐coding gene (Rauch <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0070">2012</xref>), while <italic>de novo</italic> mutations lead to roughly one new nonsynonymous SNV per child not observed in either parent (de Ligt <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0049">2012</xref>; Neale <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0061">2012</xref>; Epi4K Consortium <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0019">2013</xref>; Fitzgerald <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0022">2015</xref>). The vast majority of mutations identified by sequencing are of unknown phenotypic consequence; that is, we are unsure if they have significant phenotypic effects or are functionally neutral. Thus, the ability to distinguish damaging variants from those that are benign is of tremendous importance for the diagnosis and treatment of human genetic disease.</p>
+<p>In order to prioritise potentially pathogenic variants, many different computational variant effect predictors (VEPs) have been developed. These predictors make use of various protein sequence, structural, evolutionary and biophysical features to produce an effect score for the variant. By far the most commonly used feature is evolutionary sequence conservation and known variation (<xref ref-type="supplementary-material" rid="msb199380-sup-0002">Table EV1</xref>). This is the only information used by several methods such as SIFT (Sim <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0085">2012</xref>) and DeepSequence (Riesselman <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0074">2018</xref>). Other predictors integrate additional features including biophysical properties of amino acids, protein functional annotations and epigenetic data (Rentzsch <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0072">2019</xref>). Protein structural information, derived from experimentally determined models, is also used by several methods (Adzhubei <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0002">2010</xref>; Capriotti &amp; Altman, <xref ref-type="ref" rid="msb199380-bib-0008">2011</xref>), although there is conflicting information regarding whether its inclusion significantly improves predictor performance (Carraro <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0010">2017</xref>).</p>
+<p>While many of these approaches are able to make impressive predictions on test data sets and are widely applied in both clinical and research environments, there remain a number of unresolved sources of biases and inaccuracies. For example, when employing a supervised machine learning method, overfitting of the training set can become an issue. Instead of learning general rules, the predictor learns the niche peculiarities and noise of its training set (Srivastava <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0087">2014</xref>). For this reason, machine learning techniques are usually subject to out‐of‐sample validation, whereby data not present in the training set are used to verify that the predictor has learned how to classify the data. Furthermore, when benchmarking these predictors with alternative data sets, they should contain as few mutations used during training and validation as possible. Biased representation within these data sets will skew the reported accuracy of methods trained and benchmarked with them (Schaafsma &amp; Vihinen, <xref ref-type="ref" rid="msb199380-bib-0080">2018</xref>).</p>
+<p>Grimm <italic>et al</italic> (<xref ref-type="ref" rid="msb199380-bib-0029">2015</xref>) describe two types of data circularity that can bias the assessment of predictor accuracy. Type 1 circularity occurs when the data from the training set are re‐used for assessing predictor performance. This can occur due to overlap between commonly used variant databases. The result is a better apparent performance than if a more appropriate validation set were used. Metapredictors (trained using the outputs of other predictors) amplify this issue, as the methods they are built from often use different overlapping training sets. Type 2 circularity results in the weighting of predictor output by biases in the training examples. This can come about in VEPs due to ascertainment biases in the training set (long‐studied proteins will have more annotated mutations than recently analysed ones). Another source is the association of certain genes with pathogenicity (e.g. many mutations in P53 will be damaging, while other genes may have no pathogenic mutations). Tools that use this information to weight their predictions can achieve excellent results on proteins with annotated pathogenic or benign mutations, but perform poorly when faced with unannotated proteins.</p>
+<p>An alternative to computational predictions is experimental characterisation of mutation phenotypes. While this can be extremely time consuming if a separate experiment is required for each mutation, in recent years, an assortment of approaches has been developed for the high‐throughput characterisation of mutation phenotypes. Deep mutational scanning (DMS) experiments combine saturation mutagenesis of a protein with a high‐throughput functional test and deep sequencing (Fowler &amp; Fields, <xref ref-type="ref" rid="msb199380-bib-0023">2014</xref>). The result is a framework, allowing the design of experiments to quantify the functional impact of a huge number of mutations at the same time. DMS experiments could potentially be hugely valuable for variant prioritisation, allowing direct identification of damaging human variants on a large scale (Majithia <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0055">2016</xref>; Matreyek <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0056">2018</xref>). DMS experiments can also be tailored to the specific definition of protein fitness required—something which computational methods are not able to account for (Harris <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0032">2016</xref>). Even the best performing predictors struggle with more complex biological concepts such as allosteric regulation (Xu <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0097">2017</xref>).</p>
+<p>In addition to directly identifying damaging variants, another major benefit of DMS experiments is that they produce large variant effect data sets that can be used to benchmark and assess the performance of VEPs. These are fully independent from any training and testing data used by the predictors (with one exception Gray <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0028">2018</xref>). Previous studies have found that using DMS data sets to benchmark computational predictors resulted in reduced predictive power compared to other commonly used data sets, suggesting that these predictors may not be as accurate for human variants as previously reported (Mahmood <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0054">2017</xref>). The Critical Assessment of Genome Interpretation (CAGI) experiment, which aims to drive innovations in VEPs, frequently assesses predictors against novel unseen data sets (Hoskins <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0036">2017</xref>) including those derived from DMS experiments.</p>
+<p>In this study, we have taken advantage of the large number of DMS experiments that have now been published for a variety of diverse proteins from different organisms. First, we have used these data sets to perform an independent assessment and comparison of many different VEPs. Second, we have compared the ability of DMS experiments and VEPs to directly identify pathogenic human mutations.</p>
+</sec>
+<sec id="msb199380-sec-0002">
+<title>Results</title>
+<sec id="msb199380-sec-0003">
+<title>Overview of DMS data sets and variant effect predictors used in this study</title>
+<p>To identify DMS data sets, we performed a literature search for papers presenting such experiments with available data. Using search terms such as “deep mutational scan”, “fitness landscape”, “massively parallel mutagenesis” and “saturation mutagenesis”, we identified 31 viable DMS data sets (<xref ref-type="supplementary-material" rid="msb199380-sup-0003">Table EV2</xref>). As shown in Fig <xref ref-type="fig" rid="msb199380-fig-0001">1</xref>, human proteins were the most numerous targets for these DMS experiments. <italic>Saccharomyces cerevisiae</italic> and <italic>Escherichia coli</italic> were also highly represented as they endogenously produce a number of model proteins, are easy to culture and maintain and are amenable to several effective assays for protein activity (e.g. growth rate and two hybrid). Proteins from viruses were also represented from studies investigating viral adaptation through massively parallel mutagenesis techniques.</p>
+<fig fig-type="Figure" id="msb199380-fig-0001" orientation="portrait" position="float" xml:lang="en">
+<label>Figure 1</label>
+<caption>
+<title>Coverage of possible mutations by deep mutational scanning (DMS) experiments</title>
+<p>The percentage of all amino acid substitutions covered by each DMS experiment. The total number of mutations assessed by each DMS experiment is indicated on the right. Where multiple data sets exist for a single protein, sequential letters are used to identify them.</p>
+</caption>
+<graphic id="nlm-graphic-5" xlink:href="MSB-16-e9380-g002"></graphic>
+</fig>
+<p>There was considerable variation in functional assays applied between the DMS studies. Growth rate of yeast was the most common technique and was applied to several human proteins by knocking out the yeast orthologue and replacing it with the human gene that is capable of rescuing the null strain (Weile <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0094">2017</xref>). Viral replication assays, performed by quantitative sequencing after a certain time point, were applied to all of the viral proteins (Wu <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0096">2015</xref>; Doud &amp; Bloom, <xref ref-type="ref" rid="msb199380-bib-0018">2016</xref>; Haddox <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0031">2016</xref>; Lee <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0048">2018</xref>). Survival assays involved placing the organism in hostile conditions where the target protein confers an advantage such as antibiotic resistance (Deng <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0016">2012</xref>; Jacquier <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0038">2013</xref>; Firnberg <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0021">2014</xref>; Stiffler <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0090">2015</xref>; Dandage <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0014">2018</xref>). Two‐hybrid assays allow protein–protein interactions to be analysed, while fluorescence can be used to investigate enzyme activity, protein stability or transcriptional pathway activation (Kitzman <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0046">2015</xref>; Starita <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0088">2015</xref>; Bandaru <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0003">2017</xref>). Phage‐display assays allow a number of protein attributes to be tested <italic>ex vivo</italic> by externalising the protein of interest followed by selection based on its attributes (Starita <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0088">2015</xref>). The <italic>E. coli</italic> toxin ccdB was assayed by reverse survival, investigating its ability to restrict cell growth (Adkar <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0001">2012</xref>).</p>
+<p>Each study also varied in the coverage of possible single amino acid substitutions across the entire protein (Fig <xref ref-type="fig" rid="msb199380-fig-0001">1</xref>). Many of the studies included only those mutations that were possible by introducing a single nucleotide change, reducing potential coverage of all possible amino acid substitutions by around 70%. Some studies focused on specific regions of the target protein. In addition, most studies excluded low confidence mutants from their data, that is those with exceptionally low sequencing counts. For inclusion in this analysis, we required at least 5% coverage of all possible mutations in order to prevent unrepresentative low coverage data from skewing the results.</p>
+<p>The computational VEPs used in this study were found using a number of approaches, including the OMICtools database (Henry <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0035">2014</xref>), identifying tools tagged with “variant effect prediction” and searching for “protein variant effect prediction” and “protein phenotype predictor” using standard internet search engines. Priority was given to tools that featured either a web interface or an API that could be queried for thousands of mutations simultaneously. We also made use of the dbNSFP (Liu <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0051">2016</xref>) database of pre‐calculated predictions from multiple VEPs for the human genome (downloaded 2020‐02‐12). We split the predictors into four broad categories, based on the features that they use to make predictions:</p>
+<p>
+<list id="msb199380-list-0002" list-type="order"><list-item><p>
+<italic>Supervised predictors</italic>. These predictors use a machine learning technique that relies on learning from labelled examples, in particular data sets of known or suspected pathogenic and benign variants. Different predictors make use of a variety of different machine learning approaches, for example support vector machines and random forest algorithms.</p></list-item><list-item><p>
+<italic>Unsupervised predictors</italic>. These predictors make use of an unsupervised machine learning technique; that is, they are not trained using labelled pathogenic and benign variants. Instead, they rely mostly on evolutionary conservation from multiple sequence alignments. This includes unsupervised clustering techniques, hidden Markov models and generative models.</p></list-item><list-item><p>
+<italic>Empirical predictors</italic>. These predictors do not make use of any machine learning techniques, instead making an empirical calculation using the input data. This category also includes amino acid substitution matrices and many evolutionary conservation metrics. Along with the unsupervised predictors, they should be free from any training bias.</p></list-item><list-item><p>
+<italic>Metapredictors</italic>. These predictors integrate other VEP results as input features, although many also use additional features. The metapredictors used in our study are nearly all trained using a supervised learning approach, with one exception (Ionita‐Laza <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0037">2016</xref>). To qualify for this category in our classification, a predictor must include at least two other VEPs as input features, not including substitution matrices or simple conservation metrics (such as GERP, PhyloP or SiPhy).</p></list-item></list>
+</p>
+<p>Among the DMS data sets, there are several instances of the same protein being investigated in different studies by different groups. Specifically, there are four independent data sets for β‐lactamase (bla) and two each for UBI4, PTEN and BRCA1. There are also two data sets for the influenza protein HA, but these were from different strains, so not directly comparable. To assess the reproducibility of DMS and its viability as a benchmark, we calculated Spearman's correlation coefficient between the functional scores of each DMS set in the same protein. Our results (<xref ref-type="supplementary-material" rid="msb199380-sup-0004">Table EV3</xref>) demonstrate a range of correlations from 0.94 (bla(a)/(b)) to 0.34 (PTEN(a)/(b)). The average correlations observed over all pairs of analyses were 0.66. Some level of variance is expected due to differences in experimental method, fitness assays and conditions between experiments. Overall, the moderately high correlations suggest that DMS scores constitute a reasonably robust benchmark despite differing experimental conditions. We can also treat this correlation as a rough guide for how well we could expect a “perfect” computational predictor to perform against DMS data from these experiments.</p>
+<p>We also assessed the correlation between different DMS data sets generated by the same studies. The purposes of these assays varied and included controls with no selection pressure, biological replicates, incrementally differing conditions and different fitness assays (<xref ref-type="supplementary-material" rid="msb199380-sup-0005">Table EV4</xref>). Incremental changes in conditions tended to result in high correlations while larger alterations to conditions, assay type or protein partners resulted in much lower correlations between the data sets. Nonselective controls produced low correlations, while comparison of positive to negative selection assays produced a negative correlation. These results indicate that interpretation of DMS results depends to some extent on the exact fitness assay. However, certain mutations (e.g. those that destabilise the protein) are likely to always have an impact on fitness if a selection pressure is present.</p>
+</sec>
+<sec id="msb199380-sec-0004">
+<title>Assessment of variant effect predictors using DMS data</title>
+<p>Where possible, we applied every computational predictor to each protein in the DMS data sets, substituting every possible amino acid at all positions. Some predictors failed to generate results for some proteins; this can occur due to an insufficiently deep multiple sequence alignment, mapping errors or other causes depending on the predictor. In order to get a measure of relative performance for each predictor, we calculated Spearman's rank correlation between the independent DMS scores for each protein and the predictions of every VEP (Fig <xref ref-type="fig" rid="msb199380-fig-0002">2</xref>). We also performed the same analysis using Kendall's Tau (Fig <xref ref-type="fig" rid="msb199380-fig-0001ev">EV1</xref>) which produced only minor changes in predictor ranking and lower average correlations.</p>
+<fig fig-type="Figure" id="msb199380-fig-0002" orientation="portrait" position="float" xml:lang="en">
+<label>Figure 2</label>
+<caption>
+<title>Correlations between computational variant effect predictors and deep mutational scanning (DMS) measurements</title>
+<p>
+<list id="msb199380-list-0013" list-type="simple"><list-item><label>A, B</label><p>Spearman's correlation calculated between all variant effect predictions and DMS data sets. The top‐performing predictor for each protein is labelled on the plot. This analysis is split into (A) human and (B) non‐human proteins.</p></list-item></list>
+</p>
+</caption>
+<graphic id="nlm-graphic-7" xlink:href="MSB-16-e9380-g004"></graphic>
+</fig>
+<fig fig-type="Figure" id="msb199380-fig-0001ev" orientation="portrait" position="float" specific-use="collapsible" xml:lang="en">
+<label>Figure EV1</label>
+<caption>
+<title>Correlations between computational variant effect predictors and deep mutational scanning measurements using Kendall's Tau</title>
+<p>
+<list id="msb199380-list-0006" list-type="simple"><list-item><label>A,B</label><p> Same as Fig <xref ref-type="fig" rid="msb199380-fig-0002">2</xref>, but using Kendall's Tau instead of Spearman's correlation. This analysis is split into (A) human and (B) non‐human proteins.</p></list-item></list>
+</p>
+</caption>
+<graphic id="nlm-graphic-9" xlink:href="MSB-16-e9380-g003"></graphic>
+</fig>
+<p>Given the large number of predictors that are specific to humans, we split this analysis up into human (Fig <xref ref-type="fig" rid="msb199380-fig-0002">2</xref>A) and non‐human (Fig <xref ref-type="fig" rid="msb199380-fig-0002">2</xref>B) proteins. The top‐performing predictor for each protein is labelled on the plot, while the full set of correlations are provided in Tables <xref ref-type="supplementary-material" rid="msb199380-sup-0006">EV5</xref> and <xref ref-type="supplementary-material" rid="msb199380-sup-0007">EV6</xref>. <xref ref-type="supplementary-material" rid="msb199380-sup-0008">Table EV7</xref> shows the relative ranking of each predictor using a rank score that combines the rankings for all proteins in the human, yeast, bacterial and viral data sets (<xref ref-type="supplementary-material" rid="msb199380-sup-009">Table EV8</xref> shows the same using Kendall's Tau instead).</p>
+<p>DeepSequence was the overall top‐performing method for predicting DMS results in the human proteins, showing the highest correlations out of all predictors for ADRB2, CALM1 and PTEN(b), and ranking within the top five predictors for seven of the 13 DMS data sets. It also had by far the highest rank score. To assess the statistical significance of this, we used a bootstrapping approach and re‐calculated the ranking by re‐sampling all DMS data sets with replacement 1000 times. Strikingly, we found that DeepSequence always ranked the highest, showing that it is statistically better than all other predictors (<italic>P</italic> &lt; 0.001). DeepSequence also ranked best for bacterial proteins, being the top predictor for six proteins: infA, bla(b), bla(c), ccdB, haeIIIM and GmR. In contrast, DeepSequence produced only a moderate rank score for yeast proteins, with a high coefficient of variation. This was largely due to poor performance on the ubiquitin (UBI4) data sets, which reduced the overall rank score considerably. If the UBI4 data sets are excluded from the analysis, then DeepSequence becomes the second‐highest ranked predictor for yeast proteins. Interestingly, DeepSequence performs poorly for viral proteins, ranking second to last out of all predictors tested. This is consistent with the original publication, where the creators report poor performance on viral proteins due to insufficient sequence diversity within the alignments used (Riesselman <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0074">2018</xref>).</p>
+<p>The authors of DeepSequence tested their method using DMS data sets, including many that are included in our study, so it is conceivable that method hyperparameters may have been optimised to provide an advantage predicting data from these specific proteins. To address this potential, we repeated the ranking process using only DMS data sets from proteins that were not included in the original DeepSequence study (<xref ref-type="supplementary-material" rid="msb199380-sup-0010">Table EV9</xref>). Importantly, DeepSequence still ranks top among all predictors, suggesting that its apparent success is not simply due to hyperparameter optimisation.</p>
+<p>Among the other predictors, certain supervised approaches were particularly notable. SNPs&amp;GO (Capriotti <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0009">2013</xref>) ranked 2<sup>nd</sup> for human and 1<sup>st</sup> for yeast proteins, although its predictions were relatively poor for non‐eukaryotic (bacterial and viral) proteins. SNAP2 (Hecht <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0033">2015</xref>) also performed well, ranking 3<sup>rd</sup> for human proteins and 2<sup>nd</sup> for yeast. DEOGEN2 (Raimondi <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0069">2017</xref>), a human‐specific predictor, came 4<sup>th</sup>. SuSPect (Yates <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0098">2014</xref>) showed good performance across most groups, ranking 5<sup>th</sup> for humans 3<sup>rd</sup> for bacteria and 2<sup>nd</sup> for viral proteins. REVEL was the only metapredictor to show notable performance, ranking 6<sup>th</sup> overall and having the highest correlation with the SUMO1 DMS data.</p>
+<p>Some predictors incorporate features derived from experimentally determined protein structures into their predictions. Specifically, SNP&amp;GOs3D and S3D‐PROF (Capriotti &amp; Altman, <xref ref-type="ref" rid="msb199380-bib-0008">2011</xref>) require a PDB structure to be provided in order to make their predictions and use features representing the 3D environment of the mutation. Other predictors such as PolyPhen‐2 (Adzhubei <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0002">2010</xref>), DEOGEN2 and MPC derive some features from experimental structures, but are still capable of making predictions without them. While these methods ranked average‐to‐high and achieved a number of top correlations with the DMS data, overall they do not perform better than the top‐performing sequence‐based methods. We also find that, in proteins with partial coverage of high‐resolution structures, the difference in performance between areas of structural coverage and areas with no coverage is comparable between structural methods and pure sequence‐based methods (Fig <xref ref-type="fig" rid="msb199380-fig-0002ev">EV2</xref>). This may be due to regions without structures being more likely to be disordered and less conserved, and thus harder to characterise by conservation metrics.</p>
+<fig fig-type="Figure" id="msb199380-fig-0002ev" orientation="portrait" position="float" specific-use="collapsible" xml:lang="en">
+<label>Figure EV2</label>
+<caption>
+<title>Spearman's correlation between deep mutational scanning (DMS) results and variant effect predictions within and outside of areas covered by protein structures</title>
+<p>We assess <styled-content style="fixed-case" toggle="no">ADRB</styled-content>2 (77% <styled-content style="fixed-case" toggle="no">DMS</styled-content> coverage), <styled-content style="fixed-case" toggle="no">BRCA</styled-content>1(b) (64% <styled-content style="fixed-case" toggle="no">DMS</styled-content> coverage) and P53 (68% <styled-content style="fixed-case" toggle="no">DMS</styled-content> coverage) using three predictors that incorporate some structural information (<styled-content style="fixed-case" toggle="no">DEOGEN</styled-content>2, <styled-content style="fixed-case" toggle="no">MPC</styled-content> and PolyPhen2_HumDiv) and predictors that do not use structures (<styled-content style="fixed-case" toggle="no">SIFT</styled-content>4G and <styled-content style="fixed-case" toggle="no">SNP</styled-content>s&amp;<styled-content style="fixed-case" toggle="no">GO</styled-content>). This figure shows that, while predictions tend to be much better for regions covered by known protein structures, a similar trend is observed for predictors that do and do not use structures, suggesting that the inclusion of structural information does not markedly improve the performance of <styled-content style="fixed-case" toggle="no">VEP</styled-content>s.</p>
+</caption>
+<graphic id="nlm-graphic-11" xlink:href="MSB-16-e9380-g005"></graphic>
+</fig>
+<p>Of all predictors, FATHMM (Shihab <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0082">2013</xref>) produced the most significant outlier, generating predictions with by far the highest correlation for P53, but having low correlations for all other proteins, resulting in an overall low‐rank score with a high coefficient of variation. The explanation for this is unclear, but it may be due to overfitting of the predictor for specific proteins, given the enrichment of P53 mutations in human disease databases compared to many of the other proteins in this study.</p>
+<p>Different DMS data sets varied greatly in their correlations with the computational predictors. In particular, BRCA1, CALM1 and TPK1 among the human proteins and ccdB, Cas9 and env among the non‐human proteins showed low correlations, even from the best predictors. As far as we can tell, this effect appears to be unrelated to protein coverage, data set size or experimental methodology. For example, UBE2I, SUMO1, TPK1 and CALM1 were all studied by the same group using the same approach (growth rate in yeast) (Weile <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0094">2017</xref>), yet UBE2I and SUMO1 show markedly higher correlations with all predictors than the others. Viral proteins also showed low correlations, and in fact, the simple BLOSUM62 substitution matrix (Henikoff &amp; Henikoff, <xref ref-type="ref" rid="msb199380-bib-0034">1992</xref>) was the most highly correlated with the env data set when using Kendall's Tau (second highest when using Spearman's). This indicates that the inclusion of typical training features is of less use when predicting the fitness of viral proteins, likely due to lack of viral representation in training sets and lack of viral sequence diversity in many databases used to generate multiple sequence alignments. Viral proteins may also be more likely to undergo adaptive evolution, thus potentially confounding conservation‐based approaches.</p>
+<p>It is also interesting to note that, despite the fact that most of the predictors used in this study are human‐specific, the top‐ranking predictors for the human DMS data sets tend to be general predictors applicable to proteins from all species. For example, for the human DMS data sets, only one of the top five predictors is specific to humans whereas many of the lowest ranked predictors are human‐specific. An important contributing factor to this may be overfitting against human mutation data sets for some predictors, which causes them to perform poorly against independent experimental phenotype measurements. In addition, several of the worst predictors are also based upon nucleotide‐level constraint (GERP++ (Davydov <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0015">2010</xref>), SiPhy (Garber <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0024">2009</xref>), phastCons (Siepel &amp; Haussler, <xref ref-type="ref" rid="msb199380-bib-0084">2005</xref>) and fitCons (Gulko <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0030">2015</xref>)). These predictors ranked even lower than the simple BLOSUM62 and Grantham (Grantham, <xref ref-type="ref" rid="msb199380-bib-0027">1974</xref>) substitution matrices, suggesting that such approaches are poorly suited to predicting the protein‐level effects of mutations.</p>
+<p>Many DMS experiments included amino acid substitutions that are not possible by single nucleotide changes; that is, they are technically not missense variants. Some VEPs do not produce predictions for these mutations, particularly those that take nucleotide‐level substitutions into consideration. Therefore, we repeated our analysis, limiting our predictions to only those amino acid substitutions that are possible by single nucleotide changes (<xref ref-type="supplementary-material" rid="msb199380-sup-0011">Table EV10</xref>). The rankings remain broadly similar, and the top‐ranking method did not change for any group.</p>
+</sec>
+<sec id="msb199380-sec-0005">
+<title>Identification of pathogenic human mutations using DMS data and computational variant effect predictors</title>
+<p>We next investigated the ability of both DMS experiments and VEPs to distinguish pathogenic human missense mutations, taken from the ClinVar database (Landrum <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0047">2014</xref>), from missense variants observed in the human population, taken from gnomAD (preprint: Karczewski <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0043">2019</xref>). While some gnomAD variants may be damaging under certain circumstances (e.g. if associated with recessive, late‐onset or incomplete penetrance disease), we assume that the vast majority of them should be non‐pathogenic, and therefore refer to them as “putatively benign”. Of the 11 human proteins with DMS data sets, seven have known pathogenic or likely pathogenic missense variants in ClinVar as of 2019‐10‐25 (93 for BRCA1, 31 for HRAS, 189 for P53, 108 for PTEN, nine for CALM1, five for TPK1 and two for MAPK1). For CALM1 and TPK1, we identified additional pathogenic missense mutations in the literature (Crotti <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0013">2013</xref>; Banka <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0004">2014</xref>; Jensen <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0040">2018</xref>; Nomikos <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0064">2018</xref>; Zhu <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0099">2019</xref>), leading to a total of 19 for CALM1 and eight for TPK1. MAPK1 has too few recorded pathogenic missense variants to include in this analysis.</p>
+<p>For each predictor, we plotted a receiver operating characteristic (ROC) curve for classification performance on every protein, identifying pathogenic ClinVar mutations as true positives and the putatively benign gnomAD mutations as true negatives (removing any ClinVar mutations from the gnomAD set). We then calculated the area under the curve (AUC) for each plot as a measure of that predictor's performance in classifying the data (Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>). We also calculated the precision–recall AUCs (Fig <xref ref-type="fig" rid="msb199380-fig-0003ev">EV3</xref>). Descriptions of each DMS data set displayed in Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref> are provided in <xref ref-type="supplementary-material" rid="msb199380-sup-0012">Table EV11</xref>.</p>
+<fig fig-type="Figure" id="msb199380-fig-0003" orientation="portrait" position="float" xml:lang="en">
+<label>Figure 3</label>
+<caption>
+<title>Identification of pathogenic missense variants by deep mutational scanning (DMS) data sets and variant effect predictors (VEPs)</title>
+<p>
+<list id="msb199380-list-0023" list-type="simple"><list-item><label>A‐F</label><p> ROC AUC values for DMS data sets and VEPs in distinguishing between pathogenic missense variants from ClinVar and putatively benign variants from gnomAD for six human disease genes (A–F). The numbers of variants in each class are indicated on the plot. The different DMS data sets for each protein are described in <xref ref-type="supplementary-material" rid="msb199380-sup-0008">Table EV7</xref>.</p></list-item></list>
+</p>
+</caption>
+<graphic id="nlm-graphic-13" xlink:href="MSB-16-e9380-g006"></graphic>
+</fig>
+<fig fig-type="Figure" id="msb199380-fig-0003ev" orientation="portrait" position="float" specific-use="collapsible" xml:lang="en">
+<label>Figure EV3</label>
+<caption>
+<title>Assessment of the identification of pathogenic missense variants by deep mutational scanning (DMS) data sets and variant effect predictors (VEPs) using precision–recall curves</title>
+<p>Precision–recall <styled-content style="fixed-case" toggle="no">AUC</styled-content>s for <styled-content style="fixed-case" toggle="no">DMS</styled-content> data sets and <styled-content style="fixed-case" toggle="no">VEP</styled-content> predictions distinguishing between pathogenic missense variants from ClinVar and putatively benign missense variants from gnom<styled-content style="fixed-case" toggle="no">AD</styled-content>. Separate plots have been drawn for <styled-content style="fixed-case" toggle="no">DMS</styled-content> assays where they do not cover the same variants to maintain class balance. The sizes of both classes are indicated on the plot. The different <styled-content style="fixed-case" toggle="no">DMS</styled-content> data sets for each protein are described in <xref ref-type="supplementary-material" rid="msb199380-sup-0012">Table EV11</xref>.</p>
+</caption>
+<graphic id="nlm-graphic-15" xlink:href="MSB-16-e9380-g007"></graphic>
+</fig>
+<p>In the ROC analysis, an experimental DMS metric performed better than any of the 46 VEPs for four of the six human proteins (Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>A,B,D and E) and ranked relatively high for the remaining two (Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>C and F: CALM1 and PTEN). To determine the significance of the performance of the DMS data, we used a bootstrapping approach and individually re‐sampled the gnomAD and ClinVar data sets with replacement 10,000 times, re‐calculating the AUC scores with the new data. DMS ranked first in 9202 trials, while DeepSequence came top in 600 trials, REVEL in 154, MutPred in 34, SNPs&amp;GO in 7, SIFT4G in 2 and PhD‐SNP in 1. Thus, while we cannot quite state at this point that DMS is significantly better than all computational predictors together (<italic>P</italic> = 0.080), it clearly ranks higher than all VEPs in our analysis and is significantly better than all except DeepSequence. Very similar results are observed for the precision–recall AUCs (Fig <xref ref-type="fig" rid="msb199380-fig-0003ev">EV3</xref>), except that the TPK1 DMS data sets changed from ranking 1<sup>st</sup> to 6<sup>th</sup>.</p>
+<p>The DMS results for CALM1 and TPK1 were generated by the same group using the same method, assessing the effects of mutations on growth rate in a yeast system (Weile <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0094">2017</xref>). The data processing pipeline used in this study penalised “hypercomplementing” variants (i.e. those with fitness greater than the wild type) by setting the fitness to the reciprocal of the measured value. These are labelled as “flipped” in Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>. Interestingly, we found that while these “flipped” DMS results show a better correlation with the outputs of VEPs than the raw DMS data (Tables <xref ref-type="supplementary-material" rid="msb199380-sup-0013">EV12</xref> and <xref ref-type="supplementary-material" rid="msb199380-sup-0014">EV13</xref>), the raw scores are better for directly identifying pathogenic variants (Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>). This suggests that VEPs in general tend to be predictive of a perturbation away from wild‐type activity (regardless of whether it is an increase or decrease), whereas only a decrease in activity is predictive of disease, at least for these two proteins. This is consistent with a recent observation that beneficial effects on protein function, as measured by DMS experiments, were predicted less well than detrimental effects for all four tested VEPs (preprint: Reeb <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0071">2019</xref>).</p>
+<p>While the primary objective of this analysis is to compare the DMS data sets to the VEPs, it is also interesting to observe the relative performances of the different computational predictors in terms of directly identifying pathogenic mutations for the six human proteins in Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>. This comparison is limited by the fact that there is likely some overlap between the mutations used to evaluate the predictors here, and the mutations originally used to train some of the supervised predictors and metapredictors. In this regard, it is especially interesting to see that the unsupervised predictor DeepSequence again stood out among VEPs, ranking 1<sup>st</sup> for TPK1 and CALM1, 2<sup>nd</sup> for HRAS, and within the top 11 predictors for all remaining proteins. This is considerably better and more consistent performance than any of the other computational predictors. A few other VEPs also performed well, but these are dominated by supervised predictors and metapredictors. Given that the training of these methods almost certainly included many of the mutations used in this analysis, ranking the relative performance of these methods will be heavily subject to any training bias and beyond the scope of this study to assess.</p>
+<p>We did notice that certain predictors performed particularly poorly on certain targets. For example, DEOGEN2 ranked last, by far, for BRCA1. Interestingly, however, the relative performance of DEOGEN2 improved markedly if only predictions of mutations with DMS measurements, which covers primarily just the RING domain of BRCA1, are considered (Fig <xref ref-type="fig" rid="msb199380-fig-0004ev">EV4</xref>). This appears to be due to DEOGEN2 assigning extremely different weights to different domains in BRCA1, thus obscuring good predictions when analysing the entire protein. We also investigated other predictors with low AUCs for additional domain‐specific effects. A further three data sets which showed a similar pattern were MPC on P53, VEST4 on BRCA1 and PROVEAN on BRCA1, which are all highlighted in Fig <xref ref-type="fig" rid="msb199380-fig-0004ev">EV4</xref>.</p>
+<fig fig-type="Figure" id="msb199380-fig-0004ev" orientation="portrait" position="float" specific-use="collapsible" xml:lang="en">
+<label>Figure EV4</label>
+<caption>
+<title>Domain‐specific effects observed in certain variant effect predictors (VEPs)</title>
+<p> The distribution of predictions made by <styled-content style="fixed-case" toggle="no">VEP</styled-content>s that demonstrated different domain weightings within a single protein for ClinVar and gnom<styled-content style="fixed-case" toggle="no">AD</styled-content> variants.
+<list id="msb199380-list-0003" list-type="alpha-upper"><list-item><p>
+<styled-content style="fixed-case" toggle="no">MPC</styled-content> scores for P53 variants.</p></list-item><list-item><p>
+<styled-content style="fixed-case" toggle="no">DEOGEN</styled-content>2 scores for <styled-content style="fixed-case" toggle="no">BRCA</styled-content>1 variants.</p></list-item><list-item><p>
+<styled-content style="fixed-case" toggle="no">VEST</styled-content>4 scores for <styled-content style="fixed-case" toggle="no">BRCA</styled-content>1 variants.</p></list-item><list-item><p>
+<styled-content style="fixed-case" toggle="no">PROVEAN</styled-content> scores for <styled-content style="fixed-case" toggle="no">BRCA</styled-content>1 variants.</p></list-item></list>
+</p>
+</caption>
+<graphic id="nlm-graphic-17" xlink:href="MSB-16-e9380-g008"></graphic>
+</fig>
+</sec>
+</sec>
+<sec id="msb199380-sec-0006">
+<title>Discussion</title>
+<p>The number of available genome and protein sequences has increased tremendously in the last decade due to advances in next‐generation sequencing technologies. In this wealth of new data, we have discovered a large number of previously unseen coding variants of unknown functional significance. To assist us in analysing this new data, computational predictors have been developed, but the training and evaluation of these predictors often suffer from biases. DMS experiments provide an ideal benchmark for testing predictors, ensuring that none of the training data is included in the evaluation. The availability of a large number of such experimental DMS data sets has facilitated this study.</p>
+<p>We are aware that numerous technical and computational factors can impact the quality of data from DMS studies. These can stem from experimental procedure and thus be assessed through reproducibility in biological replicates, or measurement uncertainty assessed by technical replicates. The largest source of error from DMS is encountered in the sequencing stage, where next‐generation sequencing typically reads between 1/100 and 1/1,000 bases incorrectly (Ma <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0053">2019</xref>). Many groups adopt a barcoding strategy to address this issue, so that a multi‐base unique artificial sequence is associated with each variant. In addition, reads below a certain quality threshold are rejected and variants which are present at a rate below a given detection threshold are removed. Several groups provide both their full fitness scores and a filter for high‐quality results (Starita <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0088">2015</xref>; Mighell <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0059">2018</xref>). In these cases, we find that the filtered high‐quality results have a higher average correlation with the VEPs (Tables <xref ref-type="supplementary-material" rid="msb199380-sup-0013">EV12</xref> and <xref ref-type="supplementary-material" rid="msb199380-sup-0014">EV13</xref>), as well as superior predictive power for disease mutations (Fig <xref ref-type="fig" rid="msb199380-fig-0003">3</xref>).</p>
+<p>Of the 46 different predictors evaluated in this study, we find that a single program, DeepSequence, clearly stands out from all of the others, both in terms of performance and in terms of methodology. DeepSequence showed the strongest correlations with the DMS data in humans and bacteria and was the top computational predictor of human disease mutations. Most machine learning methods make use of several features, often including some measure of sequence conservation at the site of interest, and then learn the patterns of these features that result in a mutation being classified as damaging or benign. DeepSequence makes use of deep generative models to integrate factors from the entire sequence at once, rather than only one or a few sites. This type of problem is largely intractable for traditional machine learning, given the number of parameters involved; however, DeepSequence overcomes this by learning the latent factors underlying the protein sequence. This approach also produces advantages in terms of the biases inherent in supervised methods. We can expect a machine learning method confronted with an example it was trained on to classify it correctly most of the time, producing an unrepresentative assessment of its accuracy. DeepSequence makes use of multiple sequence alignments and never sees labelled protein data, resulting in scores that are not biased by training examples. This is not to say that DeepSequence is a completely unbiased method, however. The scores which are generated depend entirely upon the database from which multiple sequence alignments are drawn. If certain sequences are under‐represented, then predictions for those will be lower quality, such as the results we observe for viral proteins drawn from the UniRef100 database. The success that DeepSequence has achieved in predicting mutation effects for human proteins shows that deep generative models may well be the way forward in this field, removing the reliance on labelled data sets for making predictions.</p>
+<p>One of the VEPs we assessed, Envision, is trained with a supervised learning approach using DMS data rather than labelled pathogenic and benign variants. This method uses a number of the same DMS sets we used in this analysis for training (BRCA1(a), HSP82, UBI4(a and b), PAB1 and bla(a)); thus, the ranking of this method in <xref ref-type="supplementary-material" rid="msb199380-sup-0008">Table EV7</xref> is almost certainly subject to training bias. It is interesting, however, that despite this advantage, Envision only produces moderate overall performance for human DMS data sets (although it does rank 1<sup>st</sup> for TPK1). In terms of predicting pathogenic missense mutations, Envision performs well for BRCA1 ranking 3<sup>rd</sup> among the VEPs and P53, ranking 4<sup>th</sup>, but its performance is unremarkable for the other proteins. Notably, although Envision was not trained on a P53 data set, it was evaluated using one (although not the same DMS data set used in this study). While the approach used by Envision is innovative, assessing its performance with DMS has the same caveats as assessing performance of other supervised VEPs using pathogenic mutation databases. Thus, it is notable that, despite this advantage, Envision showed only modest performance against the DMS data.</p>
+<p>Most predictors, supervised or otherwise, undergo hyperparameter optimisation, a process to tweak internal variables such as learning rate, network architecture or regularisation in order to obtain better performance. This process invariably involves repeatedly testing the predictor's performance against a certain “test” data set and has potential to introduce another source of bias, even into unsupervised methods. Our use of DMS data to assess these methods should greatly reduce the impact of this effect for all methods except Envision and possibly DeepSequence, which could have conceivably been optimised against DMS data used in its original evaluation. Envision does not perform exceptionally regardless, and we show that DeepSequence still performs well when assessed using data it has definitely not seen (<xref ref-type="supplementary-material" rid="msb199380-sup-0010">Table EV9</xref>).</p>
+<p>Certain DMS experiments appear to show outstanding performance at identifying disease mutations. It is interesting to compare performance with respect to the experimental phenotypes used, as the utility of an experimental phenotype for identifying pathogenic mutations should be related to the mechanism by which mutations cause disease. We note that those DMS experiments based upon competitive growth assays appear to perform particularly well, ranking above all computational predictors for three of the four proteins where they are available. For BRCA1, where there are DMS data sets based upon three different experimental phenotypes, the growth rate‐based assay (Findlay <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0020">2018</xref>) performs much better than those based upon yeast two‐hybrid or E3 ubiquitin ligase activity (Starita <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0088">2015</xref>). Growth rate is likely to be a very general experimental phenotype that will reflect any loss of function occurring at a molecular level. In contrast, if some of the pathogenic BRCA1 mutations acted by some mechanism other than perturbation of its interaction with specific binding partners (BARD1) or disrupting E3 activity, this could explain the underperformance of the DMS data based upon these alternate phenotypes. Interestingly, however, the HRAS DMS data, which is also superior to all computational predictors, are based upon a two‐hybrid probe of its interaction with RasGAP (Bandaru <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0003">2017</xref>), suggesting that disruption of this interaction is reflective of the molecular mechanisms underlying disease.</p>
+<p>PTEN is also noteworthy, as it too has different DMS data sets available based upon different experimental phenotypes. The screen for the PTEN(b) data set assesses the disruption of an artificial gene circuit in yeast, essentially probing phosphatase activity. This data set is superior to all but four VEPs, suggesting it is reasonably reflective of molecular disease mechanisms. In contrast, the phenotypic screen for PTEN(a) measures protein abundance in the cell by fluorescence of EGFP bound to the protein (Matreyek <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0056">2018</xref>). This technique, called VAMP‐seq, identifies thermodynamically unstable variants; however, this may fail to capture disease mechanisms acting through interaction disruption and loss or gain of function unrelated to destabilisation. Indeed, it was noted in this study that dominant‐negative variants were not significantly different from wild type, consistent with our previous observation that dominant‐negative mutations tend to be very mild at the protein structural level (McEntagart <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0057">2016</xref>). Thus, great care must be taken when selecting an experimental phenotype. In the absence of a better phenotypic assay specifically related to a known disease mechanism, experiments based upon growth may be the most general way of probing loss of protein function, and thus the most useful for predicting disease.</p>
+<p>Our results in analysing the predictive capability of DMS data sets largely recapitulate the results presented in the original studies. The CALM1 data set (Weile <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0094">2017</xref>) is reported to have superior precision–recall performance than PolyPhen‐2 and PROVEAN, which we also find (for the raw scores rather than the flipped scores). The TPK1 data set (Weile <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0094">2017</xref>) allowed complete separation of the neutral and disease alleles as did PolyPhen‐2 and PROVEAN, but only after additional filtering for recessive disease alleles, which we did not perform. The BRCA1(a) data set (Starita <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0088">2015</xref>) is used by the authors to train a model to predict homology‐direct DNA repair rescue; however, predictions are primarily made outside of the region of DMS coverage which we are unable to assess. BRCA1(b) (Findlay <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0020">2018</xref>) is reported by the authors to separate pathogenic and benign mutations in ClinVar almost perfectly, a result which we also see in our analysis. The PTEN(a) (Matreyek <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0056">2018</xref>) data set is stated to identify upwards of 90% of PTEN pathogenic variants, although no false‐positive rate is given since no PTEN variants were officially classified as benign. Again, our results are similar, given the high precision–recall AUC of the PTEN(a) data set but the considerably lower‐ranked ROC AUC indicates a significant false‐positive rate. Finally, the PTEN(b) authors (Mighell <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0059">2018</xref>) employed a similar approach to us, using gnomAD variants to stand‐in for benign substitutions. Their results indicate that their data have a superior positive predictive value than PROVEAN, SIFT and PolyPhen‐2 which we also find.</p>
+<p>The two most commonly used VEPs are probably PolyPhen‐2 and SIFT, which are both still very widely used in variant prioritisation. Neither showed exceptional performance in this study, ranking 14<sup>th</sup> and 25<sup>th</sup> against the human DMS data (although SIFT4G, a genomic‐conservation‐based implementation of the SIFT algorithm (Vaser <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0093">2016</xref>) ranked 9<sup>th</sup>). Therefore, we recommend other VEPs based upon our analyses. Unfortunately, DeepSequence is very computationally intensive and could be quite difficult for a typical end user to run. It also does not have defined disease thresholds; these would need to be assessed on a protein‐by‐protein basis, likely by analysis of putatively benign (e.g. gnomAD) variants. We therefore highlight SNAP2, DEOGEN2, SNPs&amp;GO and SuSPect, which also tended to perform well against the DMS data sets, and have simple‐to‐use web interfaces. We further recommend REVEL—although it lacks a web interface, it has been pre‐calculated for all human chromosomes and is available online to download. We suggest that these methods would make good choices for routine variant prioritisation. Importantly, however, they all showed large variation in their performance between different proteins, suggesting that one should still not rely too much on the results of any single predictor.</p>
+<p>While evolutionary conservation is widely accepted to be the most predictive feature used in variant effect prediction, some VEPs also integrate features derived from experimentally determined protein structures (PolyPhen‐2, S3D‐PROF, SNP&amp;GOs3D, DEOGEN2 and MPC). It is interesting that the inclusion of protein structural models did not appear to be particularly useful for the VEPs. In principle, since disease mechanisms can often be explained by protein structural effects (Steward <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0089">2003</xref>) one might expect that protein structure should be useful. It may be that the value of evolutionary information simply dwarfs any contribution from the inclusion of structure; that is, if a mutation is damaging at a structural level, this is likely to be reflected in the evolutionary conservation of that residue. Moreover, many pathogenic mutations are not highly damaging at a protein structural level, for example those associated with a dominant‐negative effect in protein complexes (Bergendahl <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0005">2019</xref>) or those that affect transcription factor binding specificity (Williamson <italic>et al</italic>, <xref ref-type="ref" rid="msb199380-bib-0095">2019</xref>). It is possible that future strategies that take into consideration the diverse molecular mechanisms underlying human genetic disease and the unique structural properties of individual proteins will be able to make better use of the huge amount of protein structural data now available.</p>
+<p>The value of DMS data for directly identifying pathogenic mutations is especially exciting, based on the results we observed here. Given the proper choice of experimental phenotype, DMS experiments are likely to be better than (or at the very least competitive with) the best computational VEPs. The applicability of DMS data for direct variant prioritisation is currently limited by the small fraction of human protein residues for which DMS experiments have been performed. In the coming years, as more proteins are studied and experimental strategies are improved, we expect that the utilisation of such data for the identification of damaging variants will become routine.</p>
+</sec>
+<sec id="msb199380-sec-0007">
+<title>Materials and Methods</title>
+<sec id="msb199380-sec-0008">
+<title>Selecting DMS data sets for correlation analysis</title>
+<p>Most of the DMS studies analysed provided multiple fitness maps for the protein of interest. Depending on the study, this was due to replicates in differing conditions (e.g. multiple antibiotic concentrations), different functional assays or quality filtering of the results. As our interest was to see how well VEPs could replicate the results of DMS experiments, for proteins with multiple data sets available from a single study, we selected the fitness map with the highest average Spearman correlation to all predictors to assess in Fig <xref ref-type="fig" rid="msb199380-fig-0002">2</xref> and <xref ref-type="supplementary-material" rid="msb199380-sup-0008">Table EV7</xref>. Where a quality threshold was given, separating high‐ and low‐quality results, we tested all results, and high‐quality filtered results. We did not investigate imputed results or those generated by predictive models trained on the DMS fitness maps.</p>
+</sec>
+<sec id="msb199380-sec-0009">
+<title>Structure selection</title>
+<p>The SNP&amp;GOs3D VEP along with S3D‐PROF require a protein structure to be provided in order to generate results. Where possible, we selected an X‐ray crystallography structure with a resolution ≤ 2.5 Å and selected the structure with greatest coverage of the DMS results for that protein. Otherwise we selected the highest resolution structure available. A full list of the structures and chains used for these predictors is provided in <xref ref-type="supplementary-material" rid="msb199380-sup-0015">Table EV14</xref>.</p>
+</sec>
+<sec id="msb199380-sec-0010">
+<title>Calculating rank scores</title>
+<p>Rank score is defined as the mean, normalised correlation over all proteins, given by the following formula:<disp-formula id="msb199380-disp-0001"><mml:math id="nlm-math-1"><mml:mrow><mml:mi>R</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mi>m</mml:mi></mml:msub><mml:mfrac><mml:mrow><mml:mi>c</mml:mi><mml:mo>−</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mo movablelimits="true">min</mml:mo></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mi>c</mml:mi><mml:mo movablelimits="true">max</mml:mo></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mo movablelimits="true">min</mml:mo></mml:msub></mml:mrow></mml:mfrac></mml:mrow><mml:msub><mml:mi>m</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:mfrac></mml:mrow></mml:math></disp-formula>where <italic>c</italic> is each correlation for a specific protein, <italic>c</italic>
+<sub>min</sub> is the minimum correlation for each protein and <italic>c</italic>
+<sub>max</sub> is the maximum correlation for each protein. This represents the correlation, normalised to a scale between 1 for the highest ranking method and 0 for the lowest. This is then summed across all proteins (<italic>m</italic>) for the same method, and divided by the number of proteins for which this method generated a result (<italic>m</italic>
+<sub><italic>x</italic></sub>), in order to normalise for instances where a predictor failed to generate results for a certain protein. Where multiple DMS data sets are present for a single protein, we averaged the normalised correlations of each predictor between these data sets, and treated the resulting values as scores from a single protein.</p>
+<p>Coefficient of variation is calculated from the normalised correlations, before the mean is taken. It is the standard deviation of these values across all proteins, divided by the mean. This represents the variation in predictor rank between different proteins.</p>
+<p>It should be noted that rank scores are only comparable within the set of proteins that were used to calculate it, nor does it convey any information about predictor accuracy. The rank score metric can only be used for relative ranking within a set of proteins.</p>
+</sec>
+<sec id="msb199380-sec-0011">
+<title>Human mutation data sets</title>
+<p>Data were retrieved from gnomAD v2.1 by searching for each of the human genes at <ext-link ext-link-type="uri" xlink:href="https://gnomad.broadinstitute.org">https://gnomad.broadinstitute.org</ext-link>. Because CALM1 had only eight missense variants in gnomAD v2.1, we also included an additional three missense variants from gnomAD v3.0 (for CALM1 only). We did not filter for allele frequency. Each gene was also searched for in the ClinVar database at <ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/clinvar">https://www.ncbi.nlm.nih.gov/clinvar</ext-link>. Data were filtered so that only missense mutations labelled as “pathogenic” or “likely pathogenic” were present.</p>
+</sec>
+<sec id="msb199380-sec-0012">
+<title>Plotting ROC and precision–recall curves</title>
+<p>To plot the ROC curves, mutations present in the gnomAD data set were taken as true negatives, while mutations present in the ClinVar data set were taken as true positives. Mutations present in both sets were removed from the gnomAD set. The “roc_curve” and “auc” functions for the sklearn python package were used to calculate the true‐positive rate (TPR) and false‐positive rate (FPR) and the AUC. As some predictors utilise inverse metrics and thus produce an AUC under 0.5, we multiplied the predictions of all such methods by −1 to bring the value above 0.5; this is equivalent to inverting the TPR and FPR. Precision–recall curves were calculated using the “precision_recall_curve” and “auc” functions from the sklearn package. A list of methods with inverted scores was retained from the ROC calculations. The scores from these methods were deducted from one to retain comparability. As precision–recall curves are sensitive to class balance, we removed methods with less‐than‐complete coverage of the DMS mutations within the ClinVar and gnomAD data sets from the analysis. We also plotted individual curves for DMS assays in the same protein with differing coverage of the available ClinVar and gnomAD mutations.</p>
+</sec>
+<sec id="msb199380-sec-0013">
+<title>Bootstrapping</title>
+<p>To calculate statistical significance, we utilised a bootstrapping methodology and applied it to both the VEP ranking analysis using DMS data and the ROC curve calculation. For the ranking analysis, we re‐sampled mutations from each protein with replacement 1,000 times and re‐calculated the rank scores. Our <italic>P</italic>‐value for the top‐ranking method was therefore the number of times it did not produce the top rank score, divided by 1,000. The ROC curve bootstrapping was carried out using the same method with 10,000 replicates except the ClinVar and gnomAD mutations were sampled individually to retain class balance and ensure that there was no chance one class could be lost from the analysis. The <italic>P</italic>‐value for one method performing significantly better than another was the number of times it underperformed the second method, divided by 10,000.</p>
+</sec>
+</sec>
+<sec id="msb199380-sec-0016">
+<title>Author contributions</title>
+<p>The study idea was conceived by JAM. BJL acquired all data for use in the study and carried out all data analysis. JAM supervised and aided in interpreting the results. BJL took a lead in writing the manuscript, which was finalised with considerable contributions from JAM.</p>
+</sec>
+<sec id="msb199380-sec-0017" sec-type="COI-statement">
+<title>Conflict of interest</title>
+<p>The authors declare that they have no conflicts of interest.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material content-type="local-data"></supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0001">
+<caption>
+<p>Expanded View Figures PDF</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s001.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0002">
+<caption>
+<p>Table EV1</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s002.docx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0003">
+<caption>
+<p>Table EV2</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s003.docx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0004">
+<caption>
+<p>Table EV3</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s004.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0005">
+<caption>
+<p>Table EV4</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s005.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0006">
+<caption>
+<p>Table EV5</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s006.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0007">
+<caption>
+<p>Table EV6</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s007.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0008">
+<caption>
+<p>Table EV7</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s008.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-009">
+<caption>
+<p>Table EV8</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s009.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0010">
+<caption>
+<p>Table EV9</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s010.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0011">
+<caption>
+<p>Table EV10</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s011.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0012">
+<caption>
+<p>Table EV11</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s012.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0013">
+<caption>
+<p>Table EV12</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s013.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0014">
+<caption>
+<p>Table EV13</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s014.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="msb199380-sup-0015">
+<caption>
+<p>Table EV14</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s015.xlsx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data">
+<caption>
+<p>Review Process File</p>
+</caption>
+<media xlink:href="MSB-16-e9380-s016.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack id="msb199380-sec-0015">
+<title>Acknowledgements</title>
+<p>We thank Deborah Marks and Adam Riesselman for their helpful clarifications regarding DeepSequence. JM is supported by an MRC Career Development Award (MR/M02122X/1) and is a Lister Institute Research Prize Fellow. BL is supported by the MRC Precision Medicine Doctoral Training Programme.</p>
+</ack>
+<sec id="msb199380-sec-0014" sec-type="data-availability">
+<title>Data availability</title>
+<p>The data sets containing all variant effect predictions and DMS measurements used in this study are available at Figshare.</p>
+<p>Variants from all organisms: <ext-link ext-link-type="uri" specific-use="dataset is-supplemented-by" xlink:href="https://doi.org/10.6084/m9.figshare.12369359.v1">https://doi.org/10.6084/m9.figshare.12369359.v1</ext-link>
+</p>
+<p>Human pathogenic and putatively benign variants: <ext-link ext-link-type="uri" specific-use="dataset is-supplemented-by" xlink:href="https://doi.org/10.6084/m9.figshare.12369452.v1">https://doi.org/10.6084/m9.figshare.12369452.v1</ext-link>
+</p>
+</sec>
+<ref-list content-type="cited-references" id="msb199380-bibl-0001">
+<title>References</title>
+<ref id="msb199380-bib-0001">
+<mixed-citation id="msb199380-cit-0001" publication-type="journal">
+<string-name>
+<surname>Adkar</surname>
+<given-names>BV</given-names>
+</string-name>, <string-name>
+<surname>Tripathi</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Sahoo</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Bajaj</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Goswami</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Chakrabarti</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Swarnkar</surname>
+<given-names>MK</given-names>
+</string-name>, <string-name>
+<surname>Gokhale</surname>
+<given-names>RS</given-names>
+</string-name>, <string-name>
+<surname>Varadarajan</surname>
+<given-names>R</given-names>
+</string-name> (<year>2012</year>) <article-title>Protein model discrimination using mutational sensitivity derived from deep sequencing</article-title>. <source xml:lang="en"/>Structure
+<volume>20</volume>: <fpage>371</fpage>–<lpage>381</lpage>
+<pub-id pub-id-type="pmid">22325784</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0002">
+<mixed-citation id="msb199380-cit-0002" publication-type="journal">
+<string-name>
+<surname>Adzhubei</surname>
+<given-names>IA</given-names>
+</string-name>, <string-name>
+<surname>Schmidt</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Peshkin</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Ramensky</surname>
+<given-names>VE</given-names>
+</string-name>, <string-name>
+<surname>Gerasimova</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Bork</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Kondrashov</surname>
+<given-names>AS</given-names>
+</string-name>, <string-name>
+<surname>Sunyaev</surname>
+<given-names>SR</given-names>
+</string-name> (<year>2010</year>) <article-title>A method and server for predicting damaging missense mutations</article-title>. <source xml:lang="en"/>Nat Methods
+<volume>7</volume>: <fpage>248</fpage>–<lpage>249</lpage>
+<pub-id pub-id-type="pmid">20354512</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0003">
+<mixed-citation id="msb199380-cit-0003" publication-type="journal">
+<string-name>
+<surname>Bandaru</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Shah</surname>
+<given-names>NH</given-names>
+</string-name>, <string-name>
+<surname>Bhattacharyya</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Barton</surname>
+<given-names>JP</given-names>
+</string-name>, <string-name>
+<surname>Kondo</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Cofsky</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name>
+<surname>Gee</surname>
+<given-names>CL</given-names>
+</string-name>, <string-name>
+<surname>Chakraborty</surname>
+<given-names>AK</given-names>
+</string-name>, <string-name>
+<surname>Kortemme</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Ranganathan</surname>
+<given-names>R</given-names>
+</string-name>
+<italic>et al</italic> (<year>2017</year>) <article-title>Deconstruction of the Ras switching cycle through saturation mutagenesis</article-title>. <source xml:lang="en"/>eLife
+<volume>6</volume>: <elocation-id>e27810</elocation-id>
+<pub-id pub-id-type="pmid">28686159</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0004">
+<mixed-citation id="msb199380-cit-0004" publication-type="journal">
+<string-name>
+<surname>Banka</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>de Goede</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Yue</surname>
+<given-names>WW</given-names>
+</string-name>, <string-name>
+<surname>Morris</surname>
+<given-names>AAM</given-names>
+</string-name>, <string-name>
+<surname>von Bremen</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Chandler</surname>
+<given-names>KE</given-names>
+</string-name>, <string-name>
+<surname>Feichtinger</surname>
+<given-names>RG</given-names>
+</string-name>, <string-name>
+<surname>Hart</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Khan</surname>
+<given-names>N</given-names>
+</string-name>, <string-name>
+<surname>Lunzer</surname>
+<given-names>V</given-names>
+</string-name>
+<italic>et al</italic> (<year>2014</year>) <article-title>Expanding the clinical and molecular spectrum of thiamine pyrophosphokinase deficiency: A treatable neurological disorder caused by TPK1 mutations</article-title>. <source xml:lang="en"/>Mol Genet Metab
+<volume>113</volume>: <fpage>301</fpage>–<lpage>306</lpage>
+<pub-id pub-id-type="pmid">25458521</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0005">
+<mixed-citation id="msb199380-cit-0005" publication-type="journal">
+<string-name>
+<surname>Bergendahl</surname>
+<given-names>LT</given-names>
+</string-name>, <string-name>
+<surname>Gerasimavicius</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Miles</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Macdonald</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Wells</surname>
+<given-names>JN</given-names>
+</string-name>, <string-name>
+<surname>Welburn</surname>
+<given-names>JPI</given-names>
+</string-name>, <string-name>
+<surname>Marsh</surname>
+<given-names>JA</given-names>
+</string-name> (<year>2019</year>) <article-title>The role of protein complexes in human genetic disease</article-title>. <source xml:lang="en"/>Protein Sci
+<volume>28</volume>: <fpage>1400</fpage>–<lpage>1411</lpage>
+<pub-id pub-id-type="pmid">31219644</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0008">
+<mixed-citation id="msb199380-cit-0008" publication-type="journal">
+<string-name>
+<surname>Capriotti</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Altman</surname>
+<given-names>RB</given-names>
+</string-name> (<year>2011</year>) <article-title>Improving the prediction of disease‐related variants using protein three‐dimensional structure</article-title>. <source xml:lang="en"/>BMC Bioinformatics
+<volume>12</volume>: <fpage>S3</fpage>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0009">
+<mixed-citation id="msb199380-cit-0009" publication-type="journal">
+<string-name>
+<surname>Capriotti</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Calabrese</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Fariselli</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Martelli</surname>
+<given-names>PL</given-names>
+</string-name>, <string-name>
+<surname>Altman</surname>
+<given-names>RB</given-names>
+</string-name>, <string-name>
+<surname>Casadio</surname>
+<given-names>R</given-names>
+</string-name> (<year>2013</year>) <article-title>WS‐SNPs&amp;GO: a web server for predicting the deleterious effect of human protein variants using functional annotation</article-title>. <source xml:lang="en"/>BMC Genom
+<volume>14</volume>: <fpage>S6</fpage>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0010">
+<mixed-citation id="msb199380-cit-0010" publication-type="journal">
+<string-name>
+<surname>Carraro</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Minervini</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Giollo</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Bromberg</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Capriotti</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Casadio</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Dunbrack</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Elefanti</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Fariselli</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Ferrari</surname>
+<given-names>C</given-names>
+</string-name>
+<italic>et al</italic> (<year>2017</year>) <article-title>Performance of in silico tools for the evaluation of p16INK4a (CDKN2A) variants in CAGI</article-title>. <source xml:lang="en"/>Hum Mutat
+<volume>38</volume>: <fpage>1042</fpage>–<lpage>1050</lpage>
+<pub-id pub-id-type="pmid">28440912</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0013">
+<mixed-citation id="msb199380-cit-0013" publication-type="journal">
+<string-name>
+<surname>Crotti</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Johnson</surname>
+<given-names>CN</given-names>
+</string-name>, <string-name>
+<surname>Graf</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>De Ferrari</surname>
+<given-names>GM</given-names>
+</string-name>, <string-name>
+<surname>Cuneo</surname>
+<given-names>BF</given-names>
+</string-name>, <string-name>
+<surname>Ovadia</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Papagiannis</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Feldkamp</surname>
+<given-names>MD</given-names>
+</string-name>, <string-name>
+<surname>Rathi</surname>
+<given-names>SG</given-names>
+</string-name>, <string-name>
+<surname>Kunic</surname>
+<given-names>JD</given-names>
+</string-name>
+<italic>et al</italic> (<year>2013</year>) <article-title>Calmodulin mutations associated with recurrent cardiac arrest in infants</article-title>. <source xml:lang="en"/>Circulation
+<volume>127</volume>: <fpage>1009</fpage>–<lpage>1017</lpage>
+<pub-id pub-id-type="pmid">23388215</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0014">
+<mixed-citation id="msb199380-cit-0014" publication-type="journal">
+<string-name>
+<surname>Dandage</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Pandey</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Jayaraj</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Rai</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Berger</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Chakraborty</surname>
+<given-names>K</given-names>
+</string-name> (<year>2018</year>) <article-title>Differential strengths of molecular determinants guide environment specific mutational fates</article-title>. <source xml:lang="en"/>PLoS Genet
+<volume>14</volume>: <elocation-id>e1007419</elocation-id>
+<pub-id pub-id-type="pmid">29813059</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0015">
+<mixed-citation id="msb199380-cit-0015" publication-type="journal">
+<string-name>
+<surname>Davydov</surname>
+<given-names>EV</given-names>
+</string-name>, <string-name>
+<surname>Goode</surname>
+<given-names>DL</given-names>
+</string-name>, <string-name>
+<surname>Sirota</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Cooper</surname>
+<given-names>GM</given-names>
+</string-name>, <string-name>
+<surname>Sidow</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Batzoglou</surname>
+<given-names>S</given-names>
+</string-name> (<year>2010</year>) <article-title>Identifying a High Fraction of the Human Genome to be under Selective Constraint Using GERP++</article-title>. <source xml:lang="en"/>PLoS Comput Biol
+<volume>6</volume>: <elocation-id>e1001025</elocation-id>
+<pub-id pub-id-type="pmid">21152010</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0016">
+<mixed-citation id="msb199380-cit-0016" publication-type="journal">
+<string-name>
+<surname>Deng</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name>
+<surname>Huang</surname>
+<given-names>W</given-names>
+</string-name>, <string-name>
+<surname>Bakkalbasi</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Brown</surname>
+<given-names>NG</given-names>
+</string-name>, <string-name>
+<surname>Adamski</surname>
+<given-names>CJ</given-names>
+</string-name>, <string-name>
+<surname>Rice</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Muzny</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Gibbs</surname>
+<given-names>RA</given-names>
+</string-name>, <string-name>
+<surname>Palzkill</surname>
+<given-names>T</given-names>
+</string-name> (<year>2012</year>) <article-title>Deep sequencing of systematic combinatorial libraries reveals β‐lactamase sequence constraints at high resolution</article-title>. <source xml:lang="en"/>J Mol Biol
+<volume>424</volume>: <fpage>150</fpage>–<lpage>167</lpage>
+<pub-id pub-id-type="pmid">23017428</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0018">
+<mixed-citation id="msb199380-cit-0018" publication-type="journal">
+<string-name>
+<surname>Doud</surname>
+<given-names>MB</given-names>
+</string-name>, <string-name>
+<surname>Bloom</surname>
+<given-names>JD</given-names>
+</string-name> (<year>2016</year>) <article-title>Accurate measurement of the effects of all amino‐acid mutations on influenza hemagglutinin</article-title>. <source xml:lang="en"/>Viruses
+<volume>8</volume>: <fpage>155</fpage>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0019">
+<mixed-citation id="msb199380-cit-0019" publication-type="journal">
+<collab collab-type="authors">Epi4K Consortium</collab>
+, <collab collab-type="authors">Epilepsy Phenome/Genome Project</collab>
+, <string-name>
+<surname>Allen</surname>
+<given-names>AS</given-names>
+</string-name>, <string-name>
+<surname>Berkovic</surname>
+<given-names>SF</given-names>
+</string-name>, <string-name>
+<surname>Cossette</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Delanty</surname>
+<given-names>N</given-names>
+</string-name>, <string-name>
+<surname>Dlugos</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Eichler</surname>
+<given-names>EE</given-names>
+</string-name>, <string-name>
+<surname>Epstein</surname>
+<given-names>MP</given-names>
+</string-name>, <string-name>
+<surname>Glauser</surname>
+<given-names>T</given-names>
+</string-name>
+<italic>et al</italic> (<year>2013</year>) <article-title>De novo mutations in epileptic encephalopathies</article-title>. <source xml:lang="en"/>Nature
+<volume>501</volume>: <fpage>217</fpage>–<lpage>221</lpage>
+<pub-id pub-id-type="pmid">23934111</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0020">
+<mixed-citation id="msb199380-cit-0020" publication-type="journal">
+<string-name>
+<surname>Findlay</surname>
+<given-names>GM</given-names>
+</string-name>, <string-name>
+<surname>Daza</surname>
+<given-names>RM</given-names>
+</string-name>, <string-name>
+<surname>Martin</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Zhang</surname>
+<given-names>MD</given-names>
+</string-name>, <string-name>
+<surname>Leith</surname>
+<given-names>AP</given-names>
+</string-name>, <string-name>
+<surname>Gasperini</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Janizek</surname>
+<given-names>JD</given-names>
+</string-name>, <string-name>
+<surname>Huang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name>
+<surname>Starita</surname>
+<given-names>LM</given-names>
+</string-name>, <string-name>
+<surname>Shendure</surname>
+<given-names>J</given-names>
+</string-name> (<year>2018</year>) <article-title>Accurate classification of BRCA1 variants with saturation genome editing</article-title>. <source xml:lang="en"/>Nature
+<volume>562</volume>: <fpage>217</fpage>–<lpage>222</lpage>
+<pub-id pub-id-type="pmid">30209399</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0021">
+<mixed-citation id="msb199380-cit-0021" publication-type="journal">
+<string-name>
+<surname>Firnberg</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Labonte</surname>
+<given-names>JW</given-names>
+</string-name>, <string-name>
+<surname>Gray</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name>
+<surname>Ostermeier</surname>
+<given-names>M</given-names>
+</string-name> (<year>2014</year>) <article-title>A Comprehensive, High‐Resolution Map of a Gene's Fitness Landscape</article-title>. <source xml:lang="en"/>Mol Biol Evol
+<volume>31</volume>: <fpage>1581</fpage>–<lpage>1592</lpage>
+<pub-id pub-id-type="pmid">24567513</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0022">
+<mixed-citation id="msb199380-cit-0022" publication-type="journal">
+<string-name>
+<surname>Fitzgerald</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Gerety</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Jones</surname>
+<given-names>W</given-names>
+</string-name>, <string-name>
+<surname>van Kogelenberg</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>King</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>McRae</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Morley</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Parthiban</surname>
+<given-names>V</given-names>
+</string-name>, <string-name>
+<surname>Al‐Turki</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Ambridge</surname>
+<given-names>K</given-names>
+</string-name>
+<italic>et al</italic> (<year>2015</year>) <article-title>Large‐scale discovery of novel genetic causes of developmental disorders</article-title>. <source xml:lang="en"/>Nature
+<volume>519</volume>: <fpage>223</fpage>–<lpage>228</lpage>
+<pub-id pub-id-type="pmid">25533962</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0023">
+<mixed-citation id="msb199380-cit-0023" publication-type="journal">
+<string-name>
+<surname>Fowler</surname>
+<given-names>DM</given-names>
+</string-name>, <string-name>
+<surname>Fields</surname>
+<given-names>S</given-names>
+</string-name> (<year>2014</year>) <article-title>Deep mutational scanning: a new style of protein science</article-title>. <source xml:lang="en"/>Nat Methods
+<volume>11</volume>: <fpage>801</fpage>–<lpage>807</lpage>
+<pub-id pub-id-type="pmid">25075907</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0024">
+<mixed-citation id="msb199380-cit-0024" publication-type="journal">
+<string-name>
+<surname>Garber</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Guttman</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Clamp</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Zody</surname>
+<given-names>MC</given-names>
+</string-name>, <string-name>
+<surname>Friedman</surname>
+<given-names>N</given-names>
+</string-name>, <string-name>
+<surname>Xie</surname>
+<given-names>X</given-names>
+</string-name> (<year>2009</year>) <article-title>Identifying novel constrained elements by exploiting biased substitution patterns</article-title>. <source xml:lang="en"/>Bioinformatics
+<volume>25</volume>: <fpage>i54</fpage>–<lpage>i62</lpage>
+<pub-id pub-id-type="pmid">19478016</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0027">
+<mixed-citation id="msb199380-cit-0027" publication-type="journal">
+<string-name>
+<surname>Grantham</surname>
+<given-names>R</given-names>
+</string-name> (<year>1974</year>) <article-title>Amino acid difference formula to help explain protein evolution</article-title>. <source xml:lang="en"/>Science
+<volume>185</volume>: <fpage>862</fpage>–<lpage>864</lpage>
+<pub-id pub-id-type="pmid">4843792</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0028">
+<mixed-citation id="msb199380-cit-0028" publication-type="journal">
+<string-name>
+<surname>Gray</surname>
+<given-names>VE</given-names>
+</string-name>, <string-name>
+<surname>Hause</surname>
+<given-names>RJ</given-names>
+</string-name>, <string-name>
+<surname>Luebeck</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Shendure</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Fowler</surname>
+<given-names>DM</given-names>
+</string-name> (<year>2018</year>) <article-title>Quantitative missense variant effect prediction using large‐scale mutagenesis data</article-title>. <source xml:lang="en"/>Cell Syst
+<volume>6</volume>: <fpage>116</fpage>–<lpage>124</lpage>.e3<pub-id pub-id-type="pmid">29226803</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0029">
+<mixed-citation id="msb199380-cit-0029" publication-type="journal">
+<string-name>
+<surname>Grimm</surname>
+<given-names>DG</given-names>
+</string-name>, <string-name>
+<surname>Azencott</surname>
+<given-names>C‐A</given-names>
+</string-name>, <string-name>
+<surname>Aicheler</surname>
+<given-names>F</given-names>
+</string-name>, <string-name>
+<surname>Gieraths</surname>
+<given-names>U</given-names>
+</string-name>, <string-name>
+<surname>MacArthur</surname>
+<given-names>DG</given-names>
+</string-name>, <string-name>
+<surname>Samocha</surname>
+<given-names>KE</given-names>
+</string-name>, <string-name>
+<surname>Cooper</surname>
+<given-names>DN</given-names>
+</string-name>, <string-name>
+<surname>Stenson</surname>
+<given-names>PD</given-names>
+</string-name>, <string-name>
+<surname>Daly</surname>
+<given-names>MJ</given-names>
+</string-name>, <string-name>
+<surname>Smoller</surname>
+<given-names>JW</given-names>
+</string-name>
+<italic>et al</italic> (<year>2015</year>) <article-title>The evaluation of tools used to predict the impact of missense variants is hindered by two types of circularity</article-title>. <source xml:lang="en"/>Hum Mutat
+<volume>36</volume>: <fpage>513</fpage>–<lpage>523</lpage>
+<pub-id pub-id-type="pmid">25684150</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0030">
+<mixed-citation id="msb199380-cit-0030" publication-type="journal">
+<string-name>
+<surname>Gulko</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Hubisz</surname>
+<given-names>MJ</given-names>
+</string-name>, <string-name>
+<surname>Gronau</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Siepel</surname>
+<given-names>A</given-names>
+</string-name> (<year>2015</year>) <article-title>Probabilities of fitness consequences for point mutations across the human genome</article-title>. <source xml:lang="en"/>Nat Genet
+<volume>47</volume>: <fpage>276</fpage>–<lpage>283</lpage>
+<pub-id pub-id-type="pmid">25599402</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0031">
+<mixed-citation id="msb199380-cit-0031" publication-type="journal">
+<string-name>
+<surname>Haddox</surname>
+<given-names>HK</given-names>
+</string-name>, <string-name>
+<surname>Dingens</surname>
+<given-names>AS</given-names>
+</string-name>, <string-name>
+<surname>Bloom</surname>
+<given-names>JD</given-names>
+</string-name> (<year>2016</year>) <article-title>experimental estimation of the effects of all amino‐acid mutations to HIV's envelope protein on viral replication in cell culture</article-title>. <source xml:lang="en"/>PLoS Pathog
+<volume>12</volume>: <elocation-id>e1006114</elocation-id>
+<pub-id pub-id-type="pmid">27959955</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0032">
+<mixed-citation id="msb199380-cit-0032" publication-type="journal">
+<string-name>
+<surname>Harris</surname>
+<given-names>DT</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>N</given-names>
+</string-name>, <string-name>
+<surname>Riley</surname>
+<given-names>TP</given-names>
+</string-name>, <string-name>
+<surname>Anderson</surname>
+<given-names>SD</given-names>
+</string-name>, <string-name>
+<surname>Singh</surname>
+<given-names>NK</given-names>
+</string-name>, <string-name>
+<surname>Procko</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Baker</surname>
+<given-names>BM</given-names>
+</string-name>, <string-name>
+<surname>Kranz</surname>
+<given-names>DM</given-names>
+</string-name> (<year>2016</year>) <article-title>Deep Mutational Scans as a Guide to Engineering High Affinity T Cell Receptor Interactions with Peptide‐bound Major Histocompatibility Complex</article-title>. <source xml:lang="en"/>J Biol Chem
+<volume>291</volume>: <fpage>24566</fpage>–<lpage>24578</lpage>
+<pub-id pub-id-type="pmid">27681597</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0033">
+<mixed-citation id="msb199380-cit-0033" publication-type="journal">
+<string-name>
+<surname>Hecht</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Bromberg</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Rost</surname>
+<given-names>B</given-names>
+</string-name> (<year>2015</year>) <article-title>Better prediction of functional effects for sequence variants</article-title>. <source xml:lang="en"/>BMC Genom
+<volume>16</volume>: <fpage>S1</fpage>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0034">
+<mixed-citation id="msb199380-cit-0034" publication-type="journal">
+<string-name>
+<surname>Henikoff</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Henikoff</surname>
+<given-names>JG</given-names>
+</string-name> (<year>1992</year>) <article-title>Amino acid substitution matrices from protein blocks</article-title>. <source xml:lang="en"/>Proc Natl Acad Sci USA
+<volume>89</volume>: <fpage>10915</fpage>–<lpage>10919</lpage>
+<pub-id pub-id-type="pmid">1438297</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0035">
+<mixed-citation id="msb199380-cit-0035" publication-type="journal">
+<string-name>
+<surname>Henry</surname>
+<given-names>VJ</given-names>
+</string-name>, <string-name>
+<surname>Bandrowski</surname>
+<given-names>AE</given-names>
+</string-name>, <string-name>
+<surname>Pepin</surname>
+<given-names>A‐S</given-names>
+</string-name>, <string-name>
+<surname>Gonzalez</surname>
+<given-names>BJ</given-names>
+</string-name>, <string-name>
+<surname>Desfeux</surname>
+<given-names>A</given-names>
+</string-name> (<year>2014</year>) <article-title>OMICtools: an informative directory for multi‐omic data analysis</article-title>. <source xml:lang="en"/>Database (Oxford)
+<volume>2014</volume>: <elocation-id>bau069</elocation-id>.<pub-id pub-id-type="pmid">25024350</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0036">
+<mixed-citation id="msb199380-cit-0036" publication-type="journal">
+<string-name>
+<surname>Hoskins</surname>
+<given-names>RA</given-names>
+</string-name>, <string-name>
+<surname>Repo</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Barsky</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Andreoletti</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Moult</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Brenner</surname>
+<given-names>SE</given-names>
+</string-name> (<year>2017</year>) <article-title>Reports from CAGI: the critical assessment of genome interpretation</article-title>. <source xml:lang="en"/>Hum Mutat
+<volume>38</volume>: <fpage>1039</fpage>–<lpage>1041</lpage>
+<pub-id pub-id-type="pmid">28817245</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0037">
+<mixed-citation id="msb199380-cit-0037" publication-type="journal">
+<string-name>
+<surname>Ionita‐Laza</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>McCallum</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Xu</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Buxbaum</surname>
+<given-names>JD</given-names>
+</string-name> (<year>2016</year>) <article-title>A spectral approach integrating functional genomic annotations for coding and noncoding variants</article-title>. <source xml:lang="en"/>Nat Genet
+<volume>48</volume>: <fpage>214</fpage>–<lpage>220</lpage>
+<pub-id pub-id-type="pmid">26727659</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0038">
+<mixed-citation id="msb199380-cit-0038" publication-type="journal">
+<string-name>
+<surname>Jacquier</surname>
+<given-names>H</given-names>
+</string-name>, <string-name>
+<surname>Birgy</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Nagard</surname>
+<given-names>HL</given-names>
+</string-name>, <string-name>
+<surname>Mechulam</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Schmitt</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Glodt</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Bercot</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Petit</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Poulain</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Barnaud</surname>
+<given-names>G</given-names>
+</string-name>
+<italic>et al</italic> (<year>2013</year>) <article-title>Capturing the mutational landscape of the beta‐lactamase TEM‐1</article-title>. <source xml:lang="en"/>Proc Natl Acad Sci USA
+<volume>110</volume>: <fpage>13067</fpage>–<lpage>13072</lpage>
+<pub-id pub-id-type="pmid">23878237</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0040">
+<mixed-citation id="msb199380-cit-0040" publication-type="journal">
+<string-name>
+<surname>Jensen</surname>
+<given-names>HH</given-names>
+</string-name>, <string-name>
+<surname>Brohus</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Nyegaard</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Overgaard</surname>
+<given-names>MT</given-names>
+</string-name> (<year>2018</year>) <article-title>Human calmodulin mutations</article-title>. <source xml:lang="en"/>Front Mol Neurosci
+<volume>11</volume>: <fpage>396</fpage>
+<pub-id pub-id-type="pmid">30483049</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0043">
+<mixed-citation id="msb199380-cit-0043" publication-type="journal">
+<string-name>
+<surname>Karczewski</surname>
+<given-names>KJ</given-names>
+</string-name>, <string-name>
+<surname>Francioli</surname>
+<given-names>LC</given-names>
+</string-name>, <string-name>
+<surname>Tiao</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Cummings</surname>
+<given-names>BB</given-names>
+</string-name>, <string-name>
+<surname>Alföldi</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>Q</given-names>
+</string-name>, <string-name>
+<surname>Collins</surname>
+<given-names>RL</given-names>
+</string-name>, <string-name>
+<surname>Laricchia</surname>
+<given-names>KM</given-names>
+</string-name>, <string-name>
+<surname>Ganna</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Birnbaum</surname>
+<given-names>DP</given-names>
+</string-name>
+<italic>et al</italic> (<year>2019</year>) <article-title>Variation across 141,456 human exomes and genomes reveals the spectrum of loss‐of‐function intolerance across human protein‐coding genes</article-title>. <source xml:lang="en"/>bioRxiv
+<pub-id pub-id-type="doi">10.1101/531210</pub-id> [PREPRINT]</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0046">
+<mixed-citation id="msb199380-cit-0046" publication-type="journal">
+<string-name>
+<surname>Kitzman</surname>
+<given-names>JO</given-names>
+</string-name>, <string-name>
+<surname>Starita</surname>
+<given-names>LM</given-names>
+</string-name>, <string-name>
+<surname>Lo</surname>
+<given-names>RS</given-names>
+</string-name>, <string-name>
+<surname>Fields</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Shendure</surname>
+<given-names>J</given-names>
+</string-name> (<year>2015</year>) <article-title>Massively parallel single amino acid mutagenesis</article-title>. <source xml:lang="en"/>Nat Methods
+<volume>12</volume>: <fpage>203</fpage>–<lpage>206</lpage>
+<pub-id pub-id-type="pmid">25559584</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0047">
+<mixed-citation id="msb199380-cit-0047" publication-type="journal">
+<string-name>
+<surname>Landrum</surname>
+<given-names>MJ</given-names>
+</string-name>, <string-name>
+<surname>Lee</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name>
+<surname>Riley</surname>
+<given-names>GR</given-names>
+</string-name>, <string-name>
+<surname>Jang</surname>
+<given-names>W</given-names>
+</string-name>, <string-name>
+<surname>Rubinstein</surname>
+<given-names>WS</given-names>
+</string-name>, <string-name>
+<surname>Church</surname>
+<given-names>DM</given-names>
+</string-name>, <string-name>
+<surname>Maglott</surname>
+<given-names>DR</given-names>
+</string-name> (<year>2014</year>) <article-title>ClinVar: public archive of relationships among sequence variation and human phenotype</article-title>. <source xml:lang="en"/>Nucleic Acids Res
+<volume>42</volume>: <fpage>D980</fpage>–<lpage>D985</lpage>
+<pub-id pub-id-type="pmid">24234437</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0048">
+<mixed-citation id="msb199380-cit-0048" publication-type="journal">
+<string-name>
+<surname>Lee</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name>
+<surname>Huddleston</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Doud</surname>
+<given-names>MB</given-names>
+</string-name>, <string-name>
+<surname>Hooper</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name>
+<surname>Wu</surname>
+<given-names>NC</given-names>
+</string-name>, <string-name>
+<surname>Bedford</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Bloom</surname>
+<given-names>JD</given-names>
+</string-name> (<year>2018</year>) <article-title>Deep mutational scanning of hemagglutinin helps predict evolutionary fates of human H3N2 influenza variants</article-title>. <source xml:lang="en"/>Proc Natl Acad Sci USA
+<volume>115</volume>: <fpage>E8276</fpage>–<lpage>E8285</lpage>
+<pub-id pub-id-type="pmid">30104379</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0049">
+<mixed-citation id="msb199380-cit-0049" publication-type="journal">
+<string-name>
+<surname>de Ligt</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Willemsen</surname>
+<given-names>MH</given-names>
+</string-name>, <string-name>
+<surname>van Bon</surname>
+<given-names>BWM</given-names>
+</string-name>, <string-name>
+<surname>Kleefstra</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Yntema</surname>
+<given-names>HG</given-names>
+</string-name>, <string-name>
+<surname>Kroes</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Vulto‐van Silfhout</surname>
+<given-names>AT</given-names>
+</string-name>, <string-name>
+<surname>Koolen</surname>
+<given-names>DA</given-names>
+</string-name>, <string-name>
+<surname>de Vries</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Gilissen</surname>
+<given-names>C</given-names>
+</string-name>
+<italic>et al</italic> (<year>2012</year>) <article-title>Diagnostic Exome Sequencing in Persons with Severe Intellectual Disability</article-title>. <source xml:lang="en"/>N Engl J Med
+<volume>367</volume>: <fpage>1921</fpage>–<lpage>1929</lpage>
+<pub-id pub-id-type="pmid">23033978</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0051">
+<mixed-citation id="msb199380-cit-0051" publication-type="journal">
+<string-name>
+<surname>Liu</surname>
+<given-names>X</given-names>
+</string-name>, <string-name>
+<surname>Wu</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Li</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Boerwinkle</surname>
+<given-names>E</given-names>
+</string-name> (<year>2016</year>) <article-title>dbNSFP v3.0: a one‐stop database of functional predictions and annotations for human nonsynonymous and splice‐Site SNVs</article-title>. <source xml:lang="en"/>Hum Mutat
+<volume>37</volume>: <fpage>235</fpage>–<lpage>241</lpage>
+<pub-id pub-id-type="pmid">26555599</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0053">
+<mixed-citation id="msb199380-cit-0053" publication-type="journal">
+<string-name>
+<surname>Ma</surname>
+<given-names>X</given-names>
+</string-name>, <string-name>
+<surname>Shao</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Tian</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Flasch</surname>
+<given-names>DA</given-names>
+</string-name>, <string-name>
+<surname>Mulder</surname>
+<given-names>HL</given-names>
+</string-name>, <string-name>
+<surname>Edmonson</surname>
+<given-names>MN</given-names>
+</string-name>, <string-name>
+<surname>Liu</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Chen</surname>
+<given-names>X</given-names>
+</string-name>, <string-name>
+<surname>Newman</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Nakitandwe</surname>
+<given-names>J</given-names>
+</string-name>
+<italic>et al</italic> (<year>2019</year>) <article-title>Analysis of error profiles in deep next‐generation sequencing data</article-title>. <source xml:lang="en"/>Genome Biol
+<volume>20</volume>: <fpage>50</fpage>
+<pub-id pub-id-type="pmid">30867008</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0054">
+<mixed-citation id="msb199380-cit-0054" publication-type="journal">
+<string-name>
+<surname>Mahmood</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Jung</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Philip</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Georgeson</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Chung</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Pope</surname>
+<given-names>BJ</given-names>
+</string-name>, <string-name>
+<surname>Park</surname>
+<given-names>DJ</given-names>
+</string-name> (<year>2017</year>) <article-title>Variant effect prediction tools assessed using independent, functional assay‐based datasets: implications for discovery and diagnostics</article-title>. <source xml:lang="en"/>Hum Genomics
+<volume>11</volume>: <fpage>10</fpage>
+<pub-id pub-id-type="pmid">28511696</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0055">
+<mixed-citation id="msb199380-cit-0055" publication-type="journal">
+<string-name>
+<surname>Majithia</surname>
+<given-names>AR</given-names>
+</string-name>, <string-name>
+<surname>Tsuda</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Agostini</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Gnanapradeepan</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Rice</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Peloso</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Patel</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name>
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name>
+<surname>Broekema</surname>
+<given-names>MF</given-names>
+</string-name>, <string-name>
+<surname>Patterson</surname>
+<given-names>N</given-names>
+</string-name>
+<italic>et al</italic> (<year>2016</year>) <article-title>Prospective functional classification of all possible missense variants in PPARG</article-title>. <source xml:lang="en"/>Nat Genet
+<volume>48</volume>: <fpage>1570</fpage>–<lpage>1575</lpage>
+<pub-id pub-id-type="pmid">27749844</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0056">
+<mixed-citation id="msb199380-cit-0056" publication-type="journal">
+<string-name>
+<surname>Matreyek</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name>
+<surname>Starita</surname>
+<given-names>LM</given-names>
+</string-name>, <string-name>
+<surname>Stephany</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name>
+<surname>Martin</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Chiasson</surname>
+<given-names>MA</given-names>
+</string-name>, <string-name>
+<surname>Gray</surname>
+<given-names>VE</given-names>
+</string-name>, <string-name>
+<surname>Kircher</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Khechaduri</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Dines</surname>
+<given-names>JN</given-names>
+</string-name>, <string-name>
+<surname>Hause</surname>
+<given-names>RJ</given-names>
+</string-name>
+<italic>et al</italic> (<year>2018</year>) <article-title>Multiplex assessment of protein variant abundance by massively parallel sequencing</article-title>. <source xml:lang="en"/>Nat Genet
+<volume>50</volume>: <fpage>874</fpage>
+<pub-id pub-id-type="pmid">29785012</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0057">
+<mixed-citation id="msb199380-cit-0057" publication-type="journal">
+<string-name>
+<surname>McEntagart</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Williamson</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name>
+<surname>Rainger</surname>
+<given-names>JK</given-names>
+</string-name>, <string-name>
+<surname>Wheeler</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Seawright</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>De Baere</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Verdin</surname>
+<given-names>H</given-names>
+</string-name>, <string-name>
+<surname>Bergendahl</surname>
+<given-names>LT</given-names>
+</string-name>, <string-name>
+<surname>Quigley</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Rainger</surname>
+<given-names>J</given-names>
+</string-name>
+<italic>et al</italic> (<year>2016</year>) <article-title>A restricted repertoire of <italic>de novo</italic> mutations in ITPR1 cause Gillespie syndrome with evidence for dominant‐negative effect</article-title>. <source xml:lang="en"/>Am J Hum Genet
+<volume>98</volume>: <fpage>981</fpage>–<lpage>992</lpage>
+<pub-id pub-id-type="pmid">27108798</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0059">
+<mixed-citation id="msb199380-cit-0059" publication-type="journal">
+<string-name>
+<surname>Mighell</surname>
+<given-names>TL</given-names>
+</string-name>, <string-name>
+<surname>Evans‐Dutson</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>O'Roak</surname>
+<given-names>BJ</given-names>
+</string-name> (<year>2018</year>) <article-title>A saturation mutagenesis approach to understanding PTEN lipid phosphatase activity and genotype‐phenotype relationships</article-title>. <source xml:lang="en"/>Am J Hum Genet
+<volume>102</volume>: <fpage>943</fpage>–<lpage>955</lpage>
+<pub-id pub-id-type="pmid">29706350</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0061">
+<mixed-citation id="msb199380-cit-0061" publication-type="journal">
+<string-name>
+<surname>Neale</surname>
+<given-names>BM</given-names>
+</string-name>, <string-name>
+<surname>Kou</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Liu</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Ma'ayan</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Samocha</surname>
+<given-names>KE</given-names>
+</string-name>, <string-name>
+<surname>Sabo</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Lin</surname>
+<given-names>C‐F</given-names>
+</string-name>, <string-name>
+<surname>Stevens</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>L‐S</given-names>
+</string-name>, <string-name>
+<surname>Makarov</surname>
+<given-names>V</given-names>
+</string-name>
+<italic>et al</italic> (<year>2012</year>) <article-title>Patterns and rates of exonic de novo mutations in autism spectrum disorders</article-title>. <source xml:lang="en"/>Nature
+<volume>485</volume>: <fpage>242</fpage>–<lpage>245</lpage>
+<pub-id pub-id-type="pmid">22495311</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0064">
+<mixed-citation id="msb199380-cit-0064" publication-type="journal">
+<string-name>
+<surname>Nomikos</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Thanassoulas</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Calver</surname>
+<given-names>BL</given-names>
+</string-name>, <string-name>
+<surname>Beck</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Vassilakopoulou</surname>
+<given-names>V</given-names>
+</string-name>, <string-name>
+<surname>Buntwal</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Konotgianni</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Smith</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Safieh‐Garabedian</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Livaniou</surname>
+<given-names>E</given-names>
+</string-name>
+<italic>et al</italic> (<year>2018</year>) <article-title>Calmodulin mutations associated with congenital cardiac disease display novel biophysical and biochemical characteristics</article-title>. <source xml:lang="en"/>Biophys J 
+<volume>114</volume>: <fpage>467a</fpage>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0069">
+<mixed-citation id="msb199380-cit-0069" publication-type="journal">
+<string-name>
+<surname>Raimondi</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Tanyalcin</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Ferté</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Gazzo</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Orlando</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Lenaerts</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Rooman</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Vranken</surname>
+<given-names>W</given-names>
+</string-name> (<year>2017</year>) <article-title>DEOGEN2: prediction and interactive visualization of single amino acid variant deleteriousness in human proteins</article-title>. <source xml:lang="en"/>Nucleic Acids Res
+<volume>45</volume>: <fpage>W201</fpage>–<lpage>W206</lpage>
+<pub-id pub-id-type="pmid">28498993</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0070">
+<mixed-citation id="msb199380-cit-0070" publication-type="journal">
+<string-name>
+<surname>Rauch</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Wieczorek</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Graf</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Wieland</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Endele</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Schwarzmayr</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Albrecht</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Bartholdi</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Beygo</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Di Donato</surname>
+<given-names>N</given-names>
+</string-name>
+<italic>et al</italic> (<year>2012</year>) <article-title>Range of genetic mutations associated with severe non‐syndromic sporadic intellectual disability: an exome sequencing study</article-title>. <source xml:lang="en"/>Lancet
+<volume>380</volume>: <fpage>1674</fpage>–<lpage>1682</lpage>
+<pub-id pub-id-type="pmid">23020937</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0071">
+<mixed-citation id="msb199380-cit-0071" publication-type="journal">
+<string-name>
+<surname>Reeb</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Wirth</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Rost</surname>
+<given-names>B</given-names>
+</string-name> (<year>2019</year>) <article-title>Variant effect predictions capture some aspects of deep mutational scanning experiments</article-title>. <source xml:lang="en"/>bioRxiv
+<pub-id pub-id-type="doi">10.1101/859603</pub-id> [PREPRINT]</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0072">
+<mixed-citation id="msb199380-cit-0072" publication-type="journal">
+<string-name>
+<surname>Rentzsch</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Witten</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Cooper</surname>
+<given-names>GM</given-names>
+</string-name>, <string-name>
+<surname>Shendure</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Kircher</surname>
+<given-names>M</given-names>
+</string-name> (<year>2019</year>) <article-title>CADD: predicting the deleteriousness of variants throughout the human genome</article-title>. <source xml:lang="en"/>Nucleic Acids Res
+<volume>47</volume>: <fpage>D886</fpage>–<lpage>D894</lpage>
+<pub-id pub-id-type="pmid">30371827</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0074">
+<mixed-citation id="msb199380-cit-0074" publication-type="journal">
+<string-name>
+<surname>Riesselman</surname>
+<given-names>AJ</given-names>
+</string-name>, <string-name>
+<surname>Ingraham</surname>
+<given-names>JB</given-names>
+</string-name>, <string-name>
+<surname>Marks</surname>
+<given-names>DS</given-names>
+</string-name> (<year>2018</year>) <article-title>Deep generative models of genetic variation capture the effects of mutations</article-title>. <source xml:lang="en"/>Nat Methods
+<volume>15</volume>: <fpage>816</fpage>
+<pub-id pub-id-type="pmid">30250057</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0080">
+<mixed-citation id="msb199380-cit-0080" publication-type="journal">
+<string-name>
+<surname>Schaafsma</surname>
+<given-names>GCP</given-names>
+</string-name>, <string-name>
+<surname>Vihinen</surname>
+<given-names>M</given-names>
+</string-name> (<year>2018</year>) <article-title>Representativeness of variation benchmark datasets</article-title>. <source xml:lang="en"/>BMC Bioinformatics
+<volume>19</volume>: <fpage>461</fpage>
+<pub-id pub-id-type="pmid">30497376</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0082">
+<mixed-citation id="msb199380-cit-0082" publication-type="journal">
+<string-name>
+<surname>Shihab</surname>
+<given-names>HA</given-names>
+</string-name>, <string-name>
+<surname>Gough</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Cooper</surname>
+<given-names>DN</given-names>
+</string-name>, <string-name>
+<surname>Stenson</surname>
+<given-names>PD</given-names>
+</string-name>, <string-name>
+<surname>Barker</surname>
+<given-names>GLA</given-names>
+</string-name>, <string-name>
+<surname>Edwards</surname>
+<given-names>KJ</given-names>
+</string-name>, <string-name>
+<surname>Day</surname>
+<given-names>INM</given-names>
+</string-name>, <string-name>
+<surname>Gaunt</surname>
+<given-names>TR</given-names>
+</string-name> (<year>2013</year>) <article-title>Predicting the functional, molecular, and phenotypic consequences of amino acid substitutions using hidden Markov models</article-title>. <source xml:lang="en"/>Hum Mutat
+<volume>34</volume>: <fpage>57</fpage>–<lpage>65</lpage>
+<pub-id pub-id-type="pmid">23033316</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0084">
+<mixed-citation id="msb199380-cit-0084" publication-type="book">
+<string-name>
+<surname>Siepel</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Haussler</surname>
+<given-names>D</given-names>
+</string-name> (<year>2005</year>) <chapter-title>Phylogenetic hidden Markov models</chapter-title> In <source xml:lang="en"/>Statistical Methods in Molecular Evolution. Statistics for Biology and Health, <person-group person-group-type="editor"><name name-style="western"><surname>Rasmus</surname><given-names>N</given-names></name></person-group> (ed), pp <fpage>325</fpage>–<lpage>351</lpage>. <publisher-loc>New York, NY</publisher-loc>: <publisher-name>Springer</publisher-name>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0085">
+<mixed-citation id="msb199380-cit-0085" publication-type="journal">
+<string-name>
+<surname>Sim</surname>
+<given-names>N‐L</given-names>
+</string-name>, <string-name>
+<surname>Kumar</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Hu</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Henikoff</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Schneider</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Ng</surname>
+<given-names>PC</given-names>
+</string-name> (<year>2012</year>) <article-title>SIFT web server: predicting effects of amino acid substitutions on proteins</article-title>. <source xml:lang="en"/>Nucleic Acids Res
+<volume>40</volume>: <fpage>W452</fpage>–<lpage>W457</lpage>
+<pub-id pub-id-type="pmid">22689647</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0087">
+<mixed-citation id="msb199380-cit-0087" publication-type="journal">
+<string-name>
+<surname>Srivastava</surname>
+<given-names>N</given-names>
+</string-name>, <string-name>
+<surname>Hinton</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Krizhevsky</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Sutskever</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Salakhutdinov</surname>
+<given-names>R</given-names>
+</string-name> (<year>2014</year>) <article-title>Dropout: a simple way to prevent neural networks from overfitting</article-title>. <source xml:lang="en"/>J Mach Learn Res
+<volume>15</volume>: <fpage>30</fpage>
+</mixed-citation>
+</ref>
+<ref id="msb199380-bib-0088">
+<mixed-citation id="msb199380-cit-0088" publication-type="journal">
+<string-name>
+<surname>Starita</surname>
+<given-names>LM</given-names>
+</string-name>, <string-name>
+<surname>Young</surname>
+<given-names>DL</given-names>
+</string-name>, <string-name>
+<surname>Islam</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Kitzman</surname>
+<given-names>JO</given-names>
+</string-name>, <string-name>
+<surname>Gullingsrud</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Hause</surname>
+<given-names>RJ</given-names>
+</string-name>, <string-name>
+<surname>Fowler</surname>
+<given-names>DM</given-names>
+</string-name>, <string-name>
+<surname>Parvin</surname>
+<given-names>JD</given-names>
+</string-name>, <string-name>
+<surname>Shendure</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Fields</surname>
+<given-names>S</given-names>
+</string-name> (<year>2015</year>) <article-title>Massively parallel functional analysis of BRCA1 RING domain variants</article-title>. <source xml:lang="en"/>Genetics
+<volume>200</volume>: <fpage>413</fpage>–<lpage>422</lpage>
+<pub-id pub-id-type="pmid">25823446</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0089">
+<mixed-citation id="msb199380-cit-0089" publication-type="journal">
+<string-name>
+<surname>Steward</surname>
+<given-names>RE</given-names>
+</string-name>, <string-name>
+<surname>MacArthur</surname>
+<given-names>MW</given-names>
+</string-name>, <string-name>
+<surname>Laskowski</surname>
+<given-names>RA</given-names>
+</string-name>, <string-name>
+<surname>Thornton</surname>
+<given-names>JM</given-names>
+</string-name> (<year>2003</year>) <article-title>Molecular basis of inherited diseases: a structural perspective</article-title>. <source xml:lang="en"/>Trends Genet
+<volume>19</volume>: <fpage>505</fpage>–<lpage>513</lpage>
+<pub-id pub-id-type="pmid">12957544</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0090">
+<mixed-citation id="msb199380-cit-0090" publication-type="journal">
+<string-name>
+<surname>Stiffler</surname>
+<given-names>MA</given-names>
+</string-name>, <string-name>
+<surname>Hekstra</surname>
+<given-names>DR</given-names>
+</string-name>, <string-name>
+<surname>Ranganathan</surname>
+<given-names>R</given-names>
+</string-name> (<year>2015</year>) <article-title>Evolvability as a Function of Purifying Selection in TEM‐1 β‐Lactamase</article-title>. <source xml:lang="en"/>Cell
+<volume>160</volume>: <fpage>882</fpage>–<lpage>892</lpage>
+<pub-id pub-id-type="pmid">25723163</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0093">
+<mixed-citation id="msb199380-cit-0093" publication-type="journal">
+<string-name>
+<surname>Vaser</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Adusumalli</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Leng</surname>
+<given-names>SN</given-names>
+</string-name>, <string-name>
+<surname>Sikic</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Ng</surname>
+<given-names>PC</given-names>
+</string-name> (<year>2016</year>) <article-title>SIFT missense predictions for genomes</article-title>. <source xml:lang="en"/>Nat Protoc
+<volume>11</volume>: <fpage>1</fpage>–<lpage>9</lpage>
+<pub-id pub-id-type="pmid">26633127</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0094">
+<mixed-citation id="msb199380-cit-0094" publication-type="journal">
+<string-name>
+<surname>Weile</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Sun</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Cote</surname>
+<given-names>AG</given-names>
+</string-name>, <string-name>
+<surname>Knapp</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Verby</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Mellor</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name>
+<surname>Wu</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Pons</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Wong</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>van Lieshout</surname>
+<given-names>N</given-names>
+</string-name>
+<italic>et al</italic> (<year>2017</year>) <article-title>A framework for exhaustively mapping functional missense variants</article-title>. <source xml:lang="en"/>Mol Syst Biol
+<volume>13</volume>: <fpage>957</fpage>
+<pub-id pub-id-type="pmid">29269382</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0095">
+<mixed-citation id="msb199380-cit-0095" publication-type="journal">
+<string-name>
+<surname>Williamson</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name>
+<surname>Hall</surname>
+<given-names>HN</given-names>
+</string-name>, <string-name>
+<surname>Owen</surname>
+<given-names>LJ</given-names>
+</string-name>, <string-name>
+<surname>Livesey</surname>
+<given-names>BJ</given-names>
+</string-name>, <string-name>
+<surname>Hanson</surname>
+<given-names>IM</given-names>
+</string-name>, <string-name>
+<surname>Adams</surname>
+<given-names>GGW</given-names>
+</string-name>, <string-name>
+<surname>Bodek</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Calvas</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Castle</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Clarke</surname>
+<given-names>M</given-names>
+</string-name>
+<italic>et al</italic> (<year>2019</year>) <article-title>Recurrent heterozygous PAX6 missense variants cause severe bilateral microphthalmia via predictable effects on DNA–protein interaction</article-title>. <source xml:lang="en"/>Genet Med
+<volume>22</volume>: <fpage>598</fpage>–<lpage>609</lpage>
+<pub-id pub-id-type="pmid">31700164</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0096">
+<mixed-citation id="msb199380-cit-0096" publication-type="journal">
+<string-name>
+<surname>Wu</surname>
+<given-names>NC</given-names>
+</string-name>, <string-name>
+<surname>Olson</surname>
+<given-names>CA</given-names>
+</string-name>, <string-name>
+<surname>Du</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Le</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Tran</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Remenyi</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Gong</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Al‐Mawsawi</surname>
+<given-names>LQ</given-names>
+</string-name>, <string-name>
+<surname>Qi</surname>
+<given-names>H</given-names>
+</string-name>, <string-name>
+<surname>Wu</surname>
+<given-names>T‐T</given-names>
+</string-name>
+<italic>et al</italic> (<year>2015</year>) <article-title>Functional Constraint Profiling of a Viral Protein Reveals Discordance of Evolutionary Conservation and Functionality</article-title>. <source xml:lang="en"/>PLoS Genet
+<volume>11</volume>: <elocation-id>e1005310</elocation-id>
+<pub-id pub-id-type="pmid">26132554</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0097">
+<mixed-citation id="msb199380-cit-0097" publication-type="journal">
+<string-name>
+<surname>Xu</surname>
+<given-names>Q</given-names>
+</string-name>, <string-name>
+<surname>Tang</surname>
+<given-names>Q</given-names>
+</string-name>, <string-name>
+<surname>Katsonis</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Lichtarge</surname>
+<given-names>O</given-names>
+</string-name>, <string-name>
+<surname>Jones</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Bovo</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Babbi</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Martelli</surname>
+<given-names>PL</given-names>
+</string-name>, <string-name>
+<surname>Casadio</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Lee</surname>
+<given-names>GR</given-names>
+</string-name>
+<italic>et al</italic> (<year>2017</year>) <article-title>Benchmarking predictions of allostery in liver pyruvate kinase in CAGI4</article-title>. <source xml:lang="en"/>Hum Mutat
+<volume>38</volume>: <fpage>1123</fpage>–<lpage>1131</lpage>
+<pub-id pub-id-type="pmid">28370845</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0098">
+<mixed-citation id="msb199380-cit-0098" publication-type="journal">
+<string-name>
+<surname>Yates</surname>
+<given-names>CM</given-names>
+</string-name>, <string-name>
+<surname>Filippis</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Kelley</surname>
+<given-names>LA</given-names>
+</string-name>, <string-name>
+<surname>Sternberg</surname>
+<given-names>MJE</given-names>
+</string-name> (<year>2014</year>) <article-title>SuSPect: enhanced prediction of Single Amino Acid Variant (SAV) phenotype using network features</article-title>. <source xml:lang="en"/>J Mol Biol
+<volume>426</volume>: <fpage>2692</fpage>–<lpage>2701</lpage>
+<pub-id pub-id-type="pmid">24810707</pub-id></mixed-citation>
+</ref>
+<ref id="msb199380-bib-0099">
+<mixed-citation id="msb199380-cit-0099" publication-type="journal">
+<string-name>
+<surname>Zhu</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Wu</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Ye</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name>
+<surname>Gu</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Hou</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Feng</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name>
+<surname>Ma</surname>
+<given-names>X</given-names>
+</string-name> (<year>2019</year>) <article-title>Identification of two novel TPK1 gene mutations in a Chinese patient with thiamine pyrophosphokinase deficiency undergoing whole exome sequencing</article-title>. <source xml:lang="en"/>J Pediatr Endocrinol Metab
+<volume>32</volume>: <fpage>295</fpage>–<lpage>300</lpage>
+<pub-id pub-id-type="pmid">30789823</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

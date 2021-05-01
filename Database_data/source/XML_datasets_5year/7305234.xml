@@ -1,0 +1,1256 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Data</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Data</journal-id>
+<journal-title-group>
+<journal-title>Scientific Data</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2052-4463</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32561751</article-id>
+<article-id pub-id-type="pmc">7305234</article-id>
+<article-id pub-id-type="publisher-id">533</article-id>
+<article-id pub-id-type="doi">10.1038/s41597-020-0533-4</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Analysis</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Massive online data annotation, crowdsourcing to generate high quality sleep spindle annotations from EEG data</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes" equal-contrib="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-8488-7312</contrib-id>
+<name>
+<surname>Lacourse</surname>
+<given-names>Karine</given-names>
+</name>
+<address>
+<email>karinelack@gmail.com</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes">
+<name>
+<surname>Yetton</surname>
+<given-names>Ben</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-0906-3097</contrib-id>
+<name>
+<surname>Mednick</surname>
+<given-names>Sara</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-1317-6828</contrib-id>
+<name>
+<surname>Warby</surname>
+<given-names>Simon C.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="GRID">grid.505609.f</institution-id><institution>Centre d’études avancées en médecine du sommeil, </institution></institution-wrap>Montréal, Canada </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 0668 7243</institution-id><institution-id institution-id-type="GRID">grid.266093.8</institution-id><institution>Department of Cognitive Science, </institution><institution>University of California, </institution></institution-wrap>Irvine, CA USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2292 3357</institution-id><institution-id institution-id-type="GRID">grid.14848.31</institution-id><institution>Department of Psychiatry, </institution><institution>Université de Montréal, </institution></institution-wrap>Montréal, Canada </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>19</day>
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>19</day>
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>7</volume>
+<elocation-id>190</elocation-id>
+<history>
+<date date-type="received">
+<day>16</day>
+<month>10</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>13</day>
+<month>5</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2020</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">Spindle event detection is a key component in analyzing human sleep. However, detection of these oscillatory patterns by experts is time consuming and costly. Automated detection algorithms are cost efficient and reproducible but require robust datasets to be trained and validated. Using the MODA (Massive Online Data Annotation) platform, we used crowdsourcing to produce a large open-source dataset of high quality, human-scored sleep spindles (5342 spindles, from 180 subjects). We evaluated the performance of three subtype scorers: “experts, researchers and non-experts”, as well as 7 previously published spindle detection algorithms. Our findings show that only two algorithms had performance scores similar to human experts. Furthermore, the human scorers agreed on the average spindle characteristics (density, duration and amplitude), but there were significant age and sex differences (also observed in the set of detected spindles). This study demonstrates how the MODA platform can be used to generate a highly valid open source standardized dataset for researchers to train, validate and compare automated detectors of biological signals such as the EEG.</p>
+</abstract>
+<kwd-group kwd-group-type="npg-subject">
+<title>Subject terms</title>
+<kwd>Computational neuroscience</kwd>
+<kwd>Non-REM sleep</kwd>
+<kwd>Predictive markers</kwd>
+</kwd-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">https://doi.org/10.13039/501100002790</institution-id>
+<institution>Canadian Network for Research and Innovation in Machining Technology, Natural Sciences and Engineering Research Council of Canada (NSERC Canadian Network for Research and Innovation in Machining Technology)</institution>
+</institution-wrap>
+</funding-source>
+</award-group>
+</funding-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2020</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par2">Sleep spindles are brief 10–16 Hz bursts of brain activity during stage N2 and N3 sleep. They are typically recorded from cortical surfaces by electroencephalography (EEG) and are markers of sleep dependent cognition<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>, early indicators of mental disorders<sup><xref ref-type="bibr" rid="CR2">2</xref></sup> or brain deterioration due to age<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. Spindles follow a characteristic waxing and waning profile, and generally last 0.5 to 1.0 seconds in duration. These characteristics are predominately trait-like, and remain remarkably stable night after night within an individual, but vary between individuals<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>. A small but consistently observed decrease of the spindle density, amplitude and duration occurs with age<sup><xref ref-type="bibr" rid="CR5">5</xref>–<xref ref-type="bibr" rid="CR9">9</xref></sup>. Sex differences of spindle activity linked to memory or aging have been reported<sup><xref ref-type="bibr" rid="CR10">10</xref>–<xref ref-type="bibr" rid="CR13">13</xref></sup>, where women tend to be less affected by aging<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR10">10</xref></sup> resulting a greater spindle activity (peak-to-peak amplitude<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> and density<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR7">7</xref></sup>) in women than men, particularly in the elderly. Characteristics of spindles may index the underlying neuroanatomy involved in normal brain function, particularly in the processing of learning and memory, and have been related to intelligence<sup><xref ref-type="bibr" rid="CR15">15</xref>–<xref ref-type="bibr" rid="CR21">21</xref></sup>.</p>
+<p id="Par3">As well as their relation to biological processes, the detection of spindles is a key component in analyzing human sleep, as spindles are used to indicate the transition from stage N1 to N2 sleep during sleep scoring. However, detection and quantification of these oscillatory patterns by highly trained experts is time consuming and costly. Further, the definition of sleep spindles(A train of distinct waves with frequency 11–16 Hz with a duration &gt; = 0.5 seconds, usually maximal in amplitude using central derivations)<sup><xref ref-type="bibr" rid="CR22">22</xref></sup> is not entirely precise, and experts disagree on variations of sleep spindles. As well, the EEG signal may be obscured by other signal phenomena, thereby limited human detection. Critical for the advancement of sleep science is the development of automated feature detection tools. Recent years have highlighted the power of machine learning methods in the biosciences to augment expert clinical judgment. For example, cardiologist level arrhythmia detection<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>, or seizure diagnosis<sup><xref ref-type="bibr" rid="CR24">24</xref></sup>. Automated methods do not fatigue, are cost efficient, remain consistent, and are readily deployable. However, previous studies have suggested that there are important differences between human and algorithm detected spindles<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>, leading to conflicting results depending on how spindles were detected<sup><xref ref-type="bibr" rid="CR25">25</xref>,<xref ref-type="bibr" rid="CR26">26</xref></sup>. For instance, a significant decrease in sleep spindle density using visual scoring was observed in autism patients<sup><xref ref-type="bibr" rid="CR27">27</xref>–<xref ref-type="bibr" rid="CR29">29</xref></sup>, whereas an increase or no difference was found using an automated detector<sup><xref ref-type="bibr" rid="CR30">30</xref>,<xref ref-type="bibr" rid="CR31">31</xref></sup>. Similarly, in narcolepsy, a decrease of spindle density was observed with visual scoring<sup><xref ref-type="bibr" rid="CR32">32</xref></sup> but not replicated with an automated algorithm<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. While automated methods show great promise for sleep science, they require large, highly valid datasets, which were not previously available. Here we introduce a large, open, highly valid dataset of human sleep spindles collected through crowdsourcing.</p>
+<p id="Par4">Crowdsourcing, which has been previously used to collect spindle data<sup><xref ref-type="bibr" rid="CR14">14</xref>,<xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR35">35</xref></sup>, involves collating the judgments of a large number of human scorers to reach a high quality “gold standard” consensus. This data collection method leverages the “wisdom of the crowd” effect<sup><xref ref-type="bibr" rid="CR36">36</xref></sup>, where the collective opinion of a group of individuals tends to be more accurate than a single expert. Crowdsourcing yields better spindle detection, and captures more generalizable spindle properties than single expert scoring because each scorer contributes only little, thereby reducing errors from fatigue and distraction, and we capture a diverse, unbiased opinion on what represents a true spindle, which is especially important given the imperfect agreement between experts. The idea of crowdsourcing for sleep science was first introduced by Warby <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>, where segments of stage 2 sleep (from 110 subjects) were viewed by a mean of 5 experts and 11 non-expert Mechanical Turk (mturk) Workers. Agreement between experts (average individual f1 = 0.67 against gold standard) and the performance of the group consensus of non-experts against the gold standard (f1 = 0.67) were high, and non-experts outperformed the automated detectors. Unfortunately, due to privacy concerns, the polysomnography dataset used in this study is not openly available to the public, greatly restricting its use as a benchmark for algorithm validation. Ray <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR9">9</xref></sup> independently developed a similar paradigm to Warby <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> but used the openly available Montreal Archive of Sleep Studies (MASS)<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. Each segment of EEG (from 15 subjects) was viewed by two experts and a mean of 18 non-expert mturk workers. Agreement between the non-expert consensus and the expert who scored in similar conditions than the non-experts was substantial (f1 = 0.81), but a moderate agreement was observed between the only two experts who scored MASS (f1 = 0.54), limiting the validity of the expert dataset of spindles. Similarly Zhao <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> collected spindles scoring in a crowdsourcing scheme from 5 experts and 168 non-experts (at least 20 non-experts per segment) and reported a high agreement between the non-expert and expert consensus (f1 = 0.78), unfortunately the dataset used is not open source. We aimed to build upon the success of these three studies and produce a large, open dataset of high quality spindles from both young and old subjects. Using this dataset, we ask: a) Can many non-experts match the quality of an expert technician with much lower cost and completion time? b) Do experts agree on spindle features, and if so, what are they? c) How do spindle features change across age and sex? Further, the conclusions that drive sleep science are often built upon spindles scored by non-technician researchers. Therefore, we added a non-PSG-tech “researcher” group, composed of graduate students, postdocs and faculty in the sleep science field and compare these to formally trained PSG experts.</p>
+<p id="Par5">To facilitate scoring, we developed a web-based open source online scoring platform, named MODA for Massive Online Data Annotation. The MODA platform allowed scorers from around the world to perform the spindle-identification tasks wherever and whenever they chose. While, in this study, we have used MODA for spindle scoring, it is an adaptable platform that could be easily used for the crowdsourced scoring of any EEG or biosignal-based annotation task. In this paper, we described how data was crowdsourced and analyzed. A number of Group Consensuses (GCs) were created by aggregating the scoring of many scorers, thereby removing idiosyncratic noise and increasing validity of the spindle dataset. GCs in this study were compiled from the three different user subtypes independently: PSG technologists (experts; <italic>exp</italic>), researchers (<italic>re</italic>) and non-experts (<italic>ne</italic>). The PSG technologists, who are trained and perform spindle scoring regularly as part of their work, are considered the experts, and their GC is designated the formal and highest-quality “gold standard” (GS) set of spindles of MODA. This GS spindle annotation dataset introduced here is freely available on the Open Science Framework<sup><xref ref-type="bibr" rid="CR38">38</xref></sup> and can serve as development and testing database for automated spindle detectors including machine learning methods to analyze EEG signals. We also evaluated the performance of seven previously published spindle detectors<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR39">39</xref>–<xref ref-type="bibr" rid="CR43">43</xref></sup> against our MODA GS, breaking down performance by age and sex, and thereby providing independent benchmarking (since none of these detectors have been optimized on the MODA GS) for sleep science’s most common used spindle detectors.</p>
+</sec>
+<sec id="Sec2" sec-type="results">
+<title>Results</title>
+<sec id="Sec3">
+<title>Spindle dataset collection</title>
+<p id="Par6">Polysomnographic data from 180 subjects was sourced from the Montreal Archive of Sleep Studies (MASS)<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. The dataset was split into two “phases”, where phase 1 consisted of 100 younger subjects (mean age of 24.1 years old) and phase 2 consisted of 80 older subjects (mean age of 62.0 years old). A subset of N2 stage sleep from the C3 channel was sampled from each subject (see methods for details). 25 sec epochs of this single channel EEG were presented to expert PSG technologists, researchers, and non-expert scorers via a custom web based scoring platform. Users identified the start and stop of candidate spindles, and indicated their confidence (high, med, low) for each spindle marked. In total, 47 PSG technologists, 18 researchers and 695 non-experts viewed 10,453, 6,636 and 37,467 epochs respectively in Phase 1. Phase 2 was viewed by 31 PSG technologists (7,941 epochs viewed). No scorers viewed the whole dataset, and the histogram of the number of scorer views per epoch image is shown in Fig. <xref ref-type="fig" rid="Fig1">1</xref>. A minimum number of scorers per epoch was crucial to compile a reliable gold standard (GS): the median number of scorers per epoch is 5 for the PSG technologists (Fig. <xref ref-type="fig" rid="Fig1">1a,b</xref>), 4 for researchers (Fig. <xref ref-type="fig" rid="Fig1">1c</xref>) and 18 for non-experts (Fig. <xref ref-type="fig" rid="Fig1">1d</xref><bold>)</bold>. More than 95% of all the epochs have been seen by at least 3 PSG technologists. Table <xref ref-type="table" rid="Tab1">1</xref> presents the number of scorers and amount of data scored for each user subtype and phase. Almost 100,000 candidate spindles were identified by all scorers combined.<fig id="Fig1"><label>Fig. 1</label><caption><p>The histogram of the number of scorer views per 25 s epoch image. (<bold>a</bold>) PSG technologists (Experts) who viewed phase 1 (47 technologies, 10,453 epochs). (<bold>b</bold>) Experts who viewed phase 2 (31 technologists, 7,941 epochs). (<bold>c</bold>) Researchers who viewed phase 1 (18 researchers, 6,636 epochs) (<bold>d</bold>) Non-experts who viewed phase 1 (695 non-experts, 37,467 epochs).</p></caption><graphic id="d30e460" xlink:href="41597_2020_533_Fig1_HTML"></graphic></fig><table-wrap id="Tab1"><label>Table 1</label><caption><p>Number of scorers and data scored for each user subtype and phase.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>User subtype</th><th colspan="2">PSG technologists</th><th>Researchers</th><th>Non-Experts</th></tr><tr><th>Phase</th><th>Phase 1 (younger)</th><th>Phase 2 (older)</th><th>Phase 1 (younger)</th><th>Phase 1 (younger)</th></tr></thead><tbody><tr><td>nEpochs/scorer</td><td>10 (4–1600)</td><td>193 (20–1169)</td><td>99 (1–2018)</td><td>11 (1–2020)</td></tr><tr><td>nSpindles/scorer</td><td>26 (5–6438)</td><td>181 (16–1839)</td><td>137 (4–2316)</td><td>18 (0–3579)</td></tr><tr><td>nScorers/epoch</td><td>5 (4–7)</td><td>5 (1–6)</td><td>4 (1–6)</td><td>18 (8–47)</td></tr><tr><td>% epochs seen &gt;2</td><td>100</td><td>95.8</td><td>54.7</td><td>100</td></tr><tr><td>total scorers</td><td>47</td><td>31</td><td>18</td><td>695</td></tr><tr><td>total spindles</td><td>17367</td><td>9910</td><td>7613</td><td>63935</td></tr><tr><td>total epochs viewed</td><td>10453</td><td>7941</td><td>6636</td><td>37467</td></tr></tbody></table><table-wrap-foot><p>Median number of epochs and spindles per scorer (min and max values), the median number of scorers per epoch (min and max values), the percentage of epochs seen more than twice, the total number of scorers, spindles and epochs viewed.</p></table-wrap-foot></table-wrap></p>
+</sec>
+<sec id="Sec4">
+<title>Human group consensus</title>
+<p id="Par7">The collected scores include many candidate spindles, and some of them showed low agreement across scorers (an event scored as a spindle by some can be scored as “not a spindle” by others). To create our GS (dataset of the highest quality spindles from the Group Consensus (GC) of experts) we averaged scoring across experts, and kept (by thresholding) only the candidate spindles that exceed a desired minimum consensus between experts – termed Group Consensus Threshold (see Methods). The minimum consensus defined by the Group Consensus Threshold (<italic>GCt</italic>) was chosen to maximize the mean individual expert performance (see Supplementary Fig. <xref ref-type="media" rid="MOESM1">1</xref> and Table <xref ref-type="media" rid="MOESM1">1</xref>) against the leave-one-out <italic>GS</italic> (the <italic>GS</italic> in which the evaluated expert did not contribute to the spindle scoring). We identified an optimum required consensus <italic>GCt</italic> between experts of 0.2 in phase 1 and 0.35 in phase 2. These <italic>GCts</italic> are similar to what has been previously reported<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. The scorers’ performance was evaluated using a “by-event” f1 score (<italic>f1</italic>), which is the harmonic mean between the precision and the recall. Recall is the percentage of gold standard spindles correctly detected by a scorer (true positives divided by true positives plus false negatives i.e. completeness), whereas precision is the percentage of a scorer’s spindles that are part of the gold standard set (true positives divided by false positives + true positives i.e. exactness). This by-event performance depends on how similar the estimated spindle (marked by a scorer or detected by an algorithm) has to be to the <italic>GS</italic> spindle to be considered as a match (True Positive); the lowest similitude occurs when spindles are adjacent (no overlap between spindles) and the strictest similitude occurs when spindles are temporally aligned with the exact same length (100% overlap). Figure <xref ref-type="fig" rid="Fig2">2</xref> presents the by-event performance of experts (as well as researchers, non-experts and algorithms) as a function of the overlap threshold between estimated and <italic>GS</italic> spindles. An overlap threshold of 0.2 (also previously reported<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>) was the highest threshold that maximized performance and was used for further analyses in the current study.<fig id="Fig2"><label>Fig. 2</label><caption><p>The f1-score-by-event (<italic>f1</italic>) in function of the overlap threshold. The average individual expert <italic>f1</italic> (<italic>exp</italic>) is shown with the ‘o’ black marker and the shaded area which is the standard deviation across experts. The Group Consensus (<italic>GC</italic>) of researchers (<italic>GC</italic><sub><italic>re</italic></sub>) and non-experts (<italic>GC</italic><sub><italic>ne</italic></sub>) are shown with the ‘o’ blue and red marker respectively. The <italic>f1</italic> of the automated detectors (a2-a9) are shown with dash lines. The performance is evaluated against the GS, the leave-one-out GS is used for the individual experts. (<bold>a</bold>) The phase 1 (younger cohort of 100 subjects). (<bold>b</bold>) The phase2 (older cohort of 80 subjects). An overlap threshold of 0.2 (dotted vertical line) is used for this study, as it is the strictest threshold that does not decrease performance of the detectors. As the threshold increases (i.e. spindle events must overlap with a higher percentage of the overall length of a gold standard event in order to be a match), the overall performance (<italic>f1</italic>) decreases.</p></caption><graphic id="d30e713" xlink:href="41597_2020_533_Fig2_HTML"></graphic></fig></p>
+<p id="Par8">With the GC threshold and overlap threshold chosen, the gold standard consists of 5342 spindles (3338 in phase 1, 2004 in phase 2). The properties of these spindles are reported in Table <xref ref-type="table" rid="Tab2">2</xref>. This set of GS annotations is freely available on the Open Science Framework<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>, and the corresponding EEG data can be downloaded from the Montreal Archive of Sleep Studies website (<ext-link ext-link-type="uri" xlink:href="http://www.ceams-carsm.ca/mass/">http://www.ceams-carsm.ca/mass/</ext-link>). See the Readme document on the Open Science Framework<sup><xref ref-type="bibr" rid="CR38">38</xref></sup> for details on how to obtain a license to download these data.<table-wrap id="Tab2"><label>Table 2</label><caption><p>Spindle characteristics by-subject in the Gold Standard (GS) for younger (phase 1), older (phase 2) and male and females separately.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Feature</th><th>Younger</th><th>Older</th><th>Female</th><th>Male</th></tr></thead><tbody><tr><td>Density (spm)</td><td>4.2 (2.4)</td><td>2.6 (2.2)</td><td>4.2 (2.4)</td><td>2.8 (2.3)</td></tr><tr><td>Duration (s)</td><td>0.79 (0.14)</td><td>0.75 (0.16)</td><td>0.79 (0.14)</td><td>0.76 (0.16)</td></tr><tr><td>Amplitude (µV)</td><td>31 (7)</td><td>26 (7)</td><td>32 (8)</td><td>27 (6)</td></tr></tbody></table><table-wrap-foot><p>The median (and standard deviation) spindle density, duration and amplitude across subjects are reported.</p></table-wrap-foot></table-wrap></p>
+</sec>
+<sec id="Sec5">
+<title>Performance of the human group consensus and automated detectors</title>
+<p id="Par9">A rigorous evaluation of spindle results from clinical and academic sleep studies hinges on quantifying the accuracy and biases of the spindle detection method used. Therefore, to inform future work, we evaluate the spindle detection performance of experts, researchers and non-experts. Human detection of spindles is still considered the highest standard; however, many recent publications have utilized automated methods to save time and cost. Therefore, along with evaluating the performance of humans, seven popular and previously published spindle detection algorithms<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR39">39</xref>–<xref ref-type="bibr" rid="CR43">43</xref></sup> were run on the EEG data (see Methods for details on the algorithms). We compared the by-event performance of each automated detector or human group consensus (<italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub>) against the <italic>GS</italic>, and the individual experts were evaluated against the leave-one-out <italic>GS</italic> to avoid reporting bias.</p>
+<p id="Par10">The mean individual expert <italic>f1</italic> was higher in phase 1 (0.76) than phase 2 (0.65), suggesting that spindles are easier to score in the younger cohort. A mean individual expert <italic>f1</italic> of 0.67 has previously been reported<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> for a cohort similar to our phase 2. The <italic>f1</italic> of the <italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub> was ~0.8, suggesting that the group consensus performs better than individual experts, on average (Figs. <xref ref-type="fig" rid="Fig2">2a</xref>, <xref ref-type="fig" rid="Fig3">3d</xref>). It is noteworthy that individuals (including individual experts, non-experts and researchers) that have very high or low f1 scores tend to be scorers that did not score much data (indicated by lighter colored markers in Fig. <xref ref-type="fig" rid="Fig3">3</xref>). Scoring a small amount of data and thereby not encountering the full variety of epochs could have resulted in artificially high/low individual scores.<fig id="Fig3"><label>Fig. 3</label><caption><p>Precision-Recall plot of by-event performance of individual scorers, Groups Consensus (<italic>GC</italic>) and detectors. Each black ‘o’ marker represents a scorer; the intensity of the color is scaled according to how many epochs each scorer viewed. Automated detectors are labelled from 2 to 9 for a2-a9. The overlap threshold used is 0.2. The Group Consensus Threshold (<italic>GCt</italic>) used to create the Gold Standard (<italic>GS</italic>) is 0.2 for phase 1 and 0.35 for phase 2. The performance is evaluated against the GS, except for the individual experts (<italic>exp</italic>) which are evaluated against the leave-one-out <italic>GS</italic>. (<bold>a</bold>) The performance of the <italic>exp</italic> and automated detectors. Phase 1 and 2 (180 subjects) are used. (<bold>b</bold>) The performance of the individual researchers (<italic>re</italic>) and the <italic>GC</italic> of <italic>re</italic> (<italic>GC</italic><sub><italic>re</italic></sub>) (shown in blue line). <italic>GC</italic><sub><italic>re</italic></sub> is created with a varying GCt from 0 to 1. The younger cohort is used (phase 1, 100 subjects). (<bold>c</bold>) The performance of the individual non-experts (<italic>ne</italic>) and the <italic>GC</italic> of <italic>ne</italic> (<italic>GC</italic><sub><italic>ne</italic></sub>) (shown in red line). <italic>GC</italic><sub><italic>ne</italic></sub> is created with a varying <italic>GCt</italic> from 0 to 1. The younger cohort is used (phase 1, 100 subjects). (<bold>d</bold>) The performance of individual <italic>exp</italic>, automated detectors, <italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub>. The younger cohort is used (phase 1, 100 subjects).</p></caption><graphic id="d30e990" xlink:href="41597_2020_533_Fig3_HTML"></graphic></fig></p>
+<p id="Par11">Similar to human scores, the <italic>f</italic>1 of the detectors were slightly reduced in the older cohort compared to the younger cohort, except for a9<sup><xref ref-type="bibr" rid="CR43">43</xref></sup> which remained the same (Fig. <xref ref-type="fig" rid="Fig2">2a,b</xref> and Supplementary Table <xref ref-type="media" rid="MOESM1">2</xref>). Top performance (based on <italic>f1</italic> score) on the younger cohort (phase 1) was the <italic>GC</italic><sub><italic>re</italic></sub> followed closely by the <italic>GC</italic><sub><italic>ne</italic></sub>. The a7<sup><xref ref-type="bibr" rid="CR42">42</xref></sup> detector had the highest <italic>f1</italic> in the younger cohort, closely matching performance of the average human expert (Figs. <xref ref-type="fig" rid="Fig2">2a</xref>, <xref ref-type="fig" rid="Fig3">3d</xref>). The highest <italic>f1</italic> in the older cohort was reached by a9. Interestingly, a9 was the method most sensitive to the overlap threshold, as its performance decreases more rapidly than other methods as the threshold becomes more stringent (see methods). Therefore, spindles detected by the a9 algorithm and matching <italic>GS</italic> spindles are less perfectly temporally aligned (i.e. the start/stop and duration of spindles is less accurate) compared to the other methods. Detector a9 performance was followed closely by a7. We also evaluated the detectors performance against the <italic>GC</italic><sub><italic>re</italic></sub> (see Supplementary Fig. <xref ref-type="media" rid="MOESM1">2a</xref>) or the <italic>GC</italic><sub><italic>ne</italic></sub> (see Supplementary Fig. <xref ref-type="media" rid="MOESM1">2b</xref>). The performance of the automated methods remained essentially the same (for more details see Supplementary Table <xref ref-type="media" rid="MOESM1">3</xref>).</p>
+<p id="Par12">Automated detectors had their own specific tradeoff between precision (how many detected spindles were matching GS spindles) and recall (how many GS spindles were detected), the most balanced algorithms were a4 and a7 (Figs. <xref ref-type="fig" rid="Fig3">3a,d</xref> and Supplementary Table <xref ref-type="media" rid="MOESM1">2</xref>). The highest <italic>f1</italic> on the whole cohort (phase 1 &amp; 2, 180 subjects) was reached by a7 (0.72 against the <italic>GS</italic>) which is the same as the average individual expert <italic>f1</italic>. This performance is followed closely by a9 with a <italic>f1</italic> = 0.71, a9 showed a higher recall (0.8) but a lower precision (0.65) (Fig. <xref ref-type="fig" rid="Fig3">3d</xref>). Figure <xref ref-type="fig" rid="Fig3">3(b,c)</xref> shows the Precision-Recall plot of the individual <italic>re</italic> or <italic>ne</italic> and their <italic>GC</italic> (<italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub> respectively). Note that the majority of the individual researchers showed a high precision to the detriment of the recall (i.e. are overly conservative when marking spindles), and the resulting <italic>GC</italic><sub><italic>re</italic></sub> is perfectly balanced with a <italic>GCt</italic> = 0. The performance evaluation of the detectors against the three different human references (<italic>GS</italic>, <italic>GC</italic><sub><italic>re</italic></sub>, <italic>GC</italic><sub><italic>ne</italic></sub>) provided similar results (for more information see Supplementary Table <xref ref-type="media" rid="MOESM1">3</xref>). The number of spindles, and detailed performance metrics (True positives, False positives, False Negatives) for the <italic>GS</italic>, <italic>GC</italic><sub><italic>re</italic></sub>, <italic>GC</italic><sub><italic>ne</italic></sub> and each automated algorithm are reported in Supplementary Table <xref ref-type="media" rid="MOESM1">4</xref>. The performance (as quantified by the precision, recall and f1-score) of the seven tested detectors were essentially the same as reported previously<sup><xref ref-type="bibr" rid="CR14">14</xref>,<xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR42">42</xref>,<xref ref-type="bibr" rid="CR43">43</xref></sup>. Note that the performance of a9 was slightly more balanced in the original publication<sup><xref ref-type="bibr" rid="CR43">43</xref></sup> than in the current study.</p>
+</sec>
+<sec id="Sec6">
+<title>Spindle characteristics by-subject as a function of age and sex</title>
+<p id="Par13">Spindle activity decreases with age, and sex differences have also been reported<sup><xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR13">13</xref></sup>. We evaluated the age group difference between 100 subjects 18–35 years old and 80 subjects 50–76 years old, and sex difference between the 88 females and 92 males. We tested the spindle density measured as spindle per minute (<italic>spm</italic>), average maximum peak-to-peak amplitude (µV), average duration (s) and average dominant oscillation frequency (Hz) by-subject on the spindle dataset included in the GS (see Methods). A 2 × 2 ANOVA showed main effect for age and sex but no interaction on both for spindle density (age p = 0.0001 and sex p = 0.001) and average amplitude (age p = 1.5e-6 and sex p = 3e-8). The difference on the average spindle duration was significant only for age (p = 0.01). No significant effect was found for the dominant oscillation frequency of the spindle. Further analyses of the age and sex differences were performed with the non-parametric Mann-Whitney test (Fig. <xref ref-type="fig" rid="Fig4">4</xref>) since the spindle characteristics distributions were not all normally distributed based on the Shapiro-Wilk test. The spindle density in the <italic>GS</italic> was higher (p = 0.0002), average duration was longer (p = 0.008) and average amplitude was higher (p = 2e-06) in younger compared to older subjects (Fig. <xref ref-type="fig" rid="Fig4">4</xref>). The spindle density (p = 0.0008) and the average spindle amplitude (p = 1e-06) in the <italic>GS</italic> were also higher in females compared to males (Fig. <xref ref-type="fig" rid="Fig4">4</xref>). Supplementary Tables <xref ref-type="media" rid="MOESM1">2</xref> and <xref ref-type="media" rid="MOESM1">3</xref> contain detailed analysis of each detector’s ability to capture the sex and age trends present in the GS.<fig id="Fig4"><label>Fig. 4</label><caption><p>Spindle characteristics-by-subject of the Gold Standard (<italic>GS</italic>) as a function of age and sex. (<bold>a</bold>) Spindle density (spm), (<bold>b</bold>) Spindle duration (s) and (<bold>c</bold>) Spindle amplitude (µV) for younger (y; phase 1) and older (o: phase 2) subjects, females (f) and males (m). Each dot in the plot represents one subject; darker points indicate multiple subjects at the same position. The ‘−‘ marker is the mean, the ‘X’ marker is the median across subjects, and the white box shows the mean + −1 × standard deviation. The *markers show significant difference with the Mann-Whitney test: “*”p values &lt; = 0.05, “**”p value &lt; = 0.01, and “***”p value &lt; = 0.001.</p></caption><graphic id="d30e1234" xlink:href="41597_2020_533_Fig4_HTML"></graphic></fig></p>
+<p id="Par14">The average spindle activity reported in the previous crowdsourcing project<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> was similar to our phase 2 (older cohort) despite a relatively high standard deviation across subjects. Warby <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> reported 2.3 ± 2 spm with an average duration of 0.75 ± 0.27 s, a maximum peak-to-peak amplitude of 27 ± 11 μV and an oscillation frequency mean of 13.3 ± 1 Hz. We measured a by-subject dominant oscillation frequency of 13.1 ± 0.8 Hz (see Supplementary Table <xref ref-type="media" rid="MOESM1">5</xref>).</p>
+</sec>
+<sec id="Sec7">
+<title>Comparison of detection methods</title>
+<p id="Par15">When considering which method to use to detect spindles, automated or otherwise, it is important to understand which spindle properties are best captured by each. To this end, we computed the correlation of the spindle density and spindle characteristics between the <italic>GS</italic> spindles and automatically detected spindles for each algorithm (<italic>a</italic>2<italic>-a9</italic>) as well as <italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub>. The correlations for the spindle density in phase 1 (younger cohort, 100 subjects) are reported in Table <xref ref-type="table" rid="Tab3">3</xref>. For phase 1, the correlation is higher for human GC than automated detectors. The <italic>GC</italic><sub><italic>ne</italic></sub> is slightly more correlated (r<sup>2</sup> = 0.91) than the <italic>GC</italic><sub><italic>re</italic></sub> (r<sup>2</sup> = 0.88). The correlation for the detectors is low for the spindle density (r<sup>2</sup> average across detectors is 0.37) and spindle duration (r<sup>2</sup> = 0.32), but very high for spindle amplitude (r<sup>2</sup> = 0.90) and high for spindle frequency (r<sup>2</sup> = 0.69). The detectors a7 and a9 performed better than the average of the detectors, especially for the spindle density which their r<sup>2</sup> were 0.73 and 0.85 respectively. The correlation coefficients for the detectors in phase 2 are reported in the Supplementary Table <xref ref-type="media" rid="MOESM1">6</xref>. Briefly, the correlation was higher for the spindle density but lower for all the other characteristics compared to the phase 1. Again, the detectors a7 and a9 outperformed the other detectors for the correlation with the <italic>GS</italic> spindle density with a <italic>r</italic><sup><italic>2</italic></sup> = 0.83 and 0.88 respectively.<table-wrap id="Tab3"><label>Table 3</label><caption><p>Correlation coefficient r² between Gold Standard from experts (<italic>GS</italic><sub><italic>exp</italic></sub>) and automated detectors (<italic>a2-a9</italic>) or group consensus of researchers (<italic>GC</italic><sub><italic>re</italic></sub>) or non-experts (<italic>GC</italic><sub><italic>ne</italic></sub>) for the spindle density, average duration and amplitude by-subject.</p></caption><table frame="hsides" rules="groups"><thead><tr><th></th><th>a2</th><th>a3</th><th>a4</th><th>a5</th><th>a7</th><th>a8</th><th>a9</th><th>Auto avg</th><th>GC<sub>re</sub></th><th>GC<sub>ne</sub></th></tr></thead><tbody><tr><td>Density spm</td><td>0.22</td><td>0.31</td><td>0.18</td><td>0.26</td><td>0.73</td><td>0.01</td><td>0.85</td><td>0.37</td><td>0.88</td><td>0.91</td></tr><tr><td>Duration s</td><td>0.32</td><td>0.31</td><td>0.15</td><td>0.14</td><td>0.45</td><td>0.32</td><td>0.55</td><td>0.32</td><td>0.59</td><td>0.73</td></tr><tr><td>Amplitude µV</td><td>0.83</td><td>0.90</td><td>0.90</td><td>0.90</td><td>0.92</td><td>0.89</td><td>0.95</td><td>0.90</td><td>0.90</td><td>0.95</td></tr><tr><td>Frequency Hz</td><td>0.53</td><td>0.69</td><td>0.71</td><td>0.71</td><td>0.7</td><td>0.67</td><td>0.8</td><td>0.69</td><td>0.78</td><td>0.87</td></tr></tbody></table><table-wrap-foot><p>The mean r<sup>2</sup> across detectors is also reported (Auto avg). The correlation coefficient p-value was significant (&lt;0.05) for each detector or human scoring except for the spindle density of a8. Only the phase 1 is shown (younger 100 subjects).</p></table-wrap-foot></table-wrap></p>
+<p id="Par16">We compared the spindle characteristics by-subject distribution of each detector (a2-a9) and human group consensus (<italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub>) to the <italic>GS</italic> for the whole cohort except for <italic>GC</italic><sub><italic>re</italic></sub> and <italic>GC</italic><sub><italic>ne</italic></sub> using a Mann-Whitney test. The variance in spindle characteristics was much larger across detectors than across the three human subtypes (PSG technologists, researchers and non-experts) (Fig. <xref ref-type="fig" rid="Fig5">5</xref> and Supplementary Table <xref ref-type="media" rid="MOESM1">7</xref>). The spindle density of a2 was much lower (0.9 spm, p = 9e-38) than the GS (3.8 spm), a3 (7 spm, p = 3.6e-25) and a8 (6.9 spm, p = 2.3e-34) were much higher than the GS. The average duration was much higher for a2 (1.15 s, p = 1.6e-33) and a9 (1.15 s, p = 2e-49) compared to the GS (0.78 s), but a3 (0.56 s, p = 4.7e-43), a4 (0.67 s, p = 1.1e-15) and a5 (0.5 s, p = 1.2e-48) were much lower. The average amplitude and oscillation frequency were about the same for all the detectors except a2 which showed spindles with greater amplitude (43 µV, p = 9.5e-30) than the GS (30 µV). The histogram at the cohort level (by-subject analysis) of the dominant oscillation frequency of spindles of the GS spindles or any of the automated detectors is unimodal, and does not support the hypothesis of decomposing the spindles into fast and slow spindles (Fig. <xref ref-type="fig" rid="Fig5">5d</xref><bold>)</bold>. Note that the slightly higher spindle density, duration and amplitude for the <italic>re</italic> and <italic>ne</italic> spindle dataset (Fig. <xref ref-type="fig" rid="Fig5">5</xref>) are biased due to the fact that only the younger cohort (phase 1) was scored by these groups (see Table <xref ref-type="table" rid="Tab2">2</xref> for the true comparison for the phase 1, “Phase 1 - Younger” column).<fig id="Fig5"><label>Fig. 5</label><caption><p>By-subject spindle characteristic distributions of the gold standard (<italic>GS</italic>), group consensus of researchers (<italic>re</italic>) group consensus of non-experts (<italic>ne</italic>), and each detector (<italic>a2-a9</italic>). Each panel refers to a different metric: (<bold>a</bold>) spindle density, (<bold>b</bold>) average spindle duration, (<bold>c</bold>) average spindle amplitude, (<bold>d</bold>) average spindle dominant frequency. The dotted horizontal line shows the average of the <italic>GS</italic> distribution for reference. The whole cohort is used (phase 1 &amp; 2, 180 subjects) except for the <italic>re</italic> and <italic>ne</italic> where only the younger cohort was scored (phase 1, 100 subjects).</p></caption><graphic id="d30e1645" xlink:href="41597_2020_533_Fig5_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec8">
+<title>How many scorers are needed for crowdsourcing sleep spindle annotations?</title>
+<p id="Par17">Obtaining quality spindle scoring is costly and time consuming; knowing the number of scorers per epoch to achieve reliable results is worthwhile and may help to create future GS datasets. We identified that aggregating the scoring from two to four experts or researchers per epoch is optimum (Fig. <xref ref-type="fig" rid="Fig6">6a</xref>). However, three to ten non-experts were needed for similar performance (Fig. <xref ref-type="fig" rid="Fig6">6b</xref>). Zhao <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> reported the need for at least six non-experts to score spindles in N2 sleep stage, but the plateau of the non-experts group consensus performance (f1 &lt; 0.8) was reached around 10 non-experts. Figure <xref ref-type="fig" rid="Fig6">6</xref> shows the f1-score-by-event of five “partial” GCs, each based on different number of scorers. We evaluated these partial GC’s against the GC from another user subtype to avoid positive reporting bias. Using the leave-one-out GS was not sufficient since only few epochs include more than five experts per epoch. Therefore, partial GCs of experts (<italic>pGC</italic><sub><italic>exp</italic></sub>) were evaluated against the GC made from the scoring of all the researchers (<italic>GC</italic><sub><italic>re</italic></sub>), and partial GCs of researchers (<italic>pGC</italic><sub><italic>re</italic></sub>) and non-experts (<italic>pGC</italic><sub><italic>ne</italic></sub>) were evaluated against the formal <italic>GS</italic> made from the scoring of all the experts. Three random selections of the scorers per epoch were performed to see the inter-scorers/inter-epochs variation shown as a gray area. The Group Consensus Thresholds (GCt) used depended of the number of scorers per epoch and the user subtypes, from 0.4 for one scorer/epoch to the optimum <italic>GCt</italic> for each user subtype.<fig id="Fig6"><label>Fig. 6</label><caption><p>The human group consensus (GC) f1-score-by-event (<italic>f1</italic>) as a function of the number of scorers. (<bold>a</bold>) Partial group consensus of experts (<italic>pGC</italic><sub><italic>exp</italic></sub>), each based on a different number of scorers, shown by the ‘o’ marker are evaluated against the GC of the researchers (<italic>GC</italic><sub><italic>re</italic></sub>). Partial group consensus of researchers (<italic>pGC</italic><sub><italic>re</italic></sub>) shown by the ‘+’ marker are evaluated against the Gold Standard made from all the experts (<italic>GS</italic>). (<bold>b</bold>) Partial group consensus of non-experts (<italic>pGC</italic><sub><italic>ne</italic></sub>) shown by the ‘x’ marker are evaluated against the <italic>GS</italic>. Only the phase 1 (100 younger subjects) is used. The shaded area represents the standard deviation across the three random selections of scorers per epoch. The overlap threshold used to evaluate the performance is 0.2. Group Consensus Threshold (<italic>GCt</italic>) used depended of the number of scorers per epoch and the user subtypes (from 0.4 for one scorer/epoch to the optimum <italic>GCt</italic> for each user subtype).</p></caption><graphic id="d30e1754" xlink:href="41597_2020_533_Fig6_HTML"></graphic></fig></p>
+</sec>
+</sec>
+<sec id="Sec9" sec-type="discussion">
+<title>Discussion</title>
+<p id="Par18">In this study, we describe the use of the MODA platform and crowdsourcing to generate the group consensus of a large number of human scorers for sleep spindle detection in EEG data. The group consensus of human PSG technologists (experts) is used to form the gold standard (GS), and we outline a method to evaluate the performance of the different groups of scorers, including previously reported spindle detection algorithms. The group consensus of experts and non-experts produced a high-quality spindle dataset, and the automated detectors performed, on average, worse than human scorers. Our current study (specifically phase 2, 80 older subjects from MASS<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>) is consistent with the results from our first crowdsourcing project<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> (110 old subjects from Wisconsin Sleep Cohort<sup><xref ref-type="bibr" rid="CR44">44</xref></sup>). The lower performance of spindle detection algorithms does not appear to be due to the age of the sleeping subjects, as we initially hypothesized<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>, as the finding is now similarly reproduced in a group of younger adults (phase 1 of MODA). The current study additionally included evaluation against a Group Consensus (GC) made from researchers scoring, and the analysis of spindle activity as a function of age and sex. Furthermore, two additional spindle detectors tested (a7<sup><xref ref-type="bibr" rid="CR42">42</xref></sup> and a9<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>) yielded performance equivalent to an average individual expert. To our knowledge, the MODA dataset is now the largest and most comprehensively scored sleep spindles GS available for validation of spindle detection algorithms.</p>
+<p id="Par19">The average spindle activity (such as the density, duration and amplitude) of the MODA GS for the phase 2 (80 old subjects from MASS<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>) were surprisingly consistent with the expert GS from the previous crowdsourcing project<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> suggesting a high agreement between experts in an older cohort even across datasets. This agreement was also observed between the experts, <italic>re</italic> and <italic>ne</italic> (phase 1, 100 subjects) in the younger cohort of the current study. The high validity of our scoring allowed us to conclude the average spindle density for a young cohort was 4.2 spm with an average duration of 0.8 s, average maximum peak-to-peak amplitude of 33 µV and average dominant oscillation frequency of 13.3 Hz (activity when considering all the scorers of MODA, across all 100 subjects). The aggregated average spindle activity for older sleepers was 2.5 spm with an average duration of 0.75 s, average amplitude of 27 µV and average frequency of 13.2 Hz (MODA phase 2, 80 subjects 50–76 years old, and Warby <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR14">14</xref></sup> 110 subjects 42–72 years old). The agreement for the average spindle activity between automated algorithms was poorer than the human scoring. Only the a7 detector showed similar descriptive statistics to human scorers; i.e. average density of 3.9 spm, duration of 0.85 s, amplitude of 29 µV and frequency of 13.26 Hz for the whole cohort (phase 1 &amp; 2). Spindles detected by a9 showed similarities with the GS spindles but the average duration was significantly longer (1.15 s). One caveat of the algorithmic performance evaluation is that the detectors were not tuned for the current dataset (instead using the default parameters suggested in their original publications). While many researchers do not tune these algorithms, the performance with tuning is potentially higher than reported here. We did not differentiate slow and fast spindles in our analysis because the oscillation frequency histogram of the spindles at the group level is clearly unimodal for the <italic>GS</italic>, <italic>GCre</italic>, <italic>GCne</italic> and each automated detector. The existence of slow and fast spindles could have been more obvious in our database with the analysis of additional channels, such as a frontal channel for slow spindles and a parietal channel for fast spindles<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR45">45</xref>,<xref ref-type="bibr" rid="CR46">46</xref></sup>.</p>
+<p id="Par20">Most of the detectors tested in our study showed the same significant age and sex differences as the experts, which, in-turn, matches the literature<sup><xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR13">13</xref></sup>. However, algorithms a7 and a9 detected an additional significant sex difference: the spindles were on average longer in females, a finding which until now has only been seen at a trending significance level (p0.05 &lt; p &lt; 0.1)<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR7">7</xref></sup>. We did not detect this effect in our own GS (only a trend in correct direction was observed, with p = 0.2), and this potentially points to a7 and a9 detectors being more discriminatory than human scoring. The a8<sup><xref ref-type="bibr" rid="CR34">34</xref></sup> detector was alone in showing an opposite age and sex effect for the spindle density. Not all detectors performed equally: the correlation of the by-subject spindle density between the GS and the detectors was generally low (an average r<sup>2</sup> across detectors of 0.37) compared to the human group consensus (<italic>GCre</italic> r<sup>2</sup> = 0.88 and <italic>GCne</italic> r<sup>2</sup> = 0.91) in the younger cohort, however the detectors a7 (r<sup>2</sup> = 0.73) and a9 (r<sup>2</sup> = 0.85) performed well. Algorithm performance was slightly better in the older cohort (average r<sup>2</sup> across detectors = 0.47), and again a7 (r<sup>2</sup> = 0.83) and a9 (r<sup>2</sup> = 0.88) performed well. Spindle density and amplitude was more accurately captured compared to spindle duration: correlations between GS and detectors/humans were generally lower for duration than for density (even for the human Group Consensus, <italic>GC</italic><sub><italic>re</italic></sub> r<sup>2</sup> = 0.59 and <italic>GC</italic><sub><italic>ne</italic></sub> r<sup>2</sup> = 0.73), and all detectors and human GC had a high correlation with the GS for the average spindle maximum peak-to-peak amplitude.</p>
+<p id="Par21">Creating an optimal GS is central to maximizing dataset validity. Obtaining the highest number of scorers with the highest level of expertise possible is, of course, the best scenario to create this optimal GS. However, our study suggests that collecting the scores of three researchers (<italic>re</italic>) or 10 non-experts (<italic>ne</italic>) provided a GC <italic>f1</italic> of 0.8 against the expert’s GS, providing a performance similar to the average individual expert (<italic>f1</italic> = 0.76) (only observed in phase 1 since the phase 2 was not scored by <italic>re</italic> or <italic>ne</italic>). Comparing the spindle detectors to the GC of <italic>re</italic> (<italic>GC</italic><sub><italic>re</italic></sub>) or <italic>ne</italic> (<italic>GC</italic><sub><italic>ne</italic></sub>) allowed the same conclusion about their performance as the experts’ comparison. The <italic>GC</italic><sub><italic>re</italic></sub> proved to be a valid standard reference despite the high precision and the moderate recall of the researchers. Creating a GC where the f1-score is maximized effectively forced the GC to be balanced between the recall and the precision. We also identified that aggregating the scoring from two to four experts/researchers or three to ten non-experts is sufficient, and after this point, the performance of the GC begins to plateau.</p>
+<p id="Par22">Throughout the analysis, we have used a relaxed overlap threshold (only 20% overlap between a potential detection and a spindle in the GS was required to be a true positive). Clearly a higher threshold is desirable in practice, but we wanted to present the best performance possible for the automated detectors. All automated detectors decay in performance with increasing overlap threshold faster than human scorers, meaning that automated detectors do not predict the start/stop and duration of spindles similarly to humans. Using a stricter threshold such as 80% would produce an even larger difference between human and automated scoring performance. In this regard, the a9 detector, which had some of the highest performance scores with an overlap of 20%, was unique in that it had the most rapid decline of performance with increasing overlap threshold requirements (Fig. <xref ref-type="fig" rid="Fig2">2</xref>). The preference of the a9 detector to find very long spindles may be an area of potential improvement for this particular algorithm.</p>
+<p id="Par23">It should be clearly noted that the use of human-scored spindles as the gold standard is open for debate. In our study, the scoring performance reported and descriptive statistics of the MODA GS spindles are “true” only in the sense that many human experts agree on them. The lesser performance of spindle algorithms is only relative to human scoring. It remains unclear whether the algorithmically detected “hidden spindles” that are missed by humans are mechanistically identical to human detected spindles, spurious, or perhaps separate and biologically meaningful phenomena. Individual spindle detection algorithms may prove to be superior for specific uses, such as disease biomarkers, markers of cognition and intelligence, or in cases of co-recorded EEG and fMRI, where the signal-to-noise ratio becomes more challenging. What remains clear however, is that individual spindle detection algorithms find different sets of spindles relative to human scoring, and different than other spindle algorithms. Since the different algorithms are not entirely consistent with each other, it is difficult to use any one detector as the gold standard. Therefore, if you are designing an automated detector to match human scoring, then validation against the MODA GS is the best choice.</p>
+<p id="Par24">The variance in automated detectors means choosing one is not a one-size-fits-all process. Some detectors may be better in characterizing the spindle activity of unhealthy subjects, subjects under different conditions or to reveal specific features of spindles. For example, out of the seven detectors tested in the current study a2<sup><xref ref-type="bibr" rid="CR39">39</xref></sup> was the best in separating Parkinson’s disease patients from controls (unpublished results conducted in our lab). Furthermore, a8 showed poor results in the current study, but performed well when compared to an expert (f1 = 0.71) or a group consensus of non-experts (f1 = 0.73) who scored on a band-pass filtered 11–16 Hz EEG signal<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>. The a7 detector was the most similar to the human scoring, which is not surprising considering it was designed to emulate expert human scoring, and it has been trained on a human GS<sup><xref ref-type="bibr" rid="CR42">42</xref></sup>. The detector a9 showed high performances in the current study. It is based on a non-linear model to separate the transients from the sustained rhythmic oscillations of the spindle<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. The detector a9 is also proposed to pre-process the raw EEG prior to the spindle detection (possibly combined to another automated detector)<sup><xref ref-type="bibr" rid="CR47">47</xref></sup>, a design possibly of interest for noisy EEG signals such as those recorded in fMRI. Instead of choosing the top performing algorithm defined here (e.g. a7), researchers might consider testing multiple or even a combination of detectors. For example, testing multiple published detectors initially (ideally on pilot data) to establish which detector is the most useful for their application, they could then use that method consistently for all future work, thereby allowing valid comparison between versions of their work. Specific research areas may focus on specific properties of the spindle signal (e.g. require amplitude sensitivity rather than frequency sensitivity), and, as shown here, some detectors are more sensitive specific signal properties. Therefore, automated algorithms to detect spindles may also be chosen based on the specific field of inquiry and their history in answering specific research questions. Overall, choosing appropriate spindle detection requires efforts from the researchers to standardize the evaluation of the detectors. A common set of spindles to compare with, e.g. the MODA GS, is one important step of this standardization.</p>
+<p id="Par25">There are some limitations to the current work. Producing a higher quality GS might be achieved with more experts (although see our recommendations for a sufficient number of scorers), but also by improvements to the MODA web interface. An interface which better replicates the PSG technologist work environment, such as presenting a complete montage of channels, the possibility to go back and forth between epochs, and displaying a whole night per subject, and may yield higher validity expert annotations. Furthermore, the current GS includes only healthy subjects from 18–76 years old (distributed non-uniformly), and focuses on spindles in stage 2 and the C3 channel; different GS could be created from other populations, channels or stages.</p>
+<p id="Par26">With the release of the MODA annotations dataset, we hope to spur development of reliable, generalizable automatic sleep analysis tools. Complex models with many parameters (such as those in machine learning) are prone to overfitting (i.e. fitting dataset specific noise), and therefore, the reported accuracy of detectors may be inflated, and results may not generalize to new, unseen data. We suggest that developers should train, validate and test their algorithm with a nested cross-validation on the MODA GS.</p>
+<p id="Par27">In conclusion, our study demonstrates that crowdsourcing with experts, researchers and non-experts replicates well, and is a viable method for generating a large dataset of EEG events. We trust that the MODA interface and the GS dataset generated from it will prove a popular tool for researchers to collect data, train and validate automated detectors, and act as a standardized benchmark for selecting the most appropriate algorithm for specific research goals. The MODA dataset was a concerted effort, and highlights the importance of open, transparent and collaborative research. In this vein, we encourage all developed algorithms to be open source so that these tools may help us understand sleep further, including how spindles play a role in memory and mental disorders.</p>
+</sec>
+<sec id="Sec10">
+<title>Methods</title>
+<sec id="Sec11">
+<title>EEG data</title>
+<p id="Par28">Polysomnographic data used came from the Montreal Archive of Sleep Studies (MASS)<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>; 180 subjects were sampled from the SS1-SS5 subsets. The dataset was split into “phase 1” and “phase 2”; 100 younger subjects (mean age of 24.1 years old) and 80 older subjects (mean age of 62.0 years old) respectively. “Blocks” of 115 s were randomly extracted from artifact free Stage N2 sleep. Three blocks (~6 mins) were extracted in 85 subjects in phase 1 and 65 subjects in phase 2; and 10 blocks (~20 mins) were extracted in the remaining 15 subjects of each phase. Almost 24 h of EEG time series was extracted to be scored. Table <xref ref-type="table" rid="Tab4">4</xref> presents the demographic information of subjects sampled and the amount of EEG data extracted. C3 channel was reformatted to C3-A2 when possible otherwise the original reference “C3-Linked Ear” (<italic>C3-LE</italic>) was kept. We band-pass filtered the signal between 0.3–30 Hz as suggested by AASM<sup><xref ref-type="bibr" rid="CR22">22</xref></sup> and down sampled it to 100 Hz to reduce processing time.<table-wrap id="Tab4"><label>Table 4</label><caption><p>Data collection to score spindles.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Phase</th><th>Subjects (ratio female)</th><th>Mean Age years (min-max)</th><th>Number of epochs</th><th>Total duration (h)</th></tr></thead><tbody><tr><td>1</td><td>100 (0.52f)</td><td>24.1 (18–35)</td><td>2020</td><td>12.9</td></tr><tr><td>2</td><td>80 (0.46f)</td><td>62.0 (50–76)</td><td>1725</td><td>11</td></tr><tr><td>Total</td><td>180 (0.49f)</td><td>41.0 (18–76)</td><td>3745</td><td>23.9</td></tr></tbody></table><table-wrap-foot><p>Number of subjects selected from MASS<sup><xref ref-type="bibr" rid="CR37">37</xref></sup> and the number of epochs extracted with the corresponding amount of time (h) for each phase.</p></table-wrap-foot></table-wrap></p>
+</sec>
+<sec id="Sec12">
+<title>Signal processing</title>
+<p id="Par29">Band-pass filter 0.3–30 Hz is implemented in MATLAB 2016b (MathWorks, Inc., Natick, MA, USA). The filter characteristics are Butterworth IIR 10th order. The filter is constructed with zero-pole-gain form converted into a Second Order Section (SOS) and the non-linear phase is corrected by the “filtfilt” function. The EEG down sampling to 100 Hz is also implemented in MATLAB 2016b (MathWorks, Inc., Natick, MA, USA) with the function “resample” which has been called to use a polyphase antialiasing filter.</p>
+</sec>
+<sec id="Sec13">
+<title>MODA Web interface developed to collect spindle scoring</title>
+<p id="Par30">We developed a custom JavaScript web interface, called MODA, to collect the annotations of a large number of scorers. Signals to be scored on MODA must be encoded as images, therefore the extracted data blocks of 115 s (C3 EEG channel) were converted into 5 epoch images of 25 s (overlap of 2.5 s between consecutive epochs). Images were 10” wide per 1” high in five resolutions from 80 dpi to 125 dpi to suit the most common monitors. Negative voltages (+100 µV to −100 µV) were displayed upward to present data time series in a familiar way to experts. The scorers were first asked to register and complete a simple profile about their experience in sleep scoring (if any). A short description of how the interface works, and how to score spindles, was presented. The American Academy of sleep medicine’s (AASM’s)<sup><xref ref-type="bibr" rid="CR22">22</xref></sup> spindle criteria were used to develop the instructions to score spindles. All the scorers underwent 10 practice trails with feedback; they were asked to draw boxes around each spindle they saw and rate the confidence (as “high”, “medium” or “low”) that each box contains a spindle (Supplementary Fig. <xref ref-type="media" rid="MOESM1">3</xref><bold>)</bold>. After the completion of the practice session, they were allowed to score spindles (possibly in multiple short sessions) for the MODA dataset (Fig. <xref ref-type="fig" rid="Fig7">7</xref>). Phase 1 dataset (younger cohort) was presented first. Images were displayed as a “set” of 2 blocks (i.e. 10 epochs) to scorers. The same “set” was presented to different scorers until the desired number of views was reached. The number of sets scored was shown, but the total number of sets left to score was unknown for each scorer. Epochs may contain no spindles and there was no limit on the number of spindles that could be present.<fig id="Fig7"><label>Fig. 7</label><caption><p>An example of 25 s epoch image to score spindles with confidence intervals on the MODA (Massive Online Data Annotation) website.</p></caption><graphic id="d30e2118" xlink:href="41597_2020_533_Fig7_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec14">
+<title>MODA scorers</title>
+<p id="Par31">Scorers consisted of PSG Technologists (registered as Polysomnographic Technologists on <ext-link ext-link-type="uri" xlink:href="http://www.brpt.org/rpsgt">www.brpt.org/rpsgt</ext-link>), designed the experts (<italic>exp</italic>) in our study, Researchers (<italic>re</italic>) with experience in scoring sleep, and Non-Expert (<italic>ne</italic>) “MTurkers” recruited from Amazon Mechanical Turk. PSG technologists and researchers were recruited through on-line announcements, scientific conferences, word of mouth, and from the authors’ personal database.</p>
+</sec>
+<sec id="Sec15">
+<title>Creating the MODA group consensus</title>
+<p id="Par32">The visual scoring of spindles needs practice since other signal features also mimic spindles and they can be partially hidden or deformed; therefore, only spindles that have been marked with a certain agreement between scorers should be kept to form a high-quality set of spindles noted Group Consensus (GC). To increase the scoring quality, we asked to scorers to rate their confidence (low, med, high) for each spindle marked. Specifically, each sample of the EEG time series had a score weighted by the confidence rate given by the scorer; 1 for high, 0.75 for medium, 0.5 for low confidence and 0 for no spindle at all. Then, sample by sample, the scores were averaged across scorers, and if they exceed the chosen Group Consensus Threshold (<italic>GCt</italic>) then these samples were identified to be part of the GC spindle dataset. In this way, either some scorers must be certain, or many scorers must be moderately confident for a location to be marked as a GC spindle. The three subtypes of users who scored on MODA: “<italic>exp</italic>, <italic>re</italic> and <italic>ne</italic>” allowed the creation of different <italic>GC</italic>. The GC of experts was considered the highest-quality set of spindles of MODA, and therefore was designated as the formal “gold standard” GS of MODA. The <italic>GCt</italic> used to create our <italic>GS</italic> was chosen to maximize the average individual performance across experts. Each individual expert was evaluated against a GS which did not include its own scores (leave-one-out GS) to avoid a positive reporting bias. The <italic>GCt</italic> used to form the <italic>GC</italic> of <italic>re</italic> (<italic>GCre</italic>) or <italic>ne</italic> (<italic>GCne</italic>) were chosen to maximize the GC performance against the GS made from all the experts. These thresholds are arbitrary, and others may want to use a different aggregation method or thresholds to create their own GC. Additional clean-ups, on the created GC, were made to increase their validity. A spindle shown on two consecutive epochs (during the 2.5 s overlap of epochs) may be detected more easily on either epoch. Therefore, for the set of samples that occur on two epochs, we consider the highest score for each scorer. Too short (&lt;0.3 s) adjacent (&lt;0.1 s apart) spindles were merged, and spindle longer than 2.5 s or shorter than 0.3 s were filtered out of the GC.</p>
+</sec>
+<sec id="Sec16">
+<title>Performance evaluation</title>
+<p id="Par33">The performance evaluation followed the strategy described in the previous spindle crowdsourcing project<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. The primary performance evaluation was approached ‘by-event’, meaning that spindles are considered to be variable length events. An overlap rule must therefore be applied to determine if two variable length and partially overlapping events (estimated spindle and GS spindle) can be considered a match. The recall (fraction of GS spindles found: <inline-formula id="IEq1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\frac{TP}{TP+FN}$$\end{document}</tex-math><mml:math id="M2"><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow></mml:mfrac></mml:math><inline-graphic xlink:href="41597_2020_533_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula>), the precision (fraction of events that matches GS spindles: <inline-formula id="IEq2"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\frac{TP}{TP+FP}$$\end{document}</tex-math><mml:math id="M4"><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfrac></mml:math><inline-graphic xlink:href="41597_2020_533_Article_IEq2.gif"></inline-graphic></alternatives></inline-formula>) and the f1-score <inline-formula id="IEq3"><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left(2\times \frac{precision\times recall}{precision+recall}\right)$$\end{document}</tex-math><mml:math id="M6"><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mn>2</mml:mn><mml:mo>×</mml:mo><mml:mfrac><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>i</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mo>×</mml:mo><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mi>l</mml:mi></mml:mrow><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>i</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mo>+</mml:mo><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mi>l</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mfenced></mml:math><inline-graphic xlink:href="41597_2020_533_Article_IEq3.gif"></inline-graphic></alternatives></inline-formula> (where <italic>TP</italic> is the number of True Positive, <italic>FP</italic> the False Positive and <italic>FN</italic> the False Negative) were used since spindles are relatively rare events. To consider an estimated spindle (detection) as correctly matching a GS spindle (event), the detection must overlap the event above a certain overlap threshold. The overlap is computed as the intersection (the part of event detected) over the union (sum of the length of the event and the detection) between the event and the detection. Only one detection can match an event, the one with the greatest overlap, other detections overlapping the same event are considered FP. The overlap threshold chosen was the strictest threshold that did not penalize any of the human group consensuses or automated algorithms. A low overlap threshold (0.2 was previously reported<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>) allows detections to be shorter or longer than the GS spindle or being not perfectly aligned with the GS spindle. In addition, the performance evaluation was done at the ‘by-subject’ level. The multiple detections or measurements that belong to the same individual EEG recording (sleeping night of one subject) were aggregated into a single average for that subject. These characteristics are the spindle density measured as the number of spindles per minute (spm), the average spindle duration (s), amplitude (µV) and frequency (Hz). In detail, the amplitude was computed as the maximum peak-to-peak amplitude of the spindle band-pass filtered 11–16 Hz. The frequency was computed as the dominant oscillation frequency of the spindle through FFT (Fast Fourier Transform). An FFT with five seconds zero-padding was performed on the EEG signal of the spindle band-pass filtered 10–16 Hz, and the frequency with the maximum energy was extracted. The frequency histogram at the cohort level was generated to evaluate the opportunity of breaking down spindles into fast and slow. The by-subject analysis allowed looking at the correlation of the spindle density or characteristics with the GS. The by-subject performance can be high compared to the by-event performance if the detection bias (such as recall or precision) is constant across subjects (ex. detections are consistently 0.5 s longer or delayed by 0.2 s compared to the GS spindles).</p>
+</sec>
+<sec id="Sec17">
+<title>Automated spindle detectors tested</title>
+<p id="Par34">To provide a framework of how to test automated algorithms on the MODA GS, we evaluated the performance of seven previously published spindle detectors<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR39">39</xref>–<xref ref-type="bibr" rid="CR43">43</xref></sup> (for more details about their respective design see Table <xref ref-type="table" rid="Tab5">5</xref>). These detectors were selected because of the prevalence of their use, the requirement that they only need one EEG channel to perform the analysis, and the availability of open source Matlab code to facilitate their implementation. Detectors were run “out-of-the-box” with the default parameters suggested in their corresponding publications. The detectors were evaluated first by-event against the MODA GS and secondly against the GC made from the researchers (<italic>GC</italic><sub><italic>re</italic></sub>) or non-expert scoring (<italic>GC</italic><sub><italic>ne</italic></sub>). The by-subject analysis was also performed in order to compare their spindle density and average spindle characteristics to the human scoring. Age and sex differences for the spindle activity were also tested for each detector. Reported performances are valid “out-of-sample” performance since none of these detectors have been developed or trained on the MODA GS. Even if the EEG data for MODA comes from the open source MASS<sup><xref ref-type="bibr" rid="CR37">37</xref></sup> dataset, only 15 subjects (out of the 180 subjects used for MODA) have existing spindles scored (and by only 2 experts compared to an average of 5 experts per epoch in our data). Furthermore, one of the previous experts from the MASS spindle dataset did not score in the same manner as MODA (looking at the band-pass filtered signal 11–16 Hz instead of looking only at the broad-band (0.3–30 Hz) C3 channel).<table-wrap id="Tab5"><label>Table 5</label><caption><p>Simplified descriptions of spindle detector algorithms tested. See original publication for more details.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td>a2<sup><xref ref-type="bibr" rid="CR39">39</xref></sup></td><td><p>Band-pass filters (11–15 Hz) the EEG signal to compute its envelope. An upper (8 x mean) and lower (2 × mean) thresholds are used to detect spindles.</p><p><italic>Code available on github.com/swarby/SpindleAlgorithms_NatMeth_2014</italic></p></td></tr><tr><td>a3<sup><xref ref-type="bibr" rid="CR40">40</xref></sup></td><td><p>Band-pass filters (11.3–15.7 Hz) the EEG signal to compute the root mean squared (RMS) on sliding windows (100 ms length with a step of 50 ms), and then applies a threshold (1.5 × STD).</p><p><italic>Code available on github.com/swarby/SpindleAlgorithms_NatMeth_2014</italic></p></td></tr><tr><td>a4<sup><xref ref-type="bibr" rid="CR6">6</xref></sup></td><td><p>Band-pass filters (11–15 Hz) the EEG signal to compute the RMS on sliding windows (25 ms length with a step of 25 ms), and then applies a threshold (95<sup>th</sup> percentile).</p><p><italic>Code available on github.com/swarby/SpindleAlgorithms_NatMeth_2014</italic></p></td></tr><tr><td>a5<sup><xref ref-type="bibr" rid="CR41">41</xref></sup></td><td><p>Transforms the EEG signal into continuous Morlet wavelets to compute the moving average on sliding windows (0.1 sec length), and then applies the threshold (4.5 × mean).</p><p><italic>Code available on github.com/swarby/SpindleAlgorithms_NatMeth_2014</italic></p></td></tr><tr><td>a7<sup><xref ref-type="bibr" rid="CR42">42</xref></sup></td><td><p>Computes the absolute (Mean Square) sigma (11–16 Hz) power, the relative sigma power with Power Spectral Analysis, the covariance and correlation between sigma filtered and the unfiltered EEG signal on sliding windows (0.3 sec length with a step of 0.1 sec). It then detects a spindle if the 4 features extracted from EEG exceed their respective threshold (1.25 µV<sup>2</sup>, 1.6 × STD, 1.3 × STD and 69%).</p><p><italic>Code available on github.com/swarby/A7_LacourseSpindleDetector</italic></p></td></tr><tr><td>a8<sup><xref ref-type="bibr" rid="CR34">34</xref></sup></td><td><p>Decomposes the EEG signal into 3 components: Direct Current, oscillation around 13.5 Hz and other frequency components (0.3–30 Hz). Spindles are detected from the oscillation around 13.5 Hz with an upper (2.33 × STD) and lower (0.1 × STD) thresholds applied in sliding windows (60 sec length).</p><p><italic>Code available on github.com/stuartfogel/detect_spindles</italic></p></td></tr><tr><td>a9<sup><xref ref-type="bibr" rid="CR43">43</xref></sup></td><td><p>Decomposes the EEG signal into 3 components: transient (t), low-frequency (lf) and oscillations (s). <italic>S</italic> are represented sparsely with Short Time Fourier Transform (1.28 sec length with a step of 0.32 sec). It then detects spindles by thresholding (c1 = 0.03) the Teager-Kaiser energy operator (energy smooth) of <italic>s</italic> band-pass filtered (11.5–15.5 Hz). Parameters initialization: lambda0 = 0.6, lambda1 = 7, lambda2 = 8.5, mu = 0.5 and c1 = 0.03.</p><p><italic>Code available on github.com/aparek/detoks</italic></p></td></tr></tbody></table></table-wrap></p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec18">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41597_2020_533_MOESM1_ESM.pdf"><caption><p>Supplemental Material</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p><bold>Publisher’s note</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+<fn>
+<p>These authors contributed equally: Karine Lacourse, Ben Yetton.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p>is available for this paper at 10.1038/s41597-020-0533-4.</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>The authors would like to thank the many PSG technologists and researchers that participated in this study. Without their expertise and valuable contributions, the generation of the dataset and manuscript would not be possible. We would also like to thank the research subjects who participated in the study and allowed the use of their PSG for this study. As well, we thank the investigators that supplied the MASS<sup><xref ref-type="bibr" rid="CR37">37</xref></sup> dataset and the valuable help of Christian O’Reilly, Tyna Paquette and Gaétan Poirier for the use and distribution of the PSG data. Funding for this work was provided by the ‘Chaire Pfizer, Bristol-Myers Squibb, SmithKline Beecham, Eli Lilly en psychopharmacologie de l’Université de Montréal’, CIHR and NSERC. Additional funds were obtained through crowdfunding on experiment.com (<ext-link ext-link-type="uri" xlink:href="https://experiment.com/projects/crowdsourcing-the-analysis-of-sleep-can-the-public-be-sleep-scientists">https://experiment.com/projects/crowdsourcing-the-analysis-of-sleep-can-the-public-be-sleep-scientists</ext-link>). We thank the donors for their contributions.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author contributions</title>
+<p>K.L. performed the analysis and wrote the manuscript. B.Y. designed the research, coded the web interface and wrote the manuscript. S.M. discussed and reviewed the manuscript. S.W. designed the research, supervised the project and wrote the manuscript.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Data availability</title>
+<p>The dataset generated in the current study is described on the Open Science Framework (OSF)<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>, it includes links to the spindle annotations and instructions on how to obtain the PSG data used (MASS<sup><xref ref-type="bibr" rid="CR37">37</xref></sup> dataset). See the wiki on the OSF site, and Readme on linked Github repository for more information on how to download the data. The PSG files can be requested as described on the MASS web page (<ext-link ext-link-type="uri" xlink:href="http://www.ceams-carsm.ca/mass">http://www.ceams-carsm.ca/mass</ext-link>). Sharing occurs after the requirements of the MASS databank appl<underline>i</underline>cation are met.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Code availability</title>
+<p>The JavaScript code of the MODA interface developed to collect the annotations is open source<sup><xref ref-type="bibr" rid="CR48">48</xref></sup>. The Matlab code to manage the PSG files and generate the GS from the spindle scoring files is also open source<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>.</p>
+</notes>
+<notes id="FPar1" notes-type="COI-statement">
+<title>Competing interests</title>
+<p id="Par35">The authors declare no competing interests.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mednick</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The Critical Role of Sleep Spindles in Hippocampal-Dependent Memory: A Pharmacology Study</article-title>
+<source/>J Neurosci
+          <year>2013</year>
+<volume>33</volume>
+<fpage>4494</fpage>
+<lpage>4504</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.3127-12.2013</pub-id>
+<pub-id pub-id-type="pmid">23467365</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Manoach</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>JQ</given-names>
+</name>
+<name>
+<surname>Purcell</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Stickgold</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Reduced Sleep Spindles in Schizophrenia: A Treatable Endophenotype That Links Risk Genes to Impaired Cognition?</article-title>
+<source/>Biological Psychiatry
+          <year>2016</year>
+<volume>80</volume>
+<fpage>599</fpage>
+<lpage>608</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2015.10.003</pub-id>
+<pub-id pub-id-type="pmid">26602589</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mander</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Winer</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Walker</surname>
+<given-names>MP</given-names>
+</name>
+</person-group>
+<article-title>Review Sleep and Human Aging</article-title>
+<source/>Neuron
+          <year>2017</year>
+<volume>94</volume>
+<fpage>19</fpage>
+<lpage>36</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2017.02.004</pub-id>
+<pub-id pub-id-type="pmid">28384471</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<mixed-citation publication-type="other">Purcell, S. M. <italic>et al</italic>. Characterizing sleep spindles in 11,630 individuals from the National Sleep Research Resource. <italic>Nat Commun</italic><bold>8</bold>, 1–16 (2017).</mixed-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<mixed-citation publication-type="other">Peters, K. R., Ray, L. B., Fogel, S., Smith, V. &amp; Smith, C. T. Age Differences in the Variability and Distribution of Sleep Spindle and Rapid Eye Movement Densities. <italic>PLoS One</italic><bold>9</bold>, 1–11 (2014).</mixed-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Martin</surname>
+<given-names>N</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Topography of age-related changes in sleep spindles</article-title>
+<source/>Neurobiol. Aging
+          <year>2013</year>
+<volume>34</volume>
+<fpage>468</fpage>
+<lpage>476</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neurobiolaging.2012.05.020</pub-id>
+<pub-id pub-id-type="pmid">22809452</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Crowley</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Trinder</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Carrington</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Colrain</surname>
+<given-names>IM</given-names>
+</name>
+</person-group>
+<article-title>The effects of normal aging on sleep spindle and K-complex production</article-title>
+<source/>Clin Neurophysiol
+          <year>2002</year>
+<volume>113</volume>
+<fpage>1615</fpage>
+<lpage>1622</lpage>
+<pub-id pub-id-type="doi">10.1016/S1388-2457(02)00237-7</pub-id>
+<pub-id pub-id-type="pmid">12350438</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nicolas</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Petit</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Rompré</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Montplaisir</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Sleep spindle characteristics in healthy subjects of different age groups</article-title>
+<source/>Clinical Neurophysiology
+          <year>2001</year>
+<volume>112</volume>
+<fpage>521</fpage>
+<lpage>527</lpage>
+<pub-id pub-id-type="doi">10.1016/S1388-2457(00)00556-3</pub-id>
+<pub-id pub-id-type="pmid">11222974</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>HG</given-names>
+</name>
+<name>
+<surname>Riel</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Czeisler</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Dijk</surname>
+<given-names>DJ</given-names>
+</name>
+</person-group>
+<article-title>Attenuated amplitude of circadian and sleep-dependent modulation of electroencephalographic sleep spindle characteristics in elderly human subjects</article-title>
+<source/>Neurosci. Lett.
+          <year>1999</year>
+<volume>260</volume>
+<fpage>29</fpage>
+<lpage>32</lpage>
+<pub-id pub-id-type="doi">10.1016/S0304-3940(98)00851-9</pub-id>
+<pub-id pub-id-type="pmid">10027692</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Luca</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Age and gender variations of sleep in subjects without sleep disorders</article-title>
+<source/>Annals of Medicine
+          <year>2015</year>
+<volume>47</volume>
+<fpage>482</fpage>
+<lpage>491</lpage>
+<pub-id pub-id-type="doi">10.3109/07853890.2015.1074271</pub-id>
+<pub-id pub-id-type="pmid">26224201</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ujma</surname>
+<given-names>PP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Sleep Spindles and Intelligence: Evidence for a Sexual Dimorphism</article-title>
+<source/>J Neurosci
+          <year>2014</year>
+<volume>34</volume>
+<fpage>16358</fpage>
+<lpage>16368</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1857-14.2014</pub-id>
+<pub-id pub-id-type="pmid">25471574</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Genzel</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Sex and modulatory menstrual cycle effects on sleep related memory consolidation</article-title>
+<source/>Psychoneuroendocrinology
+          <year>2012</year>
+<volume>37</volume>
+<fpage>987</fpage>
+<lpage>998</lpage>
+<pub-id pub-id-type="doi">10.1016/j.psyneuen.2011.11.006</pub-id>
+<pub-id pub-id-type="pmid">22153362</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sattari</surname>
+<given-names>N</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The effect of sex and menstrual phase on memory formation during a nap</article-title>
+<source/>Neurobiology of Learning and Memory
+          <year>2017</year>
+<volume>145</volume>
+<fpage>119</fpage>
+<lpage>128</lpage>
+<pub-id pub-id-type="doi">10.1016/j.nlm.2017.09.007</pub-id>
+<pub-id pub-id-type="pmid">28927742</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Warby</surname>
+<given-names>SC</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Sleep-spindle detection: crowdsourcing and evaluating performance of experts, non-experts and automated methods</article-title>
+<source/>Nature methods
+          <year>2014</year>
+<volume>11</volume>
+<fpage>385</fpage>
+<lpage>92</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.2855</pub-id>
+<pub-id pub-id-type="pmid">24562424</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ujma</surname>
+<given-names>PP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Nap sleep spindle correlates of intelligence</article-title>
+<source/>Scientific Reports
+          <year>2015</year>
+<volume>5</volume>
+<fpage>17159</fpage>
+<pub-id pub-id-type="doi">10.1038/srep17159</pub-id>
+<pub-id pub-id-type="pmid">26607963</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fang</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Ray</surname>
+<given-names>LB</given-names>
+</name>
+<name>
+<surname>Owen</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Fogel</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Brain activation time-locked to sleep spindles associated with human cognitive abilities</article-title>
+<source/>Frontiers in neuroscience
+          <year>2019</year>
+<volume>13</volume>
+<fpage>46</fpage>
+<pub-id pub-id-type="doi">10.3389/fnins.2019.00046</pub-id>
+<pub-id pub-id-type="pmid">30787863</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fogel</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>CT</given-names>
+</name>
+</person-group>
+<article-title>The function of the sleep spindle: a physiological index of intelligence and a mechanism for sleep-dependent memory consolidation</article-title>
+<source/>Neurosci Biobehav Rev
+          <year>2011</year>
+<volume>35</volume>
+<fpage>1154</fpage>
+<lpage>1165</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neubiorev.2010.12.003</pub-id>
+<pub-id pub-id-type="pmid">21167865</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fogel</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Nader</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Cote</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>CT</given-names>
+</name>
+</person-group>
+<article-title>Sleep spindles and learning potential</article-title>
+<source/>Behav. Neurosci.
+          <year>2007</year>
+<volume>121</volume>
+<fpage>1</fpage>
+<lpage>10</lpage>
+<pub-id pub-id-type="doi">10.1037/0735-7044.121.1.1</pub-id>
+<pub-id pub-id-type="pmid">17324046</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fogel</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>CT</given-names>
+</name>
+</person-group>
+<article-title>Learning-dependent changes in sleep spindles and Stage 2 sleep</article-title>
+<source/>J Sleep Res
+          <year>2006</year>
+<volume>15</volume>
+<fpage>250</fpage>
+<lpage>255</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1365-2869.2006.00522.x</pub-id>
+<pub-id pub-id-type="pmid">16911026</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Walker</surname>
+<given-names>MP</given-names>
+</name>
+</person-group>
+<article-title>The role of sleep in cognition and emotion</article-title>
+<source/>Ann. N. Y. Acad. Sci.
+          <year>2009</year>
+<volume>1156</volume>
+<fpage>168</fpage>
+<lpage>197</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1749-6632.2009.04416.x</pub-id>
+<pub-id pub-id-type="pmid">19338508</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<mixed-citation publication-type="other">Nishida, M. &amp; Walker, M. P. Daytime Naps, Motor Memory Consolidation and Regionally Specific Sleep Spindles. <italic>PLoS One</italic><bold>2</bold>, 1–7 (2007).</mixed-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<mixed-citation publication-type="other">Iber, C. &amp; American Academy of Sleep Medicine. <italic>The AASM Manual for the Scoring of Sleep and Associated Events: Rules, Terminology and Technical Specifications</italic>. (American Academy of Sleep Medicine, 2007).</mixed-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<mixed-citation publication-type="other">Rajpurkar, P., Hannun, A. Y., Haghpanahi, M., Bourn, C. &amp; Ng, A. Y. Cardiologist-Level Arrhythmia Detection with Convolutional Neural Networks (2017).</mixed-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Acharya</surname>
+<given-names>UR</given-names>
+</name>
+<name>
+<surname>Oh</surname>
+<given-names>SL</given-names>
+</name>
+<name>
+<surname>Hagiwara</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Tan</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Adeli</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Deep convolutional neural network for the automated detection and diagnosis of seizure using EEG signals</article-title>
+<source/>Computers in biology and medicine
+          <year>2018</year>
+<volume>100</volume>
+<fpage>270</fpage>
+<lpage>278</lpage>
+<pub-id pub-id-type="doi">10.1016/j.compbiomed.2017.09.017</pub-id>
+<pub-id pub-id-type="pmid">28974302</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Weiner</surname>
+<given-names>OM</given-names>
+</name>
+<name>
+<surname>Dang-Vu</surname>
+<given-names>TT</given-names>
+</name>
+</person-group>
+<article-title>Spindle Oscillations in Sleep Disorders: A Systematic Review</article-title>
+<source/>Neural Plast.
+          <year>2016</year>
+<volume>2016</volume>
+<fpage>7328725</fpage>
+<pub-id pub-id-type="doi">10.1155/2016/7328725</pub-id>
+<pub-id pub-id-type="pmid">27034850</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gruber</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Wise</surname>
+<given-names>MS</given-names>
+</name>
+</person-group>
+<article-title>Sleep Spindle Characteristics in Children with Neurodevelopmental Disorders and Their Relation to Cognition</article-title>
+<source/>Neural Plast.
+          <year>2016</year>
+<volume>2016</volume>
+<fpage>4724792</fpage>
+<pub-id pub-id-type="doi">10.1155/2016/4724792</pub-id>
+<pub-id pub-id-type="pmid">27478646</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Godbout</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Bergeron</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Stip</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Mottron</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>A Laboratory Study of Sleep and Dreaming in a Case of Asperger’s Syndrome</article-title>
+<source/>Dreaming
+          <year>1998</year>
+<volume>8</volume>
+<fpage>75</fpage>
+<lpage>88</lpage>
+<pub-id pub-id-type="doi">10.1023/B:DREM.0000005898.95212.58</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Limoges</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Mottron</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Bolduc</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Berthiaume</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Godbout</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Atypical sleep architecture and the autism phenotype</article-title>
+<source/>Brain
+          <year>2005</year>
+<volume>128</volume>
+<fpage>1049</fpage>
+<lpage>1061</lpage>
+<pub-id pub-id-type="doi">10.1093/brain/awh425</pub-id>
+<pub-id pub-id-type="pmid">15705609</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tessier</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Intelligence measures and stage 2 sleep in typically-developing and autistic children</article-title>
+<source/>Int J Psychophysiol
+          <year>2015</year>
+<volume>97</volume>
+<fpage>58</fpage>
+<lpage>65</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ijpsycho.2015.05.003</pub-id>
+<pub-id pub-id-type="pmid">25958790</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<mixed-citation publication-type="other">Sahroni, A., Igasaki, T. &amp; Yudiyanta, N. M. and. Sleep Spindle Analysis on Typically Developing and Autistic Children During Sedation. <italic>Neuroscience and Biomedical Engineering (Discontinued)</italic><bold>4</bold>, 202–208 (2016).</mixed-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tani</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Sleep in young adults with Asperger syndrome</article-title>
+<source/>Neuropsychobiology
+          <year>2004</year>
+<volume>50</volume>
+<fpage>147</fpage>
+<lpage>152</lpage>
+<pub-id pub-id-type="doi">10.1159/000079106</pub-id>
+<pub-id pub-id-type="pmid">15292669</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<mixed-citation publication-type="other">Delrosso, L. M., Chesson, A. L. &amp; Hoque, R. Manual characterization of sleep spindle index in patients with narcolepsy and idiopathic hypersomnia. <italic>Sleep Disord</italic> (2014).</mixed-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Christensen</surname>
+<given-names>JAE</given-names>
+</name>
+<name>
+<surname>Nikolic</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hvidtfelt</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kornum</surname>
+<given-names>BR</given-names>
+</name>
+<name>
+<surname>Jennum</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Sleep spindle density in narcolepsy</article-title>
+<source/>Sleep Med.
+          <year>2017</year>
+<volume>34</volume>
+<fpage>40</fpage>
+<lpage>49</lpage>
+<pub-id pub-id-type="doi">10.1016/j.sleep.2017.02.022</pub-id>
+<pub-id pub-id-type="pmid">28522097</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ray</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Expert and crowd-sourced validation of an individualized sleep spindle detection method employing complex demodulation and individualized normalization</article-title>
+<source/>Frontiers in Human Neuroscience
+          <year>2015</year>
+<volume>9</volume>
+<fpage>1</fpage>
+<lpage>16</lpage>
+<pub-id pub-id-type="doi">10.3389/fnhum.2015.00507</pub-id>
+<pub-id pub-id-type="pmid">25653611</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<mixed-citation publication-type="other">Zhao, R. <italic>et al</italic>. Sleep spindle detection based on non-experts: A validation study. <italic>PLOS ONE</italic><bold>12</bold>, 1–27 (2017).</mixed-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<mixed-citation publication-type="other">Surowiecki, J. <italic>The wisdom of crowds</italic>. (Anchor, 2005).</mixed-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>O’Reilly</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Gosselin</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Carrier</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Montreal archive of sleep studies: An open-access resource for instrument benchmarking and exploratory research</article-title>
+<source/>Journal of Sleep Research
+          <year>2014</year>
+<volume>23</volume>
+<fpage>628</fpage>
+<lpage>635</lpage>
+<pub-id pub-id-type="doi">10.1111/jsr.12169</pub-id>
+<pub-id pub-id-type="pmid">24909981</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="data">
+<name>
+<surname>Yetton</surname>
+<given-names>BD</given-names>
+</name>
+<name>
+<surname>Lacourse</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Delfrate</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Mednick</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Warby</surname>
+<given-names>S</given-names>
+</name>
+<year>2016</year>
+<data-title>The MODA sleep spindle dataset: A large, open, high quality dataset of annotated sleep spindles</data-title>
+<source/>Open Science Framework
+          <pub-id pub-id-type="doi">10.17605/OSF.IO/8BMA7</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ferrarelli</surname>
+<given-names>F</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Reduced sleep spindle activity in schizophrenia patients</article-title>
+<source/>Am J Psychiatry
+          <year>2007</year>
+<volume>164</volume>
+<fpage>483</fpage>
+<lpage>492</lpage>
+<pub-id pub-id-type="doi">10.1176/ajp.2007.164.3.483</pub-id>
+<pub-id pub-id-type="pmid">17329474</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mölle</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Marshall</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Gais</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Born</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Grouping of Spindle Activity during Slow Oscillations in Human Non-Rapid Eye Movement Sleep</article-title>
+<source/>J. Neurosci.
+          <year>2002</year>
+<volume>22</volume>
+<fpage>10941</fpage>
+<lpage>10947</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.22-24-10941.2002</pub-id>
+<pub-id pub-id-type="pmid">12486189</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wamsley</surname>
+<given-names>EJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Reduced sleep spindles and spindle coherence in schizophrenia: mechanisms of impaired memory consolidation?</article-title>
+<source/>Biol. Psychiatry
+          <year>2012</year>
+<volume>71</volume>
+<fpage>154</fpage>
+<lpage>161</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2011.08.008</pub-id>
+<pub-id pub-id-type="pmid">21967958</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lacourse</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Delfrate</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Beaudry</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Peppard</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Warby</surname>
+<given-names>SC</given-names>
+</name>
+</person-group>
+<article-title>A sleep spindle detection algorithm that emulates human expert spindle scoring</article-title>
+<source/>Journal of Neuroscience Methods
+          <year>2019</year>
+<volume>316</volume>
+<fpage>3</fpage>
+<lpage>11</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jneumeth.2018.08.014</pub-id>
+<pub-id pub-id-type="pmid">30107208</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<mixed-citation publication-type="other">Parekh A. Detection of K-complexes and sleep spindles (DETOKS) using sparse optimization. <italic>Journal of Neuroscience Methods</italic><bold>251</bold>, 37–46 (2015).</mixed-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Peppard</surname>
+<given-names>PE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Increased prevalence of sleep-disordered breathing in adults</article-title>
+<source/>Am. J. Epidemiol.
+          <year>2013</year>
+<volume>177</volume>
+<fpage>1006</fpage>
+<lpage>1014</lpage>
+<pub-id pub-id-type="doi">10.1093/aje/kws342</pub-id>
+<pub-id pub-id-type="pmid">23589584</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>De Gennaro</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Ferrara</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Sleep spindles: an overview</article-title>
+<source/>Sleep Med Rev
+          <year>2003</year>
+<volume>7</volume>
+<fpage>423</fpage>
+<lpage>440</lpage>
+<pub-id pub-id-type="doi">10.1053/smrv.2002.0252</pub-id>
+<pub-id pub-id-type="pmid">14573378</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<mixed-citation publication-type="other">Cox, R., Schapiro, A. C., Manoach, D. S. &amp; Stickgold, R. Individual Differences in Frequency and Topography of Slow and Fast Sleep Spindles. <italic>Front. Hum. Neurosci</italic>. <bold>11</bold>, 1–22 (2017).</mixed-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<mixed-citation publication-type="other">Parekh, A., Selesnick, I. W., Rapoport, D. M. &amp; Ayappa, I. Sleep spindle detection using time-frequency sparsity. in <italic>2014</italic> <italic>IEEE Signal Processing in Medicine and Biology Symposium (SPMB)</italic> 1–6 (2014).</mixed-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="data">
+<name>
+<surname>Yetton</surname>
+<given-names>BD</given-names>
+</name>
+<name>
+<surname>Mednick</surname>
+<given-names>SC</given-names>
+</name>
+<name>
+<surname>Lacourse</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Delfrate</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Warby</surname>
+<given-names>S</given-names>
+</name>
+<year>2019</year>
+<data-title>MODA Annotation Platform</data-title>
+<source/>Open Science Framework
+          <pub-id pub-id-type="doi">10.17605/OSF.IO/K8EVG</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

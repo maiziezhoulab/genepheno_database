@@ -1,0 +1,2201 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="publisher-id">ijms</journal-id>
+<journal-title-group>
+<journal-title>International Journal of Molecular Sciences</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1422-0067</issn>
+<publisher>
+<publisher-name>MDPI</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32260456</article-id>
+<article-id pub-id-type="pmc">7178269</article-id>
+<article-id pub-id-type="doi">10.3390/ijms21072517</article-id>
+<article-id pub-id-type="publisher-id">ijms-21-02517</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>A Machine Learning-Based Identification of Genes Affecting the Pharmacokinetics of Tacrolimus Using the DMET<sup>TM</sup> Plus Platform</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Gim</surname>
+<given-names>Jeong-An</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-21-02517">1</xref>
+<xref ref-type="aff" rid="af2-ijms-21-02517">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Kwon</surname>
+<given-names>Yonghan</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-21-02517">1</xref>
+<xref ref-type="aff" rid="af3-ijms-21-02517">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-6713-5418</contrib-id>
+<name>
+<surname>Lee</surname>
+<given-names>Hyun A</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-21-02517">1</xref>
+<xref ref-type="aff" rid="af4-ijms-21-02517">4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>Kyeong-Ryoon</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-21-02517">1</xref>
+<xref ref-type="aff" rid="af5-ijms-21-02517">5</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>Soohyun</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-21-02517">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Choi</surname>
+<given-names>Yoonjung</given-names>
+</name>
+<xref ref-type="aff" rid="af6-ijms-21-02517">6</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>Yu Kyong</given-names>
+</name>
+<xref ref-type="aff" rid="af7-ijms-21-02517">7</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-6713-5418</contrib-id>
+<name>
+<surname>Lee</surname>
+<given-names>Howard</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-21-02517">1</xref>
+<xref ref-type="aff" rid="af4-ijms-21-02517">4</xref>
+<xref ref-type="aff" rid="af8-ijms-21-02517">8</xref>
+<xref ref-type="corresp" rid="c1-ijms-21-02517">*</xref>
+</contrib>
+</contrib-group>
+<aff id="af1-ijms-21-02517"><label>1</label>Department of Transdisciplinary Studies, Graduate School of Convergence Science and Technology, Seoul National University, Seoul 16229, Korea; <email>vitastar@korea.ac.kr</email> (J.-A.G.); <email>yonghankwon0@gmail.com</email> (Y.K.); <email>lha2000@snu.ac.kr</email> (H.A.L.); <email>kyeongrlee@kribb.re.kr</email> (K.-R.L.); <email>skim196@snu.ac.kr</email> (S.K.)</aff>
+<aff id="af2-ijms-21-02517"><label>2</label>Medical Science Research Center, College of Medicine, Korea University, Seoul 02841, Korea</aff>
+<aff id="af3-ijms-21-02517"><label>3</label>Department of Biostatistics and Computing, Yonsei University Graduate School, Seoul 03722, Korea</aff>
+<aff id="af4-ijms-21-02517"><label>4</label>Department of Clinical Pharmacology and Therapeutics, Seoul National University College of Medicine and Hospital, Seoul 03080, Korea</aff>
+<aff id="af5-ijms-21-02517"><label>5</label>Laboratory Animal Resource Center, Korea Research Institute of Bioscience and Biotechnology, Ochang, Chungbuk 28116, Korea</aff>
+<aff id="af6-ijms-21-02517"><label>6</label>GC Pharma, Yongin 16924, Korea; <email>choistella321@gmail.com</email></aff>
+<aff id="af7-ijms-21-02517"><label>7</label>Daewoong Pharmaceutical Co., Ltd., Seoul 06170, Korea; <email>anace89@gmail.com</email></aff>
+<aff id="af8-ijms-21-02517"><label>8</label>Department of Molecular Medicine and Biopharmaceutical Sciences, Graduate School of Convergence Science and Technology, Seoul National University, Seoul 03080, Korea</aff>
+<author-notes>
+<corresp id="c1-ijms-21-02517"><label>*</label>Correspondence: <email>howardlee@snu.ac.kr</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>04</day>
+<month>4</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>4</month>
+<year>2020</year>
+</pub-date>
+<volume>21</volume>
+<issue>7</issue>
+<elocation-id>2517</elocation-id>
+<history>
+<date date-type="received">
+<day>02</day>
+<month>3</month>
+<year>2020</year>
+</date>
+<date date-type="accepted">
+<day>02</day>
+<month>4</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2020 by the authors.</copyright-statement>
+<copyright-year>2020</copyright-year>
+<license license-type="open-access">
+<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Tacrolimus is an immunosuppressive drug with a narrow therapeutic index and larger interindividual variability. We identified genetic variants to predict tacrolimus exposure in healthy Korean males using machine learning algorithms such as decision tree, random forest, and least absolute shrinkage and selection operator (LASSO) regression. <italic>rs776746</italic> (CYP3A5) and <italic>rs1137115</italic> (CYP2A6) are single nucleotide polymorphisms (SNPs) that can affect exposure to tacrolimus. A decision tree, when coupled with random forest analysis, is an efficient tool for predicting the exposure to tacrolimus based on genotype. These tools are helpful to determine an individualized dose of tacrolimus.</p>
+</abstract>
+<kwd-group>
+<kwd>decision tree</kwd>
+<kwd>random forest</kwd>
+<kwd>machine learning</kwd>
+<kwd>tacrolimus</kwd>
+<kwd>genotype</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1-ijms-21-02517" sec-type="intro">
+<title>1. Introduction</title>
+<p>Tacrolimus, a widely-used immunosuppressive agent that prevents acute rejection after organ transplantation. Since the therapeutic index of tacrolimus is narrow and its pharmacokinetic profile varies widely among patients, the U.S. Food and Drug Administration (FDA) recommends individual dose titration and therapeutic drug monitoring for tacrolimus [<xref ref-type="bibr" rid="B1-ijms-21-02517">1</xref>]. Therefore, identifying factors including genetic variants that affect the pharmacokinetic variability of tacrolimus may be beneficial for its optimal use.</p>
+<p>Several single nucleotide polymorphisms (SNPs) have been previously associated with tacrolimus metabolism [<xref ref-type="bibr" rid="B2-ijms-21-02517">2</xref>,<xref ref-type="bibr" rid="B3-ijms-21-02517">3</xref>,<xref ref-type="bibr" rid="B4-ijms-21-02517">4</xref>,<xref ref-type="bibr" rid="B5-ijms-21-02517">5</xref>,<xref ref-type="bibr" rid="B6-ijms-21-02517">6</xref>,<xref ref-type="bibr" rid="B7-ijms-21-02517">7</xref>]. For example, <italic>rs776746</italic>, also known as 6986A&gt;G, encodes the nonfunctional <italic>CYP3A5*3</italic> allele of the <italic>CYP3A5</italic> gene. <italic>CYP3A5*3</italic> induces alternative splicing, then protein truncation, resulting in decreased enzymatic activity of CYP3A5. In contrast, transplant patients with fully functional homozygous <italic>CYP3A5*1</italic> alleles require a larger dose of tacrolimus to maintain its immunosuppressive effect than those having one or two <italic>CYP3A5*3</italic> alleles [<xref ref-type="bibr" rid="B6-ijms-21-02517">6</xref>,<xref ref-type="bibr" rid="B7-ijms-21-02517">7</xref>,<xref ref-type="bibr" rid="B8-ijms-21-02517">8</xref>,<xref ref-type="bibr" rid="B9-ijms-21-02517">9</xref>].</p>
+<p>The decision tree, a machine learning-based classification tool, is used to group input variables [<xref ref-type="bibr" rid="B10-ijms-21-02517">10</xref>,<xref ref-type="bibr" rid="B11-ijms-21-02517">11</xref>,<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>]. A decision tree provides an acyclic (i.e., tree-like classification chart), which consists of branches (or vertices) and nodes (or leaves). A branch denotes a test or set of tests to be performed on a specific property such as genotype while a node indicates a category or class such as phenotype. Decision trees adequately classify patients by their genotypes to diagnose a disease and to predict its prognosis [<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>,<xref ref-type="bibr" rid="B13-ijms-21-02517">13</xref>,<xref ref-type="bibr" rid="B14-ijms-21-02517">14</xref>]. Furthermore, random forests integrate or ensemble multiple randomly chosen decision trees, thereby forests, with each decision tree providing an independent classification prediction. The random forest predicts phenotypes from genotypes with a better accuracy than other methods [<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>,<xref ref-type="bibr" rid="B15-ijms-21-02517">15</xref>,<xref ref-type="bibr" rid="B16-ijms-21-02517">16</xref>].</p>
+<p>We previously reported the results of two clinical studies with tacrolimus [<xref ref-type="bibr" rid="B17-ijms-21-02517">17</xref>,<xref ref-type="bibr" rid="B18-ijms-21-02517">18</xref>], in one of which we also performed a pharmacogenomic analysis to identify genotypes that altered the pharmacokinetics of tacrolimus [<xref ref-type="bibr" rid="B17-ijms-21-02517">17</xref>]. In that study, the least absolute shrinkage and selection operator (LASSO) regression method was used.</p>
+<p>In the present study, we expand our pharmacogenomic database by pooling genotype information obtained from another clinical study with tacrolimus [<xref ref-type="bibr" rid="B18-ijms-21-02517">18</xref>] to further identify and evaluate genetic variants that could influence the pharmacokinetics of tacrolimus in healthy adult males. To this end, three machine learning algorithms are used, namely decision tree, random forest, and LASSO, and their results are compared. Additionally, in silico binding analyses are performed for the SNPs in the three prime untranslated regions (3′UTRs).</p>
+</sec>
+<sec id="sec2-ijms-21-02517" sec-type="results">
+<title>2. Results</title>
+<sec id="sec2dot1-ijms-21-02517">
+<title>2.1. Subjects</title>
+<p>A total of 81 males (42 and 39 in studies A and B, respectively) were enrolled and completed the entire study as planned. The mean ± standard deviation of age, height, body weight, and body mass index in subjects were 27.1 ± 6.1 years, 173.7 ± 5.5 cm, 68.2 ± 6.9 kg, and 22.6 ± 2.1 kg/m<sup>2</sup>, respectively.</p>
+</sec>
+<sec id="sec2dot2-ijms-21-02517">
+<title>2.2. Genetic Associations with Tacrolimus Pharmacokinetics by Decision Tree, Random Forest, and LASSO Analyses</title>
+<p>The decision trees identified <italic>rs776746</italic> (CYP3A5) as the most important classifying genetic variant for both C<sub>max</sub> (maximum plasma concentration) and AUC<sub>last</sub> (area under the concentration curve from time zero to the last quantifiable time point) of tacrolimus, followed by <italic>rs1137115</italic> (CYP2A6) and <italic>rs1060253</italic> (SLC7A5, C<sub>max</sub> only) (<xref ref-type="fig" rid="ijms-21-02517-f001">Figure 1</xref>A,B; <xref ref-type="table" rid="ijms-21-02517-t001">Table 1</xref>) when the depth of the decision tree was set to three based on the lowest cross validated (X-val) relative error in C<sub>max</sub> and the second lowest X-val relative error in AUC<sub>last</sub> (<xref ref-type="app" rid="app1-ijms-21-02517">Figure S1</xref>). As a result, the geometric mean C<sub>max</sub> and AUC<sub>last</sub> of tacrolimus were 2.36 (95% confidence interval or CI: 1.75–3.18) and 3.40 (95% CI: 2.48–4.66) times greater, respectively, in those carrying the homozygous variant allele for <italic>rs776746</italic> and the reference or heterozygous variant allele for <italic>rs1137115</italic> (node 3 in <xref ref-type="fig" rid="ijms-21-02517-f001">Figure 1</xref>B) than in those carrying the reference or heterozygous variant allele for <italic>rs776746</italic> (node 1 in <xref ref-type="fig" rid="ijms-21-02517-f001">Figure 1</xref>B,C). <italic>rs776746</italic> was also identified as the genetic variant in the random forest analysis that classified both C<sub>max</sub> and AUC<sub>last</sub> of tacrolimus with the highest importance (<xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref>). Similar to the decision tree analysis, <italic>rs1060253</italic> (SLC7A5) was one of the four high-importance genetic variants for C<sub>max</sub> in the random forest, whereas <italic>rs1137115</italic> (CYP2A6) was identified as a genetic variant with a high importance for AUC<sub>last</sub> of tacrolimus (<xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref>). Lastly, <italic>rs776746</italic> was the only significant SNP associated with both C<sub>max</sub> and AUC<sub>last</sub> of tacrolimus in the LASSO models with a coefficient &gt;0 (<xref ref-type="table" rid="ijms-21-02517-t003">Table 3</xref>). However, neither <italic>rs1137115</italic> (CYP2A6) nor <italic>rs1060253</italic> (SLC7A5) was retained in the final LASSO models with their coefficients &gt;0. <italic>rs1208</italic> (NAT2) remained in the final LASSO model for C<sub>max</sub>, but the variant allele frequency for <italic>rs1208</italic> was disproportionately higher in our subjects than in the 1000 Genome Projects (<xref ref-type="table" rid="ijms-21-02517-t003">Table 3</xref>).</p>
+</sec>
+<sec id="sec2dot3-ijms-21-02517">
+<title>2.3. In silico Analysis of the SNPs in the 3′UTR</title>
+<p>Of the eight SNPs identified by decision tree, random forest analysis, or LASSO regression (<xref ref-type="table" rid="ijms-21-02517-t001">Table 1</xref>, <xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref> and <xref ref-type="table" rid="ijms-21-02517-t003">Table 3</xref>), one SNP (i.e., <italic>rs1060253</italic> of the <italic>SLC7A5</italic>) was located in the 3′UTR (<xref ref-type="table" rid="ijms-21-02517-t001">Table 1</xref>). Eight miRNAs (miR-130a-3p, -130b-3p, -148a-3p, -148b-3p, -152-3p, -301a-3p, -301b-3p, and -454-3p) had complementary sites for <italic>rs1060253</italic> (<xref ref-type="fig" rid="ijms-21-02517-f002">Figure 2</xref> and <xref ref-type="app" rid="app1-ijms-21-02517">Figure S2</xref>). Among these, two miRNAs (miR-301a-3p and -301b-3p) showed different hybrid structures between the reference and variant alleles of <italic>rs1060253</italic> (<xref ref-type="fig" rid="ijms-21-02517-f002">Figure 2</xref>). In contrast, the other six miRNAs had similar hybrid structures between the reference and variant alleles of <italic>rs1060253</italic> (<xref ref-type="app" rid="app1-ijms-21-02517">Figure S2</xref>).</p>
+</sec>
+</sec>
+<sec id="sec3-ijms-21-02517" sec-type="discussion">
+<title>3. Discussion</title>
+<p>We demonstrate that <italic>rs776746</italic> (CYP3A5) is consistently the best predictor of exposure to tacrolimus no matter what machine learning algorithms are applied. The evidence is that <italic>rs776746</italic> was repeatedly selected as the most influential genotype in all of the analysis methods employed in this study such as decision tree (<xref ref-type="fig" rid="ijms-21-02517-f001">Figure 1</xref>A,B; <xref ref-type="table" rid="ijms-21-02517-t001">Table 1</xref>), random forest (<xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref>), and LASSO regression (<xref ref-type="table" rid="ijms-21-02517-t003">Table 3</xref>). Consequently, those carrying the homozygous variant alleles of <italic>rs776746</italic> (i.e., C/C) had a two- to three-times higher AUC<sub>last</sub> of tacrolimus than those with wild type (T/T) or heterozygous variant alleles (C/T) (<xref ref-type="fig" rid="ijms-21-02517-f001">Figure 1</xref>C). <italic>rs776746</italic> or <italic>CYP3A5*3</italic> is located in the terminal sequence of the <italic>CYP3A5′</italic>s intron 3 (<xref ref-type="table" rid="ijms-21-02517-t001">Table 1</xref>) and induces a premature termination codon. Therefore, subjects carrying <italic>rs776746</italic> have an increased systemic exposure to tacrolimus caused by the reduced metabolism of tacrolimus by <italic>CYP3A5</italic> as shown in the present studies [<xref ref-type="bibr" rid="B19-ijms-21-02517">19</xref>,<xref ref-type="bibr" rid="B20-ijms-21-02517">20</xref>,<xref ref-type="bibr" rid="B21-ijms-21-02517">21</xref>,<xref ref-type="bibr" rid="B22-ijms-21-02517">22</xref>,<xref ref-type="bibr" rid="B23-ijms-21-02517">23</xref>,<xref ref-type="bibr" rid="B24-ijms-21-02517">24</xref>].</p>
+<p>Other SNPs had a relatively smaller and inconsistent effect on the systemic exposure to tacrolimus. Of these, however, <italic>rs1137115</italic> in the <italic>CYP2A6</italic> gene is noteworthy although it was not identified in our previous study [<xref ref-type="bibr" rid="B17-ijms-21-02517">17</xref>] or by the LASSO regression in the present study (<xref ref-type="table" rid="ijms-21-02517-t003">Table 3</xref>). Namely, when the reference or heterozygous allele for <italic>rs1137115</italic> was combined with the homozygous variant allele for <italic>rs776746</italic>, the systemic exposure to tacrolimus was much higher than with the homozygous variant allele for <italic>rs1137115</italic> (<xref ref-type="fig" rid="ijms-21-02517-f001">Figure 1</xref>A,B). Additionally, the C/C genotype of <italic>rs1137115</italic> was identified as one the four high-importance genetic variants to classify AUC<sub>last</sub> (<xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref>). The <italic>CYP2A6</italic> gene plays an important role in nicotine metabolism, and <italic>rs1137115</italic> is a regulator of alternative splicing [<xref ref-type="bibr" rid="B25-ijms-21-02517">25</xref>,<xref ref-type="bibr" rid="B26-ijms-21-02517">26</xref>]. <italic>rs1137115</italic> is associated with lower mRNA expression and reduced nicotine metabolism [<xref ref-type="bibr" rid="B25-ijms-21-02517">25</xref>]. However, the observed effect of <italic>rs1137115</italic> on the systemic exposure to tacrolimus is mechanistically hard to explain and is most likely to be a chance finding because the effect is not consistent by the <italic>rs776746</italic> allele (<xref ref-type="app" rid="app1-ijms-21-02517">Table S1</xref>). <italic>rs3814055</italic> (<italic>NR1I2</italic>) was significantly associated with both C<sub>max</sub> and AUC<sub>last</sub> in the false discovery rate (FDR)-adjusted multiple testing analysis and LASSO models in our previous study [<xref ref-type="bibr" rid="B13-ijms-21-02517">13</xref>]. However, <italic>rs3814055</italic> was identified as a significant genetic variant for AUC<sub>last</sub> only by the random forest analysis in the present study (<xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref>). Therefore, the role of <italic>rs3814055</italic> should be further confirmed and validated in future studies, preferably in patients. Likewise, the role of <italic>rs1208</italic> (NAT2) is rather inconclusive because most of our subjects carried the variant allele for this SNP.</p>
+<p>miRNAs are a transcriptional inhibitor, which recognizes the specific seed regions in the 3′UTR sequences [<xref ref-type="bibr" rid="B27-ijms-21-02517">27</xref>], thereby suppressing gene expression [<xref ref-type="bibr" rid="B28-ijms-21-02517">28</xref>]. <italic>rs1060253</italic> (<italic>SLC7A5</italic>) is located in the 3′UTR [<xref ref-type="bibr" rid="B29-ijms-21-02517">29</xref>,<xref ref-type="bibr" rid="B30-ijms-21-02517">30</xref>]. Therefore, genotypic variations in <italic>rs1060253</italic> could change the target sites for hsa-miR-301a-3p and -301b-3p in <italic>SLC7A5</italic> 3′UTR (<xref ref-type="fig" rid="ijms-21-02517-f002">Figure 2</xref>), which could contribute to the altered metabolism of tacrolimus. Genetic variant frequencies of <italic>rs1060253</italic> (SLC7A5) were different between the populations included in the 1000 Genomes Project, and our frequency pattern was like that in Japanese patients as well. The ethnic differences in SLC7A5 are affected by natural selection, migration, and genetic drift, and verifying these differences will help us better understand the ethnic variations in drug susceptibility and phenotypes.</p>
+<p>Several previous studies adopted various machine learning algorithms, such as support vector machine [<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>,<xref ref-type="bibr" rid="B31-ijms-21-02517">31</xref>], neural network [<xref ref-type="bibr" rid="B32-ijms-21-02517">32</xref>], decision tree [<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>], and random forest [<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>], to assess the effect of genetic variations on tacrolimus pharmacokinetics. In those studies, subjects with renal transplantation [<xref ref-type="bibr" rid="B12-ijms-21-02517">12</xref>,<xref ref-type="bibr" rid="B32-ijms-21-02517">32</xref>] or liver transplant recipients [<xref ref-type="bibr" rid="B31-ijms-21-02517">31</xref>] were investigated. The present study is different from those previous studies. First, our subjects are healthy, not transplanted patients [<xref ref-type="bibr" rid="B6-ijms-21-02517">6</xref>,<xref ref-type="bibr" rid="B7-ijms-21-02517">7</xref>]. This could be beneficial in that the relationships between genetic variations and tacrolimus pharmacokinetics were not confounded by many disease-related variables, which could not be easily adjusted for in many cases as previously shown [<xref ref-type="bibr" rid="B13-ijms-21-02517">13</xref>]. Furthermore, we demonstrate that <italic>rs776746</italic> (CYP3A5) is consistently the best predictor of exposure to tacrolimus no matter what machine learning algorithms are used (<xref ref-type="table" rid="ijms-21-02517-t001">Table 1</xref>, <xref ref-type="table" rid="ijms-21-02517-t002">Table 2</xref> and <xref ref-type="table" rid="ijms-21-02517-t003">Table 3</xref>). This finding is important in that <italic>rs776746</italic> seems to be the most important genetic variation to characterize the exposure to tacrolimus in heterogenous groups of transplant recipients in large, diverse populations.</p>
+<p>The present study has several limitations. First, the sample size was relatively small, and all the subjects were healthy males. Therefore, any genetic variants for tacrolimus exposure found only in females or transplant patients could not be detected. Some CYP gene families, renal or hepatic transporters have different expression patterns between males and females [<xref ref-type="bibr" rid="B33-ijms-21-02517">33</xref>]. Furthermore, the pharmacokinetics profiles of tacrolimus were slightly different between healthy individuals and transplant patients [<xref ref-type="bibr" rid="B34-ijms-21-02517">34</xref>]. Second, although the subjects were collected as a homogenous population, some variations in age, body weight, and body mass index were not evitable, which was not considered in our analyses. Lastly, all the variants detected in this study were limited to those the DMET<sup>TM</sup> (Drug metabolism enzymes and transporters) provides. Further larger pharmacogenomic studies in transplant patients with tacrolimus are warranted to validate our findings.</p>
+<p>In conclusion, <italic>rs776746</italic> (CYP3A5) and <italic>rs1137115</italic> (CYP2A6) were identified as SNPs that could affect the exposure to tacrolimus. A decision tree, when coupled with random forest analysis, is an efficient tool for classifying or predicting the exposure to tacrolimus based on genotype, which is indispensable for its optimal dose selection.</p>
+</sec>
+<sec id="sec4-ijms-21-02517">
+<title>4. Materials and Methods</title>
+<sec id="sec4dot1-ijms-21-02517">
+<title>4.1. Clinical Studies and Subjects</title>
+<p>Study A was a bioequivalence trial of a generic tacrolimus (Tacrobell<sup>®</sup>, Chong Kun Dang Pharmaceutical, Seoul, Korea) and its reference product (Prograf<sup>TM</sup>, Astellas Pharma Korea, Seoul, Korea) [<xref ref-type="bibr" rid="B17-ijms-21-02517">17</xref>]. Study B compared the pharmacokinetics of a new tablet formulation of tacrolimus (Tacrobell<sup>®</sup>, Chong Kun Dang Pharmaceutical, Seoul, Korea) with those of the reference capsule formulation (Prograf<sup>TM</sup>, Astellas Pharma Korea, Seoul, Korea) [<xref ref-type="bibr" rid="B18-ijms-21-02517">18</xref>]. In each study, healthy male volunteers aged 19–55 and 19–45 years, respectively, received a single oral administration of tacrolimus in different products (study A) or formulations (study B), and blood samples were intensively obtained for pharmacokinetics analysis of tacrolimus. All of the subjects in studies A and B gave written consent for further use of their data, which were also reviewed and approved by the Institutional Review Boards at Seoul National University Hospital (IRB No.: H-1307-087-505, 26 Aug 2013 and H-1412-016-631, 24 Nov 2014, respectively).</p>
+</sec>
+<sec id="sec4dot2-ijms-21-02517">
+<title>4.2. Determination of Tacrolimus Concentrations and Pharmacokinetic Analysis</title>
+<p>Tacrolimus concentrations in whole blood were determined using a validated LC/MS/MS method [<xref ref-type="bibr" rid="B17-ijms-21-02517">17</xref>,<xref ref-type="bibr" rid="B18-ijms-21-02517">18</xref>,<xref ref-type="bibr" rid="B35-ijms-21-02517">35</xref>]. In the present study, we analyzed only the tacrolimus concentrations of the reference product. The observed concentrations were used to decide the maximum concentration (C<sub>max</sub>) of tacrolimus. The area under the concentration curve from time zero to the latest quantifiable time point (AUC<sub>last</sub>) was calculated using the linear trapezoidal method. All the pharmacokinetics parameters were estimated using a non-compartmental analysis option in the Phoenix WinNonlin (version 6.3; Certara USA Inc., Princeton, NJ, USA).</p>
+</sec>
+<sec id="sec4dot3-ijms-21-02517">
+<title>4.3. DNA Extraction and Genotype Analysis</title>
+<p>Genomic DNA was extracted from whole blood using QuickGene-mini80 (Fujifilm, Tokyo, Japan). Pre-amplified multiplex PCR samples were put into the DMET<sup>TM</sup> Plus assay flow system (Affymetrix, Santa Clara, CA, USA), which generated nucleotide signals in the Affymetrix GeneChip<sup>®</sup> Targeted Genotyping System (Affymetrix, Santa Clara, CA, USA). These nucleotide signals were converted to genotypes using the Affymetrix DMET<sup>TM</sup> Console software (Affymetrix, Santa Clara, CA, USA) by DNA Link (Seoul, Korea). A total of 1876 out of 1946 genetic markers in the DMET<sup>TM</sup> Plus microarray were successfully assayed (&gt;95% genotyping calls), and the same variants were excluded, resulting in 567 genotypes for analysis. In addition, we calculated the proportions of reference and variant alleles for identified genotypes in subjects, and compared them with the results from the 1000 Genomes Project [<xref ref-type="bibr" rid="B36-ijms-21-02517">36</xref>].</p>
+</sec>
+<sec id="sec4dot4-ijms-21-02517">
+<title>4.4. Statistical Analysis and Machine Learning Application</title>
+<p>We used three machine learning algorithms: decision tree, random forest, and LASSO. First, the classification and regression trees (CART) algorithm was used to classify subjects based on the 567 genetic variants involved in tacrolimus metabolism and transport. The CART algorithm is helpful for partitioning the data space, then fitting a prediction model within each partition [<xref ref-type="bibr" rid="B37-ijms-21-02517">37</xref>]. The partitions were designed as a binary decision tree. The number of splits in the decision trees were predicted by the different complexity parameter and its corresponding cross validated (X-val) relative errors. The X-val relative errors were calculated by 10-fold cross validation [<xref ref-type="bibr" rid="B38-ijms-21-02517">38</xref>]. Second, a random forest analysis was performed using 1000 bootstrap samples from the original data set with 43 splitting variables, which was determined as the elbow point in the replicated training processes with 950 predictors of 81 samples. Then, we derived Gini Importance for each classifying genotype. Gini Importance, defined as the total decrease in node impurity averaged over individual decision trees in the random forest, is a measure of each variable’s importance for estimating a target variable [<xref ref-type="bibr" rid="B39-ijms-21-02517">39</xref>]. Lastly, a LASSO regression model was fit, and the tuning parameter was decided to minimize the 10-fold cross-validation errors [<xref ref-type="bibr" rid="B40-ijms-21-02517">40</xref>]. To obtain an appropriate lambda value of the LASSO regression model, we performed 1000 repetitions, the mode of which was selected.</p>
+<p>The decision tree, random forest analyses, and LASSO regression were performed using the R packages rpart, randomForest and glmnet, respectively (version 3.5.1, R Development core team, Vienna, Austria).</p>
+</sec>
+</sec>
+<sec id="sec5-ijms-21-02517" sec-type="conclusions">
+<title>5. Conclusions</title>
+<p>We revealed that <italic>rs776746</italic> (CYP3A5) and <italic>rs1137115</italic> (CYP2A6) can affect exposure to tacrolimus in healthy Korean males using three machine learning algorithms (decision tree, random forest, and LASSO regression). A decision tree and random forest analysis were an efficient tool for predicting the exposure to tacrolimus based on genotype. These methods could be applied to determine an individualized dose of tacrolimus.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>This research was supported by the BK21 Plus Program of the National Research Foundation of Korea (NRF) (10Z20130000017) and by Basic Science Research Program through the NRF funded by the Ministry of Education (2018R1A6A3A01010874).</p>
+</ack>
+<app-group>
+<app id="app1-ijms-21-02517">
+<title>Supplementary Materials</title>
+<p>Supplementary Materials can be found at <uri xlink:href="https://www.mdpi.com/1422-0067/21/7/2517/s1">https://www.mdpi.com/1422-0067/21/7/2517/s1</uri>.</p>
+<supplementary-material content-type="local-data" id="ijms-21-02517-s001">
+<media xlink:href="ijms-21-02517-s001.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</app>
+</app-group>
+<notes>
+<title>Author Contributions</title>
+<p>Conceptualization, J.-A.G., H.A.L., K.-R.L. and H.L.; methodology, S.K., Y.C., Y.K.K. and H.L.; software, S.K., and Y.K.; investigation, J.-A.G., Y.C., Y.K.K. and H.L.; resources, H.L.; data curation, H.A.L., K.-R.L., S.K. and H.L.; writing—original draft preparation, J.-A.G.; writing—review and editing, H.A.L., K.-R.L. and H.L.; visualization, J.-A.G. and S.K.; supervision, H.L.; project administration, H.L.; funding acquisition, H.L. All authors have read and agreed to the published version of the manuscript.</p>
+</notes>
+<notes>
+<title>Funding</title>
+<p>This research received no external funding.</p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Conflicts of Interest</title>
+<p>The authors declare no conflict of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript, or in the decision to publish the results.</p>
+</notes>
+<ref-list>
+<title>References</title>
+<ref id="B1-ijms-21-02517">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tang</surname>
+<given-names>H.-L.</given-names>
+</name>
+<name>
+<surname>Xie</surname>
+<given-names>H.-G.</given-names>
+</name>
+<name>
+<surname>Yao</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>Y.-F.</given-names>
+</name>
+</person-group>
+<article-title>Lower tacrolimus daily dose requirements and acute rejection rates in the CYP3A5 nonexpressers than expressers</article-title>
+<source/>Pharm. Genom.
+          <year>2011</year>
+<volume>21</volume>
+<fpage>713</fpage>
+<lpage>720</lpage>
+<pub-id pub-id-type="doi">10.1097/FPC.0b013e32834a48ca</pub-id>
+<pub-id pub-id-type="pmid">21886016</pub-id>
+</element-citation>
+</ref>
+<ref id="B2-ijms-21-02517">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hu</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Barratt</surname>
+<given-names>D.T.</given-names>
+</name>
+<name>
+<surname>Coller</surname>
+<given-names>J.K.</given-names>
+</name>
+<name>
+<surname>Sallustio</surname>
+<given-names>B.C.</given-names>
+</name>
+<name>
+<surname>Somogyi</surname>
+<given-names>A.A.</given-names>
+</name>
+</person-group>
+<article-title>CYP 3A5* 3 and ABCB 1 61A&gt; G Significantly Influence Dose-adjusted Trough Blood Tacrolimus Concentrations in the First Three Months Post Kidney Transplantation</article-title>
+<source/>Basic Clin. Pharmacol. Toxicol.
+          <year>2018</year>
+<volume>123</volume>
+<fpage>320</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="doi">10.1111/bcpt.13016</pub-id>
+<pub-id pub-id-type="pmid">29603629</pub-id>
+</element-citation>
+</ref>
+<ref id="B3-ijms-21-02517">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dorr</surname>
+<given-names>C.R.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Remmel</surname>
+<given-names>R.P.</given-names>
+</name>
+<name>
+<surname>Muthusamy</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Schladt</surname>
+<given-names>D.P.</given-names>
+</name>
+<name>
+<surname>Abrahante</surname>
+<given-names>J.E.</given-names>
+</name>
+<name>
+<surname>Guan</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Mannon</surname>
+<given-names>R.B.</given-names>
+</name>
+<name>
+<surname>Matas</surname>
+<given-names>A.J.</given-names>
+</name>
+<name>
+<surname>Oetting</surname>
+<given-names>W.S.</given-names>
+</name>
+</person-group>
+<article-title>Identification of genetic variants associated with tacrolimus metabolism in kidney transplant recipients by extreme phenotype sampling and next generation sequencing</article-title>
+<source/>Pharm. J.
+          <year>2018</year>
+<volume>19</volume>
+<fpage>375</fpage>
+<lpage>389</lpage>
+<pub-id pub-id-type="doi">10.1038/s41397-018-0063-z</pub-id>
+<pub-id pub-id-type="pmid">30442921</pub-id>
+</element-citation>
+</ref>
+<ref id="B4-ijms-21-02517">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Haufroid</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Mourad</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Van Kerckhove</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Wawrzyniak</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>De Meyer</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Eddour</surname>
+<given-names>D.C.</given-names>
+</name>
+<name>
+<surname>Malaise</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Lison</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Squifflet</surname>
+<given-names>J.-P.</given-names>
+</name>
+<name>
+<surname>Wallemacq</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>The effect of CYP3A5 and MDR1 (ABCB1) polymorphisms on cyclosporine and tacrolimus dose requirements and trough blood levels in stable renal transplant patients</article-title>
+<source/>Pharm. Genom.
+          <year>2004</year>
+<volume>14</volume>
+<fpage>147</fpage>
+<lpage>154</lpage>
+<pub-id pub-id-type="doi">10.1097/00008571-200403000-00002</pub-id>
+<pub-id pub-id-type="pmid">15167702</pub-id>
+</element-citation>
+</ref>
+<ref id="B5-ijms-21-02517">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Roy</surname>
+<given-names>J.N.</given-names>
+</name>
+<name>
+<surname>Barama</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Poirier</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Vinet</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Roger</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Cyp3A4, Cyp3A5, and MDR-1 genetic influences on tacrolimus pharmacokinetics in renal transplant recipients</article-title>
+<source/>Pharm. Genom.
+          <year>2006</year>
+<volume>16</volume>
+<fpage>659</fpage>
+<lpage>665</lpage>
+<pub-id pub-id-type="doi">10.1097/01.fpc.0000220571.20961.dd</pub-id>
+</element-citation>
+</ref>
+<ref id="B6-ijms-21-02517">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Min</surname>
+<given-names>S.-I.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>S.Y.</given-names>
+</name>
+<name>
+<surname>Ahn</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Min</surname>
+<given-names>S.-K.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>S.H.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>Y.S.</given-names>
+</name>
+<name>
+<surname>Moon</surname>
+<given-names>K.C.</given-names>
+</name>
+<name>
+<surname>Oh</surname>
+<given-names>J.M.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>S.J.</given-names>
+</name>
+<name>
+<surname>Ha</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>CYP3A5* 1 allele: impacts on early acute rejection and graft function in tacrolimus-based renal transplant recipients</article-title>
+<source/>Transplantation
+          <year>2010</year>
+<volume>90</volume>
+<fpage>1394</fpage>
+<lpage>1400</lpage>
+<pub-id pub-id-type="doi">10.1097/TP.0b013e3181fa93a4</pub-id>
+<pub-id pub-id-type="pmid">21076384</pub-id>
+</element-citation>
+</ref>
+<ref id="B7-ijms-21-02517">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tavira</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Coto</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Diaz-Corte</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Alvarez</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>López-Larrea</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Ortega</surname>
+<given-names>F.</given-names>
+</name>
+</person-group>
+<article-title>A search for new CYP3A4 variants as determinants of tacrolimus dose requirements in renal-transplanted patients</article-title>
+<source/>Pharm. Genom.
+          <year>2013</year>
+<volume>23</volume>
+<fpage>445</fpage>
+<lpage>448</lpage>
+<pub-id pub-id-type="doi">10.1097/FPC.0b013e3283636856</pub-id>
+</element-citation>
+</ref>
+<ref id="B8-ijms-21-02517">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hesselink</surname>
+<given-names>D.A.</given-names>
+</name>
+<name>
+<surname>Bouamar</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Elens</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Van Schaik</surname>
+<given-names>R.H.</given-names>
+</name>
+<name>
+<surname>Van Gelder</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>The role of pharmacogenetics in the disposition of and response to tacrolimus in solid organ transplantation</article-title>
+<source/>Clin. Pharm.
+          <year>2014</year>
+<volume>53</volume>
+<fpage>123</fpage>
+<lpage>139</lpage>
+<pub-id pub-id-type="doi">10.1007/s40262-013-0120-3</pub-id>
+</element-citation>
+</ref>
+<ref id="B9-ijms-21-02517">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kuehl</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Lamba</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Assem</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Schuetz</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Watkins</surname>
+<given-names>P.B.</given-names>
+</name>
+<name>
+<surname>Daly</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Wrighton</surname>
+<given-names>S.A.</given-names>
+</name>
+<name>
+<surname>Hall</surname>
+<given-names>S.D.</given-names>
+</name>
+</person-group>
+<article-title>Sequence diversity in CYP3A promoters and characterization of the genetic basis of polymorphic CYP3A5 expression</article-title>
+<source/>Nat. Genet.
+          <year>2001</year>
+<volume>27</volume>
+<fpage>383</fpage>
+<pub-id pub-id-type="doi">10.1038/86882</pub-id>
+<pub-id pub-id-type="pmid">11279519</pub-id>
+</element-citation>
+</ref>
+<ref id="B10-ijms-21-02517">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kourou</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Exarchos</surname>
+<given-names>T.P.</given-names>
+</name>
+<name>
+<surname>Exarchos</surname>
+<given-names>K.P.</given-names>
+</name>
+<name>
+<surname>Karamouzis</surname>
+<given-names>M.V.</given-names>
+</name>
+<name>
+<surname>Fotiadis</surname>
+<given-names>D.I.</given-names>
+</name>
+</person-group>
+<article-title>Machine learning applications in cancer prognosis and prediction</article-title>
+<source/>Comput. Struct. Biotechnol. J.
+          <year>2015</year>
+<volume>13</volume>
+<fpage>8</fpage>
+<lpage>17</lpage>
+<pub-id pub-id-type="doi">10.1016/j.csbj.2014.11.005</pub-id>
+<pub-id pub-id-type="pmid">25750696</pub-id>
+</element-citation>
+</ref>
+<ref id="B11-ijms-21-02517">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Libbrecht</surname>
+<given-names>M.W.</given-names>
+</name>
+<name>
+<surname>Noble</surname>
+<given-names>W.S.</given-names>
+</name>
+</person-group>
+<article-title>Machine learning applications in genetics and genomics</article-title>
+<source/>Nat. Rev. Genet.
+          <year>2015</year>
+<volume>16</volume>
+<fpage>321</fpage>
+<pub-id pub-id-type="doi">10.1038/nrg3920</pub-id>
+<pub-id pub-id-type="pmid">25948244</pub-id>
+</element-citation>
+</ref>
+<ref id="B12-ijms-21-02517">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y.-L.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>M.-Z.</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>Y.-F.</given-names>
+</name>
+<name>
+<surname>Shao</surname>
+<given-names>M.-J.</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>L.-J.</given-names>
+</name>
+<name>
+<surname>Xin</surname>
+<given-names>H.-W.</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>G.-W.</given-names>
+</name>
+<name>
+<surname>Shang</surname>
+<given-names>W.-J.</given-names>
+</name>
+</person-group>
+<article-title>Application of machine-learning models to predict tacrolimus stable dose in renal transplant recipients</article-title>
+<source/>Sci. Rep.
+          <year>2017</year>
+<volume>7</volume>
+<fpage>42192</fpage>
+<pub-id pub-id-type="doi">10.1038/srep42192</pub-id>
+<pub-id pub-id-type="pmid">28176850</pub-id>
+</element-citation>
+</ref>
+<ref id="B13-ijms-21-02517">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gardner</surname>
+<given-names>S.N.</given-names>
+</name>
+<name>
+<surname>McLoughlin</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Nicholas</surname>
+<given-names>A.B.</given-names>
+</name>
+<name>
+<surname>Allen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Weaver</surname>
+<given-names>S.C.</given-names>
+</name>
+<name>
+<surname>Forrester</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Guerbois</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Jaing</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Characterization of genetic variability of Venezuelan equine encephalitis viruses</article-title>
+<source/>PLoS ONE
+          <year>2016</year>
+<volume>11</volume>
+<elocation-id>e0152604</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0152604</pub-id>
+<pub-id pub-id-type="pmid">27054586</pub-id>
+</element-citation>
+</ref>
+<ref id="B14-ijms-21-02517">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yokoyama</surname>
+<given-names>J.S.</given-names>
+</name>
+<name>
+<surname>Bonham</surname>
+<given-names>L.W.</given-names>
+</name>
+<name>
+<surname>Sears</surname>
+<given-names>R.L.</given-names>
+</name>
+<name>
+<surname>Klein</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Karydas</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Kramer</surname>
+<given-names>J.H.</given-names>
+</name>
+<name>
+<surname>Miller</surname>
+<given-names>B.L.</given-names>
+</name>
+<name>
+<surname>Coppola</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Decision tree analysis of genetic risk for clinically heterogeneous Alzheimer’s disease</article-title>
+<source/>BMC Neurol.
+          <year>2015</year>
+<volume>15</volume>
+<elocation-id>47</elocation-id>
+<pub-id pub-id-type="doi">10.1186/s12883-015-0304-6</pub-id>
+<pub-id pub-id-type="pmid">25880661</pub-id>
+</element-citation>
+</ref>
+<ref id="B15-ijms-21-02517">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goldstein</surname>
+<given-names>B.A.</given-names>
+</name>
+<name>
+<surname>Polley</surname>
+<given-names>E.C.</given-names>
+</name>
+<name>
+<surname>Briggs</surname>
+<given-names>F.B.</given-names>
+</name>
+</person-group>
+<article-title>Random forests for genetic association studies</article-title>
+<source/>Stat. Appl. Genet. Mol. Biol.
+          <year>2011</year>
+<volume>10</volume>
+<fpage>32</fpage>
+<pub-id pub-id-type="doi">10.2202/1544-6115.1691</pub-id>
+<pub-id pub-id-type="pmid">22889876</pub-id>
+</element-citation>
+</ref>
+<ref id="B16-ijms-21-02517">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stephan</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Stegle</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Beyer</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>A random forest approach to capture genetic effects in the presence of population structure</article-title>
+<source/>Nat. Commun.
+          <year>2015</year>
+<volume>6</volume>
+<fpage>7432</fpage>
+<pub-id pub-id-type="doi">10.1038/ncomms8432</pub-id>
+<pub-id pub-id-type="pmid">26109276</pub-id>
+</element-citation>
+</ref>
+<ref id="B17-ijms-21-02517">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Choi</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Jiang</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>An</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Choi</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>A pharmacogenomic study on the pharmacokinetics of tacrolimus in healthy subjects using the DMET TM Plus platform</article-title>
+<source/>Pharm. J.
+          <year>2017</year>
+<volume>17</volume>
+<fpage>174</fpage>
+<lpage>179</lpage>
+</element-citation>
+</ref>
+<ref id="B18-ijms-21-02517">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>Y.K.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>S.J.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>new tablet formulation of tacrolimus with smaller interindividual variability may become a better treatment option than the conventional capsule formulation in organ transplant patients</article-title>
+<source/>Drug. Des. Devel. Ther.
+          <year>2017</year>
+<volume>11</volume>
+<fpage>2861</fpage>
+<pub-id pub-id-type="doi">10.2147/DDDT.S142201</pub-id>
+</element-citation>
+</ref>
+<ref id="B19-ijms-21-02517">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bosó</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Herrero</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Bea</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Galiana</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Marrero</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Marqués</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Hernández</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Sánchez-Plumed</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Poveda</surname>
+<given-names>J.L.</given-names>
+</name>
+<name>
+<surname>Aliño</surname>
+<given-names>S.F.</given-names>
+</name>
+</person-group>
+<article-title>Increased hospital stay and allograft disfunction in renal transplant recipients with Cyp2c19 AA variant in SNP rs4244285</article-title>
+<source/>Drug Metab. Dispos.
+          <year>2013</year>
+<volume>41</volume>
+<fpage>480</fpage>
+<lpage>487</lpage>
+<pub-id pub-id-type="doi">10.1124/dmd.112.047977</pub-id>
+<pub-id pub-id-type="pmid">23175667</pub-id>
+</element-citation>
+</ref>
+<ref id="B20-ijms-21-02517">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brooks</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Tett</surname>
+<given-names>S.E.</given-names>
+</name>
+<name>
+<surname>Isbel</surname>
+<given-names>N.M.</given-names>
+</name>
+<name>
+<surname>Staatz</surname>
+<given-names>C.E.</given-names>
+</name>
+</person-group>
+<article-title>Population pharmacokinetic modelling and Bayesian estimation of tacrolimus exposure: is this clinically useful for dosage prediction yet?</article-title>
+<source/>Clin. Pharmacokinet.
+          <year>2016</year>
+<volume>55</volume>
+<fpage>1295</fpage>
+<lpage>1335</lpage>
+<pub-id pub-id-type="doi">10.1007/s40262-016-0396-1</pub-id>
+<pub-id pub-id-type="pmid">27138787</pub-id>
+</element-citation>
+</ref>
+<ref id="B21-ijms-21-02517">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jacobson</surname>
+<given-names>P.A.</given-names>
+</name>
+<name>
+<surname>Oetting</surname>
+<given-names>W.S.</given-names>
+</name>
+<name>
+<surname>Brearley</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Leduc</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Guan</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Schladt</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Matas</surname>
+<given-names>A.J.</given-names>
+</name>
+<name>
+<surname>Lamba</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Julian</surname>
+<given-names>B.A.</given-names>
+</name>
+<name>
+<surname>Mannon</surname>
+<given-names>R.B.</given-names>
+</name>
+</person-group>
+<article-title>Novel polymorphisms associated with tacrolimus trough concentrations: results from a multicenter kidney transplant consortium</article-title>
+<source/>Transplantation
+          <year>2011</year>
+<volume>91</volume>
+<fpage>300</fpage>
+<pub-id pub-id-type="doi">10.1097/TP.0b013e318200e991</pub-id>
+<pub-id pub-id-type="pmid">21206424</pub-id>
+</element-citation>
+</ref>
+<ref id="B22-ijms-21-02517">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kamdem</surname>
+<given-names>L.K.</given-names>
+</name>
+<name>
+<surname>Streit</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Zanger</surname>
+<given-names>U.M.</given-names>
+</name>
+<name>
+<surname>Brockmöller</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Oellerich</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Armstrong</surname>
+<given-names>V.W.</given-names>
+</name>
+<name>
+<surname>Wojnowski</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Contribution of CYP3A5 to the in vitro hepatic clearance of tacrolimus</article-title>
+<source/>Clin. Chem.
+          <year>2005</year>
+<volume>51</volume>
+<fpage>1374</fpage>
+<lpage>1381</lpage>
+<pub-id pub-id-type="doi">10.1373/clinchem.2005.050047</pub-id>
+<pub-id pub-id-type="pmid">15951320</pub-id>
+</element-citation>
+</ref>
+<ref id="B23-ijms-21-02517">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lamba</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Hebert</surname>
+<given-names>J.M.</given-names>
+</name>
+<name>
+<surname>Schuetz</surname>
+<given-names>E.G.</given-names>
+</name>
+<name>
+<surname>Klein</surname>
+<given-names>T.E.</given-names>
+</name>
+<name>
+<surname>Altman</surname>
+<given-names>R.B.</given-names>
+</name>
+</person-group>
+<article-title>PharmGKB summary: very important pharmacogene information for CYP3A5</article-title>
+<source/>Pharm. Genom.
+          <year>2012</year>
+<volume>22</volume>
+<fpage>555</fpage>
+<pub-id pub-id-type="doi">10.1097/FPC.0b013e328351d47f</pub-id>
+<pub-id pub-id-type="pmid">22407409</pub-id>
+</element-citation>
+</ref>
+<ref id="B24-ijms-21-02517">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Niioka</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Satoh</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Kagaya</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Numakura</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Inoue</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Saito</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Narita</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Tsuchiya</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Habuchi</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Miura</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Comparison of pharmacokinetics and pharmacogenetics of once-and twice-daily tacrolimus in the early stage after renal transplantation</article-title>
+<source/>Transplantation
+          <year>2012</year>
+<volume>94</volume>
+<fpage>1013</fpage>
+<lpage>1019</lpage>
+<pub-id pub-id-type="doi">10.1097/TP.0b013e31826bc400</pub-id>
+<pub-id pub-id-type="pmid">23073468</pub-id>
+</element-citation>
+</ref>
+<ref id="B25-ijms-21-02517">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pérez-Rubio</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>López-Flores</surname>
+<given-names>L.A.</given-names>
+</name>
+<name>
+<surname>Ramírez-Venegas</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Noé-Díaz</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>García-Gómez</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Ambrocio-Ortiz</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Sánchez-Romero</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Hernández-Zenteno</surname>
+<given-names>R.D.J.</given-names>
+</name>
+<name>
+<surname>Sansores</surname>
+<given-names>R.H.</given-names>
+</name>
+<name>
+<surname>Falfán-Valencia</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>Genetic polymorphisms in CYP2A6 are associated with a risk of cigarette smoking and predispose to smoking at younger ages</article-title>
+<source/>Gene
+          <year>2017</year>
+<volume>628</volume>
+<fpage>205</fpage>
+<lpage>210</lpage>
+<pub-id pub-id-type="doi">10.1016/j.gene.2017.07.051</pub-id>
+<pub-id pub-id-type="pmid">28734893</pub-id>
+</element-citation>
+</ref>
+<ref id="B26-ijms-21-02517">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bloom</surname>
+<given-names>A.J.</given-names>
+</name>
+<name>
+<surname>Harari</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Martinez</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>McDonald</surname>
+<given-names>S.A.</given-names>
+</name>
+<name>
+<surname>Murphy</surname>
+<given-names>S.E.</given-names>
+</name>
+<name>
+<surname>Goate</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>A compensatory effect upon splicing results in normal function of the CYP2A6* 14 allele</article-title>
+<source/>Pharm. Genom.
+          <year>2013</year>
+<volume>23</volume>
+<fpage>107</fpage>
+<pub-id pub-id-type="doi">10.1097/FPC.0b013e32835caf7d</pub-id>
+<pub-id pub-id-type="pmid">23292114</pub-id>
+</element-citation>
+</ref>
+<ref id="B27-ijms-21-02517">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Agarwal</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Bell</surname>
+<given-names>G.W.</given-names>
+</name>
+<name>
+<surname>Nam</surname>
+<given-names>J.-W.</given-names>
+</name>
+<name>
+<surname>Bartel</surname>
+<given-names>D.P.</given-names>
+</name>
+</person-group>
+<article-title>Predicting effective microRNA target sites in mammalian mRNAs</article-title>
+<source/>Elife
+          <year>2015</year>
+<volume>4</volume>
+<fpage>e05005</fpage>
+<pub-id pub-id-type="doi">10.7554/eLife.05005</pub-id>
+</element-citation>
+</ref>
+<ref id="B28-ijms-21-02517">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grimson</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Farh</surname>
+<given-names>K.K.-H.</given-names>
+</name>
+<name>
+<surname>Johnston</surname>
+<given-names>W.K.</given-names>
+</name>
+<name>
+<surname>Garrett-Engele</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Lim</surname>
+<given-names>L.P.</given-names>
+</name>
+<name>
+<surname>Bartel</surname>
+<given-names>D.P.</given-names>
+</name>
+</person-group>
+<article-title>MicroRNA targeting specificity in mammals: determinants beyond seed pairing</article-title>
+<source/>Mol. Cell
+          <year>2007</year>
+<volume>27</volume>
+<fpage>91</fpage>
+<lpage>105</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molcel.2007.06.017</pub-id>
+<pub-id pub-id-type="pmid">17612493</pub-id>
+</element-citation>
+</ref>
+<ref id="B29-ijms-21-02517">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gonzalez-Covarrubias</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Martínez-Magaña</surname>
+<given-names>J.J.</given-names>
+</name>
+<name>
+<surname>Coronado-Sosa</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Villegas-Torres</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Genis-Mendoza</surname>
+<given-names>A.D.</given-names>
+</name>
+<name>
+<surname>Canales-Herrerias</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Nicolini</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Soberón</surname>
+<given-names>X.</given-names>
+</name>
+</person-group>
+<article-title>Exploring variation in known pharmacogenetic variants and its association with drug response in different Mexican populations</article-title>
+<source/>Pharm. Res.
+          <year>2016</year>
+<volume>33</volume>
+<fpage>2644</fpage>
+<lpage>2652</lpage>
+<pub-id pub-id-type="doi">10.1007/s11095-016-1990-5</pub-id>
+<pub-id pub-id-type="pmid">27387170</pub-id>
+</element-citation>
+</ref>
+<ref id="B30-ijms-21-02517">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Medhasi</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Pinthong</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Pasomsub</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Vanwong</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Ngamsamut</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Puangpetch</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Chamnanphon</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Hongkaew</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Pratoomwun</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Limsila</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Pharmacogenomic study reveals new variants of drug metabolizing enzyme and transporter genes associated with steady-state plasma concentrations of risperidone and 9-hydroxyrisperidone in Thai autism spectrum disorder patients</article-title>
+<source/>Front. Pharmacol.
+          <year>2016</year>
+<volume>7</volume>
+<fpage>475</fpage>
+<pub-id pub-id-type="doi">10.3389/fphar.2016.00475</pub-id>
+<pub-id pub-id-type="pmid">28018217</pub-id>
+</element-citation>
+</ref>
+<ref id="B31-ijms-21-02517">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Van Looy</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Verplancke</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Benoit</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Hoste</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Van Maele</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>De Turck</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Decruyenaere</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>A novel approach for prediction of tacrolimus blood concentration in liver transplantation patients in the intensive care unit through support vector regression</article-title>
+<source/>Crit. Care
+          <year>2007</year>
+<volume>11</volume>
+<fpage>R83</fpage>
+<pub-id pub-id-type="doi">10.1186/cc6081</pub-id>
+<pub-id pub-id-type="pmid">17655766</pub-id>
+</element-citation>
+</ref>
+<ref id="B32-ijms-21-02517">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Thishya</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Vattam</surname>
+<given-names>K.K.</given-names>
+</name>
+<name>
+<surname>Naushad</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Raju</surname>
+<given-names>S.B.</given-names>
+</name>
+<name>
+<surname>Kutala</surname>
+<given-names>V.K.</given-names>
+</name>
+</person-group>
+<article-title>Artificial neural network model for predicting the bioavailability of tacrolimus in patients with renal transplantation</article-title>
+<source/>PLoS ONE
+          <year>2018</year>
+<volume>13</volume>
+<elocation-id>e0191921</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0191921</pub-id>
+<pub-id pub-id-type="pmid">29621269</pub-id>
+</element-citation>
+</ref>
+<ref id="B33-ijms-21-02517">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Franconi</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Campesi</surname>
+<given-names>I.</given-names>
+</name>
+</person-group>
+<article-title>Pharmacogenomics, pharmacokinetics and pharmacodynamics: interaction with biological differences between men and women</article-title>
+<source/>Br. J. Pharmacol.
+          <year>2014</year>
+<volume>171</volume>
+<fpage>580</fpage>
+<lpage>594</lpage>
+<pub-id pub-id-type="doi">10.1111/bph.12362</pub-id>
+<pub-id pub-id-type="pmid">23981051</pub-id>
+</element-citation>
+</ref>
+<ref id="B34-ijms-21-02517">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Undre</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Baccarani</surname>
+<given-names>U.</given-names>
+</name>
+<name>
+<surname>Britz</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Popescu</surname>
+<given-names>I.</given-names>
+</name>
+</person-group>
+<article-title>Pharmacokinetic Profile of Prolonged-Release Tacrolimus When Administered via Nasogastric Tube in De Novo Liver Transplantation: A Sub-Study of the DIAMOND Trial</article-title>
+<source/>Ann. Transplant.
+          <year>2019</year>
+<volume>24</volume>
+<fpage>268</fpage>
+<pub-id pub-id-type="doi">10.12659/AOT.909693</pub-id>
+<pub-id pub-id-type="pmid">31086126</pub-id>
+</element-citation>
+</ref>
+<ref id="B35-ijms-21-02517">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ramakrishna</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Vishwottam</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Puran</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Manoj</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Santosh</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Wishu</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Koteshwara</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Chidambara</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Gopinadh</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Sumatha</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Liquid chromatography–negative ion electrospray tandem mass spectrometry method for the quantification of tacrolimus in human plasma and its bioanalytical applications</article-title>
+<source/>J. Chromatogr. B Biomed. Appl.
+          <year>2004</year>
+<volume>805</volume>
+<fpage>13</fpage>
+<lpage>20</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jchromb.2004.02.002</pub-id>
+</element-citation>
+</ref>
+<ref id="B36-ijms-21-02517">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Consortium</surname>
+<given-names>G.P.</given-names>
+</name>
+</person-group>
+<article-title>A global reference for human genetic variation</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>526</volume>
+<fpage>68</fpage>
+<pub-id pub-id-type="doi">10.1038/nature15393</pub-id>
+<pub-id pub-id-type="pmid">26432245</pub-id>
+</element-citation>
+</ref>
+<ref id="B37-ijms-21-02517">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Loh</surname>
+<given-names>W.Y.</given-names>
+</name>
+</person-group>
+<article-title>Classification and regression trees</article-title>
+<source/>Wiley Interdiscip. Rev. Data Min. Knowl. Discov.
+          <year>2011</year>
+<volume>1</volume>
+<fpage>14</fpage>
+<lpage>23</lpage>
+<pub-id pub-id-type="doi">10.1002/widm.8</pub-id>
+</element-citation>
+</ref>
+<ref id="B38-ijms-21-02517">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Deconinck</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Hancock</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Coomans</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Massart</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Vander Heyden</surname>
+<given-names>Y.</given-names>
+</name>
+</person-group>
+<article-title>Classification of drugs in absorption classes using the classification and regression trees (CART) methodology</article-title>
+<source/>J. Pharm. Biomed. Anal.
+          <year>2005</year>
+<volume>39</volume>
+<fpage>91</fpage>
+<lpage>103</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jpba.2005.03.008</pub-id>
+<pub-id pub-id-type="pmid">15946819</pub-id>
+</element-citation>
+</ref>
+<ref id="B39-ijms-21-02517">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Wojciechowski</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Sung</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Mathias</surname>
+<given-names>R.A.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Klein</surname>
+<given-names>A.P.</given-names>
+</name>
+<name>
+<surname>Lenroot</surname>
+<given-names>R.K.</given-names>
+</name>
+<name>
+<surname>Malley</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Bailey-Wilson</surname>
+<given-names>J.E.</given-names>
+</name>
+</person-group>
+<article-title>Evaluation of Random Forests Performance for Genome-Wide Association Studies in the Presence of Interaction Effects</article-title>
+<source/>BMC Proc.
+          <year>2009</year>
+<volume>3</volume>
+<fpage>S64</fpage>
+<pub-id pub-id-type="doi">10.1186/1753-6561-3-s7-s64</pub-id>
+<pub-id pub-id-type="pmid">20018058</pub-id>
+</element-citation>
+</ref>
+<ref id="B40-ijms-21-02517">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>T.T.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y.F.</given-names>
+</name>
+<name>
+<surname>Hastie</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Sobel</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Lange</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Genome-wide association analysis by lasso penalized logistic regression</article-title>
+<source/>Bioinformatics
+          <year>2009</year>
+<volume>25</volume>
+<fpage>714</fpage>
+<lpage>721</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btp041</pub-id>
+<pub-id pub-id-type="pmid">19176549</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="ijms-21-02517-f001" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Simplified (depth: 3) decision tree for the maximum plasma concentration (C<sub>max</sub>, μg mL<sup>−1</sup>, <bold>A</bold>) and the area under the concentration curve from time zero to the last quantifiable time point (AUC<sub>last</sub>, h μg mL<sup>−1</sup>, <bold>B</bold>) of tacrolimus. The rectangles denote the branches, which contain the gene name, the single nucleotide polymorphism (SNP) accession number, proportion (%), and frequency of subjects, and the classifying alleles. The rounded rectangles represent the final nodes, in which the mean values of C<sub>max</sub> and AUC<sub>last</sub>, the percentage, and number of subjects are shown. (<bold>C</bold>) Mean concentration time profiles of tacrolimus by node for AUC<sub>last</sub> as identified in (<bold>B</bold>). Subjects in node 3 had the highest values of C<sub>max</sub> and AUC<sub>last</sub>.</p>
+</caption>
+<graphic xlink:href="ijms-21-02517-g001"></graphic>
+</fig>
+<fig id="ijms-21-02517-f002" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Duplexes identified by in silico analysis between a microRNA (miR) and <italic>rs1060253</italic> of the <italic>SLC7A5</italic> (left: reference allele; right: variant allele) for hsa-miR-301a-3p (top) and miR-301b-3p (bottom). The shades denote the seed region of miR-301a-3p and -301b-3p. The circles represent the reference and variant nucleotides of <italic>rs1060253</italic>.</p>
+</caption>
+<graphic xlink:href="ijms-21-02517-g002"></graphic>
+</fig>
+<table-wrap id="ijms-21-02517-t001" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-21-02517-t001_Table 1</object-id>
+<label>Table 1</label>
+<caption>
+<p>Genetic variants associated with tacrolimus C<sub>max</sub> and AUC<sub>last</sub> identified by decision tree.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Gene</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">SNP</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Location</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Reference Allele</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Variant Allele</th>
+<th align="center" colspan="2" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Reference Allele Frequency</th>
+<th align="center" colspan="2" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Variant Allele Frequency</th>
+</tr>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">1000 Genomes *</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Our Data **</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">1000 Genomes *</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Our Data **</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYP3A5</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs776746</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Splice acceptor</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.379</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.253</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.621</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.747</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYP2A6</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs1137115</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Exon</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.239</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.136</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.761</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.864</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>SLC7A5 <sup>***</sup></italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>rs1060253</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">3′UTR</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">G</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.698</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.370</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.302</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.630</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>Abbreviations: C<sub>max</sub>, maximum plasma concentration; AUC<sub>last</sub>, area under the concentration curve from time zero to the last quantifiable time point; SNP, single nucleotide polymorphism. The allele frequency was calculated using the 1000 Genomes Project * data and our data **. SNP data were retrieved from dbSNP. <sup>***</sup> C<sub>max</sub> only.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="ijms-21-02517-t002" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-21-02517-t002_Table 2</object-id>
+<label>Table 2</label>
+<caption>
+<p>Top four genetic variants for tacrolimus C<sub>max</sub> and AUC<sub>last</sub> identified in the random forest analysis.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Gene</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">SNP and Genotype</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Location</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Reference Allele</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Variant Allele</th>
+<th align="center" colspan="2" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Reference Allele Frequency</th>
+<th align="center" colspan="2" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Variant Allele Frequency</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Importance</th>
+</tr>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">1000 Genomes *</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Our Data **</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">1000 Genomes *</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Our data **</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="10" rowspan="1" style="border-bottom:solid thin" valign="middle">C<sub>max</sub></td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYP3A5</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs776746</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Splice acceptor</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.379</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.253</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.621</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.747</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.28524489</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SLCO3A1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs2190748</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Intron</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">G</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">A</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.517</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.525</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.483</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.475</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.14800742</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>ADC1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs1049793</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Exon</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">G</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.627</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.358</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.373</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.642</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.13512953</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SLC7A5</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs1060253</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">3′UTR</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">G</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.698</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.370</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.302</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.630</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.11857793</td>
+</tr>
+<tr>
+<td align="center" colspan="10" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">AUC<sub>last</sub></td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYP3A5</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs776746</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Splice acceptor</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.379</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.253</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.621</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.747</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">1.5377314</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SLCO3A1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs2190748</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Intron</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">G</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">A</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.517</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.525</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.483</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.475</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.3333521</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYP2A6</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs1137115</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Exon</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.239</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.136</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.761</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.864</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.1921316</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>NR1I2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>rs3814055</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Exon</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.678</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.710</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.322</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.290</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.1419874</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>Abbreviations: C<sub>max</sub>, maximum plasma concentration; AUC<sub>last</sub>, area under the concentration curve from time zero to the last quantifiable time point; NA, not applicable. The allele frequency was calculated using the 1000 Genomes Project * data and our dataset **.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="ijms-21-02517-t003" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-21-02517-t003_Table 3</object-id>
+<label>Table 3</label>
+<caption>
+<p>Genetic variants with a coefficient &gt;0 for tacrolimus C<sub>max</sub> and AUC<sub>last</sub> in the least absolute shrinkage and selection operator (LASSO) models.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Gene</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">SNP</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Location</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Reference Allele</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Variant Allele</th>
+<th align="center" colspan="2" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Reference Allele Frequency</th>
+<th align="center" colspan="2" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Variant Allele Frequency</th>
+<th align="center" colspan="1" rowspan="2" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Coefficient</th>
+</tr>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">1000 Genomes *</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Our Data **</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">1000 Genomes *</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Our Data **</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="10" rowspan="1" style="border-bottom:solid thin" valign="middle">C<sub>max</sub></td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYP3A5</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs776746</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Splice acceptor</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.379</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.253</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.621</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.747</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.13331</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CBR1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs3787728</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Intron</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.270</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.519</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.730</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.481</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.07863</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>NAT2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>rs1208</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Exon</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">G</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">A, T</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.323</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.025</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.677</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.975</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.07224</td>
+</tr>
+<tr>
+<td align="center" colspan="10" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">AUC<sub>last</sub></td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>CYP3A5</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>rs776746</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Splice acceptor</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">T</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">C</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.379</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.253</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.621</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.747</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.36133</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>Abbreviations: C<sub>max</sub>, maximum plasma concentration; AUC<sub>last</sub>, area under the concentration curve from time zero to the last quantifiable time point. The allele frequency was calculated using the 1000 Genomes Project * data and our dataset **.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

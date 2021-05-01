@@ -1,0 +1,845 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">26750448</article-id>
+<article-id pub-id-type="pmc">4707541</article-id>
+<article-id pub-id-type="pii">srep18871</article-id>
+<article-id pub-id-type="doi">10.1038/srep18871</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>LEGO: a novel method for gene set over-representation analysis by incorporating network-based gene weights</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Dong</surname>
+<given-names>Xinran</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hao</surname>
+<given-names>Yun</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Xiao</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Tian</surname>
+<given-names>Weidong</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a2">2</xref>
+<xref ref-type="aff" rid="a3">3</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>State Key Laboratory of Genetic Engineering, Department of Biostatistics and Computational Biology, School of Life Sciences, Fudan University</institution>, Shanghai 200436, <country>P.R. China</country></aff>
+<aff id="a2"><label>2</label><institution>State Key Laboratory of Genetic Engineering, Collaborative Innovation Center of Genetics and Development, Department of Biostatistics and Computational Biology, School of Life Sciences, Fudan University</institution>, Shanghai 100433, <country>P.R. China</country></aff>
+<aff id="a3"><label>3</label><institution>Children’s Hospital of Fudan University</institution>, Shanghai 200433, <country>P.R. China</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>weidong.tian@fudan.edu.cn</email>
+</corresp>
+<fn id="n1">
+<label>*</label>
+<p>These authors contributed equally to this work.</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>11</day>
+<month>01</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>6</volume>
+<elocation-id>18871</elocation-id>
+<history>
+<date date-type="received">
+<day>08</day>
+<month>01</month>
+<year>2015</year>
+</date>
+<date date-type="accepted">
+<day>27</day>
+<month>11</month>
+<year>2015</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016, Macmillan Publishers Limited</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>Macmillan Publishers Limited</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>Pathway or gene set over-representation analysis (ORA) has become a routine task in functional genomics studies. However, currently widely used ORA tools employ statistical methods such as Fisher’s exact test that reduce a pathway into a list of genes, ignoring the constitutive functional non-equivalent roles of genes and the complex gene-gene interactions. Here, we develop a novel method named LEGO (functional Link Enrichment of Gene Ontology or gene sets) that takes into consideration these two types of information by incorporating network-based gene weights in ORA analysis. In three benchmarks, LEGO achieves better performance than Fisher and three other network-based methods. To further evaluate LEGO’s usefulness, we compare LEGO with five gene expression-based and three pathway topology-based methods using a benchmark of 34 disease gene expression datasets compiled by a recent publication, and show that LEGO is among the top-ranked methods in terms of both sensitivity and prioritization for detecting target KEGG pathways. In addition, we develop a cluster-and-filter approach to reduce the redundancy among the enriched gene sets, making the results more interpretable to biologists. Finally, we apply LEGO to two lists of autism genes, and identify relevant gene sets to autism that could not be found by Fisher.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Modern high-throughput functional genomics technologies are on one hand creating opportunities for exploring new biological frontiers, but on the other hand exhausting the scientific community’ resources to understand the information made available by such technologies. Biologists’ hardship in the face of this large-amount of experimental results calls for an automated tool to generate a high-level view of the inter-relations between existing biological knowledge and new experimental results. This is the place where Over-Representation Analysis (ORA) comes to rescue, helping to identify pathways or gene sets that are over-represented among a list of interesting genes produced from genomics studies, and thus provides biologists much needed computerized assistance in discovering novel genetic functional mechanisms.</p>
+<p>A common solution for the ORA problem is to count the number of genes in the list of interesting genes that hit the gene set annotated by functional category such as Gene Ontology (GO)<xref ref-type="bibr" rid="b1">1</xref>, KEGG<xref ref-type="bibr" rid="b2">2</xref>, BioCarta<xref ref-type="bibr" rid="b3">3</xref>, REACTOME<xref ref-type="bibr" rid="b4">4</xref>, and MSigDB<xref ref-type="bibr" rid="b5">5</xref>, and then assess the significance of the overlaps using statistical methods such as Fisher’s exact test or chi-square test. Popular tools implementing this idea include DAVID<xref ref-type="bibr" rid="b6">6</xref>, BINGO<xref ref-type="bibr" rid="b7">7</xref>, GOEAST<xref ref-type="bibr" rid="b8">8</xref>, and GeneMania<xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref>, etc. Depending on the definition of a functional category, a gene set may refer to a collection of genes belonging to the same pathway or biological process, such as a KEGG pathway or a GO biological process term, or a collection of genes with same functional characteristics, such as a GO molecular function term or cellular component term. In this study, we focus on gene sets that are a collection of genes in a pathway or a biological process. For these gene sets, the traditional ORA tools have inherent limitations in that genes inside a pathway or a gene set are treated with equal importance, ignoring the constitutive functional non-equivalence of genes. For example, a gene may act as the regulator of a number of genes inside the same pathway, and the perturbation of this gene may have a larger impact on the pathway than the perturbation of its target genes do.</p>
+<p>To address these limitations, a number of methods have been developed to incorporate pathway topology information, specifically the Directed Acyclic Graph (DAG) of KEGG pathways, and are therefore classified as Pathway Topology (PT) analysis. The first of PT methods was the impact factor (IF) analysis<xref ref-type="bibr" rid="b11">11</xref>, which introduced a term of perturbation factor to measure a gene’s contribution to the perturbation of a signaling pathway by taking into consideration not only its gene expression change, but also the type of interactions (e.g., induction or repression) it has with upstream genes and its position in a signaling pathway. The IF analysis has been included in ROntoTools<xref ref-type="bibr" rid="b12">12</xref>. Other PT methods include SPIA<xref ref-type="bibr" rid="b13">13</xref>, CePa<xref ref-type="bibr" rid="b14">14</xref>, and so on. A review of these PT methods can be found in<xref ref-type="bibr" rid="b15">15</xref>. However, the PT methods are not directly applicable for enrichment analysis of GO biological process terms or gene sets that are simple collection of genes in a pathway and lack any graph structure that explains the relationships between genes.</p>
+<p>Recently, there are several network-based methods that deal with the ORA problem from a network perspective by incorporating gene-gene relationships. For example, NOA<xref ref-type="bibr" rid="b16">16</xref> assigns GO terms to network links that connect two genes annotated with the same GO term, and measures the over-representation of GO terms links in a given network; NEA<xref ref-type="bibr" rid="b17">17</xref> and EnrichNet<xref ref-type="bibr" rid="b18">18</xref> both assess the over-representation of functional associations between a list of interesting genes and a given gene set in a functional association network. However, none of these methods take into consideration the functional non-equivalence roles of genes in a pathway. In addition, these methods are generally computational inefficient because they often employ network rewiring in order to evaluate the significance of the test statistics, and some of them are biased by the network structure.</p>
+<p>Previously, we have developed a network-based method named GANPA for gene expression-based gene set enrichment analysis<xref ref-type="bibr" rid="b19">19</xref>. GANPA measures gene weights in a gene set according to its relative association with genes inside and outside the gene set in a functional association network, with higher weight indicating a more central role in the gene set. Then, gene weights are incorporated with expression change value to detect gene sets with significant expression change. GANPA and numerous methods with similar purpose, including GSEA<xref ref-type="bibr" rid="b5">5</xref>, PLAGE<xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref>, GLOBALTEST<xref ref-type="bibr" rid="b22">22</xref>, PADOG<xref ref-type="bibr" rid="b23">23</xref>, MRGSE<xref ref-type="bibr" rid="b24">24</xref>, GSA<xref ref-type="bibr" rid="b25">25</xref>, etc., are classified as the tools for Functional Category Score (FCS) analysis. The FCS problem is different from the ORA problem we are dealing with here: (1) FCS analysis takes the input of profiles of gene expression values, while ORA analysis deals with only the input of interesting genes; (2) a FCS method computes the test statistics based on the gene set, while an ORA method computes it based on the interesting genes. Therefore, GANPA cannot be directly applied for ORA analysis.</p>
+<p>In this study, we adopt GANPA’s network-based gene-weighting approach with modification to weight genes, and develop a novel method named LEGO (functional Link Enrichment of Gene Ontology or gene sets) for ORA analysis. LEGO assigns gene set-specific weights to both genes within a gene set and the neighboring genes that have strong functional association with the gene set, by considering not only their relative network association with a gene set, but also their interactions with the genes inside the gene set. The test statistic of LEGO is the average gene set-specific weights of the interesting genes. The statistical significance of the test statistic is assessed by permutation in LEGO. As a network-based method, we first compare LEGO with Fisher and three other network-based methods—NOA, NEA, and EnrichNet using three benchmark datasets, and show that LEGO outperforms these methods in detecting functionally relevant gene sets. Recently, Tarca <italic>et al</italic>. compiled a benchmark of 42 disease gene expression datasets whose target pathways were known, and then compared 15 FCS methods and Fisher in terms of sensitivity, prioritization and specificity<xref ref-type="bibr" rid="b26">26</xref>. To further evaluate LEGO’s usefulness, from these datasets we select 34 datasets whose target pathways are KEGG pathways with DAG available, and compare LEGO with three PT methods—SPIA, ROntoTools and CePa, and five FCS methods—PLAGE, GLOBALTEST, PADOG, MRGSE and GSA that ranked top according to Tarca <italic>et al</italic>.<xref ref-type="bibr" rid="b26">26</xref>. The results show that LEGO is among the top ranked methods in terms of both sensitivity and prioritization for detecting target pathways, and its false positive rate is comparable to Fisher’s. In addition, we also develop a cluster-and-filter approach to reduce the redundancy among the enriched gene sets. Finally, we apply LEGO to two lists of autism-related genes identified by recent large-scale whole exome sequencing studies, and discover relevant gene sets to autism that could not be identified using Fisher. As such, LEGO will be of great value for identifying functionally relevant gene sets and deriving novel hypothesis in functional genomics studies.</p>
+<sec disp-level="1">
+<title>Materials and Methods</title>
+<p>Given an interesting gene list <italic>R</italic> of size <italic>n</italic> and a gene set <italic>S</italic> of size <italic>k</italic>, the ORA problem is to test whether <italic>S</italic> is over-represented in <italic>R</italic>. Here, we introduce a network-based approach named LEGO. Below we describe the algorithm design of LEGO. The R package and instructions of LEGO can be downloaded at <ext-link ext-link-type="uri" xlink:href="http://omics.fudan.edu.cn/static/softwares/Lego.tar.gz" xmlns:xlink="http://www.w3.org/1999/xlink">http://omics.fudan.edu.cn/static/softwares/Lego.tar.gz</ext-link>.</p>
+<sec disp-level="2">
+<title>LEGO’s algorithm design</title>
+<sec disp-level="3">
+<title>Network-based gene set-specific weighting</title>
+<p>Given a functional association network <italic>G</italic> with <italic>m</italic> genes, we adopt GANPA’s weighting approach with modifications to measure the gene set-specific weight for all genes. For details about GANPA, refer to<xref ref-type="bibr" rid="b19">19</xref>. Here, for every gene <italic>i</italic> in network <italic>G</italic>, we compute its degree inside the network as</p>
+<p>
+<disp-formula id="eq1">
+<inline-graphic id="d33e270" xlink:href="srep18871-m1.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>and its degree inside gene set <italic>S</italic> as</p>
+<p>
+<disp-formula id="eq2">
+<inline-graphic id="d33e278" xlink:href="srep18871-m2.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where <italic>E</italic><sub><italic>i,j</italic></sub> is the original edge weight for the functional link connecting gene <italic>i</italic> and <italic>j</italic> in network <italic>G</italic>. Under the assumption of equal probability for existing links between nodes, the expected degree of gene <italic>i</italic> to <italic>S</italic> is</p>
+<p>
+<disp-formula id="eq3">
+<inline-graphic id="d33e305" xlink:href="srep18871-m3.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>if gene <italic>i</italic> belong to <italic>S</italic>, or</p>
+<p>
+<disp-formula id="eq4">
+<inline-graphic id="d33e316" xlink:href="srep18871-m4.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>if gene <italic>i</italic> does not belong to <italic>S</italic>. A weighted score <italic>W</italic><sub><italic>i</italic></sub> that measures the relative network association of gene <italic>i</italic> with gene set <italic>S</italic> is then computed as:</p>
+<p>
+<disp-formula id="eq5">
+<inline-graphic id="d33e339" xlink:href="srep18871-m5.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where</p>
+<p>
+<disp-formula id="eq6">
+<inline-graphic id="d33e345" xlink:href="srep18871-m6.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>Both those genes within gene set <italic>S</italic> and those neighboring genes that have greater than expected association with gene set <italic>S</italic> are assigned a weight greater than 1 if <italic>w</italic><sub><italic>i</italic></sub> &gt; 0. When <italic>w</italic><sub><italic>i</italic></sub> &lt;= 0, if gene <italic>i</italic> belongs to S, then it is assigned a weight of 1; otherwise, it is assigned zero weight. In this formula, <italic>bgNE</italic> refers to the network efficiency<xref ref-type="bibr" rid="b27">27</xref> of background network <italic>G</italic>, which is a measure for the density of a network. It is computed as</p>
+<p>
+<disp-formula id="eq7">
+<inline-graphic id="d33e380" xlink:href="srep18871-m7.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>in which <italic>SP</italic><sub><italic>ij</italic></sub> is the shortest path between gene <italic>i</italic> and <italic>j</italic> in the network. The value of <italic>bgNE</italic> ranges from 0 to 1, with denser network having greater <italic>bgNE</italic> value. There are two reasons to use <italic>bgNE</italic>*10 here. (1) We want to assign more weights to genes that are more central to the pathway. (2) The variance of <italic>w</italic><sub><italic>i</italic></sub> in dense networks is much smaller than that in sparse networks because all nodes are highly connected to each other in dense networks; the use of <italic>bgNE</italic>*10 can compensate for this bias caused by the density of a network.</p>
+<p>Having computed the gene set-specific weights for all genes in the network, we then assign gene set-specific edge weight for every functional link in the network as</p>
+<p>
+<disp-formula id="eq8">
+<inline-graphic id="d33e418" xlink:href="srep18871-m8.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where <italic>W</italic><sub><italic>i</italic></sub> and <italic>W</italic><sub><italic>j</italic></sub> are the weights of gene <italic>i</italic> and <italic>j</italic>, respectively, and <italic>E</italic><sub><italic>i,j</italic></sub> is the original edge weight of the functional link. If there is no functional link for gene <italic>i</italic> and <italic>j</italic> in the network, then we define <italic>W</italic><sub><italic>i,j</italic></sub> = 0. For convenience, we also define <inline-formula id="d33e458"><inline-graphic id="d33e459" xlink:href="srep18871-m9.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>. Finally, for every gene <italic>i</italic> in the network we calculate a gene set contribution score <italic>G</italic><sub><italic>i</italic></sub> by summing up the gene set-specific edge weights between gene <italic>i</italic> and all genes in <italic>S</italic> as:</p>
+<p>
+<disp-formula id="eq10">
+<inline-graphic id="d33e479" xlink:href="srep18871-m10.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>Thus, if a gene is more central to a gene set (i.e., with higher gene set-specific weight), and is functional linked to many “central” genes in the gene set, then it is assigned a higher gene set contribution score.</p>
+</sec>
+<sec disp-level="3">
+<title>Test statistic and statistical inference</title>
+<p>The test statistic of gene set <italic>S</italic> is simply the averaged gene set contribution score for all interesting genes in <italic>R</italic>, and is termed the Enrichment Score (<italic>ES</italic><sub>observed</sub>). To evaluate the significance of the observed <italic>ES</italic>, we use the permutation strategy to generate the background distribution of <italic>ES</italic>: every time we randomly select the same <italic>n</italic> genes as the “interesting” genes, and compute the <italic>ES</italic>; this process is repeated 1000 times to obtain the null distribution for the <italic>ES</italic>, from which the p-value of the observed ES can be estimated. The use of permutation is convenient because we do not need to make any assumption for the real null distribution of <italic>ES</italic>. However, because of the limited number of permutations, the permutation approach often produces a p-value of zero. To avoid this problem, we follow the procedure proposed by Knijnenburg <italic>et al</italic>. to estimate the exact p-value by using the generalized Pareto distribution (GPD)<xref ref-type="bibr" rid="b28">28</xref>. Detailed procedures for p-value computation can be found in the <xref ref-type="supplementary-material" rid="S1">supplementary materials</xref>.</p>
+</sec>
+</sec>
+<sec disp-level="2">
+<title>Multiple test correction</title>
+<p>When there are more than one gene sets for analysis, we use bonferroni procedure to adjust the p-value<xref ref-type="bibr" rid="b29">29</xref>. We also report the adjusted p-value based on FDR<xref ref-type="bibr" rid="b30">30</xref>.</p>
+</sec>
+<sec disp-level="2">
+<title>Comparison of LEGO with Fisher and three network-based methods</title>
+<p>Since LEGO is a network-based method for ORA analysis, we first compare LEGO with the traditional ORA method—Fisher’s exact test (named Fisher for convenience), and three recently developed network-based methods—NEA, EnrichNet, and NOA using three benchmark datasets. GeneMania<xref ref-type="bibr" rid="b10">10</xref> is another network-based method for ORA analysis. But it is not compared here because its source code is not available upon request.</p>
+<sec disp-level="3">
+<title>Descriptions of Fisher and three network-based methods</title>
+<sec disp-level="4">
+<title>Fisher</title>
+<p>For fair comparison with the network-based methods, genes in the background network are considered background genes, and are used to filter the gene set and the interesting gene list. A 2 × 2 contingency table is prepared for Fisher, with the rows corresponding to the number of genes inside the interesting gene list or not, and the columns corresponding to the number of genes annotated with the gene set or not. This table is then tested by <italic>fisher.test</italic>() in R.</p>
+</sec>
+<sec disp-level="4">
+<title>NEA(version Dec 2012)<xref ref-type="bibr" rid="b17">17</xref></title>
+<p>NEA computes an Enrichment Score (<italic>ES</italic><sub><italic>observed</italic></sub>) as the number of functional links between the interesting gene list and the gene set in the network. Then, it randomly rewires the network to re-calculate <italic>ES</italic>, in order to obtain the <italic>Z</italic><sub><italic>score</italic></sub> and the p-value of the <italic>ES</italic><sub><italic>observed</italic></sub>. We download the R script of NEA from its website (<ext-link ext-link-type="uri" xlink:href="http://www.meb" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.meb</ext-link>. ki.se/~yudpaw/), and use seed 1234 suggested by the authors when rewiring the network.</p>
+</sec>
+<sec disp-level="4">
+<title>EnrichNet (version 1.1)<xref ref-type="bibr" rid="b18">18</xref></title>
+<p>EnrichNet measures the functional association between the interesting gene list and a gene set using a Random Walk with Restart (RWR) algorithm. The RWR score of the gene set is compared to the RWR scores of all gene sets to derive an <italic>Xd</italic><sub><italic>score</italic></sub>. According to<xref ref-type="bibr" rid="b18">18</xref>, <italic>Xd</italic><sub><italic>score</italic></sub> &gt; <italic>1.11</italic> is approximate to p-value &lt; 0.05, and is considered significant. We obtained the EnrichNet R Script directly from the authors. The web server of EnrichNet is <ext-link ext-link-type="uri" xlink:href="http://www.enrichnet.org18" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.enrichnet.org18</ext-link>.</p>
+</sec>
+<sec disp-level="4">
+<title>NOA (version Apr 2012)<xref ref-type="bibr" rid="b16">16</xref></title>
+<p>The input of NOA is a network of interesting genes. NOA assigns a network link with a GO term if it connects two genes with the same GO term, and uses chi-square test to test the significance of GO term links in the input network as compared to that in a completely linked network based on the input genes. We use NOA’s webserver (<ext-link ext-link-type="uri" xlink:href="http://app.aporc.org/NOA/" xmlns:xlink="http://www.w3.org/1999/xlink">http://app.aporc.org/NOA/</ext-link>) for enrichment analysis.</p>
+</sec>
+</sec>
+<sec disp-level="3">
+<title>The three benchmark datasets</title>
+<sec disp-level="4">
+<title>The yeast transcription factor (TF) dataset</title>
+<p>A yeast TF co-regulatory network is downloaded from NOA<xref ref-type="bibr" rid="b16">16</xref> (<ext-link ext-link-type="uri" xlink:href="http://app.aporc.org/NOA/luscombe-trans-reg-net-all.id.TF.txt" xmlns:xlink="http://www.w3.org/1999/xlink">http://app.aporc.org/NOA/luscombe-trans-reg-net-all.id.TF.txt</ext-link>) and used as the background network (140 TFs, 2436 edges with no weight). Two lists of interesting genes (67 cell cycle related TFs (<ext-link ext-link-type="uri" xlink:href="http://app.aporc.org/NOA/cellcycle.id.TF.txt" xmlns:xlink="http://www.w3.org/1999/xlink">http://app.aporc.org/NOA/cellcycle.id.TF.txt</ext-link>) and 70 sporulation related TFs (<ext-link ext-link-type="uri" xlink:href="http://app.aporc.org/NOA/sporulation.id.TF.txt" xmlns:xlink="http://www.w3.org/1999/xlink">http://app.aporc.org/NOA/sporulation.id.TF.txt</ext-link>)) and the GO terms are obtained from (<ext-link ext-link-type="uri" xlink:href="http://app.aporc.org/NOA/" xmlns:xlink="http://www.w3.org/1999/xlink">http://app.aporc.org/NOA/</ext-link>). Here, the TF network is used as the background network.</p>
+</sec>
+<sec disp-level="4">
+<title>The human breast cancer datasets</title>
+<p>Three breast cancer gene expression datasets are downloaded from GEO database (GSE3744, GSE14548, GSE10780). R package <italic>limma</italic> is used to normalize the raw data. In each dataset, genes are ranked by their absolute t-statistics, and the top 200 differentially expressed (DE) genes are selected for enrichment analysis. The gene sets from MSigDB (version 4.0) (<ext-link ext-link-type="uri" xlink:href="http://www.broadinstitute.org/gsea/msigdb/collections.jsp" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.broadinstitute.org/gsea/msigdb/collections.jsp#C4</ext-link>)<xref ref-type="bibr" rid="b5">5</xref> are tested. MSigDB is a collection of pathways from Biocarta, KEGG and Reactome. The human FunCoup functional association network (version 2.0) (<ext-link ext-link-type="uri" xlink:href="http://funcoup2.sbc.su.se/download/Version_2.0/compact/FC2.hsapiens.compact.pfc01.tsv.gz" xmlns:xlink="http://www.w3.org/1999/xlink">http://funcoup2.sbc.su.se/download/Version_2.0/compact/FC2.hsapiens.compact.pfc01.tsv.gz</ext-link>) is used as the background network<xref ref-type="bibr" rid="b31">31</xref> (17,083 genes, 4,353,383 edges with weight ranges from 0 to 1).</p>
+</sec>
+<sec disp-level="4">
+<title>The human influenza host factors datasets</title>
+<p>The human influenza datasets include four interesting gene lists that are obtained from<xref ref-type="bibr" rid="b32">32</xref>. These four lists of genes were originally obtained from four independent genome-wide RNAi studies that identified 237, 250, 287, and 294 host factor genes in response to influenza virus replication, respectively<xref ref-type="bibr" rid="b33">33</xref><xref ref-type="bibr" rid="b34">34</xref><xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b36">36</xref>. GO terms under the Biological Process branch are tested. The human GO term annotations (without IEA) are downloaded from <ext-link ext-link-type="uri" xlink:href="http://cvsweb.geneontology.org/cgi-bin/cvsweb.cgi/go/gene-associations/gene_association.goa_human.gz" xmlns:xlink="http://www.w3.org/1999/xlink">http://cvsweb.geneontology.org/cgi-bin/cvsweb.cgi/go/gene-associations/gene_association.goa_human.gz</ext-link> (date: 11/25/2013)<xref ref-type="bibr" rid="b37">37</xref>. A total number of 3,445 GO terms with the size of 10 to 500 genes are selected for the test. The human FunCoup network is used as the background network.</p>
+</sec>
+</sec>
+<sec disp-level="3">
+<title>Network edge removal and rewiring</title>
+<p>For a given background network, to mimic network incompleteness and network noise we randomly remove or rewire a pre-defined percentage of edges in the network. Each time a different random seed is set. When rewiring the edges, we use the function <italic>igraph_rewire_edges ()</italic> from “igraph” package in R, which randomly rewires the endpoints of the edges uniformly to a new node with a constant percentage<xref ref-type="bibr" rid="b38">38</xref>.</p>
+</sec>
+<sec disp-level="3">
+<title>Choice of different background networks</title>
+<p>In the yeast TF dataset, another background network—YeastNet (354, 007 edges, with 5,702 genes) (<ext-link ext-link-type="uri" xlink:href="http://www.inetbio.org/yeastnet/download.php?type=1" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.inetbio.org/yeastnet/download.php?type=1</ext-link>)<xref ref-type="bibr" rid="b39">39</xref> is also tested. In the human breast cancer datasets, we also select the STRING network<xref ref-type="bibr" rid="b40">40</xref><xref ref-type="bibr" rid="b41">41</xref> (<ext-link ext-link-type="uri" xlink:href="http://string-db.org/newstring_download/protein.links.v9.1/9606.protein.links.v9.1.txt.gz" xmlns:xlink="http://www.w3.org/1999/xlink">http://string-db.org/newstring_download/protein.links.v9.1/9606.protein.links.v9.1.txt.gz</ext-link>, 19,038 genes, 2,271,610 edges with weight ranges from 0 to 1) and HumanNet<xref ref-type="bibr" rid="b42">42</xref> (<ext-link ext-link-type="uri" xlink:href="http://www.functionalnet.org/humannet/HumanNet.v1.benchmark.txt" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.functionalnet.org/humannet/HumanNet.v1.benchmark.txt</ext-link>) (4,086 nodes, 232,643 edges with no weight) as the background network, respectively. Then, LEGO is re-applied to calculate gene weights, and conduct gene set enrichment analysis as described above.</p>
+</sec>
+</sec>
+<sec disp-level="2">
+<title>Comparison of LEGO with Fisher, three PT methods and five FCS methods using 34 disease gene expression datasets</title>
+<p>To further evaluate LEGO’s usefulness, we also compare LEGO with Fisher, three PT methods and five FCS methods using a benchmark of 34 disease gene expression dataset compiled by Tarca <italic>et al</italic>.<xref ref-type="bibr" rid="b26">26</xref>. In this benchmark, we use the STRING network as the background network.</p>
+<sec disp-level="3">
+<title>The 34 disease gene expression datasets</title>
+<p>Recently, Tarca <italic>et al</italic>.<xref ref-type="bibr" rid="b26">26</xref> compiled 42 disease gene expression datasets (24 in the R package KEGGdzPathwaysGEO and 18 in the R package KEGGandMetacoreDzPathwaysGEO) whose target pathways were known (34 in KEGG and 8 in Metacore Disease Biomarker Networks). The gene sets to be tested are 259 KEGG pathways (R package KEGGESET) and 88 Metacore Disease Biomarker Networks (<ext-link ext-link-type="uri" xlink:href="https://portal.genego.com" xmlns:xlink="http://www.w3.org/1999/xlink">https://portal.genego.com</ext-link> (date stamp 4/19/2013)). Since KEGG pathways can be tested by the PT methods, we select the 34 datasets whose target pathways are KEGG pathways as the benchmark. We use the moderated t-test<xref ref-type="bibr" rid="b43">43</xref> in R “limma”<xref ref-type="bibr" rid="b44">44</xref> package to compute the p-value of differential expression for all genes. Then, we follow Tarca <italic>et al</italic>.’s procedures to identify DE genes : i) selecting more than 200 genes with FDR adjusted p-values&lt;0.1; ii) if not, selecting more than 200 genes with original p-values &lt;0.05 and log (fold change)&gt;1.5; iii) if not, selecting top 1% of genes ranked by p-values.</p>
+</sec>
+<sec disp-level="3">
+<title>Description of the three Pathway Topology-based (PT) methods</title>
+<p>A recent paper reviewed 22 PT methods for enrichment analysis<xref ref-type="bibr" rid="b15">15</xref>. Two of them are actually network-based methods: one is GANPA from which LEGO is based, and another is EnrichNet that has been compared with LEGO in the three benchmark-datasets mentioned above. These two methods are not compared here. For the remaining 20 methods, 7 have available R scripts or packages for downloading; however, only ROntoTools<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b45">45</xref><xref ref-type="bibr" rid="b46">46</xref><xref ref-type="bibr" rid="b47">47</xref>, SPIA<xref ref-type="bibr" rid="b48">48</xref>, and CePa<xref ref-type="bibr" rid="b49">49</xref> can run without any additional packages. These three PT methods are compared with LEGO. Below we briefly describe each method.</p>
+<sec disp-level="4">
+<title>ROntoTools</title>
+<p>Pathway-Express in ROntoTools incorporates pathways topology to calculate a global probability for genes in a given pathway. The negative log value of this global probability is defined the impact factor of a gene, and the impact factor values are then used for pathway enrichment analysis<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b48">48</xref><xref ref-type="bibr" rid="b50">50</xref>. This method is contained in the R package “ROntoTools” and the function “pe” was used.</p>
+<p><italic>SPIA</italic> is similar to ROntoTools except for the way to calculate the perturbation of a single gene. SPIA calculates the individual gene perturbation by subtracting the measured fold change, while ROnto-Tools calculates the gene perturbation as the sum of the fold change and the perturbation coming from upstream gene<xref ref-type="bibr" rid="b48">48</xref>. The “spia” function of “SPIA” package in R was performed.</p>
+<p><italic>CePa</italic> incorporates network centralities to weighted nodes from differentially expressed genes or gene expression data sets for pathway enrichment<xref ref-type="bibr" rid="b49">49</xref>. “cepa.all.parallel” of “CePa” package in R was used.</p>
+<p>The input for ROntoTools, SPIA is a list of DE genes with fold change values. Cepa can take the input of either DE genes with fold change values or the matrix of gene expression profiles, and the corresponding methods are named CePa_dif and Cepa_mat, respectively.</p>
+</sec>
+</sec>
+<sec disp-level="3">
+<title>Description of the five FCS methods</title>
+<p>Tarca <italic>et al</italic>. developed measures of sensitivity (median p-value for the target pathways), prioritization (median rank for the target pathways), and false positive rate for comparing different methods. Here, we select the top five FCS methods ranked by Tarca <italic>et al</italic>. to compare with LEGO, which are PLAGE<xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref>, GLOBALTEST<xref ref-type="bibr" rid="b22">22</xref>, PADOG<xref ref-type="bibr" rid="b22">22</xref>, MRGSE<xref ref-type="bibr" rid="b24">24</xref> and GSA<xref ref-type="bibr" rid="b51">51</xref>. The input of these five FCS methods is the matrix of gene expression profiles.</p>
+<p><italic>GLOBALTEST</italic> uses the empirical Bayesian generalized linear model to evaluate whether a gene set’s gene expression pattern is related to the phenotype<xref ref-type="bibr" rid="b22">22</xref>. The function “gtKEGG” of “globaltest” in R was used.</p>
+<p><italic>GSA</italic> uses the <italic>maxmean</italic> as the statistics to test whether the genes in a particular gene set have coordinated changes<xref ref-type="bibr" rid="b51">51</xref>. We used the function “GSA” of the GSA package in R.</p>
+<p><italic>MRGSE</italic> tests if the ranks in a particular gene set (sorted by the t-statistics) are different from genes in the background gene list<xref ref-type="bibr" rid="b24">24</xref>. We use moderated t-test in “limma” package in R to calculate t values and “geneSetTest” function in “limma” package for ranking of enriched gene sets.</p>
+<p><italic>PADOG</italic> gives higher weights for gene set specific genes and down weights the ubiquitous genes, and then integrates the t statistics and the gene weights to test the significance for each gene set<xref ref-type="bibr" rid="b23">23</xref>. The “padog” function of “padog” package in R was used.</p>
+<p><italic>PLAGE</italic><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref> uses singular value decompositions (SVD) to reduce the dimensionality of gene expression variance for each gene set in each sample, defining as the “activity” score. Then, it tests the difference of this score between different phenotypic samples. We use the method “plage” in R package “GSVA”.</p>
+<p>The above five FCS methods either use “sample permutation” or “gene permutation” strategy for statistical inference of the significance of gene set enrichment. Here, for all these methods, 1000 permutations are conducted.</p>
+</sec>
+</sec>
+<sec disp-level="2">
+<title>The measures of sensitivity, prioritization and false positive rate proposed by Tarca <italic>et al</italic></title>
+<p>Tarca <italic>et al</italic>.<xref ref-type="bibr" rid="b26">26</xref> developed a number of measures for evaluating and comparing the performance of different methods. We also use these measures in the benchmark. Here, we briefly describe each of the measures. The sensitivity of a method is the median p-values of the target pathways in 34 datasets, with lower p-value indicates higher sensitivity. In each dataset, all tested pathways are sorted by their p-value (from lowest to highest), and the rank percentage of the target pathway is calculated. The prioritization of a method is the median values of the rank percentage of the target pathways in 34 datasets. For false positive rate (FPR), 50 times of random sample permutation are performed; then, the mean of the percentage of significant pathway (using a significance threshold of either 0.01 or 0.05) in all permutations is considered the FPR for each algorithm.</p>
+</sec>
+<sec disp-level="2">
+<title>A cluster-and-filter approach to reorganize the enriched gene sets</title>
+<p>Because a gene can be annotated to different gene sets, there are many gene sets in gene set annotation database that are highly overlapping, especially for GO in which GO terms are organized in parent-child relationships. Since for most methods each gene set is tested independently, there may be significant redundancy among enriched gene sets, making it difficult for biologists to interpret the results. Here, we develop a cluster-and-filter approach to reduce the redundancy. It involves two steps: the clustering of all gene sets according to the degree of relatedness between gene sets before the enrichment analysis, and the filtering of enriched gene sets based on the clustering results. In the clustering step, given a gene set annotation system, such as MSigDB or GO database, we first construct a gene set-based network in which nodes correspond to gene sets, and edge weights represent the relatedness between two gene sets. The relatedness is defined by the Jaccard similarity (the number of overlapped genes/the number of union genes between two gene sets). To reduce the complexity of the network, here we only keep those edges whose similarity is greater than 0.15. Then, we partition the network into gene-set modules using iNP<xref ref-type="bibr" rid="b52">52</xref>, an iterated network partition algorithm. Finally, we obtain a number of gene-set modules each containing a list of gene sets that are overlapping, while the relatedness between gene sets from different modules is low. In the filtering step, given a list of enriched gene sets, we first group them according to the pre-determined gene-set modules they belong to. Then, we select the most significant gene set within each module as the marker gene set, and obtain the reduced enriched gene sets in which gene sets have low relatedness to each other. However, we also list the remaining enriched gene sets under their corresponding marker gene sets.</p>
+</sec>
+<sec disp-level="2">
+<title>Application of LEGO to the human autism datasets</title>
+<p>The human autism dataset includes 22 and 27 autism-related genes obtained from Rubeis <italic>et al</italic>.<xref ref-type="bibr" rid="b53">53</xref> and Iossifov <italic>et al</italic>.<xref ref-type="bibr" rid="b54">54</xref>, respectively, using large-scale exome sequencing. Here, we use human FunCoup network as LEGO’s background network, and MSigDB gene sets are tested.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Results</title>
+<sec disp-level="2">
+<title>A brief description of LEGO</title>
+<p>Traditional ORA methods such as Fisher’s exact test (named Fisher for convenience) treat genes in a gene set or a pathway simply as gene labels with equal importance, and then test the significance of the over-representation of the gene set (the overlapped genes) among a list of interesting genes. Thus, they are unable to distinguish occasions where the overlapped genes are more essential to the gene set (<xref ref-type="fig" rid="f1">Fig. 1a</xref>), or have more interactions between each other (<xref ref-type="fig" rid="f1">Fig. 1b</xref>). To overcome these limitations, here we develop a novel method named LEGO (functional <italic>L</italic>ink <italic>E</italic>nrichment of <italic>G</italic>ene <italic>O</italic>ntology or gene sets). The workflow of LEGO is shown in <xref ref-type="fig" rid="f1">Fig. 1c</xref> (For details about LEGO, refer to the Method section). Briefly speaking, we adopt a network-based gene weighting approach to assign gene set contribution scores to all genes in a functional association network. Then, we calculate the test statistic for a gene set as the mean gene set contribution score for the interesting genes, and use permutation to obtain the p-value of the test statistic. To avoid the zero p-value problem caused by limited number of permutations, we follow Knijnenburg <italic>et al</italic>. to use the generalized Pareto distribution (GPD) to estimate the exact p-value<xref ref-type="bibr" rid="b28">28</xref>.</p>
+</sec>
+<sec disp-level="2">
+<title>Comparison of LEGO with Fisher and three network-based methods in three benchmark datasets</title>
+<p>Because LEGO is a network-based method for ORA (gene set Over-Representation Analysis) analysis, we first compare LEGO with Fisher, and three network-based methods—NEA, EnrichNet and NOA (refer to the Method section for details about these methods). Three benchmark datasets are used: the yeast transcription factor (TF) dataset, the human breast cancer datasets, and the human influenza host factors datasets. Because NOA cannot be applied to weighted networks, it is only tested in the yeast dataset.</p>
+<sec disp-level="3">
+<title>The yeast TF dataset</title>
+<p>When benchmarking NOA, Wang <italic>et al</italic>.<xref ref-type="bibr" rid="b16">16</xref> constructed a yeast TF co-regulatory network that consisted of 2,436 co-regulatory relationships between 140 TFs. A co-regulatory relationship was established if two TFs share at least one target gene. The transcription regulatory relationships were obtained from Luscombe <italic>et al</italic>.<xref ref-type="bibr" rid="b55">55</xref> who investigated the condition-specific yeast transcription regulatory networks. In that study, if a TF not only was highly expressed, but also had at least one target gene differentially expressed under a given condition, Luscombe <italic>et al</italic>. defined the TF active in that condition. They have defined 67 and 70 TFs that are active in the cell cycle and the sporulation conditions, respectively. Since GO:0022402 (“cell cycle process”) and GO:0043934 (“sporulation”) are the two most relevant GO terms to these two conditions, Wang <italic>et al</italic>. examined the ranks of these two GO terms among the enriched terms in the two lists of TFs, and assumed that a successful method would place the relevant GO terms to high ranks. Here, we follow the same strategy to compare different methods.</p>
+<p>Among 183 GO terms that have more than five genes, 154 and 166 can be reported a significance value by all methods for the cell cycle and sporulation related TFs, respectively (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>). Among all methods being compared, LEGO achieves the best ranks for the relevant GO terms in both the cell cycle and sporulation related TFs (<xref ref-type="fig" rid="f2">Fig. 2</xref>). The cell cycle GO term is ranked 2<sup>nd</sup> by LEGO, in contrast to 129, 27, 20, and 17 by NEA, EnrichNet, NOA, and Fisher, respectively (<xref ref-type="fig" rid="f2">Fig. 2a</xref>). The sporulation GO term is ranked 11 by LEGO, in contrast to 165, 50, 44, and 57 by NEA, EnrichNet, NOA, and Fisher, respectively (<xref ref-type="fig" rid="f2">Fig. 2b</xref>). However, if we randomly select 67 and 70 TFs for enrichment analysis and repeat the experiments 100 times, then the median ranks of the two relevant GO terms are about 90 by LEGO. The inclusion of both neighboring genes and appropriate gene weighting has a major impact on LEGO’s performance: if neighboring genes are excluded, the ranks of the cell cycle and sporulation GO terms would drop to 19, 73, respectively; if genes of non-zero weights are assigned a weight of 1, the ranks would drop to 111 and 115 (<xref ref-type="fig" rid="f2">Fig. 2</xref>). To sum up, in this benchmark LEGO detects functionally relevant gene sets with the highest ranks among all methods.</p>
+</sec>
+<sec disp-level="3">
+<title>The three breast cancer datasets</title>
+<p>Large-scale functional genomics studies often involve the comparison of the enrichment results across independent datasets under similar studying condition, and it is expected that a successful method should produce consistent results. Here we select three independent breast cancer datasets, and perform enrichment analysis for the top 200 differentially expressed genes in each dataset. Then, we count the number of overlapped gene sets that are significant in at least two datasets at a given rank threshold (e.g., top 10, 20, …, 80 significant gene sets). The background network is the human FunCoup network<xref ref-type="bibr" rid="b31">31</xref>. Gene sets from MSigDB<xref ref-type="bibr" rid="b5">5</xref> are tested. Multiple test correction is not implemented because the <italic>Xd</italic><sub><italic>score</italic></sub> of EnrichNet cannot be adjusted, while Fishers find only few significant gene sets after adjustment. The detailed lists of enriched gene sets identified by different methods can be found in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>.</p>
+<p>In this experiment, LEGO identifies more overlapped gene sets than any of the methods being compared does at all rank thresholds (<xref ref-type="fig" rid="f3">Fig. 3a</xref>). Of the top 10 significant gene sets found in each of the three breast cancer datasets, LEGO identifies four overlaps, which are “REACTOME_CYCLIN_A_B1_ASSOCIATED_EVENTS_DURING_G2_M_TRANSITION”, “REACTOME_E2F_MEDIATED_REGULATION_OF_DNA_REPLICATION”, “REACTOME_UNWINDING_OF_DNA” and “REACTOME_KINESINS”. One of the most important features of cancer cell is abnormal cell division in which normal cell cycle-related processes are significantly altered<xref ref-type="bibr" rid="b56">56</xref>. Here, these four gene sets all have to do with cell cycle, suggesting that cell cycle-related processes are significantly altered in breast cancer cells. From the top 80 significant gene sets, LEGO identifies 51 overlaps, significantly more than that found by the other methods. For majority of those overlapped gene sets, the abnormal functioning of their corresponding biological processes are relevant to cancer development, including “REACTOME_G1_S_SPECIFIC_TRANSCRIPTION”, “REACTOME_CELL_CYCLE_MITOTIC”, etc. Of the remaining methods, NEA identifies more overlapped gene sets than the other methods. However, NEA’s results are actually caused by the bias in its method (shown in later section).</p>
+<p>The performance of LEGO is attributed to both gene weighting and the inclusion of neighbor genes: once gene weights or neighbor genes are removed, we observe a significant drop in the number of overlapped gene sets, especially for the removal of neighboring genes (<xref ref-type="fig" rid="f3">Fig. 3a</xref>). Moreover, when 200 genes are randomly selected, we only observe a median of 4.0 overlapped gene sets among top 80 significant pathways by LEGO, suggesting that LEGO’s performance is not due to over-detection, i.e., a gene set is reported significant regardless of the input genes.</p>
+</sec>
+<sec disp-level="3">
+<title>The four influenza host factors datasets</title>
+<p>With similar purpose, here we examine whether LEGO can produce consistent enrichment results across four lists of human host factor genes in response to influenza virus replication that were identified by independent investigators<xref ref-type="bibr" rid="b33">33</xref><xref ref-type="bibr" rid="b34">34</xref><xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b36">36</xref>. The gene sets to be tested are GO terms under Biological Process branch. A GO term is considered “overlapped” if it is found significant in at least three of the four datasets. Again, LEGO identifies significantly more overlapped GO terms than Fisher and EnrichNet (<xref ref-type="fig" rid="f3">Fig. 3b</xref>). EnrichNet could hardly get any significant enriched GO terms. After the threshold of top 60 GO terms, NEA detects more overlapped GO terms than LEGO. This is, however, because NEA is strongly biased and produces many GO terms with zero p-value. Nearly all GO terms found by Fisher are identified by LEGO. The unique GO terms identified by LEGO are relevant to the studying condition. For example, both “GO:0070972: protein localization to endoplasmic reticulum” and “GO:0045047: protein targeting to ER” are identified by LEGO but not by Fisher, and it has been suggested that protein localization and targeting to ER may play critical roles in the process of influenza virus replication<xref ref-type="bibr" rid="b57">57</xref>. As a comparison, when genes are randomly selected as host factor genes, LEGO does not identify any overlapped GO terms, while removal of gene weights or neighboring genes would result in the drops of overlapped GO terms (<xref ref-type="fig" rid="f3">Fig. 3b</xref>). Thus, we conclude that compared to the methods being performed here, LEGO can detect more consistent biologically relevant gene sets across independent datasets under similar studying conditions.</p>
+</sec>
+</sec>
+<sec disp-level="2">
+<title>Investigation of network bias on LEGO</title>
+<p>LEGO, NEA and EnrichNet are all network-based ORA methods. To investigate whether the topology of the background network or the gene set may cause some bias to the performance of these methods, we randomly select the same number of genes as that of the original interesting genes in both the yeast and human breast cancer benchmark datasets (e.g., in the yeast dataset, 67 TFs are randomly selected to mimic the 67 cell cycle-related TFs), and redo the ORA analysis. This procedure is repeated 100 times. Then, for each gene set we compute the frequency that it is found significant (p-value &lt; 0.05 or <italic>Xd</italic><sub><italic>score</italic></sub>&gt;1.11 for EnrichNet) (termed frequency of random significance). Given the significance threshold is set at 0.05, the expected frequency of random frequency for a gene set should be 5%. However, since the experiments are only repeated 100 times, there may be random variations for some gene sets. But the median frequency should be at 5%, and the random variations would be reduced with more experiments conducted (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S1</xref>). The influenza benchmark is not re-analyzed because it is similar to the human breast cancer benchmark.</p>
+<p>In both the yeast and human breast cancer datasets, the median frequency of random significance for a gene set is lower than or approximately 5% by LEGO (<xref ref-type="fig" rid="f4">Fig. 4a,b</xref>), indicating that there is no systematic bias in LEGO that makes some gene sets easily detected significant regardless of the input genes. Fisher is more conservative than LEGO, with the median frequency of random significance lower than 5% in both datasets. In contrast, both EnrichNet and NEA are strongly biased. EnrichNet tends to identify most gene sets with a frequency of random significance greater than 5% in the yeast dataset, while finds nearly no gene sets significant in human datasets (<xref ref-type="fig" rid="f4">Fig. 4b</xref>). Since the density of these two networks is very different (the network efficiency (a measure of the density of a network) of the yeast, human networks is 0.61, 0.27 respectively), it is likely that EnrichNet is biased by the density of a network. For NEA, the median frequency of random significance is 17% in human dataset, indicating it tends to identify some gene sets as significant regardless of the input genes. In fact, in NEA the frequency of random significance is strongly positively correlated to both the network efficiency and the size of gene sets; in contrast, we find no such correlation in LEGO (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S2</xref>).</p>
+</sec>
+<sec disp-level="2">
+<title>The impact of network incompleteness, network noise and network choice on LEGO’s performance</title>
+<p>Currently available functional association networks are not complete and may be noisy<xref ref-type="bibr" rid="b58">58</xref>. To inspect how this may affect LEGO’s performance, we mimic network incompleteness and network noise by randomly removing or rewiring a portion (e.g., 10%, 20%, …, 50%) of edges in the background network, and redo the analysis in the yeast and human benchmarks. Here, edge removal or rewiring would not remove genes from the background network, but would cause changes in the gene-gene interactions in the background network. As such, we have to re-calculate the gene set-specific gene set contribution scores for every gene in the background network after edge removal or rewiring, and then apply LEGO for enrichment analysis. In the yeast benchmark, we record the ranks of the two relevant GO terms; in the human benchmark, we identify the overlapped significant gene sets (top 80 significant gene sets), and compare them with the original results. At each portion of edge removal or rewiring, we repeat the experiments 100 times, and compute the average and standard deviation.</p>
+<p>The yeast TF network is a small network, and network perturbations on this network have significant impacts on LEGO’s performance: both the cell cycle and the sporulation GO term are barely significant after 10% edge removal or rewiring, and their average ranks drops with the increase of network perturbations (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S3</xref>). In contrast, the FunCoup network is a much larger network, and LEGO is more resistant to network perturbations on this network. With the perturbed FunCoup network, LEGO still identifies significantly more overlapped gene sets than Fisher, and the overlapped gene sets are similar to those identified using the unperturbed network, although the similarity drops with more factions of the networks perturbed (<xref ref-type="fig" rid="f4">Fig. 4c,d</xref>). Edge rewiring on the FunCoup network has a more significant effect on LEGO than edge removal does, which is because most genes have only a few interactions in the FunCoup network, making gene weighting more sensitive to edge rewiring. Thus, for large networks LEGO is generally resistant to network incompleteness and network noise, though its performance can be further enhanced with the addition of new interactions and the improvement in network quality.</p>
+<p>We also inspect the choice of different types of networks on the performance of LEGO. In the yeast benchmark, we change the background network to YeastNet, a larger and high quality functional association network. YeastNet is very different from the yeast TF network in that: it consists of many more genes that are mostly non-TFs, and the interactions between genes are significantly different from that in the TF network. Consequently, both GO terms are not found significant using YeastNet. In the human breast cancer benchmark, we repeat the analysis using the human STRING network and HumanNet. Both FunCoup and STRING are large networks, and the gene weights calculated based on these two networks are positively correlated for majority of gene sets (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S4</xref>). In contrast, HumanNet is a probabilistic functional interaction network, and has much smaller gene coverage than the other two networks (for most gene sets, only less than half of the genes are covered in HumanNet). The results of LEGO using the STRING network are similar to that of using the FunCoup network, while they are worse when using HumanNet (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S5</xref>). Thus, for general purpose we recommend the use of large networks such as the FunCoup or the STRING network because a pathway would be better covered in large functional networks. However, when interesting genes are prepared for specific purpose or share some common properties, such as the active TFs in the yeast dataset, it may be necessary for users to provide their own background network, such as the TF co-regulatory network.</p>
+</sec>
+<sec disp-level="2">
+<title>Computational efficiency of LEGO</title>
+<p>During the benchmark of LEGO, we find the other network-based methods are all computationally costive, especially for NEA. NEA takes 49 hours to complete the breast cancer benchmark and 170 hours for the influenza benchmark (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S3</xref>). This is mainly because these methods need to spend a large amount of time on rewiring a network, which is especially time consuming for large networks. In contrast, the major computation cost in LEGO is the network-based weighting process, particularly the calculation of background network efficiency, which can be done in advance. This leaves the major computational cost for LEGO to permutation. Therefore, LEGO can be very efficient in functional genomics studies.</p>
+</sec>
+<sec disp-level="2">
+<title>Comparison of LEGO with Fisher, three PT methods and five FCS methods using a benchmark of 34 disease gene expression datasets</title>
+<p>In 2013, Tarca <italic>et al</italic>.<xref ref-type="bibr" rid="b26">26</xref> compiled 42 disease gene expression datasets in which the target pathway of each dataset was known. They used these datasets to compare 15 FCS methods and Fisher. The target pathways of 34 out of the 42 datasets are KEGG pathways that have representative DAGs, which can be tested by PT methods. Here, to further test LEGO’s usefulness in functional genomics studies, we select the 34 disease gene expression datasets as the benchmark, and compare LEGO with Fisher, three PT methods—SPIA, CePa and ROntoTools, and the top five FCS methods ranked by Tarca <italic>et al</italic>.—PLAGE, GLOBALTEST, PADOG, MRGSE, and GSA. The descriptions of these methods can be found in Methods. We follow Tarca <italic>et al</italic>.’s procedures to identify the DE genes in each of the 34 datasets. LEGO and Fisher use the DE genes for pathway enrichment. SPIA, ROntoTools use DE genes with fold change values as input. CePa can use either DE genes or gene expression profiles for pathway enrichment, and we test both options for CePa and for convenience name them as CePa_dif and CePa_mat, respectively. All the other methods use matrix of gene expression profiles as the input, and we follow the instructions of their respective R package to perform pathway enrichment.</p>
+<p>Tarca <italic>et al</italic>. proposed three measures to evaluate the performance of a method, which are sensitivity (defined as the p-value for the target pathway), prioritization (defined as the rank of the target pathway), and false positive rate (see Methods for details). Here, we use the same measures to compare these methods. All results can be found in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S4</xref>. Out of the 11 methods (two options for CePa) being compared, LEGO ranks 4<sup>th</sup> in terms of sensitivity (the median p-value for the target pathways) (<xref ref-type="fig" rid="f5">Fig. 5a</xref>), and 3<sup>rd</sup> in terms of prioritization (the median rank for the target pathways) (<xref ref-type="fig" rid="f5">Fig. 5b</xref>). LEGO’s false positive rate is comparable to Fisher’s (<xref ref-type="fig" rid="f5">Fig. 5c</xref>). It is worth noting that the sensitivity measure and the prioritization measure evaluate the performance of a method from different perspectives, and a method that ranks the best based on one measure may not also rank the best based on another measure. For examples, GLOBALTEST ranks 1<sup>st</sup> in terms of sensitivity, while it ranks only 8<sup>th</sup> in terms of prioritization; PADOG ranks 1<sup>st</sup> in terms of prioritization, but it ranks only 9<sup>th</sup> in terms of sensitivity. The fact that LEGO ranks among the top methods by both sensitivity and prioritization measures suggests that it is able to prioritize target pathways with high sensitivity. It is also worth noting that most of the methods being compared here use gene expression values, which contains more information than DE genes do. In conclusion, LEGO’s performance in this benchmark well illustrates its usefulness for functional genomics studies.</p>
+</sec>
+<sec disp-level="2">
+<title>A cluster-and-filter approach to reduce the redundancy among enriched gene sets</title>
+<p>Most ORA methods including LEGO perform enrichment test independently for each gene set, and may result in enriched gene sets that are highly overlapping, making it inconvenient for biologists to interpret the results. This is especially a problem for the enrichment of GO terms, as GO terms are organized in parent-child relationships. To reduce the redundancy among the enriched gene sets, here we develop a simple cluster-and-filter approach. The idea is that we cluster all gene sets into gene-set modules according to their degree of relatedness; then, given the enriched gene sets, we reorganize them according to the modules they belong to, and select the most significant ones from each module as the marker gene sets to display the results. Based on this idea, we have obtained 145 gene sets modules from 1,077 gene sets in MSigDB, and 1,410 GO modules from 12,062 GO terms under Biological Process branch (for details refer to Method section). In <xref ref-type="fig" rid="f6">Fig. 6a</xref>, we show the global gene set network of MSigDB in which nodes correspond to gene sets, and edge weights represent the relatedness between gene sets. An example of a gene-set module is provided. This module includes nine gene sets that are all related to neurotransmitter release cycle that are highly overlapping. Clustering them into one module can thus help reduce the redundancy among enriched gene sets.</p>
+<p>Originally, in the breast cancer benchmark, LEGO identifies 51 overlapped gene sets among top 80 significant gene sets. Using the cluster-and-filter approach, these gene sets are reduced to 12 modules, and the original 9 overlapped gene sets found by Fisher are now reduced to 6 modules (<xref ref-type="fig" rid="f6">Fig. 6b</xref>). Similarly, the enriched GO terms in the human influenza benchmarks can also be reduced into GO term modules (<xref ref-type="fig" rid="f6">Fig. 6c</xref>). For details about the reorganization of the enriched gene sets in these two benchmarks, refer to <xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>. Here, we show an example of the reorganization of enriched gene sets in one breast cancer dataset (GSE10780). In this dataset, LEGO identifies 51 significant gene sets (p-value &lt; 0.01 after FDR adjustment), which are reduced to 15 modules in which five are related to cell cycle. Inspection of these five modules reveals that they actually represent different stages of cell cycle (<xref ref-type="fig" rid="f6">Fig. 6d</xref>). The gene sets within each module are highly overlapping, while those from different modules do not have significant overlaps. Thus, the reorganization of the enriched gene sets makes it easier for biologists to understand the enrichment results.</p>
+</sec>
+<sec disp-level="2">
+<title>Application of LEGO to two large-scale autism exome sequencing studies</title>
+<p>After extensive benchmarks, we have demonstrated LEGO’s usefulness in functional genomics studies. Here, we apply LEGO to two lists of autism-related genes. Autism is a neurodevelopment genetic disease, and is characterized by social and communication disorder. Recently, Rubeis <italic>et al</italic>. and Iossifov <italic>et al</italic>. have both independently conducted large-scale exome sequencing on autism patients and normal people, and have identified 22 and 27 autism-related genes, respectively. Fisher’s exact test on these two lists of genes does do not find any significant MSigDB gene sets (p-value &lt; 0.05 after FDR adjustment). In contrast, with LEGO we find 10 and 35 enriched MSigDB gene sets from the 22 and 27 autism-related genes, respectively (p-value &lt; 0.05 after FDR adjustment), in which 7 gene sets are common (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S5</xref>). These enriched gene sets are further reduced to 6 and 13 gene sets modules, respectively, and the marker gene sets (the most significant gene set within a gene-set module) of two modules are common (<xref ref-type="table" rid="t1">Table 1</xref>). These two gene sets are “BIOCARTA_VDR_PATHWAY” and “BIOCARTA_GABA_PATHWAY”. Interestingly, there are no autism genes annotated to these two gene sets. The reason why LEGO finds these two gene sets significant is because the two lists of autism-related genes contain neighboring genes that have significant interactions with the genes inside these two pathways in the FunCoup Network (<xref ref-type="fig" rid="f7">Fig. 7</xref>). We conduct a literature search, and find strong evidence that these two pathways are relevant to autism. VDR stands for Vitamin D receptor, and it has been reported that lower vitamin D levels in developing brains can increase the risk of autism disorder<xref ref-type="bibr" rid="b59">59</xref>. GABA (Gamma-amino butyric acid) is an inhibitor neurotransmitter, and acts as synapses by binding to GABA receptors. The GABA pathway is responsible for synaptic inhibition in brain, and has been strongly suggested to play a role in the etiology of autism disorder<xref ref-type="bibr" rid="b60">60</xref>. Therefore, it is likely that mutations in candidate autism genes (particularly those neighbor genes to these two pathways) may disrupt the normal functioning of these two pathways, which may then lead to the development of autism. In the original paper, because the 22 genes are a small list, Rubeis <italic>et al</italic>. relaxed the FDR criterion to collect 107 genes to perform gene set enrichment, and identified four enriched functional clusters including synaptic formation, transcriptional regulation and chromatin-remodeling pathways, cell junction and neurodegeneration. However, there are no those pathways in MSigDB. We then apply LEGO to test the enrichment of GO terms, and find some of the enriched GO terms are similar to the above four functions (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S5</xref>). Thus, besides the functions identified in the original study, LEGO is able to identify relevant functions to autism, helping to explain the molecular mechanism for the causal roles of some autism genes. This example further demonstrates LEGO’s usefulness in large-scale functional genomics studies.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>The major limitations of traditional ORA methods, particularly the most widely used Fisher’s exact test, are that they ignore the functional non-equivalence roles of genes and the complex interactions between genes. In this study, we have developed a novel method named LEGO that takes a network-based approach to transform the functional non-equivalence roles of genes and gene-gene interactions into gene weights, and then incorporate the weights in ORA analysis. To test LEGO’s performance, we compare it with Fisher and three recently developed network-based methods using three benchmarks. In the yeast benchmark, we show that LEGO is able to identify the two GO terms—“cell cycle” and “sporulation” relevant to the cell-cycle-related and sporulation-related TFs, respectively, with higher ranks than the other methods do. In both the breast cancer and human influenza benchmarks, we show that LEGO detects more consistent gene sets across independent datasets under similar studying conditions than the other methods do, and also show those consistent gene sets are relevant to the studying condition. As an application of LEGO, we further apply it to two lists of autism-related genes, and show that LEGO can discover pathway relevant to autism that could not be found by Fisher. These lines of evidence well demonstrate LEGO’s advantage over traditional ORA methods such as Fisher for functional genomics studies.</p>
+<p>The network-based gene weighting is a critical step in LEGO. Below, we give a few examples from both yeast and human datasets to show that LEGO’s gene weights can truly reflect the functional non-equivalence roles of genes within a pathway. In yeast, RIM101 has the highest weight in the GO term “Sporulation”, while OAF1 has the lowest weight. RIM101 is required for alkaline pH-stimulated haploid invasive growth and sporulation<xref ref-type="bibr" rid="b61">61</xref>, while OAF1 is an oleate-activated transcription factor involved in fatty acid biogenesis<xref ref-type="bibr" rid="b62">62</xref>, and is actually ranked top 1 in “GO:0044255 cellular lipid metabolic process”. In human, TP53 is the central gene in both p53 pathway<xref ref-type="bibr" rid="b63">63</xref> and p53 hypoxia pathway<xref ref-type="bibr" rid="b64">64</xref>, and is ranked top 2 and top 3 in both pathways. Meanwhile, TP53 is ranked only 108 for the pathway of Huntington’s disease (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S6</xref>). EGFR is ranked top 1 in EGF SMRTE pathway.</p>
+<p>With the use of network in LEGO, locally the topology, coverage and size of a pathway in the network, and globally the network incompleteness, network noise, and the type of network interactions can all potentially affect the calculated gene weights, and consequently the enrichment results of LEGO. We have rigorously investigated those effects on LEGO’s performance by using randomly selected interesting genes, randomly removing or rewiring network edges, and comparing the use of different types of networks. We have demonstrated that there is no systematic bias in LEGO that makes some pathways easily detected as significant regardless of the input genes. However, the use of a different network may result in the change of gene set-specific weights in LEGO, leading to different results for some gene sets. In general, when a network covers more genes with interactions of higher quality and a gene set is better represented in the network, LEGO will be more useful. On the other hand, since different networks may have different coverage for a given pathway, in practice it may be useful to conduct enrichment analysis with several available networks, or users can provide their specially designed networks. Furthermore, when a network is updated with more interactions or the corpus of gene annotations increases, LEGO’s pathway-specific gene weights will have to be recalculated.</p>
+<p>Besides comparing LEGO with Fisher and three network-based methods, in this study we also compare it with three Pathway-Topology (PT)-based methods and five Functional Category Score (FCS) methods using a benchmark of 34 disease gene expression datasets prepared by Tarca <italic>et al</italic>.<xref ref-type="bibr" rid="b26">26</xref>, and show that it is among the top ranked methods in terms of both sensitivity and prioritization for detecting target pathways. Both LEGO and the PT methods assign weights to genes before calculating the test statistics of a given gene set. The differences between them are the followings. (1) The PT methods use the pathway topology, specifically the DAG representation of a pathway, to infer weights to genes inside a pathway. In contrast, LEGO uses network topology to infer gene weights, and does not require the input of the DAG representation of a pathway. (2) The PT methods do not use gene-gene interactions between genes inside a pathway and those outside the pathway, whereas LEGO considers not only genes inside a pathway, but also the neighboring genes that have strong association with the pathway. In fact, the inclusion of neighboring genes plays an important role in LEGO’s performance, which is well illustrated in the three benchmarks comparing LEGO with other network-based methods and in the autism dataset. FCS methods incorporate gene expression values when assessing the significance of a pathway, whereas LEGO takes only the input of differentially expressed (DE) genes. Although LEGO performs fairly well compared with the five FCS methods being compared in this study, it is expected that the incorporation of gene expression values in LEGO may further improve its performance. We are now working to extend LEGO for FCS analysis by incorporating gene expression change values.</p>
+<p>The redundancy of enriched gene sets is a common problem for most methods including LEGO, because they test the significant of a gene set independently and many gene sets, especially GO terms, are highly overlapping with each other. Recently, multivariate model-based gene set analyses, such as MGSA<xref ref-type="bibr" rid="b65">65</xref> have been proposed to solve this problem. MGSA takes into consideration the specificity of different gene sets when evaluating their significance, and automatically produce enriched gene sets that have low redundancy. However, MGSA does not find any significant gene sets in either the human breast cancer or the human influenza dataset according to significance threshold suggested by the authors (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>), indicating that the efficiency of these methods needs to be improved. In this study, we develop a simple cluster-and-filter approach to reduce the enriched gene sets into gene-set modules that have low redundancy. With the reduced gene-set modules, the enrichment results can be organized in a more friendly way for biologists to interpret. In the future, it may be needed to combine the cluster-and-filter approach with the multivariate module-based analysis to further refine the enrichment results. Nevertheless, the benchmark results of LEGO and the adoption of the cluster-and-filter approach to post-process LEGO’s result already make LEGO a useful method for large-scale functional genomics studies.</p>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article</bold>: Dong, X. <italic>et al</italic>. LEGO: a novel method for gene set over-representation analysis by incorporating network-based gene weights. <italic>Sci. Rep</italic>. <bold>6</bold>, 18871; doi: 10.1038/srep18871 (2016).</p>
+</sec>
+<sec id="S1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="d33e37">
+<caption>
+<title>Supplementary Information</title>
+</caption>
+<media xlink:href="srep18871-s1.doc" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e40">
+<caption>
+<title>Supplementary Table S1</title>
+</caption>
+<media xlink:href="srep18871-s2.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e43">
+<caption>
+<title>Supplementary Table S2</title>
+</caption>
+<media xlink:href="srep18871-s3.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e46">
+<caption>
+<title>Supplementary Table S3</title>
+</caption>
+<media xlink:href="srep18871-s4.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e49">
+<caption>
+<title>Supplementary Table S4</title>
+</caption>
+<media xlink:href="srep18871-s5.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d33e52">
+<caption>
+<title>Supplementary Table S5</title>
+</caption>
+<media xlink:href="srep18871-s6.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>This work was supported by National Basic Research Program of China [2012CB316505, 2010CB529505]; the National Natural Science Foundation of China [30971643,31071113,91231116]; the Specialized Research Fund for the Doctoral Program of Higher Education of China [20120071110018]; the Innovation Program of Shanghai Municipal Education Commission [13ZZ006]; X.D is a trainee of the National Institutes of Health (grant D43 TW007887).</p>
+</ack>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal">Consortium, G. O. <article-title>Gene Ontology annotations and resources</article-title>. <source/>Nucleic acids research
+<volume>41</volume>, <fpage>D530</fpage>–<lpage>D535</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23161678</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Kanehisa</surname><given-names>M.</given-names></name>, <name><surname>Goto</surname><given-names>S.</given-names></name>, <name><surname>Furumichi</surname><given-names>M.</given-names></name>, <name><surname>Tanabe</surname><given-names>M.</given-names></name> &amp; <name><surname>Hirakawa</surname><given-names>M.</given-names></name>
+<article-title>KEGG for representation and analysis of molecular networks involving diseases and drugs</article-title>. <source/>Nucleic acids research
+<volume>38</volume>, <fpage>D355</fpage>–<lpage>D360</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">19880382</pub-id></mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>Nishimura</surname><given-names>D. BioCarta.</given-names></name>
+<source/>Biotech Software &amp; Internet Report: The Computer Software Journal for Scient
+<volume>2</volume>, <fpage>117</fpage>–<lpage>120</lpage> (<year>2001</year>).</mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Croft</surname><given-names>D.</given-names></name>
+<etal></etal>. <article-title>The Reactome pathway knowledgebase</article-title>. <source/>Nucleic acids research
+<volume>42</volume>, <fpage>D472</fpage>–<lpage>D477</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24243840</pub-id></mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Subramanian</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</article-title>. <source/>Proceedings of the National Academy of Sciences of the United States of America
+<volume>102</volume>, <fpage>15545</fpage>–<lpage>15550</lpage>, doi: <pub-id pub-id-type="doi">10.1073/pnas.0506580102</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">16199517</pub-id></mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Huang da</surname><given-names>W.</given-names></name>, <name><surname>Sherman</surname><given-names>B. T.</given-names></name> &amp; <name><surname>Lempicki</surname><given-names>R. A.</given-names></name>
+<article-title>Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources</article-title>. <source/>Nature protocols
+<volume>4</volume>, <fpage>44</fpage>–<lpage>57</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nprot.2008.211</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19131956</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Maere</surname><given-names>S.</given-names></name>, <name><surname>Heymans</surname><given-names>K.</given-names></name> &amp; <name><surname>Kuiper</surname><given-names>M.</given-names></name> BiNGO: a Cytoscape plugin to assess overrepresentation of gene ontology categories in biological networks. <source/>Bioinformatics
+<volume>21</volume>, <fpage>3448</fpage>–<lpage>3449</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/bti551</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15972284</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Zheng</surname><given-names>Q.</given-names></name> &amp; <name><surname>Wang</surname><given-names>X. J.</given-names></name>
+<article-title>GOEAST: a web-based software toolkit for Gene Ontology enrichment analysis</article-title>. <source/>Nucleic Acids Res
+<volume>36</volume>, <fpage>W358</fpage>–<lpage>363</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkn276</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18487275</pub-id></mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Warde-Farley</surname><given-names>D.</given-names></name>
+<etal></etal>. <article-title>The GeneMANIA prediction server: biological network integration for gene prioritization and predicting gene function</article-title>. <source/>Nucleic acids research
+<volume>38</volume>, <fpage>W214</fpage>–<lpage>W220</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20576703</pub-id></mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>Zuberi</surname><given-names>K.</given-names></name>
+<etal></etal>. <article-title>GeneMANIA prediction server 2013 update</article-title>. <source/>Nucleic acids research
+<volume>41</volume>, <fpage>W115</fpage>-<fpage>W122</fpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23794635</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Draghici</surname><given-names>S.</given-names></name>
+<etal></etal>. <article-title>A systems biology approach for pathway level analysis</article-title>. <source/>Genome Res.
+<volume>17</volume>, <fpage>1537</fpage>–<lpage>1545</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17785539</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Voichita</surname><given-names>C.</given-names></name> &amp; <name><surname>Draghici</surname><given-names>S.</given-names></name>
+<article-title>ROntoTools: The R Onto-Tools suite</article-title>. <source/>R package version
+<volume>1</volume> (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="other"><name><surname>Tarca</surname><given-names>A. L.</given-names></name>, <name><surname>Kathri</surname><given-names>P.</given-names></name> &amp; <name><surname>Draghici</surname><given-names>S.</given-names></name> SPIA: Signaling Pathway Impact Analysis (SPIA) using combined evidence of pathway over-representation and unusual signaling perturbations. <italic>R project Available:</italic>
+<ext-link ext-link-type="uri" xlink:href="http://bioinformatics.oxfordjournals.org/cgi/reprint/btn577v1" xmlns:xlink="http://www.w3.org/1999/xlink">http://bioinformatics.oxfordjournals.org/cgi/reprint/btn577v1</ext-link> (<year>2011</year>).</mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Gu</surname><given-names>Z.</given-names></name> &amp; <name><surname>Wang</surname><given-names>J.</given-names></name>
+<article-title>CePa: an R package for finding significant pathways weighted by multiple network centralities</article-title>. <source/>Bioinformatics , btt008 (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Mitrea</surname><given-names>C.</given-names></name>
+<etal></etal>. <article-title>Methods and approaches in the topology-based analysis of biological pathways</article-title>. <source/>Frontiers in physiology
+<volume>4</volume> (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>J.</given-names></name>
+<etal></etal>. <article-title>NOA: a novel Network Ontology Analysis method</article-title>. <source/>Nucleic Acids Res
+<volume>39</volume>, <fpage>e87</fpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkr251</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21543451</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Alexeyenko</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Network enrichment analysis: extension of gene-set enrichment analysis to gene networks</article-title>. <source/>BMC bioinformatics
+<volume>13</volume>, <fpage>226</fpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22966941</pub-id></mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Glaab</surname><given-names>E.</given-names></name>, <name><surname>Baudot</surname><given-names>A.</given-names></name>, <name><surname>Krasnogor</surname><given-names>N.</given-names></name>, <name><surname>Schneider</surname><given-names>R.</given-names></name> &amp; <name><surname>Valencia</surname><given-names>A.</given-names></name>
+<article-title>EnrichNet: network-based gene set enrichment analysis</article-title>. <source/>Bioinformatics
+<volume>28</volume>, <fpage>i451</fpage>–<lpage>i457</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/bts389</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22962466</pub-id></mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"><name><surname>Fang</surname><given-names>Z.</given-names></name>, <name><surname>Tian</surname><given-names>W.</given-names></name> &amp; <name><surname>Ji</surname><given-names>H.</given-names></name>
+<article-title>A network-based gene-weighting approach for pathway analysis</article-title>. <source/>Cell research
+<volume>22</volume>, <fpage>565</fpage>–<lpage>580</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21894192</pub-id></mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Tomfohr</surname><given-names>J.</given-names></name>, <name><surname>Lu</surname><given-names>J.</given-names></name> &amp; <name><surname>Kepler</surname><given-names>T. B.</given-names></name>
+<article-title>Pathway level analysis of gene expression using singular value decomposition</article-title>. <source/>BMC Bioinformatics
+<volume>6</volume>, <fpage>225</fpage>, doi: <pub-id pub-id-type="doi">10.1186/1471-2105-6-225</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">16156896</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Tarca</surname><given-names>A. L.</given-names></name>, <name><surname>Carey</surname><given-names>V. J.</given-names></name>, <name><surname>Chen</surname><given-names>X. W.</given-names></name>, <name><surname>Romero</surname><given-names>R.</given-names></name> &amp; <name><surname>Draghici</surname><given-names>S.</given-names></name>
+<article-title>Machine learning and its applications to biology</article-title>. <source/>PLoS Comput Biol
+<volume>3</volume> (<year>2007</year>).</mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Goeman</surname><given-names>J. J.</given-names></name>, <name><surname>van de Geer</surname><given-names>S. A.</given-names></name>, <name><surname>de Kort</surname><given-names>F.</given-names></name> &amp; <name><surname>van Houwelingen</surname><given-names>H. C.</given-names></name>
+<article-title>A global test for groups of genes: testing association with a clinical outcome</article-title>. <source/>Bioinformatics
+<volume>20</volume>, <fpage>93</fpage>–<lpage>99</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/btg382</pub-id> (<year>2003</year>).<pub-id pub-id-type="pmid">14693814</pub-id></mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Tarca</surname><given-names>A. L.</given-names></name>, <name><surname>Draghici</surname><given-names>S.</given-names></name>, <name><surname>Bhatti</surname><given-names>G.</given-names></name> &amp; <name><surname>Romero</surname><given-names>R.</given-names></name>
+<article-title>Down-weighting overlapping genes improves gene set analysis</article-title>. <source/>BMC Bioinformatics
+<volume>13</volume> (<year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><name><surname>Michaud</surname><given-names>J.</given-names></name>
+<etal></etal>. <article-title>Integrative analysis of RUNX1 downstream pathways and target genes</article-title>. <source/>BMC genomics
+<volume>9</volume>, <fpage>363</fpage>, doi: <pub-id pub-id-type="doi">10.1186/1471-2164-9-363</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18671852</pub-id></mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal"><name><surname>Efron</surname><given-names>B.</given-names></name> &amp; <name><surname>Tibshirani</surname><given-names>R.</given-names></name>
+<article-title>On testing the significance of sets of genes</article-title>. <source/>The Annals of Applied Statistics
+<volume>1</volume>, <fpage>107</fpage>–<lpage>129</lpage>, doi: <pub-id pub-id-type="doi">10.1214/07-aoas101</pub-id> (<year>2007</year>).</mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Tarca</surname><given-names>A. L.</given-names></name>, <name><surname>Bhatti</surname><given-names>G.</given-names></name> &amp; <name><surname>Romero</surname><given-names>R.</given-names></name>
+<article-title>A comparison of gene set analysis methods in terms of sensitivity, prioritization and specificity</article-title>. <source/>PloS one
+<volume>8</volume>, <fpage>e79217</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0079217</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">24260172</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Latora</surname><given-names>V.</given-names></name> &amp; <name><surname>Marchiori</surname><given-names>M.</given-names></name>
+<article-title>Efficient behavior of small-world networks</article-title>. <source/>Physical review letters
+<volume>87</volume>, <fpage>198701</fpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11690461</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>Knijnenburg</surname><given-names>T. A.</given-names></name>, <name><surname>Wessels</surname><given-names>L. F.</given-names></name>, <name><surname>Reinders</surname><given-names>M. J.</given-names></name> &amp; <name><surname>Shmulevich</surname><given-names>I.</given-names></name>
+<article-title>Fewer permutations, more accurate P-values</article-title>. <source/>Bioinformatics
+<volume>25</volume>, <fpage>i161</fpage>–<lpage>i168</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19477983</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>Hochberg</surname><given-names>Y.</given-names></name>
+<article-title>A sharper Bonferroni procedure for multiple tests of significance</article-title>. <source/>Biometrika
+<volume>75</volume>, <fpage>800</fpage>–<lpage>802</lpage> (<year>1988</year>).</mixed-citation>
+</ref>
+<ref id="b30">
+<mixed-citation publication-type="journal"><name><surname>Narum</surname><given-names>S. R.</given-names></name>
+<article-title>Beyond Bonferroni: Less conservative analyses for conservation genetics</article-title>. <source/>Conservation Genetics
+<volume>7</volume>, <fpage>783</fpage>–<lpage>787</lpage>, doi: <pub-id pub-id-type="doi">10.1007/s10592-005-9056-y</pub-id> (<year>2006</year>).</mixed-citation>
+</ref>
+<ref id="b31">
+<mixed-citation publication-type="journal"><name><surname>Alexeyenko</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Comparative interactomics with Funcoup 2.0</article-title>. <source/>Nucleic Acids Res
+<volume>40</volume>, <fpage>D821</fpage>–<lpage>828</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkr1062</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22110034</pub-id></mixed-citation>
+</ref>
+<ref id="b32">
+<mixed-citation publication-type="journal"><name><surname>Hao</surname><given-names>L.</given-names></name>
+<etal></etal>. <article-title>Limited Agreement of Independent RNAi Screens for Virus-Required Host Genes Owes More to False-Negative than False-Positive Factors</article-title>. <source/>Plos Computational Biology
+<volume>9</volume>, doi: <pub-id pub-id-type="doi">10.1371/journal.pcbi.1003235</pub-id> (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b33">
+<mixed-citation publication-type="journal"><name><surname>Karlas</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>Genome-wide RNAi screen identifies human host factors crucial for influenza virus replication</article-title>. <source/>Nature
+<volume>463</volume>, <fpage>818</fpage>–<lpage>822</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20081832</pub-id></mixed-citation>
+</ref>
+<ref id="b34">
+<mixed-citation publication-type="journal"><name><surname>Hao</surname><given-names>L.</given-names></name>
+<etal></etal>. <article-title>Drosophila RNAi screen identifies host genes important for influenza virus replication</article-title>. <source/>Nature
+<volume>454</volume>, <fpage>890</fpage>–<lpage>893</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18615016</pub-id></mixed-citation>
+</ref>
+<ref id="b35">
+<mixed-citation publication-type="journal"><name><surname>Brass</surname><given-names>A. L.</given-names></name>
+<etal></etal>. <article-title>The IFITM proteins mediate cellular resistance to influenza A H1N1 virus, West Nile virus, and dengue virus</article-title>. <source/>Cell
+<volume>139</volume>, <fpage>1243</fpage>–<lpage>1254</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">20064371</pub-id></mixed-citation>
+</ref>
+<ref id="b36">
+<mixed-citation publication-type="journal"><name><surname>König</surname><given-names>R.</given-names></name>
+<etal></etal>. <article-title>Human host factors required for influenza virus replication</article-title>. <source/>Nature
+<volume>463</volume>, <fpage>813</fpage>–<lpage>817</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">20027183</pub-id></mixed-citation>
+</ref>
+<ref id="b37">
+<mixed-citation publication-type="journal"><name><surname>Ashburner</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Gene Ontology: tool for the unification of biology</article-title>. <source/>Nature genetics
+<volume>25</volume>, <fpage>25</fpage>–<lpage>29</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">10802651</pub-id></mixed-citation>
+</ref>
+<ref id="b38">
+<mixed-citation publication-type="journal"><name><surname>Csardi</surname><given-names>G.</given-names></name> &amp; <name><surname>Nepusz</surname><given-names>T.</given-names></name>
+<article-title>The igraph software package for complex network research</article-title>. <source/>InterJournal, Complex Systems
+<volume>1695</volume> (<year>2006</year>).</mixed-citation>
+</ref>
+<ref id="b39">
+<mixed-citation publication-type="journal"><name><surname>Kim</surname><given-names>H.</given-names></name>
+<etal></etal>. <article-title>YeastNet v3: a public database of data-specific and integrated functional gene networks for Saccharomyces cerevisiae</article-title>. <source/>Nucleic acids research
+<volume>42</volume>, <fpage>D731</fpage>–<lpage>D736</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24165882</pub-id></mixed-citation>
+</ref>
+<ref id="b40">
+<mixed-citation publication-type="journal"><name><surname>Szklarczyk</surname><given-names>D.</given-names></name>
+<etal></etal>. <article-title>The STRING database in 2011: functional interaction networks of proteins, globally integrated and scored</article-title>. <source/>Nucleic acids research
+<volume>39</volume>, <fpage>D561</fpage>–<lpage>D568</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21045058</pub-id></mixed-citation>
+</ref>
+<ref id="b41">
+<mixed-citation publication-type="journal"><name><surname>Franceschini</surname><given-names>A.</given-names></name>
+<etal></etal>. <article-title>STRING v9. 1: protein-protein interaction networks, with increased coverage and integration</article-title>. <source/>Nucleic acids research
+<volume>41</volume>, <fpage>D808</fpage>–<lpage>D815</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23203871</pub-id></mixed-citation>
+</ref>
+<ref id="b42">
+<mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>I.</given-names></name>, <name><surname>Blom</surname><given-names>U. M.</given-names></name>, <name><surname>Wang</surname><given-names>P. I.</given-names></name>, <name><surname>Shim</surname><given-names>J. E.</given-names></name> &amp; <name><surname>Marcotte</surname><given-names>E. M.</given-names></name>
+<article-title>Prioritizing candidate disease genes by network-based boosting of genome-wide association data</article-title>. <source/>Genome research
+<volume>21</volume>, <fpage>1109</fpage>–<lpage>1121</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21536720</pub-id></mixed-citation>
+</ref>
+<ref id="b43">
+<mixed-citation publication-type="journal"><name><surname>Smyth</surname><given-names>G. K.</given-names></name>
+<article-title>Linear models and empirical Bayes methods for assessing dierential expression in microarray experiments</article-title>. <source/>Statistical Applications in Genetics and Molecular Biology
+<volume>3</volume>, <fpage>3</fpage> (<year>2004</year>).</mixed-citation>
+</ref>
+<ref id="b44">
+<mixed-citation publication-type="journal"><name><surname>Smyth</surname><given-names>G. K.</given-names></name>
+<source/>Limma: linear models for microarray data. , <fpage>397</fpage>–<lpage>420</lpage> (Springer, <year>2005</year>).</mixed-citation>
+</ref>
+<ref id="b45">
+<mixed-citation publication-type="journal"><name><surname>Khatri</surname><given-names>P.</given-names></name>
+<etal></etal>. <article-title>Recent additions and improvements to the Onto-Tools</article-title>. <source/>Nucleic Acids Res
+<volume>33</volume>, <fpage>762</fpage>–<lpage>765</lpage> (<year>2005</year>).</mixed-citation>
+</ref>
+<ref id="b46">
+<mixed-citation publication-type="journal"><name><surname>Khatri</surname><given-names>P.</given-names></name>
+<etal></etal>. <article-title>Onto-Tools: new additions and improvements in 2006</article-title>. <source/>Nucleic Acids Res.
+<volume>37</volume>, <fpage>206</fpage>–<lpage>211</lpage> (<year>2007</year>).</mixed-citation>
+</ref>
+<ref id="b47">
+<mixed-citation publication-type="journal"><name><surname>Voichita</surname><given-names>C.</given-names></name>, <name><surname>Donato</surname><given-names>M.</given-names></name> &amp; <name><surname>Draghici</surname><given-names>S.</given-names></name> in <source/>Machine Learning and Applications (ICMLA) 2012 11th International Conference
+<volume>Vol. 1</volume>
+<fpage>126</fpage>–<lpage>131</lpage> (IEEE, Boca Raton, FL, <year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b48">
+<mixed-citation publication-type="journal"><name><surname>Tarca</surname><given-names>A. L.</given-names></name>
+<etal></etal>. <article-title>A novel signaling pathway impact analysis (SPIA)</article-title>. <source/>Bioinformatics
+<volume>25</volume>, <fpage>75</fpage>–<lpage>82</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">18990722</pub-id></mixed-citation>
+</ref>
+<ref id="b49">
+<mixed-citation publication-type="journal"><name><surname>Gu</surname><given-names>Z.</given-names></name>, <name><surname>Liu</surname><given-names>J.</given-names></name>, <name><surname>Cao</surname><given-names>K.</given-names></name>, <name><surname>Zhang</surname><given-names>J.</given-names></name> &amp; <name><surname>Wang</surname><given-names>J.</given-names></name>
+<article-title>Centrality-based pathway enrichment: a systematic approach for finding signif- icant pathways dominated by key genes</article-title>. <source/>BMC Syst. Biol.
+<volume>6</volume> (<year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b50">
+<mixed-citation publication-type="other"><name><surname>Voichita</surname><given-names>C.</given-names></name>, <name><surname>Donato</surname><given-names>M.</given-names></name> &amp; <name><surname>Draghici</surname><given-names>S.</given-names></name> Incorporating gene significance in the impact analysis of signaling pathways. <italic>Proceedings of the International Conference on Machine Learning Applications (ICMLA)</italic> (<year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b51">
+<mixed-citation publication-type="journal"><name><surname>Bradley Efron</surname><given-names>R. T.</given-names></name>
+<article-title>On testing the significance of sets of genes</article-title>. <source/>Annals of Applied Statistics
+<volume>1</volume>, <fpage>107</fpage>–<lpage>129</lpage> (<year>2006</year>).</mixed-citation>
+</ref>
+<ref id="b52">
+<mixed-citation publication-type="journal"><name><surname>Sun</surname><given-names>S.</given-names></name>, <name><surname>Dong</surname><given-names>X.</given-names></name>, <name><surname>Fu</surname><given-names>Y.</given-names></name> &amp; <name><surname>Tian</surname><given-names>W.</given-names></name>
+<article-title>An iterative network partition algorithm for accurate identification of dense network modules</article-title>. <source/>Nucleic Acids Research
+<volume>40</volume>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkr1103</pub-id> (<year>2012</year>).</mixed-citation>
+</ref>
+<ref id="b53">
+<mixed-citation publication-type="journal"><name><surname>De Rubeis</surname><given-names>S.</given-names></name>
+<etal></etal>. <article-title>Synaptic, transcriptional and chromatin genes disrupted in autism</article-title>. <source/>Nature
+<volume>515</volume>, <fpage>209</fpage>–<lpage>215</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nature13772</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25363760</pub-id></mixed-citation>
+</ref>
+<ref id="b54">
+<mixed-citation publication-type="journal"><name><surname>Iossifov</surname><given-names>I.</given-names></name>, <name><surname>O’Roak</surname><given-names>B. J.</given-names></name> &amp; <name><surname>Sanders</surname><given-names>S. J.</given-names></name>
+<article-title>The contribution of de novo coding mutations to autism spectrum disorder</article-title>. <source/>Nature (<year>2014</year>).</mixed-citation>
+</ref>
+<ref id="b55">
+<mixed-citation publication-type="journal"><name><surname>Luscombe</surname><given-names>N. M.</given-names></name>
+<etal></etal>. <article-title>Genomic analysis of regulatory network dynamics reveals large topological changes</article-title>. <source/>Nature
+<volume>431</volume>, <fpage>308</fpage>–<lpage>312</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15372033</pub-id></mixed-citation>
+</ref>
+<ref id="b56">
+<mixed-citation publication-type="journal"><name><surname>Malumbres</surname><given-names>M.</given-names></name> &amp; <name><surname>Barbacid</surname><given-names>M.</given-names></name>
+<article-title>To cycle or not to cycle: a critical decision in cancer</article-title>. <source/>Nature Rev. Cancer
+<volume>1</volume>, <fpage>222</fpage>–<lpage>231</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11902577</pub-id></mixed-citation>
+</ref>
+<ref id="b57">
+<mixed-citation publication-type="journal"><name><surname>Braakman</surname><given-names>I.</given-names></name>, <name><surname>Hoover-Litty</surname><given-names>H.</given-names></name>, <name><surname>Wagner</surname><given-names>K. R.</given-names></name> &amp; <name><surname>Helenius</surname><given-names>A.</given-names></name>
+<article-title>Folding of influenza hemagglutinin in the endoplasmic reticulum</article-title>. <source/>The Journal of cell biology
+<volume>114</volume>, <fpage>401</fpage>–<lpage>411</lpage> (<year>1991</year>).<pub-id pub-id-type="pmid">1650370</pub-id></mixed-citation>
+</ref>
+<ref id="b58">
+<mixed-citation publication-type="journal"><name><surname>Rual</surname><given-names>J. F.</given-names></name>
+<etal></etal>. <article-title>Towards a proteome-scale map of the human protein-protein interaction network</article-title>. <source/>Nature
+<volume>437</volume>, <fpage>1173</fpage>–<lpage>1178</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nature04209</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">16189514</pub-id></mixed-citation>
+</ref>
+<ref id="b59">
+<mixed-citation publication-type="journal"><name><surname>Kocovska</surname><given-names>E.</given-names></name>, <name><surname>Fernell</surname><given-names>E.</given-names></name>, <name><surname>Billstedt</surname><given-names>E.</given-names></name>, <name><surname>Minnis</surname><given-names>H.</given-names></name> &amp; <name><surname>Gillberg</surname><given-names>C.</given-names></name>
+<article-title>Vitamin D and autism: Clinical review</article-title>. <source/>Research in Developmental Disabilities
+<volume>33</volume>, <fpage>1541</fpage>–<lpage>1550</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.ridd.2012.02.015</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22522213</pub-id></mixed-citation>
+</ref>
+<ref id="b60">
+<mixed-citation publication-type="journal"><name><surname>Hussman</surname><given-names>J. P.</given-names></name>
+<article-title>Suppressed GABAergic inhibition as a common factor in suspected etiologies of autism</article-title>. <source/>Journal of Autism and Developmental Disorders
+<volume>31</volume>, <fpage>247</fpage>–<lpage>248</lpage>, doi: <pub-id pub-id-type="doi">10.1023/a:1010715619091</pub-id> (<year>2001</year>).<pub-id pub-id-type="pmid">11450824</pub-id></mixed-citation>
+</ref>
+<ref id="b61">
+<mixed-citation publication-type="journal"><name><surname>Su</surname><given-names>S.</given-names></name> &amp; <name><surname>Mitchell</surname><given-names>A. P.</given-names></name>
+<article-title>Identification of functionally related genes that stimulate early meiotic gene expression in yeast</article-title>. <source/>Genetics
+<volume>133</volume>, <fpage>67</fpage>–<lpage>77</lpage> (<year>1993</year>).<pub-id pub-id-type="pmid">8417990</pub-id></mixed-citation>
+</ref>
+<ref id="b62">
+<mixed-citation publication-type="journal"><name><surname>Karpichev</surname><given-names>I. V.</given-names></name> &amp; <name><surname>Small</surname><given-names>G. M.</given-names></name>
+<article-title>Global regulatory functions of Oaf1p and Pip2p (Oaf2p), transcription factors that regulate genes encoding peroxisomal proteins in Saccharomyces cerevisiae</article-title>. <source/>Molecular and cellular biology
+<volume>18</volume>, <fpage>6560</fpage>–<lpage>6570</lpage> (<year>1998</year>).<pub-id pub-id-type="pmid">9774671</pub-id></mixed-citation>
+</ref>
+<ref id="b63">
+<mixed-citation publication-type="journal"><name><surname>Harris</surname><given-names>S. L.</given-names></name> &amp; <name><surname>Levine</surname><given-names>A. J.</given-names></name>
+<article-title>The p53 pathway: positive and negative feedback loops</article-title>. <source/>Oncogene
+<volume>24</volume>, <fpage>2899</fpage>–<lpage>2908</lpage>, doi: <pub-id pub-id-type="doi">10.1038/sj.onc.1208615</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15838523</pub-id></mixed-citation>
+</ref>
+<ref id="b64">
+<mixed-citation publication-type="journal"><name><surname>Hammond</surname><given-names>E. M.</given-names></name> &amp; <name><surname>Giaccia</surname><given-names>A. J.</given-names></name>
+<article-title>The role of p53 in hypoxia-induced apoptosis</article-title>. <source/>Biochemical and biophysical research communications
+<volume>331</volume>, <fpage>718</fpage>–<lpage>725</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.bbrc.2005.03.154</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15865928</pub-id></mixed-citation>
+</ref>
+<ref id="b65">
+<mixed-citation publication-type="journal"><name><surname>Bauer</surname><given-names>S.</given-names></name>, <name><surname>Gagneur</surname><given-names>J.</given-names></name> &amp; <name><surname>Robinson</surname><given-names>P. N.</given-names></name>
+<article-title>GOing Bayesian: model-based gene set analysis of genome-scale data</article-title>. <source/>Nucleic acids research
+<volume>38</volume>, <fpage>3523</fpage>–<lpage>3532</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20172960</pub-id></mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn>
+<p><bold>Author Contributions</bold> W.T. conceived and supervised the study. X.D. and Y.H. designed experiments and carried out the analysis. X.W. performed analysis for other compared algorithms. X.D., Y.H. and W.T. drafted the manuscript. All authors read and approved the final manuscript.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Brief description of LEGO’s algorithm design.</title>
+<p>(<bold>a</bold>,<bold>b</bold>) The limitations of traditional ORA method in distinguishing situations where all parameters are the same, but the overlapped genes are different in terms of gene’s inequivalence (<bold>a</bold>) or genes’ interactions (<bold>b</bold>). (<bold>c</bold>) The algorithm design of LEGO (see Methods for details). In the weighted network, gene weights are represented by node size. The weights of re-weighted edges are represented by the thickness of the edges.</p>
+</caption>
+<graphic xlink:href="srep18871-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>The ranks of the biologically relevant GO terms in the yeast dataset.</title>
+<p>GO term enrichment is conducted for 67 cell cycle-related (<bold>a</bold>) and 70 sporulation-related (<bold>b</bold>) yeast TFs by using different methods. Each bar represents the ordered GO terms based on the significance value produced by a method. The red box represents the significant GO terms (p-value &lt; 0.05). The bold blue line corresponds to the location of the target GO term. LEGO random refers to the application of LEGO using randomly selected TFs. No weight LEGO refers to LEGO that assigns a weight of 1 to all genes of non-zero weights, and no neighbor LEGO refers to LEGO that assigns a weight of zero to all neighboring genes.</p>
+</caption>
+<graphic xlink:href="srep18871-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>The overlaps among enriched gene sets identified from independent datasets under similar studying conditions.</title>
+<p>(<bold>a</bold>) Scatter plots of the number of overlapped significant MSigDB gene sets identified in three breast cancer datasets at different rank threshold. (<bold>b</bold>) Scatter plots of the number of overlapped significant GO terms under Biological Process branch identified in four influenza datasets at different rank threshold. No weight, no neighbor LEGO and LEGO random are the same as in <xref ref-type="fig" rid="f2">Fig. 2</xref>.</p>
+</caption>
+<graphic xlink:href="srep18871-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f4">
+<label>Figure 4</label>
+<caption>
+<title>The impact of network bias and network perturbation on the performance of different methods.</title>
+<p>For network bias, (<bold>a</bold>,<bold>b</bold>) show the boxplots of the frequency of random significance (percentage of times a gene set is found significant (p-value &lt; 0.05) with randomly selected genes) for 153 GO terms in the yeast dataset, and 1,077 MSigDB gene sets in the human dataset, respectively. For network perturbation, each time a portion of edges in the FunCoup network are randomly removed (<bold>c</bold>) or rewired (<bold>d</bold>), and LEGO is re-applied to the human dataset. The overlapped significant pathways (out of top 80) based on the perturbed network are compared to the results based on the unperturbed network, and a Jaccard similarity is computed (the intersection between the two lists of overlapped significant gene sets/the number of the original overlapped significant gene sets). Experiments are repeated 100 times, and the average and standard deviation are plotted.</p>
+</caption>
+<graphic xlink:href="srep18871-f4" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f5">
+<label>Figure 5</label>
+<caption>
+<title>Comparison of the performance of different methods using a benchmark of 34 disease gene expression datasets.</title>
+<p>The p-values (<bold>a</bold>) and the ranks (%) (<bold>b</bold>) of the target pathways produced by different method are shown in boxplots. (<bold>c</bold>) The false positive rate of different methods is shown as the percentage of all pathways found significant at different significant level (0.01 and 0.05) from 50 sample permutation results. The vertical lines indicate the expected level of false positive rate at a given significance level.</p>
+</caption>
+<graphic xlink:href="srep18871-f5" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f6">
+<label>Figure 6</label>
+<caption>
+<title>The cluster-and-filter approach to reduce the redundancy among enriched gene sets.</title>
+<p>(<bold>a</bold>) A network of 1,077 gene sets from MSigDB is presented, with nodes corresponding to gene sets and edge weights representing the relatedness between gene sets. This network is partitioned into modules of gene sets, with gene sets belonging to the same module marked with the same color. An example of a gene set module is shown at the bottom of the network. (<bold>b</bold>,<bold>c</bold>) are similar to <xref ref-type="fig" rid="f3">Fig. 3a,b</xref> except that the overlapped significant MSigDB gene sets or GO terms are grouped according to the modules they belong to, and then the number of modules is plotted. (<bold>d</bold>) An example to show five selected gene-set modules based on the enriched gene sets identified by LEGO in a breast cancer gene expression dataset (GSE10780). Links between gene sets indicate they are related. Gene sets belonging to the same module are marked with the same color. The size of each node (gene set) is proportional to its significance, and the most significant gene set in each module is highlighted by the red-bordered box (the marker gene set).</p>
+</caption>
+<graphic xlink:href="srep18871-f6" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f7">
+<label>Figure 7</label>
+<caption>
+<title>Autism-related genes are strongly associated with the two pathways identified by LEGO.</title>
+<p>The sub networks of FunCoup are shown. These sub networks consist of genes from “BIOCARTA_VDR_PATHWAY” (<bold>a</bold>,<bold>b</bold>) or “BIOCARTA_GABA_PATHWAY” (<bold>c</bold>,<bold>d</bold>), and the autism-related genes identified by Rubeis <italic>et al</italic>. (<bold>a</bold>,<bold>c</bold>) or Iossifov <italic>et al</italic>. (<bold>b</bold>,<bold>d</bold>) that are neighboring genes to these two pathways in the FunCoup network. Genes annotated to these two pathways are colored in orange, and the autism-related genes are colored in purple. Edges colored in red represent the links between genes inside the pathways, while those colored in green represent the links between the autism-related genes and the genes inside the pathways. The size of each node (gene) is proportional to the gene set-specific gene set contribution score calculated by LEGO.</p>
+</caption>
+<graphic xlink:href="srep18871-f7" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<table-wrap id="t1" position="float">
+<label>Table 1</label>
+<caption>
+<title>The enriched gene set modules found by LEGO among the autism genes that are consistent in between the studies of Rubeis <italic>et al</italic>. and Iossifov <italic>et al</italic>.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="left"/>
+<col align="left"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top"> </th>
+<th align="left" charoff="50" valign="top">Enriched pathways from the 22 autism genes identified by Rubeis <italic>et al</italic>.</th>
+<th align="left" charoff="50" valign="top">Enriched pathways from the 27 autism genes identified by Iossifov <italic>et al</italic>.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" rowspan="7" valign="middle">Gene set module 1</td>
+<td align="left" charoff="50" valign="top">Marker pathway of the module BIOCARTA_VDR_PATHWAY (7.0e-4);</td>
+<td align="left" charoff="50" valign="top">Marker pathway of the module</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Remaining pathways belonging to the module</td>
+<td align="left" charoff="50" valign="top">BIOCARTA_VDR_PATHWAY (0.038);</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">REACTOME_YAP1_AND_WWTR1_TAZ_STIMULATED_GENE_EXPRESSION (7.0e-4);</td>
+<td align="left" charoff="50" valign="top">Remaining pathways belonging to the module</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">REACTOME_BMAL1_CLOCK_NPAS2_ACTIVATES_CIRCADIAN_EXPRESSION (2.2e-3);</td>
+<td align="left" charoff="50" valign="top">REACTOME_CIRCADIAN_REPRESSION_OF_EXPRESSION_BY_REV_ERBA (0.038);</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">REACTOME_CIRCADIAN_REPRESSION_OF_EXPRESSION_BY_REV_ERBA (2.5e-3);</td>
+<td align="left" charoff="50" valign="top">REACTOME_YAP1_AND_WWTR1_TAZ_STIMULATED_GENE_EXPRESSION (0.042);</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">REACTOME_CIRCADIAN_CLOCK_0.0028111;</td>
+<td align="left" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">REACTOME_RORA_ACTIVATES_CIRCADIAN_EXPRESSION (3.5e-3);</td>
+<td align="left" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" rowspan="4" valign="middle">Gene set module 2</td>
+<td align="left" charoff="50" valign="top">Marker pathway of the module BIOCARTA_GABA_PATHWA (0.03);</td>
+<td align="left" charoff="50" valign="top">Marker pathway of the module</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top"> </td>
+<td align="left" charoff="50" valign="top">BIOCARTA_GABA_PATHWAY (4.8e-3);</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top"> </td>
+<td align="left" charoff="50" valign="top">Remaining pathways belonging to the module</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top"> </td>
+<td align="left" charoff="50" valign="top">REACTOME_GABA_A_RECEPTOR_ACTIVATION (0.038)</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

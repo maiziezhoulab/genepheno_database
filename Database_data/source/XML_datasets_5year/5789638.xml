@@ -1,0 +1,2380 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">BMC Genomics</journal-id>
+<journal-id journal-id-type="iso-abbrev">BMC Genomics</journal-id>
+<journal-title-group>
+<journal-title>BMC Genomics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1471-2164</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29378520</article-id>
+<article-id pub-id-type="pmc">5789638</article-id>
+<article-id pub-id-type="publisher-id">4489</article-id>
+<article-id pub-id-type="doi">10.1186/s12864-018-4489-0</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Methodology Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Assessing runs of Homozygosity: a comparison of SNP Array and whole genome sequence low coverage data</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Ceballos</surname>
+<given-names>Francisco C.</given-names>
+</name>
+<address>
+<email>francisco.caminaceballos@wits.ac.za</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hazelhurst</surname>
+<given-names>Scott</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Ramsay</surname>
+<given-names>Michèle</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1937 1135</institution-id><institution-id institution-id-type="GRID">grid.11951.3d</institution-id><institution>Sydney Brenner Institute for Molecular Bioscience, Faculty of Health Sciences, </institution><institution>University of the Witwatersrand, </institution></institution-wrap>Johannesburg, South Africa </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1937 1135</institution-id><institution-id institution-id-type="GRID">grid.11951.3d</institution-id><institution>Division of Human Genetics, School of Pathology, Faculty of Health Sciences, </institution><institution>University of the Witwatersrand, </institution></institution-wrap>Johannesburg, South Africa </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1937 1135</institution-id><institution-id institution-id-type="GRID">grid.11951.3d</institution-id><institution>School of Electrical &amp; Information Engineering, University of the Witwatersrand, </institution></institution-wrap>Johannesburg, South Africa </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>30</day>
+<month>1</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>30</day>
+<month>1</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2018</year>
+</pub-date>
+<volume>19</volume>
+<elocation-id>106</elocation-id>
+<history>
+<date date-type="received">
+<day>20</day>
+<month>7</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>19</day>
+<month>1</month>
+<year>2018</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s). 2018</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<sec>
+<title>Background</title>
+<p id="Par1">Runs of Homozygosity (ROH) are genomic regions where identical haplotypes are inherited from each parent. Since their first detection due to technological advances in the late 1990s, ROHs have been shedding light on human population history and deciphering the genetic basis of monogenic and complex traits and diseases. ROH studies have predominantly exploited SNP array data, but are gradually moving to whole genome sequence (WGS) data as it becomes available. WGS data, covering more genetic variability, can add value to ROH studies, but require additional considerations during analysis.</p>
+</sec>
+<sec>
+<title>Results</title>
+<p id="Par2">Using SNP array and low coverage WGS data from 1885 individuals from 20 world populations, our aims were to compare ROH from the two datasets and to establish software conditions to get comparable results, thus providing guidelines for combining disparate datasets in joint ROH analyses. By allowing heterozygous SNPs per window, using the PLINK homozygosity function and non-parametric analysis, we were able to obtain non-significant differences in number ROH, mean ROH size and total sum of ROH between data sets using the different technologies for almost all populations.</p>
+</sec>
+<sec>
+<title>Conclusions</title>
+<p id="Par3">By allowing 3 heterozygous SNPs per ROH when dealing with WGS low coverage data, it is possible to establish meaningful comparisons between data using SNP array and WGS low coverage technologies.</p>
+</sec>
+<sec>
+<title>Electronic supplementary material</title>
+<p>The online version of this article (10.1186/s12864-018-4489-0) contains supplementary material, which is available to authorized users.</p>
+</sec>
+</abstract>
+<kwd-group xml:lang="en">
+<title>Keywords</title>
+<kwd>Runs of Homozygosity</kwd>
+<kwd>ROH</kwd>
+<kwd>SNP array data</kwd>
+<kwd>WGS low coverage data</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2018</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1">
+<title>Background</title>
+<p id="Par4">Runs of Homozygosity (ROH) are contiguous regions of the genome where an individual is homozygous across all sites. ROH arise when two copies of an ancestral haplotype are brought together in an individual. Consequently, that haplotype would be autozygous, i.e. homozygous by descent. ROH were first discovered using genome-wide microsatellite scans in the mid 1990s [<xref ref-type="bibr" rid="CR1">1</xref>]. Members of two families recruited to construct the first human genetic maps carried 4–16 ROH typically 2–40 cM in length; the most extreme individuals had a total of 253 cM in ROH, consistent with close inbreeding. Henceforth, ROH were found to be ubiquitous even in outbred populations; indeed, we are all inbred to some degree and ROH captures this aspect of our individual demographic histories [<xref ref-type="bibr" rid="CR2">2</xref>–<xref ref-type="bibr" rid="CR5">5</xref>].</p>
+<p id="Par5">Soon after the first ROH study using short tandem repeat polymorphisms (STRPs) was released, the first SNP arrays started to become available. During those first years, using arrays with densities of 40 K and 120 K SNPs, ROH were discovered to be ubiquitous across all human populations [<xref ref-type="bibr" rid="CR5">5</xref>]. However, it was not until the first arrays with more than 300 K SNPs were used that the analysis of ROH started to shed light on the understanding of human demographic history and in deciphering the genetic structure of traits and complex diseases [<xref ref-type="bibr" rid="CR6">6</xref>–<xref ref-type="bibr" rid="CR8">8</xref>]. Currently array-based genotyping covers around 1.9 to 2.2 million SNPs, allowing meaningful detection of ROH longer than 1 Mb, and even though this is an important improvement over previous arrays, it covers only ~ 2% of the total common SNPs present in the human genome [<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR10">10</xref>]. This prevents the use of array data for detecting shorter ROH, an essential component contributing to the understanding of human genetics. WGS will soon allow shorter ROH to be more reliably called; permitting the effect of very short ROH on diseases risk to be quantified. Thus, analyzing the effect of different lengths of ROH may reveal the relative contributions of multiple rare and common variants to the demographic history of human populations and to explore and test new approaches to understand complex traits [<xref ref-type="bibr" rid="CR11">11</xref>].</p>
+<p id="Par6">ROH have been a subject of study for understanding human population structures and disease genetics [<xref ref-type="bibr" rid="CR11">11</xref>–<xref ref-type="bibr" rid="CR13">13</xref>]. The number and length of ROH reflect individual and population history while the homozygosity burden can be used to investigate the genetic architecture of complex disease. They contributed to studies for different diseases and risk factors, from cancer to cognition, and have been tested for association with either the burden of ROH (total sum of ROH), their abundance (number of ROH), or for association of individual ROH with a phenotype. To date, ROH have been found to be associated with an increased risk of schizophrenia [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>], Alzheimer’s disease [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>], autism [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>], intellectual disabilities [<xref ref-type="bibr" rid="CR20">20</xref>], lung [<xref ref-type="bibr" rid="CR21">21</xref>], breast [<xref ref-type="bibr" rid="CR22">22</xref>] and thyroid cancer [<xref ref-type="bibr" rid="CR23">23</xref>], and coronary artery disease [<xref ref-type="bibr" rid="CR24">24</xref>]. In addition, ROH were found to have an effect, in terms of inbreeding depression, on bone mineral density [<xref ref-type="bibr" rid="CR25">25</xref>], height [<xref ref-type="bibr" rid="CR12">12</xref>], cognitive ability [<xref ref-type="bibr" rid="CR26">26</xref>] and education [<xref ref-type="bibr" rid="CR27">27</xref>]. The application and usefulness of ROH is not limited to humans; ROH have been used to study conservation of endangered species, such as the great apes [<xref ref-type="bibr" rid="CR28">28</xref>, <xref ref-type="bibr" rid="CR29">29</xref>], and to studying inbreeding depression and genomic features in livestock [<xref ref-type="bibr" rid="CR30">30</xref>, <xref ref-type="bibr" rid="CR31">31</xref>]. In view of their usefulness the number of articles published using ROH as a central methodology has recently increased significantly (162 in 2005, 322 in 2010 and 620 in 2016, PubMed search using R package RISmed) and have used predominantly DNA SNP array genotypes. It is expected that, with the current availability of full genome sequences, ROH will be used extensively as an augmentative approach to study population structure, demographic history and in deciphering the genetic structure of complex diseases [<xref ref-type="bibr" rid="CR13">13</xref>].</p>
+<p id="Par7">The first aim of this article is, therefore, to compare the outcomes and general conclusions drawn for array-based data and low coverage (3-6×) whole genome sequence data from the same groups of individuals. The second is to obtain appropriate parameters of ROH calling that allow meaningful comparison between ROH obtained from both technologies.</p>
+<p id="Par8">There are two major methods for identifying ROH: observational genotype-counting algorithms [<xref ref-type="bibr" rid="CR32">32</xref>] and model based algorithms [<xref ref-type="bibr" rid="CR33">33</xref>]. Observational approaches use algorithms that scan each chromosome by moving a fixed size window along the whole length of the genome in search of stretches of consecutive homozygous SNPs [<xref ref-type="bibr" rid="CR32">32</xref>]. This approach is implemented in PLINK v1.9 where a given SNP is considered to potentially be in an ROH by calculating the proportion of completely homozygous windows that encompass that SNP. If this proportion is higher than a defined threshold, the SNP is designated as being in a ROH. In the algorithm, a variable number of heterozygote positions or missing SNPs can be specified per window in order to tolerate genotyping errors and failures. An ROH is called if the number of consecutive SNPs in a homozygous segment exceeds a predefined threshold in terms of SNP number and/or covered chromosomal length. The simplicity of the approach used by PLINK allows efficient execution on data from large consortia [<xref ref-type="bibr" rid="CR12">12</xref>]. On the other hand, haplotype-matching algorithms (e.g. Germline) [<xref ref-type="bibr" rid="CR34">34</xref>] for calculation of identity-by-descent (IBD) can also be used to identify ROH, as a special case of IBD within an individual. Model-based approaches use Hidden Markov Models (HMM) to account for background levels of LD, like the one implemented in Beagle (Browning and Browning [<xref ref-type="bibr" rid="CR35">35</xref>]). Tests on simulated and real data showed that the approach using PLINK outperformed Germline and Beagle in detecting ROH [<xref ref-type="bibr" rid="CR36">36</xref>]. This study simulated data by mimicking LD properties in European data, allowing the sequence to resemble expected autozygosity in an outbred European population as well as provide information about true runs of homozygosity. SNP data was obtained from the sequence by sampling common polymorphisms that simulated the allele frequency distribution and SNP density found in modern dense SNP chips.</p>
+<p id="Par9">PLINK, Germline and Beagle software have been used to find ROH in array and WGS data; yet, the HMM model approach is also used with Whole Exome Sequence (WES) data as an alternative to discover SNP variants and small to medium length ROH [<xref ref-type="bibr" rid="CR37">37</xref>, <xref ref-type="bibr" rid="CR38">38</xref>]. However, with the sparse nature of the WES target design, long ROH detection is not possible. Specific software, like “homozygosity heterogeneous hidden Markov model (HMM)” or H<sup>3</sup>M<sup>2</sup>, was designed to deal with this type of data [<xref ref-type="bibr" rid="CR39">39</xref>].</p>
+<p id="Par10">Accurate ROH calling requires high density SNP genome-wide scan data. A number of factors influence the quality of ROH calling, including the marker density, their distribution across the genome, the quality of the genotype calling/error rates and minor allele frequency. Currently ROH studies have been carried out using genome-wide scan data overwhelmingly from SNP arrays [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR40">40</xref>], both because of the availability of this data and the fact that array data is considered the gold standard with very low genotyping calling error rates (typically &lt; 0.001). However SNP arrays usually include ~ 1–2.5 million SNP typically with allele frequencies &gt; 0.05, chosen to best represent haplotype structure in target populations. Arrays with more than 300 k SNP genome-wide coverage have been shown to be good enough to successfully detect ROH longer than 1 Mb, which correspond to true ROH arisen by autozygosity [<xref ref-type="bibr" rid="CR41">41</xref>]. Indeed, it is expected that long ROH will keep their homozygous status independently of the SNP coverage. However, the relative sparsity of SNPs on an array may mean that true heterozygous SNPs between the markers on the array may be missed, thereby making two close-by ROHs appear as one, longer ROH. ROH boundaries will be fuzzier in comparison with WGS and because arrays have fewer SNP they will systematically present and underestimate of ROH shorter than 1 Mb.</p>
+<p id="Par11">A WGS approach, on the other hand, assays every variant so all accessible bases can now be genotyped and more than several million variants, from the most common to the most private can be obtained for each individual [<xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. For cost reasons, low coverage sequencing is often employed to maximize the number of participants in a study and strengthen its power. In this case rare SNPs are called significantly less often, with higher error rates, than common SNPs. Whole genome sequence with low-coverage (e.g. 4× average) has a high probability that only one of the two chromosomes of a diploid individual has been sampled at a specific site [<xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. Error rates of low coverage WGS can get up to 15% or higher. Of course, reducing and quantifying the uncertainty associated with SNP calling may be accomplished using sophisticated algorithms, and this approach has been subject to extensive research [<xref ref-type="bibr" rid="CR43">43</xref>]. However, the error rate for low coverage WGS is significantly higher than for array data, which will lead to inaccuracy in ROH calling. This is particularly important, as the cost of WGS becomes more affordable and data more available [<xref ref-type="bibr" rid="CR44">44</xref>], opening up new possibilities to study ROH in greater detail, replicate results from SNP array data studies, or to the study the relationship of ROH, especially shorter ones, with new populations or traits. Hence, parameters of ROH calling algorithms require tuning to the characteristics of the underlying data in order to obtain meaningful comparable results between studies using different technologies. While in the long run, high coverage data (&gt; 30×) will become more affordable, for the medium-term at least, low-coverage WGS data will be an important source for many analyses.</p>
+</sec>
+<sec id="Sec2">
+<title>Results</title>
+<sec id="Sec3">
+<title>Comparing variant calling between technologies</title>
+<p id="Par12">In order to have a meaningful comparison of ROH obtained from array and WGS low coverage data it is important to first analyze the differences in presence of heterozygous SNPs and variant calling between both technologies. To assess the error rate in heterozygote calling in the WGS, the percentage of concordance in the variant calling between the array and the WGS data, is shown for every population studied (Table <xref ref-type="table" rid="Tab1">1</xref>). As expected, WGS included more heterozygotes SNPs since the SNP array captured only data from ~ 2.5 M nucleotide positions in the autosomal genome, whereas the WGS provided data for the entire length of the genome (~ 2.8 × 10<sup>9</sup> nucleotide positions). On average, for all the populations analyzed, the WGS low coverage data had 6.3 times more heterozygous SNPs (2,558,000 ± 71,700) compared to the array (404,700 ± 7717) (Table <xref ref-type="table" rid="Tab1">1</xref>). In WGS data there is 1 heterozygous SNP per 1.1 Kb vs 1 in 7.1 Kb in array data. On average the concordance in variant calling by array and WGS is 99.6% (±0.05%). Of the 0.4% (±0.05) discordant calling, on average, 0.1% (±0.03) of the SNPs was called heterozygous by the array and homozygous by WGS and 0.3% (±0.02) of the SNPs was called heterozygous by WGS, but homozygous by array. Considering that array genotyping is the gold standard, WGS data, on average, led to erroneous calling of 0.3% (±0.02) of heterozygous SNP, which would incorrectly be reported as a break in a given ROH. On average, for all the populations, there will be 6500 SNPs (±714) per individual wrongly called as heterozygous, and that is roughly 2.4 SNP (±0.3) per Mb. This error rate is however different across the studied populations, with the JPT having the higher error rate (13,000 wrongly called heterozygotes; 4.5 SNPs per Mb) and the ZUL having the lowest (740 wrongly called heterozygotes; 0.3 SNPs per Mb).<table-wrap id="Tab1"><label>Table 1</label><caption><p>Mean number of heterozygote SNPs (per called SNP) in array and WGS low coverage data for 20 world populations</p></caption><table frame="hsides" rules="groups"><thead><tr><th></th><th></th><th></th><th colspan="4">VARIANT CALLING</th><th></th></tr><tr><th></th><th>Ave N of Het. WGS</th><th>Ave N of Het. Array</th><th>Concor.</th><th>Discor.</th><th>He A − Ho W</th><th>Ho A − He W</th><th>ROH error</th></tr></thead><tbody><tr><td>FIN</td><td>2,432,921.7</td><td>398,280.1</td><td>99.6929</td><td>0.3071</td><td>0.0402</td><td>0.2669</td><td>0.227</td></tr><tr><td>GBR</td><td>2,463,526.4</td><td>405,223.1</td><td>99.6898</td><td>0.3102</td><td>0.0430</td><td>0.2672</td><td>0.224</td></tr><tr><td>IBS</td><td>2,440,125.2</td><td>399,870.1</td><td>99.6547</td><td>0.3453</td><td>0.0412</td><td>0.3041</td><td>0.263</td></tr><tr><td>TSI</td><td>2,445,524.4</td><td>401,124.4</td><td>99.6015</td><td>0.3985</td><td>0.0424</td><td>0.3562</td><td>0.314</td></tr><tr><td>CEU</td><td>2,479,523.5</td><td>417,837.2</td><td>99.6365</td><td>0.3635</td><td>0.0402</td><td>0.3232</td><td>0.283</td></tr><tr><td>ACB</td><td>3,283,726.5</td><td>454,173.7</td><td>99.6723</td><td>0.3277</td><td>0.0403</td><td>0.2874</td><td>0.247</td></tr><tr><td>ASW</td><td>3,262,716.1</td><td>462,107.3</td><td>99.6526</td><td>0.3474</td><td>0.0448</td><td>0.3026</td><td>0.258</td></tr><tr><td>MXL</td><td>2,524,698.2</td><td>385,362.1</td><td>99.7197</td><td>0.2803</td><td>0.0433</td><td>0.2370</td><td>0.194</td></tr><tr><td>CLM</td><td>2,317,649.7</td><td>377,844.5</td><td>99.6716</td><td>0.3284</td><td>0.0460</td><td>0.2825</td><td>0.236</td></tr><tr><td>PEL</td><td>2,100,245.2</td><td>352,485.3</td><td>99.6987</td><td>0.3013</td><td>0.0411</td><td>0.2601</td><td>0.219</td></tr><tr><td>PUR</td><td>2,421,174.0</td><td>381,603.3</td><td>99.4125</td><td>0.5875</td><td>0.0448</td><td>0.5427</td><td>0.498</td></tr><tr><td>CDX</td><td>2,313,375.1</td><td>371,361.9</td><td>99.7197</td><td>0.2803</td><td>0.0351</td><td>0.2452</td><td>0.210</td></tr><tr><td>CHB</td><td>2,330,226.6</td><td>377,553.5</td><td>99.7197</td><td>0.2803</td><td>0.0366</td><td>0.2437</td><td>0.207</td></tr><tr><td>CHS</td><td>2,317,649.7</td><td>377,844.5</td><td>99.6991</td><td>0.3009</td><td>0.0451</td><td>0.2558</td><td>0.211</td></tr><tr><td>JPT</td><td>2,320,417.1</td><td>375,586.6</td><td>99.3659</td><td>0.6341</td><td>0.0354</td><td>0.5988</td><td>0.563</td></tr><tr><td>KHV</td><td>2,350,584.8</td><td>368,521.5</td><td>99.8549</td><td>0.1451</td><td>0.0343</td><td>0.1109</td><td>0.077</td></tr><tr><td>YRI</td><td>2,840,113.4</td><td>463,890.4</td><td>99.5746</td><td>0.4254</td><td>0.0383</td><td>0.3871</td><td>0.349</td></tr><tr><td>LWK</td><td>2,840,253.9</td><td>441,435.7</td><td>99.5545</td><td>0.4455</td><td>0.0457</td><td>0.3998</td><td>0.354</td></tr><tr><td>ZUL</td><td>2,840,578.1</td><td>441,536.6</td><td>98.7062</td><td>1.2938</td><td>0.6338</td><td>0.6600</td><td>0.026</td></tr><tr><td>BAG</td><td>2,840,658.6</td><td>441,412.3</td><td>99.2791</td><td>0.7209</td><td>0.3157</td><td>0.4052</td><td>0.090</td></tr></tbody></table><table-wrap-foot><p><italic>Concor.</italic> Concordant<bold>,</bold>
+<italic>Discor.</italic> Discordant</p><p><bold>He A – Ho W</bold> SNP called heterozygote by array and homozygote by WGS</p><p><bold>Ho A – He W</bold> SNP called homozygote by array and heterozygote by WGS</p><p><bold>ROH error</bold> % of SNPs that being wrongly called can break a ROH</p><p>Mean variant calling concordance (in %) is shown. Discordance is discomposed in SNP called heterozygous by array but homozygous by WGS and vice versa. Finally a ROH error is defined as the % of SNP that according to variant calling discordance would break ROH in WGS low coverage data</p></table-wrap-foot></table-wrap></p>
+</sec>
+<sec id="Sec4">
+<title>Assessing the impact PLINK tolerating heterozygous SNPs in the search for ROH</title>
+<p id="Par13">Due to its better performance in comparison to other software available, its efficiency execution on data from large consortia and the fact that is the software most used when searching for ROH we use PLINK 1.9 to develop this study. PLINK, by allowing a flexible number of heterozygous SNPs per window (the default value being 1 heterozygous SNP per window), already takes into account possible calling errors that may wrongly break a long ROH. By allowing this heterozygous SNP, the software produces an error that depends on the number of SNP (in homozygous state) per ROH. Figure <xref ref-type="fig" rid="Fig1">1</xref> shows the <italic>ep(P,h)</italic> as a measurement of the empirically observed number of heterozygous SNPs found in ROHs in population <italic>P</italic> when allow <italic>h</italic> heterozygous SNPs per window (1 heterozygous SNP in the array data and 1 to 5 in WGS data, see Materials and methods). This figure shows that for most of the populations the <italic>ep(P,h)</italic> produced by allowing a single heterozygous SNP per window in array data is equivalent to allowing 4 to 5 heterozygous SNPs in WGS data. A few populations deviated from this observation: TSI (0.27% for the array data vs 0.17% after allowing for 5 heterozygous in WGS data), ASW (0.185 vs 0.122), ACB (0.185 vs 0.138), YRI (0.13 vs 0.114), BAG (0.161 vs 0.133) and ZUL (0.136 vs 0.105). These differences are provoked by differences in the mean number of SNPs per ROH as it can be seen in Additional file <xref ref-type="media" rid="MOESM1">1</xref>. For example, the TSI population has, on average, 368 SNPs in the homozygous state per ROH in the array data, less than half of the average SNP per ROH in array data across all populations (714.7).<fig id="Fig1"><label>Fig. 1</label><caption><p>Effect of allowing heterozygous SNPs per window evaluated by <italic>ep(P,h)</italic> as a measure of the empirically observed actually number of heterozygous SNPs found in population <italic>P</italic> when we allow <italic>h</italic> heterozygous SNP. (See Materials and methods for the definition)</p></caption><graphic id="MO1" xlink:href="12864_2018_4489_Fig1_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec5">
+<title>Obtaining equivalent ROH estimates using data from both technologies</title>
+<p id="Par14">According to both Table <xref ref-type="table" rid="Tab1">1</xref> and Fig. <xref ref-type="fig" rid="Fig1">1</xref> it seems appropriate to compare ROH from both technologies allowing 1 to 5 heterozygote SNPs in WGS data in order to obtain equivalent results. Violin plots show the distribution of mean number of ROH (Fig. <xref ref-type="fig" rid="Fig2">2</xref>), mean ROH size (Fig. <xref ref-type="fig" rid="Fig3">3</xref>) and mean total sum of ROH (Fig. <xref ref-type="fig" rid="Fig4">4</xref>) per population and using array data, compare to WGS data with 1, 2 or 3 tolerated heterozygotes. Without exception, the distribution between array and WGS data is most similar when 3 heterozygous SNPs in the WGS data are allowed per window. Mean values and standard deviations for up to 5 heterozygous SNPs allowed per window are shown in Additional file <xref ref-type="media" rid="MOESM2">2</xref>. Figure <xref ref-type="fig" rid="Fig5">5a–c</xref> show the correlations with the array data as heat-maps between number of ROH (5a), mean ROH size (5b), and total sum of ROH (5c) for each population and a different number of allowed heterozygous SNPs in the WGS data (values and probabilities shown in Additional file <xref ref-type="media" rid="MOESM3">3</xref>). The correlations, as expected, increase with more heterozygous SNPs being allowed in the WGS data. Correlations are not homogeneous, south and East Asian populations show lower correlations in comparison with other populations. An alternative representation by line charts is shown in Additional file <xref ref-type="media" rid="MOESM4">4</xref>, where differences between populations are perceived more easily. In addition, non-parametrical statistical analysis was used. Results of the statistical comparison between ROH obtained from array and WGS (with a different number of heterozygous SNPs allowed) by the Mann-Whitney-Wilcoxon (MWW) test are shown as a heat-map of significance (<italic>p</italic> values; blue = not significant) in Figs. <xref ref-type="fig" rid="Fig5">5d–f</xref>. <italic>P</italic>-values are presented in Additional file <xref ref-type="media" rid="MOESM3">3</xref>. These figures show heterogeneous results across populations. In general, by allowing 3 heterozygotes SNPs per window in WGS the statistical outcomes in the number of ROH, mean ROH size and total sun of ROH are similar between array and WGS data. However, Fig. <xref ref-type="fig" rid="Fig5">5d–f</xref> also show that for the Asian populations, especially the JPT, for the number of ROH and total sum of ROH differences between array and WGS data are significant for every heterozygous SNP allowed.<fig id="Fig2"><label>Fig. 2</label><caption><p>Violin plots of the mean number of ROH longer than 1 Mb. Populations are colored by 5 biogeographical groups by admixture analysis. Admixed (Hispanic-American: CLM, MXL; African-American: ACB, ASW) – blue, Native Americans (PEL) – green, East (CHS, CDX, JPT) and South (KHV) Asia – tan, North (FIN, GBR, CEU) and South (IBS, TSI) Europe – violet, South (ZUL), East (BAG, LWK) and West (YRI) Africa – red. Four distributions per population are shown, array data with 1 heterozygous SNP allowed per window and WGS with 1 to 3 heterozygous SNPs allowed</p></caption><graphic id="MO2" xlink:href="12864_2018_4489_Fig2_HTML"></graphic></fig><fig id="Fig3"><label>Fig. 3</label><caption><p>Violin plots of mean ROH size longer than 1 Mb (in Mb). Different biogeographical groups have different <italic>x</italic>-axis scales in an attempt to maximize the difference between distributions within populations. See Fig. <xref ref-type="fig" rid="Fig2">2</xref> legend for population codes</p></caption><graphic id="MO3" xlink:href="12864_2018_4489_Fig3_HTML"></graphic></fig><fig id="Fig4"><label>Fig. 4</label><caption><p>Violin plots of mean total sum of ROH longer than 1 Mb (in Gb). See fig. <xref ref-type="fig" rid="Fig2">2</xref> legend for population codes</p></caption><graphic id="MO4" xlink:href="12864_2018_4489_Fig4_HTML"></graphic></fig><fig id="Fig5"><label>Fig. 5</label><caption><p>Heatmaps of correlations and MWW tests of mean number of ROH, mean ROH size and mean total sum of ROH between array data allowing 1 heterozygous SNP per window and WGS data allowing 1 to 5 heterozygous SNPs per window (y-axis). <bold>a to c</bold> Pearson correlations. <bold>d to f</bold>
+<italic>P</italic>-values of Mann-Whitney-Wilcoxon non-parametrical test (MWW), red shows significant difference between array and WGS while blue shows distributions that cannot be considered different. See Fig. <xref ref-type="fig" rid="Fig2">2</xref> legend for population codes</p></caption><graphic id="MO5" xlink:href="12864_2018_4489_Fig5_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec6">
+<title>Comparing ROH with different lengths</title>
+<p id="Par15">Once we established that the best PLINK condition to obtain comparable results is to allow 3 heterozygous SNPs per window when dealing with WGS low coverage, we compared the mean sum of ROH in both technologies for different ROH length categories (Fig. <xref ref-type="fig" rid="Fig6">6</xref>). This is relevant because the study of different ROH lengths has different applications, as indicated in Table <xref ref-type="table" rid="Tab2">2</xref>. Figure <xref ref-type="fig" rid="Fig6">6</xref> shows that for ROH longer than 1 Mb, the array and WGS mean total lengths are very similar, with some exceptions like the JPT, in the case of ROH longer than 8 Mb. However, WGS data systematically detected more short ROH (0.3 – 1 Mb) than array data. This outcome is expected and is caused by the lower SNP coverage of array data, since PLINK considered just ROH containing at least 50 SNPs. This gap between array and WGS data can be corrected for small ROH by changing PLINK parameters and relaxing the number of SNPs needed to call a ROH (−-homozyg-snp 30, data not shown).<fig id="Fig6"><label>Fig. 6</label><caption><p>Mean sum of ROH in different length categories. The light colored lines represent WGS with 3 heterozygous SNP allowed per window and dark colored lines represent array data with 1 heterozygous SNP allowed per ROH. See Fig. <xref ref-type="fig" rid="Fig2">2</xref> legend for population codes</p></caption><graphic id="MO6" xlink:href="12864_2018_4489_Fig6_HTML"></graphic></fig><table-wrap id="Tab2"><label>Table 2</label><caption><p>Performance of different technologies (array, WGS low coverage and WES) with different ROH size classes (Short &lt; 1 Mb, Medium 1 – 8 Mb and Long &gt; 8 Mb)</p></caption><table frame="hsides" rules="groups"><thead><tr><th>ROH size Class</th><th>SNP Array</th><th>WGS low coverage</th><th>WES</th><th>Applications</th></tr></thead><tbody><tr><td>Short &lt; 1 Mb</td><td>Poor performance due to low SNP coverage. Can be adjusted to detect ROH by modifying the number of SNPs required in a ROH.</td><td>Able to detect but need to build adjustment for genotype calling errors.</td><td>Able to detect but only in selected genomic regions. Software like H<sup>3</sup>M<sup>2</sup> allows meaningful regional analysis [<xref ref-type="bibr" rid="CR39">39</xref>].</td><td>Detection of rare variants involved in deleterious recessive alleles and directional dominance [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref>]. Analysis of LD patterns and extreme bottle necks [<xref ref-type="bibr" rid="CR33">33</xref>].</td></tr><tr><td>Medium 1-8 Mb</td><td>Able to detect if the array has at least 300 K SNPs. ROH boundaries will be fuzzier in comparison with WGS low coverage data.</td><td>Good performance but need to build adjustment for genotype calling errors. Allowing 3 heterozygous SNPs per ROH would grant meaningful outcomes.</td><td>Able to detect, but only in selected genomic regions and boundaries of ROH could be fuzzy if they reach into non-exonic regions [<xref ref-type="bibr" rid="CR49">49</xref>].</td><td>Detection of rare variants involved in diseases. Analysis of inbreeding depression. Genome architecture and ROH island detection [<xref ref-type="bibr" rid="CR50">50</xref>]. Population history, bottle necks, remote consanguinity and genetic drift [<xref ref-type="bibr" rid="CR51">51</xref>].</td></tr><tr><td>Long &gt; 8 Mb</td><td>Good performance if the array has at least 300 K SNPs.</td><td>Good performance but need to build adjustment for genotype calling errors. Allowing 3 heterozygous SNPs per ROH would grant meaningful outcomes.</td><td>Poor performance due to short size of most exons and their sparsity across the genome.</td><td>Analysis of inbreeding depression. Validation of GWAS findings. Population history and cultural practices, close consanguinity [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR41">41</xref>].</td></tr></tbody></table></table-wrap></p>
+</sec>
+</sec>
+<sec id="Sec7">
+<title>Discussion</title>
+<p id="Par16">Runs of homozygosity are an excellent tool to delve into the exploration of different aspects of human genetics. Large genomic datasets, using array and whole genome sequence data, are now becoming available and offer the researcher a unique opportunity to better understand the influence of ROH on complex diseases architecture and demographic history.</p>
+<p id="Par17">Ideally, WGS deep coverage would be the best option to study ROH, since genotype calling will be robust for low MAFs and ROH of virtually any size would be detected. However, two major issues prevent the use this technology. First, the lack of WGS deep coverage data for population studies and secondly, the extreme computational expense of analyzing this type of data using current software. Unlike deep coverage, low coverage WGS data is more abundant and affordable, and the computational effort of obtaining ROH is less computationally intensive. The only drawback of using this data is the calling error associated with it. By comparing ROH obtained from array data, we demonstrate in this article that this problem can be mitigated by allowing 3 heterozygous SNPs per window using PLINK software to obtain ROH longer than 1 Mb. In all populations, the highest correlation was achieved when allowing 3 to 4 heterozygous SNPs per window (Fig. <xref ref-type="fig" rid="Fig5">5a–c</xref>). Regarding MWW tests (Fig. <xref ref-type="fig" rid="Fig5">5d–f</xref>), unlike mean number and total sum of ROH, for most of the populations, mean ROH size remains equivalent between technologies when allowing 3 or more heterozygous SNPs per window. As expected, we get more ROH by allowing more heterozygous SNPs, but the mean size remains constant. As a consequence, the mean total sum of ROH increases with more heterozygous SNP allowed.</p>
+<p id="Par18">Interestingly, four populations from East and South Asia did not conform to the patterns observed in the other populations; in fact for the Dai and Han populations from China (CDX, CHS), Kinh population from Vietnam (KHV) and the Japanese population (JPT), it was not possible to obtain the same mean number and total sum of ROH between array and WGS data. This may be explained by population structure, but perhaps the inferior performance of the Infinium Omni 2.5–8 Bead chip in Asian populations [<xref ref-type="bibr" rid="CR45">45</xref>] is the more plausible explanation. This could also explain why it was not possible to obtain same number of ROH in the Baganda population from Uganda (BAG) or the same mean ROH size in the Zulu population from South Africa (ZUL).</p>
+<p id="Par19">WGS data present the ability to identify shorter ROH (Fig. <xref ref-type="fig" rid="Fig6">6</xref>), however it would be important to compare the short ROH detected using low coverage, compared to high coverage data to establish a comparative analysis guideline. In Table <xref ref-type="table" rid="Tab2">2</xref> we present a comparison in performance of the application of three different technologies (SNP array, WGS low coverage and WES data) to detect short, medium and long ROH.</p>
+</sec>
+<sec id="Sec8">
+<title>Conclusions</title>
+<p id="Par20">This study provides evidence-based guidelines for the combined analysis of array and low coverage WGS data when studying ROH to investigate population history and to detect associations with complex diseases and traits.</p>
+<p id="Par21">We demonstrate that, even though there are differences between populations around the world, is possible to get equivalent results between WGS low coverage and SNP array technologies by allowing 3 heterozygous SNP per window when dealing with WGS low coverage data.</p>
+</sec>
+<sec id="Sec9">
+<title>Methods</title>
+<sec id="Sec10">
+<title>Description of data</title>
+<p id="Par22">Individuals with both genome-wide SNP genotypic data and WGS low coverage data from the 1000 Genomes Project – Phase 3 (KGP) [<xref ref-type="bibr" rid="CR46">46</xref>, <xref ref-type="bibr" rid="CR47">47</xref>] and the African Genome Variation Project (AGVP) [<xref ref-type="bibr" rid="CR48">48</xref>] were used. For both datasets the Infinium Omni 2.5–8 Bead chip from Illumina was used. The KGP includes a total of 1685 individuals from 18 populations with genotypic data available from array and WGS low coverage (4×). From Europe: FIN (Finish in Finland, <italic>n</italic> = 99), GBR (British in England and Scotland, <italic>n</italic> = 91), IBS (Iberian populations in Spain, <italic>n</italic> = 105), TSI (Tuscany in Italy, <italic>n</italic> = 102) and CEU (Utah residents with European ancestry = 99). From America: ASW (Americans of African ancestry in Huston, <italic>n</italic> = 61), ACB (African Caribbean in Barbados, <italic>n</italic> = 96), PUR (Puerto Rican in Puerto Rico with admix ancestry, <italic>n</italic> = 104), PEL (Peruvian in Lima, Peru with Amerindian ancestry, <italic>n</italic> = 85), CLM (Colombian in Medellin, Colombia with admix ancestry, <italic>n</italic> = 95) and MXL (Mexican with admix ancestry in Los Angles, USA, <italic>n</italic> = 100). From Asia: CDX (Chinese Han in Xishuangbanna, China, <italic>n</italic> = 98), CHB (Chinese Han in Beijing, China, n = 100), CHS (Southern Han Chinese, n = 105), JPT (Japanese in Tokio, Japan, n = 100) and KHV (Kinh in Ho Chi Minh city, Vietnam n = 99). From Africa: YRI (Yoruba in Ibadan, Nigeria, <italic>n</italic> = 108) and LWK (Luhya in Webuye, Kenya, n = 99). The AVGP includes 2185 samples from 16 African populations; we use WGS data for two: 100 Zulu from South Africa and 100 Baganda from Uganda, where genotype data from the Omni 2.5–8 SNP array and WGS data at 4× coverage are available. Only SNPs of the 22 autosomes were included in this analysis. For each population, data from both array genotyping and WGS were filtered to remove SNP with minor allele frequencies lower than 0.05 and those that divert from H-W proportions with <italic>p</italic> &lt; 0.001. This filtering limits the effects of ascertainment bias caused by the small number of individuals in the SNP discovery panel, in the case of the array, and the calling errors associated with a low depth coverage of whole genome sequence data.</p>
+<p id="Par23">Identification and Characterization of ROH:</p>
+<p id="Par24">We used PLINK v1.9 to identify ROH. The following conditions were used:<list list-type="bullet"><list-item><p id="Par25"><italic>homozyg-snp 50.</italic> Minimum number of SNPs that a ROH is required to have</p></list-item><list-item><p id="Par26"><italic>homozyg-kb 300.</italic> Length in Kb of the sliding window</p></list-item><list-item><p id="Par27"><italic>hmozyg-density 50.</italic> Required minimum density to consider a ROH (1 SNP in 50Kb)</p></list-item><list-item><p id="Par28"><italic>homozyg-gap 1000.</italic> Length in Kb between two SNPs in order to be considered in two different segments.</p></list-item><list-item><p id="Par29"><italic>homozyg-window-snp 50.</italic> Number of SNPs that the sliding window must have</p></list-item><list-item><p id="Par30"><italic>homozyg-window-het (1 to 5).</italic> Number of heterozygous SNP allowed in a window</p></list-item><list-item><p id="Par31"><italic>homozyg-window-missing 5.</italic> Number of missing calls allowed in a window</p></list-item><list-item><p id="Par32"><italic>homozyg-window-threshold 0.05.</italic> Proportion of overlapping windows that must be called homozygous to define a given SNP as in a “homozygous” segment.</p></list-item></list></p>
+<p id="Par33">The minimum length of a ROH was set to 300 kb. PLINK allows the setting of different variable number of heterozygous SNPs per window, with a default value of 1 heterozygous genotype per window, in order to tolerate genotyping calling errors (<italic>−-homozyg-window-het 1</italic>). This is especially relevant in dealing with WGS low coverage data and therefore we were testing the equivalence between ROH obtained from array genotyping and WGS data.</p>
+</sec>
+<sec id="Sec11">
+<title>Assessing the impact tolerating heterozygous SNPs while using PLINK in the search for ROH</title>
+<p id="Par34">Our goal is to determine under which conditions detecting ROHs using low coverage sequence data results in comparable results as using SNP array data. There are several characteristics of ROHs we can measure. To be in a position to combine datasets generated by different technologies, we need to identify characteristics to allow their joint assessment, no matter the technology used.</p>
+<p id="Par35">The effect of allowing different numbers of heterozygous SNPs per ROH can be evaluated in different ways. We define <italic>ep(P,h)</italic> as a measure of the empirically observed actual number of heterozygous SNPs found in population <italic>P</italic> when we allow <italic>h</italic> heterozygous SNPs.<list list-type="bullet"><list-item><p id="Par36">Let <italic>R(P,h,x,y)</italic> be the set of ROHs with length in the range <italic>[x,y)</italic> in population <italic>P</italic> when allowing <italic>h</italic> heterozygous SNP.</p></list-item><list-item><p id="Par37">Let |<italic>R(P,h,x,y)</italic>| be the number of ROHs of length in the range <italic>[x,y)</italic> in population <italic>P</italic> when allowing <italic>h</italic> heterozygote</p></list-item><list-item><p id="Par38">Let <italic>ep</italic><sub><italic>xy</italic></sub><italic>(P,h)</italic> = arithmetic mean of the actual number of heterozygous found in all ROHs in <italic>R(P,h,x,y)</italic> found in the population under study</p></list-item><list-item><p id="Par39">Finally,<disp-formula id="Equ1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ ep\left(P,h\right)=\frac{\sum_{xy}\left|R\Big(P,h,x,y\right|{ep}_{xy}\left(P,h\right)}{\sum_{xy}\left|R\Big(P,h,x,y\right|}\ x\ 100 $$\end{document}</tex-math><mml:math display="block" id="M2"><mml:mi mathvariant="italic">ep</mml:mi><mml:mfenced close=")" open="(" separators=","><mml:mi>P</mml:mi><mml:mi>h</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mi mathvariant="italic">xy</mml:mi></mml:msub><mml:mfenced close="|" open="|" separators=",,,"><mml:mrow><mml:mi>R</mml:mi><mml:mo stretchy="true">(</mml:mo><mml:mi>P</mml:mi></mml:mrow><mml:mi>h</mml:mi><mml:mi>x</mml:mi><mml:mi>y</mml:mi></mml:mfenced><mml:msub><mml:mi mathvariant="italic">ep</mml:mi><mml:mi mathvariant="italic">xy</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=","><mml:mi>P</mml:mi><mml:mi>h</mml:mi></mml:mfenced></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mi mathvariant="italic">xy</mml:mi></mml:msub><mml:mfenced close="|" open="|" separators=",,,"><mml:mrow><mml:mi>R</mml:mi><mml:mo stretchy="true">(</mml:mo><mml:mi>P</mml:mi></mml:mrow><mml:mi>h</mml:mi><mml:mi>x</mml:mi><mml:mi>y</mml:mi></mml:mfenced></mml:mrow></mml:mfrac><mml:mspace width="0.25em"></mml:mspace><mml:mi>x</mml:mi><mml:mspace width="0.25em"></mml:mspace><mml:mn>100</mml:mn></mml:math><graphic position="anchor" xlink:href="12864_2018_4489_Article_Equ1.gif"></graphic></alternatives></disp-formula></p></list-item></list></p>
+<p id="Par40">We sum over (x,y) є {[1,1.5),[1.5,5),[5,10),[10,∞)}.</p>
+<p id="Par41">This observed number of heterozygous SNPs differs from the parameter used for detecting ROHs depending on the population and technology platform characteristics.</p>
+</sec>
+<sec id="Sec12">
+<title>Statistical analysis</title>
+<p id="Par42">For comparison purposes three variables per population were defined. Mean number of ROH as the mean number of ROH longer than 1 Mb. Mean ROH size as the mean size of ROH longer than 1 Mb. Total sum of ROH as the mean total sum of ROH longer than 1 Mb. Considering just ROH longer than 1 Mb allows the selection of only the ROH arising from identity by descent and to remove any LD effects. Data distributions were illustrated using violin plots. This plot combines a box plot with a kernel density plot, where the interval width is obtained by the rule of thumb. The violin shows a colored kernel density trace with the interquartile range as a black line and median as a white dot. This representation is especially relevant when dealing with data or variables that show skewed distributions and is a good means of comparison between populations, when dealing with asymmetric distributions where the median is more informative than the mean. Statistical comparisons between mean number of ROH, mean ROH size and mean total sum of ROH for different populations, technologies and PLINK conditions were performed by Pearson’s correlation and Mann-Whitney-Wilcoxon non-parametric test (MWW). All the exploratory and statistical analyses were performed using R.</p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Additional files</title>
+<sec id="Sec13">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="12864_2018_4489_MOESM1_ESM.docx"><label>Additional file 1: Table S1.</label><caption><p>Mean number of SNP (in homozygous state) per ROH in array data with 1 heterozygous SNP per ROH and WGS data with 1 to 5 heterozygous SNPs per ROH. <italic>ep(P,h)</italic> values for different populations <italic>P</italic> and allowed heterozygous SNP. (DOCX 22 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="12864_2018_4489_MOESM2_ESM.docx"><label>Additional file 2: Table S2.</label><caption><p>Pearson correlations (y-axis) of number of ROH, mean ROH size and mean sum of ROH between array data with 1 heterozygous allowed per RHO and WGS with 1 to 5 heterozygous SNP allowed per ROH (x-axis). (DOCX 28 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM3"><media xlink:href="12864_2018_4489_MOESM3_ESM.docx"><label>Additional file 3: Table S3.</label><caption><p>Means and standard deviations of number of ROH, ROH size and total sum of ROH for different populations, technologies and allowed heterozygous SNPs per ROH (DOCX 35 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM4"><media xlink:href="12864_2018_4489_MOESM4_ESM.jpeg"><label>Additional file 4: Fig. S1.</label><caption><p>Pearson correlations (with <italic>p</italic>-values) and Mann-Whitney-Wilcoxon non- parametrical test p vales between array data with 1 heterozygous SNP per ROH and WGS with 1 to 5 heterozygous SNPs per ROH. (JPEG 1011 kb)</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p>
+<bold>Electronic supplementary material</bold>
+</p>
+<p>The online version of this article (10.1186/s12864-018-4489-0) contains supplementary material, which is available to authorized users.</p>
+</fn>
+</fn-group>
+<ack>
+<title>Acknowledgements</title>
+<p>FCC is a National Research Foundation of South Africa (NRF) postdoctoral fellow and MR holds a South African Research Chair in Genomics and Bioinformatics of African populations hosted by the University of the Witwatersrand, funded by the Department of Science and Technology and administered by the NRF. This work was enabled through a 6-month scientific exchange visit of FCC to the group of Jim Wilson at the University Edinburgh (supported by funding allocated by Nick Hastie (UK) and MR (SA)).</p>
+<sec id="FPar1">
+<title>Funding</title>
+<p id="Par43">FCC was supported by funding for a postdoctoral fellowship from the South African National Research Foundation (NRF).</p>
+</sec>
+<sec id="FPar2">
+<title>Availability of data and materials</title>
+<p id="Par44">African Genome Variation Project data (AGVP) are available from the European Genome-phenome Archive (EGA, <ext-link ext-link-type="uri" xlink:href="http://www.ebi.ac.uk/ega">http://www.ebi.ac.uk/ega/</ext-link>), hosted by the EBI, under accession Numbers EGAS00001000363 and EGAS00001000286. Data from 1000 Genomes Phase 3 (v5.20130502) was downloaded the 6 of December 2014 from <ext-link ext-link-type="uri" xlink:href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502">http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/</ext-link></p>
+</sec>
+</ack>
+<notes notes-type="author-contribution">
+<title>Authors’ contributions</title>
+<p>FCC: research plan development, data analysis, figures and manuscript preparation. SH: advisor on genomic analysis, data analysis and manuscript preparation. MR: principal advisor for research plan development, data analysis and manuscript preparation. All authors read and approved the final manuscript.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar3">
+<title>Ethics approval</title>
+<p id="Par45">Not applicable</p>
+</sec>
+<sec id="FPar4">
+<title>Consent for publication</title>
+<p id="Par46">Not applicable</p>
+</sec>
+<sec id="FPar5">
+<title>Competing interests</title>
+<p id="Par47">The authors declare that they have no competing interests</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Broman</surname>
+<given-names>KW</given-names>
+</name>
+<name>
+<surname>Weber</surname>
+<given-names>JL</given-names>
+</name>
+</person-group>
+<article-title>Long homozygous chromosomal segments in reference families from the centre d'Etude du polymorphisme humain</article-title>
+<source/>Am J Hum Genet
+          <year>1999</year>
+<volume>65</volume>
+<fpage>1493</fpage>
+<lpage>1500</lpage>
+<pub-id pub-id-type="doi">10.1086/302661</pub-id>
+<pub-id pub-id-type="pmid">10577902</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Keller</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Visscher</surname>
+<given-names>PM</given-names>
+</name>
+<name>
+<surname>Goddard</surname>
+<given-names>ME</given-names>
+</name>
+</person-group>
+<article-title>Quantification of inbreeding due to distant ancestors and its detection using dense single nucleotide polymorphism data</article-title>
+<source/>Genetics
+          <year>2011</year>
+<volume>189</volume>
+<issue>1</issue>
+<fpage>237</fpage>
+<lpage>249</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.111.130922</pub-id>
+<pub-id pub-id-type="pmid">21705750</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Biraben</surname>
+<given-names>J-N</given-names>
+</name>
+</person-group>
+<article-title>An essay concerning mankind's demographic evolution</article-title>
+<source/>J Hum Evol
+          <year>1980</year>
+<volume>9</volume>
+<fpage>655</fpage>
+<lpage>663</lpage>
+<pub-id pub-id-type="doi">10.1016/0047-2484(80)90099-8</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Donnelly</surname>
+<given-names>KP</given-names>
+</name>
+</person-group>
+<article-title>The probability that related individuals share some section of genome identical by descent</article-title>
+<source/>Theor Popul Biol
+          <year>1983</year>
+<volume>23</volume>
+<issue>1</issue>
+<fpage>34</fpage>
+<lpage>63</lpage>
+<pub-id pub-id-type="doi">10.1016/0040-5809(83)90004-7</pub-id>
+<pub-id pub-id-type="pmid">6857549</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gibson</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Morton</surname>
+<given-names>NE</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Extended tracts of homozygosity in outbred human populations</article-title>
+<source/>Hum Mol Genet
+          <year>2006</year>
+<volume>15</volume>
+<fpage>789</fpage>
+<lpage>795</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddi493</pub-id>
+<pub-id pub-id-type="pmid">16436455</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McQuillan</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Eklund</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Pirastu</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kuningas</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>McEvoy</surname>
+<given-names>BP</given-names>
+</name>
+<name>
+<surname>Esko</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Corre</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Kaakinen</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Lyytikainen</surname>
+<given-names>LP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Evidence of inbreeding depression on human height</article-title>
+<source/>PLoS Genet
+          <year>2012</year>
+<volume>8</volume>
+<issue>7</issue>
+<fpage>e1002655</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1002655</pub-id>
+<pub-id pub-id-type="pmid">22829771</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ku</surname>
+<given-names>CS</given-names>
+</name>
+<name>
+<surname>Naidoo</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Teo</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Pawitan</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Kuningas</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>McQuillan</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Wilson</surname>
+<given-names>JF</given-names>
+</name>
+<name>
+<surname>Hofman</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>van Duijn</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Uitterlinden</surname>
+<given-names>AG</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Regions of homozygosity and their impact on complex diseases and traits runs of homozygosity do not influence survival to old age</article-title>
+<source/>Nat Rev
+          <year>2011</year>
+<volume>129</volume>
+<issue>1</issue>
+<fpage>1</fpage>
+<lpage>15</lpage>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Ross</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Mahon</surname>
+<given-names>LW</given-names>
+</name>
+<name>
+<surname>Owen</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Hemmat</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>BT</given-names>
+</name>
+<name>
+<surname>El Naggar</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kopita</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Randolph</surname>
+<given-names>LM</given-names>
+</name>
+<name>
+<surname>Chase</surname>
+<given-names>JM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Regions of homozygosity identified by oligonucleotide SNP arrays: evaluating the incidence and clinical utility</article-title>
+<source/>Eur J Hum Genet
+          <year>2015</year>
+<volume>23</volume>
+<issue>5</issue>
+<fpage>663</fpage>
+<lpage>671</lpage>
+<pub-id pub-id-type="doi">10.1038/ejhg.2014.153</pub-id>
+<pub-id pub-id-type="pmid">25118026</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>LaFramboise</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Single nucleotide polymorphism arrays: a decade of biological, computational and technological advances</article-title>
+<source/>Nucleic Acids Res
+          <year>2009</year>
+<volume>37</volume>
+<issue>13</issue>
+<fpage>4181</fpage>
+<lpage>4193</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkp552</pub-id>
+<pub-id pub-id-type="pmid">19570852</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lamy</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Grove</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wiuf</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>A review of software for microarray genotyping</article-title>
+<source/>Hum Genomics
+          <year>2011</year>
+<volume>5</volume>
+<issue>4</issue>
+<fpage>304</fpage>
+<lpage>309</lpage>
+<pub-id pub-id-type="pmid">21712191</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Szpiech</surname>
+<given-names>ZA</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Pemberton</surname>
+<given-names>TJ</given-names>
+</name>
+<name>
+<surname>Peng</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Zollner</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Rosenberg</surname>
+<given-names>NA</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>JZ</given-names>
+</name>
+</person-group>
+<article-title>Long runs of homozygosity are enriched for deleterious variation</article-title>
+<source/>Am J Hum Genet
+          <year>2013</year>
+<volume>93</volume>
+<issue>1</issue>
+<fpage>90</fpage>
+<lpage>102</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.05.003</pub-id>
+<pub-id pub-id-type="pmid">23746547</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Joshi</surname>
+<given-names>PK</given-names>
+</name>
+<name>
+<surname>Esko</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Mattsson</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Eklund</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Gandin</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Nutile</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Jackson</surname>
+<given-names>AU</given-names>
+</name>
+<name>
+<surname>Schurmann</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>AV</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Directional dominance on stature and cognition in diverse human populations</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>523</volume>
+<issue>7561</issue>
+<fpage>459</fpage>
+<lpage>462</lpage>
+<pub-id pub-id-type="doi">10.1038/nature14618</pub-id>
+<pub-id pub-id-type="pmid">26131930</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<mixed-citation publication-type="other">Ceballos F.C., Joshi P.K., Clark D.W., Ramsay M. and Wilson J.F. Runs of homozygosity: windows into population history and trait architecture. Nat. Rev. Genet. 2018. <ext-link ext-link-type="uri" xlink:href="https://dx.doi.org/10.1038/nrg.2017.109">https://dx.doi.org/10.1038/nrg.2017.109</ext-link>.</mixed-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lencz</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Lambert</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>DeRosse</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Burdick</surname>
+<given-names>KE</given-names>
+</name>
+<name>
+<surname>Morgan</surname>
+<given-names>TV</given-names>
+</name>
+<name>
+<surname>Kane</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Kucherlapati</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Malhotra</surname>
+<given-names>AK</given-names>
+</name>
+</person-group>
+<article-title>Runs of homozygosity reveal highly penetrant recessive loci in schizophrenia</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2007</year>
+<volume>104</volume>
+<issue>50</issue>
+<fpage>19942</fpage>
+<lpage>19947</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0710021104</pub-id>
+<pub-id pub-id-type="pmid">18077426</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Keller</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Simonson</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Ripke</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Neale</surname>
+<given-names>BM</given-names>
+</name>
+<name>
+<surname>Gejman</surname>
+<given-names>PV</given-names>
+</name>
+<name>
+<surname>Howrigan</surname>
+<given-names>DP</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>SH</given-names>
+</name>
+<name>
+<surname>Lencz</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Levinson</surname>
+<given-names>DF</given-names>
+</name>
+<name>
+<surname>Sullivan</surname>
+<given-names>PF</given-names>
+</name>
+</person-group>
+<article-title>Runs of homozygosity implicate autozygosity as a schizophrenia risk factor</article-title>
+<source/>PLoS Genet
+          <year>2012</year>
+<volume>8</volume>
+<issue>4</issue>
+<fpage>e1002656</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1002656</pub-id>
+<pub-id pub-id-type="pmid">22511889</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nalls</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Guerreiro</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Simon-Sanchez</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bras</surname>
+<given-names>JT</given-names>
+</name>
+<name>
+<surname>Traynor</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Gibbs</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Launer</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Hardy</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Singleton</surname>
+<given-names>AB</given-names>
+</name>
+</person-group>
+<article-title>Extended tracts of homozygosity identify novel candidate genes associated with late-onset Alzheimer's disease</article-title>
+<source/>Neurogenetics
+          <year>2009</year>
+<volume>10</volume>
+<issue>3</issue>
+<fpage>183</fpage>
+<lpage>190</lpage>
+<pub-id pub-id-type="doi">10.1007/s10048-009-0182-4</pub-id>
+<pub-id pub-id-type="pmid">19271249</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ghani</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Reitz</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Cheng</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Vardarajan</surname>
+<given-names>BN</given-names>
+</name>
+<name>
+<surname>Jun</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Sato</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Naj</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Rajbhandary</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>LS</given-names>
+</name>
+<name>
+<surname>Valladares</surname>
+<given-names>O</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association of Long Runs of Homozygosity with Alzheimer disease among African American individuals</article-title>
+<source/>JAMA Neurol
+          <year>2015</year>
+<volume>72</volume>
+<issue>11</issue>
+<fpage>1313</fpage>
+<lpage>1323</lpage>
+<pub-id pub-id-type="doi">10.1001/jamaneurol.2015.1700</pub-id>
+<pub-id pub-id-type="pmid">26366463</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chahrour</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>TW</given-names>
+</name>
+<name>
+<surname>Lim</surname>
+<given-names>ET</given-names>
+</name>
+<name>
+<surname>Ataman</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Coulter</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Hill</surname>
+<given-names>RS</given-names>
+</name>
+<name>
+<surname>Stevens</surname>
+<given-names>CR</given-names>
+</name>
+<name>
+<surname>Schubert</surname>
+<given-names>CR</given-names>
+</name>
+<name>
+<surname>Greenberg</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Gabriel</surname>
+<given-names>SB</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Whole-exome sequencing and Homozygosity analysis implicate depolarization-regulated neuronal genes in autism</article-title>
+<source/>PLoS Genet
+          <year>2012</year>
+<volume>8</volume>
+<issue>4</issue>
+<fpage>236</fpage>
+<lpage>244</lpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1002635</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<mixed-citation publication-type="other">Lin PI, Kuo PH, Chen CH, Wu JY, Gau SS, Wu YY, Liu SK: Runs of homozygosity associated with speech delay in autism in a taiwanese han population: evidence for the recessive model. PLoS One 2013, 8(8):e72056.</mixed-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gamsiz</surname>
+<given-names>ED</given-names>
+</name>
+<name>
+<surname>Viscidi</surname>
+<given-names>EW</given-names>
+</name>
+<name>
+<surname>Frederick</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Nagpal</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Sanders</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Murtha</surname>
+<given-names>MT</given-names>
+</name>
+<name>
+<surname>Schmidt</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Triche</surname>
+<given-names>EW</given-names>
+</name>
+<name>
+<surname>Geschwind</surname>
+<given-names>DH</given-names>
+</name>
+<name>
+<surname>State</surname>
+<given-names>MW</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Intellectual disability is associated with increased runs of homozygosity in simplex autism</article-title>
+<source/>Am J Hum Genet
+          <year>2013</year>
+<volume>93</volume>
+<issue>1</issue>
+<fpage>103</fpage>
+<lpage>109</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.06.004</pub-id>
+<pub-id pub-id-type="pmid">23830515</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Orloff</surname>
+<given-names>MS</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Bebek</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Eng</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Integrative genomic analysis reveals extended germline homozygosity with lung cancer risk in the PLCO cohort</article-title>
+<source/>PLoS One
+          <year>2012</year>
+<volume>7</volume>
+<issue>2</issue>
+<fpage>e31975</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0031975</pub-id>
+<pub-id pub-id-type="pmid">22384118</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Thomsen</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Filho</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Woltmann</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Johansson</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Eyfjord</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Hamann</surname>
+<given-names>U</given-names>
+</name>
+<name>
+<surname>Manjer</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Enquist-Olsson</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Henriksson</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Herms</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Inbreeding and homozygosity in breast cancer survival</article-title>
+<source/>Sci Rep
+          <year>2015</year>
+<volume>5</volume>
+<fpage>1</fpage>
+<lpage>12</lpage>
+<pub-id pub-id-type="doi">10.1038/srep16467</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Thomsen</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Figlioli</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Elisei</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Romei</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Cipollini</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Cristaudo</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bambi</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Hoffmann</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Herms</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Runs of homozygosity and inbreeding in thyroid cancer</article-title>
+<source/>BMC Cancer
+          <year>2016</year>
+<volume>16</volume>
+<fpage>227</fpage>
+<pub-id pub-id-type="doi">10.1186/s12885-016-2264-7</pub-id>
+<pub-id pub-id-type="pmid">26984635</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Christofidou</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>CP</given-names>
+</name>
+<name>
+<surname>Nikpay</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Qu</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Loley</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Debiec</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Braund</surname>
+<given-names>PS</given-names>
+</name>
+<name>
+<surname>Denniff</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Charchar</surname>
+<given-names>FJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Runs of Homozygosity: association with coronary artery disease and gene expression in Monocytes and macrophages</article-title>
+<source/>Am J Hum Genet
+          <year>2015</year>
+<volume>97</volume>
+<issue>2</issue>
+<fpage>228</fpage>
+<lpage>237</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2015.06.001</pub-id>
+<pub-id pub-id-type="pmid">26166477</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>TL</given-names>
+</name>
+<name>
+<surname>Guo</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>JG</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Tian</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Deng</surname>
+<given-names>HW</given-names>
+</name>
+</person-group>
+<article-title>Genome-wide survey of runs of Homozygosity identifies recessive loci for bone mineral density in Caucasian and Chinese populations</article-title>
+<source/>J Bone Miner Res
+          <year>2015</year>
+<volume>30</volume>
+<issue>11</issue>
+<fpage>2119</fpage>
+<lpage>2126</lpage>
+<pub-id pub-id-type="doi">10.1002/jbmr.2558</pub-id>
+<pub-id pub-id-type="pmid">25983029</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Howrigan</surname>
+<given-names>DP</given-names>
+</name>
+<name>
+<surname>Simonson</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Harris</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Tenesa</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Starr</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Liewald</surname>
+<given-names>DC</given-names>
+</name>
+<name>
+<surname>Deary</surname>
+<given-names>IJ</given-names>
+</name>
+<name>
+<surname>McRae</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Wright</surname>
+<given-names>MJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genome-wide autozygosity is associated with lower general cognitive ability</article-title>
+<source/>Mol Psychiatry
+          <year>2016</year>
+<volume>21</volume>
+<issue>6</issue>
+<fpage>837</fpage>
+<lpage>843</lpage>
+<pub-id pub-id-type="doi">10.1038/mp.2015.120</pub-id>
+<pub-id pub-id-type="pmid">26390830</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abdellaoui</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hottenga</surname>
+<given-names>JJ</given-names>
+</name>
+<name>
+<surname>Willemsen</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Bartels</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>van Beijsterveldt</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Ehli</surname>
+<given-names>EA</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>GE</given-names>
+</name>
+<name>
+<surname>Brooks</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Sullivan</surname>
+<given-names>PF</given-names>
+</name>
+<name>
+<surname>Penninx</surname>
+<given-names>BW</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Educational attainment influences levels of homozygosity through migration and assortative mating</article-title>
+<source/>PLoS One
+          <year>2015</year>
+<volume>10</volume>
+<issue>3</issue>
+<fpage>e0118935</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0118935</pub-id>
+<pub-id pub-id-type="pmid">25734509</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xue</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Prado-Martinez</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Sudmant</surname>
+<given-names>PH</given-names>
+</name>
+<name>
+<surname>Narasimhan</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Ayub</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Szpak</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Frandsen</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Yngvadottir</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Cooper</surname>
+<given-names>DN</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Mountain gorilla genomes reveal the impact of long-term population decline and inbreeding</article-title>
+<source/>Science
+          <year>2015</year>
+<volume>348</volume>
+<issue>6231</issue>
+<fpage>242</fpage>
+<lpage>245</lpage>
+<pub-id pub-id-type="doi">10.1126/science.aaa3952</pub-id>
+<pub-id pub-id-type="pmid">25859046</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Prado-Martinez</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Sudmant</surname>
+<given-names>PH</given-names>
+</name>
+<name>
+<surname>Kidd</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kelley</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Lorente-Galdos</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Veeramah</surname>
+<given-names>KR</given-names>
+</name>
+<name>
+<surname>Woerner</surname>
+<given-names>AE</given-names>
+</name>
+<name>
+<surname>O'Connor</surname>
+<given-names>TD</given-names>
+</name>
+<name>
+<surname>Santpere</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Great ape genetic diversity and population history</article-title>
+<source/>Nature
+          <year>2013</year>
+<volume>499</volume>
+<issue>7459</issue>
+<fpage>471</fpage>
+<lpage>475</lpage>
+<pub-id pub-id-type="doi">10.1038/nature12228</pub-id>
+<pub-id pub-id-type="pmid">23823723</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chitneedi</surname>
+<given-names>PK</given-names>
+</name>
+<name>
+<surname>Arranz</surname>
+<given-names>JJ</given-names>
+</name>
+<name>
+<surname>Suarez-Vega</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Garcia-Gamez</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Gutierrez-Gil</surname>
+<given-names>B</given-names>
+</name>
+</person-group>
+<article-title>Estimations of linkage disequilibrium, effective population size and ROH-based inbreeding coefficients in Spanish Churra sheep using imputed high-density SNP genotypes</article-title>
+<source/>Anim Genet
+          <year>2017</year>
+<volume>48</volume>
+<issue>4</issue>
+<fpage>436</fpage>
+<lpage>446</lpage>
+<pub-id pub-id-type="doi">10.1111/age.12564</pub-id>
+<pub-id pub-id-type="pmid">28543827</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Purfield</surname>
+<given-names>DC</given-names>
+</name>
+<name>
+<surname>McParland</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Wall</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Berry</surname>
+<given-names>DP</given-names>
+</name>
+</person-group>
+<article-title>The distribution of runs of homozygosity and selection signatures in six commercial meat sheep breeds</article-title>
+<source/>PLoS One
+          <year>2017</year>
+<volume>12</volume>
+<issue>5</issue>
+<fpage>e0176780</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0176780</pub-id>
+<pub-id pub-id-type="pmid">28463982</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Purcell</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Neale</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Todd-Brown</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Ferreira</surname>
+<given-names>MAR</given-names>
+</name>
+<name>
+<surname>Bender</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Maller</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Sklar</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>de Bakker</surname>
+<given-names>PIW</given-names>
+</name>
+<name>
+<surname>Daly</surname>
+<given-names>MJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>PLINK: a tool set for whole-genome association and population-based linkage analyses</article-title>
+<source/>Am J Hum Genet
+          <year>2007</year>
+<volume>81</volume>
+<issue>3</issue>
+<fpage>559</fpage>
+<lpage>575</lpage>
+<pub-id pub-id-type="doi">10.1086/519795</pub-id>
+<pub-id pub-id-type="pmid">17701901</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pemberton</surname>
+<given-names>TJ</given-names>
+</name>
+<name>
+<surname>Absher</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Feldman</surname>
+<given-names>MW</given-names>
+</name>
+<name>
+<surname>Myers</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Rosenberg</surname>
+<given-names>NA</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>JZ</given-names>
+</name>
+</person-group>
+<article-title>Genomic patterns of homozygosity in worldwide human populations</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>91</volume>
+<issue>2</issue>
+<fpage>275</fpage>
+<lpage>292</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.06.014</pub-id>
+<pub-id pub-id-type="pmid">22883143</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gusev</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Lowe</surname>
+<given-names>JK</given-names>
+</name>
+<name>
+<surname>Stoffel</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Daly</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Altshuler</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Breslow</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Friedman</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Pe'er</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<article-title>Whole population, genome-wide mapping of hidden relatedness</article-title>
+<source/>Genomic Res
+          <year>2009</year>
+<volume>19</volume>
+<issue>2</issue>
+<fpage>318</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.081398.108</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Browning</surname>
+<given-names>SR</given-names>
+</name>
+<name>
+<surname>Browning</surname>
+<given-names>BL</given-names>
+</name>
+</person-group>
+<article-title>High-resolution detection of identity by descent in unrelated individuals</article-title>
+<source/>Am Jour Hum Genetics.
+          <year>2010</year>
+<volume>86</volume>
+<fpage>526</fpage>
+<lpage>39</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2010.02.021</pub-id>
+<pub-id pub-id-type="pmid">20303063</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Howrigan</surname>
+<given-names>DP</given-names>
+</name>
+<name>
+<surname>Simonson</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Keller</surname>
+<given-names>MC</given-names>
+</name>
+</person-group>
+<article-title>Detecting autozygosity through runs of homozygosity: a comparison of three autozygosity detection algorithms</article-title>
+<source/>BMC Genomics
+          <year>2011</year>
+<volume>12</volume>
+<fpage>460</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2164-12-460</pub-id>
+<pub-id pub-id-type="pmid">21943305</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhuang</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Gusev</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Cho</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Pe'er</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<article-title>Detecting identity by descent and homozygosity mapping in whole-exome sequencing data</article-title>
+<source/>PLoS One
+          <year>2012</year>
+<volume>7</volume>
+<issue>10</issue>
+<fpage>e47618</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0047618</pub-id>
+<pub-id pub-id-type="pmid">23071825</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mezzavilla</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Vozzi</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Badii</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Alkowari</surname>
+<given-names>MK</given-names>
+</name>
+<name>
+<surname>Abdulhadi</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Girotto</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Gasparini</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>McLaughlin</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Kenna</surname>
+<given-names>KP</given-names>
+</name>
+<name>
+<surname>Vajda</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Increased rate of deleterious variants in long runs of homozygosity of an inbred population from Qatar</article-title>
+<source/>Hum Hered
+          <year>2015</year>
+<volume>79</volume>
+<issue>1</issue>
+<fpage>14</fpage>
+<lpage>19</lpage>
+<pub-id pub-id-type="doi">10.1159/000371387</pub-id>
+<pub-id pub-id-type="pmid">25720536</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Magi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Tattini</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Palombo</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Benelli</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gialluisi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Giusti</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Abbate</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Seri</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gensini</surname>
+<given-names>GF</given-names>
+</name>
+<name>
+<surname>Romeo</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>H3M2: detection of runs of homozygosity from whole-exome sequencing data excess of homozygosity in the major histocompatibility complex in schizophrenia</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<volume>30</volume>
+<issue>20</issue>
+<fpage>2852</fpage>
+<lpage>2859</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu401</pub-id>
+<pub-id pub-id-type="pmid">24966365</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>HC</given-names>
+</name>
+<name>
+<surname>Chang</surname>
+<given-names>LC</given-names>
+</name>
+<name>
+<surname>Liang</surname>
+<given-names>YJ</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>CH</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>PL</given-names>
+</name>
+</person-group>
+<article-title>A genome-wide homozygosity association study identifies runs of homozygosity associated with rheumatoid arthritis in the human major histocompatibility complex</article-title>
+<source/>PLoS One
+          <year>2012</year>
+<volume>7</volume>
+<issue>4</issue>
+<fpage>e34840</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0034840</pub-id>
+<pub-id pub-id-type="pmid">22536334</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McQuillan</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Leutenegger</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Abdel-Rahman</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Franklin</surname>
+<given-names>CS</given-names>
+</name>
+<name>
+<surname>Pericic</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Barac-Lauc</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Smolej-Narancic</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Janicijevic</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Polasek</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Tenesa</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Runs of homozygosity in European populations</article-title>
+<source/>Am J Hum Genet
+          <year>2008</year>
+<volume>83</volume>
+<issue>3</issue>
+<fpage>359</fpage>
+<lpage>372</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2008.08.007</pub-id>
+<pub-id pub-id-type="pmid">18760389</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nielsen</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Paul</surname>
+<given-names>JS</given-names>
+</name>
+<name>
+<surname>Albrechtsen</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Song</surname>
+<given-names>YS</given-names>
+</name>
+</person-group>
+<article-title>Genotype and SNP calling from next-generation sequencing data</article-title>
+<source/>Nat Rev Genet
+          <year>2011</year>
+<volume>12</volume>
+<issue>6</issue>
+<fpage>443</fpage>
+<lpage>451</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2986</pub-id>
+<pub-id pub-id-type="pmid">21587300</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goodwin</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>McPherson</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>McCombie</surname>
+<given-names>WR</given-names>
+</name>
+<name>
+<surname>Purcell</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Neale</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Todd-Brown</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Ferreira</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Bender</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Maller</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Coming of age: ten years of next-generation sequencing technologies PLINK: a tool set for whole-genome association and population-based linkage analyses</article-title>
+<source/>Nat Rev Genet
+          <year>2016</year>
+<volume>17</volume>
+<issue>6</issue>
+<fpage>333</fpage>
+<lpage>351</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg.2016.49</pub-id>
+<pub-id pub-id-type="pmid">27184599</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<mixed-citation publication-type="other">DNA sequencing cost: data from the NHGRI Genome Sequencing Program (GSP) [<ext-link ext-link-type="uri" xlink:href="http://www.genome.gov/sequencingcosts">http://www.genome.gov/sequencingcosts</ext-link>].</mixed-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ha</surname>
+<given-names>NT</given-names>
+</name>
+<name>
+<surname>Freytag</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Bickeboeller</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Coverage and efficiency in current SNP chips</article-title>
+<source/>Eur J Hum Genet
+          <year>2014</year>
+<volume>22</volume>
+<issue>9</issue>
+<fpage>1124</fpage>
+<lpage>1130</lpage>
+<pub-id pub-id-type="doi">10.1038/ejhg.2013.304</pub-id>
+<pub-id pub-id-type="pmid">24448550</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<collab>The 1000 Genomes Project C</collab>
+</person-group>
+<article-title>A global reference for human genetic variation</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>526</volume>
+<fpage>68</fpage>
+<lpage>74</lpage>
+<pub-id pub-id-type="doi">10.1038/nature15393</pub-id>
+<pub-id pub-id-type="pmid">26432245</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sudmant</surname>
+<given-names>PH</given-names>
+</name>
+<name>
+<surname>Rausch</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Gardner</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Handsaker</surname>
+<given-names>RE</given-names>
+</name>
+<name>
+<surname>Abyzov</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Huddleston</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Ye</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Jun</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Hsi-Yang Fritz</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An integrated map of structural variation in 2,504 human genomes</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>526</volume>
+<issue>7571</issue>
+<fpage>75</fpage>
+<lpage>81</lpage>
+<pub-id pub-id-type="doi">10.1038/nature15394</pub-id>
+<pub-id pub-id-type="pmid">26432246</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gurdasani</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Carstensen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Tekola-Ayele</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Pagani</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Tachmazidou</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Hatzikotoulas</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Karthikeyan</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Iles</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Pollard</surname>
+<given-names>MO</given-names>
+</name>
+<name>
+<surname>Choudhury</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The African genome variation project shapes medical genetics in Africa</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>517</volume>
+<issue>7534</issue>
+<fpage>327</fpage>
+<lpage>332</lpage>
+<pub-id pub-id-type="doi">10.1038/nature13997</pub-id>
+<pub-id pub-id-type="pmid">25470054</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pippucci</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Magi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Gialluisi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Romeo</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Hosking</surname>
+<given-names>FJ</given-names>
+</name>
+<name>
+<surname>Papaemmanuil</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Sheridan</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Kinsey</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Lightfoot</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Roman</surname>
+<given-names>E</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Detection of runs of homozygosity from whole exome sequencing data: state of the art and perspectives for clinical, population and epidemiological studies genome-wide homozygosity signatures and childhood acute lymphoblastic leukemia risk single nucleotide polymorphism arrays: a decade of biological, computational and technological advances</article-title>
+<source/>Hum Hered
+          <year>2014</year>
+<volume>77</volume>
+<issue>1–4</issue>
+<fpage>63</fpage>
+<lpage>72</lpage>
+<pub-id pub-id-type="doi">10.1159/000362412</pub-id>
+<pub-id pub-id-type="pmid">25060270</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Curtis</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Vine</surname>
+<given-names>AE</given-names>
+</name>
+<name>
+<surname>Knight</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Study of regions of extended homozygosity provides a powerful method to explore haplotype structure of human populations</article-title>
+<source/>Ann Hum Genet
+          <year>2008</year>
+<volume>72</volume>
+<issue>Pt 2</issue>
+<fpage>261</fpage>
+<lpage>278</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1469-1809.2007.00411.x</pub-id>
+<pub-id pub-id-type="pmid">18205893</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nothnagel</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>TT</given-names>
+</name>
+<name>
+<surname>Kayser</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Krawczak</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Spain</surname>
+<given-names>SL</given-names>
+</name>
+<name>
+<surname>Cazier</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Houlston</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Carvajal-Carmona</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Tomlinson</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Vine</surname>
+<given-names>AE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genomic and geographic distribution of SNP-defined runs of homozygosity in Europeans</article-title>
+<source/>Hum Mol Genet
+          <year>2010</year>
+<volume>19</volume>
+<issue>15</issue>
+<fpage>2927</fpage>
+<lpage>2935</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddq198</pub-id>
+<pub-id pub-id-type="pmid">20462934</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

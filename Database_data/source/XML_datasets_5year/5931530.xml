@@ -1,0 +1,1856 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29717196</article-id>
+<article-id pub-id-type="pmc">5931530</article-id>
+<article-id pub-id-type="publisher-id">24318</article-id>
+<article-id pub-id-type="doi">10.1038/s41598-018-24318-x</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>EEG Analytics for Early Detection of Autism Spectrum Disorder: A data-driven approach</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Bosl</surname>
+<given-names>William J.</given-names>
+</name>
+<address>
+<email>william.bosl@childrens.harvard.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>Helen</given-names>
+</name>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Nelson</surname>
+<given-names>Charles A.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff5">5</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0378 8438</institution-id><institution-id institution-id-type="GRID">grid.2515.3</institution-id><institution>Boston Children’s Hospital, </institution></institution-wrap>Boston, USA </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">000000041936754X</institution-id><institution-id institution-id-type="GRID">grid.38142.3c</institution-id><institution>Harvard Medical School, </institution></institution-wrap>Boston, USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0461 8879</institution-id><institution-id institution-id-type="GRID">grid.267103.1</institution-id><institution>University of San Francisco, </institution></institution-wrap>San Francisco, USA </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 7558</institution-id><institution-id institution-id-type="GRID">grid.189504.1</institution-id><institution>Boston University, </institution></institution-wrap>Boston, USA </aff>
+<aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="ISNI">000000041936754X</institution-id><institution-id institution-id-type="GRID">grid.38142.3c</institution-id><institution>Harvard Graduate School of Education, </institution></institution-wrap>Cambridge, USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>1</day>
+<month>5</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>1</day>
+<month>5</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2018</year>
+</pub-date>
+<volume>8</volume>
+<elocation-id>6828</elocation-id>
+<history>
+<date date-type="received">
+<day>15</day>
+<month>8</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>28</day>
+<month>3</month>
+<year>2018</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2018</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">Autism spectrum disorder (ASD) is a complex and heterogeneous disorder, diagnosed on the basis of behavioral symptoms during the second year of life or later. Finding scalable biomarkers for early detection is challenging because of the variability in presentation of the disorder and the need for simple measurements that could be implemented routinely during well-baby checkups. EEG is a relatively easy-to-use, low cost brain measurement tool that is being increasingly explored as a potential clinical tool for monitoring atypical brain development. EEG measurements were collected from 99 infants with an older sibling diagnosed with ASD, and 89 low risk controls, beginning at 3 months of age and continuing until 36 months of age. Nonlinear features were computed from EEG signals and used as input to statistical learning methods. Prediction of the clinical diagnostic outcome of ASD or not ASD was highly accurate when using EEG measurements from as early as 3 months of age. Specificity, sensitivity and PPV were high, exceeding 95% at some ages. Prediction of ADOS calibrated severity scores for all infants in the study using only EEG data taken as early as 3 months of age was strongly correlated with the actual measured scores. This suggests that useful digital biomarkers might be extracted from EEG measurements.</p>
+</abstract>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2018</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par2">Autism Spectrum Disorder (ASD) is defined by a heterogeneous constellation of behavioral symptoms that emerge over the first years of life. A recent Centers for Disease Control (CDC) report estimates that the prevalence of ASD in the United States is 1 in 68, a significant increase in the past decade<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. As research on ASD continues at rapid pace, the etiology and developmental course appear to be increasingly diverse, resulting in a view of ASD with diverse cognitive, behavioral and neural trajectories and subtypes<sup><xref ref-type="bibr" rid="CR2">2</xref></sup>.</p>
+<p id="Par3">High-risk infant siblings studies have demonstrated that the defining behavioral features of ASD emerge during the latter part of the first and second years of life<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. Because ASD is behaviorally and not biologically defined, a formal diagnosis of ASD before three years of age remains challenging<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR5">5</xref></sup> and children often do not receive a diagnosis until the preschool years or later<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>. Milder forms of ASD are particularly difficult to detect early, in part because a broad range of neurodevelopmental symptoms are common to several diagnoses, including ASD<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>. Even in cases of diagnostic uncertainty, reliable biomarkers that detect emerging ASD symptoms might be useful for developing appropriate early interventions<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>.</p>
+<p id="Par4">The brain develops rapidly during the first years of life and atypical neurodevelopment is likely due to a combination of genetics, biological, and environmental conditions, all compounded by adaptations that result from atypical interactions between the developing child and his or her environment<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. An emerging view is that the behavioral symptoms that define ASD may be the end result of early brain adaptation, rather than the direct consequence of ongoing neural pathology<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>. This view suggests the possibility that the primary neural impairments that lead to ASD are transitory and thus difficult to detect after a critical developmental period<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>.</p>
+<sec id="Sec2">
+<title>Neural Correlates of Behavior</title>
+<p id="Par5">Because atypical brain development that leads to ASD symptoms is likely to precede atypical behavior by months or even years, a critical developmental window for early intervention may be missed if diagnosis or screening is based solely on behavioral features. This has fueled a search for early neural correlates or biological indicators that could identify ASD in the prodromal phase.</p>
+<p id="Par6">Some models of ASD are based on atypical development of neural connectivity<sup><xref ref-type="bibr" rid="CR10">10</xref>–<xref ref-type="bibr" rid="CR12">12</xref></sup>, with excessive local connectivity within neural assemblies and deficits in long-range connectivity between functional brain regions implicated. Recent studies suggest the involvement of somatosensory, default mode, visual, and subcortical networks<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. Microstructural properties of the uncinate fasciculus in 6-month-old infants were found to predict behavioral response to joint attention three months later, indicating the potential importance of this tract in social development<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. Further, microstructural organization of the splenium of the corpus callosum was associated with atypical oculomotor function in 7-month old infants who later developed ASD<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. These studies suggest that early atypical neural function, due to atypical neural structure, may be associated with the behavioral symptoms of ASD that appear later. The challenge from a clinical perspective is how to measure atypical neural function for use in monitoring neurodevelopment.</p>
+<p id="Par7">A recent fMRI study of 59 6-month-old infants demonstrated significant differences in the brains of children who would develop a diagnosis of ASD at 24 months of age<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. While these results are scientifically promising, two significant challenges remain before biomarker measurement methods can be developed for clinical use. First, to be viable in a primary care setting, any brain measurement method should be low cost and simple to administer in the context of a well-baby checkup. Second, ASD is a spectrum disorder that exhibits a heterogeneous set of defining behavioral characteristics. A simple binary determination of ‘autism’ or ‘not-autism’ may not be adequate for broad clinical application, such as monitoring changing risk profiles as a child develops or response to therapeutic interventions.</p>
+</sec>
+<sec id="Sec3">
+<title>EEG for Functional Brain Measurement</title>
+<p id="Par8">Our previous studies have attempted to use traditional spectral power analysis to find early biomarkers for autism<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. While differences were found between high risk siblings and low risk controls, they were not correlated with outcome. A recent study using data from the same infants as in the present study found that reduced frontal high-alpha power at 3 months was associated with lower expressive language skills at 12 months, but did not predict ASD-specific outcomes. Notably, the association between 3-month frontal power and expressive language skills appeared to be developmentally time-locked to the 12-month time point, with no evidence of this association persisting over the second and third years of life in our sample<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>.</p>
+<p id="Par9">The potential for EEG to be used as a functional brain imaging modality continues to improve as new methods for analyzing and extracting information from biophysical signals are developed. Methods for analyzing complex time series produced by complex networks, such as the brain, may enable network structural differences to be inferred from time series measurements<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>, as illustrated in Fig. <xref ref-type="fig" rid="Fig1">1</xref>. Based on this, a set of nonlinear or complex system parameters or ‘invariant measures’ from EEG signals in principle should characterize the neural dynamics of the brain that generates the signals.<fig id="Fig1"><label>Figure 1</label><caption><p>Time series and complex networks are related, and methods for reconstructing essential elements of one from the other have been developed. See, for example<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>.</p></caption><graphic id="d29e354" xlink:href="41598_2018_24318_Fig1_HTML"></graphic></fig></p>
+<p id="Par10">The implication is that the complex time series obtained from EEG contains information about neural network structure that may provide valuable clues about atypical function<sup><xref ref-type="bibr" rid="CR19">19</xref>,<xref ref-type="bibr" rid="CR20">20</xref></sup>. This has clinical implications because a new generation of low cost, easy to use EEG devices are becoming available<sup><xref ref-type="bibr" rid="CR21">21</xref>,<xref ref-type="bibr" rid="CR22">22</xref></sup>, which would make routine brain measurements a possibility in a primary care setting.</p>
+<p id="Par11">The challenge for developmental clinical neuroscience is to determine which combinations of invariant measures and scalp locations are most relevant to the detection and monitoring of characteristics relevant to ASD. A data-driven approach may be sufficient for identifying useful clinical biomarkers. Data-driven discovery may also point in the direction of the likely neural correlates of relevant behavioral constructs or cognitive phenotypes<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>. The goal of this study is to demonstrate that nonlinear analysis of EEG signals, together with pattern classification methods, can extract information as early as 3 months of age that predicts an infant will develop a clinical diagnosis of ASD. Furthermore, the severity of ASD symptoms, as measured by the Autism Diagnostic Observation Scale (ADOS), can also be predicted from EEG data taken as early as 3 months of age, with strong correlation to the real ADOS scores that the child has at three years of age. Our results, while promising, point to many more questions about the underlying brain-behavior relationships that might explain why nonlinear EEG measures are useful digital biomarkers of ASD.</p>
+</sec>
+</sec>
+<sec id="Sec4" sec-type="materials|methods">
+<title>Methods</title>
+<sec id="Sec5">
+<title>Participants</title>
+<p id="Par12">Participants were infants enrolled in an IRB-approved collaborative longitudinal study conducted at Boston Children’s Hospital/Harvard Medical School and Boston University. All components of the study were approved by the IRB review boards at both institutions and are covered under IRB guidelines approved by both institutions. Written, informed consent was provided by the parents or guardians prior to their child’s participation in the study.</p>
+<p id="Par13">Participants are classified into one of three outcome groups based on their original family recruitment group and the clinical determination of whether the child had a positive or negative diagnosis for ASD at the end of the study. Infants in the low risk controls (LRC) family recruitment group had at least one typically developing older sibling and no first-degree relatives with a known developmental disorder, based on a screening questionnaire. Infants recruited into the high risk for ASD (HRA) recruitment group had an older sibling with an ASD diagnosis (not due to a known genetic disorder; e.g. Fragile X syndrome). The older siblings all had expert clinical community diagnoses, which were confirmed by a member of the study staff using the Social Communication Questionnaire (SCQ)<sup><xref ref-type="bibr" rid="CR23">23</xref></sup> or the Autism Diagnostic Observation Schedule (ADOS-2)<sup><xref ref-type="bibr" rid="CR24">24</xref></sup>. Once enrolled, infants were scheduled for visits from 3 to 36 months of age. Children who completed at least two of the visits (scheduled at 3, 6, 9, 12, 18, 24, 36 months) and completed one visit at 18 months or later, during which they were given a clinical evaluation for ASD, were included in this study. Most infants completed the final 36-month evaluation for ASD.</p>
+<p id="Par14">There were 3 outcome groups: LRC−: infants from the low risk recruitment group who did not receive an ASD diagnosis; HRA−: infants from the high-risk recruitment group who did not receive an ASD diagnosis; ASD: infants from either recruitment group who received an ASD diagnosis. Table <xref ref-type="table" rid="Tab1">1</xref> shows the number of participants in each of the family recruitment groups, their distribution into outcome groups, and the number of participants at each age. Note that not all participants provided data at every scheduled visit. The distribution of ages for the latest clinical diagnosis is also illustrated in Table <xref ref-type="table" rid="Tab1">1</xref>.<table-wrap id="Tab1"><label>Table 1</label><caption><p>The distribution of the 188 participants from each of the family recruitment groups is shown by (a) outcomes and (b) the number of EEG measurements available for analysis from each evaluation age.</p></caption><table frame="hsides" rules="groups"><thead><tr><th colspan="2" rowspan="2">(a) Family Recruitment Group</th><th colspan="3">Outcome groups</th></tr><tr><th>LRC− LRC, not autism</th><th>ASD Autism diagnosed</th><th>HRA− HRA, not autism</th></tr></thead><tbody><tr><td colspan="2">Low Risk Controls (LRC): 89</td><td>86</td><td>3</td><td>—</td></tr><tr><td>High Risk for Autism (HRA): 99</td><td></td><td>—</td><td>32</td><td>67</td></tr><tr><td rowspan="3">Age of clinical outcome determination</td><td>36 m</td><td>69</td><td>29</td><td>52</td></tr><tr><td>24 m</td><td>9</td><td>3</td><td>11</td></tr><tr><td>18 m</td><td>8</td><td>3</td><td>4</td></tr><tr><td colspan="2">
+<bold>(b) EEGs available and analyzed by age</bold>
+</td><td rowspan="2"><bold>LRC</bold>−</td><td rowspan="2">
+<bold>ASD</bold>
+</td><td rowspan="2"><bold>HRA</bold>−</td></tr><tr><td>
+<bold>Age of EEG</bold>
+</td><td>
+<bold>Number of subjects at age</bold>
+</td></tr><tr><td>3</td><td>41</td><td>14</td><td>11</td><td>16</td></tr><tr><td>6</td><td>131</td><td>69</td><td>8</td><td>43</td></tr><tr><td>9</td><td>154</td><td>73</td><td>26</td><td>53</td></tr><tr><td>12</td><td>158</td><td>77</td><td>31</td><td>49</td></tr><tr><td>18</td><td>125</td><td>56</td><td>25</td><td>44</td></tr><tr><td>24</td><td>129</td><td>60</td><td>26</td><td>43</td></tr><tr><td>36</td><td>138</td><td>65</td><td>31</td><td>42</td></tr></tbody></table></table-wrap></p>
+</sec>
+<sec id="Sec6">
+<title>Clinical Evaluations</title>
+<p id="Par15">ASD diagnoses for the participants were based on the ADOS<sup><xref ref-type="bibr" rid="CR24">24</xref></sup> and expert clinical judgment at 18, 24, or 36 months, whichever is latest. The ADOS is a semi-structured, standardized assessment that consists of social and play activities to elicit behaviors related to diagnosis of ASD. In addition to a binary diagnosis of either ASD or not-ASD, a Calibrated Severity Score (CSS) with numerical range 1–10 was obtained from the ADOS for each participant. The CSS offers a method of quantifying ASD severity with relative independence from individual characteristics such as age and verbal IQ<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>.</p>
+<p id="Par16">The ADOS was administered by research staff with extensive experience in testing children with developmental disorders and co-scored by an ADOS-reliable researcher via video recording. Cases of concern (those meeting criteria on the ADOS or coming within 3 points of cutoff) were reviewed by a licensed clinical psychologist who evaluated video recordings of behavioral assessments along with the scores from those assessments to determine final clinical judgment: no clinical concern/typically developing, ASD, or non-spectrum concerns (e.g., symptoms of ADHD, anxiety, language delay). Infants were included in the ASD group if they had a CSS score of 4 or higher and received a final clinical judgment of ASD. In total, 150 participants received a final clinical evaluation at 36 months, 23 participants at 24 months, and 15 participants at 18 months.</p>
+<p id="Par17">Final diagnostic outcomes and EEG measurements from at least two visits were available from a total of 188 children and were included in this study. For the purposes of this study, all visits were treated as independent encounters. For example, all EEG measurements taken at 12-month visits were used to predict outcomes independent of measurements taken at other ages for the same participant. Although a growth trajectory analysis was beyond the scope of this study, we performed one classification test by combining measurements from 6 months and 9 months into a single set of features for subjects who had both 6- and 9-month visits.</p>
+</sec>
+<sec id="Sec7">
+<title>EEG Collection Procedure</title>
+<p id="Par18">Infants were seated on their mothers’ laps in a dimly lit, electrical- and sound-shielded testing room. An experimenter was in the room and blew bubbles throughout the procedure to maintain the infants’ interest, limit movement and increase tolerance of the electrode net. The baby’s head was measured and marked with a washable wax pencil to ensure accurate placement of the net, which was then placed over the scalp. Prior to fitting the sensor net over the scalp, the sponges were soaked in electrolyte solution (6cc KCL/liter distilled water) in order to facilitate electrical contact between the scalp and the relevant electrode. Scalp impedances were checked on-line using NetStation software (EGI, Inc, Eugene OR), the recording software package that runs this system. For most participants, at least two minutes of baseline activity were recorded, but depending on the willingness of the infant, recording periods may have been limited to two minutes.</p>
+<p id="Par19">Continuous EEG was recorded using either a 64-channel Geodesic Sensor Net or a 128-channel HydroCel Geodesic Sensor Net (Electrical Geodesics Inc., Eugene, OR; <ext-link ext-link-type="uri" xlink:href="https://www.egi.com/research-division/geodesic-sensor-net">https://www.egi.com/research-division/geodesic-sensor-net</ext-link>) referenced online to vertex (Cz). The data were amplified, filtered (band pass 0.1-100.0 Hz), and sampled at a frequency of either 250 Hz or 500 Hz. The latter were downsampled to 250 Hz before further analysis. Signals were digitized with a 12-bit National Instruments Board (National Instruments Corp., Woburn MA). Data from 19 sensors uniformly distributed across the scalp were used in our analysis. The locations of the sensors chosen for analysis are the standard 10–20 montage: Fp1, Fp2, F7, F3, Fz, F4, F8, T7, C3, Cz, C4, T8, P7, P3, Pz, P4, P8, O1, O2. The same subset of sensors was used regardless of which Geodesic Sensor Net was used to measure the data.</p>
+</sec>
+<sec id="Sec8">
+<title>EEG Data Analysis</title>
+<p id="Par20">Each of the EEG samples was processed in an identical manner by the following steps. Continuous 30-second segments were selected from the beginning of each of the EEG recordings for each subject when the child was sitting quietly. No splicing of segments or selection based on review was performed.</p>
+</sec>
+<sec id="Sec9">
+<title>Frequency Bands</title>
+<p id="Par21">The signal or time series from each sensor was decomposed into multiple frequency bands using a wavelet transform<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. We note that the Haar wavelet transform yields a multiscale decomposition that is mathematically equivalent to the coarse-graining procedure introduced by Costa <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR27">27</xref></sup> for multiscale entropy analysis of biological signals. The coarse-graining procedure for signal decomposition has been used in previous studies for multiscale entropy analysis of EEG<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>. In the present study, we used the Daubechies (DB4) wavelet, which is very similar to the Haar wavelet, but is more commonly used for signal analysis<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>.</p>
+<p id="Par22">Using the wavelet transform, each sensor signal is decomposed into six power-of-two frequency bands that are approximately equal to the commonly used definitions of delta, theta, alpha, beta, gamma, and gamma + bands used for EEG analysis. The specific software used for the wavelet transform is publicly available, along with instructions and python code, at: <ext-link ext-link-type="uri" xlink:href="https://pywavelets.readthedocs.io">https://pywavelets.readthedocs.io</ext-link>. Table <xref ref-type="table" rid="Tab2">2</xref> shows the six frequency bands used in this study. For the remainder of this paper the standard frequency band labels will be used, but these refer specifically to the power-of-two bands shown in Table <xref ref-type="table" rid="Tab2">2</xref>.<table-wrap id="Tab2"><label>Table 2</label><caption><p>Raw EEG signals are collected with a sampling rate of 256 samples per second, then decomposed by powers of two into the frequency bands shown using a wavelet decomposition. The resulting frequency bands are approximately equivalent to the standard EEG frequency band labels.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Wavelet level</th><th>Wavelet frequency range</th><th>Approximate EEG label</th></tr></thead><tbody><tr><td>1</td><td>64–128 Hz</td><td>high gamma</td></tr><tr><td>2</td><td>32–64 Hz</td><td>gamma</td></tr><tr><td>3</td><td>16–32 Hz</td><td>beta</td></tr><tr><td>4</td><td>8–16 Hz</td><td>alpha</td></tr><tr><td>5</td><td>4–8 Hz</td><td>theta</td></tr><tr><td>6</td><td>0–4 Hz</td><td>delta</td></tr></tbody></table></table-wrap></p>
+</sec>
+<sec id="Sec10">
+<title>Nonlinear Signal Features</title>
+<p id="Par23">Nine nonlinear features were computed for each of the frequency bands derived from each of the 19 sensors used in our analysis. A broad range of nonlinear features was computed to give as complete a characterization of the signal dynamics as possible. The features computed included:</p>
+<p id="Par24">
+<list list-type="simple"><list-item><label>(i)</label><p id="Par25">Seven values derived from Recurrence Quantitative Analysis (RQA). RQA is an empirical approach to analyzing time series data that is in principle capable of characterizing all of the essential dynamics of a complex system. It has been found to be useful for analyzing “real-world, noisy, high dimensional data”<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>. Software for computing recurrence plot statistics is publicly available in the python package pyRQA 0.1.0<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. A more complete discussion of RQA analysis may be found in the literature<sup><xref ref-type="bibr" rid="CR30">30</xref>,<xref ref-type="bibr" rid="CR32">32</xref></sup>. Seven of the most commonly used recurrence plot values (RR, DET, LAM, L_max, L_entr, L_mean, and TT) were computed and used in this study.</p></list-item><list-item><label>(ii)</label><p id="Par26">Sample entropy and Detrended Fluctuation Analysis, denoted by SampE and DFA, respectively, were also computed. Sample entropy was the sole nonlinear feature used in our previous analysis of a subset of the data analyzed for this study<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. DFA quantifies a different signal property and is a measure of the “long-term memory” of a time series. It can be used to determine whether the time series is more, less, or equally likely to increase if it has increased in previous steps. SampE and DFA were computed using publicly available software “<italic>Nonlinear measures for dynamical systems”</italic> or nolds, version 0.3.2, which can be downloaded from (<ext-link ext-link-type="uri" xlink:href="https://pypi.python.org/pypi/nolds">https://pypi.python.org/pypi/nolds</ext-link>).</p></list-item></list>
+</p>
+<p id="Par27">These 9 measures and their general meaning are summarized in Table <xref ref-type="table" rid="Tab3">3</xref>. In principle, these measures characterize the dynamical features of the EEG time series, which should correlate to functional characteristics of the neural network or brain that produced the time series. Although these measures are well-established physical and mathematical values, their meaning in the context of neural science has only recently begun to be explored. To our knowledge, this study is the first application of RQA and the other measures described here to developmental neuroscience.<table-wrap id="Tab3"><label>Table 3</label><caption><p>Nonlinear invariant measures of a time series and their physical interpretation.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Nonlinear Invariant Variable</th><th>Symbol</th><th>Description</th></tr></thead><tbody><tr><td colspan="3">
+<bold>Invariant measures computed with the NOLDS software package</bold>
+</td></tr><tr><td>Sample Entropy</td><td>SampE</td><td>Sample entropy measures the complexity of a time-series, based on approximate entropy as discussed in our previous study<sup><xref ref-type="bibr" rid="CR28">28</xref></sup></td></tr><tr><td>Detrended Fluctuation Analysis</td><td>DFA</td><td>The hurst exponent is a measure of the “long-term memory” of a time series. It can be used to determine whether the time series is more, less, or equally likely to increase if it has increased in previous steps. DFA measures the Hurst parameter <italic>H</italic>, which is very similar to the Hurst exponent. The main difference is that DFA can be used for non-stationary processes</td></tr><tr><td colspan="3">
+<bold>Invariant measures derived from Recurrence Quantitative Analysis (RQA)</bold>
+</td></tr><tr><td>Entropy derived from recurrence plot</td><td>L_entr</td><td>A measure of entropy derived from the diagonal lines of the recurrence plot, most closely associated with the Shannon entropy. It is related to other measures of entropy, such as the sample entropy above.</td></tr><tr><td>Max line length</td><td>L_max</td><td>Lmax is related to the largest Lyapunov exponent of a chaotic signal, which is a dynamic complexity measure that describes the divergence of trajectories starting at nearby initial states<sup><xref ref-type="bibr" rid="CR69">69</xref></sup>. Higher Lyapunov exponents (lower Lmax values) are typically associated with pathological conditions<sup><xref ref-type="bibr" rid="CR70">70</xref>,<xref ref-type="bibr" rid="CR71">71</xref></sup>.</td></tr><tr><td>Mean line length</td><td>L_mean</td><td>The time that two segments of the recurrence plot trajectory are close to each other, and can be interpreted as the mean prediction time of the signal, a measure of chaos or divergence from an initial point</td></tr><tr><td>Recurrence rate</td><td>RR</td><td>The probability that a system state recurs in a finite time. RR has been found useful for detecting evoked response potentials (ERPs) using single trials<sup><xref ref-type="bibr" rid="CR72">72</xref></sup>. The concept is similar to periodicity, but is more general.</td></tr><tr><td>Determinism</td><td>DET</td><td>DET comes from repeating patterns in the system and is an indication of its predictability. Regular, deterministic signals, such as sine waves or deterministic chaos, will have higher DET values, while uncorrelated time series, such as random numbers, will cause low DET.</td></tr><tr><td>Laminarity</td><td>LAM</td><td>Laminarity represents fast transitions and instabilities, or the frequency of transitions from one state to another, without describing the <italic>length</italic> of these transition phases. More frequent appearance of laminar states may relate to more frequent “seeds” for synchronized dynamics<sup><xref ref-type="bibr" rid="CR73">73</xref></sup>.</td></tr><tr><td>Trapping time</td><td>TT</td><td>Trapping time is an estimate of the time that a system will remain in a given state, such as the length of transition states, as opposed to the time for the transition to take place (compare to LAM).</td></tr></tbody></table></table-wrap></p>
+</sec>
+<sec id="Sec11">
+<title>Feature Selection and Classification</title>
+<p id="Par28">The total feature set computed from each EEG session consists of 9 nonlinear values computed on 6 scales or frequency bands for each of 19 sensors, totaling 1026 features. Many of these features are likely to be correlated. For example, spatially close sensors might have correlated signal properties. SampE and L_entr are both measures of entropy, though derived by entirely different algorithms. Discovering the most informative features for predicting emerging ASD was accomplished using feature-ranking methods.</p>
+<p id="Par29">Several different learning algorithms were initially tested and compared for this study, including k nearest neighbors, random forest, and support vector machine. All were found to give similar classification results. For the remainder of this paper, all classification and prediction results reported were computed using the support vector machine (SVM) method with radial basis functions. Feature selection was done with a recursive feature elimination algorithm as described in<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>, using the rfecv method in the Python open source package scikit-learn (<ext-link ext-link-type="uri" xlink:href="http://www.scikit-learn.org">www.scikit-learn.org</ext-link>). Scikit-learn was used for all machine learning calculations, using all default parameters.</p>
+</sec>
+<sec id="Sec12">
+<title>Prediction of ASD and Symptom Severity</title>
+<p id="Par30">A prediction of the binary diagnostic outcome, either ASD or not-ASD, was computed from the nonlinear features described above using a leave-one-out cross validation procedure. The cross-validation procedure is illustrated in Fig. <xref ref-type="fig" rid="Fig2">2</xref> using three dimensions to represent three features. The procedure is as follows.<fig id="Fig2"><label>Figure 2</label><caption><p>A schematic representation of classification with a support vector machine (SVM) method is shown with 3 dimensions representing 3 features. The training set is used to create a model or separating hyperplane in the feature space. Axes of the feature space are the nonlinear EEG features. Test subjects are then classified by determining which side of the plane the subject’s features places them. ASD and LRC- subjects are used for the training set. Leave-one-out cross validation leaves out a single subject from the training set and then makes a prediction for the left-out subject. The distance of a subject from the hyperplane can be used to estimate severity. This distance was scaled to approximate the Calibrated Severity Score (CSS), where 1.0 is the lowest score for children with no autism symptoms and 10 is the highest score for the most severe autism cases.</p></caption><graphic id="d29e1047" xlink:href="41598_2018_24318_Fig2_HTML"></graphic></fig></p>
+<p id="Par31">The training set is used to find the model or separating hyperplane that divides the feature space into halves. The SVM method is a formal algorithm for finding the plane that best separates the two groups. The plane that separates two groups is illustrated in Fig. <xref ref-type="fig" rid="Fig2">2</xref>. We note that the axes in this illustration represent the nonlinear EEG features. In practice, there are as many dimensions as there are features. The training set of data containing data points for each outcome group is used to define the plane. New data points can then be classified using their EEG features to determine the location in feature space, which lies on one side of the plane or the other.</p>
+<p id="Par32">Ideally, the training set is a large set used to find the model plane and the test set is an entirely new set of subjects that are classified to find sensitivity and specificity of the model. When such large independent data sets are not available, cross validation is a process whereby a single subject is left out of the training set, and the resulting plane is then used to classify the left-out subject. This process is repeated for every subject. For our data, ASD and LRC− subjects are used for the training set with a leave-one-out cross validation scheme. The HRA− subjects are also classified, using all the ASD and LRC− subjects for the training set. Thus, the outcome of every subject is predicted from data derived from the other subjects of the same age group. This prediction can then be compared to the known outcome and determined to be true positive, true negative, false positive, or false negative. Sensitivity, specificity and PPV are computed from these quantities with standard definitions.</p>
+<p id="Par33">The distance of a subject from the hyperplane can be used to estimate severity. This distance was scaled to approximate the Calibrated Severity Score (CSS), where 1.0 is the lowest score for children with no autism symptoms and 10 is the highest score for the most severe autism cases. Prediction of CSS values used the same training sets and leave-one-out cross validation as was used for the classification of binary outcomes.</p>
+</sec>
+<sec id="Sec13">
+<title>Significance Testing</title>
+<p id="Par34">The significance of the classification results for each method was estimated empirically using the permutation approach described in<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>. Because classification accuracies were high, the empirical p-value in every case was 0, or p &lt; .01 since 100 trials were used.</p>
+</sec>
+<sec id="Sec14">
+<title>Multiscale and Frequency Bands</title>
+<p id="Par35">Multiscale entropy was first described by Costa <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR27">27</xref></sup> as a method for analyzing physiological signals. The scaling procedure generally uses the coarse-graining or averaging algorithm illustrated in Fig. <xref ref-type="fig" rid="Fig3">3</xref>. For power-of-two scales (2, 4, 8, 16, …) the time series produced by this procedure are identical to the Haar wavelet transform<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. Multiscale analysis is applied to all of the measures computed in this paper, including sample entropy, which is the primary measure for multiscale entropy.<fig id="Fig3"><label>Figure 3</label><caption><p>The coarse-graining procedure introduced by Costa <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR27">27</xref></sup> is illustrated. For powers of 2, the resulting scaled time series are identical to Haar wavelet transform approximations.</p></caption><graphic id="d29e1100" xlink:href="41598_2018_24318_Fig3_HTML"></graphic></fig></p>
+<p id="Par36">The connection between the coarse-graining algorithm and wavelets is important because a great deal is known about the properties of wavelet transforms. In particular, wavelets can be associated with common frequency bands. For example, if an EEG signal has a sampling rate of 256 Hz, then the signal contains frequencies up to 128 Hz, as determined by the standard Nyquist limit<sup><xref ref-type="bibr" rid="CR36">36</xref></sup>. Scale 2 in the coarse-graining procedure is equivalent to wavelet approximation level 1, and contains all frequencies up to one-half of the original signal, 0 to 64 Hz. The averaging process removed the highest frequencies. Continuing the averaging process gives the results shown in Table <xref ref-type="table" rid="Tab4">4</xref>, which shows the relationship between coarse-graining scales and frequency bands. The approximate frequencies used in neurophysiology, delta (0–4 Hz), theta (4–7 Hz) and so on, are also shown in Table <xref ref-type="table" rid="Tab4">4</xref>. We note that the signals recorded in our study were hardware bandpass filtered in the 0.1–100 Hz range. Thus, the band labeled high gamma has signals in the 64–100 Hz range, and the delta band has signals in the 0.1–4 Hz range.<table-wrap id="Tab4"><label>Table 4</label><caption><p>The coarse-graining procedure is mathematically identical to the Haar wavelet transform. For signal collected with a sampling rate of 256 samples per second, the frequency bands contained in the scales, wavelet approximations, and wavelet details are shown.</p></caption><table frame="hsides" rules="groups"><thead><tr><th rowspan="3">Coarse-grain averaging scales</th><th rowspan="3">Wavelet level</th><th colspan="3">Frequency range</th></tr><tr><th rowspan="2">Wavelet approximation</th><th colspan="2">Wavelet detail</th></tr><tr><th>Frequencies</th><th>EEG Band</th></tr></thead><tbody><tr><td>1</td><td>0</td><td>0–128 Hz</td><td colspan="2">original signal</td></tr><tr><td>2</td><td>1</td><td>0–64 Hz</td><td>64–128 Hz</td><td>high gamma</td></tr><tr><td>3</td><td>2</td><td>0–32 Hz</td><td>32–64 Hz</td><td>gamma</td></tr><tr><td>4</td><td>3</td><td>0–16 Hz</td><td>16–32 Hz</td><td>beta</td></tr><tr><td>8</td><td>4</td><td>0–8 Hz</td><td>8–16 Hz</td><td>alpha</td></tr><tr><td>16</td><td>5</td><td>0–4 Hz (delta)</td><td>4–8 Hz</td><td>theta</td></tr></tbody></table></table-wrap></p>
+<p id="Par37">Wavelet transforms decompose a time series similarly to the coarse-graining procedure, but also retain the details that have been removed in each step. Wavelet <italic>approximations</italic> are equivalent to the multiscale ranges, while the wavelet <italic>details</italic> contain the higher frequencies that have been removed. Thus, the multiscale procedure introduced by<sup><xref ref-type="bibr" rid="CR27">27</xref></sup> may be identically replaced by a wavelet transform if the approximations are used. Alternatively, multiscale values might be computed on the wavelet details, which contain frequency ranges that are similar to the traditional EEG signal bands.</p>
+<p id="Par38">For this study, we used the more appropriate DB4 wavelet transform to derive the wavelet details, which are power-of-two frequency bands. The closest traditional labels (delta, theta, alpha, beta, gamma, and gamma-plus) to the wavelet detail are shown in Table <xref ref-type="table" rid="Tab4">4</xref>. For the remainder of this paper, six non-overlapping frequency bands are used for all analysis and the traditional frequency band labels are used in figures. The original signal, denoted by scale 1 in the coarse-grain procedure or the level 0 wavelet, was included in our early analysis, but the feature ranking and selection algorithms never chose the full spectrum original signal for classification. Thus, only the wavelet details as shown in Table <xref ref-type="table" rid="Tab4">4</xref> are considered further.</p>
+</sec>
+<sec id="Sec15">
+<title>Required Software Packages</title>
+<p id="Par39">All computations performed for this study were carried out using python code. All required calculations used standard python packages, including numpy and scipy, and other publicly available packages listed here:</p>
+<p id="Par40">eegtools (for reading edf files): <ext-link ext-link-type="uri" xlink:href="https://github.com/breuderink/eegtools">https://github.com/breuderink/eegtools</ext-link></p>
+<p id="Par41">pywavelets (for wavelet decomposition): <ext-link ext-link-type="uri" xlink:href="https://pywavelets.readthedocs.io">https://pywavelets.readthedocs.io</ext-link></p>
+<p id="Par42">pyrqa (RQA calculations): <ext-link ext-link-type="uri" xlink:href="https://pypi.python.org/pypi/PyRQA/">https://pypi.python.org/pypi/PyRQA/</ext-link></p>
+<p id="Par43">nolds (Sample entropy and DFA calculations): <ext-link ext-link-type="uri" xlink:href="https://pypi.python.org/pypi/nolds">https://pypi.python.org/pypi/nolds</ext-link></p>
+<p id="Par44">scikit-learn (feature ranking and machine learning): <ext-link ext-link-type="uri" xlink:href="http://scikit-learn.github.io/stable">http://scikit-learn.github.io/stable</ext-link></p>
+<p id="Par45">Unless noted otherwise, default parameters were used for all function calls, such as feature selection and machine learning computations.</p>
+</sec>
+<sec id="Sec16">
+<title>EEG Data Availability</title>
+<p id="Par46">The methods described above can be applied to any set of EEG data, together with diagnostic labels. The specific participant data used for our study was consented specifically for use by researchers affiliated with the Laboratories of Cognitive Neuroscience at Boston Children’s Hospital or the Tager-Flusberg laboratory at Boston University. For this reason, the raw EEG data cannot be released publicly.</p>
+</sec>
+</sec>
+<sec id="Sec17" sec-type="results">
+<title>Results</title>
+<p id="Par47">Three principle results were found and are reported here.<list list-type="order"><list-item><p id="Par48"><italic>Early detection of emerging ASD</italic>. Classification methods were able to distinguish the ASD from the LRC− infants with nearly 100% sensitivity and specificity using EEG measurements from each age beginning at 3 months. The HRA− outcome group was also classified with significantly high accuracy, but presents challenges for cases for which the EEG data places them near the diagnostic borderline. A dip in predictive accuracy is seen at 12 months of age.</p></list-item><list-item><p id="Par49"><italic>Quantitative Estimate of CSS</italic>. The severity of ASD symptoms, as determined by the CSS, was predicted from EEG measurements taken from each age beginning at 3 months. The predicted scores correlated relatively strongly with the actual CSS scores.</p></list-item><list-item><p id="Par50"><italic>Significant Differences in ASD Features</italic>. Significant differences were found between the ASD and LRC− groups for many of the nonlinear measures computed in this study. An apparent shift in the difference between ASD and not-ASD mean group values is evident at about 12 months of age.</p></list-item></list></p>
+<p id="Par51">These results are described in more detail in the following sections.</p>
+<sec id="Sec18">
+<title>Early Detection of Emerging ASD</title>
+<p id="Par52">Participants in this study were measured at 3, 6, 9, 12, 18, 24, and 36 months, but not every participant was measured at every possible age. Thus, for predictions, the set of all measurements at each age was treated independently and used in a leave-one-out cross validation computation to determine predictive accuracy of the features. Three sets of classification results are shown in Table <xref ref-type="table" rid="Tab5">5</xref>. As noted previously, a classification experiment was also performed by simply combining 6- and 9-month measurements for subjects that came for both of these visits.<table-wrap id="Tab5"><label>Table 5</label><caption><p>Predictive classification of 36-month outcomes based on EEG feature classification. Sens = Sensitivity, Spec = Specificity, PPV = Positive Predictive Value. The age represents the age at which EEG was taken. The ‘6 + 9’ row was derived by combining all nonlinear features from measurements at 6 and 9 months from participants who had both visits. Columns (a) are results from classifying low risk controls without autism (LRC−) and ASD infants. (b) results from classifying the outcome of all participants. The last set of results, (c) was obtained by computing simulated CSS scores based on distance from the model hyperplane, as illustrated in Fig. <xref ref-type="fig" rid="Fig2">2</xref>, then removing participant scores that fell in the 3.5 to 4.5 range. These were labeled as “uncertain”. Sensitivity, specificity, and PPV were then computed for all of the remaining participants.</p></caption><table frame="hsides" rules="groups"><thead><tr><th rowspan="2">Age of testing</th><th colspan="3">N subjects</th><th colspan="3">(a) ASD &amp; LRC− only</th><th colspan="3">(b) ASD &amp; (LRC− + HRA−)</th><th colspan="3">(c) ASD &amp; (LRC− + HRA−) with uncertain HRC− removed</th><th rowspan="2">Number of Uncertain HRA−</th></tr><tr><th>LRC−</th><th>ASD</th><th>HRA−</th><th>Sens</th><th>Spec</th><th>PPV</th><th>Sens</th><th>Spec</th><th>PPV</th><th>Sens</th><th>Spec</th><th>PPV</th></tr></thead><tbody><tr><td>3</td><td>14</td><td>11</td><td>16</td><td>0.82</td><td>1.0</td><td>1.0</td><td>0.82</td><td>0.99</td><td>0.97</td><td>0.82</td><td>0.92</td><td>0.82</td><td>4</td></tr><tr><td>6</td><td>70</td><td>18</td><td>43</td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.99</td><td>0.95</td><td>1.0</td><td>0.99</td><td>0.95</td><td>15</td></tr><tr><td>9</td><td>75</td><td>26</td><td>53</td><td>0.96</td><td>1.0</td><td>1.0</td><td>0.96</td><td>0.90</td><td>0.65</td><td>0.96</td><td>1.0</td><td>1.0</td><td>28</td></tr><tr><td>6 + 9</td><td>62</td><td>15</td><td>39</td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.96</td><td>0.79</td><td>1.0</td><td>1.0</td><td>1.0</td><td>7</td></tr><tr><td>12</td><td>78</td><td>31</td><td>49</td><td>0.87</td><td>1.0</td><td>1.0</td><td>0.87</td><td>0.90</td><td>0.71</td><td>0.90</td><td>0.93</td><td>0.78</td><td>17</td></tr><tr><td>18</td><td>56</td><td>25</td><td>44</td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.90</td><td>0.71</td><td>1.0</td><td>0.98</td><td>0.93</td><td>17</td></tr><tr><td>24</td><td>60</td><td>26</td><td>43</td><td>0.96</td><td>1.0</td><td>1.0</td><td>0.96</td><td>0.88</td><td>0.67</td><td>1.0</td><td>0.96</td><td>0.87</td><td>11</td></tr><tr><td>36</td><td>65</td><td>21</td><td>42</td><td>0.95</td><td>1.0</td><td>1.0</td><td>0.95</td><td>0.89</td><td>0.63</td><td>0.95</td><td>1.0</td><td>1.0</td><td>9</td></tr></tbody></table></table-wrap></p>
+<p id="Par53">Leave-one-out cross validation was used to predict the outcome of every subject from data derived from the other subjects of the same age group. This prediction can then be compared to the known outcome and determined to be true positive, true negative, false positive, or false negative. Sensitivity, specificity, and positive predictive values were computed from the usual definitions.</p>
+<p id="Par54">Set (a), labeled “ASD and LRC− Only”, used only these two outcome groups in the classification calculations. These two groups were considered the end-point cases with either no ASD symptoms, or a confirmed diagnosis of ASD. At every age from 3 to 36 months, classification accuracy between LRC− and ASD groups was excellent, with perfect specificity and positive predictive value (PPV). However, an apparent dip in sensitivity occurs at 12 months. For subjects that participated in both 6- and 9-month visits, EEG measurements were also combined into a single set containing nonlinear features from both measurements as a simple test of how accuracy might improve with measurements from more than one age.</p>
+<p id="Par55">The calculations for the next classification, labeled (b) ASD &amp; (LRC− + HRA−) in Table <xref ref-type="table" rid="Tab5">5</xref>, included all participants. The final predicted binary outcome of the HRA− participants is significantly accurate, but less so than for the two other outcome groups (LRC− and ASD), resulting in lower overall specificity and PPV. The accuracy of the HRA− outcome predictions was better at younger ages (3 to 9 months), then dipped in accuracy starting at 12 months.</p>
+<p id="Par56">As will be explained more fully in the next section, the distance of a participant’s EEG features from the separating plane can be computed to provide a simulated CSS score. In general, a score of 4 or above is considered indicative of ASD. Using this criterion, a score between 3.5 and 4.5 might be considered “too close to call” or uncertain. Using this threshold, scores in this range we labeled as ‘uncertain’ and the remaining participants were classified. The results of this classification are in the columns of Table <xref ref-type="table" rid="Tab5">5</xref> denoted by (c). For these results, every participant was labeled as either ASD, not-ASD, or uncertain. We note that when 6 and 9 month features for each participant were combined, the classification accuracy was 100%, with only 7 of 39 HRA− infants labeled uncertain. Predictions at 12 months of age were consistently the lowest.</p>
+<p id="Par57">In summary, the classification of the two primary groups, ASD and LRC− was high at every age from 3 months to 36 months. HRA− infants were more difficult to classify, perhaps because some exhibit subtle ASD symptoms and thus their EEG features are intermediate between not-ASD and ASD features (Charman <italic>et al</italic>., 2016). Empirical p-values<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> were exactly 0.0 after 100 trial classifications with shuffled labels for every method at every age, demonstrating that the classification accuracy was unlikely to be due to chance.</p>
+</sec>
+<sec id="Sec19">
+<title>Quantitative Estimate of ADOS CSS</title>
+<p id="Par58">While an early binary prediction of a future diagnosis of ASD is of clinical value, an early estimate of future severity of ASD symptoms might be of greater utility for planning services and interventions, as well as for monitoring changes related to early therapy.</p>
+<p id="Par59">Using the method described previously, and illustrated in Fig. <xref ref-type="fig" rid="Fig2">2</xref>, estimates of CSS values were computed from EEG nonlinear features, treating data at each age independently as before. A plot of predicted CSS values, along with confidence intervals, are shown in Fig. <xref ref-type="fig" rid="Fig4">4</xref>. The measured CSS values (with assessment ages as noted in the methods section) are also shown as solid colored lines for reference. Correlation coefficients were computed for measured CSS values for each child and the predicted values. These values are shown as Xs connected by a black line.<fig id="Fig4"><label>Figure 4</label><caption><p>Measured CSS scores for each outcome group (solid lines), along with predicted scores derived from EEG features at each age are shown (dashed lines). Confidence intervals are shaded for predicted values. The age refers to the age at which EEG data was collected and used for the prediction. Correlation coefficients between predicted scores and the measured CSS values are shown by Xs if the axis values are multiplied by 10<sup>−1</sup>.</p></caption><graphic id="d29e1832" xlink:href="41598_2018_24318_Fig4_HTML"></graphic></fig></p>
+<p id="Par60">Predicted LRC− CSS scores are quite low, with narrow confidence intervals, as are the assessed CSS values. Similarly, the predicted ASD scores average close to 5, similar to the actual CSS values. Predicted scores computed at all ages for both LRC− and ASD at are close to the actual measured scores.</p>
+<p id="Par61">The predicted HRA− scores are intermediate between the LRC− and ASD scores, and considerably higher than the actual CSS values for the HRA− group. Correlation coefficients are strong for predictions at all ages, though we note, as in the previous analysis, a decline at age 12.</p>
+<p id="Par62">In summary, the distance from the model classification hyperplane enabled an estimated ADOS calibrated severity score to be computed from EEG features alone as early as 3 months of age. The estimated scores were strongly correlated with the actual 36-month CSS values.</p>
+</sec>
+<sec id="Sec20">
+<title>Significant Group Differences</title>
+<p id="Par63">Significant differences between the ASD and LRC− groups were found in several sensors, frequency bands, and nonlinear measures, as shown in Figs <xref ref-type="fig" rid="Fig5">5</xref>–<xref ref-type="fig" rid="Fig7">7</xref>. These plots display differences between group values using color for every nonlinear value, at every sensor location (horizontal axis of subplots) and every frequency band (vertical axis on subplots). Red colors indicate that the values for this feature are higher in the ASD group. Blue colors indicate that ASD values are lower for that feature. Color saturation (darker red or darker blue) is correlated to the significance of the group differences. The scale on the right of the figure shows p-values of the color saturation. White areas with washed-out color indicate p-values close to 1.0, hence no significant differences.<fig id="Fig5"><label>Figure 5</label><caption><p>Differences between ASD and LRC− group values for SampE, DFA, and DET are shown using color for every nonlinear value. The vertical axis for each subplot represents six frequency bands, from low (delta) to high (gamma+), as defined in Table <xref ref-type="table" rid="Tab2">2</xref>. The horizontal axis for each subplot is the scalp location. The axis labels are shown in a single large horizontal label across the bottom of the plot. The left or right side of each subplot corresponds to left or right sensors, respectively. Centrally located sensor values are in the center of the subplots. Red colors indicate that the values for this feature are higher in the ASD group. Blue colors indicate that ASD values are lower for that feature. Color saturation (darker red or darker blue) is correlated to the significance of the group differences. The scale on the right of the figure shows p-values of the color saturation. White areas with washed-out color indicate p-values close to 1.0, hence no significant differences.</p></caption><graphic id="d29e1861" xlink:href="41598_2018_24318_Fig5_HTML"></graphic></fig><fig id="Fig6"><label>Figure 6</label><caption><p>Similar to Fig. <xref ref-type="fig" rid="Fig5">5</xref>: differences between ASD and LRC− group values for RR, L_max, and TT are shown using color for every nonlinear value.</p></caption><graphic id="d29e1873" xlink:href="41598_2018_24318_Fig6_HTML"></graphic></fig><fig id="Fig7"><label>Figure 7</label><caption><p>Similar to Fig. <xref ref-type="fig" rid="Fig5">5</xref>: differences between ASD and LRC− group values for LAM, L_mean, and L_entr are shown using color for every nonlinear value.</p></caption><graphic id="d29e1885" xlink:href="41598_2018_24318_Fig7_HTML"></graphic></fig></p>
+<p id="Par64">The plots can be interpreted as follows: The vertical axis for each subplot represents six frequency bands, from low (delta) to high (gamma+), as defined in Table <xref ref-type="table" rid="Tab4">4</xref>. The horizontal axis for each subplot is the scalp location. The axis labels are shown in a single large horizontal label across the bottom of the plot. The left or right side of each subplot corresponds to left or right sensors, respectively. Centrally located sensor values are in the center of the subplots.</p>
+<p id="Par65">Though these plots contain a lot of detailed information, two main points are evident. First, there are many significant differences between ASD and LRC− groups, where significance level is determined by a strict Bonferroni criterion of p &lt; 5 × 10<sup>−5</sup>, with 1026 features assumed to be independent. This is shown by the dark or saturated red and blue values and circled. Secondly, there is a clear shift from mostly blue to red (SampE and DFA) or from mostly red to blue (all other nonlinear values) as age increases from the 3–12 month range to 12–36 month range. That is, a shift is occurring at around 12 months of age.</p>
+</sec>
+<sec id="Sec21">
+<title>Developmental Trends in Selected Features</title>
+<p id="Par66">Several scientific questions that emerge from this work concern the fundamental neurophysiological explanations for the nonlinear features, sensors, and frequencies that are correlated with or predictive of ASD. Detailed answers are beyond the scope of this research. It is hoped that this study will encourage other researchers to contribute to this approach to help further develop the neurodevelopmental applications of nonlinear EEG analysis.</p>
+<p id="Par67">Visual inspection of Figs <xref ref-type="fig" rid="Fig5">5</xref>–<xref ref-type="fig" rid="Fig7">7</xref> reveals that several nonlinear values and sensor regions appear to exhibit significant differences among the three groups. First, we note that several features derived from RQA showed similar developmental trends (DET, L_max, RR) and thus may contain redundant information. DET may be representative of these values. Other features showed trends that did not appear to differentiate the three groups. Sample entropy appeared to follow a different trend than the RQA features and thus may represent independent information from the other measures. Thus, as an initial examination of developmental trends in these nonlinear features, SampE and DET were selected for closer review. Trends in these values in selected brain regions are shown in growth plots in Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref> and discussed briefly.<fig id="Fig8"><label>Figure 8</label><caption><p>Developmental trajectories for SampE in the left temporal region (T7 sensor) in higher frequencies (beta + gamma) for ASD, LRC−, and HRA−.</p></caption><graphic id="d29e1923" xlink:href="41598_2018_24318_Fig8_HTML"></graphic></fig><fig id="Fig9"><label>Figure 9</label><caption><p>Developmental trajectories for SampE in the right temporal-parietal region (T8 + P4 + P8 sensors) in frequencies theta through gamma for ASD, LRC−, and HRA−.</p></caption><graphic id="d29e1932" xlink:href="41598_2018_24318_Fig9_HTML"></graphic></fig><fig id="Fig10"><label>Figure 10</label><caption><p>Developmental trajectories for DET in the left lateral-frontal region (F7 sensor) in frequencies theta through gamma for ASD, LRC−, and HRA−.</p></caption><graphic id="d29e1942" xlink:href="41598_2018_24318_Fig10_HTML"></graphic></fig><fig id="Fig11"><label>Figure 11</label><caption><p>Developmental trajectories for DET in the entire frontal region (Fp1 + F7 + Fz + F8 + Fp2 sensors) in higher frequencies (beta + gamma) for ASD, LRC−, and HRA−.</p></caption><graphic id="d29e1951" xlink:href="41598_2018_24318_Fig11_HTML"></graphic></fig><fig id="Fig12"><label>Figure 12</label><caption><p>Developmental trajectories of SampE for the posterior region (O1 + O2 sensors) in low frequency (delta) for ASD, LRC−, and HRA−.</p></caption><graphic id="d29e1960" xlink:href="41598_2018_24318_Fig12_HTML"></graphic></fig></p>
+<p id="Par68">Research on physiological signals has consistently revealed that lower entropy over many scales or frequency bands is often associated with pathological conditions<sup><xref ref-type="bibr" rid="CR27">27</xref>,<xref ref-type="bibr" rid="CR37">37</xref>–<xref ref-type="bibr" rid="CR39">39</xref></sup>. Higher determinism (DET) in EEG signals was found to be associated with absence epilepsy and autism<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>. Sample Entropy and DET represent different signal qualities that are not fully understood in the context of neurophysiology, but, as discussed above, appear to be independent of each other. We emphasize again that the this is only an initial evaluation of the many features that have been used in this study and further research will be required to fully explore the neurophysiological meaning of nonlinear EEG analysis.</p>
+<p id="Par69">Developmental trends in either SampE or DET are now reviewed in one of five brain regions that appear to be relevant to ASD. The plot lines shown in Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref> are derived from the value of the nonlinear feature, either SampE or DET, by averaging all the values at the sensor(s) indicated, and averaging over all the indicated frequencies. Plots for each sensor (19 of them), every frequency band (6), and every nonlinear value (9) may be revealing in future studies, but is well beyond the scope of this paper.</p>
+</sec>
+<sec id="Sec22">
+<title>Left temporal</title>
+<p id="Par70">The T7 sensor reveals that SampE in higher frequencies (beta and gamma) follows a different trajectory in the LRC− group than in the other groups. From 3–9 months, HRA− and ASD groups are similar, and different from the LRC− group. These are seen in Fig. <xref ref-type="fig" rid="Fig8">8</xref>. Thereafter, from 9 to 36 months, HRA− and LRC− are very close, while the ASD group first decreases from 9 to 18 months, then increases and crosses the other two trajectories.</p>
+</sec>
+<sec id="Sec23">
+<title>Right temporal-parietal</title>
+<p id="Par71">Figure <xref ref-type="fig" rid="Fig9">9</xref> shows changes in sample entropy in the right temporal-parietal region (sensors T8, P4, P8). Frequencies in the theta, alpha, beta, and gamma bands were found to have similar trends and magnitudes, so are considered as a whole here. The sample entropy is similar in all three groups until 6 months, but then diverges significantly by 9 months and the groups continue to diverge through 36 months, maintaining consistent and significant differences. The ASD and LRC− groups are the farthest apart, with the HRA− group having values intermediate between the higher LRC− and the lower ASD entropy values. We note that the HRA− group appears to follow the ASD trend from 9 to 12 months, but then stops the downward trend of the ASD group and tends to normalize back toward the LRC− group, similar to the trajectory in T7 as seen in Fig. <xref ref-type="fig" rid="Fig8">8</xref>.</p>
+</sec>
+<sec id="Sec24">
+<title>Left frontal-temporal (F7)</title>
+<p id="Par72">We see in Fig. <xref ref-type="fig" rid="Fig10">10</xref> that DET in frequencies theta through gamma is consistently lower in the LRC− group, distinct from both the HRA− and ASD groups, as early as 3 months. The trajectories of the three groups converge at 12–18 months, then diverge again. The intermediate HRA− group appears to follow the ASD group more closely than the LRC− group. These findings suggest that classification at early ages (3–9 months) would be better using features from this region, with less discriminatory ability around 12 months of age.</p>
+</sec>
+<sec id="Sec25">
+<title>Frontal</title>
+<p id="Par73">As shown in Fig. <xref ref-type="fig" rid="Fig11">11</xref>, DET in the entire frontal region (F7, F3, Fp1, Fp2, F4, F8) across frequency bands theta-alpha-beta-gamma are not significantly different until after 15–18 months of age, after which the values for the LRC− group drop significantly away from the other two groups. Lower DET is generally associated with healthy neural signals<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>. Values for the ASD group continues to rise moderately from 9 to 36 months. The HRA− group remains intermediate between the LRC− and ASD groups consistently after about 12 months. This seems to be consistent with the later development of the frontal region, where differentiation between groups is not apparent until after 12 months.</p>
+</sec>
+<sec id="Sec26">
+<title>Posterior region</title>
+<p id="Par74">SampE of the delta frequency band in the posterior region (O1, O2 sensors) is similar across all three groups until 9 months of age, when the ASD group diverges from the LRC− and HRA− groups, which follow similar trajectories. The sample entropy is lower in the ASD group throughout. Integrated EEG and eye-tracking studies found atypicalities in occipital delta rhythms in children with ASD<sup><xref ref-type="bibr" rid="CR40">40</xref></sup>. The authors suggest that development in this brain region is associated with joint attention. Joint attention begins to emerge in typical infants at about 9 months and is fully developed by 18 months<sup><xref ref-type="bibr" rid="CR41">41</xref></sup>. The consistently lower sample entropy seen in Fig. <xref ref-type="fig" rid="Fig12">12</xref> may be related to underdevelopment of joint gaze in infants later diagnosed with ASD.</p>
+</sec>
+</sec>
+<sec id="Sec27" sec-type="discussion">
+<title>Discussion</title>
+<p id="Par75">The goal of this study was to demonstrate that nonlinear values computed from relatively short segments of resting state EEG signals contain information that may be used as biomarker profiles to enable an early prediction of a future outcome of ASD. The finding that several measures of signal complexity, taken from multiple brain regions, rather than a single variable or biological parameter, is consistent with the view of ASD as an “an emergent disorder that is characterized by the loss of social communication skills in the period between 9 and 24 months … defined on the basis of alterations in the developmental trajectories across multiple domains”<sup><xref ref-type="bibr" rid="CR42">42</xref></sup>.</p>
+<p id="Par76">Behavioral markers of ASD, such as differences in social engagement, have not yet been identified within the first year of life. It has been proposed that ASD emerges only after a typical developmental trajectory in the first 12 months becomes atypical in later infancy and toddlerhood<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. Moreover, “these core developmental constructs appear to be more sensitive to risk status (i.e. high risk versus low risk) rather than ASD outcome”<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. Alternatively, it may be that atypical behaviors associated with core ASD symptoms are not observed in early infancy. In either case, it is possible that subtle behavioral characteristics might introduce artifacts into the EEG signals, particularly in frontal regions due to facial muscles or eye movements. However, since efforts to explicitly measure these in young infants have so far failed, it is unlikely that artifacts could completely account for the results presented here.</p>
+<p id="Par77">A recent study using data from the same infants used in the present manuscript found that reduced frontal high-alpha power at 3 months was associated with reduced expressive language skills at 12 months, but did not predict ASD-specific outcomes. No evidence that this association persists over the second and third years of life was found<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. An earlier study with this data examined the relationship of spectral power to outcome<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. While group differences were found, they were not predictive of outcome. A review of EEG analysis methods for detecting ASD risk concluded that “current EEG signal analysis is not able to identify children with ASD with sufficient sensitivity or specificity to be clinically useful at this time”<sup><xref ref-type="bibr" rid="CR44">44</xref></sup>. The methods reviewed included spectral power analysis (21 studies), functional connectivity by correlation or synchronization (12 studies), and information dynamics, which includes nonlinear methods (7 studies). Nonlinear methods were the least studied EEG analysis method, yet showed promise as an early biomarker for ASD<sup><xref ref-type="bibr" rid="CR33">33</xref>,<xref ref-type="bibr" rid="CR37">37</xref></sup>, and many later studies. A review of EEG methods for mild traumatic brain injury (mTBI) detection also found that spectral power measures were not adequate as a biomarker, yet nonlinear methods were described as having as yet “unknown, but high perceived potential”<sup><xref ref-type="bibr" rid="CR45">45</xref></sup>.</p>
+<p id="Par78">The motivation for selecting the signal features was simply to use a broad range of features that might be used for functional characterization of a complex system through time series analysis<sup><xref ref-type="bibr" rid="CR36">36</xref>,<xref ref-type="bibr" rid="CR46">46</xref>,<xref ref-type="bibr" rid="CR47">47</xref></sup>. Power in each frequency band was computed, but feature-ranking algorithms did not select power as a contributor to the predictions, so it was not included here. The list of features used here is unlikely to be complete, as new approaches will continue to be developed. However, multiscale analysis of entropy, DFA, and the several recurrence quantitative analysis (RQA) values are a reasonably complete list at this time. RQA is a relatively new nonlinear analysis approach that purports to give a complete characterization of nonlinear dynamical systems and might be sufficient alone<sup><xref ref-type="bibr" rid="CR32">32</xref>,<xref ref-type="bibr" rid="CR48">48</xref></sup>. This remains to be evaluated. RQA contains measures of entropy, a measure related to the Lyapunov exponent, and several others. In future research, we will work to optimize this list and identify the most diagnostically useful measures, as well as the most useful sensor locations and scales or frequency bands. But this will be a very large optimization problem that will likely require much larger datasets and a concerted effort by the cognitive neuroscience community together with data scientists.</p>
+<p id="Par79">It is not known how many EEG sensors, or what placement, is optimal for an effective biomarker profile to detect ASD. The 64 or 128 sensor nets chosen for this study were found to be relatively easy to place on young infants, and were well-tolerated by participants. For this study, a 19-sensor subset was initially used. From a purely computational perspective, even using 19 sensors results in a large feature set, as discussed previously and illustrated in Figs <xref ref-type="fig" rid="Fig5">5</xref>–<xref ref-type="fig" rid="Fig7">7</xref>. Some studies have suggested that 19 sensors might be sufficient to detect ASD<sup><xref ref-type="bibr" rid="CR20">20</xref>,<xref ref-type="bibr" rid="CR49">49</xref></sup>. Thus, nineteen sensors uniformly distributed across the scalp using the standard 10–20 montage were chosen in this study as the minimum necessary to sample most of the scalp. Because predictive results were excellent with this set of sensors, there was no need to incorporate more than our initially chosen 19 sensors. Future studies may explore whether fewer sensors are adequate, or whether incorporating more sensors, perhaps focused in certain regions, would enable greater accuracy, or detection of a variety of ASD subtypes. A practical protocol for incorporating EEG measurements into primary care will have to consider issues such as cost, ease of use, and tolerance by infants and children of all ages, but these questions are beyond the scope of this study.</p>
+<p id="Par80">Although the number of infants available for the 3 month assessments is approximately one-third the number at other age groups (41 total: 11 ASD, 14 LRC−, 16 HRA), the size of the data set is still sufficient to draw meaningful conclusions. A recent study used 3-month data for analysis and found significant results<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. The results found at 3 months are consistent with those at 6 months, and the trend from 3–6–9 and so on, is consistent. This at least suggests that significant and potentially useful information can be found at 3 months of age. Taken together, the 3-month data does not detract from results and conclusions from the other age groups, and adds support to the hypothesis that neural correlates of a later diagnosis of ASD may be found before 6 months of age, possibly 3 months or even earlier.</p>
+<p id="Par81">Although the EEG measurements used in this study are different from the functional MRI measures used in the recent study by<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, the machine learning methodology used to predict ASD outcomes in the first year of life is similar in both studies, and relatively standard. Our approach to analyzing EEG as a set of time series produced by a complex system yields similar predictive results. Moreover, our results suggest that measurable brain activity as early as 3 months of age may be sufficient to predict the severity of ASD symptoms years later.</p>
+<p id="Par82">Recently, performance-based measures such as atypical eye gaze patterns<sup><xref ref-type="bibr" rid="CR50">50</xref>–<xref ref-type="bibr" rid="CR52">52</xref></sup>, unusual vocalization<sup><xref ref-type="bibr" rid="CR51">51</xref></sup>, or fixation on geometric patterns<sup><xref ref-type="bibr" rid="CR53">53</xref></sup> have highlighted the many potential early markers of ASD risk. Many brain recording (ERP) and imaging techniques such as DTI<sup><xref ref-type="bibr" rid="CR54">54</xref>,<xref ref-type="bibr" rid="CR55">55</xref></sup> and sleep fMRI<sup><xref ref-type="bibr" rid="CR53">53</xref></sup> have shown great promise to identify brain correlates of prodromal ASD, but may not be practical for routine testing of normal infants due to their cost and difficulty. The significant EEG feature differences found in our study may be neural correlates of these behavioral measures and is an area for future exploration. For example, the quantitative results in Figs <xref ref-type="fig" rid="Fig5">5</xref>–<xref ref-type="fig" rid="Fig7">7</xref> might be correlated with specific behavioral measures.</p>
+<p id="Par83">Significant differences were found in a number of EEG features, as shown graphically in Figs <xref ref-type="fig" rid="Fig5">5</xref>–<xref ref-type="fig" rid="Fig7">7</xref>. Visual inspection reveals that a subtle but significant change occurs at about 12 months. More focused examination of changes in specific regions in sample entropy and determinism reveal that the convergence in the three months before and after 12 months is consistent across most regions, features, and frequency ranges. This can also be seen in the regional trajectories in Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref>.</p>
+<p id="Par84">The neural interpretation of nonlinear electrophysiological results presented here require further extensive research, analogous perhaps to the micro- and macro- neural structural interpretation of Diffusion Tensor Imaging (DTI) indices that are still subject to ongoing research<sup><xref ref-type="bibr" rid="CR56">56</xref></sup>. Nevertheless, some general interpretations are suggested by our results. Atypical development in the frontal and temporal lobes are believed to be involved in ASD<sup><xref ref-type="bibr" rid="CR56">56</xref>,<xref ref-type="bibr" rid="CR57">57</xref></sup>. The left frontal (Fig. <xref ref-type="fig" rid="Fig10">10</xref>) and total bilateral frontal (Fig. <xref ref-type="fig" rid="Fig11">11</xref>) trajectories appear to support this. Divergence of ASD in both of these regions appears after 18 months of age. Since frontal regions develop later than posterior regions, these may not be as useful for early detection of ASD.</p>
+<p id="Par85">Atypical lateralization of language areas has been found to be common in people with ASD<sup><xref ref-type="bibr" rid="CR58">58</xref>,<xref ref-type="bibr" rid="CR59">59</xref></sup>, including reduced structural asymmetry in fronto-temporal language regions, with more atypical asymmetries linked to more substantive language impairment<sup><xref ref-type="bibr" rid="CR60">60</xref></sup>. Typical Sylvian Fissure (SF) asymmetry has been associated with typical anterior and posterior parietal asymmetry<sup><xref ref-type="bibr" rid="CR59">59</xref></sup>. Finch <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR61">61</xref></sup> found differences in lateralization patterns of ERPs to speech stimuli across the same groups as the present study by 12 months of age, with the ASD group showing reversed lateralization compared to the LRC− group<sup><xref ref-type="bibr" rid="CR61">61</xref></sup>. Taken together, significant differences between ASD and non-ASD subjects may be present as early as 12 months or before in temporal, frontal and temporal-parietal regions.</p>
+<p id="Par86">The differing trajectories in left temporal (T7) region for our three groups, as shown in Fig. <xref ref-type="fig" rid="Fig8">8</xref>, may reflect differences in a critical auditory process that develops during this time. We speculate that the deviation of the ASD development in this region from the LRC− group is related to auditory processing.</p>
+<p id="Par87">Figure <xref ref-type="fig" rid="Fig9">9</xref> shows the HRA− and ASD groups following parallel paths until 9 months, significantly different from the LRC− group, in the right temporal-parietal region. Starting at 12 months, the HRA− curve breaks from the ASD trajectory and begins to parallel the LRC− group, though at an intermediate level. Both EEG and MEG studies show atypical brain activity in children with autism in primary and association auditory cortices<sup><xref ref-type="bibr" rid="CR62">62</xref></sup>. This atypical activity may be reflected by the significantly different entropy levels found in the right temporal-parietal region after 6 months.</p>
+<p id="Par88">An apparent shift in the EEG-derived values at 12 months can be seen in the overall feature maps of Figs <xref ref-type="fig" rid="Fig5">5</xref>–<xref ref-type="fig" rid="Fig7">7</xref> as well as in some of the regional curves shown in Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref>. This 12-month shift may correspond to the drop accuracy of HRA− classification as that occurs around this age. In Table <xref ref-type="table" rid="Tab5">5(b)</xref>, HRA− prediction is &gt;95% for 3 and 6 month infants, then drops to between 63% and 71% thereafter (79% if 6 and 9 month values are combined). Also, the numbers of uncertain participants that are too close to the dividing plane increases considerably in the 9 to 12 month range and remains high thereafter.</p>
+<p id="Par89">One of the future challenges with our analysis is to create developmental high-dimensional trajectories that cannot be visualized in three dimensions. The trajectories in Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref> show distinct changes and differences between the three groups that may be indicators of atypical developmental paths in those regions that are associated with the later emergence of autistic characteristics.</p>
+<sec id="Sec28">
+<title>Predicted Severity Scores</title>
+<p id="Par90">The relatively strong correlation between predicted and actual measured CSS scores suggests that the EEG analysis presented herein may be useful not only as a means of predicting a future diagnosis of ASD, but also for assessing the severity of future symptoms. We note that a number of participants labeled as ASD had ADOS summary scores of 1 or 2, which and some non-ASD participants in the HRA− group had ADOS scores of 3 to 5. The correlations are reduced considerably by these seemingly inconsistent or heterogeneous summary scores. The predicted summary scores for the HRA− group are somewhat higher than the actual scores, which are only slightly higher than the LRC− group. It is not known which scores might be more closely indicative of actual real-world behaviors. Importantly, the predicted summary scores predict the actual group membership quite well, with relatively narrow confidence intervals around the mean.</p>
+<p id="Par91">Research suggests that features of ASD are not restricted to individuals who are diagnosed with ASD, and that there is pronounced variation within the general population relating to ASD traits, which reflect similar (though less severe) social-cognitive and behavioral features to those observed in ASDs<sup><xref ref-type="bibr" rid="CR63">63</xref></sup>. Cognitive tests in another study revealed similarities between children with ASD and non-ASD siblings of children with ASD on standard intelligence tests, suggesting that the common cognitive profile could be an intermediate phenotype of this syndrome<sup><xref ref-type="bibr" rid="CR64">64</xref></sup>. Studies of older children have found that siblings and parents are more likely to show mild impairments in language<sup><xref ref-type="bibr" rid="CR65">65</xref>,<xref ref-type="bibr" rid="CR66">66</xref></sup>, non-verbal communication (Ruser <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR66">66</xref></sup>), theory of mind<sup><xref ref-type="bibr" rid="CR67">67</xref>,<xref ref-type="bibr" rid="CR68">68</xref></sup> and face processing compared to controls<sup><xref ref-type="bibr" rid="CR68">68</xref></sup>. These findings about the heterogeneity of ASD in the general population suggest that our results regarding the CSS scores might be expanded to include more refined subtypes of ASD.</p>
+<p id="Par92">The results in Table <xref ref-type="table" rid="Tab5">5</xref> warrant further examination. When training a classifier to recognize EEG features that predict a specific outcome, the training sets must be distinct. Because ASD occurs along a spectrum, training a classifier to make a binary decision (ASD or not) with subjects that have essentially the full range of ASD characteristics leads to problems with the very definition of ASD. Subjects that have ADOS summary scores that put them near the borderline of “mild ASD” versus “not ASD, but exhibiting ASD-like characteristics” requires the EEG classifier to make decisions that result in for which even human clinicians have low inter-rater agreement. This is exactly what we see in Table <xref ref-type="table" rid="Tab5">5.b</xref>. The age trend is interesting as well: at 3 and 6 months, even the HRA− subjects are easily classified “correctly” as not-ASD. This may simply be because ASD brain function has not yet fully emerged. After 9 months, the HRA− subjects are more difficult to classify, perhaps because ASD-like brain function, associated with CSS summary scores that approach the borderline, is emerging.</p>
+<p id="Par93">This situation is remedied in Table <xref ref-type="table" rid="Tab5">5.c</xref> where we allow 3 classification outcomes: ASD, not-ASD, and ‘uncertain’. The latter category occurs when the EEG features lead to a score that puts the subject very near the classification plane, as illustrated in Fig. <xref ref-type="fig" rid="Fig2">2</xref>. Using this approach, 116 subjects with data at 6 and 9 months were classified perfectly, with only 7 of the 116 labeled as “uncertain”. It may be that a longitudinal risk assessment model that updates with each new measurement might enable these uncertainties to be resolved as the child passes 12 months, or 18 months. This remains an area for future research.</p>
+<p id="Par94">Examining the results in Table <xref ref-type="table" rid="Tab5">5.c</xref>, it appears that the lowest predictive accuracy occurs at 12 months. Also, the largest number of infants labeled as “uncertain” occurs at 9, 12, and 18 months. This seems to correlate with the shift in EEG feature values that occurs at around 12 months. By 36 months, the number of uncertain labels has decreased and the predictive accuracy has improved again. However, the predictive accuracy appears to be somewhat lower at 36 months. In Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref> it is quite apparent that the confidence intervals become much wider at 36 months, suggesting that all groups are becoming more diverse in their electrophysiological activity.</p>
+<p id="Par95">The greatest remaining challenge in the evaluation of nonlinear signal analysis methods is to discover the neural and behavioral meaning of the various EEG measures. Terms used to label the features used in this study are derived from physical systems. Entropy, determinism, laminarity, and so on have meaning in the context of turbulent fluid flow, for example. The RQA-derived values appeared to be similar, and distinctly different from SampE and DFA. Thus, regional plots (Figs <xref ref-type="fig" rid="Fig8">8</xref>–<xref ref-type="fig" rid="Fig12">12</xref>) examined only SampE and DET. Further research is required to determine if more information, perhaps subtle, can be found in the array of RQA, or other nonlinear, signal features. Translating these mathematical constructs to networks of millions of neural generators cannot be done through analytical mathematics alone, but may require many empirical studies whereby differences in entropy, for example, are compared to many cognitive and behavioral phenotypes. Machine learning algorithms are useful for recognizing that significant correlations between patterns of features and outcomes exist, but these are unable to interpret these correlations in electrophysiological terms. One of the goals of this study is to encourage the broader neuroscience community to become involved in this research and contribute to a better and deeper understanding of the relationship between nonlinear (and multiscale) analysis of electrophysiological signals and their meaning in the context of brain-behavior relationships.</p>
+</sec>
+</sec>
+<sec id="Sec29" sec-type="conclusion">
+<title>Conclusions</title>
+<p id="Par96">The results presented in this paper are consistent with and greatly extend our previous study with a subset from this cohort of infants (Bosl <italic>et al</italic>., 2011). Nonlinear analysis of EEG signals extracts information that is significantly different in children who develop ASD, as early as 3 months of age. Predictions of the diagnostic outcomes were highly accurate using measurements as early as 3 months of age. Our analytic approach was not only associated with the binary outcome, but also strongly correlated with symptom severity as measured by CSS scores. Developmental trajectories of SampE and DET in key brain regions associated with ASD revealed significant differences between the three groups. In general, the ASD group diverged from the LRC− group at early ages in the left temporal and right temporal-parietal regions, and diverged later, after 18 months, in frontal regions. Predicted severity scores were significantly correlated with actual scores using EEG measurements taken at 3 months of age and older. This suggests that EEG measurement using the method presented here is a promising technology for monitoring neural development in a broad population of children. Future research with larger and more diverse populations is needed to determine the clinical applicability of this approach to ASD detection in general populations. As our results when combining 6- and 9-month suggest, longitudinal studies that create trajectories rather than point measurements at a single age might yield further insights.</p>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p><bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<ack>
+<title>Acknowledgements</title>
+<p>This research was supported by National Institute of Mental Health (NIMH) grant R21 MH 093753 (to WJB), National Institute on Deafness and Other Communication Disorders (NIDCD) grant R21 DC08647 (to HTF), NIDCD grant R01 DC 10290 (to HTF and CAN) and a grant from the Simons Foundation (to CAN, HTF, and WJB). We are especially grateful to the staff and students who worked on the study and to the families who participated.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author Contributions</title>
+<p>W.J.B. conceived of the analytical methods used in this paper, wrote computer codes for signal processing, performed calculations and statistical analysis and drafted the manuscript. C.A.N. and H.T.F. are co-Principal Investigators on the larger Infant Sibling Project upon which this paper was based, contributed to the study design, interpretation of developmental implications of the results and were responsible for coordinating recruitment and testing of all participant data. All authors read and approved the final manuscript.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar1">
+<title>Competing Interests</title>
+<p id="Par97">W.J.B. is named on a provisional patent application submitted by the Boston Children’s Hospital Technology Development Office that includes parts of the signal analysis methods discussed in this article. The authors declare that they have no other competing financial or nonfinancial interests.</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<mixed-citation publication-type="other">Baio, J. Prevalence of autism spectrum disorder among children aged 8 years - autism and developmental disabilities monitoring network, 11 sites, United States, 2010. <italic>MMWR Surveill Summ</italic><bold>63</bold>, 1–21, <ext-link ext-link-type="uri" xlink:href="http://www.cdc.gov/mmwr/preview/mmwrhtml/ss6302a1.htm?s_cid">http://www.cdc.gov/mmwr/preview/mmwrhtml/ss6302a1.htm?s_cid = ss6302a1_w</ext-link> (2014).</mixed-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Amaral</surname>
+<given-names>DG</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>In pursuit of neurophenotypes: The consequences of having autism and a big brain</article-title>
+<source/>Autism Res
+          <year>2017</year>
+<volume>10</volume>
+<fpage>711</fpage>
+<lpage>722</lpage>
+<pub-id pub-id-type="doi">10.1002/aur.1755</pub-id>
+<pub-id pub-id-type="pmid">28239961</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ozonoff</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A prospective study of the emergence of early behavioral signs of autism</article-title>
+<source/>Journal of the American Academy of Child and Adolescent Psychiatry
+          <year>2010</year>
+<volume>49</volume>
+<issue>256–266</issue>
+<fpage>e251</fpage>
+<lpage>252</lpage>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Reiersen</surname>
+<given-names>AM</given-names>
+</name>
+</person-group>
+<article-title>Early Identification of Autism Spectrum Disorder: Is Diagnosis by Age 3 a Reasonable Goal?</article-title>
+<source/>Journal of the American Academy of Child and Adolescent Psychiatry
+          <year>2017</year>
+<volume>56</volume>
+<fpage>284</fpage>
+<lpage>285</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jaac.2017.02.003</pub-id>
+<pub-id pub-id-type="pmid">28335871</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sheldrick</surname>
+<given-names>RC</given-names>
+</name>
+<name>
+<surname>Garfinkel</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Is a Positive Developmental-Behavioral Screening Score Sufficient to Justify Referral? A Review of Evidence and Theory</article-title>
+<source/>Acad Pediatr
+          <year>2017</year>
+<volume>17</volume>
+<fpage>464</fpage>
+<lpage>470</lpage>
+<pub-id pub-id-type="doi">10.1016/j.acap.2017.01.016</pub-id>
+<pub-id pub-id-type="pmid">28286136</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Steiner</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Goldsmith</surname>
+<given-names>TR</given-names>
+</name>
+<name>
+<surname>Snow</surname>
+<given-names>AV</given-names>
+</name>
+<name>
+<surname>Chawarska</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Practitioner’s guide to assessment of autism spectrum disorders in infants and toddlers</article-title>
+<source/>J Autism Dev Disord
+          <year>2012</year>
+<volume>42</volume>
+<fpage>1183</fpage>
+<lpage>1196</lpage>
+<pub-id pub-id-type="doi">10.1007/s10803-011-1376-9</pub-id>
+<pub-id pub-id-type="pmid">22057879</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pettersson</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Anckarsater</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Gillberg</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Lichtenstein</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Different neurodevelopmental symptoms have a common genetic etiology</article-title>
+<source/>J Child Psychol Psychiatry
+          <year>2013</year>
+<volume>54</volume>
+<fpage>1356</fpage>
+<lpage>1365</lpage>
+<pub-id pub-id-type="doi">10.1111/jcpp.12113</pub-id>
+<pub-id pub-id-type="pmid">24127638</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gliga</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Bedford</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Charman</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Johnson</surname>
+<given-names>MH</given-names>
+</name>
+</person-group>
+<article-title>From early markers to neuro-developmental mechanisms of autism</article-title>
+<source/>Dev Rev
+          <year>2014</year>
+<volume>34</volume>
+<fpage>189</fpage>
+<lpage>207</lpage>
+<pub-id pub-id-type="doi">10.1016/j.dr.2014.05.003</pub-id>
+<pub-id pub-id-type="pmid">25187673</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Johnson</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Gliga</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Brain adaptation and alternative developmental trajectories</article-title>
+<source/>Dev Psychopathol
+          <year>2015</year>
+<volume>27</volume>
+<fpage>425</fpage>
+<lpage>442</lpage>
+<pub-id pub-id-type="doi">10.1017/S0954579415000073</pub-id>
+<pub-id pub-id-type="pmid">25997763</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hernandez</surname>
+<given-names>LM</given-names>
+</name>
+<name>
+<surname>Rudie</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Green</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Bookheimer</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Dapretto</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Neural signatures of autism spectrum disorders: insights into brain network dynamics</article-title>
+<source/>Neuropsychopharmacology: official publication of the American College of Neuropsychopharmacology
+          <year>2015</year>
+<volume>40</volume>
+<fpage>171</fpage>
+<lpage>189</lpage>
+<pub-id pub-id-type="doi">10.1038/npp.2014.172</pub-id>
+<pub-id pub-id-type="pmid">25011468</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kana</surname>
+<given-names>RK</given-names>
+</name>
+<name>
+<surname>Libero</surname>
+<given-names>LE</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>MS</given-names>
+</name>
+</person-group>
+<article-title>Disrupted cortical connectivity theory as an explanatory model for autism spectrum disorders</article-title>
+<source/>Phys Life Rev
+          <year>2011</year>
+<volume>8</volume>
+<fpage>410</fpage>
+<lpage>437</lpage>
+<pub-id pub-id-type="doi">10.1016/j.plrev.2011.10.001</pub-id>
+<pub-id pub-id-type="pmid">22018722</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<mixed-citation publication-type="other">Emerson, R. W. <italic>et al</italic>. Functional neuroimaging of high-risk 6-month-old infants predicts a diagnosis of autism at 24 months of age. <italic>Sci Transl Med</italic><bold>9</bold>, 10.1126/scitranslmed.aag2882 (2017).</mixed-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>CP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Diagnostic classification of intrinsic functional connectivity highlights somatosensory, default mode, and visual regions in autism</article-title>
+<source/>Neuroimage Clin
+          <year>2015</year>
+<volume>8</volume>
+<fpage>238</fpage>
+<lpage>245</lpage>
+<pub-id pub-id-type="doi">10.1016/j.nicl.2015.04.002</pub-id>
+<pub-id pub-id-type="pmid">26106547</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Elison</surname>
+<given-names>JT</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Frontolimbic neural circuitry at 6 months predicts individual differences in joint attention at 9 months</article-title>
+<source/>Dev Sci
+          <year>2013</year>
+<volume>16</volume>
+<fpage>186</fpage>
+<lpage>197</lpage>
+<pub-id pub-id-type="doi">10.1111/desc.12015</pub-id>
+<pub-id pub-id-type="pmid">23432829</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Elison</surname>
+<given-names>JT</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>White matter microstructure and atypical visual orienting in 7-month-olds at risk for autism</article-title>
+<source/>The American journal of psychiatry
+          <year>2013</year>
+<volume>170</volume>
+<fpage>899</fpage>
+<lpage>908</lpage>
+<pub-id pub-id-type="doi">10.1176/appi.ajp.2012.12091150</pub-id>
+<pub-id pub-id-type="pmid">23511344</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tierney</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Gabard-Durnam</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Vogel-Farley</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>CA</given-names>
+</name>
+</person-group>
+<article-title>Developmental trajectories of resting EEG power: an endophenotype of autism spectrum disorder</article-title>
+<source/>PLoS One
+          <year>2012</year>
+<volume>7</volume>
+<fpage>e39127</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0039127</pub-id>
+<pub-id pub-id-type="pmid">22745707</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Levin</surname>
+<given-names>AR</given-names>
+</name>
+<name>
+<surname>Varcin</surname>
+<given-names>KJ</given-names>
+</name>
+<name>
+<surname>O’Leary</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>CA</given-names>
+</name>
+</person-group>
+<article-title>EEG Power at 3 Months in Infants at High Familial Risk for Autism</article-title>
+<source/>Journal of Neurodevelopmental Disorders
+          <year>2017</year>
+<volume>9</volume>
+<fpage>1</fpage>
+<lpage>13</lpage>
+<pub-id pub-id-type="doi">10.1186/s11689-017-9214-9</pub-id>
+<pub-id pub-id-type="pmid">28115995</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gao</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Jin</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>Complex network from time series based on phase space reconstruction</article-title>
+<source/>Chaos
+          <year>2009</year>
+<volume>19</volume>
+<fpage>033137</fpage>
+<pub-id pub-id-type="doi">10.1063/1.3227736</pub-id>
+<pub-id pub-id-type="pmid">19792017</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<mixed-citation publication-type="other">Bosl, W. In <italic>Neurophenotypes: Advancing Psychiatry and Neuropsychology in the “OMICS” Era Innovations in Cognitive</italic> Neuroscience (eds Vinoth Jagaroo &amp; Susan Santangelo) (Springer, 2016).</mixed-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<mixed-citation publication-type="other">Bosl, W. J., Loddenkemper, T. &amp; Nelson, C. A. Nonlinear EEG Analysis Reveals Commonalities and Differences in Autism and Absence Epilepsy. <italic>Neuropsychiatric Electrophysiology</italic><bold>3</bold>, 10.1186/s40810-017-0023-x (2017).</mixed-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>David Hairston</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Usability of four commercially-oriented EEG systems</article-title>
+<source/>J Neural Eng
+          <year>2014</year>
+<volume>11</volume>
+<fpage>046018</fpage>
+<pub-id pub-id-type="doi">10.1088/1741-2560/11/4/046018</pub-id>
+<pub-id pub-id-type="pmid">24980915</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Maskeliunas</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Damasevicius</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Martisius</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Vasiljevas</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Consumer-grade EEG devices: are they usable for control tasks?</article-title>
+<source/>PeerJ
+          <year>2016</year>
+<volume>4</volume>
+<fpage>e1746</fpage>
+<pub-id pub-id-type="doi">10.7717/peerj.1746</pub-id>
+<pub-id pub-id-type="pmid">27014511</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<mixed-citation publication-type="other">Rutter, M., Bailey, A. &amp; Lord, C. In <italic>Western Psychological Services</italic> (2003).</mixed-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lord</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The autism diagnostic observation schedule-generic: a standard measure of social and communication deficits associated with the spectrum of autism</article-title>
+<source/>J Autism Dev Disord
+          <year>2000</year>
+<volume>30</volume>
+<fpage>205</fpage>
+<lpage>223</lpage>
+<pub-id pub-id-type="doi">10.1023/A:1005592401947</pub-id>
+<pub-id pub-id-type="pmid">11055457</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gotham</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Pickles</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Lord</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Standardizing ADOS scores for a measure of severity in autism spectrum disorders</article-title>
+<source/>J Autism Dev Disord
+          <year>2009</year>
+<volume>39</volume>
+<fpage>693</fpage>
+<lpage>705</lpage>
+<pub-id pub-id-type="doi">10.1007/s10803-008-0674-3</pub-id>
+<pub-id pub-id-type="pmid">19082876</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<mixed-citation publication-type="other">Walker, J. S. <italic>A primer on wavelets and their scientific applications</italic>. 2nd edn, (Chapman &amp; Hall/CRC, 2008).</mixed-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Costa</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Goldberger</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Peng</surname>
+<given-names>CK</given-names>
+</name>
+</person-group>
+<article-title>Multiscale entropy analysis of biological signals</article-title>
+<source/>Phys Rev E Stat Nonlin Soft Matter Phys
+          <year>2005</year>
+<volume>71</volume>
+<fpage>021906</fpage>
+<pub-id pub-id-type="doi">10.1103/PhysRevE.71.021906</pub-id>
+<pub-id pub-id-type="pmid">15783351</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<mixed-citation publication-type="other">Bosl, W. J., Tager-Flusberg, H. &amp; Nelson, C. A. EEG Complexity as a Biomarker for Autism Spectrum Disorder. <italic>BMC medicine</italic><bold>9</bold> (2011).</mixed-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bhyri</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Hamde</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Waghmare</surname>
+<given-names>LM</given-names>
+</name>
+</person-group>
+<article-title>ECG feature extraction and disease diagnosis</article-title>
+<source/>J Med Eng Technol
+          <year>2011</year>
+<volume>35</volume>
+<fpage>354</fpage>
+<lpage>361</lpage>
+<pub-id pub-id-type="doi">10.3109/03091902.2011.595530</pub-id>
+<pub-id pub-id-type="pmid">21770825</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<mixed-citation publication-type="other">Webber, C. L. &amp; Zbilut, J. P. In Tut<italic>ori</italic>als in <italic>c</italic>ontem<italic>porary nonlinear methods for the behavioral sciences</italic> (eds M. A. Riley &amp; G. Van Orden) (National Science Foundation, 2005).</mixed-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<mixed-citation publication-type="other">Marwan, N., Recurrence Plots and Cross Recurrence Plots. <ext-link ext-link-type="uri" xlink:href="http://www.recurrence-plot.tk">http://www.recurrence-plot.tk</ext-link>, (2012).</mixed-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marwan</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Romano</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Thiel</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kurths</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Recurrence plots for the analysis of complex systems</article-title>
+<source/>Physics Reports
+          <year>2007</year>
+<volume>438</volume>
+<fpage>237</fpage>
+<lpage>329</lpage>
+<pub-id pub-id-type="doi">10.1016/j.physrep.2006.11.001</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<mixed-citation publication-type="other">Bosl, W., Tierney, A., Tager-Flusberg, H. &amp; Nelson, C. EEG complexity as a biomarker for autism spectrum disorder risk. <italic>BMC medicine</italic><bold>9</bold>, 10.1186/1741-7015-9-18 (2011).</mixed-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guyon</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Weston</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Barnhill</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Vapnik</surname>
+<given-names>V</given-names>
+</name>
+</person-group>
+<article-title>Gene selection for cancer classification using support vector machines</article-title>
+<source/>Machine Learning
+          <year>2002</year>
+<volume>46</volume>
+<fpage>389</fpage>
+<lpage>422</lpage>
+<pub-id pub-id-type="doi">10.1023/A:1012487302797</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Golland</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Fischl</surname>
+<given-names>B</given-names>
+</name>
+</person-group>
+<article-title>Permutation tests for classification: towards statistical significance in image-based studies</article-title>
+<source/>Inf Process Med Imaging
+          <year>2003</year>
+<volume>18</volume>
+<fpage>330</fpage>
+<lpage>341</lpage>
+<pub-id pub-id-type="doi">10.1007/978-3-540-45087-0_28</pub-id>
+<pub-id pub-id-type="pmid">15344469</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<mixed-citation publication-type="other">Drongelen, W. v. <italic>Signal processing for neuroscientists: introduction to the analysis of physiological signals</italic>. (Academic Press, 2007).</mixed-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Catarino</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Churches</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Baron-Cohen</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Andrade</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Ring</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Atypical EEG complexity in autism spectrum conditions: a multiscale entropy analysis</article-title>
+<source/>Clin Neurophysiol
+          <year>2011</year>
+<volume>122</volume>
+<fpage>2375</fpage>
+<lpage>2383</lpage>
+<pub-id pub-id-type="doi">10.1016/j.clinph.2011.05.004</pub-id>
+<pub-id pub-id-type="pmid">21641861</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Takahashi</surname>
+<given-names>T</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Antipsychotics reverse abnormal EEG complexity in drug-naive schizophrenia: a multiscale entropy analysis</article-title>
+<source/>Neuroimage
+          <year>2010</year>
+<volume>51</volume>
+<fpage>173</fpage>
+<lpage>182</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroimage.2010.02.009</pub-id>
+<pub-id pub-id-type="pmid">20149880</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vandendriessche</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A multiscale entropy-based tool for scoring severity of systemic inflammation</article-title>
+<source/>Crit Care Med
+          <year>2014</year>
+<volume>42</volume>
+<fpage>e560</fpage>
+<lpage>569</lpage>
+<pub-id pub-id-type="doi">10.1097/CCM.0000000000000299</pub-id>
+<pub-id pub-id-type="pmid">24717467</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Billeci</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An integrated EEG and eye-tracking approach for the study of responding and initiating joint attention in Autism Spectrum Disorders</article-title>
+<source/>Sci Rep
+          <year>2017</year>
+<volume>7</volume>
+<fpage>13560</fpage>
+<pub-id pub-id-type="doi">10.1038/s41598-017-13053-4</pub-id>
+<pub-id pub-id-type="pmid">29051506</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bruinsma</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Koegel</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Koegel</surname>
+<given-names>LK</given-names>
+</name>
+</person-group>
+<article-title>Joint attention and children with autism: a review of the literature</article-title>
+<source/>Ment Retard Dev Disabil Res Rev
+          <year>2004</year>
+<volume>10</volume>
+<fpage>169</fpage>
+<lpage>175</lpage>
+<pub-id pub-id-type="doi">10.1002/mrdd.20036</pub-id>
+<pub-id pub-id-type="pmid">15611988</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<mixed-citation publication-type="other">Tager-Flusberg, H. The origins of social impairments in autism spectrum disorder: Studies of infants at risk. <italic>Neural Networks</italic><bold>Aug</bold><bold>6</bold>, 10.1016/j.neunet.2010.07.008 (2010).</mixed-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Varcin</surname>
+<given-names>KJ</given-names>
+</name>
+<name>
+<surname>Jeste</surname>
+<given-names>SS</given-names>
+</name>
+</person-group>
+<article-title>The emergence of autism spectrum disorder: insights gained from studies of brain and behaviour in high-risk infants</article-title>
+<source/>Curr Opin Psychiatry
+          <year>2017</year>
+<volume>30</volume>
+<fpage>85</fpage>
+<lpage>91</lpage>
+<pub-id pub-id-type="doi">10.1097/YCO.0000000000000312</pub-id>
+<pub-id pub-id-type="pmid">28009726</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gurau</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Bosl</surname>
+<given-names>WJ</given-names>
+</name>
+<name>
+<surname>Newton</surname>
+<given-names>CR</given-names>
+</name>
+</person-group>
+<article-title>How Useful Is Electroencephalography in the Diagnosis of Autism Spectrum Disorders and the Delineation of Subtypes: A Systematic Review</article-title>
+<source/>Front Psychiatry
+          <year>2017</year>
+<volume>8</volume>
+<fpage>121</fpage>
+<pub-id pub-id-type="doi">10.3389/fpsyt.2017.00121</pub-id>
+<pub-id pub-id-type="pmid">28747892</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rapp</surname>
+<given-names>PE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Traumatic brain injury detection using electrophysiological methods</article-title>
+<source/>Frontiers in human neuroscience
+          <year>2015</year>
+<volume>9</volume>
+<fpage>11</fpage>
+<pub-id pub-id-type="doi">10.3389/fnhum.2015.00011</pub-id>
+<pub-id pub-id-type="pmid">25698950</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<mixed-citation publication-type="other">Kantz, H. &amp; Schreiber, T. <italic>Nonlinear time series analysis</italic>. 2nd edn, (Cambridge University Press, 2004).</mixed-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<mixed-citation publication-type="other">Sörnmo, L. &amp; Laguna, P. <italic>Bioelectrical signal processing in cardiac and neurological applications</italic>. (Elsevier Academic Press, 2005).</mixed-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<mixed-citation publication-type="other">Webber, C. L. &amp; Marwan, N. In <italic>Understanding Complex Systems</italic> (Springer, New York, 2015).</mixed-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Heunis</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Aldrich</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>de Vries</surname>
+<given-names>PJ</given-names>
+</name>
+</person-group>
+<article-title>Recent Advances in Resting-State Electroencephalography Biomarkers for Autism Spectrum Disorder-A Review of Methodological and Clinical Challenges</article-title>
+<source/>Pediatr Neurol
+          <year>2016</year>
+<volume>61</volume>
+<fpage>28</fpage>
+<lpage>37</lpage>
+<pub-id pub-id-type="doi">10.1016/j.pediatrneurol.2016.03.010</pub-id>
+<pub-id pub-id-type="pmid">27255413</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bedford</surname>
+<given-names>R</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Precursors to social and communication difficulties in infants at-risk for autism: gaze following and attentional engagement</article-title>
+<source/>J Autism Dev Disord
+          <year>2012</year>
+<volume>42</volume>
+<fpage>2208</fpage>
+<lpage>2218</lpage>
+<pub-id pub-id-type="doi">10.1007/s10803-012-1450-y</pub-id>
+<pub-id pub-id-type="pmid">22278030</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jones</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Klin</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Attention to eyes is present but in decline in 2-6-month-old infants later diagnosed with autism</article-title>
+<source/>Nature
+          <year>2013</year>
+<volume>504</volume>
+<fpage>427</fpage>
+<lpage>431</lpage>
+<pub-id pub-id-type="doi">10.1038/nature12715</pub-id>
+<pub-id pub-id-type="pmid">24196715</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wagner</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Hirsch</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Vogel-Farley</surname>
+<given-names>VK</given-names>
+</name>
+<name>
+<surname>Redcay</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>CA</given-names>
+</name>
+</person-group>
+<article-title>Eye-tracking, autonomic, and electrophysiological correlates of emotional face processing in adolescents with autism spectrum disorder</article-title>
+<source/>J Autism Dev Disord
+          <year>2013</year>
+<volume>43</volume>
+<fpage>188</fpage>
+<lpage>199</lpage>
+<pub-id pub-id-type="doi">10.1007/s10803-012-1565-1</pub-id>
+<pub-id pub-id-type="pmid">22684525</pub-id>
+</element-citation>
+</ref>
+<ref id="CR53">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pierce</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Conant</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Hazin</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Stoner</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Desmond</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Preference for geometric patterns early in life as a risk factor for autism</article-title>
+<source/>Arch Gen Psychiatry
+          <year>2011</year>
+<volume>68</volume>
+<fpage>101</fpage>
+<lpage>109</lpage>
+<pub-id pub-id-type="doi">10.1001/archgenpsychiatry.2010.113</pub-id>
+<pub-id pub-id-type="pmid">20819977</pub-id>
+</element-citation>
+</ref>
+<ref id="CR54">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Elsabbagh</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The development of face orienting mechanisms in infants at-risk for autism</article-title>
+<source/>Behav Brain Res
+          <year>2012</year>
+<volume>251</volume>
+<fpage>147</fpage>
+<lpage>154</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbr.2012.07.030</pub-id>
+<pub-id pub-id-type="pmid">22846849</pub-id>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Elsabbagh</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Infant neural sensitivity to dynamic eye gaze is associated with later emerging autism</article-title>
+<source/>Curr Biol
+          <year>2012</year>
+<volume>22</volume>
+<fpage>338</fpage>
+<lpage>342</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cub.2011.12.056</pub-id>
+<pub-id pub-id-type="pmid">22285033</pub-id>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hoppenbrouwers</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Vandermosten</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Boet</surname>
+<given-names>B</given-names>
+</name>
+</person-group>
+<article-title>Autism as a disconnection syndrome: A qualitative and quantitative review of diffusion tensor imaging studies</article-title>
+<source/>Research in Autism Spectrum Disorders
+          <year>2013</year>
+<volume>8</volume>
+<fpage>387</fpage>
+<lpage>412</lpage>
+<pub-id pub-id-type="doi">10.1016/j.rasd.2013.12.018</pub-id>
+</element-citation>
+</ref>
+<ref id="CR57">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Geschwind</surname>
+<given-names>DH</given-names>
+</name>
+<name>
+<surname>Levitt</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Autism spectrum disorders: developmental disconnection syndromes</article-title>
+<source/>Curr Opin Neurobiol
+          <year>2007</year>
+<volume>17</volume>
+<fpage>103</fpage>
+<lpage>111</lpage>
+<pub-id pub-id-type="doi">10.1016/j.conb.2007.01.009</pub-id>
+<pub-id pub-id-type="pmid">17275283</pub-id>
+</element-citation>
+</ref>
+<ref id="CR58">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Knaus</surname>
+<given-names>TA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Language laterality in autism spectrum disorder and typical controls: a functional, volumetric, and diffusion tensor MRI study</article-title>
+<source/>Brain Lang
+          <year>2010</year>
+<volume>112</volume>
+<fpage>113</fpage>
+<lpage>120</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bandl.2009.11.005</pub-id>
+<pub-id pub-id-type="pmid">20031197</pub-id>
+</element-citation>
+</ref>
+<ref id="CR59">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Knaus</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Foundas</surname>
+<given-names>AL</given-names>
+</name>
+</person-group>
+<article-title>Sylvian fissure and parietal anatomy in children with autism spectrum disorder</article-title>
+<source/>Behav Neurol
+          <year>2012</year>
+<volume>25</volume>
+<fpage>327</fpage>
+<lpage>339</lpage>
+<pub-id pub-id-type="doi">10.1155/2012/817390</pub-id>
+<pub-id pub-id-type="pmid">22713374</pub-id>
+</element-citation>
+</ref>
+<ref id="CR60">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lindell</surname>
+<given-names>AK</given-names>
+</name>
+<name>
+<surname>Hudry</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Atypicalities in cortical structure, handedness, and functional lateralization for language in autism spectrum disorders</article-title>
+<source/>Neuropsychol Rev
+          <year>2013</year>
+<volume>23</volume>
+<fpage>257</fpage>
+<lpage>270</lpage>
+<pub-id pub-id-type="doi">10.1007/s11065-013-9234-5</pub-id>
+<pub-id pub-id-type="pmid">23649809</pub-id>
+</element-citation>
+</ref>
+<ref id="CR61">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Finch</surname>
+<given-names>KH</given-names>
+</name>
+<name>
+<surname>Seery</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Talbott</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Lateralization of ERPs to speech and handedness in the early development of Autism Spectrum Disorder</article-title>
+<source/>J Neurodev Disord
+          <year>2017</year>
+<volume>9</volume>
+<fpage>4</fpage>
+<pub-id pub-id-type="doi">10.1186/s11689-017-9185-x</pub-id>
+<pub-id pub-id-type="pmid">28174606</pub-id>
+</element-citation>
+</ref>
+<ref id="CR62">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marco</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Hinkley</surname>
+<given-names>LB</given-names>
+</name>
+<name>
+<surname>Hill</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>Nagarajan</surname>
+<given-names>SS</given-names>
+</name>
+</person-group>
+<article-title>Sensory processing in autism: a review of neurophysiologic findings</article-title>
+<source/>Pediatric research
+          <year>2011</year>
+<volume>69</volume>
+<fpage>48R</fpage>
+<lpage>54R</lpage>
+<pub-id pub-id-type="doi">10.1203/PDR.0b013e3182130c54</pub-id>
+<pub-id pub-id-type="pmid">21289533</pub-id>
+</element-citation>
+</ref>
+<ref id="CR63">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gokcen</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Petrides</surname>
+<given-names>KV</given-names>
+</name>
+<name>
+<surname>Hudry</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Frederickson</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Smillie</surname>
+<given-names>LD</given-names>
+</name>
+</person-group>
+<article-title>Sub-threshold autism traits: the role of trait emotional intelligence and cognitive flexibility</article-title>
+<source/>Br J Psychol
+          <year>2014</year>
+<volume>105</volume>
+<fpage>187</fpage>
+<lpage>199</lpage>
+<pub-id pub-id-type="doi">10.1111/bjop.12033</pub-id>
+<pub-id pub-id-type="pmid">24754807</pub-id>
+</element-citation>
+</ref>
+<ref id="CR64">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gizzonio</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Avanzini</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Fabbri-Destro</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Campi</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Rizzolatti</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Cognitive abilities in siblings of children with autism spectrum disorders</article-title>
+<source/>Exp Brain Res
+          <year>2014</year>
+<volume>232</volume>
+<fpage>2381</fpage>
+<lpage>2390</lpage>
+<pub-id pub-id-type="doi">10.1007/s00221-014-3935-8</pub-id>
+<pub-id pub-id-type="pmid">24710667</pub-id>
+</element-citation>
+</ref>
+<ref id="CR65">
+<label>65.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lindgren</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Folstein</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Tomblin</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Tager-Flusberg</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Language and reading abilities of children with autism spectrum disorders and specific language impairment and their first-degree relatives</article-title>
+<source/>Autism Res
+          <year>2009</year>
+<volume>2</volume>
+<fpage>22</fpage>
+<lpage>38</lpage>
+<pub-id pub-id-type="doi">10.1002/aur.63</pub-id>
+<pub-id pub-id-type="pmid">19358305</pub-id>
+</element-citation>
+</ref>
+<ref id="CR66">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ruser</surname>
+<given-names>TF</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Communicative competence in parents of children with autism and parents of children with specific language impairment</article-title>
+<source/>J Autism Dev Disord
+          <year>2007</year>
+<volume>37</volume>
+<fpage>1323</fpage>
+<lpage>1336</lpage>
+<pub-id pub-id-type="doi">10.1007/s10803-006-0274-z</pub-id>
+<pub-id pub-id-type="pmid">17180460</pub-id>
+</element-citation>
+</ref>
+<ref id="CR67">
+<label>67.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Baron-Cohen</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Hammer</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Parents of Children with Asperger Syndrome: What is the Cognitive Phenotype?</article-title>
+<source/>J Cogn Neurosci
+          <year>1997</year>
+<volume>9</volume>
+<fpage>548</fpage>
+<lpage>554</lpage>
+<pub-id pub-id-type="doi">10.1162/jocn.1997.9.4.548</pub-id>
+<pub-id pub-id-type="pmid">23968217</pub-id>
+</element-citation>
+</ref>
+<ref id="CR68">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dawson</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Neurocognitive and electrophysiological evidence of altered face processing in parents of children with autism: implications for a model of abnormal development of social brain circuitry in autism</article-title>
+<source/>Dev Psychopathol
+          <year>2005</year>
+<volume>17</volume>
+<fpage>679</fpage>
+<lpage>697</lpage>
+<pub-id pub-id-type="doi">10.1017/S0954579405050327</pub-id>
+<pub-id pub-id-type="pmid">16262987</pub-id>
+</element-citation>
+</ref>
+<ref id="CR69">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gomez</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Hornero</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Entropy and Complexity Analyses in Alzheimer’s Disease: An MEG Study</article-title>
+<source/>Open Biomed Eng J
+          <year>2010</year>
+<volume>4</volume>
+<fpage>223</fpage>
+<lpage>235</lpage>
+<pub-id pub-id-type="doi">10.2174/1874120701004010223</pub-id>
+<pub-id pub-id-type="pmid">21625647</pub-id>
+</element-citation>
+</ref>
+<ref id="CR70">
+<label>70.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goldberger</surname>
+<given-names>AL</given-names>
+</name>
+</person-group>
+<article-title>Fractal variability versus pathologic periodicity: complexity loss and stereotypy in disease</article-title>
+<source/>Perspect Biol Med
+          <year>1997</year>
+<volume>40</volume>
+<fpage>543</fpage>
+<lpage>561</lpage>
+<pub-id pub-id-type="doi">10.1353/pbm.1997.0063</pub-id>
+<pub-id pub-id-type="pmid">9269744</pub-id>
+</element-citation>
+</ref>
+<ref id="CR71">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Peng</surname>
+<given-names>C-K</given-names>
+</name>
+<name>
+<surname>Costa</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Goldberger</surname>
+<given-names>AL</given-names>
+</name>
+</person-group>
+<article-title>Adaptive Data Analysis of Complex Fluctuations in Physiologic Time Series</article-title>
+<source/>Advances in Adaptive Data Analysis
+          <year>2009</year>
+<volume>1</volume>
+<fpage>61</fpage>
+<lpage>70</lpage>
+<pub-id pub-id-type="doi">10.1142/S1793536909000035</pub-id>
+<pub-id pub-id-type="pmid">20041035</pub-id>
+</element-citation>
+</ref>
+<ref id="CR72">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schinkel</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Marwan</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kurths</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Brain signal analysis based on recurrences</article-title>
+<source/>J Physiol Paris
+          <year>2009</year>
+<volume>103</volume>
+<fpage>315</fpage>
+<lpage>323</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jphysparis.2009.05.007</pub-id>
+<pub-id pub-id-type="pmid">19500670</pub-id>
+</element-citation>
+</ref>
+<ref id="CR73">
+<label>73.</label>
+<mixed-citation publication-type="other">Hirata, Y. &amp; Aihara, K. Statistical Tests for Serial Dependence and Laminarity on Recurrence Plots. <italic>International Journal of Bifurcation and Chaos</italic>, 1077–1084 (2011).</mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,3303 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">BMC Genet</journal-id>
+<journal-id journal-id-type="iso-abbrev">BMC Genet</journal-id>
+<journal-title-group>
+<journal-title>BMC Genetics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1471-2156</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">26866487</article-id>
+<article-id pub-id-type="pmc">4895384</article-id>
+<article-id pub-id-type="publisher-id">316</article-id>
+<article-id pub-id-type="doi">10.1186/s12863-015-0316-7</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Proceedings</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Progress in methods for rare variant association</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Santorico</surname>
+<given-names>Stephanie A.</given-names>
+</name>
+<address>
+<phone>(303) 315-1714</phone>
+<email>Stephanie.Santorico@ucdenver.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hendricks</surname>
+<given-names>Audrey E.</given-names>
+</name>
+<address>
+<email>Audrey.Hendricks@ucdenver.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<aff id="Aff1">Department of Mathematical and Statistical Sciences, University of Colorado Denver, Denver, CO 80217-3364 USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>3</day>
+<month>2</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>3</day>
+<month>2</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>17</volume>
+<issue>Suppl 2</issue>
+<issue-sponsor>Publication of the proceedings of Genetic Analysis Workshop 19 was supported by National Institutes of Health grant R01 GM031575. Articles have undergone the journal's standard review process for supplements. The Supplement Editors declare that they have no competing interests.</issue-sponsor>
+<elocation-id>6</elocation-id>
+<permissions>
+<copyright-statement>© Santorico and Hendricks. 2015</copyright-statement>
+<license license-type="OpenAccess">
+<license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p>Empirical studies and evolutionary theory support a role for rare variants in the etiology of complex traits. Given this motivation and increasing affordability of whole-exome and whole-genome sequencing, methods for rare variant association have been an active area of research for the past decade. Here, we provide a survey of the current literature and developments from the Genetics Analysis Workshop 19 (GAW19) Collapsing Rare Variants working group. In particular, we present the generalized linear regression framework and associated score statistic for the 2 major types of methods: burden and variance components methods. We further show that by simply modifying weights within these frameworks we arrive at many of the popular existing methods, for example, the cohort allelic sums test and sequence kernel association test. Meta-analysis techniques are also described. Next, we describe the 6 contributions from the GAW19 Collapsing Rare Variants working group. These included development of new methods, such as a retrospective likelihood for family data, a method using genomic structure to compare cases and controls, a haplotype-based meta-analysis, and a permutation-based method for combining different statistical tests. In addition, one contribution compared a mega-analysis of family-based and population-based data to meta-analysis. Finally, the power of existing family-based methods for binary traits was compared. We conclude with suggestions for open research questions.</p>
+</abstract>
+<conference>
+<conf-name>Genetic Analysis Workshop 19</conf-name>
+<conf-loc>Vienna, Austria</conf-loc>
+<conf-date>24-26 August 2014</conf-date>
+<string-conf>
+<uri>http://www.gaworkshop.org/gaw19/index.html</uri>
+</string-conf>
+</conference>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2016</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1">
+<title>Background</title>
+<p>Rare variants have increasingly become a focus in studies of complex traits. There are many reasons for this increasing interest. Accessibility, both in cost and technology, of next-generation sequencing has led to the discovery of a plethora of rare variants. Nelson et al. [<xref ref-type="bibr" rid="CR1">1</xref>] estimated that 95 % of variants were rare with a minor allele frequency (MAF) of less than 0.5 %. This is in stark contrast to previous research suggesting that nearly one-third of variants have a frequency below 5 % [<xref ref-type="bibr" rid="CR2">2</xref>]. Furthermore, evolutionary theory suggests that deleterious variants are selected against and thus should be rare [<xref ref-type="bibr" rid="CR3">3</xref>]. Recent research has supported this theory, observing that a large proportion of deleterious variants are indeed rare [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR5">5</xref>]. Despite the effects of this purifying selection, the 1000 Genomes project estimates that individuals carry 76 to 190 rare nonsynonymous variants predicted to be deleterious [<xref ref-type="bibr" rid="CR6">6</xref>].</p>
+<p>A more contentious argument for focusing genetic research on rare variants pertains to the so-called phenomenon of “missing heritability”. Genome-wide association studies (GWAS) have successfully identified numerous common variants associated with complex traits; however, the common variants tend to have relatively small effects and explain only a fraction of the overall heritability [<xref ref-type="bibr" rid="CR7">7</xref>]. Human height serves as an excellent example with estimates of heritability near 80 %. GWAS variants with genome-wide significant associations explain only approximately 5 % of overall variation in height whereas models that use all high-quality GWAS variants with a MAF of more than 1 % explain approximately 45 % of the variation [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. Even though the latter is a substantial improvement, it is still well shy of 80 %.</p>
+<p>There is emerging evidence that rare variants are involved in complex disease, including Alzheimer disease [<xref ref-type="bibr" rid="CR10">10</xref>], lipids and coronary artery disease [<xref ref-type="bibr" rid="CR11">11</xref>], irritable bowel disease [<xref ref-type="bibr" rid="CR12">12</xref>], prostate cancer [<xref ref-type="bibr" rid="CR13">13</xref>], and many others [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR14">14</xref>–<xref ref-type="bibr" rid="CR16">16</xref>]. Despite these encouraging results, many studies continue to be underpowered to detect association to disease-associated rare variants. Continued development of methods is needed to help increase the power to detect these associations. This is particularly true given that tests of individual rare variants are underpowered without exceptionally large sample sizes [<xref ref-type="bibr" rid="CR14">14</xref>]. Combining variants based on a gene or region is a popular strategy. Other strategies for improving power for detecting rare variants include using family samples or isolated populations to increase the frequency of a variant that is rare in the general or nonisolate population [<xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR18">18</xref>]. Ascertaining phenotypic extremes can also increase the likelihood of sampling individuals with disease-associated rare variants, thus increasing the power of rare variants tests [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR20">20</xref>]. Finally, incorporating biological knowledge and genomic annotation to exclude, or downweight, variants in analyses is also an effective strategy, focusing tests on variants more likely to be deleterious [<xref ref-type="bibr" rid="CR21">21</xref>].</p>
+<p>Here, we provide a summary of the current literature with respect to the association of rare variants and ways to increase the power of these tests. We then provide results from the Collapsing Rare Variants Working Group of Genetic Analysis Workshop 19 (GAW19) and conclude with recommendations and open problems.</p>
+<sec id="Sec2">
+<title>Current literature</title>
+<p>Although there is no formal definition for a rare variant, variants with a MAF between 5 % and 50 % are generally considered common. Variants with a MAF in the range of 1 % to 5 % [<xref ref-type="bibr" rid="CR15">15</xref>] or 0.5 % to 5 % [<xref ref-type="bibr" rid="CR22">22</xref>] are considered low frequency or less common. Rare variants have a MAF falling below these ranges, whereas a private variant is specific to probands and their relatives.</p>
+</sec>
+<sec id="Sec3">
+<title>Basic association models for collapsing rare variants</title>
+<p>The 2 major types of methods for collapsing rare variants within a meaningful genetic region, such as a gene, consist of burden tests and variance component tests. Burden tests measure the burden of variants within a genetic region and range from a simple indicator of whether a genetic region contains at least 1 rare variant (eg, CAST [cohort allelic sums test] [<xref ref-type="bibr" rid="CR23">23</xref>]), to a sum of the rare variants within a region (eg, ARIEL [accumulation of rare variants integrated and extended locus-specific test] [<xref ref-type="bibr" rid="CR24">24</xref>], CMC [combined multivariate and collapsing] [<xref ref-type="bibr" rid="CR25">25</xref>], and MZ [Morris and Zeggini] [<xref ref-type="bibr" rid="CR26">26</xref>]), to a weighted sum of the rare variants in a region (eg, WSS [weighted sum statistic] [<xref ref-type="bibr" rid="CR27">27</xref>] and aSum [data-adaptive sum] [<xref ref-type="bibr" rid="CR28">28</xref>]).</p>
+<p>A general formula for the burden of rare variants within a region is shown in Eq. (<xref ref-type="" rid="Equ1">1</xref>).<disp-formula id="Equ1"><label>1</label><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {B}_i={\sum}_{m=1}^M{G}_{i,\kern0.15em m}{w}_m $$\end{document}</tex-math><mml:math id="M2"><mml:msub><mml:mi>B</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msub><mml:mi>G</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mspace width="0.15em"></mml:mspace><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>w</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equ1.gif"></graphic></alternatives></disp-formula></p>
+<p>where <italic>G</italic><sub><italic>i</italic>,<italic>m</italic></sub> is the genotype coding based on a genetic model (eg, recessive, dominant, or additive) for individual <italic>i</italic> and variant <italic>m</italic>, <italic>w</italic><sub><italic>m</italic></sub> is the weight for variant <italic>m</italic>, and <italic>M</italic> is the total number of variants in the region. This model is applicable to nearly all burden tests mentioned above. For example, the CAST is often written in terms of an indicator function such as <inline-formula id="IEq1"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {B}_i=I\left({\sum}_{m=1}^M{G}_{i,m}{w}_m\right) $$\end{document}</tex-math><mml:math id="M4"><mml:msub><mml:mi>B</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mi>I</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:msubsup><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msub><mml:mi>G</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>w</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><inline-graphic xlink:href="12863_2015_316_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula> where <italic>G</italic><sub><italic>i</italic>,<italic>m</italic></sub> is either 1 or 0, depending on whether the subject has or does not have variant <italic>m</italic>, respectively, and <italic>w</italic><sub><italic>m</italic></sub> = 1. However, we can use Equation (1) directly by making <inline-formula id="IEq2"><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {w}_m=\frac{1}{{\displaystyle {\sum}_{m=1}^M}{G}_{i,m}} $$\end{document}</tex-math><mml:math id="M6"><mml:msub><mml:mi>w</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:mstyle displaystyle="true"><mml:msubsup><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup></mml:mstyle><mml:msub><mml:mi>G</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac></mml:math><inline-graphic xlink:href="12863_2015_316_Article_IEq2.gif"></inline-graphic></alternatives></inline-formula> to ensure that <italic>B</italic><sub><italic>i</italic></sub> is 1 for subjects who have at least 1 variant in the gene and 0 otherwise. For a simple count of the number of variants within a region, a weight of 1 for each variant is used. Others have proposed more informative weights. Madsen and Browning [<xref ref-type="bibr" rid="CR27">27</xref>] proposed a weight that increases as MAF decreases while Asimit et al. [<xref ref-type="bibr" rid="CR24">24</xref>] weighted genotypes by their quality.</p>
+<p>Even though several tests were first developed outside of the regression framework [<xref ref-type="bibr" rid="CR23">23</xref>, <xref ref-type="bibr" rid="CR25">25</xref>, <xref ref-type="bibr" rid="CR27">27</xref>], nearly all can be easily implemented in a generalized regression framework (Eq. <xref ref-type="" rid="Equ2">2</xref>) by incorporating <inline-formula id="IEq3"><alternatives><tex-math id="M7">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {B}_i $$\end{document}</tex-math><mml:math id="M8"><mml:msub><mml:mi>B</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><inline-graphic xlink:href="12863_2015_316_Article_IEq3.gif"></inline-graphic></alternatives></inline-formula> as a covariate in the regression model. This greatly generalizes the statistical framework allowing for many types of outcome variables (eg, continuous, binary, survival, etc.), and the incorporation of additional possible confounders and covariates:<disp-formula id="Equ2"><label>2</label><alternatives><tex-math id="M9">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ f\left(\mu \right)={\gamma}_0+\boldsymbol{\gamma} \boldsymbol{\hbox{'}}\boldsymbol{X}+\beta B $$\end{document}</tex-math><mml:math id="M10"><mml:mi>f</mml:mi><mml:mfenced close=")" open="("><mml:mi>μ</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:msub><mml:mi>γ</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>+</mml:mo><mml:mi mathvariant="bold-italic">γ</mml:mi><mml:mo mathvariant="bold-italic">'</mml:mo><mml:mi mathvariant="bold-italic">X</mml:mi><mml:mo>+</mml:mo><mml:mi>β</mml:mi><mml:mi>B</mml:mi></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equ2.gif"></graphic></alternatives></disp-formula></p>
+<p>where <italic>f</italic>(<italic>μ</italic>) is a function that links a linear combination of the predictors and the mean, <italic>μ</italic>, of the outcome (eg, disease or trait); <italic>γ</italic><sub>0</sub> is the intercept; <bold><italic>γ</italic></bold> ' is a vector of parameters for the covariates, <bold><italic>X</italic></bold>; <italic>β</italic> is the regression parameter for the burden of rare variants within a region, <italic>B</italic>; and bolded symbols denote a vector. For a quantitative trait <italic>f</italic>(<italic>μ</italic>) = <italic>μ</italic> is used within a linear regression framework, and for a qualitative trait <italic>f</italic>(<italic>μ</italic>) = logit(<italic>μ</italic>) is typically used within a logistic regression framework. Although several test statistics can be implemented within the generalized regression format, we focus on the score statistic, <italic>U</italic>, testing whether <italic>β</italic> = 0. The burden score statistic is shown in Equation (3) and under the null hypothesis of no association has a chi-square distribution with 1 degree of freedom (df). Note that the burden score statistic can be written as a weighted sum of the marginal score statistics, <italic>S</italic><sub><italic>m</italic></sub>, for each genetic variant where, <inline-formula id="IEq4"><alternatives><tex-math id="M11">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {S}_m={\sum}_{i=1}^n{G}_{i,m}\left({y}_i-{\widehat{\mu}}_i\right) $$\end{document}</tex-math><mml:math id="M12"><mml:msub><mml:mi>S</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:msubsup><mml:msub><mml:mi>G</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>μ</mml:mi><mml:mo stretchy="true">^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><inline-graphic xlink:href="12863_2015_316_Article_IEq4.gif"></inline-graphic></alternatives></inline-formula> for <italic>n</italic> individuals, with <inline-formula id="IEq5"><alternatives><tex-math id="M13">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {\widehat{\mu}}_i $$\end{document}</tex-math><mml:math id="M14"><mml:msub><mml:mover accent="true"><mml:mi>μ</mml:mi><mml:mo stretchy="true">^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:math><inline-graphic xlink:href="12863_2015_316_Article_IEq5.gif"></inline-graphic></alternatives></inline-formula> being the estimated mean for individual <italic>i</italic>, which includes the effects of covariates as estimated through generalized regression.<disp-formula id="Equ3"><label>3</label><alternatives><tex-math id="M15">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {U}_{burden}={\left[{\displaystyle \sum_{i=1}^n}{B}_i\left({y}_i-{\widehat{\mu}}_i\right)\right]}^2={\left[{\displaystyle \sum_{m=1}^M}{w}_m{\displaystyle \sum_{i=1}^n}{G}_{i,m}\left({y}_i-{\widehat{\mu}}_i\right)\right]}^2={\left[{\sum}_{m=1}^M{w}_m{S}_m\right]}^2\sim {\chi}_1^2 $$\end{document}</tex-math><mml:math id="M16"><mml:msub><mml:mi>U</mml:mi><mml:mi mathvariant="italic">burden</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="]" open="["><mml:mrow><mml:mstyle displaystyle="true"><mml:munderover><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover></mml:mstyle><mml:msub><mml:mi>B</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>μ</mml:mi><mml:mo stretchy="true">^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="]" open="["><mml:mrow><mml:mstyle displaystyle="true"><mml:munderover><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:munderover></mml:mstyle><mml:msub><mml:mi>w</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mstyle displaystyle="true"><mml:munderover><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover></mml:mstyle><mml:msub><mml:mi>G</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>μ</mml:mi><mml:mo stretchy="true">^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="]" open="["><mml:mrow><mml:msubsup><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msub><mml:mi>w</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:msub><mml:mi>S</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mo>~</mml:mo><mml:msubsup><mml:mi>χ</mml:mi><mml:mn>1</mml:mn><mml:mn>2</mml:mn></mml:msubsup></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equ3.gif"></graphic></alternatives></disp-formula></p>
+<p>As marginal score statistics can first be calculated on each variant, this alternative form lends itself nicely to extensions such as meta-analysis as described later.</p>
+<p>Instead of calculating the burden of variants within a genetic region, variance component tests (eg, sequence kernel association test [SKAT] [<xref ref-type="bibr" rid="CR29">29</xref>], C-alpha [<xref ref-type="bibr" rid="CR30">30</xref>] and SumSqU [<xref ref-type="bibr" rid="CR31">31</xref>]) evaluate the similarity of the variants within the region. Simply, we expect the distribution of variants to be more similar for subjects with similar trait values than for subjects with different trait values. Like with the burden test, a general equation for the score statistic of the variance component test can be written and is shown in Eq. (<xref ref-type="" rid="Equ4">4</xref>).<disp-formula id="Equ4"><label>4</label><alternatives><tex-math id="M17">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {U}_{VC}={\sum}_{m=1}^M{\left({w}_m{S}_m\right)}^2 $$\end{document}</tex-math><mml:math id="M18"><mml:msub><mml:mi>U</mml:mi><mml:mrow><mml:mi>V</mml:mi><mml:mi>C</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mo stretchy="true">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msup><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:msub><mml:mi>S</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equ4.gif"></graphic></alternatives></disp-formula></p>
+<p>where <italic>S</italic><sub><italic>m</italic></sub> is the previously defined marginal score statistic. <italic>U</italic><sub><italic>VC</italic></sub> follows a mixture chi-square distribution. Because the marginal score statistic is squared, both negative and positive effects can be included in the statistic. This is a notable advantage of variance component tests over burden tests, for which effects of different directions can cancel each other out. For both C-alpha [<xref ref-type="bibr" rid="CR30">30</xref>] and SumSqU [<xref ref-type="bibr" rid="CR31">31</xref>], the weights equal 1. C-alpha is further restricted to scenarios where the phenotype is dichotomous, and there are no covariates. The SKAT statistic [<xref ref-type="bibr" rid="CR29">29</xref>] is identical to <italic>U</italic><sub><italic>VC</italic></sub>, accommodating a variety of weights; as such, C-alpha and SumSqU are special cases of SKAT.</p>
+<p>Burden tests tend to be most powerful when the majority of variants have an effect in the same direction [<xref ref-type="bibr" rid="CR25">25</xref>, <xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR32">32</xref>]. Variance component tests are more powerful when the variants have different effects (ie, many variants with no effect or effects in opposite directions) [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR32">32</xref>]. To combine the different strengths of the burden and variance component tests, Lee et al. [<xref ref-type="bibr" rid="CR32">32</xref>] developed an optimal unified approach called the SKAT-O, where the burden and SKAT tests are combined with a weighting parameter, <italic>ρ</italic> (Eq. <xref ref-type="" rid="Equ5">5</xref>). Note that the optimal test is equivalent to the burden test and SKAT (ie, variance component test) when <italic>ρ</italic> is 1 or 0, respectively.<disp-formula id="Equ5"><label>5</label><alternatives><tex-math id="M19">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {U}_{optimal}=\left(1-\rho \right){U}_{SKAT}+\rho {U}_{burden},\ 0\ \le\ \rho\ \le\ 1 $$\end{document}</tex-math><mml:math id="M20"><mml:msub><mml:mi>U</mml:mi><mml:mi mathvariant="italic">optimal</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:mi>ρ</mml:mi></mml:mrow></mml:mfenced><mml:msub><mml:mi>U</mml:mi><mml:mi mathvariant="italic">SKAT</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mi>ρ</mml:mi><mml:msub><mml:mi>U</mml:mi><mml:mi mathvariant="italic">burden</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mspace width="0.25em"></mml:mspace><mml:mn>0</mml:mn><mml:mspace width="0.25em"></mml:mspace><mml:mo>≤</mml:mo><mml:mspace width="0.25em"></mml:mspace><mml:mi>ρ</mml:mi><mml:mspace width="0.25em"></mml:mspace><mml:mo>≤</mml:mo><mml:mspace width="0.25em"></mml:mspace><mml:mn>1</mml:mn></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equ5.gif"></graphic></alternatives></disp-formula></p>
+<p>Others have explored combining the burden and variance components tests as well [<xref ref-type="bibr" rid="CR33">33</xref>, <xref ref-type="bibr" rid="CR34">34</xref>]. Finally, more recently the EC test [<xref ref-type="bibr" rid="CR35">35</xref>] was developed under a Bayesian framework with an alternative hypothesis prior that gives a higher probability to only 1 causal variant per genetic region.</p>
+<p>Here, we provide a basic overview of general methods; others have done this as well in more detail [<xref ref-type="bibr" rid="CR22">22</xref>]. In addition, Derkach et al. [<xref ref-type="bibr" rid="CR36">36</xref>] have provided an excellent review and comparison (both empirical and theoretical) of existing methods. Important conclusions and results include: weighting variants inversely to the MAF does not always increase power even under scenarios where rare variants where simulated to have a larger effect; as the sample size increases the variance component statistic tends to have a higher power than the burden statistic; uniformly optimal tests are difficult to achieve in practice.</p>
+</sec>
+<sec id="Sec4">
+<title>Incorporating additional information</title>
+<p>There have been many extensions to the basic frameworks and models to include and account for additional information. Various weights can be defined based on the MAF [<xref ref-type="bibr" rid="CR27">27</xref>], quality of genotype calls [<xref ref-type="bibr" rid="CR24">24</xref>], previous evidence for association, direction of effect (eg, aSum [<xref ref-type="bibr" rid="CR28">28</xref>]), evolutionary conservation (eg, phastCons [phylogenetic analysis with space/time models conservation] [<xref ref-type="bibr" rid="CR37">37</xref>], and GERP [genomic evolutionary rate profiling] [<xref ref-type="bibr" rid="CR38">38</xref>]), probability of being functional, and likelihood of being deleterious. There exists several algorithms/software that predict whether a variant is likely to be deleterious, including CONDEL (consensus deleteriousness) [<xref ref-type="bibr" rid="CR39">39</xref>], SIFT (sorting intolerant from tolerant) [<xref ref-type="bibr" rid="CR40">40</xref>], PolyPhen (polymorphism phenotyping) [<xref ref-type="bibr" rid="CR41">41</xref>], CADD (combined annotation-dependent depletion) [<xref ref-type="bibr" rid="CR42">42</xref>], and several others (see Castellana and Mazza [<xref ref-type="bibr" rid="CR43">43</xref>]). Although the predictions of these programs can differ greatly [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR43">43</xref>, <xref ref-type="bibr" rid="CR44">44</xref>], variants that have consistent predictions of either being benign or deleterious across all programs may be more likely to be truly benign or deleterious. Variants can be removed entirely from the model by using a weight of 1 and a weight of 0 for variants fulfilling or not fulfilling a requirement or threshold, respectively. It is often difficult to know the true or best threshold to use when determining which variants to include in the model. Adaptive methods implement the region-based methods over a variety of thresholds (such as various MAF thresholds) and then adjust for multiple comparisons using permutation [<xref ref-type="bibr" rid="CR28">28</xref>, <xref ref-type="bibr" rid="CR45">45</xref>].</p>
+<p>It is worth emphasizing that the proportion of variants in the collapsing test with association to the outcome is directly related to the power [<xref ref-type="bibr" rid="CR46">46</xref>, <xref ref-type="bibr" rid="CR47">47</xref>]. As such, choosing which variants to include is extremely important. When choosing variants, various factors should be considered such as the likely penetrance of the variants, the prevalence of the disease or trait, and the predicted deleteriousness of the variants. As discussed in the previous paragraph, instead of weighting variants, only a subset of variants can be kept, such as those predicted to be deleterious or to result in loss of function.</p>
+<p>Once a gene or region has been identified as being associated to a disease or trait, an important next step is to identify the causal variants within the region. Experimental studies to determine the functional effects are often costly both in effort and money. In a recent paper, Ionita-Laza et al. [<xref ref-type="bibr" rid="CR48">48</xref>] proposed and compared 2 methods to identify likely causal variants within gene regions.</p>
+<p>Unlike rare variants, the parameter estimation for common variants is generally stable. Including disease-associated common variants within a gene region could help to identify genetic regions associated with a trait as well as to help determine if a collapsed set of rare variants produces an independent signal above that from the common variants. Determining which common variants to include in the model is not always straightforward as too many variants will dilute the signal and decrease the power by using up valuable degrees of freedom, while including too few variants may miss a signal all together. Penalized regression methods, such as LASSO (least absolute shrinkage and selection operator), have been proposed [<xref ref-type="bibr" rid="CR49">49</xref>] as well as an extension to the SKAT framework that incorporates common variants [<xref ref-type="bibr" rid="CR50">50</xref>].</p>
+<p>More recently, methods have been developed to compare the observed number of filtered variants within a genetic region to that expected genome- or exome-wide [<xref ref-type="bibr" rid="CR51">51</xref>] or expected by an estimated mutation rate [<xref ref-type="bibr" rid="CR52">52</xref>]. These methods are most often implemented in a case-only framework, and are thus sensitive to the estimates of comparison (eg, genome-/exome-wide averages, mutation rates, etc.). These methods are discussed further below.</p>
+</sec>
+<sec id="Sec5">
+<title>Study design considerations</title>
+<p>Although sequencing costs continue to decline, the cost of sequencing continues to impose a limit on the number of samples that can be sequenced. There is increasing evidence that the power to detect an association to rare variants is low regardless of the type of test or statistic used [<xref ref-type="bibr" rid="CR46">46</xref>, <xref ref-type="bibr" rid="CR47">47</xref>]. As such, study design is of utmost importance and includes, among others, family-based, trio, case-only, case–control, and population cohort designs.</p>
+<p>Study design affects the power and generalizability of the study. Certain study designs may increase the power to detect an association in certain situations while decreasing the ability to detect other genetic associations. For instance, sampling families with a particular rare disease increases the likelihood of observing multiple copies of the causal rare variant, thus increasing power to detect an association to that particular variant [<xref ref-type="bibr" rid="CR53">53</xref>]. However, this sampling framework may reduce the number of detected genetic variants, making it more difficult to discover the variety of genetic variants that would be seen when sampling the general population. Recently, several methods have been developed or extended to accommodate related samples [<xref ref-type="bibr" rid="CR54">54</xref>, <xref ref-type="bibr" rid="CR55">55</xref>]. Probably the most widely used of these is famSKAT (family-based sequence kernel association test) developed by Chen et al. [<xref ref-type="bibr" rid="CR56">56</xref>], which extends SKAT by using a linear mixed effects model to account for the family structure in tests of quantitative traits. For GAW19, Wang et al. [<xref ref-type="bibr" rid="CR57">57</xref>] studied the type 1 error and power of current family-based methods for rare variant association tests for dichotomous phenotypes. It is also important to note that valid permutation to assess significance in the context of dependent samples (such as with related samples or population stratification) is not straightforward. Others have explored permutation in this setting and have proposed modified permutation procedures [<xref ref-type="bibr" rid="CR58">58</xref>].</p>
+<p>For extremely rare, highly penetrant disorders, researchers have had success sequencing a set of cases [<xref ref-type="bibr" rid="CR59">59</xref>, <xref ref-type="bibr" rid="CR60">60</xref>] or trios where the offspring has an extremely rare disorder and the parents are unaffected [<xref ref-type="bibr" rid="CR61">61</xref>–<xref ref-type="bibr" rid="CR63">63</xref>]. Specific software exists for detecting de novo mutations within trio designs [<xref ref-type="bibr" rid="CR64">64</xref>]. For more complex and common diseases or traits, study designs such as a case–control or population-cohort are often used [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR65">65</xref>, <xref ref-type="bibr" rid="CR66">66</xref>]. Although many case–control studies are retrospective, few incorporate the retrospective ascertainment of the sampling design into the statistical framework. Such methods were included in GAW19 contributions [<xref ref-type="bibr" rid="CR57">57</xref>, <xref ref-type="bibr" rid="CR67">67</xref>]. Unfortunately, detecting rare genetic associations in complex diseases has continued to prove difficult and much larger sample sizes are needed to achieve adequate power. Some study designs use extreme sampling either of cases [<xref ref-type="bibr" rid="CR68">68</xref>] or of quantitative phenotypes [<xref ref-type="bibr" rid="CR21">21</xref>] to increase power. For complex traits, extreme sampling can lead to an increase in the number of rare variants detected and subsequently an increase in power [<xref ref-type="bibr" rid="CR69">69</xref>]. However, not accounting for the trait-dependent sampling when analyzing quantitative traits can lead to biased estimates, inflated type 1 error, and even a decrease in power [<xref ref-type="bibr" rid="CR70">70</xref>]. In 2013, Barnett et al. [<xref ref-type="bibr" rid="CR69">69</xref>] and Lin et al. [<xref ref-type="bibr" rid="CR70">70</xref>] each developed novel statistical methods to appropriately analyze quantitative traits with extreme sampling study designs.</p>
+<p>Within the study design of sequencing a unique and homogeneous set of cases, case-only statistical frameworks exist for detecting exceedingly rare or de novo and highly penetrant variants [<xref ref-type="bibr" rid="CR51">51</xref>, <xref ref-type="bibr" rid="CR52">52</xref>]. Statistical frameworks also exist to incorporate external population controls with the unique set of cases in a case–control analysis [<xref ref-type="bibr" rid="CR71">71</xref>], although more research in this area is needed.</p>
+<p>As previously discussed, most methods can be expressed within a regression framework. Many of the burden methods are within a generalized linear regression framework while the variance component methods, such as SKAT, are implemented within a mixed effects regression model. The original regression frameworks of these methods required large enough sample sizes to reach an asymptotic distribution of the test statistics and independent observations. Few methods have been developed specifically for small samples, although Lee et al. [<xref ref-type="bibr" rid="CR72">72</xref>] extended SKAT for use with small sample sizes.</p>
+</sec>
+<sec id="Sec6">
+<title>Meta-analysis</title>
+<p>Meta-analysis of test statistics across multiple studies is widely used in GWAS and other genetic studies of common variants to replicate, confirm, and find new associations. Meta-analysis is arguably even more important for studies of rare variants where extremely large sample sizes are important for achieving adequate power. Many simple meta-analysis frameworks that combine information about the test statistic or <italic>p</italic> value (such as Fisher’s and Z-score methods [<xref ref-type="bibr" rid="CR73">73</xref>]) can be applied to test statistics from current region-based methods. (Although it should be noted that, as there is no direction of effect for variance component tests, only weights based on sample size and not direction of effect can be incorporated into Z-score meta-analysis for variance component tests.) Although simple and easy to implement, these meta-analysis methods do not account for different variants that may be included in the region-based statistics for each study.</p>
+<p>Lee et al. [<xref ref-type="bibr" rid="CR74">74</xref>] developed a meta-analysis framework for rare variants that achieves nearly identical empirical power as analyses based on combined individual level data (sometimes called mega-analysis). This framework uses single-variant score statistics and the corresponding between-variant covariance matrix. Importantly, the framework allows for variants to be monomorphic (ie, the alternate allele is not seen) in some of the individual studies. To be included in the meta-analysis statistic, a variant only has to be polymorphic in at least 1 study. Further, meta-analysis has other advantages such as easier sharing of data (given consent or computational barriers to sharing raw data) and controlling for potential confounders or population stratification specific to each study. For instance, one study may adjust for 5 principal components whereas another study may adjust for 3 principal components and recruitment center. In addition to being able to include different study-specific covariates, one can also further account for possible heterogeneity in study statistics in the meta-analysis statistic itself as described below.</p>
+<p>Here, we briefly outline Lee et al’s [<xref ref-type="bibr" rid="CR74">74</xref>] meta-analysis framework. If we define the single-variant (ie, marginal) score statistics as <italic>S</italic><sub><italic>k</italic>, <italic>m</italic></sub> for study <italic>k</italic> and variant <italic>m</italic>, we can then rewrite the burden score statistic as a combination of the single-variant statistics over all studies:<disp-formula id="Equa"><alternatives><tex-math id="M21">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {U}_{burden\_ meta}={\left[{\varSigma}_{m=1}^M{\varSigma}_{k=1}^K{w}_{k,m}{S}_{k,m}\right]}^2. $$\end{document}</tex-math><mml:math id="M22"><mml:msub><mml:mi>U</mml:mi><mml:mrow><mml:mi mathvariant="italic">burden</mml:mi><mml:mo>_</mml:mo><mml:mi mathvariant="italic">meta</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="]" open="["><mml:mrow><mml:msubsup><mml:mi>Σ</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msubsup><mml:mi>Σ</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>K</mml:mi></mml:msubsup><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>S</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mtext>.</mml:mtext></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equa.gif"></graphic></alternatives></disp-formula></p>
+<p>We can also square the single-variant score statistics summed over the studies and then summed over variants to produce a meta-analysis score statistic for the variance component region test:<disp-formula id="Equb"><alternatives><tex-math id="M23">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {U}_{VC\_ meta\_hom}={\varSigma}_{m=1}^M{\left({\varSigma}_{k=1}^K,{w}_{k,m}{S}_{k,m}\right)}^2. $$\end{document}</tex-math><mml:math id="M24"><mml:msub><mml:mi>U</mml:mi><mml:mrow><mml:mi>V</mml:mi><mml:mi>C</mml:mi><mml:mo>_</mml:mo><mml:mi mathvariant="italic">meta</mml:mi><mml:mo>_</mml:mo><mml:mi>h</mml:mi><mml:mi>o</mml:mi><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mi>Σ</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msup><mml:mfenced close=")" open="("><mml:msubsup><mml:mi>Σ</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>K</mml:mi></mml:msubsup><mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>S</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mtext>.</mml:mtext></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equb.gif"></graphic></alternatives></disp-formula></p>
+<p>The above variance component statistic requires the additional assumption of homogeneous genetic effects across all studies. If we believe that the genetic effects are instead heterogeneous, the meta-analysis score statistic for the variance component region test can be written as follows:<disp-formula id="Equc"><alternatives><tex-math id="M25">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {U}_{VC\_ meta\_het}={\varSigma}_{m=1}^M{\varSigma}_{k=1}^K{\left({w}_{k,m}{S}_{k,m}\right)}^2. $$\end{document}</tex-math><mml:math id="M26"><mml:msub><mml:mi>U</mml:mi><mml:mrow><mml:mi>V</mml:mi><mml:mi>C</mml:mi><mml:mo>_</mml:mo><mml:mi mathvariant="italic">meta</mml:mi><mml:mo>_</mml:mo><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mi>Σ</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:msubsup><mml:msubsup><mml:mi>Σ</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>K</mml:mi></mml:msubsup><mml:msup><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>S</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mtext>.</mml:mtext></mml:math><graphic position="anchor" xlink:href="12863_2015_316_Article_Equc.gif"></graphic></alternatives></disp-formula></p>
+<p>If we believe the heterogeneity can be isolated to clusters of studies, such as ethnicity, the statistics can be combined, first over the studies in each cluster and then over each cluster and marker. Note that the burden and variance component meta-analysis test statistics can be combined in an optimal way similar to that shown for single studies in Equation (5). More details are in Lee et al. [<xref ref-type="bibr" rid="CR74">74</xref>]. Others have explored meta-analysis for rare variants as well [<xref ref-type="bibr" rid="CR75">75</xref>].</p>
+</sec>
+</sec>
+<sec id="Sec7">
+<title>Contributions from the collapsing rare variants working group</title>
+<p>GAW19 provided real human sequence and phenotype data for data sets of Mexican American families and unrelated individuals. In addition, 200 simulated data sets were provided based off the real sequence data for phenotypes with true underlying genetic associations as well as a null polygenic trait. Family data (for 959 individuals in 20 pedigrees) consisted of whole genome sequencing calls and GWAS single-nucleotide polymorphisms (SNPs) for odd-numbered chromosomes, as well as longitudinal real phenotype data for systolic and diastolic blood pressure, age, sex and indicators of hypertension, antihypertensive medication use, and cigarette smoking, collected at up to 4 time points. Family data also included genome-wide measures of gene expression for a smaller set of individuals; however, no contribution in our group utilized this data nor did any contribution utilize the longitudinal nature of the data. The data set of 1943 unrelated individuals contained exome sequence calls and the same phenotypes as the family data, at a single time point. More detailed information on the GAW19 data sets is available in Blangero et al. [<xref ref-type="bibr" rid="CR76">76</xref>].</p>
+<p>The 6 contributions from the Collapsing Rare Variants Working Group of GAW19 extend upon the current literature and reflect varied goals, including the creation of new statistical tests, developments of meta-analytic techniques and a comparison of existing statistical tests. Table <xref ref-type="table" rid="Tab1">1</xref> provides overall characteristics of each contribution.<table-wrap id="Tab1"><label>Table 1</label><caption><p>Contributions from the GAW19 Collapsing Rare Variants working group</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Goal</th><th>Reference</th><th>Trait</th><th>Data type</th><th>Statistic type</th></tr></thead><tbody><tr><td rowspan="3">New statistic</td><td>Green et al. [<xref ref-type="bibr" rid="CR77">77</xref>]</td><td>Quantitative</td><td>Family simulated</td><td>Combined burden and variance component</td></tr><tr><td>Jadhav et al. [<xref ref-type="bibr" rid="CR78">78</xref>]</td><td>Dichotomous</td><td>Unrelated, simulated</td><td>Burden and Variance component</td></tr><tr><td>Zhu et al. [<xref ref-type="bibr" rid="CR67">67</xref>]</td><td>Quantitative</td><td>Family simulated</td><td>Variance component</td></tr><tr><td rowspan="2">Meta-analysis</td><td>Katsumata and Fardo [<xref ref-type="bibr" rid="CR81">81</xref>]</td><td>Quantitative</td><td>Family and unrelated simulated</td><td>Variance component</td></tr><tr><td>Wang et al. [<xref ref-type="bibr" rid="CR82">82</xref>]</td><td>Quantitative</td><td>Family and unrelated real data</td><td>Variance component, haplotype model</td></tr><tr><td>Method comparison</td><td>Wang et al. [<xref ref-type="bibr" rid="CR57">57</xref>]</td><td>Dichotomous</td><td>Family simulated</td><td>Burden, variance component and an optimal combination</td></tr></tbody></table></table-wrap></p>
+<sec id="Sec8">
+<title>New statistics</title>
+<p>Green et al. [<xref ref-type="bibr" rid="CR77">77</xref>] developed a general framework for combining different statistical tests of association of rare variants with a continuous trait in family-based studies. A linear mixed model was used to derive residuals by adjusting for covariates as well as a random effect for familial correlation. These residuals were then permuted to create data sets reflective of the null hypothesis of no association, allowing for the derivation of empirical <italic>p</italic> values that combine information over a set of rare variant tests yielding a single overall test of association. In the Green et al. formulation [<xref ref-type="bibr" rid="CR77">77</xref>], evidence was combined over 4 burden tests and 4 variance–component tests representing different powers of the marginal score statistics (<italic>U, U</italic><sup><italic>2</italic></sup><italic>, U</italic><sup><italic>3</italic></sup> and <italic>U</italic><sup><italic>4</italic></sup>) as well as over 2 weight functions, one based on the Beta distribution [<xref ref-type="bibr" rid="CR29">29</xref>], and the other based on the inverse standard deviation of the allele count [<xref ref-type="bibr" rid="CR45">45</xref>]. With increasing powers of the marginal score statistics, the contribution of noncausal variants to the overall statistic is lessened, and the use of the Beta distribution more severely down weights common variants compared to those based on the inverse standard deviation of the allele count. By utilizing all combinations of weight function with powers of the score statistic, a variety of models are included within the test. However, given the permutation framework, their method can be generalized to any set of statistical tests. In evaluating their method, Green et al. [<xref ref-type="bibr" rid="CR77">77</xref>] focused on the GAW19 simulated data set of 30 genes on chromosome 3 that have at least 1 casual variant; type 1 error and power were estimated for the combined approach, as well as for each of the 4 burden tests and 4 variance-component tests. Type 1 error was controlled at the 0.05 level based on the null trait, Q1, provided with the simulated data. The combined approach consistently yielded intermediate power relative to the power of the four burden and four variance-component tests. Given there is no single best test and that the optimal statistic is unknown a priori, the combined approach allows for proper control of type 1 error and is an approach that is robust to differing genetic architectures. Further research is needed to determine an optimal combination of tests, ones that are uncorrelated, reflecting different patterns of association, and that maximize power.</p>
+<p>Zhu et al. [<xref ref-type="bibr" rid="CR67">67</xref>] derived a score test, OW-score, based on the retrospective likelihood for a continuous trait formed by conditioning on observed phenotypes. The resulting test is a function of a weighted combination of genotypes over the variants included in the test, where the weighting is derived to maximize the score statistic. Power for the OW-score method was compared to that of famSKAT [<xref ref-type="bibr" rid="CR56">56</xref>] for the 14 genes with the largest simulated signal for diastolic blood pressure in the GAW19 data at a significance level of 0.05. Only 4 genes, yielded power that was greater than 40 % for either method; of these, the OW-score test was more powerful for 3 genes and the famSKAT was more powerful for 1 gene. It is important to note that the distribution of the weights by MAF differs between the OW-score test and famSKAT, with famSKAT more highly weighting variants with a MAF within (0.01, 0.05). This aligned with the simulation results and performance of the OW-score test compared to famSKAT: when causal variants fell within this MAF range, the famSKAT was more powerful than the OW-score method. Thus, more research is needed to determine if the retrospective nature of the OW-score test or the varied weighting structure is leading to increased power in certain scenarios.</p>
+<p>Jadhav et al. [<xref ref-type="bibr" rid="CR78">78</xref>] used a method, from the branch of statistics called <italic>functional data analysis</italic>, which is based on analysis of curves, surfaces, or functions [<xref ref-type="bibr" rid="CR79">79</xref>]. Specifically, a functional analysis of variance (ANOVA) model compared the difference in the genetic structure of a genomic region between cases and controls. To do so, a continuous function was fit to each individual’s genotype using cubic B-splines over a 30-kb region, and the resulting mean function was compared between cases and controls using an ANOVA test. Results were compared with a burden test that weighted minor allele counts by the inverse standard deviation for the minor allele count in controls [<xref ref-type="bibr" rid="CR27">27</xref>], as well as to a burden test that incorporates linkage disequilibrium through a genetic covariance matrix [<xref ref-type="bibr" rid="CR80">80</xref>]. Simulations were conducted for a 1.4-Mb region of chromosome 3 where causal variants were randomly selected to be 1 % to 50 % of the region, and phenotypes were simulated using both unidirectional and bidirectional effects. The functional ANOVA test had greater power, up to 0.135 higher, compared to the burden test (with or without incorporation of linkage disequilibrium) over all but 1 scenario, in which 50 % of the variants in the region were causal and with unidirectional effect. In this scenario, power was comparable.</p>
+</sec>
+<sec id="Sec9">
+<title>Developments in meta-analysis</title>
+<p>Katsumata and Fardo [<xref ref-type="bibr" rid="CR81">81</xref>] applied the famSKAT statistic to each of the GAW19 family- and population-based data sets, as well as to the combined set of data, resulting in a mega-analysis. These 3 analyses were compared against a meta-analysis of the family- and population-based data sets for the 15 most causal genes influencing each of diastolic and systolic blood pressure in the GAW19 simulation model (23 genes in total, given overlapping causal genes). They found that mega-analysis could be substantially more powerful than meta-analysis (<italic>NRF1</italic>, <italic>LEPR</italic>, <italic>LRP8</italic>, <italic>GAB2</italic> with systolic blood pressure [SBP]) with meta-analysis resulting in discernibly higher power compared to mega-analysis for only one of the top genes (<italic>TNN</italic> with both SBP and diastolic blood pressure [DBP]). However, when the power to detect association to a gene-region was considerably lower within the family-based sample versus the population-based sample, the power of the mega-analysis was much lower than the analysis based on the population-based sample alone, while the meta-analysis had a less-severe power loss. This suggests that the mega-analysis may be better when there is sufficient power to detect an association in both samples, but a meta-analysis might be more suited to situations where one study is underpowered and/or there is heterogeneity in the genetic associations between study samples. Both meta-analysis and mega-analysis indicated elevated type 1 error with estimates based on the 200 simulated data sets of the null trait Q1 ranging from 0.055 to 0.130 and 0.050 to 0.135, respectively, for the 23 genes.</p>
+<p>Wang et al. [<xref ref-type="bibr" rid="CR82">82</xref>] also considered a meta-analysis of the famSKAT statistic applied to the family- and population-based data sets for DBP. These results were compared to a meta-analysis of results from a haplotype-based association model. For haplotype analysis, a mixed linear model was fit, allowing for covariates, fixed effects of haplotypes (with haplotypes with frequency of less than 0.5 % collapsed into 1 group) and random components for family structure and error. Haplotypes were coded using dosages estimated from genotypes using the expectation–maximization algorithm. Models were fit separately for the family-based and population-based samples, and the weighted-least squares method of meta-analysis was followed by a Wald test of equal haplotype effects. Type 1 error for the haplotype model was found to be elevated for genes with more than 14 haplotypes; hence, results on the real data set were given for only genes with fewer than 14 haplotypes. None of the genes were significant for famSKAT after correcting for multiple testing; however, multiple genes did achieve statistical significance using the haplotype model indicating a potentially more powerful method for association testing. As these results are from real data, further study is needed to understand relative performance of the 2 methods over a range of models.</p>
+</sec>
+<sec id="Sec10">
+<title>Method comparison</title>
+<p>Finally, Wang et al. [<xref ref-type="bibr" rid="CR57">57</xref>] compared existing family-based methods for binary traits including the rare variant transmission disequilibrium test (RV-TDT) [<xref ref-type="bibr" rid="CR55">55</xref>], the generalized estimating equations–based–kernel association (GEE-KM) test [<xref ref-type="bibr" rid="CR83">83</xref>], an extended CMC test for pedigree data known as PedCMC [<xref ref-type="bibr" rid="CR84">84</xref>], a gene-level kernel and burden association tests for pedigree data (PedGene) [<xref ref-type="bibr" rid="CR80">80</xref>], and the family-based rare variant association test (FARVAT) [<xref ref-type="bibr" rid="CR85">85</xref>]. Through simulation based on the 6 genes with the largest effects on both simulated SBP and DBP, they found that the FARVAT method based on optimal weights (that adaptively use the data to combine burden and variance component tests) was more powerful than the PedCMC, GEE-KM, or any of the RV-TDT tests. The power for the PedGene method was comparable with that of FARVAT; however, FARVAT required substantially less computing time. Based on dichotomization of the simulated null trait Q1 to correspond to a prevalence of 22.6 %, type 1 error was demonstrated to be deflated for the RV-TDT and inflated for the GEE-KM test, while the PedCMC, PedGene, and FARVAT had reasonable control of type 1 error across a range of significance levels.</p>
+</sec>
+</sec>
+<sec id="Sec11">
+<title>Discussion and conclusions</title>
+<p>Over the last 10 years, there has been considerable methods development for association tests of rare variants. Tests have been proposed that are ideal for unidirectional and bidirectional effects, as well as an optimized combination of the 2 types of effects. Methods have been proposed for binary as well as normally distributed traits, for population-based and family studies. Most tests allow for the use of different weighting schemes (eg, based on MAF or genomic annotation), and meta-analysis procedures have also been developed.</p>
+<p>Contributions to the GAW19 Collapsing Rare Variants group expanded upon the literature in several ways. Green et al. [<xref ref-type="bibr" rid="CR77">77</xref>] provided a method that could be used to combine any collection of statistics for rare variant association. This is particularly important given there are numerous types of annotation that could be used as weights and these weights could be implemented in a burden model, variance component model, or combination of the 2 models. While an oft-used strategy is to conduct all tests separately, the method proposed by Green et al. would allow for an empirical combination in a statistically rigorous framework while controlling for total type 1 error.</p>
+<p>New statistical tests were developed to allow for a retrospective likelihood based on optimized variant weights [<xref ref-type="bibr" rid="CR67">67</xref>] and to incorporate genomic structure into the test of rare variants [<xref ref-type="bibr" rid="CR78">78</xref>].</p>
+<p>Katsumata and Fardo [<xref ref-type="bibr" rid="CR81">81</xref>] provided guidance regarding design and meta-analysis. Based on GAW19 simulated data, they found that mega-analysis generally led to higher power than a meta-analysis; however, if there were large differences in power between the family-based and population-based studies, a mega-analysis could have power less than that of the studies being combined, meta-analysis was less affected by this scenario. Wang et al. [<xref ref-type="bibr" rid="CR82">82</xref>] compared meta-analysis based on haplotypes to meta-analysis based on famSKAT statistics, demonstrating the 2 approaches to be complementary by detecting associations to different genes.</p>
+<p>Finally, Wang et al. [<xref ref-type="bibr" rid="CR57">57</xref>] compared existing family-based methods for rare variant association to binary traits and demonstrated PedGene and FARVAT to be powerful methods for rare variant association, with FARVAT being more computationally efficient.</p>
+<p>Although much work has been done, there are still many open research areas pertaining to the analysis of rare variants. We mention a number of these areas; however, this list is by no means exhaustive. For example, great care has been taken in studies of common variants to control for population substructure. These have included the use of genetic principal components, genomic matching and linear mixed models; see, eg, the review by Price et al. [<xref ref-type="bibr" rid="CR86">86</xref>]. Given rare variants are confounded with population ancestry, it is not clear how to best control for this substructure. Although there has been some work in this area in showing that population substructure is indeed different for common and rare variants [<xref ref-type="bibr" rid="CR87">87</xref>, <xref ref-type="bibr" rid="CR88">88</xref>], more work, especially in method development, is needed.</p>
+<p>It often makes sense to focus on the gene region as the unit for collapsing methods, especially given analyses within the coding regions of the genome. However, GWAS associations are often in intergenic regions, and there is building evidence that much of the noncoding region of the genome is indeed functional [<xref ref-type="bibr" rid="CR89">89</xref>, <xref ref-type="bibr" rid="CR90">90</xref>]. Thus, there is an interest in testing noncoding regions of the genome for association with rare variants and how best to define the regions is an open question. A sliding-window based approach is often used to group regions of the genome for testing. There are many additional questions when using sliding windows such as number, size of window, and size of overlap between windows. Genomic windows will need to be large enough to capture the causal region without being too large so as to include too much noise. There is likely to be a tradeoff between multiple testing adjustments necessary to account for many small windows versus the potential power loss from using fewer windows that are too large. In addition, as the functionality of the noncoding regions continues to be discovered and defined, it is likely that there will be useful information to use when building or defining the windows or meaningful genetic units within the non-coding regions.</p>
+<p>As we have detailed, methods exist for incorporating genomic annotation as weights in region based methods. The choice of the best weight and, in fact, which information to consider at all, remain somewhat open questions. Currently, MAF, functionality, consequence, evolutionary conservation and many other metrics can be used as weights and the list continues to grow, especially in non-coding regions as functional research continues at a rapid pace. Thus, there is a need to further develop efficient methods of deriving the most appropriate weight. This can be done to some extent through the adaptive methods discussed previously. However, the adaptive methods, which often rely on permutation, may become computationally infeasible given the increasing amount of information on which to weight, increasing sample size, and analysis on the entire genome. Thus, there will continue to be a need for computationally efficient methods of determining the weights while retaining the appropriate type 1 error.</p>
+<p>To date, most collapsing of rare variants is done on a contiguous region of the genome, whether it is a gene or a genomic window. Alternative approaches include the use of pathways or gene sets developed, for example, from expression studies or protein-protein interaction studies. Recent studies have found some success with this approach [<xref ref-type="bibr" rid="CR91">91</xref>], but more research is needed.</p>
+<p>Finally, given the continued struggle to adequately power studies of rare variants, more work is needed on ways to improve power. One approach is to continually increase the sample size of the studies, perhaps through including publically available population controls. Another, perhaps more feasible approach may require refocusing the phenotype through use of multidimensional phenotypes or homogeneous subphenotypes.</p>
+<p>Given this relatively brief discussion of remaining areas of research for the association of rare variants, there is little doubt that this will continue to be an active area of research for several more years.</p>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p>
+<bold>Competing interests</bold>
+</p>
+<p>The authors declare they have no competing interests.</p>
+</fn>
+<fn>
+<p>
+<bold>Authors’ contributions</bold>
+</p>
+<p>SAS served as group leader during for the GAW19 Collapsing Rare Variants working group, editor for the corresponding contributions and summarizes the group work herein. AEH summarized existing literature. Both authors read and approved the final manuscript.</p>
+</fn>
+<fn>
+<p>
+<bold>Declarations</bold>
+</p>
+<p>This article has been published as part of <italic>BMC Genetics</italic> Volume 17 Supplement 2, 2016: Genetic Analysis Workshop 19: Sequence, Blood Pressure and Expression Data. Summary articles. The full contents of the supplement are available online at <ext-link ext-link-type="uri" xlink:href="http://www.biomedcentral.com/bmcgenet/supplements/17/S2">www.biomedcentral.com/bmcgenet/supplements/17/S2</ext-link>. Publication of the proceedings of Genetic Analysis Workshop 19 was supported by National Institutes of Health grant R01 GM031575.</p>
+</fn>
+</fn-group>
+<ack>
+<title>Acknowledgements</title>
+<p>We would like to express our thanks to members of the Collapsing Rare Variants working group for their participation, many active discussions and for their subsequent comments and assistance. In addition, we are particularly grateful for the in-depth critique and suggestions made by two anonymous reviewers. GAW19 was supported by NIH grant R01 GM031575.</p>
+</ack>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nelson</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Wegmann</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Ehm</surname>
+<given-names>MG</given-names>
+</name>
+<name>
+<surname>Kessner</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Jean</surname>
+<given-names>PS</given-names>
+</name>
+<name>
+<surname>Verzilli</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An abundance of rare functional variants in 202 drug target genes sequenced in 14,002 people</article-title>
+<source/>Science
+          <year>2012</year>
+<volume>337</volume>
+<issue>6090</issue>
+<fpage>100</fpage>
+<lpage>104</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1217876</pub-id>
+<pub-id pub-id-type="pmid">22604722</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<mixed-citation publication-type="other">Hartl D, Clark A: Principles of Population Genetics. Sunderland, Sinauer Associates 1998</mixed-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gibson</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Rare and common variants: twenty arguments</article-title>
+<source/>Nat Rev Genet
+          <year>2011</year>
+<volume>13</volume>
+<issue>2</issue>
+<fpage>135</fpage>
+<lpage>145</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg3118</pub-id>
+<pub-id pub-id-type="pmid">22251874</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kryukov</surname>
+<given-names>GV</given-names>
+</name>
+<name>
+<surname>Pennacchio</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Sunyaev</surname>
+<given-names>SR</given-names>
+</name>
+</person-group>
+<article-title>Most rare missense alleles are deleterious in humans: implications for complex disease and association studies</article-title>
+<source/>Am J Hum Genet
+          <year>2007</year>
+<volume>80</volume>
+<issue>4</issue>
+<fpage>727</fpage>
+<lpage>739</lpage>
+<pub-id pub-id-type="doi">10.1086/513473</pub-id>
+<pub-id pub-id-type="pmid">17357078</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhu</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Ge</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Maia</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Petrovski</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Dickson</surname>
+<given-names>SP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A genome-wide comparison of the functional properties of rare and common genetic variants in humans</article-title>
+<source/>Am J Hum Genet
+          <year>2011</year>
+<volume>88</volume>
+<issue>4</issue>
+<fpage>458</fpage>
+<lpage>468</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2011.03.008</pub-id>
+<pub-id pub-id-type="pmid">21457907</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abecasis</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Auton</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Brooks</surname>
+<given-names>LD</given-names>
+</name>
+<name>
+<surname>DePristo</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Durbin</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Handsaker</surname>
+<given-names>RE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An integrated map of genetic variation from 1,092 human genomes</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>491</volume>
+<issue>7422</issue>
+<fpage>56</fpage>
+<lpage>65</lpage>
+<pub-id pub-id-type="doi">10.1038/nature11632</pub-id>
+<pub-id pub-id-type="pmid">23128226</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Manolio</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>FS</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Goldstein</surname>
+<given-names>DB</given-names>
+</name>
+<name>
+<surname>Hindorff</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Hunter</surname>
+<given-names>DJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Finding the missing heritability of complex diseases</article-title>
+<source/>Nature
+          <year>2009</year>
+<volume>461</volume>
+<issue>7265</issue>
+<fpage>747</fpage>
+<lpage>753</lpage>
+<pub-id pub-id-type="doi">10.1038/nature08494</pub-id>
+<pub-id pub-id-type="pmid">19812666</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Visscher</surname>
+<given-names>PM</given-names>
+</name>
+<name>
+<surname>Brown</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>McCarthy</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Five years of GWAS discovery</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>90</volume>
+<issue>1</issue>
+<fpage>7</fpage>
+<lpage>24</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2011.11.029</pub-id>
+<pub-id pub-id-type="pmid">22243964</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Manolio</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Pasquale</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Boerwinkle</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Caporaso</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Cunningham</surname>
+<given-names>JM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genome partitioning of genetic variation for complex traits using common SNPs</article-title>
+<source/>Nat Genet
+          <year>2011</year>
+<volume>43</volume>
+<issue>6</issue>
+<fpage>519</fpage>
+<lpage>525</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.823</pub-id>
+<pub-id pub-id-type="pmid">21552263</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cruchaga</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Karch</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Jin</surname>
+<given-names>SC</given-names>
+</name>
+<name>
+<surname>Benitez</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Cai</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Guerreiro</surname>
+<given-names>R</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Rare coding variants in the phospholipase D3 gene confer risk for Alzheimer’s disease</article-title>
+<source/>Nature
+          <year>2014</year>
+<volume>505</volume>
+<issue>7484</issue>
+<fpage>550</fpage>
+<lpage>554</lpage>
+<pub-id pub-id-type="doi">10.1038/nature12825</pub-id>
+<pub-id pub-id-type="pmid">24336208</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Peloso</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Auer</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Bis</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Voorman</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Morrison</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Stitziel</surname>
+<given-names>NO</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association of low-frequency and rare coding-sequence variants with blood lipids and coronary heart disease in 56,000 whites and blacks</article-title>
+<source/>Am J Hum Genet
+          <year>2014</year>
+<volume>94</volume>
+<issue>2</issue>
+<fpage>223</fpage>
+<lpage>232</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2014.01.009</pub-id>
+<pub-id pub-id-type="pmid">24507774</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rivas</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Beaudoin</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gardet</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Stevens</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Sharma</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>CK</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Deep resequencing of GWAS loci identifies independent rare variants associated with inflammatory bowel disease</article-title>
+<source/>Nat Genet
+          <year>2011</year>
+<volume>43</volume>
+<issue>11</issue>
+<fpage>1066</fpage>
+<lpage>1073</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.952</pub-id>
+<pub-id pub-id-type="pmid">21983784</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gudmundsson</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Sulem</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Gudbjartsson</surname>
+<given-names>DF</given-names>
+</name>
+<name>
+<surname>Masson</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Agnarsson</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Benediktsdottir</surname>
+<given-names>KR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A study based on whole-genome sequencing yields a rare variant at 8q24 associated with prostate cancer</article-title>
+<source/>Nat Genet
+          <year>2012</year>
+<volume>44</volume>
+<issue>12</issue>
+<fpage>1326</fpage>
+<lpage>1329</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2437</pub-id>
+<pub-id pub-id-type="pmid">23104005</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bansal</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Libiger</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Torkamani</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Schork</surname>
+<given-names>NJ</given-names>
+</name>
+</person-group>
+<article-title>Statistical analysis strategies for association studies involving rare variants</article-title>
+<source/>Nat Rev Genet
+          <year>2010</year>
+<volume>11</volume>
+<issue>11</issue>
+<fpage>773</fpage>
+<lpage>785</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2867</pub-id>
+<pub-id pub-id-type="pmid">20940738</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cirulli</surname>
+<given-names>ET</given-names>
+</name>
+<name>
+<surname>Goldstein</surname>
+<given-names>DB</given-names>
+</name>
+</person-group>
+<article-title>Uncovering the roles of rare variants in common disease through whole-genome sequencing</article-title>
+<source/>Nat Rev Genet
+          <year>2010</year>
+<volume>11</volume>
+<issue>6</issue>
+<fpage>415</fpage>
+<lpage>425</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2779</pub-id>
+<pub-id pub-id-type="pmid">20479773</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schork</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Murray</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>Frazer</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Topol</surname>
+<given-names>EJ</given-names>
+</name>
+</person-group>
+<article-title>Common vs. rare allele hypotheses for complex diseases</article-title>
+<source/>Curr Opin Genet Dev
+          <year>2009</year>
+<volume>19</volume>
+<issue>3</issue>
+<fpage>212</fpage>
+<lpage>219</lpage>
+<pub-id pub-id-type="doi">10.1016/j.gde.2009.04.010</pub-id>
+<pub-id pub-id-type="pmid">19481926</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hatzikotoulas</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Gilly</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Zeggini</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>Using population isolates in genetic association studies</article-title>
+<source/>Brief Funct Genomics
+          <year>2014</year>
+<volume>13</volume>
+<issue>5</issue>
+<fpage>371</fpage>
+<lpage>377</lpage>
+<pub-id pub-id-type="doi">10.1093/bfgp/elu022</pub-id>
+<pub-id pub-id-type="pmid">25009120</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>SR</given-names>
+</name>
+<name>
+<surname>Agarwala</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Flannick</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Chiang</surname>
+<given-names>CWK</given-names>
+</name>
+<name>
+<surname>Altshuler</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Hirschhorn</surname>
+<given-names>JN</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Simulation of Finnish population history, guided by empirical genetic data, to assess power of rare-variant tests in Finland</article-title>
+<source/>Am J Hum Genet
+          <year>2014</year>
+<volume>94</volume>
+<issue>5</issue>
+<fpage>710</fpage>
+<lpage>720</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2014.03.019</pub-id>
+<pub-id pub-id-type="pmid">24768551</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cohen</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Pertsemlidis</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Kotowski</surname>
+<given-names>IK</given-names>
+</name>
+<name>
+<surname>Graham</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Garcia</surname>
+<given-names>CK</given-names>
+</name>
+<name>
+<surname>Hobbs</surname>
+<given-names>HH</given-names>
+</name>
+</person-group>
+<article-title>Low LDL cholesterol in individuals of African descent resulting from frequent nonsense mutations in PCSK9</article-title>
+<source/>Nat Genet
+          <year>2005</year>
+<volume>37</volume>
+<issue>2</issue>
+<fpage>161</fpage>
+<lpage>165</lpage>
+<pub-id pub-id-type="doi">10.1038/ng1509</pub-id>
+<pub-id pub-id-type="pmid">15654334</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cohen</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Pertsemlidis</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Fahmi</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Esmail</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Vega</surname>
+<given-names>GL</given-names>
+</name>
+<name>
+<surname>Grundy</surname>
+<given-names>SM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Multiple rare variants in NPC1L1 associated with reduced sterol absorption and plasma low-density lipoprotein levels</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2006</year>
+<volume>103</volume>
+<issue>6</issue>
+<fpage>1810</fpage>
+<lpage>1815</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0508483103</pub-id>
+<pub-id pub-id-type="pmid">16449388</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fu</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>O’Connor</surname>
+<given-names>TD</given-names>
+</name>
+<name>
+<surname>Jun</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Abecasis</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Leal</surname>
+<given-names>SM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Analysis of 6,515 exomes reveals the recent origin of most human protein-coding variants</article-title>
+<source/>Nature
+          <year>2013</year>
+<volume>493</volume>
+<issue>7431</issue>
+<fpage>216</fpage>
+<lpage>220</lpage>
+<pub-id pub-id-type="doi">10.1038/nature11690</pub-id>
+<pub-id pub-id-type="pmid">23201682</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Abecasis</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Boehnke</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>Rare-variant association analysis: study designs and statistical tests</article-title>
+<source/>Am J Hum Genet
+          <year>2014</year>
+<volume>95</volume>
+<issue>1</issue>
+<fpage>5</fpage>
+<lpage>23</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2014.06.009</pub-id>
+<pub-id pub-id-type="pmid">24995866</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morgenthaler</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Thilly</surname>
+<given-names>WG</given-names>
+</name>
+</person-group>
+<article-title>A strategy to discover genes that carry multi-allelic or mono-allelic risk for common diseases: a cohort allelic sums test (CAST)</article-title>
+<source/>Mutat Res
+          <year>2007</year>
+<volume>615</volume>
+<issue>1–2</issue>
+<fpage>28</fpage>
+<lpage>56</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mrfmmm.2006.09.003</pub-id>
+<pub-id pub-id-type="pmid">17101154</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Asimit</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Day-Williams</surname>
+<given-names>AG</given-names>
+</name>
+<name>
+<surname>Morris</surname>
+<given-names>AP</given-names>
+</name>
+<name>
+<surname>Zeggini</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>ARIEL and AMELIA: testing for an accumulation of rare variants using next-generation sequencing data</article-title>
+<source/>Hum Hered
+          <year>2012</year>
+<volume>73</volume>
+<issue>2</issue>
+<fpage>84</fpage>
+<lpage>94</lpage>
+<pub-id pub-id-type="doi">10.1159/000336982</pub-id>
+<pub-id pub-id-type="pmid">22441326</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Leal</surname>
+<given-names>SM</given-names>
+</name>
+</person-group>
+<article-title>Methods for detecting associations with rare variants for common diseases: application to analysis of sequence data</article-title>
+<source/>Am J Hum Genet
+          <year>2008</year>
+<volume>83</volume>
+<issue>3</issue>
+<fpage>311</fpage>
+<lpage>321</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2008.06.024</pub-id>
+<pub-id pub-id-type="pmid">18691683</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morris</surname>
+<given-names>AP</given-names>
+</name>
+<name>
+<surname>Zeggini</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>An evaluation of statistical approaches to rare variant analysis in genetic association studies</article-title>
+<source/>Genet Epidemiol
+          <year>2010</year>
+<volume>34</volume>
+<issue>2</issue>
+<fpage>188</fpage>
+<lpage>193</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.20450</pub-id>
+<pub-id pub-id-type="pmid">19810025</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Madsen</surname>
+<given-names>BE</given-names>
+</name>
+<name>
+<surname>Browning</surname>
+<given-names>SR</given-names>
+</name>
+</person-group>
+<article-title>A groupwise association test for rare mutations using a weighted sum statistic</article-title>
+<source/>PLoS Genet
+          <year>2009</year>
+<volume>5</volume>
+<issue>2</issue>
+<fpage>e1000384</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1000384</pub-id>
+<pub-id pub-id-type="pmid">19214210</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Han</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>A data-adaptive sum test for disease association with multiple common or rare variants</article-title>
+<source/>Hum Hered
+          <year>2010</year>
+<volume>70</volume>
+<issue>1</issue>
+<fpage>42</fpage>
+<lpage>54</lpage>
+<pub-id pub-id-type="doi">10.1159/000288704</pub-id>
+<pub-id pub-id-type="pmid">20413981</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Cai</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Boehnke</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>Rare-variant association testing for sequencing data with the sequence kernel association test</article-title>
+<source/>Am J Hum Genet
+          <year>2011</year>
+<volume>89</volume>
+<issue>1</issue>
+<fpage>82</fpage>
+<lpage>93</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2011.05.029</pub-id>
+<pub-id pub-id-type="pmid">21737059</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Neale</surname>
+<given-names>BM</given-names>
+</name>
+<name>
+<surname>Rivas</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Voight</surname>
+<given-names>BF</given-names>
+</name>
+<name>
+<surname>Altshuler</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Devlin</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Orho-Melander</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Testing for an unusual distribution of rare variants</article-title>
+<source/>PLoS Genet
+          <year>2011</year>
+<volume>7</volume>
+<issue>3</issue>
+<fpage>e1001322</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1001322</pub-id>
+<pub-id pub-id-type="pmid">21408211</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pan</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>Asymptotic tests of association with multiple SNPs in linkage disequilibrium</article-title>
+<source/>Genet Epidemiol
+          <year>2009</year>
+<volume>33</volume>
+<issue>6</issue>
+<fpage>497</fpage>
+<lpage>507</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.20402</pub-id>
+<pub-id pub-id-type="pmid">19170135</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>Optimal tests for rare variant effects in sequencing association studies</article-title>
+<source/>Biostatistics
+          <year>2012</year>
+<volume>13</volume>
+<issue>4</issue>
+<fpage>762</fpage>
+<lpage>775</lpage>
+<pub-id pub-id-type="doi">10.1093/biostatistics/kxs014</pub-id>
+<pub-id pub-id-type="pmid">22699862</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Derkach</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Lawless</surname>
+<given-names>JF</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Robust and powerful tests for rare variants using Fisher’s method to combine evidence of association from two or more complementary tests</article-title>
+<source/>Genet Epidemiol
+          <year>2013</year>
+<volume>37</volume>
+<issue>1</issue>
+<fpage>110</fpage>
+<lpage>121</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21689</pub-id>
+<pub-id pub-id-type="pmid">23032573</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sun</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hsu</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>A unified mixed-effects model for rare-variant association in sequencing studies</article-title>
+<source/>Genet Epidemiol
+          <year>2013</year>
+<volume>37</volume>
+<issue>4</issue>
+<fpage>334</fpage>
+<lpage>344</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21717</pub-id>
+<pub-id pub-id-type="pmid">23483651</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>LS</given-names>
+</name>
+<name>
+<surname>Hsu</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Gamazon</surname>
+<given-names>ER</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Nicolae</surname>
+<given-names>DL</given-names>
+</name>
+</person-group>
+<article-title>An exponential combination procedure for set-based association tests in sequencing studies</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>91</volume>
+<issue>6</issue>
+<fpage>977</fpage>
+<lpage>986</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.09.017</pub-id>
+<pub-id pub-id-type="pmid">23159251</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Derkach</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Lawless</surname>
+<given-names>JF</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Pooled association tests for rare genetic variants: a review and some new results</article-title>
+<source/>Stat Sci
+          <year>2014</year>
+<volume>29</volume>
+<issue>2</issue>
+<fpage>302</fpage>
+<lpage>321</lpage>
+<pub-id pub-id-type="doi">10.1214/13-STS456</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hubisz</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Pollard</surname>
+<given-names>KS</given-names>
+</name>
+<name>
+<surname>Siepel</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>PHAST and RPHAST: phylogenetic analysis with space/time models</article-title>
+<source/>Brief Bioinform
+          <year>2011</year>
+<volume>12</volume>
+<issue>1</issue>
+<fpage>41</fpage>
+<lpage>51</lpage>
+<pub-id pub-id-type="doi">10.1093/bib/bbq072</pub-id>
+<pub-id pub-id-type="pmid">21278375</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cooper</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Stone</surname>
+<given-names>EA</given-names>
+</name>
+</person-group>
+<article-title>Asimenos G; NISC Comparative Sequencing Program, Green ED, Batzoglou S, Sidow A: Distribution and intensity of constraint in mammalian genomic sequence</article-title>
+<source/>Genome Res
+          <year>2005</year>
+<volume>15</volume>
+<issue>7</issue>
+<fpage>901</fpage>
+<lpage>913</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.3577405</pub-id>
+<pub-id pub-id-type="pmid">15965027</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gonzalez-Perez</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Lopez-Bigas</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>Improving the assessment of the outcome of nonsynonymous SNVs with a consensus deleteriousness score</article-title>
+<source/>Condel Am J Hum Genet
+          <year>2011</year>
+<volume>88</volume>
+<issue>4</issue>
+<fpage>440</fpage>
+<lpage>449</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2011.03.004</pub-id>
+<pub-id pub-id-type="pmid">21457909</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kumar</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Henikoff</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Ng</surname>
+<given-names>PC</given-names>
+</name>
+</person-group>
+<article-title>Predicting the effects of coding non-synonymous variants on protein function using the SIFT algorithm</article-title>
+<source/>Nat Protoc
+          <year>2009</year>
+<volume>4</volume>
+<issue>7</issue>
+<fpage>1073</fpage>
+<lpage>1082</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2009.86</pub-id>
+<pub-id pub-id-type="pmid">19561590</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Adzhubei</surname>
+<given-names>IA</given-names>
+</name>
+<name>
+<surname>Schmidt</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Peshkin</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Ramensky</surname>
+<given-names>VE</given-names>
+</name>
+<name>
+<surname>Gerasimova</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bork</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A method and server for predicting damaging missense mutations</article-title>
+<source/>Nat Methods
+          <year>2010</year>
+<volume>7</volume>
+<issue>4</issue>
+<fpage>248</fpage>
+<lpage>249</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth0410-248</pub-id>
+<pub-id pub-id-type="pmid">20354512</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kircher</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Witten</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Jain</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>O’Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Cooper</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Shendure</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>A general framework for estimating the relative pathogenicity of human genetic variants</article-title>
+<source/>Nat Genet
+          <year>2014</year>
+<volume>46</volume>
+<issue>3</issue>
+<fpage>310</fpage>
+<lpage>315</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2892</pub-id>
+<pub-id pub-id-type="pmid">24487276</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Castellana</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Mazza</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Congruency in the prediction of pathogenic missense mutations: state-of-the-art web-based tools</article-title>
+<source/>Brief Bioinform
+          <year>2013</year>
+<volume>14</volume>
+<issue>4</issue>
+<fpage>448</fpage>
+<lpage>459</lpage>
+<pub-id pub-id-type="doi">10.1093/bib/bbt013</pub-id>
+<pub-id pub-id-type="pmid">23505257</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xue</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Ayub</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Ball</surname>
+<given-names>EV</given-names>
+</name>
+<name>
+<surname>Mort</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Deleterious- and disease-allele prevalence in healthy individuals: insights from current predictions, mutation databases, and population-scale resequencing</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>91</volume>
+<issue>6</issue>
+<fpage>1022</fpage>
+<lpage>1032</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.10.015</pub-id>
+<pub-id pub-id-type="pmid">23217326</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Price</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Kryukov</surname>
+<given-names>GV</given-names>
+</name>
+<name>
+<surname>de Bakker</surname>
+<given-names>PI</given-names>
+</name>
+<name>
+<surname>Purcell</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Staples</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>LJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Pooled association tests for rare variants in exon-resequencing studies</article-title>
+<source/>Am J Hum Genet
+          <year>2010</year>
+<volume>86</volume>
+<issue>6</issue>
+<fpage>832</fpage>
+<lpage>838</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2010.04.005</pub-id>
+<pub-id pub-id-type="pmid">20471002</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ladouceur</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Dastani</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Aulchenko</surname>
+<given-names>YS</given-names>
+</name>
+<name>
+<surname>Greenwood</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Richards</surname>
+<given-names>JB</given-names>
+</name>
+</person-group>
+<article-title>The empirical power of rare variant association methods: results from sanger sequencing in 1,998 individuals</article-title>
+<source/>PLoS Genet
+          <year>2012</year>
+<volume>8</volume>
+<issue>2</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1002496</pub-id>
+<pub-id pub-id-type="pmid">22319458</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moutsianas</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Agarwala</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Fuchsberger</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Flannick</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Rivas</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Gaulton</surname>
+<given-names>KJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The power of gene-based rare variant methods to detect disease-associated variation and test hypotheses about complex disease</article-title>
+<source/>PLoS Genet
+          <year>2015</year>
+<volume>11</volume>
+<issue>4</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1005165</pub-id>
+<pub-id pub-id-type="pmid">25906071</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ionita-Laza</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Capanu</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>De Rubeis</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>McCallum</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Buxbaum</surname>
+<given-names>JD</given-names>
+</name>
+</person-group>
+<article-title>Identification of rare causal variants in sequence-based studies: methods and applications to VPS13B, a gene involved in Cohen syndrome and autism</article-title>
+<source/>PLoS Genet
+          <year>2014</year>
+<volume>10</volume>
+<issue>12</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1004729</pub-id>
+<pub-id pub-id-type="pmid">25502226</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<mixed-citation publication-type="other">Chen H, Hendricks AE, Cheng Y, Cupples AL, Dupuis J, Liu CT: Comparison of statistical approaches to rare variant analysis for quantitative traits. BMC Proc 2011, 5 Suppl 9: S113.</mixed-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ionita-Laza</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Makarov</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Buxbaum</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>Sequence kernel association tests for the combined effect of rare and common variants</article-title>
+<source/>Am J Hum Genet
+          <year>2013</year>
+<volume>92</volume>
+<issue>6</issue>
+<fpage>841</fpage>
+<lpage>853</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.04.015</pub-id>
+<pub-id pub-id-type="pmid">23684009</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhi</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Statistical guidance for experimental design and data analysis of mutation detection in rare monogenic mendelian diseases by exome sequencing</article-title>
+<source/>PLoS One
+          <year>2012</year>
+<volume>7</volume>
+<issue>2</issue>
+<fpage>e31358</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0031358</pub-id>
+<pub-id pub-id-type="pmid">22348076</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Samocha</surname>
+<given-names>KE</given-names>
+</name>
+<name>
+<surname>Robinson</surname>
+<given-names>EB</given-names>
+</name>
+<name>
+<surname>Sanders</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Stevens</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Sabo</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>McGrath</surname>
+<given-names>LM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A framework for the interpretation of de novo mutation in human disease</article-title>
+<source/>Nat Genet
+          <year>2014</year>
+<volume>46</volume>
+<issue>9</issue>
+<fpage>944</fpage>
+<lpage>950</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.3050</pub-id>
+<pub-id pub-id-type="pmid">25086666</pub-id>
+</element-citation>
+</ref>
+<ref id="CR53">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wijsman</surname>
+<given-names>EM</given-names>
+</name>
+</person-group>
+<article-title>The role of large pedigrees in an era of high-throughput sequencing</article-title>
+<source/>Hum Genet
+          <year>2012</year>
+<volume>131</volume>
+<issue>10</issue>
+<fpage>1555</fpage>
+<lpage>1563</lpage>
+<pub-id pub-id-type="doi">10.1007/s00439-012-1190-2</pub-id>
+<pub-id pub-id-type="pmid">22714655</pub-id>
+</element-citation>
+</ref>
+<ref id="CR54">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Epstein</surname>
+<given-names>MP</given-names>
+</name>
+<name>
+<surname>Duncan</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Ware</surname>
+<given-names>EB</given-names>
+</name>
+<name>
+<surname>Jhun</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Bielak</surname>
+<given-names>LF</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A statistical approach for rare-variant association testing in affected sibships</article-title>
+<source/>Am J Hum Genet
+          <year>2015</year>
+<volume>96</volume>
+<issue>4</issue>
+<fpage>543</fpage>
+<lpage>554</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2015.01.020</pub-id>
+<pub-id pub-id-type="pmid">25799106</pub-id>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>He</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>O’Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Hooker</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Santos-Cortez</surname>
+<given-names>RLP</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Rare-variant extensions of the transmission disequilibrium test: application to autism exome sequence data</article-title>
+<source/>Am J Hum Genet
+          <year>2014</year>
+<volume>94</volume>
+<issue>1</issue>
+<fpage>33</fpage>
+<lpage>46</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.11.021</pub-id>
+<pub-id pub-id-type="pmid">24360806</pub-id>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Meigs</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Dupuis</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Sequence kernel association test for quantitative traits in family samples</article-title>
+<source/>Genet Epidemiol
+          <year>2013</year>
+<volume>37</volume>
+<issue>2</issue>
+<fpage>196</fpage>
+<lpage>204</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21703</pub-id>
+<pub-id pub-id-type="pmid">23280576</pub-id>
+</element-citation>
+</ref>
+<ref id="CR57">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Choi</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Won</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Comparing family-based rare variant association tests for dichotomous phenotypes</article-title>
+<source/>BMC Proc
+          <year>2015</year>
+<volume>9</volume>
+<issue>Suppl 8</issue>
+<fpage>S21</fpage>
+</element-citation>
+</ref>
+<ref id="CR58">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abney</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Permutation testing in the presence of polygenic variation</article-title>
+<source/>Genet Epidemiol
+          <year>2015</year>
+<volume>39</volume>
+<issue>4</issue>
+<fpage>249</fpage>
+<lpage>258</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21893</pub-id>
+<pub-id pub-id-type="pmid">25758362</pub-id>
+</element-citation>
+</ref>
+<ref id="CR59">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ng</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Bigham</surname>
+<given-names>AW</given-names>
+</name>
+<name>
+<surname>Buckingham</surname>
+<given-names>KJ</given-names>
+</name>
+<name>
+<surname>Hannibal</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>McMillin</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Gildersleeve</surname>
+<given-names>HI</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Exome sequencing identifies MLL2 mutations as a cause of Kabuki syndrome</article-title>
+<source/>Nat Genet
+          <year>2010</year>
+<volume>42</volume>
+<issue>9</issue>
+<fpage>790</fpage>
+<lpage>793</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.646</pub-id>
+<pub-id pub-id-type="pmid">20711175</pub-id>
+</element-citation>
+</ref>
+<ref id="CR60">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ng</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Buckingham</surname>
+<given-names>KJ</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Bigham</surname>
+<given-names>AW</given-names>
+</name>
+<name>
+<surname>Tabor</surname>
+<given-names>HK</given-names>
+</name>
+<name>
+<surname>Dent</surname>
+<given-names>KM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Exome sequencing identifies the cause of a mendelian disorder</article-title>
+<source/>Nat Genet
+          <year>2010</year>
+<volume>42</volume>
+<issue>1</issue>
+<fpage>30</fpage>
+<lpage>35</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.499</pub-id>
+<pub-id pub-id-type="pmid">19915526</pub-id>
+</element-citation>
+</ref>
+<ref id="CR61">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Allen</surname>
+<given-names>AS</given-names>
+</name>
+<name>
+<surname>Berkovic</surname>
+<given-names>SF</given-names>
+</name>
+<name>
+<surname>Cossette</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Delanty</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Dlugos</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Eichler</surname>
+<given-names>EE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>De novo mutations in epileptic encephalopathies</article-title>
+<source/>Nature
+          <year>2013</year>
+<volume>501</volume>
+<issue>7466</issue>
+<fpage>217</fpage>
+<lpage>221</lpage>
+<pub-id pub-id-type="doi">10.1038/nature12439</pub-id>
+<pub-id pub-id-type="pmid">23934111</pub-id>
+</element-citation>
+</ref>
+<ref id="CR62">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rivière</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>van Bon</surname>
+<given-names>BW</given-names>
+</name>
+<name>
+<surname>Hoischen</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Kholmanskikh</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>O’Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Gilissen</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>De novo mutations in the actin genes ACTB and ACTG1 cause Baraitser-Winter syndrome</article-title>
+<source/>Nat Genet
+          <year>2012</year>
+<volume>44</volume>
+<issue>4</issue>
+<fpage>440</fpage>
+<lpage>444</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.1091</pub-id>
+<pub-id pub-id-type="pmid">22366783</pub-id>
+</element-citation>
+</ref>
+<ref id="CR63">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zaidi</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Choi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wakimoto</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Ma</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Jiang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Overton</surname>
+<given-names>JD</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>De novo mutations in histone-modifying genes in congenital heart disease</article-title>
+<source/>Nature
+          <year>2013</year>
+<volume>498</volume>
+<issue>7453</issue>
+<fpage>220</fpage>
+<lpage>223</lpage>
+<pub-id pub-id-type="doi">10.1038/nature12141</pub-id>
+<pub-id pub-id-type="pmid">23665959</pub-id>
+</element-citation>
+</ref>
+<ref id="CR64">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ramu</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Noordam</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Schwartz</surname>
+<given-names>RS</given-names>
+</name>
+<name>
+<surname>Wuster</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hurles</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Cartwright</surname>
+<given-names>RA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>DeNovoGear: de novo indel and point mutation discovery and phasing</article-title>
+<source/>Nat Methods
+          <year>2013</year>
+<volume>10</volume>
+<issue>10</issue>
+<fpage>985</fpage>
+<lpage>987</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.2611</pub-id>
+<pub-id pub-id-type="pmid">23975140</pub-id>
+</element-citation>
+</ref>
+<ref id="CR65">
+<label>65.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Taylor</surname>
+<given-names>PN</given-names>
+</name>
+<name>
+<surname>Porcu</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Chew</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Campbell</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Traglia</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Brown</surname>
+<given-names>SJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Whole-genome sequence-based analysis of thyroid function</article-title>
+<source/>Nat Commun
+          <year>2015</year>
+<volume>6</volume>
+<fpage>5681</fpage>
+<pub-id pub-id-type="doi">10.1038/ncomms6681</pub-id>
+<pub-id pub-id-type="pmid">25743335</pub-id>
+</element-citation>
+</ref>
+<ref id="CR66">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Timpson</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Walter</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Min</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Tachmazidou</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Malerba</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>SY</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A rare variant in APOC3 is associated with plasma triglyceride and VLDL levels in Europeans</article-title>
+<source/>Nat Commun
+          <year>2014</year>
+<volume>5</volume>
+<fpage>4871</fpage>
+<pub-id pub-id-type="doi">10.1038/ncomms5871</pub-id>
+<pub-id pub-id-type="pmid">25225788</pub-id>
+</element-citation>
+</ref>
+<ref id="CR67">
+<label>67.</label>
+<mixed-citation publication-type="other">Zhu H, Wang Z, Wang X, Sha Q: A novel statistical method for rare variant association studies in general pedigrees. BMC Proc 2015, 9 Suppl 8: S23.</mixed-citation>
+</ref>
+<ref id="CR68">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Futema</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Plagnol</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Whittall</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Neil</surname>
+<given-names>HA</given-names>
+</name>
+<name>
+<surname>Seed</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Whole exome sequencing of familial hypercholesterolaemia patients negative for LDLR/APOB/PCSK9 mutations</article-title>
+<source/>J Med Genet
+          <year>2014</year>
+<volume>51</volume>
+<issue>8</issue>
+<fpage>537</fpage>
+<lpage>544</lpage>
+<pub-id pub-id-type="doi">10.1136/jmedgenet-2014-102405</pub-id>
+<pub-id pub-id-type="pmid">24987033</pub-id>
+</element-citation>
+</ref>
+<ref id="CR69">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barnett</surname>
+<given-names>IJ</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>Detecting rare variant effects using extreme phenotype sampling in sequencing association studies</article-title>
+<source/>Genet Epidemiol
+          <year>2013</year>
+<volume>37</volume>
+<issue>2</issue>
+<fpage>142</fpage>
+<lpage>151</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21699</pub-id>
+<pub-id pub-id-type="pmid">23184518</pub-id>
+</element-citation>
+</ref>
+<ref id="CR70">
+<label>70.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lin</surname>
+<given-names>DY</given-names>
+</name>
+<name>
+<surname>Zeng</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>ZZ</given-names>
+</name>
+</person-group>
+<article-title>Quantitative trait analysis in sequencing studies under trait-dependent sampling</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2013</year>
+<volume>110</volume>
+<issue>30</issue>
+<fpage>12247</fpage>
+<lpage>12252</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1221713110</pub-id>
+<pub-id pub-id-type="pmid">23847208</pub-id>
+</element-citation>
+</ref>
+<ref id="CR71">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Derkach</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Chiang</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Gong</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Addis</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Dobbins</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Tomlinson</surname>
+<given-names>I</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association analysis using next-generation sequence data from publicly available control groups: the robust variance score statistic</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<volume>30</volume>
+<issue>15</issue>
+<fpage>2179</fpage>
+<lpage>2188</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu196</pub-id>
+<pub-id pub-id-type="pmid">24733292</pub-id>
+</element-citation>
+</ref>
+<ref id="CR72">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Emond</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Bamshad</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Barnes</surname>
+<given-names>KC</given-names>
+</name>
+<name>
+<surname>Rieder</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Nickerson</surname>
+<given-names>DA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Optimal unified approach for rare-variant association testing with application to small-sample case–control whole-exome sequencing studies</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>91</volume>
+<issue>2</issue>
+<fpage>224</fpage>
+<lpage>237</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.06.007</pub-id>
+<pub-id pub-id-type="pmid">22863193</pub-id>
+</element-citation>
+</ref>
+<ref id="CR73">
+<label>73.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Hedges</surname>
+<given-names>LV</given-names>
+</name>
+<name>
+<surname>Olkin</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<source/>Statistical Method for Meta-Analysis
+          <year>1985</year>
+<edition>1</edition>
+<publisher-loc>Orlando</publisher-loc>
+<publisher-name>Academic Press Inc</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR74">
+<label>74.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Teslovich</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Boehnke</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>General framework for meta-analysis of rare variants in sequencing association studies</article-title>
+<source/>Am J Hum Genet
+          <year>2013</year>
+<volume>93</volume>
+<issue>1</issue>
+<fpage>42</fpage>
+<lpage>53</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2013.05.010</pub-id>
+<pub-id pub-id-type="pmid">23768515</pub-id>
+</element-citation>
+</ref>
+<ref id="CR75">
+<label>75.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>DJ</given-names>
+</name>
+<name>
+<surname>Peloso</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Zhan</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Holmen</surname>
+<given-names>OL</given-names>
+</name>
+<name>
+<surname>Zawistowski</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Meta-analysis of gene-level tests for rare variant association</article-title>
+<source/>Nat Genet
+          <year>2014</year>
+<volume>46</volume>
+<issue>2</issue>
+<fpage>200</fpage>
+<lpage>204</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2852</pub-id>
+<pub-id pub-id-type="pmid">24336170</pub-id>
+</element-citation>
+</ref>
+<ref id="CR76">
+<label>76.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Blangero</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Teslovich</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Sim</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Almeida</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Jun</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Dyer</surname>
+<given-names>TD</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Omics-squared: human genomic, transcriptomic and phenotypic data for Genetic Analysis Workshop 19</article-title>
+<source/>BMC Proc
+          <year>2015</year>
+<volume>9</volume>
+<issue>Suppl 8</issue>
+<fpage>S2</fpage>
+<pub-id pub-id-type="pmid">26361498</pub-id>
+</element-citation>
+</ref>
+<ref id="CR77">
+<label>77.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Green</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Cook</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Grinde</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Valcarcel</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Tintle</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>A general method for combining different family-based, rare variant tests of association to improve power and robustness to a wide range of genetic architectures</article-title>
+<source/>BMC Proc
+          <year>2015</year>
+<volume>9</volume>
+<issue>Suppl 8</issue>
+<fpage>S18</fpage>
+</element-citation>
+</ref>
+<ref id="CR78">
+<label>78.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jadhav</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Vsevolozhskaya</surname>
+<given-names>OA</given-names>
+</name>
+<name>
+<surname>Tong</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>Q</given-names>
+</name>
+</person-group>
+<article-title>The impact of genetic structure on sequencing analysis</article-title>
+<source/>BMC Proc
+          <year>2015</year>
+<volume>9</volume>
+<issue>Suppl 8</issue>
+<fpage>S19</fpage>
+</element-citation>
+</ref>
+<ref id="CR79">
+<label>79.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Ramsay</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Silverman</surname>
+<given-names>B</given-names>
+</name>
+</person-group>
+<source/>Functional Data Analysis
+          <year>2005</year>
+<edition>2</edition>
+<publisher-loc>New York</publisher-loc>
+<publisher-name>Springer</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR80">
+<label>80.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schaid</surname>
+<given-names>DJ</given-names>
+</name>
+<name>
+<surname>McDonnell</surname>
+<given-names>SK</given-names>
+</name>
+<name>
+<surname>Sinnwell</surname>
+<given-names>JP</given-names>
+</name>
+<name>
+<surname>Thibodeau</surname>
+<given-names>SN</given-names>
+</name>
+</person-group>
+<article-title>Multiple genetic variant association testing by collapsing and kernel methods with pedigree or population structured data</article-title>
+<source/>Genet Epidemiol
+          <year>2013</year>
+<volume>37</volume>
+<issue>5</issue>
+<fpage>409</fpage>
+<lpage>418</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21727</pub-id>
+<pub-id pub-id-type="pmid">23650101</pub-id>
+</element-citation>
+</ref>
+<ref id="CR81">
+<label>81.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Katsumata</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Fardo</surname>
+<given-names>DW</given-names>
+</name>
+</person-group>
+<article-title>On combining family- and population-based sequencing data</article-title>
+<source/>BMC Proc
+          <year>2015</year>
+<volume>9</volume>
+<issue>Suppl 8</issue>
+<fpage>S20</fpage>
+</element-citation>
+</ref>
+<ref id="CR82">
+<label>82.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Fisher</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Dupuis</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Comparison of multi-SNV association tests in a meta-analysis of GAW19 family and unrelated data</article-title>
+<source/>BMC Proc
+          <year>2015</year>
+<volume>9</volume>
+<issue>Suppl 8</issue>
+<fpage>S22</fpage>
+</element-citation>
+</ref>
+<ref id="CR83">
+<label>83.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Redline</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>GEE-based SNP set association test for continuous and discrete traits in family-based association studies</article-title>
+<source/>Genet Epidemiol
+          <year>2013</year>
+<volume>37</volume>
+<issue>8</issue>
+<fpage>778</fpage>
+<lpage>786</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.21763</pub-id>
+<pub-id pub-id-type="pmid">24166731</pub-id>
+</element-citation>
+</ref>
+<ref id="CR84">
+<label>84.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Xiong</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Family-based association studies for next-generation sequencing</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>90</volume>
+<issue>6</issue>
+<fpage>1028</fpage>
+<lpage>1045</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.04.022</pub-id>
+<pub-id pub-id-type="pmid">22682329</pub-id>
+</element-citation>
+</ref>
+<ref id="CR85">
+<label>85.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Choi</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Cichon</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Noethen</surname>
+<given-names>MM</given-names>
+</name>
+<name>
+<surname>Lange</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>T</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>FARVAT: a family-based rare variant association test</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<volume>30</volume>
+<issue>22</issue>
+<fpage>3197</fpage>
+<lpage>3205</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu496</pub-id>
+<pub-id pub-id-type="pmid">25075118</pub-id>
+</element-citation>
+</ref>
+<ref id="CR86">
+<label>86.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Price</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Zaitlen</surname>
+<given-names>NA</given-names>
+</name>
+<name>
+<surname>Reich</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Patterson</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>New approaches to population stratification in genome-wide association studies</article-title>
+<source/>Nat Rev Genet
+          <year>2010</year>
+<volume>11</volume>
+<issue>7</issue>
+<fpage>459</fpage>
+<lpage>463</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2813</pub-id>
+<pub-id pub-id-type="pmid">20548291</pub-id>
+</element-citation>
+</ref>
+<ref id="CR87">
+<label>87.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mathieson</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>McVean</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Differential confounding of rare and common variants in spatially structured populations</article-title>
+<source/>Nat Genet
+          <year>2012</year>
+<volume>44</volume>
+<issue>3</issue>
+<fpage>243</fpage>
+<lpage>246</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.1074</pub-id>
+<pub-id pub-id-type="pmid">22306651</pub-id>
+</element-citation>
+</ref>
+<ref id="CR88">
+<label>88.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zawistowski</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Reppell</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wegmann</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>St Jean</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Ehm</surname>
+<given-names>MG</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>MR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Analysis of rare variant population structure in Europeans explains differential stratification of gene-based tests</article-title>
+<source/>Eur J Hum Genet
+          <year>2014</year>
+<volume>22</volume>
+<issue>9</issue>
+<fpage>1137</fpage>
+<lpage>1144</lpage>
+<pub-id pub-id-type="doi">10.1038/ejhg.2013.297</pub-id>
+<pub-id pub-id-type="pmid">24398795</pub-id>
+</element-citation>
+</ref>
+<ref id="CR89">
+<label>89.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Birney</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Stamatoyannopoulos</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Dutta</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Guigó</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gingeras</surname>
+<given-names>TR</given-names>
+</name>
+<name>
+<surname>Margulies</surname>
+<given-names>EH</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification and analysis of functional elements in 1 % of the human genome by the ENCODE pilot project</article-title>
+<source/>Nature
+          <year>2007</year>
+<volume>447</volume>
+<issue>7146</issue>
+<fpage>799</fpage>
+<lpage>816</lpage>
+<pub-id pub-id-type="doi">10.1038/nature05874</pub-id>
+<pub-id pub-id-type="pmid">17571346</pub-id>
+</element-citation>
+</ref>
+<ref id="CR90">
+<label>90.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kundaje</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Meuleman</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Ernst</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bilenky</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Yen</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Heravi-Moussavi</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Integrative analysis of 111 reference human epigenomes</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>518</volume>
+<issue>7539</issue>
+<fpage>317</fpage>
+<lpage>330</lpage>
+<pub-id pub-id-type="doi">10.1038/nature14248</pub-id>
+<pub-id pub-id-type="pmid">25693563</pub-id>
+</element-citation>
+</ref>
+<ref id="CR91">
+<label>91.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iossifov</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>O’Roak</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Sanders</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Ronemus</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Krumm</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Levy</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The contribution of de novo coding mutations to autism spectrum disorder</article-title>
+<source/>Nature
+          <year>2014</year>
+<volume>515</volume>
+<issue>7526</issue>
+<fpage>216</fpage>
+<lpage>221</lpage>
+<pub-id pub-id-type="doi">10.1038/nature13908</pub-id>
+<pub-id pub-id-type="pmid">25363768</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

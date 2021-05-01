@@ -1,0 +1,979 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">AMIA Jt Summits Transl Sci Proc</journal-id>
+<journal-id journal-id-type="iso-abbrev">AMIA Jt Summits Transl Sci Proc</journal-id>
+<journal-title-group>
+<journal-title>AMIA Summits on Translational Science Proceedings</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2153-4063</issn>
+<publisher>
+<publisher-name>American Medical Informatics Association</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29888039</article-id>
+<article-id pub-id-type="pmc">5961811</article-id>
+<article-id pub-id-type="publisher-id">2840701</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Articles</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Real-time Protection of Genomic Data Sharing in Beacon Services</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Bu</surname>
+<given-names>Diyue</given-names>
+</name>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Xiaofeng</given-names>
+</name>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Tang</surname>
+<given-names>Haixu</given-names>
+</name>
+</contrib>
+</contrib-group>
+<aff id="af1-2840701">School of Informatics, Computing and Engineering, Indiana University, Bloomington, IN, USA</aff>
+<pub-date pub-type="collection">
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>18</day>
+<month>5</month>
+<year>2018</year>
+</pub-date>
+<volume>2018</volume>
+<fpage seq="b">45</fpage>
+<lpage>54</lpage>
+<permissions>
+<copyright-statement>©2018 AMIA - All rights reserved.</copyright-statement>
+<copyright-year>2018</copyright-year>
+<license>
+<license-p>This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose</license-p>
+</license>
+</permissions>
+<abstract>
+<p>The acquisition of human genomic sequences is of increasing convenience and reduced expense. The sharing of these data is critical for biomedical researchers to study genomic loci or variants that are potentially associated with human diseases<sup><xref ref-type="bibr" rid="r1-2840701">1</xref></sup>. However, sharing genomic data broadly is impeded by privacy concerns. The statistical inference techniques for the re-identification of genomic data donors have been extensively investigated in the literature<sup><xref ref-type="bibr" rid="r2-2840701">2</xref>–<xref ref-type="bibr" rid="r5-2840701">5</xref></sup>. The Beacon services project is recently brought into view, aiming to test the willingness of data holders to share genomic data in a simple technical context: a query to ask a specified nucleotide at a given position within a chromosome<sup>6</sup>, also suffering from being compromised<sup><xref ref-type="bibr" rid="r7-2840701">7</xref>,<xref ref-type="bibr" rid="r8-2840701">8</xref></sup>. In this paper, we introduce a real-time mitigation method to protect Beacon services from re-identification attacks<sup><xref ref-type="bibr" rid="r7-2840701">7</xref></sup>, and show that it performs favorably in comparison with previous approaches on mitigation efficiency, i.e., with lower re-identification risks and higher utility of Beacon database.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<sec id="sec1" sec-type="intro">
+<title>Introduction</title>
+<p>With the help of high-throughput DNA sequencing techniques<sup><xref ref-type="bibr" rid="r9-2840701">9</xref></sup>, human genomes can now be sequenced with low cost. Genomic datasets from large-scale projects such as 1000 Genomes Project<sup><xref ref-type="bibr" rid="r10-2840701">10</xref></sup> and HapMap Project<sup><xref ref-type="bibr" rid="r11-2840701">11</xref></sup> provided valuable resources for biomedical researchers to study genetic basis of human diseases. In addition, many medical institutes started to collect human genomic data from patients of various diseases, in particular complex diseases such as cancer. However, access and sharing of these valuable data in the biomedical community are impeded by potential privacy risks to the participants. Homer <italic>et al</italic>.<sup><xref ref-type="bibr" rid="r2-2840701">2</xref></sup> showed that inference techniques could be utilized to identify the presence/absence of an individual in a genomic dataset from aggregate statistics (<italic>e.g.,</italic> allele frequencies), even when the dataset contains thousands of human genomes. Numerous follow-up studies showed the existence of privacy risks in other types of genomic data<sup><xref ref-type="bibr" rid="r12-2840701">12</xref>–<xref ref-type="bibr" rid="r14-2840701">14</xref></sup>, resulting in further reluctance of sharing human genomic data broadly for research uses. Nonetheless, sharing human genomic data for research purpose is not commonly regulated by privacy laws and policies<sup><xref ref-type="bibr" rid="r15-2840701">15</xref>,<xref ref-type="bibr" rid="r16-2840701">16</xref></sup>, which is different from the scenario in clinical settings (<italic>e.g.,</italic> biomedical data including genomic data is regulated by the HIPPA compliance). Notably, the most sensitive genomic data largely overlap with those most useful in biomedical research, <italic>e.g.,</italic> human diseases are often associated with <italic>rare alleles</italic> that are carried by only a small fraction of individuals in the population, which poses great challenges to protect the privacy of data donors while preserving the utility of genomic data in biomedical research<sup><xref ref-type="bibr" rid="r17-2840701">17</xref>,<xref ref-type="bibr" rid="r18-2840701">18</xref></sup>.</p>
+<p>The Global Alliance for Genomics and Health (GA4GH), formed in 2013, serves as a platform for responsible genomic and health data sharing with consistent policy and interoperable standards and protocols<sup><xref ref-type="bibr" rid="r19-2840701">19</xref></sup>. The GA4GH has been taking the position of striking the balance between effective data sharing and responsible protection of individual privacy. Hence, it is important to explore and understand potential privacy risks in human genomic data<sup><xref ref-type="bibr" rid="r2-2840701">2</xref>–<xref ref-type="bibr" rid="r5-2840701">5</xref></sup>. The Beacon services<sup><xref ref-type="bibr" rid="r6-2840701">6</xref></sup> is a demonstration project led by GA4GH, aiming to provide a general public web service for disseminating human genomic data while ensuring sensitive information about participants is not leaked. A biomedical researcher may query the presence of a genetic variant in a set of genomic databases, each is owned by an independent institute, through the unified Beacon web service platform. The owner of each database can choose to register and host a Beacon service without releasing the whole dataset, which significantly reduces the privacy concerns for the data owners to share their data. The queries accepted by the Beacon services follow the forms like “Do you have any genomes with nucleotide A at position 114, 235 on chromosome 2?”, while the responses from Beacon would be “Yes” or “No” (True/False answer). With such information, the users would learn whether the queried variant is present in any database registered at Beacon. No additional information (such as summary statistics of variants) is exposed to queriers. At present, the variants supported by Beacon services are only single nucleotide polymorphisms (SNPs); but the Beacon consortium plans to extend its services to other types of variants, including structural variations (SVs). The genomic information shared by Beacon is limited, but still useful: users may take further steps to get access to the whole genomic dataset (<italic>e.g.,</italic> by signing a user agreement with the data owner) if they know some genomes in a dataset carrying the variations of their interests. Overall, the Beacon services set an example of responsible and effective genomic data sharing with technical simplicity.</p>
+<p>Even though Beacon services merely return the True/False answer for each query, genomic information leakage from the target genomic database still exists. A <italic>re-identification</italic> approach devised by Shringarpure and Bustamante (SB attack)<sup><xref ref-type="bibr" rid="r7-2840701">7</xref></sup> assumes that a malicious user (<italic>attacker</italic>) has obtained the genomic sequence of a victim, and attempts to determine if she is present in a <italic>target</italic> genomic database through a series of Beacon queries to the database. The SB attack is an inference attack based on a <italic>log-likelihood ratio test</italic> (LRT) to assess if the probabilities of obtaining the specific set of Beacon answers under two hypotheses (null hypothesis and alternative hypothesis) shown as in Formula 1 are significantly different. The power of the test, i.e., Pr(<italic>reject H<sub>0</sub>|H<sub>1</sub>is true)</italic>, indicates the confidence of the attackers can conclude that the victim (with queried variants) is present in the target database, which also measures the re-identification risk of an individual genome in a genomic database.
+<disp-formula><label>(1)</label><mml:math id="EQN1"><mml:mtable columnalign="left"><mml:mtr><mml:mtd><mml:msub><mml:mi>H</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mtext> </mml:mtext><mml:mo>:</mml:mo><mml:mtext>  </mml:mtext><mml:mi>T</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>i</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mtext>  </mml:mtext><mml:mi>v</mml:mi><mml:mi>i</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mo>’</mml:mo><mml:mi>s</mml:mi><mml:mtext>  </mml:mtext><mml:mi>g</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>o</mml:mi><mml:mi>m</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>i</mml:mi><mml:mi>s</mml:mi><mml:mtext>  </mml:mtext><mml:mi>n</mml:mi><mml:mi>o</mml:mi><mml:mi>t</mml:mi><mml:mtext>  </mml:mtext><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mtext>  </mml:mtext><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>t</mml:mi><mml:mi>arg</mml:mi><mml:mi>e</mml:mi><mml:mi>t</mml:mi><mml:mtext>  </mml:mtext><mml:mi>d</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>b</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo>.</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:msub><mml:mi>H</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mtext> </mml:mtext><mml:mo>:</mml:mo><mml:mtext>  </mml:mtext><mml:mi>T</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>i</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mtext>  </mml:mtext><mml:mi>v</mml:mi><mml:mi>i</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mo>’</mml:mo><mml:mi>s</mml:mi><mml:mtext>  </mml:mtext><mml:mi>g</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>o</mml:mi><mml:mi>m</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>i</mml:mi><mml:mi>s</mml:mi><mml:mtext>  </mml:mtext><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mtext>  </mml:mtext><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>t</mml:mi><mml:mi>arg</mml:mi><mml:mi>e</mml:mi><mml:mi>t</mml:mi><mml:mtext>  </mml:mtext><mml:mi>d</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>b</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo>.</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula></p>
+<p>The log-likelihood statistic of <italic>R</italic> is calculated by Equation 2<sup><xref ref-type="bibr" rid="r7-2840701">7</xref>,<xref ref-type="bibr" rid="r8-2840701">8</xref></sup>, where <italic>R</italic> is the set of Beacon answers <italic>R = {x<sub>1</sub>, x<sub>2</sub>,…, x<sub>n</sub>}</italic> on a set of variants (SNPs). The equation could be further specified according to the hypothetical conditions <italic>H<sub>0</sub></italic> and <italic>H<sub>1</sub></italic> (Equation 3<sup><xref ref-type="bibr" rid="r7-2840701">7</xref>,<xref ref-type="bibr" rid="r8-2840701">8</xref></sup>), where <italic>D<sup>i</sup><sub>N</sub></italic> denotes the probability that none of the <italic>N</italic> individuals in the database carries the queried SNP. Under <italic>H<sub>1</sub></italic>, a genotyping error of 5 is considered that allows a small probability of mismatches between the SNPs in the target database and those known by the attacker. The LRT statistic Λ (Equation 4<sup><xref ref-type="bibr" rid="r7-2840701">7</xref>,<xref ref-type="bibr" rid="r8-2840701">8</xref></sup>) is computed by the difference between <italic>L<sub>H<sub>0</sub></sub>(R)</italic> and <italic>L<sub>H<sub>1</sub></sub>(R)</italic>.
+<disp-formula><label>(2)</label><mml:math id="EQN2"><mml:mtable columnalign="left"><mml:mtr><mml:mtd><mml:msub><mml:mi>H</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mtext> </mml:mtext><mml:mo>:</mml:mo><mml:mtext>  </mml:mtext><mml:mi>T</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>i</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mtext>  </mml:mtext><mml:mi>v</mml:mi><mml:mi>i</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mo>’</mml:mo><mml:mi>s</mml:mi><mml:mtext>  </mml:mtext><mml:mi>g</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>o</mml:mi><mml:mi>m</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>i</mml:mi><mml:mi>s</mml:mi><mml:mtext>  </mml:mtext><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mtext>  </mml:mtext><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext>  </mml:mtext><mml:mi>t</mml:mi><mml:mi>arg</mml:mi><mml:mi>e</mml:mi><mml:mi>t</mml:mi><mml:mtext>  </mml:mtext><mml:mi>d</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>b</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo>.</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mi>L</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>R</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mtext>  </mml:mtext><mml:mo>=</mml:mo><mml:mtext>  </mml:mtext><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mi>log</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>P</mml:mi><mml:mi>r</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mtext> </mml:mtext><mml:mo>=</mml:mo><mml:mtext> </mml:mtext><mml:mn>1</mml:mn></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mtext>  </mml:mtext><mml:mo>+</mml:mo><mml:mtext>  </mml:mtext><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mtext> </mml:mtext><mml:mi>log</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>P</mml:mi><mml:mi>r</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mtext> </mml:mtext><mml:mo>=</mml:mo><mml:mtext>  </mml:mtext><mml:mn>0</mml:mn></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mstyle></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>
+<disp-formula><label>(3)</label><mml:math id="EQN3"><mml:mtable columnalign="left"><mml:mtr><mml:mtd><mml:mi>L</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>R</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mtext>  </mml:mtext><mml:mo>=</mml:mo><mml:mtext>  </mml:mtext><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mi>log</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mn>1</mml:mn><mml:mtext> </mml:mtext><mml:mo>−</mml:mo><mml:mtext> </mml:mtext><mml:msubsup><mml:mi>D</mml:mi><mml:mi>N</mml:mi><mml:mi>i</mml:mi></mml:msubsup></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mstyle><mml:mtext>  </mml:mtext><mml:mo>+</mml:mo><mml:mtext>  </mml:mtext><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mn>1</mml:mn><mml:mtext> </mml:mtext><mml:mo>−</mml:mo><mml:mtext> </mml:mtext><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mtext> </mml:mtext><mml:mi>log</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msubsup><mml:mi>D</mml:mi><mml:mi>N</mml:mi><mml:mi>i</mml:mi></mml:msubsup></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:msub><mml:mi>L</mml:mi><mml:mrow><mml:mi>H</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>R</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mtext>  </mml:mtext><mml:mo>=</mml:mo><mml:mtext>  </mml:mtext><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mtext> </mml:mtext><mml:mi>log</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mn>1</mml:mn><mml:mtext> </mml:mtext><mml:mo>−</mml:mo><mml:mi>δ</mml:mi><mml:msubsup><mml:mi>D</mml:mi><mml:mi>N</mml:mi><mml:mi>i</mml:mi></mml:msubsup></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mstyle><mml:mtext>  </mml:mtext><mml:mo>+</mml:mo><mml:mtext>  </mml:mtext><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mn>1</mml:mn><mml:mtext> </mml:mtext><mml:mo>−</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mi>log</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>δ</mml:mi><mml:msubsup><mml:mi>D</mml:mi><mml:mi>N</mml:mi><mml:mi>i</mml:mi></mml:msubsup></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>
+<disp-formula><label>(4)</label><mml:math id="EQN4"><mml:mo>∧</mml:mo><mml:mtext>  </mml:mtext><mml:mo>=</mml:mo><mml:mtext>  </mml:mtext><mml:msub><mml:mi>L</mml:mi><mml:mrow><mml:mi>H</mml:mi><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>R</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mtext>  </mml:mtext><mml:mo>−</mml:mo><mml:mtext>  </mml:mtext><mml:mrow><mml:mo>(</mml:mo><mml:mi>R</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:math></disp-formula></p>
+<p>The <italic>SB</italic> attack can be further strengthened by approximating the allele frequencies of SNPs in the target database using those in a public genomic dataset, which is available in real world (<italic>e.g.,</italic> through the 1000 Genomes Project<sup><xref ref-type="bibr" rid="r10-2840701">10</xref></sup>). Two attack models based on this strengthened LRT attack were proposed by performing different query orders of SNPs from the victim: the <italic>rare-first</italic> attack queries <italic>rare</italic> SNPs (the SNPs contained by only one genome in the database) first<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>, while in the <italic>discriminative-first</italic> attack, the SNPs with higher discriminative power, <italic>i.e.,</italic> a SNP’s capability to distinguish the records in the target database from those in a reference dataset, were queried first<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup>.</p>
+<p>Mitigation methods were proposed to protect privacy risks in Beacon services from <italic>SB</italic> attack and other inference attacks (<italic>e.g.,</italic> the <italic>rare-first</italic> attack and the <italic>discriminative-first</italic> attack)<sup><xref ref-type="bibr" rid="r8-2840701">8</xref>,<xref ref-type="bibr" rid="r20-2840701">20</xref>,<xref ref-type="bibr" rid="r21-2840701">21</xref></sup>. The idea of these methods is to <italic>flip</italic> the answers to the queries of some variants: for some queried SNPs present in the genome database, the Beacon will answer “no” instead of “yes”, and thus hide the truth about the presence of such variant in the database from the querier; on the other hand, for any variant absent in the database, the answer always remains “no” (<italic>unflipped</italic>). Note that these methods will always give consistent answers for the same query, because Beacon queriers are anonymous. In general, all these mitigation methods attempted to flip a small subset of queries to reduce the attack power measured by the LRT test on the entire set of queries, assuming all the answers can be obtained by a potential malicious user; but each method adopts a different approach to selecting the subset of queries. The performance of these methods can be compared based on the number of queries with flipped answers (better methods flip the smaller number of answers) and the remaining power of re-identification attack.</p>
+<p>A common pitfall of existing mitigation methods is that they do not distinguish the queries targeting different individuals in the database, and thus select the queries with flipped answers solely based on their potential re-identification power. In a realistic application scenario of Beacon, most queries are submitted by biomedical researchers with research interests on different genomic variants. As a result, these variants are equally likely carried by each individual in the database. The queries for the re-identification purpose, however, always target the same individual. Intuitively, more protection should be made on the variants carried by the <italic>vulnerable individuals</italic>, whose variants have been queried more than the others in the database. Only one previous mitigation method considers the vulnerability of individuals in the database, i.e., the query budget per individual strategy<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>. However, this method removes all variants in an individual genome from the database permanently, whenever it is detected vulnerable, which would significantly reduce the data utility for open-access Beacon services. In this paper, we propose a Real-Time Flipping (RTF) method, which monitors the <italic>vulnerability</italic> (<italic>i.e.,</italic> the re-identification risk based on the query history) of each individual in the database with increasingly numbers of queries and decides if the answer to a new query should be flipped (if the queried variant is present) based on the entire query history. We compared the performance of the RTF method with other mitigation methods using genomic database consisting of the 1000 Genome Project data. The results showed that, when various query models (including the attack models such as rare-first and disciminative-first models and the model mimicking the real-world Beacon queries<sup><xref ref-type="bibr" rid="r22-2840701">22</xref></sup>) are adopted, RTF flips answers for fewer than 10% rare SNPs (carried by only one genome) or 4% of all SNPs in the database after millions of queries are made, while ensuring the re-identification confidence for every individual is below a threshold. In contrast, the other methods need to flip answers for much more queries, while the re-identification risks become high after thousands of queries are made. We implement the RTF method along with two other mitigation methods in the <italic>secure-Beacon</italic> system<sup><xref ref-type="bibr" rid="r23-2840701">23</xref></sup> extending the Beacon source code, which is readily used for mitigating re-identification risks in sharing genomic data, in particular for those acquired from vulnerable disease populations (<italic>e.g.,</italic> Autism patients).</p>
+</sec>
+<sec id="sec2" sec-type="methods">
+<title>Methods</title>
+<p>In this section, we describe the workflow of the <italic>secure-Beacon</italic> system, and the real-time flipping method in comparison with existing mitigation methods that are also implemented in the system.</p>
+<sec id="sec2-1">
+<title>Existing Mitigation Methods</title>
+<p>As discussed in the Introduction section, several mitigation methods were proposed to mitigate the re-identification risks in Beacon services. Here, we briefly review two methods, the Random Flipping<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup> (RF) method and the Strategic Flipping<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup> (SF) method which were implemented in the secure-Beacon system and were compared with our method. The other methods were not considered here for various reasons: the Query Budget method<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup> and the Greedy Accountable method<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup> assume that each user utilizing Beacon service has an account, which is not adopted by the current Beacon with the open-access mode (<italic>i.e.,</italic> queries are submitted by anonymous users); on the other hand, the Random Positions Elimination method<sup><xref ref-type="bibr" rid="r21-2840701">21</xref></sup> and the Biased Randomized Response method<sup><xref ref-type="bibr" rid="r21-2840701">21</xref></sup> were shown to perform worse than the Strategic Flipping method in terms of the genomic data utility, <italic>i.e.,</italic> the number of wrong answers (“yes” flipped to “no”) to be returned under the same SB re-identification power of 0.6.<sup><xref ref-type="bibr" rid="r24-2840701">24</xref></sup> Therefore, we focus on these two mitigation methods (RF and SF), and compare them with our new method.</p>
+<p><bold>Random Flipping (RF) Method.</bold> The mechanism of the RF method is to randomly flip ∈ of rare SNPs in the beacon database, where ϵ is a constant, representing the proportion of incorrectly answered cases among all queried rare SNPs<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>. Previous studies showed that with ϵ &gt; 0.15, the power of the rare-first attack would not exceed 0.35 after querying 10,000 SNPs in the database.</p>
+<p><bold>Strategic Flipping (SF) Method.</bold> As proposed by Wan <italic>et al</italic>.<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup>, the SF method flips the k percent of SNPs with the greatest <italic>differential discriminative power</italic>, which measures the discriminative power before and after flipping a SNP. As shown in the previous study, SF can keep the power of SB attack<sup><xref ref-type="bibr" rid="r7-2840701">7</xref></sup> below 0.1 after querying 400,000 SNPs in the database, if <italic>k</italic> is set to be 5 or higher. We note that the discriminative power is calculated for each SNP in the database; hence, the flipped answers by SF may not be limited to the queries of rare SNPs. The answers to the queries of some common SNPs (shared by more than one genomes in the database) may also be flipped.</p>
+</sec>
+<sec id="sec2-2">
+<title>Real-time Flipping (RTF) Method</title>
+<p>We propose a real-time flipping (RTF) method to mitigate the re-identification risks. Similar as the previous RF approach<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>, RTF attempts to hide some rare variants in the database: when these variants are queried, the answer “no” instead of “yes” is returned. As shown in previous studies, by flipping a small fraction (15%) of rare SNPs, the RF method can reduce the re-identification power to an insignificant level<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>. The RTF method aims at further improving it by flipping the rare variants from more vulnerable individuals, whose variants were queried more frequently than other individuals. To achieve this goal, the RTF method monitors and records internally the vulnerability of each individual in the database by conducting the log-likelihood ratio test (LRT) based on the answers (including some flipped) to previously queried variants carried by the individual<xref ref-type="fn" rid="fn1-2840701">*</xref>. For each new query of a rare variant in the database, RTF will decide if the answer should be flipped depending on the <italic>vulnerability</italic> of the individual carrying the variant: the answer will be flipped if the vulnerability is sufficiently high after releasing the presence of this variant. After the answer is returned, the vulnerability of this individual would not be increased.</p>
+<p>The workflow of the RTF method is laid out in <xref ref-type="fig" rid="f1-2840701">Figure 1a.</xref> When a new query to a rare variant in the database is received, we start from assessing the privacy risk of the individual carrying the variant, and the decision whether or not the answer should be flipped will depend on the <italic>p</italic>-value of LRT (denoted as <italic>p</italic><sub>e</sub>) using previously queried variants from the individual. If the <italic>p</italic>-value is greater than 0.05 (<italic>i.e.,</italic> the re-identification risk below the significance of 0.05), the answer will not be flipped, which implies that in this case, the individual has low vulnerability, and thus no mitigation action is taken to protect her. In addition, if the <italic>p</italic>-value has not changed (within variations of 0.001) for 50 consecutive queries of rare SNPs from the target individual, the answer will not be flipped. In this case, the target individual’s vulnerability is not expected to change by additional queries of her rare variants. In contrast, if the <italic>p</italic>-value of LRT is smaller than 0.05 and varies in each step, implying the vulnerability of the target individual is high, the answer will be flipped with a probability proportional to an extreme function that models the difference between the LRT scores of the target individual (<italic>ll<sub>target</sub></italic>) and a group of control individuals (<italic>ll<sub>control</sub></italic>). Specifically, we compute <italic>p<sub>e</sub></italic> as the percentage of LRT scores in the control group (<italic>ll<sub>control</sub></italic>) equal to or smaller than that of the target individual (<italic>ll<sub>target</sub></italic>), and the probability of flipping the answer is set to be 1 — <italic>p</italic><sub><italic>e</italic></sub> (rounded to 1 decimal).</p>
+</sec>
+</sec>
+<sec id="sec3" sec-type="experiments and results">
+<title>Experiments And Results</title>
+<p>In this section, we describe the experimental settings and the comparison results from two evaluation criteria: the re-identification risk and the data utility.</p>
+<sec id="sec3-1" sec-type="experiments">
+<title>Experiments</title>
+<p>To investigate the performance of the RTF mitigation methods and to align with the experimental settings of the alternative methods, we simulate a Beacon services database using a cohort of 1, 235 individuals, which are randomly selected from 2,470 non-relative individuals in Phase 3 of 1000 Genomes Project<sup><xref ref-type="bibr" rid="r10-2840701">10</xref></sup>. The database contains a total of 3,992, 219 variants from Chromosome 10, in which 1,588, 903 (39.8%) are rare variants. The control cohort (individuals not included in the database) harbors 300 genomes randomly selected from the remaining 1,235 individuals. We choose the moderate control group size to reduce the pre-processing time and the potential information leakage of the control cohort. The parameters in the other mitigation methods are set as their defaults: ϵ = 0.15 in RF; <italic>k</italic> = 5 in SF.<sup><xref ref-type="bibr" rid="r8-2840701">8</xref>,<xref ref-type="bibr" rid="r20-2840701">20</xref></sup></p>
+<p><xref ref-type="fig" rid="f1-2840701">Figure 1b</xref> shows the workflow implemented in <italic>secure-Beacon</italic> and used in the experiments. When a new query is received, it is first to be checked if the target variant is present in the database. If it is not in the database, no mitigation method would be applied. If the query is present in the database but has been queried previously, the previous answer to this query will be returned without further alteration (and no mitigation method would be applied). Otherwise, all three mitigation methods will be applied, among which RTF and RF are applied only to rare variants, and SF is applied to both the rare and common variants.</p>
+<p>As discussed previously<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup>, the query order has a strong impact on the performance of mitigation methods. To evaluate this impact on RTF in comparison with the SF and RF methods, we simulated the queries following four patterns: (1) <italic>Random Order</italic>, where the variants are queried in a random order; (2) <italic>Rare-first Order</italic>, where the variants are queried in the increasing order of their allele frequencies; (3) <italic>Discriminative-first Order</italic>, where the variants are queried in the decreasing order of their discriminative level<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup>; (4) Typical User Order, where the variants were queried in the order emulating a typical honest beacon user behavior. All four query patterns were emulated with the 3,992, 219 SNPs from chromosome 10 in Phase 3 reported in the 1000 Genomes Project<sup><xref ref-type="bibr" rid="r10-2840701">10</xref></sup>. To simulate query pattern (4), we generate queries based on the frequency distribution of the queries to the variants with various allele frequencies, which was obtained from the queries to the Beacon browser of ExAC<sup><xref ref-type="bibr" rid="r22-2840701">22</xref></sup> logs over a period of 12 weeks. 1, 345,291 queries in total are asked on 934, 680 SNPs in ExAC under Open Database License (ODbL). <xref ref-type="table" rid="t1-2840701">Table 1</xref> shows the distribution of queried SNPs in terms of their allele frequencies. We note that in the ExAC statistics, the second category “&lt;0.001 not singleton” is specified as “0.0001 - 0.001”. This range overlaps with the allele frequency of singletons (rare variants) for the size of the simulated database. Alternatively, we emulate queries for this category by defining the modified range.</p>
+<p>To further investigate the behavior of RTF, RF and SF under query patterns that are more frequently used in real world (<italic>Random Order</italic> and <italic>Typical User Order</italic>), we included more variants (in the genomes from the same Beacon cohort) in the database and performed additional queries under <italic>Random Order</italic> and <italic>Typical User Order</italic>: a total of 1,054,447 variants from Chromosome 21 are imported into the database, among which 39.2% are rare variants (similar to that of Chromosome 10). The re-identification risk and the data utility of three mitigation methods were evaluated respectively. The results indicate that the behavior of the mitigation methods remains stable after a large number of queries (&gt; 1 million) were performed (see Results section for details).</p>
+<p>The log-likelihood statistics of control group are required for computing the LRT score. In RTF, for the sake of computing efficiency, these statistics were computed in advance before performing query experiments, where they are recorded individually in a table when every new query is performed based on each of the four query patterns, respectively. During the experiment, for each new query (to a variant from the target genome in the database), the corresponding control group log-likelihood statistics (with the same set of queried SNPs) are extracted from the precomputed and used in the LRT assessment. In addition, the location of SNPs (chromosome and positions) and the final returned answers (“yes” or “no”, flipped or not) of the queried variants are recorded in a reference table for further queries to the same SNPs, as mentioned in the Methods section.</p>
+</sec>
+</sec>
+<sec id="sec7" sec-type="evaluations">
+<title>Evaluations</title>
+<p>To evaluate the mitigation methods, we assume the size of Beacon services database (the total number of genomes in the database) and the minor allele frequencies in the beacon database are known to potential malicious users. In reality, we note that the minor allele frequencies in beacon services database are not publicly accessible, but could be approximated by using public genomic datasets (<italic>e.g.,</italic> 1000 Genomes Project<sup><xref ref-type="bibr" rid="r10-2840701">10</xref></sup>).</p>
+<p>The performance of RTF in comparison to RF and SF is evaluated in terms of the re-identification risk (measured by the power of LRT) and the data utility (measured by the total number of flipped answers). A method is preferred if it has lower risk (<italic>i.e.,</italic> lower power of LRT) and higher data utility (fewer number of flipped answers).</p>
+<p><bold>Re-identification Risk.</bold> We evaluate the power of LRT by the percentage of re-identified genomes at a 5% false positive rate<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>, which also represents the confidence of re-identification. The greater power indicates the higher re-identification risk.</p>
+<p><bold>Utility.</bold> To serve the purpose of Beacon services which is to share as much genomic information, the mitigation method should hide only the minimum amount of information (<italic>i.e.,</italic> the variants present in the database), and thus returning the un-modified answers to the queries by most users to variants of their interests. To achieve this goal, we define the utility of the database as Equation 5. To better evaluate the data utility with increasing number of queries, we computed the utility of each mitigation method with the number of flipped answers (Equation 6). <disp-formula><mml:math id="EQN5"><mml:mi>u</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>y</mml:mi><mml:mtext> </mml:mtext><mml:mo>=</mml:mo><mml:mtext> </mml:mtext><mml:mn>1</mml:mn><mml:mtext> </mml:mtext><mml:mo>−</mml:mo><mml:mtext> </mml:mtext><mml:mfrac><mml:mrow><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext> </mml:mtext><mml:mi>n</mml:mi><mml:mi>u</mml:mi><mml:mi>m</mml:mi><mml:mi>b</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mtext> </mml:mtext><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mtext> </mml:mtext><mml:mi>f</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>p</mml:mi><mml:mi>p</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mtext> </mml:mtext><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi><mml:mi>w</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext> </mml:mtext><mml:mi>t</mml:mi><mml:mi>o</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mtext> </mml:mtext><mml:mi>n</mml:mi><mml:mi>u</mml:mi><mml:mi>m</mml:mi><mml:mi>b</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mtext> </mml:mtext><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mtext> </mml:mtext><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>i</mml:mi><mml:mi>e</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfrac></mml:math></disp-formula>
+<disp-formula><label>(6)</label><mml:math id="EQN6"><mml:mi>p</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>g</mml:mi><mml:mi>e</mml:mi><mml:mtext> </mml:mtext><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mtext> </mml:mtext><mml:mi>f</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>p</mml:mi><mml:mi>p</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mtext> </mml:mtext><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi><mml:mi>w</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi><mml:mtext> </mml:mtext><mml:mo>=</mml:mo><mml:mtext> </mml:mtext><mml:mfrac><mml:mrow><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext> </mml:mtext><mml:mi>n</mml:mi><mml:mi>u</mml:mi><mml:mi>m</mml:mi><mml:mi>b</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mtext> </mml:mtext><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mtext> </mml:mtext><mml:mi>f</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>p</mml:mi><mml:mi>p</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mtext> </mml:mtext><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi><mml:mi>w</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mtext> </mml:mtext><mml:mi>t</mml:mi><mml:mi>o</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mtext> </mml:mtext><mml:mi>n</mml:mi><mml:mi>u</mml:mi><mml:mi>m</mml:mi><mml:mi>b</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mtext> </mml:mtext><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mtext> </mml:mtext><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>i</mml:mi><mml:mi>e</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfrac></mml:math></disp-formula></p>
+<p><bold>Computational Environment.</bold> For a mitigation method to be practical, it should be very efficient to make the flipping decision so that the Beacon platform can return the answers to queriers instantly. Therefore, we evaluate the running time of RTF on a 2.60GHz Intel Xeon CPU and 8GB memory, except for pre-processing steps, which can be conducted only once in advance. The running time of the alternative flipping methods were not measured, because their mitigation step could be calculated in advance before any query is submitted.</p>
+</sec>
+<sec id="sec8" sec-type="results">
+<title>Results</title>
+<p><bold>Re-identification Risk.</bold> We performed LRT on each individual in the database (1,235 cases in total) and measured the power of LRT with increasing number of queries. For RTF, the power trend does not vary significantly under different query patterns, because the re-identification risks are updated based on the <italic>p</italic>-values of LRT. In contrast, RF and SF perform differently given various query patterns, which agrees with the previous findings<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup>: RF yields dominant result (less power) under <italic>Rare-first Order</italic> while SF performs better under the other three query patterns. Accordingly, we compare RTF to RF under <italic>Rare-first Order</italic> and to SF under the remaining three query orders. Under <italic>Rare-first Order</italic>, RF does not yield great power (&lt; 0.1) until 1,000 rare SNPs are queried when the power increases to 1.0. Under <italic>Random Order, Discriminative-first Order</italic> and <italic>Typical User Order,</italic> SF does not yield great power (&lt; 0.1) until 1,000 rare SNPs are queried when the power increases to 1.0. For RTF, it does not yield great power (&lt; 0.1) across the process when ~ 120,000 rare SNPs are queried: the power of LRT remains &lt; 0.05 (false positive rate) until 1,000 rare SNPs are queried when the power increases to ~ 0.3, which is still an acceptable risk level<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>. Based on Raisaro <italic>et al</italic>.<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>, a power larger than 0.6 indicates an existing re-identification risk and the greater power suggests the increasing re-identification risk. There is a 100% re-identification risk when the power reaches 1.0. We note that in the simulated database, the rate of rare SNPs on each individual is ~ 0.004, which means the total number of SNPs queried on an individual is ~ 250,000 (the scale used in Raisaro <italic>et al</italic>.<sup><xref ref-type="bibr" rid="r8-2840701">8</xref></sup>), and the total number of SNPs queried among the whole database is ~ 3,600,000 (the scale used in Wan <italic>et al</italic>.<sup><xref ref-type="bibr" rid="r20-2840701">20</xref></sup>). For both cases, RTF allows for much more queries to be made than two previous methods (RF and SF) while still keeping the re-identification risks low.</p>
+<p><bold>Utility.</bold> The percentages of flipped rare SNPs and total flipped SNPs are shown in <xref ref-type="fig" rid="f2-2840701">Figure 2</xref> and <xref ref-type="fig" rid="f3-2840701">Figure 3</xref>, respectively. In <xref ref-type="fig" rid="f2-2840701">Figure 2</xref>, we notice that the trends are almost the same for <italic>Random Order, Rare-first Order</italic> and <italic>Discriminative-first Order</italic>, when the number of queried rare SNPs are about the same. Under <italic>Typical User Order</italic>, the trend is slightly different because the proportion of queries to rare SNPs among all queries is different. This observation is consistent with the formulation of LRT, where each rare SNP contributes the same amount to the overall re-identification risk because only its allele frequency and the answer are used<sup><xref ref-type="bibr" rid="r7-2840701">7</xref></sup>. For the total number of flipped queries in the database, the figures vary across different query order because the rare SNPs are queried at various steps in different query patterns. The trends of the number of flipped answers to rare SNPs and that of total number of flipped SNPs agree with each other. The slope of each line indicates proportion of flipped answers. RTF flips more SNPs at the beginning of the query sequence. However, in terms of rare SNPs, RTF flips fewer than RF after ~ 250,000 queries, and fewer than SF after ~ 400,000 queries; in terms of all the SNPs in the database, RTF flips fewer than RF after ~ 600,000 queries, and fewer than SF after 800,000 — 1,000,000 queries. Under <italic>Discriminative-first Order</italic>, RTF always flips much fewer than RF and SF. We note that the RF and SF lines are computed based on their mechanisms, rather than the experimental results that may contain some artificial fluctuations at the beginning of query sequences.</p>
+<p><bold>Computational Efficiency.</bold> For the implementation of RTF, each mitigation step is performed at back end with no impact on answering subsequent queries. Furthermore, this step only takes 0.15 seconds in average for each query. Although it is slower than the operation time of returning an answer (&lt; 0.001 seconds in average), it is still practical in a real-world Beacon system.</p>
+</sec>
+<sec id="sec9" sec-type="conclusion">
+<title>Conclusion</title>
+<p>In this paper, we propose a real-time mitigation method that enables the Beacon services for sharing human genomic data while protecting the participants’ privacy from re-identification attempts, including <italic>SB</italic> attack and other strengt hened attacks. Our method monitors privacy risks of each individual in the database and decides if answers should be flipped for the queries to variants of each individual respectively, to achieve high efficacy of risk mitigation <italic>i.e.,</italic> lower re-identification risk and higher data utility. We also implement efficient algorithms that enable the mechanism to be embedded into a Beacon web platform, resulting in a practical <italic>secure-Beacon</italic> system for providing strong privacy protection in Beacon services when it is used for sharing highly sensitive human genomic data.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgements</title>
+<p>This work was funded in part by the NIH (Grant No: R01HG007078 and U01EB023685), NSF (Grant No: CNS- 1408874) and the Indiana University Initiative of Precision Health.</p>
+</ack>
+<fn-group>
+<fn id="fn1-2840701">
+<label>*</label>
+<p>Note that the same answer will be returned for the same query when it is submitted again (potentially by a different anonymous user).</p>
+</fn>
+</fn-group>
+<ref-list>
+<title>References</title>
+<ref id="r1-2840701">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ching</surname>
+<given-names>Lee Koo</given-names>
+</name>
+<name>
+<surname>Mei Jing</surname>
+<given-names>Liew</given-names>
+</name>
+<name>
+<surname>Mohd</surname>
+<given-names>Saberi Mohamad</given-names>
+</name>
+<name>
+<surname>Abdul Hakim</surname>
+<given-names>Mohamed Salleh</given-names>
+</name>
+</person-group>
+<article-title>A review for detecting gene-gene interactions using machine learning methods in genetic epidemiology</article-title>
+<source/>BioMed research international
+          <year>2013</year>
+<comment>2013</comment>
+</element-citation>
+</ref>
+<ref id="r2-2840701">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nils</surname>
+<given-names>Homer</given-names>
+</name>
+<name>
+<surname>Szabolcs</surname>
+<given-names>Szelinger</given-names>
+</name>
+<name>
+<surname>Margot</surname>
+<given-names>Redman</given-names>
+</name>
+<name>
+<surname>David</surname>
+<given-names>Duggan</given-names>
+</name>
+<name>
+<surname>Waibhav</surname>
+<given-names>Tembe</given-names>
+</name>
+<name>
+<surname>Jill</surname>
+<given-names>Muehling</given-names>
+</name>
+<name>
+<surname>John</surname>
+<given-names>V Pearson</given-names>
+</name>
+<name>
+<surname>Dietrich</surname>
+<given-names>A Stephan</given-names>
+</name>
+<name>
+<surname>Stanley</surname>
+<given-names>F Nelson</given-names>
+</name>
+<name>
+<surname>David</surname>
+<given-names>W Craig</given-names>
+</name>
+</person-group>
+<article-title>Resolving individuals contributing trace amounts of dna to highly complex mixtures using high-density snp genotyping microarrays</article-title>
+<source/>PLoS genetics
+          <year>2008</year>
+<volume>4</volume>
+<issue>8</issue>
+<fpage>e1000167</fpage>
+<pub-id pub-id-type="pmid">18769715</pub-id>
+</element-citation>
+</ref>
+<ref id="r3-2840701">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sriram</surname>
+<given-names>Sankararaman</given-names>
+</name>
+<name>
+<surname>Guillaume</surname>
+<given-names>Obozinski</given-names>
+</name>
+<name>
+<surname>Michael</surname>
+<given-names>I Jordan</given-names>
+</name>
+<name>
+<surname>Eran</surname>
+<given-names>Halperin</given-names>
+</name>
+</person-group>
+<article-title>Genomic privacy and limits of individual detection in a pool</article-title>
+<source/>Nature genetics
+          <year>2009</year>
+<volume>41</volume>
+<issue>9</issue>
+<fpage>965</fpage>
+<lpage>967</lpage>
+<pub-id pub-id-type="pmid">19701190</pub-id>
+</element-citation>
+</ref>
+<ref id="r4-2840701">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khaled</surname>
+<given-names>El Emam</given-names>
+</name>
+<name>
+<surname>Elizabeth</surname>
+<given-names>Jonker</given-names>
+</name>
+<name>
+<surname>Luk</surname>
+<given-names>Arbuckle</given-names>
+</name>
+<name>
+<surname>Bradley</surname>
+<given-names>Malin</given-names>
+</name>
+</person-group>
+<article-title>A systematic review of re-identification attacks on health data</article-title>
+<source/>PloS one
+          <year>2011</year>
+<volume>6</volume>
+<issue>12</issue>
+<fpage>e28071</fpage>
+<pub-id pub-id-type="pmid">22164229</pub-id>
+</element-citation>
+</ref>
+<ref id="r5-2840701">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Melissa</surname>
+<given-names>Gymrek</given-names>
+</name>
+<name>
+<surname>Amy</surname>
+<given-names>L McGuire</given-names>
+</name>
+<name>
+<surname>David</surname>
+<given-names>Golan</given-names>
+</name>
+<name>
+<surname>Eran</surname>
+<given-names>Halperin</given-names>
+</name>
+<name>
+<surname>Yaniv</surname>
+<given-names>Erlich</given-names>
+</name>
+</person-group>
+<article-title>Identifying personal genomes by surname inference</article-title>
+<source/>Science
+          <year>2013</year>
+<volume>339</volume>
+<issue>6117</issue>
+<fpage>321</fpage>
+<lpage>324</lpage>
+<pub-id pub-id-type="pmid">23329047</pub-id>
+</element-citation>
+</ref>
+<ref id="r6-2840701">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Miroslav</surname>
+<given-names>Cupak</given-names>
+</name>
+</person-group>
+<article-title>Beacon network: A system for global genomic data sharing</article-title>
+</element-citation>
+</ref>
+<ref id="r7-2840701">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Suyash</surname>
+<given-names>S Shringarpure</given-names>
+</name>
+<name>
+<surname>Carlos</surname>
+<given-names>D Bustamante</given-names>
+</name>
+</person-group>
+<article-title>Privacy risks from genomic data-sharing beacons</article-title>
+<source/>The American Journal of Human Genetics
+          <year>2015</year>
+<volume>97</volume>
+<issue>5</issue>
+<fpage>631</fpage>
+<lpage>646</lpage>
+<pub-id pub-id-type="pmid">26522470</pub-id>
+</element-citation>
+</ref>
+<ref id="r8-2840701">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jean Louis</surname>
+<given-names>Raisaro</given-names>
+</name>
+<name>
+<surname>Florian</surname>
+<given-names>Tramer</given-names>
+</name>
+<name>
+<surname>Zhanglong</surname>
+<given-names>Ji</given-names>
+</name>
+<name>
+<surname>Diyue</surname>
+<given-names>Bu</given-names>
+</name>
+<name>
+<surname>Yongan</surname>
+<given-names>Zhao</given-names>
+</name>
+<name>
+<surname>Knox</surname>
+<given-names>Carey</given-names>
+</name>
+<name>
+<surname>David</surname>
+<given-names>Lloyd</given-names>
+</name>
+<name>
+<surname>Heidi</surname>
+<given-names>Sofia</given-names>
+</name>
+<name>
+<surname>Dixie</surname>
+<given-names>Baker</given-names>
+</name>
+<name>
+<surname>Paul</surname>
+<given-names>Flicek</given-names>
+</name>
+</person-group>
+<article-title>Addressing beacon re-identification attacks: quantification and mitigation of privacy risks</article-title>
+<source/>Journal of the American Medical Informatics Association
+          <year>2017</year>
+<fpage>ocw167</fpage>
+</element-citation>
+</ref>
+<ref id="r9-2840701">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wilhelm</surname>
+<given-names>J Ansorge</given-names>
+</name>
+</person-group>
+<article-title>Next-generation dna sequencing techniques</article-title>
+<source/>New biotechnology
+          <year>2009</year>
+<volume>25</volume>
+<issue>4</issue>
+<fpage>195</fpage>
+<lpage>203</lpage>
+<pub-id pub-id-type="pmid">19429539</pub-id>
+</element-citation>
+</ref>
+<ref id="r10-2840701">
+<label>10.</label>
+<element-citation publication-type="journal">
+<collab>1000 Genomes Project Consortium</collab>
+<article-title>A global reference for human genetic variation</article-title>
+<source/>Nature
+          <year>2015</year>
+<volume>526</volume>
+<issue>7571</issue>
+<fpage>68</fpage>
+<pub-id pub-id-type="pmid">26432245</pub-id>
+</element-citation>
+</ref>
+<ref id="r11-2840701">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Richard</surname>
+<given-names>A Gibbs</given-names>
+</name>
+<name>
+<surname>John</surname>
+<given-names>W Belmont</given-names>
+</name>
+<name>
+<surname>Paul</surname>
+<given-names>Hardenbol</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>D Willis</given-names>
+</name>
+<name>
+<surname>FL</surname>
+<given-names>Yu</given-names>
+</name>
+<name>
+<surname>HM</surname>
+<given-names>Yang</given-names>
+</name>
+<name>
+<surname>Lan-Yang</surname>
+<given-names>Ch’ang</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>Huang</given-names>
+</name>
+<name>
+<surname>Bin</surname>
+<given-names>Liu</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>Shen</given-names>
+</name>
+</person-group>
+<article-title>The international hapmap project</article-title>
+<year>2003</year>
+</element-citation>
+</ref>
+<ref id="r12-2840701">
+<label>12.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Michael</surname>
+<given-names>T Goodrich</given-names>
+</name>
+</person-group>
+<article-title>The mastermind attack on genomic data</article-title>
+<source/>Security and Privacy, 2009 30th IEEE Symposium
+          <year>2009</year>
+<publisher-name>IEEE</publisher-name>
+<fpage>204</fpage>
+<lpage>218</lpage>
+</element-citation>
+</ref>
+<ref id="r13-2840701">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Arif</surname>
+<given-names>Harmanci</given-names>
+</name>
+<name>
+<surname>Mark</surname>
+<given-names>Gerstein</given-names>
+</name>
+</person-group>
+<article-title>Quantification of private information leakage from phenotype-genotype data: linking attacks</article-title>
+<source/>Nature methods
+          <year>2016</year>
+<volume>13</volume>
+<issue>3</issue>
+<fpage>251</fpage>
+<pub-id pub-id-type="pmid">26828419</pub-id>
+</element-citation>
+</ref>
+<ref id="r14-2840701">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iman</surname>
+<given-names>Deznabi</given-names>
+</name>
+<name>
+<surname>Mohammad</surname>
+<given-names>Mobayen</given-names>
+</name>
+<name>
+<surname>Nazanin</surname>
+<given-names>Jafari</given-names>
+</name>
+<name>
+<surname>Oznur</surname>
+<given-names>Tastan</given-names>
+</name>
+<name>
+<surname>Erman</surname>
+<given-names>Ayday</given-names>
+</name>
+</person-group>
+<article-title>An inference attack on genomic data using kinship, complex correlations, and phenotype information</article-title>
+<source/>IEEE/ACM Transactions on Computational Biology and Bioinformatics
+          <year>2017</year>
+</element-citation>
+</ref>
+<ref id="r15-2840701">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dov</surname>
+<given-names>Greenbaum</given-names>
+</name>
+<name>
+<surname>Andrea</surname>
+<given-names>Sboner</given-names>
+</name>
+<name>
+<surname>Xinmeng</surname>
+<given-names>Jasmine Mu</given-names>
+</name>
+<name>
+<surname>Mark</surname>
+<given-names>Gerstein</given-names>
+</name>
+</person-group>
+<article-title>Genomics and privacy: implications of the new reality of closed data for the field</article-title>
+<source/>PLoS Computational Biology
+          <year>2011</year>
+<volume>7</volume>
+<issue>12</issue>
+<fpage>e1002278</fpage>
+<pub-id pub-id-type="pmid">22144881</pub-id>
+</element-citation>
+</ref>
+<ref id="r16-2840701">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bartha</surname>
+<given-names>Maria Knoppers</given-names>
+</name>
+</person-group>
+<article-title>Framework for responsible sharing of genomic and health-related data</article-title>
+<source/>The HUGO journal
+          <year>2014</year>
+<volume>8</volume>
+<issue>1</issue>
+<fpage>3</fpage>
+<pub-id pub-id-type="pmid">27090251</pub-id>
+</element-citation>
+</ref>
+<ref id="r17-2840701">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sharon</surname>
+<given-names>F Terry</given-names>
+</name>
+<name>
+<surname>Robert</surname>
+<given-names>Shelton</given-names>
+</name>
+<name>
+<surname>Greg</surname>
+<given-names>Biggers</given-names>
+</name>
+<name>
+<surname>Dixie</surname>
+<given-names>Baker</given-names>
+</name>
+<name>
+<surname>Kelly</surname>
+<given-names>Edwards</given-names>
+</name>
+</person-group>
+<article-title>The haystack is made of needles</article-title>
+<source/>Genetic testing and molecular biomarkers
+          <year>2013</year>
+<volume>17</volume>
+<issue>3</issue>
+<fpage>175</fpage>
+<lpage>177</lpage>
+<pub-id pub-id-type="pmid">23428177</pub-id>
+</element-citation>
+</ref>
+<ref id="r18-2840701">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jacob</surname>
+<given-names>A Tennessen</given-names>
+</name>
+<name>
+<surname>Abigail</surname>
+<given-names>W Bigham</given-names>
+</name>
+<name>
+<surname>Timothy</surname>
+<given-names>D OConnor</given-names>
+</name>
+<name>
+<surname>Wenqing</surname>
+<given-names>Fu</given-names>
+</name>
+<name>
+<surname>Eimear</surname>
+<given-names>E Kenny</given-names>
+</name>
+<name>
+<surname>Simon</surname>
+<given-names>Gravel</given-names>
+</name>
+<name>
+<surname>Sean</surname>
+<given-names>McGee</given-names>
+</name>
+<name>
+<surname>Ron</surname>
+<given-names>Do</given-names>
+</name>
+<name>
+<surname>Xiaoming</surname>
+<given-names>Liu</given-names>
+</name>
+<name>
+<surname>Goo</surname>
+<given-names>Jun</given-names>
+</name>
+</person-group>
+<article-title>Evolution and functional impact of rare coding variation from deep sequencing of human exomes</article-title>
+<source/>science
+          <year>2012</year>
+<volume>337</volume>
+<issue>6090</issue>
+<fpage>64</fpage>
+<lpage>69</lpage>
+<pub-id pub-id-type="pmid">22604720</pub-id>
+</element-citation>
+</ref>
+<ref id="r19-2840701">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>A</surname>
+<given-names>Page</given-names>
+</name>
+<name>
+<surname>D</surname>
+<given-names>Baker</given-names>
+</name>
+<name>
+<surname>M</surname>
+<given-names>Bobrow</given-names>
+</name>
+<name>
+<surname>K</surname>
+<given-names>Boycott</given-names>
+</name>
+<name>
+<surname>J</surname>
+<given-names>Burn</given-names>
+</name>
+<name>
+<surname>S</surname>
+<given-names>Chanock</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genomics. a federated ecosystem for sharing genomic, clinical data. global alliance for genomics and health</article-title>
+<source/>Science
+          <year>2016</year>
+<volume>352</volume>
+<issue>6291</issue>
+<fpage>1278</fpage>
+<lpage>1280</lpage>
+<pub-id pub-id-type="pmid">27284183</pub-id>
+</element-citation>
+</ref>
+<ref id="r20-2840701">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhiyu</surname>
+<given-names>Wan</given-names>
+</name>
+<name>
+<surname>Yevgeniy</surname>
+<given-names>Vorobeychik</given-names>
+</name>
+<name>
+<surname>Murat</surname>
+<given-names>Kantarcioglu</given-names>
+</name>
+<name>
+<surname>Bradley</surname>
+<given-names>Malin</given-names>
+</name>
+</person-group>
+<article-title>Controlling the signal: Practical privacy protection of genomic data sharing through beacon services</article-title>
+<source/>BMC medical genomics
+          <year>2017</year>
+<volume>10</volume>
+<issue>2</issue>
+<fpage>39</fpage>
+<pub-id pub-id-type="pmid">28786360</pub-id>
+</element-citation>
+</ref>
+<ref id="r21-2840701">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Md Momin</surname>
+<given-names>Al Aziz</given-names>
+</name>
+<name>
+<surname>Reza</surname>
+<given-names>Ghasemi</given-names>
+</name>
+<name>
+<surname>Md</surname>
+<given-names>Waliullah</given-names>
+</name>
+<name>
+<surname>Noman</surname>
+<given-names>Mohammed</given-names>
+</name>
+</person-group>
+<article-title>Aftermath of bustamante attack on genomic beacon service</article-title>
+<source/>BMC medical genomics
+          <year>2017</year>
+<volume>10</volume>
+<issue>2</issue>
+<fpage>43</fpage>
+<pub-id pub-id-type="pmid">28786364</pub-id>
+</element-citation>
+</ref>
+<ref id="r22-2840701">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Monkol</surname>
+<given-names>Lek</given-names>
+</name>
+<name>
+<surname>Konrad</surname>
+<given-names>Karczewski</given-names>
+</name>
+<name>
+<surname>Eric</surname>
+<given-names>Minikel</given-names>
+</name>
+<name>
+<surname>Kaitlin</surname>
+<given-names>Samocha</given-names>
+</name>
+<name>
+<surname>Eric</surname>
+<given-names>Banks</given-names>
+</name>
+<name>
+<surname>Timothy</surname>
+<given-names>Fennell</given-names>
+</name>
+<name>
+<surname>Anne</surname>
+<given-names>O’Donnell-Luria</given-names>
+</name>
+<name>
+<surname>James</surname>
+<given-names>Ware</given-names>
+</name>
+<name>
+<surname>Andrew</surname>
+<given-names>Hill</given-names>
+</name>
+<name>
+<surname>Beryl</surname>
+<given-names>Cummings</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Analysis of protein-coding genetic variation in 60,706 humans</article-title>
+<source/>BioRxiv
+          <year>2016</year>
+<fpage>030338</fpage>
+</element-citation>
+</ref>
+<ref id="r23-2840701">
+<label>23.</label>
+<element-citation publication-type="webpage">
+<person-group person-group-type="author">
+<name>
+<surname>Diyue</surname>
+<given-names>Bu</given-names>
+</name>
+</person-group>
+<source/>Secure-Beacon
+          <year>2017</year>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://darwin.informatics.indiana.edu/diybu/secureBeacon/main.htm">http://darwin.informatics.indiana.edu/diybu/secureBeacon/main.htm</ext-link>
+</comment>
+</element-citation>
+</ref>
+<ref id="r24-2840701">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shuang</surname>
+<given-names>Wang</given-names>
+</name>
+<name>
+<surname>Xiaoqian</surname>
+<given-names>Jiang</given-names>
+</name>
+<name>
+<surname>Haixu</surname>
+<given-names>Tang</given-names>
+</name>
+<name>
+<surname>Xiaofeng</surname>
+<given-names>Wang</given-names>
+</name>
+<name>
+<surname>Diyue</surname>
+<given-names>Bu</given-names>
+</name>
+<name>
+<surname>Knox</surname>
+<given-names>Carey</given-names>
+</name>
+<name>
+<surname>Stephanie</surname>
+<given-names>OM Dyke</given-names>
+</name>
+<name>
+<surname>Dov</surname>
+<given-names>Fox</given-names>
+</name>
+<name>
+<surname>Chao</surname>
+<given-names>Jiang</given-names>
+</name>
+<name>
+<surname>Kristin</surname>
+<given-names>Lauter</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A community effort to protect genomic data sharing, collaboration and outsourcing</article-title>
+<source/>npj Genomic Medicine
+          <year>2017</year>
+<volume>2</volume>
+<issue>1</issue>
+<fpage>33</fpage>
+<pub-id pub-id-type="pmid">29263842</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="f1-2840701" position="float">
+<label>Figure 1:</label>
+<caption>
+<p>(a) RTF mitigation method. The method flips the answers to some rare SNPs. The vulnerability of each individual in the database is monitored using the LRT scores on previously queried variants. The decision of flipping the answer to the query of a rare variant is made based on the vulnerability of the target individual who carries the rare variant. The vulnerability of the target individual is updated and recorded internally after the answer is returned. (b) The secure-Beacon workflow. Three methods (RF, SF and RTF) were implemented for mitigating re-identification risks in an open-query Beacon system. For a newly-received query, the true answer (“yes” or “no”) is first obtained. If query has been previously answered, the same answer will be returned. Otherwise, the mitigation procedure is activated. Note that RF and RTF are applied to rare variants while SF may be applied to both rare and common variants (see Text for details).</p>
+</caption>
+<graphic xlink:href="2840701f1"></graphic>
+</fig>
+<fig id="f2-2840701" position="float">
+<label>Figure 2:</label>
+<caption>
+<p>The percentage of flipped rare SNPs under different query patterns</p>
+</caption>
+<graphic xlink:href="2840701f2"></graphic>
+</fig>
+<fig id="f3-2840701" position="float">
+<label>Figure 3:</label>
+<caption>
+<p>The percentage of flipped SNPs in total under different query patterns</p>
+</caption>
+<graphic xlink:href="2840701f3"></graphic>
+</fig>
+<table-wrap id="t1-2840701" position="float">
+<label>Table 1:</label>
+<caption>
+<p>Proportions of queries in each allele frequency range</p>
+</caption>
+<table frame="box" rules="none">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="1" valign="top">Allele frequency</th>
+<th align="center" colspan="1" rowspan="1" valign="top">Singleton</th>
+<th align="center" colspan="1" rowspan="1" valign="top">&lt; 0.001 not singleton</th>
+<th align="center" colspan="1" rowspan="1" valign="top">0.001 -0.01</th>
+<th align="center" colspan="1" rowspan="1" valign="top">0.01 -0.05</th>
+<th align="center" colspan="1" rowspan="1" valign="top">0.05 -0.5</th>
+<th align="center" colspan="1" rowspan="1" valign="top">0.5 -1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="top">Queries in ExAC</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.434</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.418</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.0076</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.023</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.033</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.014</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

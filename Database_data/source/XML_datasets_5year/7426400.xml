@@ -1,0 +1,1107 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Front Genet</journal-id>
+<journal-id journal-id-type="iso-abbrev">Front Genet</journal-id>
+<journal-id journal-id-type="publisher-id">Front. Genet.</journal-id>
+<journal-title-group>
+<journal-title>Frontiers in Genetics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1664-8021</issn>
+<publisher>
+<publisher-name>Frontiers Media S.A.</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32849855</article-id>
+<article-id pub-id-type="pmc">7426400</article-id>
+<article-id pub-id-type="doi">10.3389/fgene.2020.00917</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Genetics</subject>
+<subj-group>
+<subject>Original Research</subject>
+</subj-group>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Computational Prediction of Drug Responses in Cancer Cell Lines From Cancer Omics and Detection of Drug Effectiveness Related Methylation Sites</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Yuan</surname>
+<given-names>Rui</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/941199/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Shilong</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/855875/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Yongcui</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+<xref ref-type="corresp" rid="c001">
+<sup>*</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/811564/overview" xlink:type="simple"></uri>
+</contrib>
+</contrib-group>
+<aff id="aff1"><sup>1</sup><institution>Key Laboratory of Plateau Biological Adaptation and Evolution, Northwest Institute of Plateau Biology, Chinese Academy of Sciences</institution>, <addr-line>Xining</addr-line>, <country>China</country></aff>
+<aff id="aff2"><sup>2</sup><institution>University of Chinese Academy of Sciences</institution>, <addr-line>Beijing</addr-line>, <country>China</country></aff>
+<aff id="aff3"><sup>3</sup><institution>Institute of Sanjiangyuan National Park, Chinese Academy of Sciences</institution>, <addr-line>Xining</addr-line>, <country>China</country></aff>
+<aff id="aff4"><sup>4</sup><institution>Qinghai Provincial Key Laboratory of Crop Molecular Breeding, Northwest Institute of Plateau Biology, Chinese Academy of Sciences</institution>, <addr-line>Xining</addr-line>, <country>China</country></aff>
+<author-notes>
+<fn fn-type="edited-by">
+<p>Edited by: Daniela Besozzi, University of Milano-Bicocca, Italy</p>
+</fn>
+<fn fn-type="edited-by">
+<p>Reviewed by: Matteo Re, University of Milan, Italy; Claudia Cava, Institute of Bioimaging and Molecular Physiology, National Research Council, Italy; Mattia Pelizzola, Italian Institute of Technology (IIT), Italy</p>
+</fn>
+<corresp id="c001">*Correspondence: Yongcui Wang, <email>ycwang@nwipb.cas.cn</email></corresp>
+<fn fn-type="other" id="fn004">
+<p>This article was submitted to Computational Genomics, a section of the journal Frontiers in Genetics</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>07</day>
+<month>8</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>11</volume>
+<elocation-id>917</elocation-id>
+<history>
+<date date-type="received">
+<day>18</day>
+<month>4</month>
+<year>2020</year>
+</date>
+<date date-type="accepted">
+<day>23</day>
+<month>7</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2020 Yuan, Chen and Wang.</copyright-statement>
+<copyright-year>2020</copyright-year>
+<copyright-holder>Yuan, Chen and Wang</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Accurately predicting the response of a cancer patient to a therapeutic agent remains an important challenge in precision medicine. With the rise of data science, researchers have applied computational models to study the drug inhibition effects on cancers based on cancer genomics and transcriptomics. Moreover, a common epigenetic modification, DNA methylation, has been related to the occurrence and development of cancer, as well as drug effectiveness. Therefore, it is helpful for improvement of drug response prediction through exploring the relationship between DNA methylation and drug effectiveness. Here, we proposed a computational model to predict drug responses in cancers through integration of cancer genomics, transcriptomics, epigenomics, and compound chemical properties. Meanwhile, we applied a regularized regression model (Least Absolute Shrinkage and Selection Operator, lasso) to detect the methylation sites that were closely related to drug effectiveness. The prediction models were trained on a well-known pharmacogenomics data resource, Genomics of Drug Sensitivity in Cancer (GDSC). The cross-validation indicates that the performance of the prediction model using DNA methylation is comparable to that of using other cancer omics, including oncogene mutation and gene expression data. It indicates the important role of DNA methylation in prediction of drug responses. Encyclopedia of DNA Elements (ENCODE) and Transcriptional Regulatory Relationships Unraveled by Sentence-based Text mining (TRRUST2) database analyses suggest that the methylation sites associated with drug effectiveness are mainly located in the transcription factor (TF) binding region. Therefore, we hypothesized that the sensitivity of cancer cells to drugs could be regulated by changing the methylation modification of TF binding region. In conclusion, we confirmed the important role of DNA methylation in prediction of drug responses, and provided some methylation sites that closely related to the drug effectiveness, which may be a great regulatory target for improvement of drug treatment effects on cancer patients.</p>
+</abstract>
+<kwd-group>
+<kwd>cancer omics</kwd>
+<kwd>DNA methylation</kwd>
+<kwd>drug response</kwd>
+<kwd>GDSC database</kwd>
+<kwd>drug effectiveness related methylation sites</kwd>
+</kwd-group>
+<counts>
+<fig-count count="4"></fig-count>
+<table-count count="2"></table-count>
+<equation-count count="4"></equation-count>
+<ref-count count="62"></ref-count>
+<page-count count="10"></page-count>
+<word-count count="0"></word-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec id="S1">
+<title>Introduction</title>
+<p>Precision medicine is a medical concept based on personalized medicine, which develops with the rapid progress of genome sequencing technology and the cross-application of biological information and big data science (<xref ref-type="bibr" rid="B22">Hodson, 2016</xref>). It is the ultimate goal of personalized therapy to systematically transform cancer omics into oncobiology knowledge and treatment (<xref ref-type="bibr" rid="B3">Barretina et al., 2012</xref>; <xref ref-type="bibr" rid="B48">Stetson et al., 2014</xref>; <xref ref-type="bibr" rid="B12">Dong et al., 2015</xref>). Accurately predicting the sensitivity of cancer cells to drug treatment is a key challenge in precision medicine.</p>
+<p>In previous work, researchers have made significant contributions to improve drug response prediction by using large-scale pharmacogenomics data. All these works could be basically divided into two types. One of these is learning the drug responses based only on cancer omics. For instance, <xref ref-type="bibr" rid="B11">Costello et al. (2014)</xref> applied the multiple kernel learning algorithm to improve drug response prediction from genomic, proteomic, and epigenomic profiling data in breast cancer cell lines; <xref ref-type="bibr" rid="B23">Huang C. et al. (2018)</xref>, <xref ref-type="bibr" rid="B24">Huang H.H. et al. (2018)</xref> established drug response prediction model based on the gene expression profile (RNA-seq or microarray) data of patients’ tumors. <xref ref-type="bibr" rid="B52">Venkatesan et al. (2010)</xref> developed a scalable and extensible prediction model by integrating genome-scale mRNA expression, copy number change, and mutation profiles. The other type is to predict the drug responses by integrating both cancer omics and chemical properties. For instance, a systematic method was proposed to determine the chemotherapy responses of cancer cell lines by integration of cancer omics and the chemical and therapeutic characteristics of compounds (<xref ref-type="bibr" rid="B37">Menden et al., 2013</xref>; <xref ref-type="bibr" rid="B53">Wang et al., 2016</xref>) integrated genomic features of cell lines (mutation, copy number, and microsatellite instability) and chemical properties of drugs to represent each cell line–drug pair and applied a neural network to predict drug responses; <xref ref-type="bibr" rid="B60">Zhang et al. (2015)</xref> constructed a dual-layer network model for predicting drug reactions using the proximal information of the drug and cancer cell line networks. Both two types of works have introduced the machine learning algorithms to implement the learning task, including logistic regression (LR) (<xref ref-type="bibr" rid="B17">Geeleher et al., 2014</xref>; <xref ref-type="bibr" rid="B25">Huang et al., 2020</xref>), random forest (RF) (<xref ref-type="bibr" rid="B20">Gregory et al., 2011</xref>; <xref ref-type="bibr" rid="B43">Raziur et al., 2017</xref>), support vector machine (SVM) (<xref ref-type="bibr" rid="B7">Burbidge et al., 2001</xref>; <xref ref-type="bibr" rid="B4">Ben-Hur, 2008</xref>; <xref ref-type="bibr" rid="B53">Wang et al., 2016</xref>), and deep learning (DL) (<xref ref-type="bibr" rid="B33">LeCun et al., 2015</xref>; <xref ref-type="bibr" rid="B56">Yoosup et al., 2018</xref>; <xref ref-type="bibr" rid="B9">Chiu et al., 2019</xref>).</p>
+<p>As research deepens, epigenetic modifications have been found to be directly or indirectly linked to cancer (<xref ref-type="bibr" rid="B30">Jones and Baylin, 2002</xref>; <xref ref-type="bibr" rid="B31">Kanwal and Gupta, 2012</xref>; <xref ref-type="bibr" rid="B39">Mohammad et al., 2019</xref>; <xref ref-type="bibr" rid="B62">Zhao and Shilatifard, 2019</xref>). DNA methylation is one of the most common epigenetic modifications. Under the premise of unchanged DNA sequences, methylation occurs on the cytosine bases of CpG sequence, which will affect the transcription of downstream genes (<xref ref-type="bibr" rid="B29">Jones, 2012</xref>; <xref ref-type="bibr" rid="B28">Jones et al., 2015</xref>; <xref ref-type="bibr" rid="B14">Edwards et al., 2017</xref>; <xref ref-type="bibr" rid="B1">Andrews et al., 2018</xref>). As one of the major epigenetic modifications in biological processes or diseases, DNA methylation has been well studied in many aspects, such as functions and regulatory mechanism (<xref ref-type="bibr" rid="B5">Bird, 1986</xref>; <xref ref-type="bibr" rid="B40">Moore et al., 2013</xref>), disease or phenotype (<xref ref-type="bibr" rid="B45">Robertson, 2005</xref>; <xref ref-type="bibr" rid="B2">Baccarelli et al., 2010</xref>; <xref ref-type="bibr" rid="B58">Zelin and Yun, 2018</xref>), evolutionary analysis (<xref ref-type="bibr" rid="B59">Zemach et al., 2010</xref>), X-chromosome inactivation (<xref ref-type="bibr" rid="B47">Singer-Sam and Riggs, 1993</xref>), DNA methylation-related cell differentiation (<xref ref-type="bibr" rid="B38">Mirang and Joseph, 2017</xref>), and drug inhibition effects on cancer patients (<xref ref-type="bibr" rid="B42">Priebsch et al., 2006</xref>; <xref ref-type="bibr" rid="B55">Ye et al., 2018</xref>; <xref ref-type="bibr" rid="B32">Lai et al., 2019</xref>).</p>
+<p>The emergence of high-throughput drug screening technology enables us to test hundreds of drugs at the same time. The curated databases deposit the responses of thousands of cancer cells to hundreds of anti-cancer drugs, such as Genomics of Drug Sensitivity in Cancer (GDSC) and Cancer Cell Line Encyclopedia (CCLE). The GDSC project provides a large-scale collection of cancer genomic data for therapeutic biomarker discovery (<xref ref-type="bibr" rid="B54">Yang et al., 2013</xref>). It includes mutations for 19,100 genes across 1,001 cancer cell lines, DNA copy number variations for 46,221 genes across 996 cancer cell lines, DNA methylation (β-value) for 14,725 CpG islands across 1,029 cancer cell lines, and expression for 17,737 mRNAs across 1,018 cancer cell lines (<xref ref-type="bibr" rid="B54">Yang et al., 2013</xref>; <xref ref-type="bibr" rid="B26">Iorio et al., 2016</xref>). The CCLE project, which aims to accurately characterize the genetic characteristics of cancer cell lines, includes mutation status for 25 oncogenes across 486 cancer cell lines, DNA copy number variations for 23,316 genes across 1,043 cancer cell lines, and mRNA expressions for 54,675 mRNAs across 127 cancer cell lines (<xref ref-type="bibr" rid="B3">Barretina et al., 2012</xref>). In 2019, the CCLE database received a major update, including newly released DNA methylation data, whole genome sequencing data, and RNA-seq data (<xref ref-type="bibr" rid="B18">Ghandi et al., 2019</xref>).</p>
+<p>Inspired by above observations, here, we assessed the contribution of DNA methylation in prediction of drug responses by comparing with that of other cancer omics via three machine learning algorithms and identified the methylation sites that were closely related to drug effectiveness through a Least Absolute Shrinkage and Selection Operator (lasso) regression model, which performs both variable selection and regularization to improve the prediction accuracy and enhance the interpretability of the statistical model (<xref ref-type="bibr" rid="B16">Fadil and William, 1986</xref>; <xref ref-type="bibr" rid="B49">Tibshirani, 1996</xref>; <xref ref-type="bibr" rid="B57">Yvan et al., 2007</xref>; <xref ref-type="bibr" rid="B36">Lockhart et al., 2014</xref>). Specifically, to integrate the heterogeneous cancer omics and compound chemical properties, the kernel-based similarity matrices were constructed to represent cancer cell lines and anti-cancer drugs, respectively. To simultaneously consider all available drugs across all cancer cell lines, a bipartite graph was introduced based on experimental drug screening results, to represent the relationships between cancer cell lines and small molecules. Here, instead of estimating the continuous response value, we categorized the response value into three classes – sensitive, resistant, and unclear – and introduced a “categorical” classifier to detect whether a given cancer cell was sensitive or resistant to a specific anti-cancer therapy. Three machine learning algorithms (LR, RF, and SVM) were introduced to train a binary classification model based on the concatenation of cancer cell and drug similarity matrix. It is worth mentioning that the data scale of this study is not suitable for DL, which depends on large-scale data size to learning the huge number of model parameters. Thus, we will not introduce the DL in this article. After testing our models on the GDSC dataset, the importance of DNA methylation in drug response prediction was suggested. Then we applied DNA methylation data to the CCLE database as an independent dataset to further assess the contribution of DNA methylation in drug response prediction. Furthermore, to detect the drug effectiveness related methylation sites, the methylation level of CpG islands were related to drug response value by lasso regression model. Encyclopedia of DNA Elements (ENCODE) and Transcriptional Regulatory Relationships Unraveled by Sentence-based Text mining (TRRUST2) database analyses suggest that the methylation sites associated with drug effectiveness are mainly located in the transcription factor (TF) binding region.</p>
+</sec>
+<sec id="S2">
+<title>Data Resources and Methods</title>
+<sec id="S2.SS1">
+<title>Cancer Cell Similarity</title>
+<p>Here, we used a similar matrix to replace the original data, the purpose of which was to keep the scale of the feature and that of sample same, thereby attempting to overcome overfitting. The DNA methylation, Mutation, DNA copy number, and mRNA expression were introduced to construct the cancer cell similarity matrix.</p>
+</sec>
+<sec id="S2.SS2">
+<title>Mutation</title>
+<p>GDSC provides 19,100 gene mutations in 1,001 cancer cell lines. By converting both files into a gene-by-sample matrix of binary values (1-mutation and 0-wild type), a similarity matrix was generated:</p>
+<disp-formula id="S2.Ex1">
+<mml:math id="M1">
+<mml:mrow>
+<mml:msub>
+<mml:mi>S</mml:mi>
+<mml:mrow>
+<mml:mi>M</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>u</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>t</mml:mi>
+</mml:mrow>
+</mml:msub>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+<mml:mo>,</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>j</mml:mi>
+</mml:msub>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+<mml:mo>=</mml:mo>
+<mml:mi>exp</mml:mi>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:mo>-</mml:mo>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:mi>H</mml:mi>
+<mml:mi>D</mml:mi>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+<mml:mo>,</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>j</mml:mi>
+</mml:msub>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+<mml:mo>,</mml:mo>
+</mml:mrow>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<p>where <italic>c</italic><sub>i</sub>, <italic>c</italic><sub>j</sub> are the binary mutation profile of the i-th and j-th cancer cell lines, respectively, and <italic>HD</italic>(<italic>c<sub>i</sub>,c<sub>j</sub></italic>) is the Hamming distance between binary profile <italic>c</italic><sub>i</sub> and <italic>c</italic><sub>j</sub>. The download link for the mutation is <ext-link ext-link-type="uri" xlink:href="https://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/suppData/TableS2C.xlsx">https://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/suppData/TableS2C.xlsx</ext-link>.</p>
+</sec>
+<sec id="S2.SS3">
+<title>DNA Copy Number</title>
+<p>We downloaded the “cnv_20191101” zip file from GDSC. This document offered copy numbers for 24,502 gene across 986 cancer cells. We defined the cell similarity matrix based on copy number as follows:</p>
+<disp-formula id="S2.Ex2">
+<mml:math id="M2">
+<mml:mrow>
+<mml:mrow>
+<mml:mrow>
+<mml:msub>
+<mml:mi>S</mml:mi>
+<mml:mrow>
+<mml:mi>c</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>o</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>p</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>y</mml:mi>
+</mml:mrow>
+</mml:msub>
+<mml:mo>⁢</mml:mo>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+<mml:mo>,</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>j</mml:mi>
+</mml:msub>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+</mml:mrow>
+<mml:mo>=</mml:mo>
+<mml:mrow>
+<mml:mi>exp</mml:mi>
+<mml:mo>⁡</mml:mo>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:mrow>
+<mml:mo>-</mml:mo>
+<mml:mrow>
+<mml:mi mathvariant="normal">α</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:msup>
+<mml:mrow>
+<mml:mo fence="true">||</mml:mo>
+<mml:mrow>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+<mml:mo>-</mml:mo>
+<mml:msub>
+<mml:mi>c</mml:mi>
+<mml:mi>j</mml:mi>
+</mml:msub>
+</mml:mrow>
+<mml:mo fence="true">||</mml:mo>
+</mml:mrow>
+<mml:mn>2</mml:mn>
+</mml:msup>
+</mml:mrow>
+</mml:mrow>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+</mml:mrow>
+</mml:mrow>
+<mml:mo>,</mml:mo>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<p>where <italic>c</italic><sub>i</sub>, <italic>c</italic><sub>j</sub> are the copy number profile of the i-th and j-th cancer cell lines, respectively, and α is a pre-defined parameter (set as 0.001 here). The download link for the copy number is <ext-link ext-link-type="uri" xlink:href="https://cog.sanger.ac.uk/cmp/download/cnv_20191101.zip">https://cog.sanger.ac.uk/cmp/download/cnv_20191101.zip</ext-link>.</p>
+</sec>
+<sec id="S2.SS4">
+<title>mRNA Expression</title>
+<p>GDSC provides expressions for 37,279 gene across a total of 1,047 cell lines. Through the equation <italic>S</italic><sub>GE</sub>(<italic>c</italic><sub>i</sub>,<italic>c</italic><sub>j</sub>) = <italic>exp</italic>⁡(−α||<italic>c</italic><sub>i</sub>−<italic>c</italic><sub>j</sub>||<sup>2</sup>), where <italic>c</italic><sub>i</sub>, <italic>c</italic><sub>j</sub> are the expression profile of the i-th and j-th cancer cell lines, respectively, and α is a pre-defined parameter (set as 0.0001 here), the similarity between <italic>c</italic><sub>i</sub> and <italic>c</italic><sub>j</sub> was calculated. The download link for the mRNA expression is <ext-link ext-link-type="uri" xlink:href="https://cog.sanger.ac.uk/cmp/download/rnaseq_20191101.zip">https://cog.sanger.ac.uk/cmp/download/rnaseq_20191101.zip</ext-link>.</p>
+</sec>
+<sec id="S2.SS5">
+<title>DNA Methylation</title>
+<p>We downloaded the “METH_CELL_DATA.txt” zip file from GDSC and the “CCLE_RRBS_cgi_CpG_clusters_20181119” txt file from CCLE. The former includes β values of 14,726 islands in across 1,029 cancer cells. The latter contains 81,038 CpG islands from 843 cancer cell lines. Subsequently, we constructed the similarity matrix <italic>S<sub>Met</sub><sub>h</sub><sub>y</sub></italic> based on these DNA methylation data: <italic>S</italic><sub>Methy</sub>(<italic>c</italic><sub>i</sub>,<italic>c</italic><sub>j</sub>) = <italic>exp</italic>⁡(−α||<italic>c</italic><sub>i</sub>−<italic>c</italic><sub>j</sub>||<sup>2</sup>), where <italic>c</italic><sub>i</sub>, <italic>c</italic><sub>j</sub> are the expression profile of the i-th and j-th cancer cell lines, respectively, and α is a pre-defined parameter (set as 0.0001 here). The download links for the DNA methylation are <ext-link ext-link-type="uri" xlink:href="https://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/preprocessed/methylation/METH_CELL_DATA.txt.zip">https://www. cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/pr eprocessed/methylation/METH_CELL_DATA.txt.zip</ext-link> and <ext-link ext-link-type="uri" xlink:href="https://data.broadinstitute.org/ccle/CCLE_RRBS_cgi_CpG_clusters_20181119.txt.gz">https://data.broadinstitute.org/ccle/CCLE_RRBS_cgi_CpG_clusters_20181119.txt.gz</ext-link>.</p>
+</sec>
+<sec id="S2.SS6">
+<title>Drug Similarity</title>
+<p>GDSC provides a total of 265 anti-cancer drug sensitivity data. Using QuaSAR-Descriptor in the Molecular Operating Environment (MOE v. 2011.10), we calculated the compound chemical properties for each anti-cancer drug. Specifically, the MOE descriptor created 35 features for 209 compounds, which included 2D descriptors and 3D descriptors. The chemical similarities among drugs were calculated as follows:</p>
+<disp-formula id="S2.Ex3">
+<mml:math id="M3">
+<mml:mrow>
+<mml:mrow>
+<mml:mi>S</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:msub>
+<mml:mi>m</mml:mi>
+<mml:mrow>
+<mml:mi>d</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>r</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>u</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mi>g</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:mi>d</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:msup>
+<mml:mi>d</mml:mi>
+<mml:mo>′</mml:mo>
+</mml:msup>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+</mml:mrow>
+</mml:msub>
+</mml:mrow>
+<mml:mo>=</mml:mo>
+<mml:mrow>
+<mml:mi>exp</mml:mi>
+<mml:mo>⁡</mml:mo>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:mrow>
+<mml:mo>-</mml:mo>
+<mml:mrow>
+<mml:mi mathvariant="normal">α</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:msup>
+<mml:mrow>
+<mml:mo fence="true">||</mml:mo>
+<mml:mrow>
+<mml:mi>d</mml:mi>
+<mml:mo>-</mml:mo>
+<mml:msup>
+<mml:mi>d</mml:mi>
+<mml:mo>′</mml:mo>
+</mml:msup>
+</mml:mrow>
+<mml:mo fence="true">||</mml:mo>
+</mml:mrow>
+<mml:mn>2</mml:mn>
+</mml:msup>
+</mml:mrow>
+</mml:mrow>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+</mml:mrow>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<p>where <italic>d</italic>, <italic>d</italic>′ are the MOE descriptors of drug <italic>d</italic> and <italic>d</italic>′, respectively, and α is a pre-defined parameter (set as 0.001 here). Meanwhile, we applied the same method to construct the drug similarity matrix for CCLE 24 drugs. The download links for the drug responses are <ext-link ext-link-type="uri" xlink:href="https://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources/Data/suppData/TableS4B.xlsx">https://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources/Data/suppData/TableS4B.xlsx</ext-link> and <ext-link ext-link-type="uri" xlink:href="https://data.broadinstitute.org/ccle_legacy_data/pharmacological_profiling/CCLE_NP24.2009_Drug_data_2015.02.24.csv">https://data.broadinstitute.org/ccle_legacy_data/pharmacological_profiling/CCLE_NP24.2009_Drug_data_2015.02.24.csv</ext-link>.</p>
+</sec>
+<sec id="S2.SS7">
+<title>Classification Model</title>
+<p>Three classical classification models (SVM, RF, and LR) were introduced to build the “categorical” classifier.</p>
+<p>The similarity matrix of cancer cell lines was constructed based on multiple cancer omics data sources (<xref ref-type="fig" rid="F1">Figure 1A</xref>), and the similarity matrix of drugs was constructed based on the chemical properties of small molecules (<xref ref-type="fig" rid="F1">Figure 1B</xref>). The input vector <italic>X</italic> for SVM training was defined by the concatenation of cancer cell and drug similarity matrix, that is, X= [<italic>Sim<sub>cell,</sub> Sim<sub>drug</sub></italic>] (<italic>Sim</italic><sub>cell</sub> could be one of<italic>S<sub>Mut</sub>, S<sub>GE</sub></italic>,<italic>S<sub>copy</sub>, S<sub>Met</sub><sub>hy</sub></italic>). The dimension of inputs is 990, 944, 943, and 897 for mutation, expression, copy number, and methylation data, respectively. We used a vector space integration (VSI) where each row of the cancer cell lines similarity matrix (<italic>Sim</italic><sub>cell</sub>) was concatenated with corresponding row of the anti-cancer drugs similarity matrix (<italic>Sim</italic><sub>drug</sub>). VSI is suitable for data integration independently from the structure of the involved dataset and has the advantage of simplicity (<xref ref-type="bibr" rid="B41">Noble and Ben-Hur, 2007</xref>). The output <italic>Y</italic> for classification model was a binary vector, that was obtained based on the distribution of drug screening experimental results. In our experiment, the area under the dose–response curve (AUCDR∈[0,1]) in GDSC was used to quantify the drug response in cell lines. <xref ref-type="fig" rid="F1">Figure 1C</xref> shows the distribution of AUCDR of 209 drugs in 990 cell lines. According to the AUCDR distribution, we divided the response values into three categories: sensitivity, resistance, and unclear. In order to keep training positive and negative in a same scale, we defined sensitivity with AUCDR less than 0.2, and resistance with AUCDR larger than 0.991. As a result, 4,491 resistant and 3,376 sensitive pairs of cancer cell lines and drugs were achieved. In this article, we only focused on extreme cases, that is, we will not consider the cell-drug pairs classified as unclear. In particular, we constructed a bipartite map of cancer cells with known drug reactions. The nodes in these two bipartite graphs represent drugs and cell lines, respectively. The edges between cells and drugs represent their relationship, defined either as sensitivity or resistance (<xref ref-type="fig" rid="F1">Figure 1D</xref>). The relationship between the cell line and the drug was represented by a bipartite graph, which was to transform the learning problem from a general binary classification task to an interaction prediction task. Its goal was to learn the drug response on a large scale, that is, learn the cancer sensitivity across lots of drugs simultaneously, in one model. The three classification models (SVM, RF, and LR), were implemented based on above input and output vectors (<xref ref-type="fig" rid="F1">Figure 1E</xref>). Specifically, SVM, which is motivated by statistical learning theory (<xref ref-type="bibr" rid="B10">Cortes and Vapnik, 1995</xref>; <xref ref-type="bibr" rid="B51">Vapnik, 1999</xref>; <xref ref-type="bibr" rid="B15">Evgeniou et al., 2000</xref>; <xref ref-type="bibr" rid="B50">Vaidya et al., 2008</xref>), was implemented via “e107” R package, and the parameters were optimized by a grid search (cost = 10, RBF kernel parameter gamma = 0.01); an integrated algorithm composed of decision trees, the RF classification model (<xref ref-type="bibr" rid="B6">Breiman, 2001</xref>; <xref ref-type="bibr" rid="B19">Goldstein et al., 2011</xref>), was implemented through R “randomForest” package with default parameters; LR model, which is used to express the possibility of something happening (<xref ref-type="bibr" rid="B34">Liang et al., 2013</xref>; <xref ref-type="bibr" rid="B61">Zhao and Tang, 2018</xref>), was implemented by the R “glmnet” package with default parameters.</p>
+<fig id="F1" position="float">
+<label>FIGURE 1</label>
+<caption>
+<p>Machine learning flowchart. <bold>(A)</bold> Pharmacogenomic data, including mutation, DNA copy number, mRNA expression, DNA methylation, and drug sensitive data, were introduced. These data were from GDSC database. <bold>(B)</bold> The cell similarity and drug similarity were calculated using cancer omics and drug chemical structure, respectively. <bold>(C)</bold> The histogram showing the distribution of experimentally tested drug screening data: area under the dose-response curve (AUCDR). The distribution of AUCDR indicates three classes of relationships between cells and drugs, sensitive, resistant, and unclear. <bold>(D)</bold> Representing the known relationship between cells and drugs as a standard in the bipartite graph. <bold>(E)</bold> Using SVM, RF, and LR algorithms to predict the relationship between novel cells and drugs. <bold>(F)</bold> Using the Lasso model to predict methylation sites related to drug sensitivity.</p>
+</caption>
+<graphic xlink:href="fgene-11-00917-g001"></graphic>
+</fig>
+<p>To evaluate the performance of the classification algorithms, the fivefold cross-validation was performed. That is, each dataset was randomly divided into five parts. Four parts were selected as the training set each time, and the remaining 1 part was applied as the test set. After five rounds, the area under the Precision Recall (PR) curve (AUPR) (<xref ref-type="bibr" rid="B46">Saito and Rehmsmeier, 2017</xref>) was applied to evaluate the performance of above three classification models.</p>
+</sec>
+<sec id="S2.SS8">
+<title>Prediction of Methylation Sites Related to Drug Responses Based on Lasso Model</title>
+<p>To predict the methylation sites that were closely related to drug responses, the lasso regression model was introduced. The input and output for lasso were the GpG island β values across cancer cell lines and a given drug response in these cancer cell lines, respectively. Lasso regression achieved a more refined model by constructing a regularized term that compresses the regression coefficients:</p>
+<disp-formula id="S2.Ex4">
+<mml:math id="M4">
+<mml:mrow>
+<mml:mtext>Min</mml:mtext>
+<mml:mo>⁢</mml:mo>
+<mml:mrow>
+<mml:mo>(</mml:mo>
+<mml:mrow>
+<mml:mrow>
+<mml:munderover>
+<mml:mo largeop="true" movablelimits="false" symmetric="true">∑</mml:mo>
+<mml:mrow>
+<mml:mi>i</mml:mi>
+<mml:mo>=</mml:mo>
+<mml:mn>1</mml:mn>
+</mml:mrow>
+<mml:mi>m</mml:mi>
+</mml:munderover>
+<mml:msup>
+<mml:mrow>
+<mml:mo stretchy="false">(</mml:mo>
+<mml:mrow>
+<mml:msub>
+<mml:mi>y</mml:mi>
+<mml:mi>i</mml:mi>
+</mml:msub>
+<mml:mo>-</mml:mo>
+<mml:mrow>
+<mml:msup>
+<mml:mi>W</mml:mi>
+<mml:mi>T</mml:mi>
+</mml:msup>
+<mml:mo>⁢</mml:mo>
+<mml:mi>X</mml:mi>
+</mml:mrow>
+</mml:mrow>
+<mml:mo stretchy="false">)</mml:mo>
+</mml:mrow>
+<mml:mn>2</mml:mn>
+</mml:msup>
+</mml:mrow>
+<mml:mo>+</mml:mo>
+<mml:mrow>
+<mml:mi mathvariant="normal">λ</mml:mi>
+<mml:mo>⁢</mml:mo>
+<mml:msub>
+<mml:mrow>
+<mml:mo fence="true">||</mml:mo>
+<mml:mtext>W</mml:mtext>
+<mml:mo fence="true">||</mml:mo>
+</mml:mrow>
+<mml:mn>1</mml:mn>
+</mml:msub>
+</mml:mrow>
+</mml:mrow>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+</mml:mrow>
+</mml:math>
+</disp-formula>
+<p>where <italic>y</italic><sub>i</sub> is the AUCDR value of i-th drug, <italic>X</italic> is the β value of methylation sites across cancer cell lines, λ is the regularization parameter, and ||W|| <sub>1</sub> is the L1-norm, the sum of the elements of the vector (<xref ref-type="fig" rid="F1">Figure 1F</xref>). The lasso model was implemented via a “glmnet” R package, and the best lambda was determined by grid search. The lasso model was implemented on each given drug, respectively. The Pearson Correlation Coefficient (PCC) was calculated between experimentally tested results and predicted values, and drugs with PCC greater than 0.7 were kept for further analysis. According to the regression coefficient given by the lasso regression model, we selected the top 100 CpG islands as methylation sites related to drug effectiveness. The ENCODE database, which provides a wealth of data and clarifies the role of functional elements in the human genome (<xref ref-type="bibr" rid="B13">Ecker et al., 2012</xref>), was applied to check whether the identified methylation sites were located in the promoter region, enhancer region or TF binding region. Furthermore, the TRRUST2 database, the most comprehensive public database for literature-curated TF-target interactions in humans (<xref ref-type="bibr" rid="B21">Han et al., 2018</xref>), was introduced to test whether the methylation sites share loci with downstream gene’s TF binding region.</p>
+</sec>
+</sec>
+<sec id="S3">
+<title>Results</title>
+<sec id="S3.SS1">
+<title>Evaluation of the Contribution of DNA Methylation in Prediction of Drug Responses</title>
+<p>We firstly assessed the contribution of DNA methylation in prediction of drug responses and compared it with other cancer omics data resources. The AUPR was calculated through fivefold cross-validation based on each cancer omics data resource and is shown as the barplot in <xref ref-type="fig" rid="F2">Figure 2</xref>. As we can see in <xref ref-type="fig" rid="F2">Figure 2A</xref>, the SVM model using DNA methylation data performs best in SVM prediction model. As for RF and LR models, the best performance is achieved by using mutation data. Overall, no matter which classification model is used, we can see the predictive performance of DNA methylation is comparable to those of other cancer omics data. <xref ref-type="fig" rid="F2">Figure 2B</xref> shows the PR curve of three prediction models based on methylation data, respectively. It can be concluded that the SVM outperforms RF and LR by achieving best AUPR. We also provided the AUC (<xref ref-type="bibr" rid="B35">Lobo, 2007</xref>) obtained on different data resources and different classification models in <xref ref-type="supplementary-material" rid="SM1">Supplementary Material</xref>. The methylation data achieved AUC of 0.94 ± 0.0017, 0.99 ± 0.0004, and 0.84 ± 0.0003 for SVM, RF, and LR, respectively, which were comparable with other data resources (<xref ref-type="supplementary-material" rid="SM1">Supplementary Table 1</xref>). These results together indicate the important role of DNA methylation in prediction of drug responses. In <xref ref-type="supplementary-material" rid="SM1">Supplementary Material</xref>, we provided <italic>P</italic> values obtained by different predictive models based on different data resources. Most of these <italic>P-</italic>values are less than 0.01, except for methylation versus copy number in the RF model and methylation versus RNA-seq in the LR model (<xref ref-type="supplementary-material" rid="SM1">Supplementary Table 2</xref>). Therefore, we conclude that DNA methylation data could be used as an effective data resource to predict the responses of cancer cell lines to anticancer drugs.</p>
+<fig id="F2" position="float">
+<label>FIGURE 2</label>
+<caption>
+<p>The AUPRs and PR curve on various data source. <bold>(A)</bold> AUPRs obtained by three classification algorithms (SVM, RF, and LR) based on different cancer omics data resources. <bold>(B)</bold> The PR curves obtained by three prediction models (SVM, RF, and LR) based on DNA methylation.</p>
+</caption>
+<graphic xlink:href="fgene-11-00917-g002"></graphic>
+</fig>
+</sec>
+<sec id="S3.SS2">
+<title>Validation of the Effectiveness of DNA Methylation Through an Independent Test</title>
+<p>To verify the contribution of DNA methylation in drug response prediction, we introduced DNA methylation data and experimental drug screening results from the CCLE database and applied them as the independent test data. Specifically, we trained the drug response model through the GDSC methylation data and experimental drug screening results and applied that model to predict the cell-drug relationships in CCLE based on methylation data. The active area value (the area over the dose-response curve) was introduced to quantify drug sensitivity (<xref ref-type="supplementary-material" rid="SM1">Supplementary Figure 1</xref>). We presented the RF prediction results in <xref ref-type="supplementary-material" rid="SM1">Supplementary Material</xref> (<xref ref-type="supplementary-material" rid="SM1">Supplementary Figure 2</xref>). The PCC between RF prediction scores and experimental results is 0.558, and the predictive score for the sensitive group and the resistance group are significantly different (<italic>P</italic> &lt; 2.2e-16). These results suggest the great generalization ability of prediction model based on DNA methylation data.</p>
+</sec>
+<sec id="S3.SS3">
+<title>Discussion of the Mechanism of DNA Methylation in Regulation of Drug Effectiveness</title>
+<p>Then, we would like to discuss the mechanism of DNA methylation in regulation of drug effectiveness. To this end, we introduced a lasso regression model that performs both variable selection and regularization for improving the prediction accuracy and enhancing the interpretability of the statistical model (<xref ref-type="bibr" rid="B16">Fadil and William, 1986</xref>). By taking methylation level of CpG islands as the regulators, and drug effectiveness (AUCDR) as the responses, the methylation sites that were closely related to drug effectiveness in a given drug were detected by lasso. The PCCs between experimentally tested results and predictive results for 209 drugs were shown in <xref ref-type="fig" rid="F3">Figure 3</xref>. <xref ref-type="fig" rid="F3">Figure 3A</xref> shows the distribution of PCCs in 209 drugs, which is mainly concentrated in the range of 0.3–0.5 and 0.5–0.7. <xref ref-type="fig" rid="F3">Figure 3B</xref> shows the PCCs of 12 drugs with PCCs greater than 0.7, and the exact PCCs for these 12 drugs can be seen in <xref ref-type="table" rid="T1">Table 1</xref>. Therefore, the methylation sites related tp responses from these 12 drugs were discussed in the following subsection.</p>
+<fig id="F3" position="float">
+<label>FIGURE 3</label>
+<caption>
+<p>Correlation coefficients of experimentally tested results and predicted values for 209 drugs. <bold>(A)</bold> The violin diagram shows the PCCs between experimental results and the predictions. The PCCs in the five groups of “&lt;0.1,” “0.1–0.3,” “0.3–0.5,” “0.5–0.7,” and “&gt;0.7” are shown. <bold>(B)</bold> The barplot shows the PCCs for 12 drugs with PCCs greater than 0.7. The PCCs values for different types of inhibitors, including Proteasome inhibitor, Bcr-Abl inhibitor, Src inhibitor, CDK4 inhibitor, VEGFR inhibitor, and Raf inhibitor, are shown with different colors.</p>
+</caption>
+<graphic xlink:href="fgene-11-00917-g003"></graphic>
+</fig>
+<table-wrap id="T1" position="float">
+<label>TABLE 1</label>
+<caption>
+<p>PCCs values of 12 drugs.</p>
+</caption>
+<table cellpadding="5" cellspacing="5" frame="hsides" rules="groups">
+<thead>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Drug name</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>PCCs</bold>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Sunitinib</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.720</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FK866</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.749</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Z-LLNle-CHO</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.729</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">S-Trityl-L-cysteine</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.715</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">GNF-2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.738</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CMK</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.738</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">AZD-0530</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.725</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">WH-4-023</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.729</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CGP-082996</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.727</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CGP-606474</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.726</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">AZ628</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.703</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Dasatinib</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.714</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<p>According to the regression coefficient of lasso model, the methylation sites closely related to these 12 drugs were screened out, and the top 100 CpG islands remained for further analysis. To discuss the regulatory roles of these methylation sites in drug effectiveness, ENCODE database was introduced to query the location information of them. After checking the TF binding sites (TFBS) information from the ENCODE database, we find that most of the selected methylation sites share the loci with TF binding region (<xref ref-type="table" rid="T2">Table 2</xref>). For example, the 100 methylation sites associated with Sunitinib response are located in the binding regions of 100 TFs. We performed the TFBS enrichment analysis on these methylation sites. Specifically, we randomly selected 100 fragments with average length of CpG Islands (about 2,000 bp) from non-coding region of the whole human genome. Then, we checked how many of these 100 fragments were located in TF binding region. We compared the frequency of predicted CpG Islands located in TFBS with this distribution function simulated by 1,000 repeats and calculated the <italic>P-</italic>value. As a result, <italic>P-</italic>values are smaller than 1e-26 for all 12 drugs. All these results indicate that the methylation sites closely related to drug effectiveness are enriched in the TFBS.</p>
+<table-wrap id="T2" position="float">
+<label>TABLE 2</label>
+<caption>
+<p>The percentage of methylation sites located in TFBS and have corresponding TF target gene available in TRRUST2 database.</p>
+</caption>
+<table cellpadding="5" cellspacing="5" frame="hsides" rules="groups">
+<thead>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<bold>Drug name</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>No. of methylation sites (%)</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>No. of TF (%)</bold>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="top">
+<bold>Supplementary table</bold>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Sunitinib</td>
+<td align="center" colspan="1" rowspan="1" valign="top">100</td>
+<td align="center" colspan="1" rowspan="1" valign="top">92</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3,4</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FK866</td>
+<td align="center" colspan="1" rowspan="1" valign="top">100</td>
+<td align="center" colspan="1" rowspan="1" valign="top">96</td>
+<td align="center" colspan="1" rowspan="1" valign="top">5,6</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Z-LLNle-CHO</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">91</td>
+<td align="center" colspan="1" rowspan="1" valign="top">7,8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">S-Trityl-L-cysteine</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">91</td>
+<td align="center" colspan="1" rowspan="1" valign="top">9,10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">GNF-2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">92</td>
+<td align="center" colspan="1" rowspan="1" valign="top">11,12</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CMK</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">92</td>
+<td align="center" colspan="1" rowspan="1" valign="top">13,14</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">AZD-0530</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">90</td>
+<td align="center" colspan="1" rowspan="1" valign="top">15,16</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">WH-4-023</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">93</td>
+<td align="center" colspan="1" rowspan="1" valign="top">17,18</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CGP-082996</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">92</td>
+<td align="center" colspan="1" rowspan="1" valign="top">19,20</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CGP-606474</td>
+<td align="center" colspan="1" rowspan="1" valign="top">99</td>
+<td align="center" colspan="1" rowspan="1" valign="top">94</td>
+<td align="center" colspan="1" rowspan="1" valign="top">21,22</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">AZ628</td>
+<td align="center" colspan="1" rowspan="1" valign="top">98</td>
+<td align="center" colspan="1" rowspan="1" valign="top">91</td>
+<td align="center" colspan="1" rowspan="1" valign="top">23,24</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Dasatinib</td>
+<td align="center" colspan="1" rowspan="1" valign="top">98</td>
+<td align="center" colspan="1" rowspan="1" valign="top">87</td>
+<td align="center" colspan="1" rowspan="1" valign="top">25,26</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<p>The TRRUST2 database was further introduced to explore regulatory relationships between TFs and their target genes. As a result, among 100 methylation sites, 92 methylation sites share loci with TFBS, which have a regulatory target gene in TRRUST2. These results together indicate that methylation sites related to drug effectiveness share the loci with TFBS, and the variation in these methylation sites may interrupt the transcription regulated by corresponding TFs. That is, the variation in DNA methylation may block the normal binding of TFs, thus affect the normal transcription of their target genes that linked to drug effectiveness. Through a literature search, we found that the <italic>MUC1</italic> gene is related to the sensitivity of drug Sunitinib. It has been proved by experiments that the expression level of gene <italic>MUC1</italic> in renal cell carcinoma cell lines correlated to resistance to Sunitinib (<xref ref-type="bibr" rid="B8">Chen et al., 2018</xref>). Here, the lasso model for drug Sunitinib reveals the drug effectiveness related methylation site of chr1: 110880394-110880624. After database searching, it was found that this methylation site is located in the TF <italic>STAT3</italic> binding region, while the TF <italic>STAT3</italic> regulates the transcription of <italic>MUC1</italic> gene (<xref ref-type="fig" rid="F4">Figure 4</xref>).</p>
+<fig id="F4" position="float">
+<label>FIGURE 4</label>
+<caption>
+<p>The relationship between methylation and gene expression. Under normal condition (subfigure A), TF <italic>STAT3</italic> binds the promoter region of <italic>MUC1</italic> gene that was proven to be sensitive to Sunitinib, and make it transcribed. However, when TF <italic>STAT3</italic> binding region was methylated (subfigure B), <italic>STAT3</italic> could not bind as usual, which might lead to <italic>MUC1</italic> gene silencing, thus affecting the sensitivity of Sunitinib.</p>
+</caption>
+<graphic xlink:href="fgene-11-00917-g004"></graphic>
+</fig>
+<p>From the above analysis, we attempted to provide a possible mechanism of DNA methylation in regulation of drug effectiveness. Then, we checked the relationship between DNA methylation and downstream gene expression. Pearson correlation analysis was performed based on β values of methylation sites associated with drug response and expression values of downstream gene (<xref ref-type="supplementary-material" rid="SM1">Supplementary Figure 3</xref>). The good correlation relationship between DNA methylation and downstream gene expression is suggested. For instance, for drug “Dasatinib,” among 100 pairs of methylation sites and corresponding downstream gene, there are seven pairs of methylation sites and their downstream genes with PCCs larger than 0.5 and 42 pairs with PCCs larger than 0.3 and smaller than 0.5.</p>
+</sec>
+</sec>
+<sec id="S4">
+<title>Discussion</title>
+<p>A systematic study of the relationship between cancer cells and anticancer therapies could inform early clinical trials of many new compounds. A series of efforts were adopted to improve the accuracy of prediction in our study. First, by assigning response value into three classes: sensitive, resistant, and unclear, and the “categorical” classifiers were introduced to detect whether a given cancer cell was sensitive or resistant to a specific anti-cancer therapy. Second, to overcome the heterogeneity of pharmacogenomic data, the similarity matrices were constructed to represent cancer cell lines and anti-cancer drugs. The purpose of replacing the original data with similarity matrix is to keep the samples number and feature number at the same scale, so as to attempt to avoid the overfitting. Third, three common classical classification models, namely SVM, RF, and LR, were introduced to assess the contribution of DNA methylation in prediction of drug responses. The results suggest that DNA methylation data performs best in the SVM model, and for RF and LR models, the prediction performance of DNA methylation is comparable to that of other data resources. In the previous work, a lot of research has been done on establishing drug response prediction using machine learning, mostly based on gene expression data. For example, <xref ref-type="bibr" rid="B53">Wang et al. (2016)</xref> used an SVM model to predict the drug response of mutation data, copy number and expression number from CCLE database, and found that the prediction value of mutation data was the best; <xref ref-type="bibr" rid="B44">Riddick et al. (2011)</xref> used an RF model to fit the drug IC50 with underlying gene expression and has been shown to successfully predict drug response, outperformed other methods based on differential gene expression. We are committed to optimize and strengthen the models in drug responses, mainly because the cost of drug design and time consuming clinical trials are the major costs of cancer treatment, while the application of machine learning can greatly reduce the cost.</p>
+<p>In this paper, we also attempted to validate the role of DNA methylation in prediction of drug response by an independent data test. The RF model based on DNA methylation data indicates that the predicted results correlate well with the experimental ones (PCC = 0.556).</p>
+<p>This suggests that DNA methylation can be used as an informative data resource to predict drug response.</p>
+<p>Here, methylation sites associated with sensitivity or resistance to anticancer drugs are predicted based on the lasso regression model. A total of 12 drugs are found to have good correlations between predictions and experimental drug screening results. The database search indicates that almost all the methylation sites associated with the drug effectiveness are located in the TFBS (<xref ref-type="table" rid="T2">Table 2</xref>). The further enrichment analysis indicates that the methylation sites closely related to drug effectiveness are enriched in TFBS (<italic>p</italic>-value less than 1e-26). Therefore, we hypothesize that DNA methylation may affect the normal binding of TF, and then change the expression level of their target genes that are linked with drug responses. In the prediction of methylation sites related to Sunitinib, the binding region of TF <italic>STAT3</italic> is found to contain the methylation site (chr1: 110880394-110880624) that related to drug effectiveness, and TF <italic>STAT3</italic> target gene <italic>MUC1</italic> is related to drug Sunitinib response. These results suggest the possible regulation role of methylation site in drug effectiveness, that is, methylation may interrupt the normal binding of TF to its target gene that are related to drug response. Therefore, our future work will be designed to discover more genes that have been experimentally verified to be related to drug response and to further verify our hypothesis.</p>
+<p>In addition, we performed correlation analysis between the selected methylation sites and their downstream genes, and the results show 42% pairs of methylation sites and their downstream genes have PCCs larger than 0.3. Furthermore, the previous studies suggested the correlation between CpG Islands shores and downstream genes (<xref ref-type="bibr" rid="B27">Irizarry et al., 2009</xref>). Thus, we also did a correlation analysis between methylation of the CpG Islands shores and the expression of downstream genes. Here, we find a total of 159 pairs of CpG Islands shores and downstream genes with both methylation β value and expression available, and the results show that 18 pairs of them has PCCs larger than 0.3.</p>
+<p>In summary, this study indicates the important role of DNA methylation in prediction of drug response, and reveals methylation sites related to drug effectiveness. The database and literature searches on those methylation sites offers a possible mechanism of DNA methylation in regulation of drug effectiveness. This information is helpful for people to further understand the regulation mechanism of drug responses to cancers.</p>
+</sec>
+<sec id="S5" sec-type="data-availability">
+<title>Data Availability Statement</title>
+<p>All datasets presented in this study are included in the article/<xref ref-type="supplementary-material" rid="SM1">Supplementary Material</xref>.</p>
+</sec>
+<sec id="S6">
+<title>Author Contributions</title>
+<p>RY was involved in literature review, data processing, and manuscript writing. YW was involved in important tasks such as guidance and constructive amendments to the manuscript. SC helped in the editing of the manuscript. All authors contributed to the article and approved the submitted version.</p>
+</sec>
+<sec id="conf1">
+<title>Conflict of Interest</title>
+<p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn fn-type="financial-disclosure">
+<p><bold>Funding.</bold> This work was supported by the National Natural Science Foundation of China (No. 11671396), Qinghai Provincial Innovation Platform Construction Project–Qinghai Key Laboratory of Crop Molecular Breeding (No. 2017-ZJ-Y14), a grant from Qinghai Sciences and Technology Department for Basic Research Program (No. 2020-ZJ-719), and the Second Tibetan Plateau Scientific Expedition and Research (STEP) Program (No. 2019QZKK05020102).</p>
+</fn>
+</fn-group>
+<sec id="S8" sec-type="supplementary material">
+<title>Supplementary Material</title>
+<p>The Supplementary Material for this article can be found online at: <ext-link ext-link-type="uri" xlink:href="https://www.frontiersin.org/articles/10.3389/fgene.2020.00917/full#supplementary-material">https://www.frontiersin.org/articles/10.3389/fgene.2020.00917/full#supplementary-material</ext-link></p>
+<supplementary-material content-type="local-data" id="SM1">
+<media xlink:href="Data_Sheet_1.docx">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+<ref-list>
+<title>References</title>
+<ref id="B1">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Andrews</surname><given-names>S. V.</given-names></name><name><surname>Sheppard</surname><given-names>B.</given-names></name><name><surname>Windham</surname><given-names>G. C.</given-names></name><name><surname>Schieve</surname><given-names>L. A.</given-names></name><name><surname>Schendel</surname><given-names>D. E.</given-names></name><name><surname>Croen</surname><given-names>L. A.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Case-control meta-analysis of blood DNA methylation and autism spectrum disorder.</article-title>
+<source/><italic>Mol. Autism.</italic>
+<volume>28</volume>
+<fpage>9</fpage>–<lpage>40</lpage>. <pub-id pub-id-type="doi">10.1186/s13229-018-0224-6</pub-id>
+<pub-id pub-id-type="pmid">29988321</pub-id></mixed-citation>
+</ref>
+<ref id="B2">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Baccarelli</surname><given-names>A.</given-names></name><name><surname>Wright</surname><given-names>R. O.</given-names></name><name><surname>Bollati</surname><given-names>V.</given-names></name><name><surname>Litonjua</surname><given-names>A.</given-names></name><name><surname>Zanobetti</surname><given-names>A.</given-names></name><name><surname>Tarantini</surname><given-names>L.</given-names></name><etal></etal></person-group> (<year>2010</year>). <article-title>Ischemic heart disease and stroke in relation to blood DNA methylation.</article-title>
+<source/><italic>Epidemiology</italic>
+<volume>21</volume>
+<fpage>819</fpage>–<lpage>828</lpage>. <pub-id pub-id-type="doi">10.1097/EDE.0b013e3181f20457</pub-id>
+<pub-id pub-id-type="pmid">20805753</pub-id></mixed-citation>
+</ref>
+<ref id="B3">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Barretina</surname><given-names>J.</given-names></name><name><surname>Caponigro</surname><given-names>G.</given-names></name><name><surname>Stransky</surname><given-names>N.</given-names></name><name><surname>Venkatesan</surname><given-names>K.</given-names></name><name><surname>Margolin</surname><given-names>A. A.</given-names></name><name><surname>Kim</surname><given-names>S.</given-names></name><etal></etal></person-group> (<year>2012</year>). <article-title>The Cancer Cell Line Encyclopedia enables predictive modelling of anticancer drug sensitivity.</article-title>
+<source/><italic>Nature</italic>
+<volume>483</volume>
+<fpage>603</fpage>–<lpage>607</lpage>. <pub-id pub-id-type="doi">10.1038/nature11003</pub-id>
+<pub-id pub-id-type="pmid">22460905</pub-id></mixed-citation>
+</ref>
+<ref id="B4">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ben-Hur</surname><given-names>A.</given-names></name></person-group> (<year>2008</year>). <article-title>Support vector clustering.</article-title>
+<source/><italic>Scholarpedia</italic>
+<volume>3</volume>:<issue>5187</issue>
+<pub-id pub-id-type="doi">10.4249/scholarpedia.5187</pub-id></mixed-citation>
+</ref>
+<ref id="B5">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bird</surname><given-names>A. J. N.</given-names></name></person-group> (<year>1986</year>). <article-title>CpG-rich islands and the function of DNA methylation.</article-title>
+<source/><italic>Nature</italic>
+<volume>321</volume>
+<fpage>209</fpage>–<lpage>213</lpage>. <pub-id pub-id-type="doi">10.1038/321209a0</pub-id>
+<pub-id pub-id-type="pmid">2423876</pub-id></mixed-citation>
+</ref>
+<ref id="B6">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Breiman</surname><given-names>L.</given-names></name></person-group> (<year>2001</year>). <article-title>Random forests.</article-title>
+<source/><italic>Mach. Learn.</italic>
+<volume>45</volume>
+<fpage>5</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1023/A:1010933404324</pub-id></mixed-citation>
+</ref>
+<ref id="B7">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Burbidge</surname><given-names>R.</given-names></name><name><surname>Trotter</surname><given-names>M.</given-names></name><name><surname>Buxton</surname><given-names>B.</given-names></name><name><surname>Holden</surname><given-names>S.</given-names></name></person-group> (<year>2001</year>). <article-title>Drug design by machine learning: support vector machines for pharmaceutical data analysis.</article-title>
+<source/><italic>Comput. Chem.</italic>
+<volume>26</volume>
+<fpage>5</fpage>–<lpage>14</lpage>. <pub-id pub-id-type="doi">10.1016/S0097-8485(01)00094-8</pub-id><pub-id pub-id-type="pmid">11765851</pub-id></mixed-citation>
+</ref>
+<ref id="B8">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chen</surname><given-names>Y. L.</given-names></name><name><surname>Ge</surname><given-names>G. J.</given-names></name><name><surname>Qi</surname><given-names>C.</given-names></name><name><surname>Wang</surname><given-names>H.</given-names></name><name><surname>Wang</surname><given-names>H. L.</given-names></name><name><surname>Li</surname><given-names>L. Y.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>A five-gene signature may predict sunitinib sensitivity and serve as prognostic biomarkers for renal cell carcinoma.</article-title>
+<source/><italic>J. Cell. Physiol.</italic>
+<volume>233</volume>
+<fpage>6649</fpage>–<lpage>6660</lpage>. <pub-id pub-id-type="doi">10.1002/jcp.26441</pub-id>
+<pub-id pub-id-type="pmid">29327492</pub-id></mixed-citation>
+</ref>
+<ref id="B9">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chiu</surname><given-names>Y.</given-names></name><name><surname>Chen</surname><given-names>H. H.</given-names></name><name><surname>Zhang</surname><given-names>T.</given-names></name><name><surname>Zhang</surname><given-names>S.</given-names></name><name><surname>Gorthi</surname><given-names>A.</given-names></name><name><surname>Wang</surname><given-names>L. J.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Predicting drug response of tumors from integrated genomic profiles by deep neural networks.</article-title>
+<source/><italic>BMC Med. Genomics</italic>
+<volume>12</volume>:<issue>18</issue>. <pub-id pub-id-type="doi">10.1186/s12920-018-0460-9</pub-id>
+<pub-id pub-id-type="pmid">30704458</pub-id></mixed-citation>
+</ref>
+<ref id="B10">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cortes</surname><given-names>C.</given-names></name><name><surname>Vapnik</surname><given-names>V.</given-names></name></person-group> (<year>1995</year>). <article-title>Support-vector networks.</article-title>
+<source/><italic>Mach. Learn.</italic>
+<volume>20</volume>
+<fpage>273</fpage>–<lpage>297</lpage>. <pub-id pub-id-type="doi">10.1007/BF00994018</pub-id></mixed-citation>
+</ref>
+<ref id="B11">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Costello</surname><given-names>J.</given-names></name><name><surname>Heiser</surname><given-names>L.</given-names></name><name><surname>Georgii</surname><given-names>E.</given-names></name><name><surname>Gönen</surname><given-names>M.</given-names></name><name><surname>Menden</surname><given-names>M. P.</given-names></name><name><surname>Wang</surname><given-names>N. J.</given-names></name><etal></etal></person-group> (<year>2014</year>). <article-title>A community effort to assess and improve drug sensitivity prediction algorithms.</article-title>
+<source/><italic>Nat. Biotechnol.</italic>
+<volume>32</volume>
+<fpage>1202</fpage>–<lpage>1212</lpage>. <pub-id pub-id-type="doi">10.1038/nbt.2877</pub-id>
+<pub-id pub-id-type="pmid">24880487</pub-id></mixed-citation>
+</ref>
+<ref id="B12">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dong</surname><given-names>Z.</given-names></name><name><surname>Zhang</surname><given-names>N.</given-names></name><name><surname>Li</surname><given-names>C.</given-names></name><name><surname>Wang</surname><given-names>H.</given-names></name><name><surname>Fang</surname><given-names>Y.</given-names></name><name><surname>Wang</surname><given-names>J.</given-names></name><etal></etal></person-group> (<year>2015</year>). <article-title>Anticancer drug sensitivity prediction in cell lines from baseline gene expression through recursive feature selection.</article-title>
+<source/><italic>BMC Cancer</italic>
+<volume>15</volume>:<issue>489</issue>. <pub-id pub-id-type="doi">10.1186/s12885-015-1492-6</pub-id>
+<pub-id pub-id-type="pmid">26121976</pub-id></mixed-citation>
+</ref>
+<ref id="B13">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ecker</surname><given-names>J.</given-names></name><name><surname>Bickmore</surname><given-names>W.</given-names></name><name><surname>Barroso</surname><given-names>I.</given-names></name><name><surname>Pritchard</surname><given-names>J. K.</given-names></name><name><surname>Gilad</surname><given-names>Y.</given-names></name><name><surname>Segal</surname><given-names>E.</given-names></name><etal></etal></person-group> (<year>2012</year>). <article-title>ENCODE explained.</article-title>
+<source/><italic>Nature</italic>
+<volume>489</volume>
+<fpage>52</fpage>–<lpage>54</lpage>. <pub-id pub-id-type="doi">10.1038/489052a</pub-id>
+<pub-id pub-id-type="pmid">22955614</pub-id></mixed-citation>
+</ref>
+<ref id="B14">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Edwards</surname><given-names>J. R.</given-names></name><name><surname>Yarychkivska</surname><given-names>O.</given-names></name><name><surname>Boulard</surname><given-names>M.</given-names></name><name><surname>Bestor</surname><given-names>T. H.</given-names></name></person-group> (<year>2017</year>). <article-title>DNA methylation and DNA methyltransferases.</article-title>
+<source/><italic>Epigenet. Chromatin</italic>
+<volume>10</volume>
+<fpage>23</fpage>–<lpage>33</lpage>. <pub-id pub-id-type="doi">10.1186/s13072-017-0130-8</pub-id>
+<pub-id pub-id-type="pmid">28503201</pub-id></mixed-citation>
+</ref>
+<ref id="B15">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Evgeniou</surname><given-names>T.</given-names></name><name><surname>Pontil</surname><given-names>M.</given-names></name><name><surname>Poggio</surname><given-names>T.</given-names></name></person-group> (<year>2000</year>). <article-title>Regularization networks and support vector machines.</article-title>
+<source/><italic>Adv. Comput. Mathem</italic>
+<volume>13</volume>, <fpage>1</fpage>–<lpage>50</lpage>. <pub-id pub-id-type="doi">10.1023/A:1018946025316</pub-id></mixed-citation>
+</ref>
+<ref id="B16">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fadil</surname><given-names>S.</given-names></name><name><surname>William</surname><given-names>W. S.</given-names></name></person-group> (<year>1986</year>). <article-title>Linear Inversion of Band-Limited Reflection Seismograms.</article-title>
+<source/><italic>SIAM J. Sci. Stat. Comput.</italic>
+<volume>7</volume>
+<fpage>1307</fpage>–<lpage>1330</lpage>. <pub-id pub-id-type="doi">10.1137/0907087</pub-id></mixed-citation>
+</ref>
+<ref id="B17">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Geeleher</surname><given-names>P.</given-names></name><name><surname>Cox</surname><given-names>N. J.</given-names></name><name><surname>Huang</surname><given-names>R. S.</given-names></name></person-group> (<year>2014</year>). <article-title>Clinical drug response can be predicted using baseline gene expression levels and in vitro drug sensitivity in cell lines.</article-title>
+<source/><italic>Genome Biol.</italic>
+<volume>15</volume>
+<fpage>47</fpage>–<lpage>55</lpage>. <pub-id pub-id-type="doi">10.1186/gb-2014-15-3-r47</pub-id>
+<pub-id pub-id-type="pmid">24580837</pub-id></mixed-citation>
+</ref>
+<ref id="B18">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ghandi</surname><given-names>M.</given-names></name><name><surname>Huang</surname><given-names>F. W.</given-names></name><name><surname>Jané-Valbuena</surname><given-names>J.</given-names></name><name><surname>Kryukov</surname><given-names>G. V.</given-names></name><name><surname>Lo</surname><given-names>C. C.</given-names></name><name><surname>McDonald</surname><given-names>E. R.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>Next-generation characterization of the Cancer Cell Line Encyclopedia.</article-title>
+<source/><italic>Nature</italic>
+<volume>569</volume>
+<fpage>503</fpage>–<lpage>508</lpage>. <pub-id pub-id-type="doi">10.1038/s41586-019-1186-3</pub-id>
+<pub-id pub-id-type="pmid">31068700</pub-id></mixed-citation>
+</ref>
+<ref id="B19">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Goldstein</surname><given-names>B. A.</given-names></name><name><surname>Polley</surname><given-names>E. C.</given-names></name><name><surname>Briggs</surname><given-names>F. B.</given-names></name></person-group> (<year>2011</year>). <article-title>Random forests for genetic association studies.</article-title>
+<source/><italic>Stat. Appl. Genet. Mol. Biol.</italic>
+<volume>10</volume>:<issue>32</issue>. <pub-id pub-id-type="doi">10.2202/1544-6115.1691</pub-id>
+<pub-id pub-id-type="pmid">22889876</pub-id></mixed-citation>
+</ref>
+<ref id="B20">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gregory</surname><given-names>R.</given-names></name><name><surname>Hua</surname><given-names>S.</given-names></name><name><surname>Susie</surname><given-names>A.</given-names></name><name><surname>Jennifer</surname><given-names>W.</given-names></name><name><surname>Diego</surname><given-names>B. R.</given-names></name><name><surname>Zhang</surname><given-names>W.</given-names></name><etal></etal></person-group> (<year>2011</year>). <article-title>Predicting in vitro drug sensitivity using random forests.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>15</volume>
+<fpage>220</fpage>–<lpage>224</lpage>.</mixed-citation>
+</ref>
+<ref id="B21">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Han</surname><given-names>H.</given-names></name><name><surname>Cho</surname><given-names>J. W.</given-names></name><name><surname>Lee</surname><given-names>S.</given-names></name><name><surname>Yun</surname><given-names>A.</given-names></name><name><surname>Kim</surname><given-names>H.</given-names></name><name><surname>Bae</surname><given-names>D.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>TRRUST v2: an expanded reference database of human and mouse transcriptional regulatory interactions.</article-title>
+<source/><italic>Nucleic Acids Res.</italic>
+<volume>46</volume>
+<fpage>380</fpage>–<lpage>386</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkx1013</pub-id>
+<pub-id pub-id-type="pmid">29087512</pub-id></mixed-citation>
+</ref>
+<ref id="B22">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hodson</surname><given-names>R.</given-names></name></person-group> (<year>2016</year>). <article-title>Precision medicine.</article-title>
+<source/><italic>Nature</italic>
+<volume>537</volume>:<issue>S49</issue>. <pub-id pub-id-type="doi">10.1038/537S49a</pub-id>
+<pub-id pub-id-type="pmid">27602738</pub-id></mixed-citation>
+</ref>
+<ref id="B23">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Huang</surname><given-names>C.</given-names></name><name><surname>Clayton</surname><given-names>E. A.</given-names></name><name><surname>Matyunina</surname><given-names>L. V.</given-names></name><name><surname>McDonald</surname><given-names>L. D.</given-names></name><name><surname>Benigno</surname><given-names>B B.</given-names></name><name><surname>Vannberg</surname><given-names>F.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Machine learning predicts individual cancer patient responses to therapeutic drugs with high accuracy.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>8</volume>
+<fpage>16444</fpage>–<lpage>16452</lpage>. <pub-id pub-id-type="doi">10.1038/s41598-018-34753-5</pub-id>
+<pub-id pub-id-type="pmid">30401894</pub-id></mixed-citation>
+</ref>
+<ref id="B24">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Huang</surname><given-names>H. H.</given-names></name><name><surname>Dai</surname><given-names>J. G.</given-names></name><name><surname>Liang</surname><given-names>Y.</given-names></name></person-group> (<year>2018</year>). <article-title>Clinical drug response prediction by using a Lq penalized network-constrained logistic regression method.</article-title>
+<source/><italic>Cell Physiol. Biochem.</italic>
+<volume>51</volume>
+<fpage>2073</fpage>–<lpage>2084</lpage>. <pub-id pub-id-type="doi">10.1159/000495826</pub-id>
+<pub-id pub-id-type="pmid">30522095</pub-id></mixed-citation>
+</ref>
+<ref id="B25">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Huang</surname><given-names>E. W.</given-names></name><name><surname>Bhope</surname><given-names>A.</given-names></name><name><surname>Lim</surname><given-names>J.</given-names></name><name><surname>Sinha</surname><given-names>S.</given-names></name><name><surname>Emad</surname><given-names>A.</given-names></name></person-group> (<year>2020</year>). <article-title>Tissue-guided LASSO for prediction of clinical drug response using preclinical samples.</article-title>
+<source/><italic>PLoS Comput. Biol.</italic>
+<volume>16</volume>:<issue>e1007607</issue>. <pub-id pub-id-type="doi">10.1371/journal.pcbi.1007607</pub-id>
+<pub-id pub-id-type="pmid">31967990</pub-id></mixed-citation>
+</ref>
+<ref id="B26">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Iorio</surname><given-names>F.</given-names></name><name><surname>Knijnenburg</surname><given-names>T. A.</given-names></name><name><surname>Vis</surname><given-names>D. J.</given-names></name><name><surname>Bignell</surname><given-names>G. R.</given-names></name><name><surname>Menden</surname><given-names>M. P.</given-names></name><name><surname>Schubert</surname><given-names>M.</given-names></name><etal></etal></person-group> (<year>2016</year>). <article-title>A Landscape of Pharmacogenomic Interactions in Cancer.</article-title>
+<source/><italic>Cell</italic>
+<volume>166</volume>
+<fpage>740</fpage>–<lpage>754</lpage>. <pub-id pub-id-type="doi">10.1016/j.cell.2016.06.017</pub-id>
+<pub-id pub-id-type="pmid">27397505</pub-id></mixed-citation>
+</ref>
+<ref id="B27">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Irizarry</surname><given-names>R. A.</given-names></name><name><surname>Ladd-Acosta</surname><given-names>C.</given-names></name><name><surname>Wen</surname><given-names>B.</given-names></name><name><surname>Wu</surname><given-names>Z.</given-names></name><name><surname>Montano</surname><given-names>C.</given-names></name><name><surname>Onyango</surname><given-names>P.</given-names></name><etal></etal></person-group> (<year>2009</year>). <article-title>The human colon cancer methylome shows similar hypo - and hypermethylation at conserved tissue-specific CpG island shores.</article-title>
+<source/><italic>Nat. Genet.</italic>
+<volume>41</volume>
+<fpage>178</fpage>–<lpage>186</lpage>. <pub-id pub-id-type="doi">10.1038/ng.298</pub-id>
+<pub-id pub-id-type="pmid">19151715</pub-id></mixed-citation>
+</ref>
+<ref id="B28">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jones</surname><given-names>M. J.</given-names></name><name><surname>Goodman</surname><given-names>S. J.</given-names></name><name><surname>Kobor</surname><given-names>M. S.</given-names></name></person-group> (<year>2015</year>). <article-title>DNA methylation and healthy human aging.</article-title>
+<source/><italic>Aging Cell</italic>
+<volume>14</volume>
+<fpage>924</fpage>–<lpage>932</lpage>. <pub-id pub-id-type="doi">10.1111/acel.12349</pub-id>
+<pub-id pub-id-type="pmid">25913071</pub-id></mixed-citation>
+</ref>
+<ref id="B29">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jones</surname><given-names>P. A.</given-names></name></person-group> (<year>2012</year>). <article-title>Functions of DNA methylation: islands, start sites, gene bodies and beyond.</article-title>
+<source/><italic>Nat. Rev. Genet.</italic>
+<volume>13</volume>
+<fpage>484</fpage>–<lpage>492</lpage>. <pub-id pub-id-type="doi">10.1038/nrg3230</pub-id>
+<pub-id pub-id-type="pmid">22641018</pub-id></mixed-citation>
+</ref>
+<ref id="B30">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jones</surname><given-names>P. A.</given-names></name><name><surname>Baylin</surname><given-names>S. B.</given-names></name></person-group> (<year>2002</year>). <article-title>The fundamental role of epigenetic events in cancer.</article-title>
+<source/><italic>Nat. Rev. Genet.</italic>
+<volume>3</volume>
+<fpage>415</fpage>–<lpage>428</lpage>. <pub-id pub-id-type="doi">10.1038/nrg816</pub-id>
+<pub-id pub-id-type="pmid">12042769</pub-id></mixed-citation>
+</ref>
+<ref id="B31">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kanwal</surname><given-names>R.</given-names></name><name><surname>Gupta</surname><given-names>S.</given-names></name></person-group> (<year>2012</year>). <article-title>Epigenetic modifications in cancer.</article-title>
+<source/><italic>Clin. Genet.</italic>
+<volume>81</volume>
+<fpage>303</fpage>–<lpage>311</lpage>. <pub-id pub-id-type="doi">10.1111/j.1399-0004.2011.01809.x</pub-id>
+<pub-id pub-id-type="pmid">22082348</pub-id></mixed-citation>
+</ref>
+<ref id="B32">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lai</surname><given-names>S.</given-names></name><name><surname>Su</surname><given-names>Y.</given-names></name><name><surname>Chi</surname><given-names>C.</given-names></name><name><surname>Kuo</surname><given-names>Y. C.</given-names></name><name><surname>Lee</surname><given-names>K. F.</given-names></name><name><surname>Wu</surname><given-names>Y. C.</given-names></name><etal></etal></person-group> (<year>2019</year>). <article-title>DNMT3b/OCT4 expression confers sorafenib resistance and poor prognosis of hepatocellular carcinoma through IL-6/STAT3 regulation.</article-title>
+<source/><italic>J. Exp. Clin. Cancer Res.</italic>
+<volume>38</volume>
+<fpage>474</fpage>–<lpage>485</lpage>. <pub-id pub-id-type="doi">10.1186/s13046-019-1442-2</pub-id>
+<pub-id pub-id-type="pmid">31771617</pub-id></mixed-citation>
+</ref>
+<ref id="B33">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>LeCun</surname><given-names>Y.</given-names></name><name><surname>Bengio</surname><given-names>Y.</given-names></name><name><surname>Hinton</surname><given-names>G.</given-names></name></person-group> (<year>2015</year>). <article-title>Deep learning.</article-title>
+<source/><italic>Nature</italic>
+<volume>521</volume>
+<fpage>436</fpage>–<lpage>444</lpage>. <pub-id pub-id-type="doi">10.1038/nature14539</pub-id>
+<pub-id pub-id-type="pmid">26017442</pub-id></mixed-citation>
+</ref>
+<ref id="B34">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Liang</surname><given-names>Y.</given-names></name><name><surname>Liu</surname><given-names>C.</given-names></name><name><surname>Luan</surname><given-names>X. Z.</given-names></name><name><surname>Leung</surname><given-names>K. S.</given-names></name><name><surname>Chan</surname><given-names>T. M.</given-names></name><name><surname>Xu</surname><given-names>Z.</given-names></name><etal></etal></person-group> (<year>2013</year>). <article-title>Sparse logistic regression with a L1/2 penalty for gene selection in cancer classification.</article-title>
+<source/><italic>BMC Bioinformatics</italic>
+<volume>14</volume>:<issue>198</issue>. <pub-id pub-id-type="doi">10.1186/1471-2105-14-198</pub-id>
+<pub-id pub-id-type="pmid">23777239</pub-id></mixed-citation>
+</ref>
+<ref id="B35">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lobo</surname><given-names>J. M.</given-names></name></person-group> (<year>2007</year>). <article-title>Auc: a misleading measure of the performance of predictive distribution models.</article-title>
+<source/><italic>Glob. Ecol. Biogeogr.</italic>
+<volume>17</volume>
+<fpage>145</fpage>–<lpage>151</lpage>. <pub-id pub-id-type="doi">10.1111/j.1466-8238.2007.00358.x</pub-id></mixed-citation>
+</ref>
+<ref id="B36">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lockhart</surname><given-names>R.</given-names></name><name><surname>Taylor</surname><given-names>J.</given-names></name><name><surname>Tibshirani</surname><given-names>R. J.</given-names></name><name><surname>Tibshirani</surname><given-names>R.</given-names></name></person-group> (<year>2014</year>). <article-title>A Significance test for the lasso.</article-title>
+<source/><italic>Ann. Stat.</italic>
+<volume>42</volume>
+<fpage>413</fpage>–<lpage>468</lpage>. <pub-id pub-id-type="doi">10.1214/13-AOS1175</pub-id><pub-id pub-id-type="pmid">25574062</pub-id></mixed-citation>
+</ref>
+<ref id="B37">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Menden</surname><given-names>M. P.</given-names></name><name><surname>Iorio</surname><given-names>F.</given-names></name><name><surname>Garnett</surname><given-names>M.</given-names></name><name><surname>McDermott</surname><given-names>U.</given-names></name><name><surname>Benes</surname><given-names>C. H.</given-names></name><name><surname>Ballester</surname><given-names>P. J.</given-names></name></person-group> (<year>2013</year>). <article-title>Machine learning prediction of cancer cell sensitivity to drugs based on genomic and chemical properties.</article-title>
+<source/><italic>PLoS One</italic>
+<volume>8</volume>:<issue>e61318</issue>. <pub-id pub-id-type="doi">10.1371/journal.pone.0061318</pub-id>
+<pub-id pub-id-type="pmid">23646105</pub-id></mixed-citation>
+</ref>
+<ref id="B38">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mirang</surname><given-names>K.</given-names></name><name><surname>Joseph</surname><given-names>C.</given-names></name></person-group> (<year>2017</year>). <article-title>DNA methylation: an epigenetic mark of cellular memory.</article-title>
+<source/><italic>Exp. Mol. Med.</italic>
+<volume>49</volume>
+<fpage>322</fpage>–<lpage>330</lpage>. <pub-id pub-id-type="doi">10.1038/emm.2017.10</pub-id>
+<pub-id pub-id-type="pmid">28450738</pub-id></mixed-citation>
+</ref>
+<ref id="B39">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mohammad</surname><given-names>H. P.</given-names></name><name><surname>Barbash</surname><given-names>O.</given-names></name><name><surname>Creasy</surname><given-names>C. L.</given-names></name></person-group> (<year>2019</year>). <article-title>Targeting epigenetic modifications in cancer therapy: erasing the roadmap to cancer.</article-title>
+<source/><italic>Nat. Med.</italic>
+<volume>25</volume>
+<fpage>403</fpage>–<lpage>418</lpage>. <pub-id pub-id-type="doi">10.1038/s41591-019-0376-8</pub-id>
+<pub-id pub-id-type="pmid">30842676</pub-id></mixed-citation>
+</ref>
+<ref id="B40">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Moore</surname><given-names>L. D.</given-names></name><name><surname>Le</surname><given-names>T.</given-names></name><name><surname>Fan</surname><given-names>G.</given-names></name></person-group> (<year>2013</year>). <article-title>DNA Methylation and Its Basic Function.</article-title>
+<source/><italic>Neuropsychopharmacology</italic>
+<volume>38</volume>
+<fpage>23</fpage>–<lpage>38</lpage>. <pub-id pub-id-type="doi">10.1038/npp.2012.112</pub-id>
+<pub-id pub-id-type="pmid">22781841</pub-id></mixed-citation>
+</ref>
+<ref id="B41">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Noble</surname><given-names>W.</given-names></name><name><surname>Ben-Hur</surname><given-names>A.</given-names></name></person-group> (<year>2007</year>). <source/><italic>Integrating information for protein function prediction in Bioinformatics-From Genomes to Therapies</italic>, <role>ed.</role>
+<person-group person-group-type="editor"><name><surname>Lengauer</surname><given-names>T.</given-names></name></person-group> (<publisher-loc>New York, NY</publisher-loc>: <publisher-name>Wiley</publisher-name>), <fpage>1297</fpage>–<lpage>1314</lpage>. <pub-id pub-id-type="doi">10.1002/9783527619368</pub-id></mixed-citation>
+</ref>
+<ref id="B42">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Priebsch</surname><given-names>A.</given-names></name><name><surname>Rompe</surname><given-names>F.</given-names></name><name><surname>Tönnies</surname><given-names>H.</given-names></name><name><surname>Kowalski</surname><given-names>P.</given-names></name><name><surname>Surowiak</surname><given-names>P.</given-names></name><name><surname>Stege</surname><given-names>A.</given-names></name><etal></etal></person-group> (<year>2006</year>). <article-title>Complete reversal of ABCG2-depending atypical multidrug resistance by RNA interference in human carcinoma cells.</article-title>
+<source/><italic>Oligonucleotides</italic>
+<volume>16</volume>
+<fpage>263</fpage>–<lpage>274</lpage>. <pub-id pub-id-type="doi">10.1089/oli.2006.16.263</pub-id>
+<pub-id pub-id-type="pmid">16978089</pub-id></mixed-citation>
+</ref>
+<ref id="B43">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Raziur</surname><given-names>R.</given-names></name><name><surname>John</surname><given-names>O.</given-names></name><name><surname>Ranadip</surname><given-names>P.</given-names></name></person-group> (<year>2017</year>). <article-title>IntegratedMRF: random forest-based framework for integrating prediction from different data types.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>33</volume>
+<fpage>1407</fpage>–<lpage>1410</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btw765</pub-id>
+<pub-id pub-id-type="pmid">28334269</pub-id></mixed-citation>
+</ref>
+<ref id="B44">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Riddick</surname><given-names>G.</given-names></name><name><surname>Song</surname><given-names>H.</given-names></name><name><surname>Ahn</surname><given-names>S.</given-names></name><name><surname>Walling</surname><given-names>J.</given-names></name><name><surname>Borges-Rivera</surname><given-names>D.</given-names></name><name><surname>Zhang</surname><given-names>W.</given-names></name><etal></etal></person-group> (<year>2011</year>). <article-title>Predicting in vitro drug sensitivity using Random Forests.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>27</volume>
+<fpage>220</fpage>–<lpage>224</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btq628</pub-id>
+<pub-id pub-id-type="pmid">21134890</pub-id></mixed-citation>
+</ref>
+<ref id="B45">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Robertson</surname><given-names>K.</given-names></name></person-group> (<year>2005</year>). <article-title>DNA methylation and human disease.</article-title>
+<source/><italic>Nat. Rev. Genet.</italic>
+<volume>6</volume>
+<fpage>597</fpage>–<lpage>610</lpage>. <pub-id pub-id-type="doi">10.1038/nrg1655</pub-id>
+<pub-id pub-id-type="pmid">16136652</pub-id></mixed-citation>
+</ref>
+<ref id="B46">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Saito</surname><given-names>T.</given-names></name><name><surname>Rehmsmeier</surname><given-names>M.</given-names></name></person-group> (<year>2017</year>). <article-title>Precrec: fast and accurate precision-recall and ROC curve calculations in R.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>33</volume>
+<fpage>145</fpage>–<lpage>147</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btw570</pub-id>
+<pub-id pub-id-type="pmid">27591081</pub-id></mixed-citation>
+</ref>
+<ref id="B47">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Singer-Sam</surname><given-names>J.</given-names></name><name><surname>Riggs</surname><given-names>A. D.</given-names></name></person-group> (<year>1993</year>). <article-title>X chromosome inactivation and DNA methylation.</article-title>
+<source/><italic>DNA Methylation</italic>
+<volume>64</volume>
+<fpage>358</fpage>–<lpage>384</lpage>. <pub-id pub-id-type="doi">10.1007/978-3-0348-9118-9_16</pub-id></mixed-citation>
+</ref>
+<ref id="B48">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Stetson</surname><given-names>L. C.</given-names></name><name><surname>Pearl</surname><given-names>T.</given-names></name><name><surname>Chen</surname><given-names>Y.</given-names></name><name><surname>Barnholtz-Sloan</surname><given-names>J. S.</given-names></name></person-group> (<year>2014</year>). <article-title>Computational identification of multi-omic correlates of anticancer therapeutic response.</article-title>
+<source/><italic>BMC Genomics</italic>
+<volume>15</volume>:<issue>S2</issue>. <pub-id pub-id-type="doi">10.1186/1471-2164-15-S7-S2</pub-id>
+<pub-id pub-id-type="pmid">25573145</pub-id></mixed-citation>
+</ref>
+<ref id="B49">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tibshirani</surname><given-names>R.</given-names></name></person-group> (<year>1996</year>). <article-title>Regression Shrinkage and Selection Via the Lasso.</article-title>
+<source/><italic>J. R. Stat. Soc.</italic>
+<volume>58</volume>
+<fpage>267</fpage>–<lpage>288</lpage>. <pub-id pub-id-type="doi">10.1111/j.2517-6161</pub-id></mixed-citation>
+</ref>
+<ref id="B50">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Vaidya</surname><given-names>J.</given-names></name><name><surname>Yu</surname><given-names>H.</given-names></name><name><surname>Jiang</surname><given-names>X.</given-names></name></person-group> (<year>2008</year>). <article-title>Privacy-preserving svm classification.</article-title>
+<source/><italic>Knowledge Inform. Syst.</italic>
+<volume>14</volume>
+<fpage>161</fpage>–<lpage>178</lpage>. <pub-id pub-id-type="doi">10.1007/s10115-007-0073-7</pub-id></mixed-citation>
+</ref>
+<ref id="B51">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Vapnik</surname><given-names>V. N.</given-names></name></person-group> (<year>1999</year>). <article-title>An overview of statistical learning theory.</article-title>
+<source/><italic>IEEE Trans. Neural Netw.</italic>
+<volume>10</volume>
+<fpage>988</fpage>–<lpage>999</lpage>. <pub-id pub-id-type="doi">10.1109/72.788640</pub-id><pub-id pub-id-type="pmid">18252602</pub-id></mixed-citation>
+</ref>
+<ref id="B52">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Venkatesan</surname><given-names>K.</given-names></name><name><surname>Stransky</surname><given-names>N.</given-names></name><name><surname>Margolin</surname><given-names>A.</given-names></name><name><surname>Reddy</surname><given-names>A.</given-names></name><name><surname>Raman</surname><given-names>P.</given-names></name><name><surname>Sonkin</surname><given-names>D.</given-names></name><etal></etal></person-group> (<year>2010</year>). <article-title>Prediction of drug response using genomic signatures from the Cancer Cell Line Encyclopedia.</article-title>
+<source/><italic>Clin. Cancer Res.</italic>
+<volume>16</volume>
+<fpage>R2</fpage>–<lpage>R2</lpage>. <pub-id pub-id-type="doi">10.1158/DIAG-10-PR2</pub-id></mixed-citation>
+</ref>
+<ref id="B53">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wang</surname><given-names>Y. C.</given-names></name><name><surname>Fang</surname><given-names>J. W.</given-names></name><name><surname>Chen</surname><given-names>S. L.</given-names></name></person-group> (<year>2016</year>). <article-title>Inferences of drug responses in cancer cells from cancer genomic features and compound chemical and therapeutic properties.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>6</volume>
+<fpage>32679</fpage>–<lpage>32680</lpage>. <pub-id pub-id-type="doi">10.1038/srep32679</pub-id>
+<pub-id pub-id-type="pmid">27645580</pub-id></mixed-citation>
+</ref>
+<ref id="B54">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yang</surname><given-names>W.</given-names></name><name><surname>Soares</surname><given-names>J.</given-names></name><name><surname>Greninger</surname><given-names>P.</given-names></name><name><surname>Edelman</surname><given-names>E. J.</given-names></name><name><surname>Lightfoot</surname><given-names>H.</given-names></name><name><surname>Forbes</surname><given-names>S.</given-names></name><etal></etal></person-group> (<year>2013</year>). <article-title>Genomics of Drug Sensitivity in Cancer (GDSC): a resource for therapeutic biomarker discovery in cancer cells.</article-title>
+<source/><italic>Nucleic Acids Res.</italic>
+<volume>41</volume>
+<fpage>D955</fpage>–<lpage>D961</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gks1111</pub-id>
+<pub-id pub-id-type="pmid">23180760</pub-id></mixed-citation>
+</ref>
+<ref id="B55">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ye</surname><given-names>L.</given-names></name><name><surname>Xiang</surname><given-names>T.</given-names></name><name><surname>Zhu</surname><given-names>J.</given-names></name><name><surname>Li</surname><given-names>D.</given-names></name><name><surname>Shao</surname><given-names>Q.</given-names></name><name><surname>Peng</surname><given-names>W.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Interferon consensus sequence-binding protein 8, a tumor suppressor, suppresses tumor growth and invasion of non-small cell lung cancer by interacting with the wnt/β-catenin pathway.</article-title>
+<source/><italic>Cell Physiol. Biochem.</italic>
+<volume>51</volume>
+<fpage>961</fpage>–<lpage>978</lpage>. <pub-id pub-id-type="doi">10.1159/000495399</pub-id>
+<pub-id pub-id-type="pmid">30466106</pub-id></mixed-citation>
+</ref>
+<ref id="B56">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yoosup</surname><given-names>C.</given-names></name><name><surname>Hyejin</surname><given-names>P.</given-names></name><name><surname>Hyun-Jin</surname><given-names>Y.</given-names></name><name><surname>Lee</surname><given-names>S.</given-names></name><name><surname>Lee</surname><given-names>K. Y.</given-names></name><name><surname>Soon</surname><given-names>T.</given-names></name><etal></etal></person-group> (<year>2018</year>). <article-title>Cancer drug response profile scan (cdrscan): a deep learning model that predicts drug effectiveness from cancer genomic signature.</article-title>
+<source/><italic>Sci. Rep.</italic>
+<volume>8</volume>:<issue>8857</issue>. <pub-id pub-id-type="doi">10.1038/s41598-018-27214-6</pub-id>
+<pub-id pub-id-type="pmid">29891981</pub-id></mixed-citation>
+</ref>
+<ref id="B57">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yvan</surname><given-names>S.</given-names></name><name><surname>Inza</surname><given-names>I.</given-names></name><name><surname>Larrañaga</surname><given-names>P.</given-names></name></person-group> (<year>2007</year>). <article-title>A review of feature selection techniques in bioinformatics.</article-title>
+<source/><italic>Bioinformatics</italic>
+<volume>23</volume>
+<fpage>2507</fpage>–<lpage>2517</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btm344</pub-id>
+<pub-id pub-id-type="pmid">17720704</pub-id></mixed-citation>
+</ref>
+<ref id="B58">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zelin</surname><given-names>J.</given-names></name><name><surname>Yun</surname><given-names>L.</given-names></name></person-group> (<year>2018</year>). <article-title>DNA methylation in human diseases.</article-title>
+<source/><italic>Genes Dis.</italic>
+<volume>5</volume>
+<fpage>1</fpage>–<lpage>8</lpage>. <pub-id pub-id-type="doi">10.1016/j.gendis.2018.01.002</pub-id>
+<pub-id pub-id-type="pmid">30258928</pub-id></mixed-citation>
+</ref>
+<ref id="B59">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zemach</surname><given-names>A.</given-names></name><name><surname>McDaniel</surname><given-names>I. E.</given-names></name><name><surname>Silva</surname><given-names>P.</given-names></name><name><surname>Zilberman</surname><given-names>D.</given-names></name></person-group> (<year>2010</year>). <article-title>Genome-wide evolutionary analysis of eukaryotic DNA methylation.</article-title>
+<source/><italic>Science</italic>
+<volume>328</volume>
+<fpage>916</fpage>–<lpage>919</lpage>. <pub-id pub-id-type="doi">10.1126/science.1186366</pub-id>
+<pub-id pub-id-type="pmid">20395474</pub-id></mixed-citation>
+</ref>
+<ref id="B60">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>N.</given-names></name><name><surname>Wang</surname><given-names>H.</given-names></name><name><surname>Fang</surname><given-names>Y.</given-names></name><name><surname>Wang</surname><given-names>J.</given-names></name><name><surname>Zheng</surname><given-names>X.</given-names></name><name><surname>Liu</surname><given-names>X. S.</given-names></name></person-group> (<year>2015</year>). <article-title>Predicting anticancer drug responses using a dual-layer integrated cell line-drug network model.</article-title>
+<source/><italic>PLoS Comput. Biol.</italic>
+<volume>11</volume>:<issue>e4498</issue>. <pub-id pub-id-type="doi">10.1371/journal.pcbi.1004498</pub-id>
+<pub-id pub-id-type="pmid">26418249</pub-id></mixed-citation>
+</ref>
+<ref id="B61">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhao</surname><given-names>Y.</given-names></name><name><surname>Tang</surname><given-names>X. Q.</given-names></name></person-group> (<year>2018</year>). <article-title>Screening of pathological gene in breast cancer based on logistic regression.</article-title>
+<source/><italic>Intell. Comput. Theor. Appl.</italic>
+<volume>10955</volume>
+<fpage>265</fpage>–<lpage>271</lpage>. <pub-id pub-id-type="doi">10.1007/978-3-319-95933-7_3</pub-id></mixed-citation>
+</ref>
+<ref id="B62">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhao</surname><given-names>Z.</given-names></name><name><surname>Shilatifard</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>). <article-title>Epigenetic modifications of histones in cancer.</article-title>
+<source/><italic>Genome Biol.</italic>
+<volume>20</volume>
+<fpage>245</fpage>–<lpage>261</lpage>. <pub-id pub-id-type="doi">10.1186/s13059-019-1870-5</pub-id>
+<pub-id pub-id-type="pmid">31747960</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

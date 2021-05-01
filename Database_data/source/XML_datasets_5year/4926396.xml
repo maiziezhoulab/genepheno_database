@@ -1,0 +1,1799 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="review-article" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="publisher-id">ijms</journal-id>
+<journal-title-group>
+<journal-title>International Journal of Molecular Sciences</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1422-0067</issn>
+<publisher>
+<publisher-name>MDPI</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27258269</article-id>
+<article-id pub-id-type="pmc">4926396</article-id>
+<article-id pub-id-type="doi">10.3390/ijms17060862</article-id>
+<article-id pub-id-type="publisher-id">ijms-17-00862</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Review</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Review on Graph Clustering and Subgraph Similarity Based Analysis of Neurological Disorders</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Thomas</surname>
+<given-names>Jaya</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-17-00862">1</xref>
+<xref ref-type="aff" rid="af2-ijms-17-00862">2</xref>
+<xref ref-type="corresp" rid="c1-ijms-17-00862">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Seo</surname>
+<given-names>Dongmin</given-names>
+</name>
+<xref ref-type="aff" rid="af3-ijms-17-00862">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sael</surname>
+<given-names>Lee</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-17-00862">1</xref>
+<xref ref-type="aff" rid="af2-ijms-17-00862">2</xref>
+<xref ref-type="corresp" rid="c1-ijms-17-00862">*</xref>
+</contrib>
+</contrib-group>
+<contrib-group>
+<contrib contrib-type="editor">
+<name>
+<surname>Jellinger</surname>
+<given-names>Kurt A.</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<aff id="af1-ijms-17-00862"><label>1</label>Department of Computer Science, Stony Brook University, Stony Brook, NY 11794, USA</aff>
+<aff id="af2-ijms-17-00862"><label>2</label>Department of Computer Science, State University New York Korea, Incheon 406-840, Korea</aff>
+<aff id="af3-ijms-17-00862"><label>3</label>Korea Institute of Science and Technology Information, 245 Daehak-ro, Yuseong-gu, Daejeon 34141, Korea; <email>dmseo@kisti.re.kr</email></aff>
+<author-notes>
+<corresp id="c1-ijms-17-00862"><label>*</label>Correspondence: <email>jaya.thomas@sunykorea.ac.kr</email> (J.T.); <email>sael@cs.stonybrook.edu</email> (L.S.); Tel.: +82-32-626-1215 (L.S.)</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>01</day>
+<month>6</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>6</month>
+<year>2016</year>
+</pub-date>
+<volume>17</volume>
+<issue>6</issue>
+<elocation-id>862</elocation-id>
+<history>
+<date date-type="received">
+<day>18</day>
+<month>3</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>24</day>
+<month>5</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2016 by the authors; licensee MDPI, Basel, Switzerland.</copyright-statement>
+<copyright-year>2016</copyright-year>
+<license>
+<license-p><!--CREATIVE COMMONS-->This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC-BY) license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract>
+<p>How can complex relationships among molecular or clinico-pathological entities of neurological disorders be represented and analyzed? Graphs seem to be the current answer to the question no matter the type of information: molecular data, brain images or neural signals. We review a wide spectrum of graph representation and graph analysis methods and their application in the study of both the genomic level and the phenotypic level of the neurological disorder. We find numerous research works that create, process and analyze graphs formed from one or a few data types to gain an understanding of specific aspects of the neurological disorders. Furthermore, with the increasing number of data of various types becoming available for neurological disorders, we find that integrative analysis approaches that combine several types of data are being recognized as a way to gain a global understanding of the diseases. Although there are still not many integrative analyses of graphs due to the complexity in analysis, multi-layer graph analysis is a promising framework that can incorporate various data types. We describe and discuss the benefits of the multi-layer graph framework for studies of neurological disease.</p>
+</abstract>
+<kwd-group>
+<kwd>graph clustering</kwd>
+<kwd>graph similarity</kwd>
+<kwd>neurological disease</kwd>
+<kwd>biological network</kwd>
+<kwd>structural brain network</kwd>
+<kwd>functional brain network</kwd>
+<kwd>multi-layer graphs</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1-ijms-17-00862">
+<title>1. Introduction</title>
+<p>The study of neurological disorders involves a wide range of specialties and experiments resulting from various data types of various levels of detail. To understand neurological disorders more comprehensively, it is worthwhile to look at the various types of studies performed. We focus our attention on the graph analysis aspect in a wide spectrum of studies in the hopes to find a joining framework for integrative analysis that does not just involve the molecular level or the tissue level of data, but all available types of data being accumulated for the study of a neurological disorder. We focus on graph analysis methods because neurological disorders are caused by and characterized by a complex interplay of various genomic and environmental features that are often represented as graphs. Graphs are able to model the relationship between the features, as well as listing features that are important in the data analysis. Among the various graph analysis methods, graph clustering and subgraph similarity search are two of the most widely-used methods. They have been applied to study the biological data, brain images and neural signaling data in the studies of neurological disorders.</p>
+<p>The goal of the review is to provide a wide spectrum of graph analysis applications in the study of neurological disorder. We do not attempt to summarize the finding of neurological disorders. We first look at the properties of neurological disorders and list out graph analysis measures, including graph clustering and graph similarity search, used for analyzing neurological disorders. Then, we review bio-network types and how graph clustering and similarity measures are used for causal and susceptible gene finding and disease characterization in the area of systems biology. We also review how graph analysis techniques are used to analyze structural and functional brain networks constructed from the brain images and neural signals. After a review of the existing work on graph analysis in neurological disorders, we find the need for an integrative analysis that incorporates various data sources in one analysis framework. For this purpose, we suggest that a multi-layer graph is the most appropriate data structure and further review studies on multi-layer graphs.</p>
+<sec id="sec1dot1-ijms-17-00862">
+<title>1.1. Characterizing Neurological Disorders with Graphs</title>
+<p>Neurological disorders are characterized by an abnormality of the structure and function of the central nervous system or peripheral nervous system. There are a number of causes associated with neurological disorders, including genetic, environmental influence, physical injuries, infections and nutrition imbalance. Some neurological disorders are strictly inherited, <italic>i.e.</italic>, Huntington’s disease [<xref ref-type="bibr" rid="B1-ijms-17-00862">1</xref>], while others are caused by a combination of genetic and environmental factors, <italic>i.e.</italic>, Alzheimer’s disease [<xref ref-type="bibr" rid="B2-ijms-17-00862">2</xref>] and Parkinson’s disease [<xref ref-type="bibr" rid="B3-ijms-17-00862">3</xref>]. Furthermore, neurological disorders can affect an entire neurological pathway or a single neuron, and such dysfunction can be quite diverse. Thus, various perspectives of neurological diseases are studied, and various bio-medical data types, including the genomic data, bio-specimens and brain images, are generated. These data usually contain features that have a complex relationship, and graphs are often used to capture these complex relationships.</p>
+<p>In systems biology, relationships between biological components are represented as a graph, such as Protein-Protein Interaction (PPI), disease-gene association, metabolic pathways, biochemical networks and regulatory networks. The biological network (bio-network) studies the biological system at the genetic and molecular level. This is essential for understanding the causes and mechanisms of disease progression and, thus, aiding in better treatments and novel drug developments. On the other hand, graphs are also frequently used to model and analyze the anatomy and function of brain [<xref ref-type="bibr" rid="B4-ijms-17-00862">4</xref>,<xref ref-type="bibr" rid="B5-ijms-17-00862">5</xref>]. Brain networks generated from a variety of diagnostic brain imaging and signaling techniques are used for neurological disease. These brain analyses help to monitor the resulting changes in brain structure and function and how they ultimately shape behavior.</p>
+</sec>
+<sec id="sec1dot2-ijms-17-00862">
+<title>1.2. Graph Clustering and Graph Similarity</title>
+<p>A graph structure is a representation of a set of entities; these entities constitute the nodes that represent the biological components and edges that describe the association between pairs of nodes. Biological and brain network analysis often involves graph clustering and graph similarity. Analysis of bio-networks using graph clustering and subgraph identification is often applied to understand the complex pathology and to address the important translational challenges. This is also applied in brain networks to improve the understanding of the complex brain structure and of the complex functional relationship between sub-regions of the brain.</p>
+<p>Graph clustering methods and module detection methods group the nodes into clusters, or modules, on the basis of graph topology, such that the resulting clusters have high intra-homogeneity/connectivity and low inter-homogeneity/connectivity among the sub-graphs formed. Four commonly-used graph clustering algorithms are the Markov Cluster Algorithm (MCL) [<xref ref-type="bibr" rid="B6-ijms-17-00862">6</xref>], Molecular COmplex DEtection(MCODE) [<xref ref-type="bibr" rid="B7-ijms-17-00862">7</xref>], Highly Connected Subgraphs (HCS) [<xref ref-type="bibr" rid="B8-ijms-17-00862">8</xref>] and Restricted Neighborhood Search Clustering (RNSC) [<xref ref-type="bibr" rid="B9-ijms-17-00862">9</xref>]. MCL is based on flow simulations in graphs and works to increase the contrast between regions of high and low flow, by evaluating the successive power of the adjacency matrix. The algorithm converges, resulting in a graph partition with high flow regions separated from regions with no flow. The MCL algorithm is widely applied on protein-protein interaction networks [<xref ref-type="bibr" rid="B10-ijms-17-00862">10</xref>,<xref ref-type="bibr" rid="B11-ijms-17-00862">11</xref>]. The MCODE algorithm is designed to detect densely-connected regions in PPI for the purpose of predicting protein complexes [<xref ref-type="bibr" rid="B12-ijms-17-00862">12</xref>]. Initially, MCODE assigns weights to the vertices based on their density, <italic>i.e.</italic>, local connectivity. It then selects seed vertices based on the weights as the initial clusters. These seed vertices are further augmented by outward traversal of the isolated dense regions in accordance with preset parameters. The HCS algorithm recursively finds the minimum graph cut that leads to a graph partition that outputs highly connected components or subgraphs. HCS have been applied for gene expression analysis [<xref ref-type="bibr" rid="B13-ijms-17-00862">13</xref>]. RNSC is a partition-based algorithm that starts with a random cluster assignment and proceeds by reassigning nodes to clusters. The quality of the clusters thus formed is then evaluated using a cost function. The final obtained clusters are filtered based on their size, density and functional homogeneity.</p>
+<p>Subgraph isomorphism, given a pair of graphs <italic>A</italic> and <italic>B</italic>, is defined as a problem of determining whether graph <italic>A</italic> contains a subgraph that is isomorphic, <italic>i.e.</italic>, identical in structure, to <italic>B</italic>. Subgraph similarity is a relaxation of this problem that instead of determining a match or no match, determines the similarity of the subgraph measured by a “similarity score”. The core of the graph similarity search is the similarity scores that each method proposes. Three commonly-used subgraph theoretical algorithms are GraphGrep [<xref ref-type="bibr" rid="B14-ijms-17-00862">14</xref>], NetworkBlast [<xref ref-type="bibr" rid="B15-ijms-17-00862">15</xref>] and SAGA [<xref ref-type="bibr" rid="B16-ijms-17-00862">16</xref>]. GraphGrep is a hash indexing-based method for subgraph matching, which allows efficient filtering by selecting the most relevant subgraphs from the relevant graphs. NetworkBlast has a graph similarity model that is designed for comparing and analyzing multiple protein networks. The log likelihood ratio scoring method was used to evaluate the subnetwork fit to the desired structure. SAGA is an approximate subgraph matching technique based on node gaps, node mismatch and graph structural differences. The distance measure is used for matching the subgraph, where the measures include StructDist to measure the structural difference, NodeMismatches that estimate the penalty for the mismatch of labels and NodeGaps that compute the penalty on the gap nodes.</p>
+<p>Graph theoretical measures can be used as similarity values in the subgraph similarity problem, or they can be used to characterize graphs. The two most common graph theoretical measures are the clustering coefficient and characteristic path length, which are often used to distinguish between regular, random and small-world networks [<xref ref-type="bibr" rid="B17-ijms-17-00862">17</xref>]. The small-world network refers to a network for which the mean shortest-path distance between nodes increases slowly as a function of the number of nodes in the network. The small-world structure is hypothesized to reflect an optimal situation associated with rapid synchronization and information transfer [<xref ref-type="bibr" rid="B18-ijms-17-00862">18</xref>], minimal wiring costs, as well as a balance between local processing and global integration [<xref ref-type="bibr" rid="B4-ijms-17-00862">4</xref>]. The clustering coefficient is defined as the ratio of the number of existing connections among the node’s immediate neighbors to all of their possible connections. It defines the local efficiency of the information transfer of a network. The characteristic path length quantifies the average minimum number of connections that link any two nodes. It defines the global efficiency, indicating the capability of the parallel information propagation of a network. There are also centrality measures that identify important nodes in a network, such as hubs [<xref ref-type="bibr" rid="B4-ijms-17-00862">4</xref>]. Depending on the characteristic of “important” nodes, different centrality measures can be used. The degree centrality of a node computes the number of edges extending from it. The closeness centrality of a node computes how close it is to all of the other nodes. It is defined as the inverse of the sum of distances based on the length of the average shortest path between a node and all nodes in the graph. The betweenness centrality of a node on the other hand measures how many time the node was part of a communication path between a pair of nodes. Other local measures, including eccentricity, <italic>i.e.</italic>, the maximum distance between that node and any other node of the graph, and radiality, <italic>i.e.</italic>, node centrality index, can also be used to find significant nodes. There are also other global measures, including modularity and the minimum spanning tree of a graph. Modularity is a global measure of the network that measures the separability of nodes to modules. A network with high modularity is able to group nodes to modules with high intra-module node connectivity and low inter-module node connectivity. The minimum spanning tree of a network is also being extensively used to characterize the topology in more recent studies. It has been shown to avoid several methodological biases in the study of brain networks [<xref ref-type="bibr" rid="B19-ijms-17-00862">19</xref>]. <xref ref-type="table" rid="ijms-17-00862-t001">Table 1</xref> summarizes the graph theoretical measures and the formulae for computing them.</p>
+</sec>
+</sec>
+<sec id="sec2-ijms-17-00862">
+<title>2. Types of Bio-Networks and Applied Analysis on Neurological Disorders</title>
+<p>In this section, we first look at various types of bio-networks and publicly available resources. Then, we review how these bio-networks are analyzed to study the neurological disorders in two sub-categories of problems: causal and susceptible gene finding and disease characterization.</p>
+<sec id="sec2dot1-ijms-17-00862">
+<title>2.1. Types of Bio-Networks</title>
+<p>There are several types of bio-networks. We classify them as gene networks, protein-protein interaction networks and biological pathways. We describe each type and provide a brief summary of publicly available databases for the biological data in <xref ref-type="table" rid="ijms-17-00862-t002">Table 2</xref>.</p>
+<p>Gene networks model the various types of associations among the genes. A gene network is an undirected graph with nodes representing genes and edges representing a type of association. A gene co-expression network is a kind of gene network in which the edges denote the correlation in the expression patterns of the genes [<xref ref-type="bibr" rid="B21-ijms-17-00862">21</xref>]. Gene networks constructed from the analysis of expression patterns are often associated with specific conditions of the conducted studies. Another variant of a gene network is the gene-disease network, which has been extensively studied in the past few years. In a gene-disease network, nodes can also represent the various disease types, and edges denote the associations of gene to diseases. Gene networks are used to study complex neurological disorders, including autism [<xref ref-type="bibr" rid="B22-ijms-17-00862">22</xref>] and Alzheimer’s disease [<xref ref-type="bibr" rid="B23-ijms-17-00862">23</xref>].</p>
+<p>The physical interaction among proteins constitutes a large part of the physiology of living things. PPI networks represent proteins as nodes, and the physical interactions or functional associations between the proteins are represented as an undirected edge. Proteins play a central role in biological function, and their interactions control the mechanism, which may lead to healthy or disease states. Many disease states result due to the change in protein functioning, <italic>i.e.</italic>, change in PPI topology. Experiments, such as yeast-two-hybrid screening, affinity purification coupled to mass spectrometry, co-immunoprecipitation and chemical cross-linking, have been used to determine the PPI. Furthermore, the indirect approach of text mining methods that mine the co-occurrence of gene names in the literature have also been used to construct PPI. A detailed description of PPI can be found in a review by Rivas <italic>et al.</italic> [<xref ref-type="bibr" rid="B24-ijms-17-00862">24</xref>].</p>
+<p>Biological pathways are small to medium-sized directed bio-networks representing the chain of actions among bio-molecules that lead to a certain functionality, such as the production of other biomaterial or that trigger changes in cellular content. Most pathways are manually curated results of accumulated information from several experiments. Thus, although smaller in size, they have a more complex form. The nodes in the graph denote genes, proteins, metabolites, small molecules, reactions, chemical compound, diseases or drugs. Edges in this bio-network show various biological reactions, such as a modification in gene expression, alteration in a protein or other biochemical reactions. There are various types of biological pathways, including metabolic pathways, regulatory pathways, signaling pathway and disease pathways. Metabolic pathways represent the series of chemical reactions in a cell. A node of the metabolic pathways represents an enzyme (protein) that catalyzes the reactions, a metabolite (initial chemical compound), a product of a substrate (intermediate chemical compound) of enzymes or other co-factors. Regulatory pathways describe the regulation of gene activities. Nodes of regulatory pathways are often composed of transcription factors (proteins) and DNA (genes). Regulatory networks are a general form of regulatory pathways that can be either directed or undirected and are often composed of transcription factors and genes to which they bind. High-throughput technologies for obtaining the binding information include ChIP-chip and ChIP-seq. Signaling pathways describe the complex signal transduction process that integrates information from PPI, regulatory pathways and metabolite pathways. Disease pathways represent the relationships among the critical components, including genes, regulators and metabolites, of a disease. The Alzheimer’s disease pathway outlines the mechanisms of the formation of amyloid plaques and neurofibrillary tangles [<xref ref-type="bibr" rid="B25-ijms-17-00862">25</xref>]. The Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway displays current genes, proteolytic events and other processes associated with the progression of Alzheimer’s disease [<xref ref-type="bibr" rid="B26-ijms-17-00862">26</xref>].</p>
+</sec>
+<sec id="sec2dot2-ijms-17-00862">
+<title>2.2. Bio-Network-Based Neurological Disorder Analysis</title>
+<p>The applications of bio-network analysis for neurological disorders can be largely categorized into finding causative and susceptible genes and disease characterization. We selectively review studies to show the methodological diversity in each category and summarize their characteristics from the perspective of the analysis approaches.</p>
+<sec id="sec2dot2dot1-ijms-17-00862">
+<title>2.2.1. Causal and Susceptible Gene Finding</title>
+<p>Graph clustering methods and local graph theoretical measure for finding significant nodes have been dominantly used in the studies of causal and susceptible gene finding in neurological disorders.</p>
+<p>The abundance of molecular interaction network data turns out to be particularly powerful for disease gene prediction [<xref ref-type="bibr" rid="B42-ijms-17-00862">42</xref>]. These bio-networks provide the basic framework of the cellular processes, and graph analysis helps to model the complex interactions among multiple genes and their higher level organizations. The closely-connected genes are assumed to have similar functions in bio-networks. With this assumption, the functional annotation of genes or unknown proteins can be predicted. Lopez <italic>et al.</italic> [<xref ref-type="bibr" rid="B43-ijms-17-00862">43</xref>] observed that Alzheimer’s disease-related genes are highly interconnected. Based on this observation, they used a graph clustering approach to find novel Alzheimer’s causative and susceptible genes. To do this, a combined bio-network was initially constructed by considering 22,194 interactions between 8347 proteins derived from databases, such as DIP, IntAct, MINTand HPRD. The Markov clustering algorithm [<xref ref-type="bibr" rid="B6-ijms-17-00862">6</xref>] was then used to identify the cluster representing functional modules. Similarly, Diao <italic>et al.</italic> [<xref ref-type="bibr" rid="B44-ijms-17-00862">44</xref>] performed a comprehensive gene-level assessment to search important molecular markers and pathways of Parkinson’s disease. The correlation network for Parkinson’s disease was identified by applying the DPClus [<xref ref-type="bibr" rid="B45-ijms-17-00862">45</xref>] graph clustering algorithm. The densely-connected nodes of the cluster were assessed by associated GO terms and KEGG pathways. The approach resulted in finding significant pathways, such as the Parkinson’s disease pathway.</p>
+<p>Talwar <italic>et al.</italic> [<xref ref-type="bibr" rid="B46-ijms-17-00862">46</xref>] also applied graph clustering to find novel genes in Alzheimer’s disease. However, instead combining existing networks, they generated a consensus PPI from a PPI network generated from three different data type, <italic>i.e.</italic>, genome-wide linkage analysis, genome-wide association studies and genome-wide expression profiling, to identify the candidate genes involved in Alzheimer’s disease development and progression. The consensus PPI was constructed by integrating Alzheimer’s disease linkage, genetic association and gene expression data proceeding by modeling PPI by identifying overlapping genes in the PPI generated form the three sources ranked by cumulative rank score. The MCL clustering of the consensus PPI comprised of 640 nodes and 2214 edges resulted in six significant clusters with seven genes forming the central hub nodes. The majority of top ranked candidate genes found were shown to be associated with the molecular mechanisms and pathways of Alzheimer’s, which may be crucial for predicting Alzheimer’s risk. Graph clustering in the bio-network is also used to determine the molecular markers and significant pathways.</p>
+<p>Local characteristics of networks are also used for finding significant genes. Guney <italic>et al.</italic> [<xref ref-type="bibr" rid="B47-ijms-17-00862">47</xref>] proposed a gene prioritization approach for a multiple gene-phenotype association and interaction dataset. For Alzheimer’s, a disease-association score was assigned to the genes in the PPI. The score was computed by determining multiple shorter paths between nodes. The path with more gene association was considered shorter as compared to others. The score helped to evaluate the biological significance of the neighbors. The network was constructed from 11,250 proteins, and the top 1% of the protein, <italic>i.e.</italic>, 116 proteins uniquely mapped to gene for Alzheimer’s, was identified.</p>
+<p>Winkler <italic>et al.</italic> [<xref ref-type="bibr" rid="B48-ijms-17-00862">48</xref>] considers both graph characteristic, as well as graph clustering methods to find the roll of sex steroids in the degeneration of hippocampal neurons in Alzheimer’s disease. They considered graph theoretical measures as closeness centrality, eccentricity and radiality to determine the crucial, highly-centered nodes in the PPI network of Alzheimer’s to find causal genes. These measures were used to compute the shortest paths between nodes in the graph. The resulting two highly-connected nodes identified were the Androgen Receptor (AR) and the estrogen receptor alpha (ESR1). Furthermore, applying MCODE [<xref ref-type="bibr" rid="B7-ijms-17-00862">7</xref>], a graph theoretic clustering algorithm, they identified five dense subgraph. Three subgraphs were composed of transcription factors that belong to the same protein subfamily, and two subgraphs contained kinases and ligases in the signal and degradation pathways.</p>
+<p>Whether obtaining data by publicly available bio-networks, by generating a new bio-network or by combining existing networks with new data, the methods used for gene finding are dominated by graph clustering methods and significant node finding through local graph theoretical measures.</p>
+</sec>
+<sec id="sec2dot2dot2-ijms-17-00862">
+<title>2.2.2. Disease Characterization</title>
+<p>There are several approaches for characterizing a disease. Predicting new functions of genes or proteins in the disease pathway, finding abnormal interactions in the bio-network of patients compared to healthy individuals and the analysis of the graph properties of the bio-network of patients are a few ways that have been successful.</p>
+<p>Bio-networks are analyzed to find new functions of proteins involved in neurological disorders in the work of Silva <italic>et al.</italic> [<xref ref-type="bibr" rid="B49-ijms-17-00862">49</xref>]. They analyzed Amyloid Precursor Protein (APP) to determine its involvement in several biological functions, such as male fertility, cell adhesion, cell motility, signaling and apoptosis. The clustering coefficient was used to characterize the APP network, and betweenness centrality and closeness centrality were used to determine the relevant proteins involved in the pathways. <xref ref-type="fig" rid="ijms-17-00862-f001">Figure 1</xref> shows the APP interactors involved in cell adhesion extracted from the extended APP/APLP2 network. It shows the APP interactors involved in vesicle-mediated transport extracted from the extended network. Different colors are used to denote interactors extracted from different sources; red nodes denote proteins from the yeast-two-hybrid screen; whereas blue nodes from the databases. The work provides an insight about the interactions of key APP proteins and on the function of APP in the male reproductive system.</p>
+<p>Functional summaries of disease-specific bio-networks can also characterize the disease of interest. Seah <italic>et al.</italic> [<xref ref-type="bibr" rid="B50-ijms-17-00862">50</xref>] proposed a Functional Summary Generator (FUSE), which generates functional maps using graph theoretical analysis that enables the investigation of the higher level organization and modularity within the PPI. FUSE is a greedy approach based on the profit maximization problem [<xref ref-type="bibr" rid="B51-ijms-17-00862">51</xref>]. It first determines the functional clusters and then iteratively selects clusters that result in an increased profit. They considered Alzheimer’s as a case study and constructed low- and high-resolution functional summaries that help to understand process-process interactions. The low-resolution summary gave a functional overview of the processes related to the disease, whereas a high-resolution summary provides the in-depth functional landscape of the disease, revealing associations between processes related to the disease.</p>
+<p>Unusual PPIs have been implicated in a number of neurological disorders, such as Parkinson’s disease [<xref ref-type="bibr" rid="B52-ijms-17-00862">52</xref>], Alzheimer’s disease [<xref ref-type="bibr" rid="B53-ijms-17-00862">53</xref>], autism [<xref ref-type="bibr" rid="B54-ijms-17-00862">54</xref>] and Huntington’s disease [<xref ref-type="bibr" rid="B55-ijms-17-00862">55</xref>]. Hence, detecting abnormal PPI can give a better insight into the root cause of these diseases. For example, Li <italic>et al.</italic> [<xref ref-type="bibr" rid="B56-ijms-17-00862">56</xref>] proposed a systems framework involving the interactome, gene expression and genome sequencing to identify a protein interaction module with members strongly enriched for autism candidate genes. They constructed the PPI network using the human protein interactome from BioGrid comprising 13,039 proteins and 69,113 curated interactions. The network was clustered by Blondel <italic>et al.</italic> [<xref ref-type="bibr" rid="B57-ijms-17-00862">57</xref>], which resulted in smaller modules. To determine the associations of the network modules with autism spectrum disorder, they first considered the curated genes implicated in Autism Spectrum Disorder (ASD); among a total of 484 genes in the database (<uri xlink:href="https://gene.sfari.org/autdb/" xlink:type="simple">https://gene.sfari.org/autdb/</uri>), 383 were on the protein interaction network. Enrichment tests for each module in the network revealed that for some specific modules’ <italic>de novo</italic> copy number variations, the rare copy number variations and the disruptive mutations each displayed a significant enrichment.</p>
+<p>Graph characterization of a disease-specific bio-networks is also important for understanding diseases. Go<italic>ñ</italic>i <italic>et al.</italic> [<xref ref-type="bibr" rid="B58-ijms-17-00862">58</xref>] aided the understanding of the basis of Alzheimer’s Disease (AD) and Multiple Sclerosis (MS) by considered PPI and gene expression to study the centrality-related features of proteins whose genes were differentially expressed (seed proteins) with respect to their protein neighbors. Four disease-specific bio-graph networks were used: an MS network from blood tissue (MS-blood), an MS network from brain tissue (MS-brain), an Alzheimer’s network from blood tissue (AD-blood) and an Alzheimer’s network from brain tissue (AD-brain). The main topological properties considered were the average degree and the betweenness centrality, which were analyzed using the shortest path’s degree and the cluster coefficient. <xref ref-type="fig" rid="ijms-17-00862-f002">Figure 2</xref> shows the Alzheimer’s network constructed from the brain tissue with 25 seed proteins and 109 neighbors. The purple-colored nodes indicate the seed protein; nodes in orange denote neighbor proteins whose nodes are connected either directly or indirectly; and nodes in green represent neighbor proteins that are not part of the considered network. They observed that there were only two direct interaction links between the seed proteins among the total 191 links. The results presented indicated that both diseases shared common characteristics as the lowest average degree of seed-proteins and a higher degree of betweenness. Their finding also shows that the seed proteins in peripheral regions of the PPI map are involved in different pathways and are integrated into subnetworks of the complete human proteome network.</p>
+</sec>
+</sec>
+</sec>
+<sec id="sec3-ijms-17-00862">
+<title>3. Types of Brain Networks Used in the Studies of Neurological Disorder</title>
+<p>Brain images and neural signals are another major type of data used to study neurological diseases. Brain images or signals are often segmented into subsections, and their associations are often represented as brain networks (or biological neural networks). In this section, we first briefly review how such brain networks can be constructed from the brain image or signal data in general and review specific network construction processes and analysis methods applied in each study of neurological disorders.</p>
+<sec id="sec3dot1-ijms-17-00862">
+<title>3.1. Types of Brain Networks</title>
+<p>There are two major types of brain networks: structural brain networks and functional brain networks. In structural brain networks, edges connect modules that are structurally connected; while in functional brain networks, edges connect modules that are functionally associated. There are no central depositories for brain networks for neurological disorders, since brain network construction is dependent on the types of experiments performed. In the following, we look at general network construction processes and experiments that generate the data for each type of network.</p>
+<sec id="sec3dot1dot1-ijms-17-00862">
+<title>3.1.1. Functional Brain Networks</title>
+<p>A functional brain network is derived from physiological observation of brain activities through brain signals or brain images. The edges of the functional brain network represent the functional connectivity between nodes that represent either anatomical segments or voxels in brain images [<xref ref-type="bibr" rid="B59-ijms-17-00862">59</xref>]. Functional connectivities are determined by statistical dependencies among remote components measured in various neuro-physiological events. Furthermore, functional connectivity is dynamic in nature, that is it is highly time-dependent and changes frequently in milliseconds being modulated by sensory stimuli and task context.</p>
+<p>There are two types of techniques to derive dynamic functional events: electro-magnetic techniques and hemodynamic techniques. Electro-magnetic techniques measure post-synaptic current flow created by magnetic fields that can be recorded outside and inside the skull that have high temporal resolution, but low spatial resolution. Hemodynamic techniques measure the blood follow in the brain, which results in high spatial resolution, but poor temporal resolution. Electroencephalography (EEG) and Magnetoencephalography (MEG) are two representative non-invasive electro-magnetic techniques. EEG measures the change in electrical signals as the clusters of neurons become active, and MEG measures the change in magnetic fields relative to the change in electrical activity. intracranial Electroencephalography (iEEG), also called Electrocorticography (ECoG), is an invasive electro-magnetic technique that monitors the electrical activity of the cerebral cortex, which uses electrodes placed directly on the exposed surface of the brain. Compared to EEG, iEEG and MEG have better spatial resolution. iEEG has the obvious disadvantage of being invasive. functional Magnetic Resonance Imaging (fMRI) and Positron Emission Tomography (PET) are the two representative hemodynamic techniques. fMRI measures the brain activity during rest or while doing tasks by the correlated fluctuations in the Blood Oxygen Level-Dependent (BOLD)-signal with respect to time. Blood is more oxygenated in an active region of the brain, and the difference in the magnetic susceptibility between oxyhemoglobin and deoxyhemoglobin is detected by MR. PET is a test that uses a radioactive chemical tracer that is traced by a special camera that tracks the positrons, <italic>i.e.</italic>, positively-charged particles, that are emitted by the tracer. Although PET has high spatial resolution, because of the use of radioactive materials, it is hard to find human subjects.</p>
+<p>Among the listed experiments, the most popular experimental measure for the functional study of brains is through fMRI. Crosson <italic>et al.</italic> [<xref ref-type="bibr" rid="B60-ijms-17-00862">60</xref>] presents the specific advantages of fMRI over other functional imaging techniques. Three advantages of fMRI are as follows: fMRI is non-invasive and does not expose the subject to radiation; fMRI shows an image activity in deep, subcortical structures, whereas this is difficult if not impossible with EEG- and MEG-based techniques; and in fMRI, the same platform used to acquire functional images can be used to acquire high resolution anatomic images. The general fMRI studies often measure the brain signals given a certain task, but recent studies also apply the fMRI in the resting state to find patterns in neurological disorders. Brain imaging studies have suggested that the brain is in a state of activation even during the resting period. These resting state fMRI (rs-fMRI) data have been applied to a number of different problems in neuroscience, which include diseases, such as Alzheimer’s [<xref ref-type="bibr" rid="B61-ijms-17-00862">61</xref>,<xref ref-type="bibr" rid="B62-ijms-17-00862">62</xref>], Parkinson’s [<xref ref-type="bibr" rid="B63-ijms-17-00862">63</xref>] and schizophrenia [<xref ref-type="bibr" rid="B64-ijms-17-00862">64</xref>]. A detailed review of rs-fMRI is presented by Heuvel <italic>et al.</italic> [<xref ref-type="bibr" rid="B65-ijms-17-00862">65</xref>]. <xref ref-type="fig" rid="ijms-17-00862-f003">Figure 3</xref>, shows a general overview of functional brain network analysis, where the brain image data are first subjected to parcellation that divides the brain into a number of regions or parcels with homogeneous characteristics. The functional connectivity matrix forms a full symmetric matrix between elements (voxels, neurons and recording sites) that provides a simple characterization of functional interactions. The network constructed by the functional connectivity is analyzed by the graph clustering approach to find similarity clusters. A detailed review of the construction of functional brain networks can be found in [<xref ref-type="bibr" rid="B66-ijms-17-00862">66</xref>,<xref ref-type="bibr" rid="B67-ijms-17-00862">67</xref>,<xref ref-type="bibr" rid="B68-ijms-17-00862">68</xref>,<xref ref-type="bibr" rid="B69-ijms-17-00862">69</xref>,<xref ref-type="bibr" rid="B70-ijms-17-00862">70</xref>].</p>
+</sec>
+<sec id="sec3dot1dot2-ijms-17-00862">
+<title>3.1.2. Structural Brain Networks</title>
+<p>A structural brain network is derived from anatomical observations from diffusion-based neuro-imaging data, such as diffusion tensor imaging or diffusion spectrum imaging [<xref ref-type="bibr" rid="B71-ijms-17-00862">71</xref>]. The edges denote anatomical connections between sets of neural components. More specifically, they refer to the connectivity of axons. Determining the existence of the connectivity is based on the delineation and subsequent assessment of white matter fiber tracts within the brain</p>
+<p>The network of structural connectivity in the human brain can be constructed by using structural Magnetic Resonance Imaging (MRI) and diffusion MRI. MRI is a widely-used imaging technique that uses strong static magnetic fields to line up and fall back the nuclei of hydrogen atoms, sending out radio waves that are detectable. Diffusion MRI, also referred to as Diffusion Tensor magnetic resonance Imaging (DTI), is a more recent method that measures the diffusion of water molecules in white matter fibers in the brain, called anisotropic diffusion. In DTI, unlike MRI, which often focuses on the grey matter, white matter fiber tractography is used to build the structural brain network. An assumption states that more directionally-dependent water flow indicates the presence of more axons running through the underlying white matter and, thereby, a greater structural connectivity. The network formed can be analyzed for the structural characteristics. The most common measure used along DTI is Fractional Anisotropy (FA), which specifies the directional dependency of water diffusion in the brain. These measures help in understanding the abnormalities that may be present in the brain network [<xref ref-type="bibr" rid="B72-ijms-17-00862">72</xref>]. A detailed review of the construction of structural brain networks can be found in [<xref ref-type="bibr" rid="B66-ijms-17-00862">66</xref>,<xref ref-type="bibr" rid="B73-ijms-17-00862">73</xref>,<xref ref-type="bibr" rid="B74-ijms-17-00862">74</xref>].</p>
+</sec>
+</sec>
+<sec id="sec3dot2-ijms-17-00862">
+<title>3.2. Graph Analysis Applications on Brain Networks</title>
+<p>Studies of neurological disorders based on brain images and signals are closely related to the types of experiments performed and, thus, to the types of brain networks constructed and analyzed. The most prevalent types of brain network studies are functional brain networks followed by structural brain networks. In the following, we review studies of neurological disorders classified by the types of brain networks that are analyzed.</p>
+<sec id="sec3dot2dot1-ijms-17-00862">
+<title>3.2.1. Analysis of Functional Brain Networks</title>
+<p>In most of the functional brain network analyses, the topological characteristics of the networks of patients in comparison with the healthy individual are analyzed through graph theoretical measures. We look at functional brain graph analysis applied to Alzheimer’s disease, Parkinson’s Disease (PD), MS, Autism Spectrum Disorder (ASD), epilepsy and Attention Deficit Hyperactivity Disorder (ADHD).</p>
+<p>The difference in the global topological features of functional brain networks for Alzheimer’s patients compared to the control was analyzed by Supekar <italic>et al.</italic> [<xref ref-type="bibr" rid="B62-ijms-17-00862">62</xref>] and Stam <italic>et al.</italic> [<xref ref-type="bibr" rid="B4-ijms-17-00862">4</xref>]. In the work of Supekar <italic>et al.</italic> [<xref ref-type="bibr" rid="B62-ijms-17-00862">62</xref>], functional graphs were constructed based on the correlation matrix for the anatomical region extracted from wavelet analysis of the rs-fMRI data. In their graph, the edges between the nodes are determined based on a threshold value for wavelet correlation, <italic>i.e.</italic>, edges are formed between two nodes with a wavelet correlation higher than the threshold. The clustering coefficient and characteristic path length were used to characterize the constructed functional graph for Alzheimer’s patients and the healthy control. They observed that the Alzheimer’s patients showed lower clustering coefficients, but similar characteristic path lengths compared to controls, which suggests disrupted global functional organization. They suggested that the graph analysis measures might be useful as an imaging-based biomarker to distinguish Alzheimer’s disease from healthy aging. Similarly, Stam <italic>et al.</italic> [<xref ref-type="bibr" rid="B4-ijms-17-00862">4</xref>] analyzed the changes in the large-scale graph structures of resting-state brain. They used MEG-based images of both cases and controls to generate a functional brain network and then computed graph topological measurements, such as the clustering coefficient and path length, to characterize how the brain functions differently from case to control. The graph consists of 149 nodes, where each node represents the matching MEG channel, edges represent the link between the pair of channels and the edge weight denoted the phase log index values between all pairs of MEG channels. The results show that patients with Alzheimer’s disease had reduced connectivity shown by decreased clustering, similar to Supekar <italic>et al.</italic> [<xref ref-type="bibr" rid="B62-ijms-17-00862">62</xref>], in addition to increased path length. The general pattern that emerged from their study showed that the bio-networks associated with various types of brain disease, such as Alzheimer’s disease, schizophrenia, brain tumors and epilepsy, are closer to random networks, and healthy networks are closer to small-world networks.</p>
+<p>Multiple Sclerosis (MS) is another neurological disorder that is studied by brain networks. Tewarie <italic>et al.</italic> [<xref ref-type="bibr" rid="B75-ijms-17-00862">75</xref>] analyzed the functional brain network of MS patients compared to healthy controls using MEG images. To construct the function network, initially, the sensor channel data of MEG were projected onto the Automatic Anatomical Labeling (AAL) atlas using beamforming that resulted in 78 nodes with time series data mapped. Beamforming or spatial filtering is a signal processing technique used in sensor arrays for directional signal transmission or reception. Next, the adjacency matrix was constructed for each frequency band separately based on the functional connectivity between each pair of nodes or time series. The Phase Lag Index (PLI) was used [<xref ref-type="bibr" rid="B4-ijms-17-00862">4</xref>], which calculates the asymmetry of the distribution of (instantaneous) phase differences between the two time series. Subsequently, Kruskal’s algorithm [<xref ref-type="bibr" rid="B20-ijms-17-00862">20</xref>] was applied to obtain Minimum Spanning Trees (MSTs) to measure the functional connectivity. A comparative analysis was carried out between healthy controls and MS patients by finding the dissimilarity between the respective MSTs using the information theoretic dissimilarity measure that calculates the information change between the two MSTs. The analysis showed a decrease in global integration and hierarchy, which explains the reduced cognitive performance in MS. The finding indicates that MST analysis helped to detect network changes in the core of functional brain networks for MS patients. Moreover, they were able to identify functional brain network differences between early MS patients and healthy controls.</p>
+<p>Parkinson’s disease is another widely-studied neurological disorder. G<italic>ö</italic>ttlich <italic>et al.</italic> [<xref ref-type="bibr" rid="B63-ijms-17-00862">63</xref>] and Sang <italic>et al.</italic> [<xref ref-type="bibr" rid="B76-ijms-17-00862">76</xref>] investigated the difference of Parkinson patients against the controls in the rs-fMRI-based functional networks. Networks generated by G<italic>ö</italic>ttlich <italic>et al.</italic> [<xref ref-type="bibr" rid="B63-ijms-17-00862">63</xref>] and Sang <italic>et al.</italic> [<xref ref-type="bibr" rid="B76-ijms-17-00862">76</xref>] were constructed in a similar manner. The nodes were obtained by segmentation of the brain functional network using the Automatic Anatomical Labeling (AAL) atlas [<xref ref-type="bibr" rid="B77-ijms-17-00862">77</xref>]. Edges were obtained by measuring the temporal correlation between each paired node, calculated by the Pearson correlation coefficient in the time series acquired for each node. A threshold was selected to mark an edge between the nodes. If the absolute correlation coefficient was higher than the threshold, an edge is formed. G<italic>ö</italic>ttlich <italic>et al.</italic> [<xref ref-type="bibr" rid="B63-ijms-17-00862">63</xref>] measured the cluster coefficient on a local level and the characteristic path length at the global level to characterize the obtained functional brain networks. They observed that the increased characteristic path length indicates a less efficient organization of the brain network for Parkinson’s patients. The finding indicates reduced efficiency in the brain network topology of patients as compared to controls. Sang <italic>et al.</italic> [<xref ref-type="bibr" rid="B76-ijms-17-00862">76</xref>] focused on the topological characteristics of the large-scale functional brain network in early-stage Parkinson’s patients. Their analysis showed that early-stage Parkinson’s patients had a significant decrease in global efficiency, but no significant difference in the local efficiency of the brain network as compared to the control. Significantly decreased global efficiency was associated with decreased long-range connections across remote cortical regions in Parkinson’s patients. This decreased global efficiency indicated a reduced capacity of information transfer across the entire brain. Dubbelink <italic>et al.</italic> [<xref ref-type="bibr" rid="B17-ijms-17-00862">17</xref>,<xref ref-type="bibr" rid="B78-ijms-17-00862">78</xref>] used MEG data to characterize the functional brain network of Parkinson’s in different stages or clinical measures of disease progression. In their studies, clustering coefficients, averaged shortest path lengths and MST were to characterize the constructed networks. They showed that impaired local efficiency, <italic>i.e.</italic>, the inverse of the average shortest path connecting all neighbors of a node, and network decentralization are early features of Parkinson’s disease. As the disease progresses with time, changes in brain functional graph topology accumulate and result in reductions in global efficiency, <italic>i.e.</italic>, the inverse of the average shortest path, which have a close association with the deteriorating cognitive and motor function. The results of Dubbelink <italic>et al.</italic> [<xref ref-type="bibr" rid="B17-ijms-17-00862">17</xref>] show that the early-stage non-medicated patients were characterized by lower clustering coefficients, but preserved path lengths, which indicates reduced local integration with a preserved global efficiency of the brain network in the early motor stage of the disease. The results seemed similar to the one obtained from Tewarie <italic>et al.</italic> [<xref ref-type="bibr" rid="B75-ijms-17-00862">75</xref>] and Dubbelink <italic>et al.</italic> [<xref ref-type="bibr" rid="B17-ijms-17-00862">17</xref>] for MS indicating that brain networks move towards a more random network organization in both disease.</p>
+<p>Other neurological diseases, including tuberous sclerosis complex, epilepsy and attention deficit hyperactivity disorder, have also been studied by constructing functional brain networks. Peters <italic>et al.</italic> [<xref ref-type="bibr" rid="B79-ijms-17-00862">79</xref>] analyzed functional connectivity through EEG coherence in a large sample set of children with Tuberous Sclerosis Complex (TSC), a disorder with a high prevalence of autism spectrum disorder. An undirected weighted graph was built using the 19 electrodes as nodes and inter-electrode coherence values as edge weights. The graph analysis for autism spectrum disorder showed the absence of a higher clustering coefficient and of a longer path length despite the decrease in long-over-short range coherence. The result shows that the nodes are spatially more clustered, but are not functionally clustered, indicating an altered network topology. These altered network topologies in TSC represent a functional correlate of structural abnormalities and may play a role in the pathogenesis of neurological deficits. Ortega <italic>et al.</italic> [<xref ref-type="bibr" rid="B80-ijms-17-00862">80</xref>] analyzed iEEG data for the localization of the Epileptogenic Zone (EZ), also called focus, responsible for seizures or the ictal state in epilepsy patients. Recurrent seizures are characteristic of epilepsy, and the localization of the seizure sites is crucial for the treatment and prevention of the spread of ictal activity in different regions of the brain. The localization of the focus is done by identifying the crucial nodes in the iEEG-based functional brain network. In the functional network, each node represents electrodes’ time series data, and the edges are weighted by the Pearson correlation coefficient between the two electrodes. The crucial nodes used for localization of the focus are selected to be the nodes with the highest local synchronization power, the most connectedness and the highest seizure interaction load. This approach helped to identify nodes that seem relevant from the global interaction perspective, one being the most connected node, <italic>i.e.</italic>, the node with the highest number of links, and other with the highest load, which is computed by the node betweenness centrality measure. Using these observations, they address the question of whether removal of these nodes during surgery is crucial in the suppression or reduction of the quantity of postoperative seizures. The findings for five ECoG records show that local areas with high synchronization power appear to be significantly involved in the development of epileptic seizures. Hu <italic>et al.</italic> [<xref ref-type="bibr" rid="B81-ijms-17-00862">81</xref>] evaluated the structural symmetry of the weighted brain network for Attention Deficit Hyperactivity Disorder (ADHD) using graph isomorphism. The brain network was built using resting state fMRI (rs-fMRI) data for ADHD. The graph was constructed by first preprocessing of rs-FMRI data and then extracting the anatomical regions of interest using the AAL atlas. The nodes denote the anatomical region, and the edges represent the functional connectivity between the nodes. Isomorphism was used to investigate the structural symmetry of every node pair in a weighted brain network. For a given weighted graph, the symmetry between the two nodes was defined based on the isomorphism level of the residual graphs of those two nodes, and the isomorphism approximation error was computed using the suboptimal eigen decomposition algorithm by Umeyama [<xref ref-type="bibr" rid="B82-ijms-17-00862">82</xref>]. The experimental results indicated that for the inattentive type of ADHD subjects, higher network symmetry was observed as compared to the typically development of children.</p>
+<p>Many of the functional brain network analysis of existing studies on neurological disorders observe an altered network topology compared to healthy individuals. In the case of Alzheimer’s, similar to the abnormal topological observation in the structural brain network, the functional brain network analysis also shows disrupted organization. The graph theoretical measure on the functional brain network reveals that the small-world metrics can characterize the functional organization of the brain in Alzheimer’s disease. Most of the studies on Alzheimer’s showed that an increased path length has been interpreted to result due to the loss of connectivity. The modularity graph metric for Alzheimer’s indicated a decrease in value for the beta (13–30 Hz) and gamma (&gt;30 Hz) band, implying decreased connectivity due to loss of connector hubs. The functional brain network analysis for MS using the minimum spanning tree measure shows that the altered functional networks in the theta and alpha2 frequency bands of time series data are indicative of large-scale changes in the functional brain network for relapsing-remitting MS patients. The changes in the alpha2 band, such as loss of hierarchical structure, results in poorer cognitive performance. In the case of Parkinson’s, the observed studies reports common evidence for altered resting-state networks on a global, intermediate and local level in Parkinson’s patients. The Parkinson’s patients often show cognitive impairments, effective changes and other non-motor symptoms, suggesting system-wide effects on brain function. The functional graph analysis for both Parkinson’s and Alzheimer’s reveals that with the disease progression, the brain networks move towards a more random network organization.</p>
+</sec>
+<sec id="sec3dot2dot2-ijms-17-00862">
+<title>3.2.2. Analysis of Structural Brain Networks</title>
+<p>The focus of most research that is based on the structural brain networks of neurological disorders is on the topological characterization and finding structural abnormality of the brain networks.</p>
+<p>The most extensively-studied neurological disorder using structural networks is Alzheimer’s disease. A work by He <italic>et al.</italic> [<xref ref-type="bibr" rid="B83-ijms-17-00862">83</xref>] reports the changes in the coordination of large-scale structural brain networks due to Alzheimer’s disease by considering cortical thickness data from structural MRI. The structural brain network that is constructed denotes the cortical regions as nodes and the physical connectivity of these regions as edges. The graph is analyzed using graph theoretical measures, such as the clustering coefficient, path length and betweenness centrality, to determine abnormalities in Alzheimer’s patients, which are associated with alterations in cortical thickness correlations, small-world parameters, nodal centrality and network robustness. It was observed that these variable values were larger in the Alzheimer’s brain graph as compared to the control cases. The results obtained were consistent with existing studies showing increased structural and functional asymmetry in Alzheimer’s patients that suggested that the widely-distributed cortical networks are altered in Alzheimer’s patients. Additionally, the analysis findings in the paper suggest that Alzheimer’s disease-related alterations in structural networks and their internal topology are biologically meaningful and are likely to explain the functional impairments associated with Alzheimer’s disease. Furthermore, Lo <italic>et al.</italic> [<xref ref-type="bibr" rid="B84-ijms-17-00862">84</xref>] considered graph theoretical measures, including the clustering coefficient and shortest path length, and showed disrupted topological organization in the large-scale white matter structural networks constructed from diffusion MRI of Alzheimer’s patients. Information is processed in the gray matter (cortex and subcortical structures) and passed along the network via the white matter. The result shows an increased ratio of the characteristic shortest path length predominantly in the Alzheimer’s group. This may be due to the degeneration of fiber bundles for information transmission and suggests that the connections between cortical areas have been changed with less strength (reduced white matter integrity) or longer pathways (disconnection). Their work provided the structural evidence for abnormalities of systematic integrity in Alzheimer’s disease.</p>
+<p>Structural brain networks have also been analyzed for schizophrenia. Bassett <italic>et al.</italic> [<xref ref-type="bibr" rid="B85-ijms-17-00862">85</xref>] investigated the topological characteristics of the hierarchical structure (global, divisional and regional) of brain networks constructed from whole-brain anatomical networks constructed from structural MRI of 259 healthy individuals and compared those of 203 people with schizophrenia. Measuring the degree, path length, clustering and small-worldness of the brain network, they showed that people with schizophrenia had reduced hierarchy, loss of frontal hub and increased non-frontal hubs, as well as increased connection distance. The analysis shows for people with schizophrenia, highly clustered nodes are more evenly distributed in terms of their degree, and frontal hubs are less prominent. The finding indicates that the neuro-developmental abnormalities in schizophrenia specifically impact multi-modal cortical organization.</p>
+</sec>
+</sec>
+</sec>
+<sec id="sec4-ijms-17-00862">
+<title>4. Need for Integrative Analysis on Large Graphs</title>
+<p>Most of the studies that have been performed on neurological disorders use limited types of data to generate single layer networks. However, as neurological disorders are complex systems, integrative analysis that involves various data types over various dimensions is often more informative and will allow better analysis and predictions. However, the analysis of a graph for such a system may turn out to be incomprehensible due to the increased complexity representing heterogeneous information within the same view. Thus, the major bottleneck is in the advancement of the design of algorithms for constructing and analyzing graphs representing multiple levels of information from multiple data types to reveal and characterize the complex pathology of neurological disorders. One of the most information-preserving abstractions of the complex data is multi-layered graphs. However, the actual application of multi-layered graphs is not yet widely studied due to the infancy in the consensus representations and the development of analysis methodologies. In this section, we review existing methods for integrative methods on graphs and look at the possibilities of multi-layer graphs as frameworks for the integrative analysis of various data types.</p>
+<sec id="sec4dot1-ijms-17-00862">
+<title>4.1. Integrative Analysis for Single-Layered Graphs</title>
+<p>One of the trends in data science, especially in bioinformatics, is the integrative analysis of various data types. However, existing studies that involve integrative analysis of neurological disease based on graph structures are limited. Following are two examples of the integrative analysis of bio-graphs and brain networks.</p>
+<p>Multiple types of bio-networks can be analyzed together. In a work by Hwang <italic>et al.</italic> [<xref ref-type="bibr" rid="B86-ijms-17-00862">86</xref>], the OMIM phenotype-gene relation of the disease phenotype similarity network, the human gene interaction network, the disease categorization and the molecular pathways were analyzed together to determine phenotype, gene clusters and their associations in Alzheimer’s patients. They found that association information can provide a global pathway activity view of human disease classes and can facilitate the understanding of the underlying molecular mechanisms of disease. The work reports finding TMED10, which is a newly predicted gene in the Alzheimer’s pathway. This gene leads to the production of amyloid beta peptides, which is a critical feature of Alzheimer’s disease. They analyze the newly-predicted member gene by providing a network view of the disease pathway for Alzheimer’s. They also considered two-way hierarchical clustering in order to predict disease phenotype cluster-gene cluster associations. They observed predicted associations between 20 disease phenotype clusters and 200 gene clusters (pathways). Some of the pathways are predicted to be associated with neurological and psychiatric disease classes, including the prion disease pathway and the MAPK pathway associated with neurological disease class.</p>
+<p>Separate studies of structural brain networks and functional brain networks have and continue to advance our knowledge of neurological disorders. On the other hand, integrative studies can further advance our knowledge of the structural-functional interconnection of the brain components in neurological disorders. Rudie <italic>et al.</italic> [<xref ref-type="bibr" rid="B87-ijms-17-00862">87</xref>] carried out structural and functional brain network analysis of autism spectrum disorders. They analyzed the structural and functional brain networks separately and integratively using Principle Component Analysis (PCA) of graphical features extracted from the networks. Their analysis starts by constructing structural and functional networks with the same set of nodes. The functional network was constructed using the whole-brain parcellation scheme discussed by Power <italic>et al.</italic> [<xref ref-type="bibr" rid="B88-ijms-17-00862">88</xref>], which is based on a large meta-analysis of fMRI studies combined with whole brain functional connectivity mapping. After construction of both the functional and structural networks, six graph features were extracted, and structural and functional were examined separately and interactively. Following are the six graph theoretical properties: (1) clustering coefficient; (2) characteristic path length (3) normalized clustering coefficient (<italic>λ</italic>); (4) normalized characteristic path length (<italic>γ</italic>); (5) small-worldness represented as the ratio of <italic>λ</italic> to <italic>γ</italic>; and (6) modularity. The graph features of the functional network showed that the individual with autism spectrum disorder had a lower clustering coefficient for nodes within default systems and secondary visual areas. They displayed less robust modular organization implying less distinct communities and indicated higher nodal participation coefficients. A high level of global efficiency was also observed, which reflects a less organized or more random distribution of functional edges. The graph features of the structural network indicated a high level of local and global efficiency in both the typically-developed and autism spectrum disorder groups. An important finding shows that in the autism spectrum disorder group, modularity decreased at a slower rate. This finding is contrary to the findings reported by Hagmann <italic>et al.</italic> [<xref ref-type="bibr" rid="B89-ijms-17-00862">89</xref>], where decreasing modularity and increasing global efficiency of structural networks with development are shown. In a separate analysis of ASD and controls, a similar level of correlation between raw measures of structural and functional connectivity was observed. However, after combining the structural and functional network properties and applying PCA, a reduced balance of local and global efficiency between structural and functional networks was reported in autism spectrum disorder, which displayed association with age and inversely related with autism spectrum disorder symptom severity. They observed weaker connectivity within visual (largely secondary areas) and sensorimotor systems, supporting more widespread alterations in functional connectivity. Their analysis shows that integrative analysis has the potential for unraveling the pathology of neurological disorders that may not be possible by individual analysis.</p>
+</sec>
+<sec id="sec4dot2-ijms-17-00862">
+<title>4.2. Integrative Analysis of Multi-Layer Graphs</title>
+<p>In the previous subsection, we have shown that integrative analysis provided more incite into the neurological disorder compared to the analysis of a single type of data. We now show how multi-layer graphs can further aid in the integrative analysis process by first looking at the description of multi-layer graphs and the availability of analysis methods. Then, we review the applications of the multi-layer graphs in practice.</p>
+<sec id="sec4dot2dot1-ijms-17-00862">
+<title>4.2.1. Multi-Layer Graphs</title>
+<p>Multi-layer graphs are used to represent the complex behavior of different types of entities or how the relationship of entities changes over different aspects, such as time. The graph constructed includes multiple sub-graphs and the layer of connectivity between them. The multi-layer graph represents a much fairer amount of information than individual layers separately. It gives a suitable framework for integrative analysis.</p>
+<p>Kivelä <italic>et al.</italic> [<xref ref-type="bibr" rid="B90-ijms-17-00862">90</xref>] wrote an extensive description of multi-layer graphs. In their description, the most general form of multi-layer graph allows each node to belong to any subset of layers and allow edges to connect any node in any layer. In addition, the multi-layer graphs can have a ‘multi-dimensional’ property that can include every type of data. That is, multi-layer graph MG, with L layers is given as MG<sub><italic>L</italic></sub> = (G<sub>1</sub>, G<sub>2</sub>, …, G<sub><italic>l</italic></sub>, E<sub><italic>inter</italic></sub>, E<sub><italic>intra</italic></sub> ), where L is the total number of layers, G<sub>1</sub>, G<sub>2</sub>, …, G<sub><italic>L</italic></sub> are the subgraphs on each layer with n nodes. E<sub><italic>inter</italic></sub> is used to denote inter-layer links, whereas, E<sub><italic>intra</italic></sub> denotes the intra-layer links. Each sub-graph is defined as G<sub><italic>l</italic></sub> = (V<sub><italic>l</italic></sub>, E<sub><italic>l</italic></sub>) where V<sub><italic>l</italic></sub> = v<sub>1</sub>, v<sub>2</sub>, …, v<sub><italic>l</italic></sub> is the set of nodes common in all of the subgraph, and E<sub><italic>l</italic></sub> stands for the intra-layer connectivity for layer <italic>l</italic>. The adjacency matrix of each sub-graph is denoted by A<sub><italic>l</italic></sub> ∈ (0, 1)<sup>(<italic>n</italic>×<italic>n</italic>)</sup> [<xref ref-type="bibr" rid="B90-ijms-17-00862">90</xref>]. In this general form of multi-layer graph, not only can different types of bio-networks be integrated, but also bio-networks with various brain networks can be integrated, as well. Although the definition of multi-layer graphs can be generalized to describe networks that combine bio-networks with brain networks and, maybe, even over time, the analysis of such complex system is not currently possible, especially for large graphs.</p>
+<p>Tensors, high dimension arrays, are the most common form of representation for multi-layer graphs being studied. Although higher mode tensors are much more complex than matrix, <italic>i.e.</italic>, two-mode tensor, to analyze, they are still the simplest form of representation of limited types of multi-layer graphs. A three-modetensor, for example, can be describe as follows: the first two modes describe the node to node relationship, while the third mode can be an additional dimension, such as time or types of experiment. In this description, the set of nodes considered in each layer remains the same. De Domenico <italic>et al.</italic> [<xref ref-type="bibr" rid="B91-ijms-17-00862">91</xref>] describes formulas for graph theoretical measures, including degree centrality, clustering coefficients, eigenvector centrality, modularity, von Neumann entropy and diffusion, for multi-layer graphs that can be represented in a three-mode tensor. In addition, tensor factorization methods [<xref ref-type="bibr" rid="B92-ijms-17-00862">92</xref>,<xref ref-type="bibr" rid="B93-ijms-17-00862">93</xref>], such as for clustering purposes, can also be used to analyze the multi-layer graphs.</p>
+</sec>
+<sec id="sec4dot2dot2-ijms-17-00862">
+<title>4.2.2. Existing Application of Multi-Layer Graph Analysis</title>
+<p>The multi-layer graph finds its applicability in various domains, such as social networks, telecommunication networks, smart grids and biological networks. There are still several challenges involved in multi-layer graph analysis. There is still no consensus on the representation or recognized analysis approach. Although with technical challenges still remaining, the multi-layer graph is being recognized for being beneficial in organizing and analyzing disease simultaneously, which enables improvement of the decisions made by medical professionals and patients [<xref ref-type="bibr" rid="B94-ijms-17-00862">94</xref>]. We examine a few applications of multi-layer graphs in biological data analysis and brain network analysis.</p>
+<p>Multi-layer graphs are being recognized in systems biology applications. We look at just two among several. First, Salem <italic>et al.</italic> [<xref ref-type="bibr" rid="B95-ijms-17-00862">95</xref>] considered a multi-layer graph to integrate the co-expression pattern of genes to find biological modules and showed improved performance in gene function prediction. Multiple independent gene expressions were integrated for module discovery and functional annotation. The multi-layer weighted graph was constructed by considering the topology and co-occurrence between the co-expression link. The biological modules were discovered using the edge-based graph clustering approach on the weighted link graph. A work by Didier <italic>et al.</italic> [<xref ref-type="bibr" rid="B96-ijms-17-00862">96</xref>] showed the use of multi-layer graphs to identify communities from multiplex biological networks. Four biological networks were constructed from different sources of interactions between human genes or proteins. The biological networks were PPI, co-expression network, pathway and network of complexes. Here, each biological network corresponds to the different layers of the multi-layer graph. The community structure for individual layers was computed using a network modularity-based clustering algorithm [<xref ref-type="bibr" rid="B97-ijms-17-00862">97</xref>]. Further, consensus-clustering approaches computed a unique community structure from the community structures obtained on each graph independently. They showed that the use of multiplex-modularity better recovers communities in heterogeneous density and missing data contexts.</p>
+<p>The multi-layer graph is also used to model time-varying brain networks. Bassett <italic>et al.</italic> [<xref ref-type="bibr" rid="B69-ijms-17-00862">69</xref>] modeled the dynamic reconfiguration of functional brain networks during learning using a multi-layer graph constructed from fMRI imaging brain data during cognitive processing. Using a multi-layer graph, they identified functional modules over short time intervals and characterized their changes over time. The study provides insight to expose the learning-induced autonomy of sensorimotor systems. It also uncovers a distributed network of frontal and anterior cingulate cortices whose disengagement predicted individual differences in learning. Moreover, the availability of neuroimaging modalities with different spatial resolution levels enables integrating the functional connectivity between brain regions that helps to figure out the disruptedfunctional connectivity based on the BOLD signal in neurodegenerative diseases, such as Alzheimer’s [<xref ref-type="bibr" rid="B70-ijms-17-00862">70</xref>].</p>
+<p>We can see that multi-layer graphs have been applied with improved performance for integrative analysis of various bio-networks and for analyzing time varying brain networks. This shows the potential success of multi-layer graphs for more complex forms of data combination, such bio-networks with brain networks, bio-networks of different data types over time or structural networks in combination with functional networks over time.</p>
+</sec>
+</sec>
+</sec>
+<sec id="sec5-ijms-17-00862">
+<title>5. Discussion and Conclusions</title>
+<p>In this review, we showed how complex biological networks are analyzed using graph clustering and other graph theoretical measures in the study of neurological disorders. Various neurological diseases, including Alzheimer’s, Parkinson’s and autism, are analyzed using biological, as well as brain networks. The analysis of these networks help to get a better understanding of the biological changes that contribute to the dysfunctional state in these diseases. For biological networks, we highlighted the different types of data used to construct the networks and showed the significance of the analysis of PPI, gene-gene association and biological pathways in the study of neurological disorders. In the case of brain image networks, we reviewed both structural and functional brain networks constructed from brain signals and images from experiments, including MRI, EEG, MEG and fMRI, and show their importance in understanding neurological disorders.</p>
+<p>We showed that graphical analysis of individual data types in the form of single layer graphs is well studied; however, there is a need for the integrative analysis of several data types. We suggest that multi-layer graphs are a good data structure for integrative representations and analysis for obtaining better insight for complex neurological problems. Existing studies of multi-layer graphs in the analysis of neurological disorder are few. However, all are shown to improve the analysis. Thus, we can predict increased analysis performance in many more scenarios of multi-layer graphs. For example, multi-layer graphs can be used to model spatial temporal changes in the brain structural and functional networks for the resting state and during the execution of cognitive tasks. In a dynamic system, firing of an action potential in a neuron takes a few milliseconds; the plastic change in synaptic strength operates over time scales of minutes to hours; and the repair of cognitive function after brain damage occurs over the duration of years. The multi-layer graph data structure seems appropriate to conceptualize the brain graph dynamics of various time scales. In the generalized framework, each layer models the interactions of the system at time t, and the extracted time-varying graph metrics quantify the evolution of the topological properties across time. Moreover, additional modes can be added to incorporate structural and functional brain networks to determine the effects of structural topology on networks and dynamics. The computational studies have shown that brains’ structural and functional networks are intimately related and share common topological features [<xref ref-type="bibr" rid="B66-ijms-17-00862">66</xref>], which show high promise in the success of the analysis. Similarly, bio-network analysis can benefit from the use of multi-layer graphs. Multi-layer graphs can integrate the existing bio-network with other sources of related molecular information, such as Gene Ontology, biological processes and pathways. These integrative association models may enable findings in neurological disorders that may not be possible in individual analysis. In the most complex form, multi-layer graphs can represent bio-brain networks, in which the biological network based on molecular data is combined with a network constructed from brain image/signaling data. The bio-networks are informative and reveal the genetic causality of the disease; on the other hand, brain networks help in determining the structural and functional changes of the human brain. Modeling of such a network could help with associating the genetic factors with the observed functional changes. The multi-layer graphs can help to capture the dynamic behavior of the network and allow integrative analysis of data. However, there are still several technical challenges, including efficient representation and inference algorithms, remaining in multi-layer graph analysis.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>This work was supported by K-15-L03-C02-S01 funded by Korea Institute of Science and Technology Information , by the Basic Science Research Program through the National Research Foundation of Korea (2013R1A1A3005259, 2015R1C1A2A01055739) funded by Ministry of Science, ICT and Future Planning of Korea (MSIP), and by the MSIP of Korea under IITP-2016-R0346-15-1007 supervised by the Institute for Information &amp; Communications Technology.</p>
+</ack>
+<notes>
+<title>Conflicts of Interest</title>
+<p>The authors declare no conflict of interest.</p>
+</notes>
+<ref-list>
+<title>References</title>
+<ref id="B1-ijms-17-00862">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ridley</surname><given-names>R.M.</given-names></name><name><surname>Frith</surname><given-names>C.D.</given-names></name><name><surname>Crow</surname><given-names>T.J.</given-names></name><name><surname>Conneally</surname><given-names>P.M.</given-names></name></person-group>
+<article-title>Anticipation in Huntington’s disease is inherited through the male line but may originate in the female</article-title>
+<source/>J. Med. Genet.
+<year>1988</year>
+<volume>25</volume>
+<fpage>589</fpage>
+<lpage>595</lpage>
+<pub-id pub-id-type="doi">10.1136/jmg.25.9.589</pub-id>
+<pub-id pub-id-type="pmid">2972838</pub-id></element-citation>
+</ref>
+<ref id="B2-ijms-17-00862">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gatz</surname><given-names>M.</given-names></name><name><surname>Pedersen</surname><given-names>N.L.</given-names></name><name><surname>Berg</surname><given-names>S.</given-names></name><name><surname>Johansson</surname><given-names>B.</given-names></name><name><surname>Johansson</surname><given-names>K.</given-names></name><name><surname>Mortimer</surname><given-names>J.A.</given-names></name><name><surname>Posner</surname><given-names>S.F.</given-names></name><name><surname>Viitanen</surname><given-names>M.</given-names></name><name><surname>Winblad</surname><given-names>B.</given-names></name><name><surname>Ahlbom</surname><given-names>A.</given-names></name></person-group>
+<article-title>Heritability for Alzheimers Disease: The study of dementia in Swedish twins</article-title>
+<source/>J. Gerontol. A Biol. Sci. Med. Sci.
+<year>1997</year>
+<volume>52A</volume>
+<fpage>M117</fpage>
+<lpage>M125</lpage>
+<pub-id pub-id-type="doi">10.1093/gerona/52A.2.M117</pub-id>
+<pub-id pub-id-type="pmid">9060980</pub-id></element-citation>
+</ref>
+<ref id="B3-ijms-17-00862">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Warner</surname><given-names>T.T.</given-names></name><name><surname>Schapira</surname><given-names>A.H.</given-names></name></person-group>
+<article-title>Genetic and environmental factors in the cause of Parkinsons disease</article-title>
+<source/>Ann. Neurol.
+<year>2003</year>
+<volume>53</volume>
+<fpage>S16</fpage>
+<lpage>S23</lpage>
+<pub-id pub-id-type="doi">10.1002/ana.10487</pub-id>
+<pub-id pub-id-type="pmid">12666095</pub-id></element-citation>
+</ref>
+<ref id="B4-ijms-17-00862">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stam</surname><given-names>C.J.</given-names></name><name><surname>Jones</surname><given-names>B.F.</given-names></name><name><surname>Nolte</surname><given-names>G.</given-names></name><name><surname>Breakspear</surname><given-names>M.</given-names></name><name><surname>Scheltens</surname><given-names>P.</given-names></name></person-group>
+<article-title>Small-world networks and functional connectivity in Alzheimer’s disease</article-title>
+<source/>Cereb. Cortex
+<year>2007</year>
+<volume>17</volume>
+<fpage>92</fpage>
+<lpage>99</lpage>
+<pub-id pub-id-type="doi">10.1093/cercor/bhj127</pub-id>
+<pub-id pub-id-type="pmid">16452642</pub-id></element-citation>
+</ref>
+<ref id="B5-ijms-17-00862">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>He</surname><given-names>Y.</given-names></name><name><surname>Evans</surname><given-names>A.C.</given-names></name></person-group>
+<article-title>Graph theoretical modeling of brain connectivity</article-title>
+<source/>Curr. Opin. Neurol.
+<year>2010</year>
+<volume>23</volume>
+<fpage>341</fpage>
+<lpage>350</lpage>
+<pub-id pub-id-type="doi">10.1097/WCO.0b013e32833aa567</pub-id>
+<pub-id pub-id-type="pmid">20581686</pub-id></element-citation>
+</ref>
+<ref id="B6-ijms-17-00862">
+<label>6.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author"><name><surname>Van Dongen</surname><given-names>S.</given-names></name></person-group>
+<article-title>Graph Clustering by Flow Simulation</article-title>
+<source/>Ph.D. Thesis
+<publisher-name>University of Utrecht</publisher-name>
+<publisher-loc>Utrecht, The Netherlands</publisher-loc>
+<day>1</day>
+<month>5</month>
+<year>2000</year>
+</element-citation>
+</ref>
+<ref id="B7-ijms-17-00862">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bader</surname><given-names>G.D.</given-names></name><name><surname>Hogue</surname><given-names>C.W.</given-names></name></person-group>
+<article-title>An automated method for finding molecular complexes in large protein interaction networks</article-title>
+<source/>BMC Bioinform.
+<year>2003</year>
+<volume>4</volume>
+<fpage>1</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-4-2</pub-id>
+</element-citation>
+</ref>
+<ref id="B8-ijms-17-00862">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hartuv</surname><given-names>E.</given-names></name><name><surname>Shamir</surname><given-names>R.</given-names></name></person-group>
+<article-title>A clustering algorithm based on graph connectivity</article-title>
+<source/>Inf. Process. Lett.
+<year>2000</year>
+<volume>76</volume>
+<fpage>175</fpage>
+<lpage>181</lpage>
+<pub-id pub-id-type="doi">10.1016/S0020-0190(00)00142-3</pub-id>
+</element-citation>
+</ref>
+<ref id="B9-ijms-17-00862">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>King</surname><given-names>A.D.</given-names></name><name><surname>Przulj</surname><given-names>N.</given-names></name><name><surname>Jurisica</surname><given-names>I.</given-names></name></person-group>
+<article-title>Protein complex prediction via cost-based clustering</article-title>
+<source/>Bioinformatics
+<year>2004</year>
+<volume>20</volume>
+<fpage>3013</fpage>
+<lpage>3020</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/bth351</pub-id>
+<pub-id pub-id-type="pmid">15180928</pub-id></element-citation>
+</ref>
+<ref id="B10-ijms-17-00862">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Brohée</surname><given-names>S.</given-names></name><name><surname>van Helden</surname><given-names>J.</given-names></name></person-group>
+<article-title>Evaluation of clustering algorithms for protein-protein interaction networks</article-title>
+<source/>BMC Bioinform.
+<year>2006</year>
+<volume>7</volume>
+<fpage>488</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-7-488</pub-id>
+<pub-id pub-id-type="pmid">17087821</pub-id></element-citation>
+</ref>
+<ref id="B11-ijms-17-00862">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Vlasblom</surname><given-names>J.</given-names></name><name><surname>Wodak</surname><given-names>S.J.</given-names></name></person-group>
+<article-title>Markov clustering versus affinity propagation for the partitioning of protein interaction graphs</article-title>
+<source/>BMC Bioinform.
+<year>2009</year>
+<volume>10</volume>
+<fpage>99</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-10-99</pub-id>
+<pub-id pub-id-type="pmid">19331680</pub-id></element-citation>
+</ref>
+<ref id="B12-ijms-17-00862">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Asur</surname><given-names>S.</given-names></name><name><surname>Ucar</surname><given-names>D.</given-names></name><name><surname>Parthasarathy</surname><given-names>S.</given-names></name></person-group>
+<article-title>An ensemble framework for clustering protein-protein interaction networks</article-title>
+<source/>Bioinformatics
+<year>2007</year>
+<volume>23</volume>
+<fpage>i29</fpage>
+<lpage>i40</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btm212</pub-id>
+<pub-id pub-id-type="pmid">17646309</pub-id></element-citation>
+</ref>
+<ref id="B13-ijms-17-00862">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hartuv</surname><given-names>E.</given-names></name><name><surname>Schmitt</surname><given-names>A.O.</given-names></name><name><surname>Langeb</surname><given-names>J.</given-names></name><name><surname>Meier-Ewert</surname><given-names>S.</given-names></name><name><surname>Lehrach</surname><given-names>H.</given-names></name><name><surname>Shamir</surname><given-names>R.</given-names></name></person-group>
+<article-title>An algorithm for clustering cDNA fingerprints</article-title>
+<source/>Genomics
+<year>2000</year>
+<volume>66</volume>
+<fpage>249</fpage>
+<lpage>256</lpage>
+<pub-id pub-id-type="doi">10.1006/geno.2000.6187</pub-id>
+<pub-id pub-id-type="pmid">10873379</pub-id></element-citation>
+</ref>
+<ref id="B14-ijms-17-00862">
+<label>14.</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author"><name><surname>Shasha</surname><given-names>D.</given-names></name><name><surname>Wang</surname><given-names>J.T.L.</given-names></name><name><surname>Rosalba</surname><given-names>G.</given-names></name></person-group>
+<article-title>Algorithmics and applications of tree and graph searching</article-title>
+<source/>Proceedings of the Twenty-First ACM SIGMOD-SIGACT-SIGART Symposium on Principles of Database Systems
+<conf-loc>Madison, WI, USA</conf-loc>
+<conf-date>3–5 June 2002</conf-date>
+<fpage>39</fpage>
+<lpage>52</lpage>
+</element-citation>
+</ref>
+<ref id="B15-ijms-17-00862">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sharan</surname><given-names>R.</given-names></name><name><surname>Suthram</surname><given-names>S.</given-names></name><name><surname>Kelley</surname><given-names>R.M.</given-names></name><name><surname>Kuhn</surname><given-names>T.</given-names></name><name><surname>McCuine</surname><given-names>S.</given-names></name><name><surname>Uetz</surname><given-names>P.</given-names></name><name><surname>Sittler</surname><given-names>T.</given-names></name><name><surname>Karp</surname><given-names>R.M.</given-names></name><name><surname>Ideker</surname><given-names>T.</given-names></name></person-group>
+<article-title>Conserved patterns of protein interaction in multiple species</article-title>
+<source/>Proc. Natl. Acad. Sci. USA
+<year>2005</year>
+<volume>102</volume>
+<fpage>1974</fpage>
+<lpage>1979</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0409522102</pub-id>
+<pub-id pub-id-type="pmid">15687504</pub-id></element-citation>
+</ref>
+<ref id="B16-ijms-17-00862">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tian</surname><given-names>Y.</given-names></name><name><surname>McEachin</surname><given-names>R.C.</given-names></name><name><surname>Santos</surname><given-names>C.</given-names></name><name><surname>States</surname><given-names>D.J.</given-names></name><name><surname>Patel</surname><given-names>J.M.</given-names></name></person-group>
+<article-title>SAGA: A subgraph matching tool for biological graphs</article-title>
+<source/>Bioinformatics
+<year>2007</year>
+<volume>23</volume>
+<fpage>232</fpage>
+<lpage>239</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btl571</pub-id>
+<pub-id pub-id-type="pmid">17110368</pub-id></element-citation>
+</ref>
+<ref id="B17-ijms-17-00862">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Dubbelink</surname><given-names>K.T.E.O.</given-names></name><name><surname>Hillebrand</surname><given-names>A.</given-names></name><name><surname>Stoffers</surname><given-names>D.</given-names></name><name><surname>Deijen</surname><given-names>J.B.</given-names></name><name><surname>Twisk</surname><given-names>J.W.R.</given-names></name><name><surname>Stam</surname><given-names>C.J.</given-names></name><name><surname>Berendse</surname><given-names>H.W.</given-names></name></person-group>
+<article-title>Disrupted brain network topology in Parkinson’s disease: A longitudinal magnetoencephalography study</article-title>
+<source/>Brain
+<year>2014</year>
+<volume>137</volume>
+<fpage>197</fpage>
+<lpage>207</lpage>
+<pub-id pub-id-type="doi">10.1093/brain/awt316</pub-id>
+<pub-id pub-id-type="pmid">24271324</pub-id></element-citation>
+</ref>
+<ref id="B18-ijms-17-00862">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Watts</surname><given-names>D.J.</given-names></name><name><surname>Strogatz</surname><given-names>S.H.</given-names></name></person-group>
+<article-title>Collective dynamics of ’small-world’ networks</article-title>
+<source/>Lett. Nat.
+<year>1997</year>
+<volume>393</volume>
+<fpage>440</fpage>
+<lpage>442</lpage>
+<pub-id pub-id-type="doi">10.1038/30918</pub-id>
+<pub-id pub-id-type="pmid">9623998</pub-id></element-citation>
+</ref>
+<ref id="B19-ijms-17-00862">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tewarie</surname><given-names>P.</given-names></name><name><surname>van Dellen</surname><given-names>E.</given-names></name><name><surname>Hillebrand</surname><given-names>A.</given-names></name><name><surname>Stam</surname><given-names>C.</given-names></name></person-group>
+<article-title>The minimum spanning tree: An unbiased method for brain network analysis</article-title>
+<source/>NeuroImage
+<year>2015</year>
+<volume>104</volume>
+<fpage>177</fpage>
+<lpage>188</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroimage.2014.10.015</pub-id>
+<pub-id pub-id-type="pmid">25451472</pub-id></element-citation>
+</ref>
+<ref id="B20-ijms-17-00862">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kruskal</surname><given-names>J.B.</given-names></name></person-group>
+<article-title>On the shortest spanning subtree of a graph and the traveling salesman problem</article-title>
+<source/>Proc. Am. Math. Soc.
+<year>1956</year>
+<volume>7</volume>
+<fpage>48</fpage>
+<lpage>50</lpage>
+<pub-id pub-id-type="doi">10.1090/S0002-9939-1956-0078686-7</pub-id>
+</element-citation>
+</ref>
+<ref id="B21-ijms-17-00862">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Andrei</surname><given-names>A.</given-names></name><name><surname>Kendziorski</surname><given-names>C.</given-names></name></person-group>
+<article-title>An efficient method for identifying statistical interactors in gene association networks</article-title>
+<source/>Biostatistics
+<year>2009</year>
+<volume>10</volume>
+<fpage>706</fpage>
+<lpage>718</lpage>
+<pub-id pub-id-type="doi">10.1093/biostatistics/kxp025</pub-id>
+<pub-id pub-id-type="pmid">19625345</pub-id></element-citation>
+</ref>
+<ref id="B22-ijms-17-00862">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Nelson</surname><given-names>T.H.</given-names></name><name><surname>Jung</surname><given-names>J.Y.</given-names></name><name><surname>DeLuca</surname><given-names>T.F.</given-names></name><name><surname>Hinebaugh</surname><given-names>B.K.</given-names></name><name><surname>Gabriel</surname><given-names>K.C.S.</given-names></name><name><surname>Wall</surname><given-names>D.P.</given-names></name></person-group>
+<article-title>Autworks: A cross-disease network biology application for Autism and related disorders</article-title>
+<source/>BMC Med. Genom.
+<year>2012</year>
+<volume>5</volume>
+<fpage>56</fpage>
+<pub-id pub-id-type="doi">10.1186/1755-8794-5-56</pub-id>
+<pub-id pub-id-type="pmid">23190929</pub-id></element-citation>
+</ref>
+<ref id="B23-ijms-17-00862">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhang</surname><given-names>B.</given-names></name><name><surname>Gaiteri</surname><given-names>C.</given-names></name><name><surname>Bodea</surname><given-names>L.G.</given-names></name><name><surname>Wang</surname><given-names>Z.</given-names></name><name><surname>McElwee</surname><given-names>J.</given-names></name><name><surname>Podtelezhnikov</surname><given-names>A.A.</given-names></name><name><surname>Zhang</surname><given-names>C.</given-names></name><name><surname>Xie</surname><given-names>T.</given-names></name><name><surname>Tran</surname><given-names>L.</given-names></name><name><surname>Dobrin</surname><given-names>R.</given-names></name><etal></etal></person-group>
+<article-title>Integrated systems approach identifies genetic nodes and networks in late-onset Alzheimer’s disease</article-title>
+<source/>Cell
+<year>2013</year>
+<volume>153</volume>
+<fpage>707</fpage>
+<lpage>720</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2013.03.030</pub-id>
+<pub-id pub-id-type="pmid">23622250</pub-id></element-citation>
+</ref>
+<ref id="B24-ijms-17-00862">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rivas</surname><given-names>J.D.L.</given-names></name><name><surname>Fontanillo</surname><given-names>C.</given-names></name></person-group>
+<article-title>Protein-Protein interactions essentials: Key concepts to building and analyzing interactome networks</article-title>
+<source/>PLoS Comput. Biol.
+<year>2010</year>
+<volume>6</volume>
+<elocation-id>862</elocation-id>
+</element-citation>
+</ref>
+<ref id="B25-ijms-17-00862">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liang</surname><given-names>W.S.</given-names></name><name><surname>Dunckley</surname><given-names>T.</given-names></name><name><surname>Beach</surname><given-names>T.G.</given-names></name><name><surname>Grover</surname><given-names>A.</given-names></name><name><surname>Mastroeni</surname><given-names>D.</given-names></name><name><surname>Ramsey</surname><given-names>K.</given-names></name><name><surname>Caselli</surname><given-names>R.J.</given-names></name><name><surname>Kukull</surname><given-names>W.A.</given-names></name><name><surname>McKeel</surname><given-names>D.</given-names></name><name><surname>Morris</surname><given-names>J.C.</given-names></name><etal></etal></person-group>
+<article-title>Altered neuronal gene expression in brain regions differentially affected by Alzheimer’s disease: A reference data set</article-title>
+<source/>Physiol. Genom.
+<year>2008</year>
+<volume>33</volume>
+<fpage>240</fpage>
+<lpage>256</lpage>
+<pub-id pub-id-type="doi">10.1152/physiolgenomics.00242.2007</pub-id>
+<pub-id pub-id-type="pmid">18270320</pub-id></element-citation>
+</ref>
+<ref id="B26-ijms-17-00862">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kanehisa</surname><given-names>M.</given-names></name><name><surname>Goto</surname><given-names>S.</given-names></name><name><surname>Sato</surname><given-names>Y.</given-names></name><name><surname>Furumichi</surname><given-names>M.</given-names></name><name><surname>Tanabe</surname><given-names>M.</given-names></name></person-group>
+<article-title>KEGG for integration and interpretation of large-scale molecular data sets</article-title>
+<source/>Nucleic Acids Res.
+<year>2012</year>
+<volume>40</volume>
+<fpage>D109</fpage>
+<lpage>D114</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkr988</pub-id>
+<pub-id pub-id-type="pmid">22080510</pub-id></element-citation>
+</ref>
+<ref id="B27-ijms-17-00862">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Chatr-aryamontri</surname><given-names>A.</given-names></name><name><surname>Ceol</surname><given-names>A.</given-names></name><name><surname>Palazzi</surname><given-names>L.M.</given-names></name><name><surname>Nardelli</surname><given-names>G.</given-names></name><name><surname>Schneider</surname><given-names>M.V.</given-names></name><name><surname>Castagnoli</surname><given-names>L.</given-names></name><name><surname>Cesareni</surname><given-names>G.</given-names></name></person-group>
+<article-title>MINT: The Molecular INTeraction database</article-title>
+<source/>Nucleic Acids Res.
+<year>2007</year>
+<volume>35</volume>
+<fpage>D572</fpage>
+<lpage>D574</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkl950</pub-id>
+<pub-id pub-id-type="pmid">17135203</pub-id></element-citation>
+</ref>
+<ref id="B28-ijms-17-00862">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Mering</surname><given-names>C.V.</given-names></name><name><surname>Jensen</surname><given-names>L.J.</given-names></name><name><surname>Snel</surname><given-names>B.</given-names></name><name><surname>Hooper</surname><given-names>S.D.</given-names></name><name><surname>Krupp</surname><given-names>M.</given-names></name><name><surname>Foglierini</surname><given-names>M.</given-names></name><name><surname>Jouffre</surname><given-names>N.</given-names></name><name><surname>Huynen</surname><given-names>M.A.</given-names></name><name><surname>Bork</surname><given-names>P.</given-names></name></person-group>
+<article-title>STRING: Known and predicted protein protein associations, integrated and transferred across organisms</article-title>
+<source/>Nucleic Acids Res.
+<year>2005</year>
+<volume>33</volume>
+<issue>Suppl. S1</issue>
+<fpage>D433</fpage>
+<lpage>D437</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gki005</pub-id>
+<pub-id pub-id-type="pmid">15608232</pub-id></element-citation>
+</ref>
+<ref id="B29-ijms-17-00862">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jensen</surname><given-names>L.J.</given-names></name><name><surname>Kuhn</surname><given-names>M.</given-names></name><name><surname>Stark</surname><given-names>M.</given-names></name><name><surname>Chaffron</surname><given-names>S.</given-names></name><name><surname>Creevey</surname><given-names>C.</given-names></name><name><surname>Muller</surname><given-names>J.</given-names></name><name><surname>Doerks</surname><given-names>T.</given-names></name><name><surname>Julien</surname><given-names>P.</given-names></name><name><surname>Roth</surname><given-names>A.</given-names></name><name><surname>Simonovic</surname><given-names>M.</given-names></name><etal></etal></person-group>
+<article-title>STRING 8-a global view on proteins and their functional interactions in 630 organisms</article-title>
+<source/>Nucleic Acids Res.
+<year>2009</year>
+<volume>37</volume>
+<fpage>D412</fpage>
+<lpage>D416</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkn760</pub-id>
+<pub-id pub-id-type="pmid">18940858</pub-id></element-citation>
+</ref>
+<ref id="B30-ijms-17-00862">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Xenarios</surname><given-names>I.</given-names></name><name><surname>Rice</surname><given-names>D.W.</given-names></name><name><surname>Salwinski</surname><given-names>L.</given-names></name><name><surname>Baron</surname><given-names>L.</given-names></name><name><surname>Marisa</surname><given-names>K.A.</given-names></name><name><surname>Marcotte</surname><given-names>E.M.</given-names></name><name><surname>Eisenberga</surname><given-names>D.</given-names></name></person-group>
+<article-title>DIP: The database of interacting proteins</article-title>
+<source/>Nucleic Acids Res.
+<year>2000</year>
+<volume>28</volume>
+<fpage>289</fpage>
+<lpage>291</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/28.1.289</pub-id>
+<pub-id pub-id-type="pmid">10592249</pub-id></element-citation>
+</ref>
+<ref id="B31-ijms-17-00862">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Prasad</surname><given-names>T.</given-names></name><name><surname>Goel</surname><given-names>R.</given-names></name><name><surname>Kandasamy</surname><given-names>K.</given-names></name><name><surname>Keerthikumar</surname><given-names>S.</given-names></name><name><surname>Kumar</surname><given-names>S.</given-names></name><name><surname>Mathivanan</surname><given-names>S.</given-names></name><name><surname>Telikicherla</surname><given-names>D.</given-names></name><name><surname>Raju</surname><given-names>R.</given-names></name><name><surname>Shafreen</surname><given-names>B.</given-names></name><name><surname>Venugopal</surname><given-names>A.</given-names></name><etal></etal></person-group>
+<article-title>Human protein reference database-2009 update</article-title>
+<source/>Nucleic Acids Res.
+<year>2009</year>
+<volume>37</volume>
+<fpage>D767</fpage>
+<lpage>D772</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkn892</pub-id>
+<pub-id pub-id-type="pmid">18988627</pub-id></element-citation>
+</ref>
+<ref id="B32-ijms-17-00862">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kanehisa</surname><given-names>M.</given-names></name><name><surname>Goto</surname><given-names>S.</given-names></name></person-group>
+<article-title>KEGG: Kyoto encyclopedia of genes and genomes</article-title>
+<source/>Nucleic Acids Res.
+<year>2000</year>
+<volume>28</volume>
+<fpage>27</fpage>
+<lpage>30</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/28.1.27</pub-id>
+<pub-id pub-id-type="pmid">10592173</pub-id></element-citation>
+</ref>
+<ref id="B33-ijms-17-00862">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Milacic</surname><given-names>M.</given-names></name><name><surname>Haw</surname><given-names>R.</given-names></name><name><surname>Rothfels</surname><given-names>K.</given-names></name><name><surname>Wu</surname><given-names>G.</given-names></name><name><surname>Croft</surname><given-names>D.</given-names></name><name><surname>Hermjakob</surname><given-names>H.</given-names></name><name><surname>D’Eustachio</surname><given-names>P.</given-names></name><name><surname>Stein</surname><given-names>L.</given-names></name></person-group>
+<article-title>Annotating cancer variants and anti-cancer therapeutics in reactome</article-title>
+<source/>Cancers
+<year>2012</year>
+<volume>4</volume>
+<fpage>1180</fpage>
+<lpage>1211</lpage>
+<pub-id pub-id-type="doi">10.3390/cancers4041180</pub-id>
+<pub-id pub-id-type="pmid">24213504</pub-id></element-citation>
+</ref>
+<ref id="B34-ijms-17-00862">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Croft</surname><given-names>D.</given-names></name><name><surname>Mundo</surname><given-names>A.F.</given-names></name><name><surname>Haw</surname><given-names>R.</given-names></name><name><surname>Milacic</surname><given-names>M.</given-names></name><name><surname>Weiser</surname><given-names>J.</given-names></name><name><surname>Wu</surname><given-names>G.</given-names></name><name><surname>Caudy</surname><given-names>M.</given-names></name><name><surname>Garapati</surname><given-names>P.</given-names></name><name><surname>Gillespie</surname><given-names>M.</given-names></name><name><surname>Kamdar</surname><given-names>M.R.</given-names></name><etal></etal></person-group>
+<article-title>The reactome pathway knowledgebase</article-title>
+<source/>Nucleic Acids Res.
+<year>2014</year>
+<volume>42</volume>
+<fpage>D472</fpage>
+<lpage>D477</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkt1102</pub-id>
+<pub-id pub-id-type="pmid">24243840</pub-id></element-citation>
+</ref>
+<ref id="B35-ijms-17-00862">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Mizuno</surname><given-names>S.</given-names></name><name><surname>Iijima</surname><given-names>R.</given-names></name><name><surname>Ogishima</surname><given-names>S.</given-names></name><name><surname>Kikuchi</surname><given-names>M.</given-names></name><name><surname>Matsuoka</surname><given-names>Y.</given-names></name><name><surname>Ghosh</surname><given-names>S.</given-names></name><name><surname>Miyamoto</surname><given-names>T.</given-names></name><name><surname>Miyashita</surname><given-names>A.</given-names></name><name><surname>Kuwano</surname><given-names>R.</given-names></name><name><surname>Hiroshi</surname><given-names>T.</given-names></name></person-group>
+<article-title>AlzPathway: A comprehensive map of signaling pathways of Alzheimer’s disease</article-title>
+<source/>BMC Syst. Biol.
+<year>2012</year>
+<volume>6</volume>
+<fpage>52</fpage>
+<pub-id pub-id-type="doi">10.1186/1752-0509-6-52</pub-id>
+<pub-id pub-id-type="pmid">22647208</pub-id></element-citation>
+</ref>
+<ref id="B36-ijms-17-00862">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cerami</surname><given-names>E.G.</given-names></name><name><surname>Gross</surname><given-names>B.E.</given-names></name><name><surname>Demir</surname><given-names>E.</given-names></name><name><surname>Rodchenkov</surname><given-names>I.</given-names></name><name><surname>Babur</surname><given-names>O.</given-names></name><name><surname>Anwar</surname><given-names>N.</given-names></name><name><surname>Schultz</surname><given-names>N.</given-names></name><name><surname>Bader</surname><given-names>G.D.</given-names></name><name><surname>Sander</surname><given-names>C.</given-names></name></person-group>
+<article-title>Pathway commons, a web resource for biological pathway data</article-title>
+<source/>Nucleic Acids Res.
+<year>2011</year>
+<volume>39</volume>
+<fpage>D685</fpage>
+<lpage>D690</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkq1039</pub-id>
+<pub-id pub-id-type="pmid">21071392</pub-id></element-citation>
+</ref>
+<ref id="B37-ijms-17-00862">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bauer-Mehren</surname><given-names>A.</given-names></name><name><surname>Rautschka</surname><given-names>M.</given-names></name><name><surname>Sanz</surname><given-names>F.</given-names></name><name><surname>Furlong</surname><given-names>L.I.</given-names></name></person-group>
+<article-title>Disgenet: A cytoscape plugin to visualize, integrate, search and analyze gene-disease networks</article-title>
+<source/>Bioinformatics
+<year>2010</year>
+<volume>26</volume>
+<fpage>2924</fpage>
+<lpage>2926</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btq538</pub-id>
+<pub-id pub-id-type="pmid">20861032</pub-id></element-citation>
+</ref>
+<ref id="B38-ijms-17-00862">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Davis</surname><given-names>A.P.</given-names></name><name><surname>Grondin</surname><given-names>C.J.</given-names></name><name><surname>Lennon-Hopkins</surname><given-names>K.</given-names></name><name><surname>Saraceni-Richards</surname><given-names>C.</given-names></name><name><surname>Sciaky</surname><given-names>D.</given-names></name><name><surname>King</surname><given-names>B.L.</given-names></name><name><surname>Wiegers</surname><given-names>T.C.</given-names></name><name><surname>Mattingly</surname><given-names>C.J.</given-names></name></person-group>
+<article-title>The comparative toxicogenomics database’s 10th year anniversary: Update 2015</article-title>
+<source/>Nucleic Acids Res.
+<year>2015</year>
+<volume>43</volume>
+<fpage>D914</fpage>
+<lpage>D920</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku935</pub-id>
+<pub-id pub-id-type="pmid">25326323</pub-id></element-citation>
+</ref>
+<ref id="B39-ijms-17-00862">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aranda</surname><given-names>B.</given-names></name><name><surname>Achuthan</surname><given-names>P.</given-names></name><name><surname>Alam-Faruque</surname><given-names>Y.</given-names></name><name><surname>Armean</surname><given-names>I.</given-names></name><name><surname>Bridge</surname><given-names>A.</given-names></name><name><surname>Derow</surname><given-names>C.</given-names></name><name><surname>Feuermann</surname><given-names>M.</given-names></name><name><surname>Ghanbarian</surname><given-names>A.T.</given-names></name><name><surname>Kerrien</surname><given-names>S.</given-names></name><name><surname>Khadake</surname><given-names>J.</given-names></name><etal></etal></person-group>
+<article-title>The IntAct molecular interaction database in 2010</article-title>
+<source/>Nucleic Acids Res.
+<year>2010</year>
+<volume>38</volume>
+<fpage>D525</fpage>
+<lpage>D531</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkp878</pub-id>
+<pub-id pub-id-type="pmid">19850723</pub-id></element-citation>
+</ref>
+<ref id="B40-ijms-17-00862">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kerrien</surname><given-names>S.</given-names></name><name><surname>Aranda</surname><given-names>B.</given-names></name><name><surname>Breuza</surname><given-names>L.</given-names></name><name><surname>Bridge</surname><given-names>A.</given-names></name><name><surname>Broackes-Carter</surname><given-names>F.</given-names></name><name><surname>Chen</surname><given-names>C.</given-names></name><name><surname>Duesbury</surname><given-names>M.</given-names></name><name><surname>Dumousseau</surname><given-names>M.</given-names></name><name><surname>Feuermann</surname><given-names>M.</given-names></name><name><surname>Hinz</surname><given-names>U.</given-names></name><etal></etal></person-group>
+<article-title>The IntAct molecular interaction database in 2012</article-title>
+<source/>Nucleic Acids Res.
+<year>2012</year>
+<volume>40</volume>
+<fpage>D841</fpage>
+<lpage>D846</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkr1088</pub-id>
+<pub-id pub-id-type="pmid">22121220</pub-id></element-citation>
+</ref>
+<ref id="B41-ijms-17-00862">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stark</surname><given-names>C.</given-names></name><name><surname>Breitkreutz</surname><given-names>B.J.</given-names></name><name><surname>Reguly</surname><given-names>T.</given-names></name><name><surname>Boucher</surname><given-names>L.</given-names></name><name><surname>Breitkreutz</surname><given-names>A.</given-names></name><name><surname>Tyers</surname><given-names>M.</given-names></name></person-group>
+<article-title>BioGRID: A general repository for interaction datasets</article-title>
+<source/>Nucleic Acids Res.
+<year>2006</year>
+<volume>34</volume>
+<fpage>D535</fpage>
+<lpage>D539</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkj109</pub-id>
+<pub-id pub-id-type="pmid">16381927</pub-id></element-citation>
+</ref>
+<ref id="B42-ijms-17-00862">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kohler</surname><given-names>S.</given-names></name><name><surname>Bauer</surname><given-names>S.</given-names></name><name><surname>Horn</surname><given-names>D.</given-names></name><name><surname>Robinson</surname><given-names>P.N.</given-names></name></person-group>
+<article-title>Walking the interactome for prioritization of candidate disease genes</article-title>
+<source/>Am. J. Hum. Genet.
+<year>2008</year>
+<volume>82</volume>
+<fpage>888</fpage>
+<lpage>905</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2008.02.013</pub-id>
+<pub-id pub-id-type="pmid">18371930</pub-id></element-citation>
+</ref>
+<ref id="B43-ijms-17-00862">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Soler-López</surname><given-names>M.</given-names></name><name><surname>Zanzoni</surname><given-names>A.</given-names></name><name><surname>Lluis</surname><given-names>R.</given-names></name><name><surname>Stelzl</surname><given-names>U.</given-names></name><name><surname>Aloy</surname><given-names>P.</given-names></name></person-group>
+<article-title>Interactome mapping suggests new mechanistic details underlying Alzheimer’s disease</article-title>
+<source/>Genome Res.
+<year>2011</year>
+<volume>21</volume>
+<fpage>364</fpage>
+<lpage>376</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.114280.110</pub-id>
+<pub-id pub-id-type="pmid">21163940</pub-id></element-citation>
+</ref>
+<ref id="B44-ijms-17-00862">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Diao</surname><given-names>B.</given-names></name><name><surname>Liu</surname><given-names>Y.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name><name><surname>Xu</surname><given-names>G.Z.</given-names></name></person-group>
+<article-title>A graph-clustering approach to search important molecular markers and pathways of Parkinson’s disease</article-title>
+<source/>Afr. J. Biotechnol.
+<year>2011</year>
+<volume>10</volume>
+<fpage>15656</fpage>
+<lpage>15661</lpage>
+<pub-id pub-id-type="doi">10.5897/AJB11.2121</pub-id>
+</element-citation>
+</ref>
+<ref id="B45-ijms-17-00862">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Altaf-Ul-Amin</surname><given-names>M.</given-names></name><name><surname>Shinbo</surname><given-names>Y.</given-names></name><name><surname>Mihara</surname><given-names>K.</given-names></name><name><surname>Kurokawa</surname><given-names>K.</given-names></name><name><surname>Kanaya</surname><given-names>S.</given-names></name></person-group>
+<article-title>Development and implementation of an algorithm for detection of protein complexes in large interaction networks</article-title>
+<source/>BMC Bioinform.
+<year>2006</year>
+<volume>7</volume>
+<fpage>207</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-7-207</pub-id>
+<pub-id pub-id-type="pmid">16613608</pub-id></element-citation>
+</ref>
+<ref id="B46-ijms-17-00862">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Talwar</surname><given-names>P.</given-names></name><name><surname>Silla</surname><given-names>Y.</given-names></name><name><surname>Grover</surname><given-names>S.</given-names></name><name><surname>Gupta</surname><given-names>M.</given-names></name><name><surname>Agarwal</surname><given-names>R.</given-names></name><name><surname>Kushwaha</surname><given-names>S.</given-names></name><name><surname>Kukreti</surname><given-names>R.</given-names></name></person-group>
+<article-title>Genomic convergence and network analysis approach to identify candidate genes in Alzheimer’s disease</article-title>
+<source/>BMC Genom.
+<year>2014</year>
+<volume>15</volume>
+<fpage>199</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2164-15-199</pub-id>
+<pub-id pub-id-type="pmid">24628925</pub-id></element-citation>
+</ref>
+<ref id="B47-ijms-17-00862">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Guney</surname><given-names>E.</given-names></name><name><surname>Oliva</surname><given-names>B.</given-names></name></person-group>
+<article-title>Exploiting protein-protein interaction networks for genome-wide disease-gene prioritization</article-title>
+<source/>PLoS ONE
+<year>2012</year>
+<volume>7</volume>
+<elocation-id>862</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0043557</pub-id>
+<pub-id pub-id-type="pmid">23028459</pub-id></element-citation>
+</ref>
+<ref id="B48-ijms-17-00862">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Winkler</surname><given-names>J.M.</given-names></name><name><surname>Fox</surname><given-names>H.S.</given-names></name></person-group>
+<article-title>Transcriptome meta-analysis reveals a central role for sex steroids in the degeneration of hippocampal neurons in Alzheimer’s disease</article-title>
+<source/>BMC Syst. Biol.
+<year>2013</year>
+<volume>7</volume>
+<fpage>51</fpage>
+<pub-id pub-id-type="doi">10.1186/1752-0509-7-51</pub-id>
+<pub-id pub-id-type="pmid">23803348</pub-id></element-citation>
+</ref>
+<ref id="B49-ijms-17-00862">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Silva</surname><given-names>J.V.</given-names></name><name><surname>Yoon</surname><given-names>S.</given-names></name><name><surname>Domingues</surname><given-names>S.</given-names></name><name><surname>Guimarães</surname><given-names>S.</given-names></name><name><surname>Goltsev</surname><given-names>A.V.</given-names></name><name><surname>da Cruz e Silva</surname><given-names>E.F.</given-names></name><name><surname>Mendes</surname><given-names>J.F.F.</given-names></name><name><surname>da Cruz e Silva</surname><given-names>O.B.A.</given-names></name><name><surname>Fardilha</surname><given-names>M.</given-names></name></person-group>
+<article-title>Amyloid precursor protein interaction network in human testis: Sentinel proteins for male reproduction</article-title>
+<source/>BMC Bioinform.
+<year>2015</year>
+<volume>16</volume>
+<fpage>1</fpage>
+<pub-id pub-id-type="doi">10.1186/s12859-014-0432-9</pub-id>
+<pub-id pub-id-type="pmid">25591988</pub-id></element-citation>
+</ref>
+<ref id="B50-ijms-17-00862">
+<label>50.</label>
+<element-citation publication-type="confproc">
+<person-group person-group-type="author"><name><surname>Seah</surname><given-names>B.S.</given-names></name><name><surname>Bhowmick</surname><given-names>S.S.</given-names></name><name><surname>Dewey</surname><given-names>C.F.</given-names></name><name><surname>Yu</surname><given-names>H.</given-names></name></person-group>
+<article-title>FUSE: Towards multi-level functional summarization of protein interaction networks</article-title>
+<source/>Proceedings of the 2nd ACM Conference on Bioinformatics, Computational Biology and Biomedicine
+<conf-loc>Chicago, IL, USA</conf-loc>
+<conf-date>31 July–3 August 2011</conf-date>
+<publisher-name>ACM</publisher-name>
+<publisher-loc>New York, NY, USA</publisher-loc>
+<year>2011</year>
+<fpage>2</fpage>
+<lpage>11</lpage>
+</element-citation>
+</ref>
+<ref id="B51-ijms-17-00862">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Khuller</surname><given-names>S.</given-names></name><name><surname>Mossb</surname><given-names>A.</given-names></name><name><surname>Naor</surname><given-names>J.</given-names></name></person-group>
+<article-title>The budgeted maximum coverage problem</article-title>
+<source/>Inf. Process. Lett.
+<year>1999</year>
+<volume>70</volume>
+<fpage>39</fpage>
+<lpage>45</lpage>
+<pub-id pub-id-type="doi">10.1016/S0020-0190(99)00031-9</pub-id>
+</element-citation>
+</ref>
+<ref id="B52-ijms-17-00862">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rakshit</surname><given-names>H.</given-names></name><name><surname>Rathi</surname><given-names>N.</given-names></name><name><surname>Roy</surname><given-names>D.</given-names></name></person-group>
+<article-title>Construction and analysis of the protein-protein interaction networks based on gene expression profiles of Parkinson’s disease</article-title>
+<source/>PLoS ONE
+<year>2014</year>
+<volume>9</volume>
+<elocation-id>862</elocation-id>
+</element-citation>
+</ref>
+<ref id="B53-ijms-17-00862">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Mukherjeee</surname><given-names>S.</given-names></name><name><surname>Kaeberlein</surname><given-names>M.</given-names></name><name><surname>Kauwe</surname><given-names>J.</given-names></name><name><surname>Naj</surname><given-names>A.C.</given-names></name><name><surname>Crane</surname><given-names>P.</given-names></name></person-group>
+<article-title>A systems-biology approach to identify candidate genes for Alzheimer’s disease by integrating protein-protein interaction network and subsequent <italic>in vivo</italic> validation of candidate genes using A C. Elegans model of AB toxicity</article-title>
+<source/>Alzheimer’s Dement. J. Alzheimer’s Assoc.
+<year>2013</year>
+<volume>10</volume>
+<fpage>298</fpage>
+<lpage>299</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jalz.2014.04.499</pub-id>
+</element-citation>
+</ref>
+<ref id="B54-ijms-17-00862">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Correia</surname><given-names>C.</given-names></name><name><surname>Oliveira</surname><given-names>G.</given-names></name><name><surname>Vicente</surname><given-names>A.M.</given-names></name></person-group>
+<article-title>Protein interaction networks reveal novel autism risk genes within GWAS statistical noise</article-title>
+<source/>PLoS ONE
+<year>2014</year>
+<volume>9</volume>
+<elocation-id>862</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0112399</pub-id>
+<pub-id pub-id-type="pmid">25409314</pub-id></element-citation>
+</ref>
+<ref id="B55-ijms-17-00862">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Giorgini</surname><given-names>F.</given-names></name><name><surname>Muchowsk</surname><given-names>P.J.</given-names></name></person-group>
+<article-title>Connecting the dots in huntington’s disease with protein interaction networks</article-title>
+<source/>Genome Biol.
+<year>2005</year>
+<volume>6</volume>
+<fpage>210</fpage>
+<pub-id pub-id-type="doi">10.1186/gb-2005-6-3-210</pub-id>
+<pub-id pub-id-type="pmid">15774033</pub-id></element-citation>
+</ref>
+<ref id="B56-ijms-17-00862">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Li</surname><given-names>J.</given-names></name><name><surname>Shi</surname><given-names>M.</given-names></name><name><surname>Ma</surname><given-names>Z.</given-names></name><name><surname>Zhao</surname><given-names>S.</given-names></name><name><surname>Euskirchen</surname><given-names>G.</given-names></name><name><surname>Ziskin</surname><given-names>J.</given-names></name><name><surname>Urban</surname><given-names>A.</given-names></name><name><surname>Hallmayer</surname><given-names>J.</given-names></name><name><surname>Snyder</surname><given-names>M.</given-names></name></person-group>
+<article-title>Integrated systems analysis reveals a molecular network underlying autism spectrum disorders</article-title>
+<source/>Mol. Syst. Biol.
+<year>2014</year>
+<volume>10</volume>
+<fpage>774</fpage>
+<pub-id pub-id-type="doi">10.15252/msb.20145487</pub-id>
+<pub-id pub-id-type="pmid">25549968</pub-id></element-citation>
+</ref>
+<ref id="B57-ijms-17-00862">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Blondel</surname><given-names>V.D.</given-names></name><name><surname>Guillaume</surname><given-names>J.L.</given-names></name><name><surname>Lambiotte</surname><given-names>R.</given-names></name><name><surname>Lefebvre</surname><given-names>E.</given-names></name></person-group>
+<article-title>Fast unfolding of communities in large networks</article-title>
+<source/>J. Stat. Mech. Theory Exp.
+<year>2008</year>
+<volume>2008</volume>
+<fpage>P10008</fpage>
+<pub-id pub-id-type="doi">10.1088/1742-5468/2008/10/P10008</pub-id>
+</element-citation>
+</ref>
+<ref id="B58-ijms-17-00862">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Goñi</surname><given-names>J.</given-names></name><name><surname>Esteban</surname><given-names>F.J.</given-names></name><name><surname>Mendizabal</surname><given-names>N.V.D.</given-names></name><name><surname>Sepulcre</surname><given-names>J.</given-names></name><name><surname>Ardanza-Trevijano</surname><given-names>S.</given-names></name><name><surname>Agirrezabal</surname><given-names>I.</given-names></name><name><surname>Villoslada</surname><given-names>P.</given-names></name></person-group>
+<article-title>A computational analysis of protein-protein interaction networks in neurodegenerative diseases</article-title>
+<source/>BMC Syst. Biol.
+<year>2008</year>
+<volume>2</volume>
+<fpage>1</fpage>
+<pub-id pub-id-type="doi">10.1186/1752-0509-2-52</pub-id>
+<pub-id pub-id-type="pmid">18171472</pub-id></element-citation>
+</ref>
+<ref id="B59-ijms-17-00862">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stanley</surname><given-names>M.L.</given-names></name><name><surname>Moussa</surname><given-names>M.N.</given-names></name><name><surname>Paolini</surname><given-names>B.M.</given-names></name><name><surname>Lyday</surname><given-names>R.G.</given-names></name><name><surname>Burdette</surname><given-names>J.H.</given-names></name><name><surname>Laurienti</surname><given-names>P.J.</given-names></name></person-group>
+<article-title>Defining nodes in complex brain networks</article-title>
+<source/>Front. Comput. Neurosci.
+<year>2013</year>
+<volume>7</volume>
+<pub-id pub-id-type="doi">10.3389/fncom.2013.00169</pub-id>
+<pub-id pub-id-type="pmid">24319426</pub-id></element-citation>
+</ref>
+<ref id="B60-ijms-17-00862">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Crosson</surname><given-names>B.</given-names></name><name><surname>Ford</surname><given-names>A.</given-names></name><name><surname>McGregor</surname><given-names>K.M.</given-names></name><name><surname>Meinzer</surname><given-names>M.</given-names></name><name><surname>Cheshkov</surname><given-names>S.</given-names></name><name><surname>Li</surname><given-names>X.</given-names></name><name><surname>Walker-Batson</surname><given-names>D.</given-names></name><name><surname>Briggs</surname><given-names>R.W.</given-names></name></person-group>
+<article-title>Functional imaging and related techniques: An introduction for rehabilitation researchers</article-title>
+<source/>J. Rehabil. Res. Dev.
+<year>2010</year>
+<volume>47</volume>
+<fpage>7</fpage>
+<lpage>34</lpage>
+<pub-id pub-id-type="doi">10.1682/JRRD.2010.02.0017</pub-id>
+<pub-id pub-id-type="pmid">20437323</pub-id></element-citation>
+</ref>
+<ref id="B61-ijms-17-00862">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rombouts</surname><given-names>S.A.</given-names></name><name><surname>Barkhof</surname><given-names>F.</given-names></name><name><surname>Goekoop</surname><given-names>R.</given-names></name><name><surname>Stam</surname><given-names>C.J.</given-names></name><name><surname>Scheltens</surname><given-names>P.</given-names></name></person-group>
+<article-title>Altered resting state networks in mild cognitive impairment and mild Alzheimer’s disease: An fMRI study</article-title>
+<source/>Hum. Brain Mapp.
+<year>2005</year>
+<volume>26</volume>
+<fpage>231</fpage>
+<lpage>239</lpage>
+<pub-id pub-id-type="doi">10.1002/hbm.20160</pub-id>
+<pub-id pub-id-type="pmid">15954139</pub-id></element-citation>
+</ref>
+<ref id="B62-ijms-17-00862">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Supekar</surname><given-names>K.</given-names></name><name><surname>Menon</surname><given-names>V.</given-names></name><name><surname>Rubin</surname><given-names>D.</given-names></name><name><surname>Musen</surname><given-names>M.</given-names></name><name><surname>Greicius</surname><given-names>M.D.</given-names></name></person-group>
+<article-title>Network analysis of intrinsic functional brain connectivity in Alzheimer’s disease</article-title>
+<source/>PLoS Comput. Biol.
+<year>2008</year>
+<volume>4</volume>
+<elocation-id>862</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1000100</pub-id>
+<pub-id pub-id-type="pmid">18584043</pub-id></element-citation>
+</ref>
+<ref id="B63-ijms-17-00862">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Göttlich</surname><given-names>M.</given-names></name><name><surname>Münte</surname><given-names>T.F.</given-names></name><name><surname>Heldmann</surname><given-names>M.</given-names></name><name><surname>Kasten</surname><given-names>M.</given-names></name><name><surname>Hagenah</surname><given-names>J.</given-names></name><name><surname>Krämer</surname><given-names>U.M.</given-names></name></person-group>
+<article-title>Altered resting state brain networks in Parkinson’s Disease</article-title>
+<source/>PLoS ONE
+<year>2013</year>
+<volume>8</volume>
+<elocation-id>862</elocation-id>
+</element-citation>
+</ref>
+<ref id="B64-ijms-17-00862">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bluhm</surname><given-names>R.L.</given-names></name><name><surname>Miller</surname><given-names>J.</given-names></name><name><surname>Lanius</surname><given-names>R.A.</given-names></name><name><surname>Osuch</surname><given-names>E.A.</given-names></name><name><surname>Boksman</surname><given-names>K.</given-names></name><name><surname>Neufeld</surname><given-names>R.</given-names></name><name><surname>Théberge</surname><given-names>J.</given-names></name><name><surname>Schaefer</surname><given-names>B.</given-names></name><name><surname>Williamson</surname><given-names>P.</given-names></name></person-group>
+<article-title>Spontaneous low-frequency fluctuations in the BOLD signal in Schizophrenic patients: Anomalies in the default network</article-title>
+<source/>Schizophr. Bull.
+<year>2007</year>
+<volume>33</volume>
+<fpage>1004</fpage>
+<lpage>1012</lpage>
+<pub-id pub-id-type="doi">10.1093/schbul/sbm052</pub-id>
+<pub-id pub-id-type="pmid">17556752</pub-id></element-citation>
+</ref>
+<ref id="B65-ijms-17-00862">
+<label>65.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Heuvel</surname><given-names>M.P.v.d.</given-names></name><name><surname>Hulshoff Pol</surname><given-names>H.E.</given-names></name></person-group>
+<article-title>Exploring the brain network: A review on resting-state fMRI functional connectivity</article-title>
+<source/>Eur. Neuropsychopharmacol.
+<year>2010</year>
+<volume>20</volume>
+<fpage>519</fpage>
+<lpage>534</lpage>
+<pub-id pub-id-type="doi">10.1016/j.euroneuro.2010.03.008</pub-id>
+<pub-id pub-id-type="pmid">20471808</pub-id></element-citation>
+</ref>
+<ref id="B66-ijms-17-00862">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bullmore</surname><given-names>E.</given-names></name><name><surname>Sporns</surname><given-names>O.</given-names></name></person-group>
+<article-title>Complex brain networks: Graph theoretical analysis of structural and functional systems</article-title>
+<source/>Nat. Rev. Neurosci.
+<year>2009</year>
+<volume>10</volume>
+<fpage>186</fpage>
+<lpage>198</lpage>
+<pub-id pub-id-type="doi">10.1038/nrn2575</pub-id>
+<pub-id pub-id-type="pmid">19190637</pub-id></element-citation>
+</ref>
+<ref id="B67-ijms-17-00862">
+<label>67.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Vissersa</surname><given-names>M.E.</given-names></name><name><surname>Cohena</surname><given-names>M.X.</given-names></name><name><surname>Geurtsa</surname><given-names>H.M.</given-names></name></person-group>
+<article-title>Brain connectivity and high functioning Autism: A promising path of research that needs refined models, methodological convergence, and stronger behavioral links</article-title>
+<source/>Neurosci. Biobehav. Rev.
+<year>2012</year>
+<volume>36</volume>
+<fpage>604</fpage>
+<lpage>625</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neubiorev.2011.09.003</pub-id>
+<pub-id pub-id-type="pmid">21963441</pub-id></element-citation>
+</ref>
+<ref id="B68-ijms-17-00862">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Goldenberg</surname><given-names>D.</given-names></name><name><surname>Galvána</surname><given-names>A.</given-names></name></person-group>
+<article-title>The use of functional and effective connectivity techniques to understand the developing brain</article-title>
+<source/>Dev. Cogn. Neurosci.
+<year>2015</year>
+<volume>12</volume>
+<fpage>155</fpage>
+<lpage>164</lpage>
+<pub-id pub-id-type="doi">10.1016/j.dcn.2015.01.011</pub-id>
+<pub-id pub-id-type="pmid">25770766</pub-id></element-citation>
+</ref>
+<ref id="B69-ijms-17-00862">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bassett</surname><given-names>D.S.</given-names></name><name><surname>Yang</surname><given-names>M.</given-names></name><name><surname>Wymbs</surname><given-names>N.F.</given-names></name><name><surname>Grafton</surname><given-names>S.T.</given-names></name></person-group>
+<article-title>Learning-Induced autonomy of sensorimotor systems</article-title>
+<source/>Nat. Neurosci.
+<year>2015</year>
+<volume>18</volume>
+<fpage>744</fpage>
+<lpage>751</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.3993</pub-id>
+<pub-id pub-id-type="pmid">25849989</pub-id></element-citation>
+</ref>
+<ref id="B70-ijms-17-00862">
+<label>70.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Fallani</surname><given-names>F.D.V.</given-names></name><name><surname>Richiardi</surname><given-names>J.</given-names></name><name><surname>Chavez</surname><given-names>M.</given-names></name><name><surname>Achard</surname><given-names>S.</given-names></name></person-group>
+<article-title>Graph analysis of functional brain networks: Practical issues in translational neuroscience</article-title>
+<source/>Philos. Trans. R. Soc. B Biol. Sci.
+<year>2014</year>
+<pub-id pub-id-type="doi">10.1098/rstb.2013.0521</pub-id>
+</element-citation>
+</ref>
+<ref id="B71-ijms-17-00862">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cheng</surname><given-names>H.</given-names></name><name><surname>Wang</surname><given-names>Y.</given-names></name><name><surname>Sheng</surname><given-names>J.</given-names></name><name><surname>Kronenberger</surname><given-names>W.G.</given-names></name><name><surname>Mathews</surname><given-names>V.P.</given-names></name><name><surname>Hummer</surname><given-names>T.A.</given-names></name><name><surname>Saykin</surname><given-names>A.J.</given-names></name></person-group>
+<article-title>Characteristics and variability of structural networks derived from diffusion tensor imaging</article-title>
+<source/>Neuroimage
+<year>2012</year>
+<volume>61</volume>
+<fpage>1153</fpage>
+<lpage>1164</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroimage.2012.03.036</pub-id>
+<pub-id pub-id-type="pmid">22450298</pub-id></element-citation>
+</ref>
+<ref id="B72-ijms-17-00862">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Koch</surname><given-names>K.</given-names></name><name><surname>Wagner</surname><given-names>G.</given-names></name><name><surname>Dahnke</surname><given-names>R.</given-names></name><name><surname>Schachtzabel</surname><given-names>C.</given-names></name><name><surname>Schultz</surname><given-names>C.</given-names></name><name><surname>Roebel</surname><given-names>M.</given-names></name><name><surname>Güllmar</surname><given-names>D.</given-names></name><name><surname>Reichenbach</surname><given-names>J.R.</given-names></name><name><surname>Sauer</surname><given-names>H.</given-names></name><name><surname>Schlösser</surname><given-names>R.G.M.</given-names></name></person-group>
+<article-title>Disrupted white matter integrity of corticopontine-cerebellar circuitry in Schizophrenia</article-title>
+<source/>Eur. Arch. Psychiatry Clin. Neurosci.
+<year>2010</year>
+<volume>260</volume>
+<fpage>419</fpage>
+<lpage>426</lpage>
+<pub-id pub-id-type="doi">10.1007/s00406-009-0087-0</pub-id>
+<pub-id pub-id-type="pmid">19915989</pub-id></element-citation>
+</ref>
+<ref id="B73-ijms-17-00862">
+<label>73.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Clayden</surname><given-names>J.D.</given-names></name></person-group>
+<article-title>Imaging connectivity: MRI and the structural networks of the brain</article-title>
+<source/>Funct. Neurol.
+<year>2013</year>
+<volume>28</volume>
+<fpage>197</fpage>
+<lpage>203</lpage>
+<pub-id pub-id-type="pmid">24139656</pub-id></element-citation>
+</ref>
+<ref id="B74-ijms-17-00862">
+<label>74.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wang</surname><given-names>Z.</given-names></name><name><surname>Dai</surname><given-names>Z.</given-names></name><name><surname>Gong</surname><given-names>G.</given-names></name><name><surname>Zhou</surname><given-names>C.</given-names></name><name><surname>He</surname><given-names>Y.</given-names></name></person-group>
+<article-title>Understanding structural-functional relationships in the human brain: A large-scale network perspective</article-title>
+<source/>Neuroscientist
+<year>2014</year>
+<volume>21</volume>
+<fpage>290</fpage>
+<lpage>305</lpage>
+<pub-id pub-id-type="doi">10.1177/1073858414537560</pub-id>
+<pub-id pub-id-type="pmid">24962094</pub-id></element-citation>
+</ref>
+<ref id="B75-ijms-17-00862">
+<label>75.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tewarie</surname><given-names>P.</given-names></name><name><surname>Hillebrand</surname><given-names>A.</given-names></name><name><surname>Schoonheimc</surname><given-names>M.</given-names></name><name><surname>Dijk</surname><given-names>B.V.</given-names></name><name><surname>Geurts</surname><given-names>J.</given-names></name><name><surname>Barkhof</surname><given-names>F.</given-names></name><name><surname>Polman</surname><given-names>C.</given-names></name><name><surname>Stamb</surname><given-names>C.</given-names></name></person-group>
+<article-title>Functional brain network analysis using minimum spanning trees in multiple sclerosis: An meg source-space study</article-title>
+<source/>NeuroImage
+<year>2014</year>
+<volume>88</volume>
+<fpage>308</fpage>
+<lpage>318</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroimage.2013.10.022</pub-id>
+<pub-id pub-id-type="pmid">24161625</pub-id></element-citation>
+</ref>
+<ref id="B76-ijms-17-00862">
+<label>76.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sang</surname><given-names>L.</given-names></name><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Wang</surname><given-names>L.</given-names></name><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name><name><surname>Li</surname><given-names>P.</given-names></name><name><surname>Wang</surname><given-names>J.</given-names></name><name><surname>Qiu</surname><given-names>M.</given-names></name></person-group>
+<article-title>Alteration of brain functional networks in early-stage Parkinson’s disease: A resting-state fmri study</article-title>
+<source/>PLoS ONE
+<year>2015</year>
+<volume>10</volume>
+<elocation-id>862</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0141815</pub-id>
+<pub-id pub-id-type="pmid">26517128</pub-id></element-citation>
+</ref>
+<ref id="B77-ijms-17-00862">
+<label>77.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tzourio-Mazoyer</surname><given-names>N.</given-names></name><name><surname>Landeau</surname><given-names>B.</given-names></name><name><surname>Papathanassiou</surname><given-names>D.</given-names></name><name><surname>Crivello</surname><given-names>F.</given-names></name><name><surname>Etard</surname><given-names>O.</given-names></name><name><surname>Delcroix</surname><given-names>N.</given-names></name><name><surname>Mazoyer</surname><given-names>B.</given-names></name><name><surname>Joliot</surname><given-names>M.</given-names></name></person-group>
+<article-title>Automated anatomical labeling of activations in spm using a macroscopic anatomical parcellation of the mni mri single-subject Brain</article-title>
+<source/>NeuroImage
+<year>2002</year>
+<volume>15</volume>
+<fpage>273</fpage>
+<lpage>289</lpage>
+<pub-id pub-id-type="doi">10.1006/nimg.2001.0978</pub-id>
+<pub-id pub-id-type="pmid">11771995</pub-id></element-citation>
+</ref>
+<ref id="B78-ijms-17-00862">
+<label>78.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Dubbelink</surname><given-names>K.T.E.O.</given-names></name><name><surname>Stoffers</surname><given-names>D.</given-names></name><name><surname>Deijen</surname><given-names>J.B.</given-names></name><name><surname>Twisk</surname><given-names>J.W.</given-names></name><name><surname>Stam</surname><given-names>C.J.</given-names></name><name><surname>Hillebrand</surname><given-names>A.</given-names></name><name><surname>Berendse</surname><given-names>H.W.</given-names></name></person-group>
+<article-title>Resting-state functional connectivity as a marker of disease progression in Parkinson’s disease: A longitudinal MEG study</article-title>
+<source/>NeuroImage Clin.
+<year>2013</year>
+<volume>2</volume>
+<fpage>612</fpage>
+<lpage>619</lpage>
+<pub-id pub-id-type="doi">10.1016/j.nicl.2013.04.003</pub-id>
+<pub-id pub-id-type="pmid">24179812</pub-id></element-citation>
+</ref>
+<ref id="B79-ijms-17-00862">
+<label>79.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Peters</surname><given-names>J.M.</given-names></name><name><surname>Taquet</surname><given-names>M.</given-names></name><name><surname>Vega</surname><given-names>C.</given-names></name><name><surname>Jeste</surname><given-names>S.S.</given-names></name><name><surname>Fernández</surname><given-names>I.S.</given-names></name><name><surname>Tan</surname><given-names>J.</given-names></name><name><surname>Nelson</surname><given-names>C.A.</given-names></name><name><surname>Sahin</surname><given-names>M.</given-names></name><name><surname>Warfield</surname><given-names>S.K.</given-names></name></person-group>
+<article-title>Brain functional networks in syndromic and non-syndromic autism: A graph theoretical study of EEG connectivity</article-title>
+<source/>BMC Med.
+<year>2013</year>
+<volume>11</volume>
+<fpage>54</fpage>
+<pub-id pub-id-type="doi">10.1186/1741-7015-11-54</pub-id>
+<pub-id pub-id-type="pmid">23445896</pub-id></element-citation>
+</ref>
+<ref id="B80-ijms-17-00862">
+<label>80.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ortega</surname><given-names>G.J.</given-names></name><name><surname>Sola</surname><given-names>R.G.</given-names></name><name><surname>Pastor</surname><given-names>J.</given-names></name></person-group>
+<article-title>Complex network analysis of human ECoG data</article-title>
+<source/>Neurosci. Lett.
+<year>2008</year>
+<volume>447</volume>
+<fpage>129</fpage>
+<lpage>133</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neulet.2008.09.080</pub-id>
+<pub-id pub-id-type="pmid">18848970</pub-id></element-citation>
+</ref>
+<ref id="B81-ijms-17-00862">
+<label>81.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author"><name><surname>Hu</surname><given-names>C.</given-names></name><name><surname>Fakhri</surname><given-names>G.E.</given-names></name><name><surname>Li</surname><given-names>Q.</given-names></name></person-group>
+<article-title>Evaluating structural symmetry of weighted brain networks via graph matching</article-title>
+<source/>Medical Image Computing and Computer-Assisted Intervention-MICCAI 2014
+<comment>Lecture Notes in Computer Science</comment>
+<person-group person-group-type="editor"><name><surname>Golland</surname><given-names>P.</given-names></name><name><surname>Hata</surname><given-names>N.</given-names></name><name><surname>Barillot</surname><given-names>C.</given-names></name><name><surname>Hornegger</surname><given-names>J.</given-names></name><name><surname>Howe</surname><given-names>R.</given-names></name></person-group>
+<publisher-name>Springer International Publishing</publisher-name>
+<publisher-loc>Berlin/Heidelberg, Germany</publisher-loc>
+<year>2014</year>
+<volume>Volume 8674</volume>
+<fpage>733</fpage>
+<lpage>740</lpage>
+</element-citation>
+</ref>
+<ref id="B82-ijms-17-00862">
+<label>82.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Umeyama</surname><given-names>S.</given-names></name></person-group>
+<article-title>An eigendecomposition approach to weighted graph matching problems</article-title>
+<source/>IEEE Trans. Pattern Anal. Mach. Intell.
+<year>1988</year>
+<volume>10</volume>
+<fpage>695</fpage>
+<lpage>703</lpage>
+<pub-id pub-id-type="doi">10.1109/34.6778</pub-id>
+</element-citation>
+</ref>
+<ref id="B83-ijms-17-00862">
+<label>83.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>He</surname><given-names>Y.</given-names></name><name><surname>Chen</surname><given-names>Z.</given-names></name><name><surname>Gong</surname><given-names>G.</given-names></name><name><surname>Evans</surname><given-names>A.</given-names></name></person-group>
+<article-title>Structural insights into aberrant topological patterns of large-scale cortical networks in Alzheimer’s disease</article-title>
+<source/>J. Neurosci.
+<year>2008</year>
+<volume>28</volume>
+<fpage>4756</fpage>
+<lpage>4766</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.0141-08.2008</pub-id>
+<pub-id pub-id-type="pmid">18448652</pub-id></element-citation>
+</ref>
+<ref id="B84-ijms-17-00862">
+<label>84.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lo</surname><given-names>C.Y.</given-names></name><name><surname>Wang</surname><given-names>P.N.</given-names></name><name><surname>Chou</surname><given-names>K.H.</given-names></name><name><surname>Wang</surname><given-names>J.</given-names></name><name><surname>He</surname><given-names>Y.</given-names></name><name><surname>Lin</surname><given-names>C.P.</given-names></name></person-group>
+<article-title>Diffusion tensor tractography reveals abnormal topological organization in structural cortical networks in Alzheimer’s disease</article-title>
+<source/>J. Neurosci.
+<year>2010</year>
+<volume>30</volume>
+<fpage>16876</fpage>
+<lpage>16885</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.4136-10.2010</pub-id>
+<pub-id pub-id-type="pmid">21159959</pub-id></element-citation>
+</ref>
+<ref id="B85-ijms-17-00862">
+<label>85.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bassett</surname><given-names>D.S.</given-names></name><name><surname>Bullmore</surname><given-names>E.</given-names></name><name><surname>Verchinski</surname><given-names>B.A.</given-names></name><name><surname>Mattay</surname><given-names>V.S.</given-names></name><name><surname>Weinberger</surname><given-names>D.R.</given-names></name><name><surname>Meyer-Lindenberg</surname><given-names>A.</given-names></name></person-group>
+<article-title>Hierarchical organization of human cortical networks in health and schizophrenia</article-title>
+<source/>J. Neurosci.
+<year>2008</year>
+<volume>28</volume>
+<fpage>9239</fpage>
+<lpage>9248</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1929-08.2008</pub-id>
+<pub-id pub-id-type="pmid">18784304</pub-id></element-citation>
+</ref>
+<ref id="B86-ijms-17-00862">
+<label>86.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hwang</surname><given-names>T.</given-names></name><name><surname>Atluri</surname><given-names>G.</given-names></name><name><surname>Xie</surname><given-names>M.</given-names></name><name><surname>Dey</surname><given-names>S.</given-names></name><name><surname>Hong</surname><given-names>C.</given-names></name><name><surname>Kumar</surname><given-names>V.</given-names></name><name><surname>Kuang</surname><given-names>R.</given-names></name></person-group>
+<article-title>Co-clustering phenome-genome for phenotype classification and disease gene discovery</article-title>
+<source/>Nucleic Acids Res.
+<year>2012</year>
+<volume>40</volume>
+<elocation-id>862</elocation-id>
+<pub-id pub-id-type="doi">10.1093/nar/gks615</pub-id>
+<pub-id pub-id-type="pmid">22735708</pub-id></element-citation>
+</ref>
+<ref id="B87-ijms-17-00862">
+<label>87.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rudie</surname><given-names>J.D.</given-names></name><name><surname>Brown</surname><given-names>J.</given-names></name><name><surname>Beck-Pancer</surname><given-names>D.</given-names></name><name><surname>Hernandez</surname><given-names>L.</given-names></name><name><surname>Dennis</surname><given-names>E.</given-names></name><name><surname>Thompson</surname><given-names>P.</given-names></name><name><surname>Bookheimer</surname><given-names>S.</given-names></name><name><surname>Daprettoa</surname><given-names>M.</given-names></name></person-group>
+<article-title>Altered functional and structural brain network organization in Autism</article-title>
+<source/>NeuroImage Clin.
+<year>2013</year>
+<volume>2</volume>
+<fpage>79</fpage>
+<lpage>94</lpage>
+<pub-id pub-id-type="doi">10.1016/j.nicl.2012.11.006</pub-id>
+<pub-id pub-id-type="pmid">24179761</pub-id></element-citation>
+</ref>
+<ref id="B88-ijms-17-00862">
+<label>88.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Power</surname><given-names>J.D.</given-names></name><name><surname>Cohen</surname><given-names>A.L.</given-names></name><name><surname>Nelson</surname><given-names>S.M.</given-names></name><name><surname>Wig</surname><given-names>G.S.</given-names></name><name><surname>Barnes</surname><given-names>K.A.</given-names></name><name><surname>Church</surname><given-names>J.A.</given-names></name><name><surname>Vogel</surname><given-names>A.C.</given-names></name><name><surname>Laumann</surname><given-names>T.O.</given-names></name><name><surname>Miezin</surname><given-names>F.M.</given-names></name><name><surname>Schlaggar</surname><given-names>B.L.</given-names></name><name><surname>Petersen</surname><given-names>S.E.</given-names></name></person-group>
+<article-title>Functional network organization of the human brain</article-title>
+<source/>Neuron
+<year>2011</year>
+<volume>72</volume>
+<fpage>665</fpage>
+<lpage>678</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2011.09.006</pub-id>
+<pub-id pub-id-type="pmid">22099467</pub-id></element-citation>
+</ref>
+<ref id="B89-ijms-17-00862">
+<label>89.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hagmann</surname><given-names>P.</given-names></name><name><surname>Sporns</surname><given-names>O.</given-names></name><name><surname>Madan</surname><given-names>N.</given-names></name><name><surname>Cammoun</surname><given-names>L.</given-names></name><name><surname>Pienaar</surname><given-names>R.</given-names></name><name><surname>Wedeen</surname><given-names>V.J.</given-names></name><name><surname>Meuli</surname><given-names>R.</given-names></name><name><surname>Thiran</surname><given-names>J.P.</given-names></name><name><surname>Grant</surname><given-names>P.E.</given-names></name></person-group>
+<article-title>White matter maturation reshapes structural connectivity in the late developing human brain</article-title>
+<source/>Proc. Natl. Acad. Sci. USA
+<year>2010</year>
+<volume>107</volume>
+<fpage>19067</fpage>
+<lpage>19072</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1009073107</pub-id>
+<pub-id pub-id-type="pmid">20956328</pub-id></element-citation>
+</ref>
+<ref id="B90-ijms-17-00862">
+<label>90.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kivelä</surname><given-names>M.</given-names></name><name><surname>Arenas</surname><given-names>A.</given-names></name><name><surname>Barthelemy</surname><given-names>M.</given-names></name><name><surname>Gleeson</surname><given-names>J.P.</given-names></name><name><surname>Moreno</surname><given-names>Y.</given-names></name><name><surname>Porter</surname><given-names>M.A.</given-names></name></person-group>
+<article-title>Multilayer Networks</article-title>
+<source/>J. Complex Netw.
+<year>2014</year>
+<volume>2</volume>
+<fpage>203</fpage>
+<lpage>271</lpage>
+<pub-id pub-id-type="doi">10.1093/comnet/cnu016</pub-id>
+</element-citation>
+</ref>
+<ref id="B91-ijms-17-00862">
+<label>91.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>De Domenico</surname><given-names>M.</given-names></name><name><surname>Solé-Ribalta</surname><given-names>A.</given-names></name><name><surname>Cozzo</surname><given-names>E.</given-names></name><name><surname>Kivelä</surname><given-names>M.</given-names></name><name><surname>Moreno</surname><given-names>Y.</given-names></name><name><surname>Porter</surname><given-names>M.A.</given-names></name><name><surname>Gómez</surname><given-names>S.</given-names></name><name><surname>Arenas</surname><given-names>A.</given-names></name></person-group>
+<article-title>Mathematical Formulation of Multilayer Networks</article-title>
+<source/>Phys. Rev. X
+<year>2013</year>
+<volume>3</volume>
+<fpage>041022</fpage>
+<pub-id pub-id-type="doi">10.1103/PhysRevX.3.041022</pub-id>
+</element-citation>
+</ref>
+<ref id="B92-ijms-17-00862">
+<label>92.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sael</surname><given-names>L.</given-names></name><name><surname>Jeon</surname><given-names>I.</given-names></name><name><surname>Kang</surname><given-names>U.</given-names></name></person-group>
+<article-title>Scalable Tensor Mining</article-title>
+<source/>Big Data Res.
+<year>2015</year>
+<volume>2</volume>
+<fpage>82</fpage>
+<lpage>86</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bdr.2015.01.004</pub-id>
+</element-citation>
+</ref>
+<ref id="B93-ijms-17-00862">
+<label>93.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jeon</surname><given-names>B.S.</given-names></name><name><surname>Jeon</surname><given-names>L.S.I.</given-names></name><name><surname>Kang</surname><given-names>U.</given-names></name></person-group>
+<article-title>SCouT: Scalable coupled matrix-tensor factorization—Algorithm and discoveries</article-title>
+<source/>Int. Conf. Data Eng.
+<year>2016</year>
+<comment>in press</comment>
+</element-citation>
+</ref>
+<ref id="B94-ijms-17-00862">
+<label>94.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gustafsson</surname><given-names>M.</given-names></name><name><surname>Nestor</surname><given-names>C.E.</given-names></name><name><surname>Zhang</surname><given-names>H.</given-names></name><name><surname>Barabási</surname><given-names>A.L.</given-names></name><name><surname>Baranzini</surname><given-names>S.</given-names></name><name><surname>Brunak</surname><given-names>S.</given-names></name><name><surname>Chung</surname><given-names>K.F.</given-names></name><name><surname>Federoff</surname><given-names>H.J.</given-names></name><name><surname>Gavin</surname><given-names>A.C.</given-names></name><name><surname>Meehan</surname><given-names>R.R.</given-names></name><etal></etal></person-group>
+<article-title>Modules, networks and systems medicine for understanding disease and aiding diagnosis</article-title>
+<source/>Genome Med.
+<year>2014</year>
+<volume>6</volume>
+<fpage>82</fpage>
+<pub-id pub-id-type="doi">10.1186/s13073-014-0082-6</pub-id>
+<pub-id pub-id-type="pmid">25473422</pub-id></element-citation>
+</ref>
+<ref id="B95-ijms-17-00862">
+<label>95.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Salem</surname><given-names>S.</given-names></name><name><surname>Ozcaglar</surname><given-names>C.</given-names></name></person-group>
+<article-title>Hybrid coexpression link similarity graph clustering for mining biological modules from multiple gene expression datasets</article-title>
+<source/>Bio. Data Mining
+<year>2014</year>
+<volume>7</volume>
+<fpage>1</fpage>
+<pub-id pub-id-type="doi">10.1186/1756-0381-7-16</pub-id>
+<pub-id pub-id-type="pmid">25221624</pub-id></element-citation>
+</ref>
+<ref id="B96-ijms-17-00862">
+<label>96.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Didier</surname><given-names>G.</given-names></name><name><surname>Brun</surname><given-names>C.</given-names></name><name><surname>Baudot</surname><given-names>A.</given-names></name></person-group>
+<article-title>Identifying communities from multiplex biological networks</article-title>
+<source/>Peer J.
+<year>2015</year>
+<volume>3</volume>
+<elocation-id>862</elocation-id>
+<pub-id pub-id-type="doi">10.7717/peerj.1525</pub-id>
+<pub-id pub-id-type="pmid">26713261</pub-id></element-citation>
+</ref>
+<ref id="B97-ijms-17-00862">
+<label>97.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Newman</surname><given-names>M.E.J.</given-names></name><name><surname>Girvan</surname><given-names>M.</given-names></name></person-group>
+<article-title>Finding and evaluating community structure in networks</article-title>
+<source/>Phys. Rev. E
+<year>2004</year>
+<volume>69</volume>
+<fpage>026113</fpage>
+<pub-id pub-id-type="doi">10.1103/PhysRevE.69.026113</pub-id>
+<pub-id pub-id-type="pmid">14995526</pub-id></element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="ijms-17-00862-f001" position="float">
+<label>Figure 1</label>
+<caption>
+<p>APP protein-protein interaction sub-networks. Red nodes represent the proteins from Yeast Two-Hybrid screening and blue nodes indicate interactors extracted from the databases. Adapted from “Amyloid precursor protein interaction network in human testis: sentinel proteins for male reproduction”, 2015, BMC Bioinformatics, 16:12, p. 5. Copyright 2015 Silva <italic>et al.</italic> [<xref ref-type="bibr" rid="B49-ijms-17-00862">49</xref>]; licensee BioMed Central.</p>
+</caption>
+<graphic xlink:href="ijms-17-00862-g001"></graphic>
+</fig>
+<fig id="ijms-17-00862-f002" position="float">
+<label>Figure 2</label>
+<caption>
+<p>The Alzheimer’s brain network showing connectivity of seed proteins. Purple nodes indicate the seed-proteins with their name. Orange nodes indicate neighboring proteins that belong to the giant component, <italic>i.e.</italic>, the largest section of a network whose nodes are connected. Green nodes indicate neighbors that are not included in the giant component. Adapted from “A computational analysis of protein-protein interaction networks in neurodegenerative diseases”, 2008, BMC Systems Biology, 2:52, p. 7. Copyright 2008 Goni <italic>et al.</italic> [<xref ref-type="bibr" rid="B58-ijms-17-00862">58</xref>]; licensee BioMed Central Ltd., London, U.K.</p>
+</caption>
+<graphic xlink:href="ijms-17-00862-g002"></graphic>
+</fig>
+<fig id="ijms-17-00862-f003" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Overview of brain network analysis. Clusters are color coded in the rightmost figure.</p>
+</caption>
+<graphic xlink:href="ijms-17-00862-g003"></graphic>
+</fig>
+<table-wrap id="ijms-17-00862-t001" position="float">
+<object-id pub-id-type="pii">ijms-17-00862-t001_Table 1</object-id>
+<label>Table 1</label>
+<caption>
+<p>Graph theoretical measures for network analysis.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="top">Measure</th>
+<th align="left" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="top">Scope</th>
+<th align="left" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="top">Computation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Clustering coefficient</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top"><inline-formula><mml:math id="mm1"><mml:mrow><mml:msub><mml:mi>c</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mn>2</mml:mn><mml:msub><mml:mi>e</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula>, where <inline-formula><mml:math id="mm2"><mml:msub><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math></inline-formula> is the degree and <inline-formula><mml:math id="mm3"><mml:msub><mml:mi>e</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math></inline-formula> is the number of links between neighbors of the <italic>i</italic>-th node.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local efficiency</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top"><inline-formula><mml:math id="mm4"><mml:mrow><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>c</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi>N</mml:mi></mml:mfrac><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>∈</mml:mo><mml:mi>G</mml:mi></mml:mrow></mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>G</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:math></inline-formula>, where <inline-formula><mml:math id="mm5"><mml:mrow><mml:mi>E</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mi>G</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mn>2</mml:mn><mml:mrow><mml:mi>N</mml:mi><mml:mo>(</mml:mo><mml:mi>N</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mo>)</mml:mo></mml:mrow></mml:mfrac><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>&lt;</mml:mo><mml:mi>j</mml:mi><mml:mo>∈</mml:mo><mml:msub><mml:mi>G</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:msub><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:mi>d</mml:mi><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula>, where <inline-formula><mml:math id="mm6"><mml:msub><mml:mi>G</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math></inline-formula> is the subgraph of <italic>G</italic> that consists of node <italic>i</italic> immediate neighbors excluding <italic>i</italic> and <inline-formula><mml:math id="mm7"><mml:mrow><mml:mi>d</mml:mi><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:math></inline-formula> is the shortest path length between nodes <italic>i</italic> and <italic>j</italic>.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Degree centrality</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">number of edges emanating from a node</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Betweenness centrality</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top"><inline-formula><mml:math id="mm8"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi><mml:mo>∈</mml:mo><mml:mi>N</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>≠</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mfrac><mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:mfrac></mml:mrow></mml:math></inline-formula> where <inline-formula><mml:math id="mm9"><mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:math></inline-formula> is number of shortest paths between <italic>j</italic> and <italic>k</italic> that run through iand <inline-formula><mml:math id="mm10"><mml:msub><mml:mi>n</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula> is the number of shortest paths between <italic>j</italic> and <italic>k</italic></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Closeness centrality</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">
+<inline-formula>
+<mml:math id="mm11">
+<mml:mrow>
+<mml:mi>c</mml:mi>
+<mml:mi>l</mml:mi>
+<mml:mi>o</mml:mi>
+<mml:mi>s</mml:mi>
+<mml:mi>e</mml:mi>
+<mml:mi>n</mml:mi>
+<mml:mi>e</mml:mi>
+<mml:mi>s</mml:mi>
+<mml:mi>s</mml:mi>
+<mml:mrow>
+<mml:mo>(</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+<mml:mo>=</mml:mo>
+<mml:msub>
+<mml:mo>∑</mml:mo>
+<mml:mi>j</mml:mi>
+</mml:msub>
+<mml:msup>
+<mml:mrow>
+<mml:mo>[</mml:mo>
+<mml:mi>d</mml:mi>
+<mml:mrow>
+<mml:mo>(</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>j</mml:mi>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+<mml:mo>]</mml:mo>
+</mml:mrow>
+<mml:mrow>
+<mml:mo>−</mml:mo>
+<mml:mn>1</mml:mn>
+</mml:mrow>
+</mml:msup>
+</mml:mrow>
+</mml:math>
+</inline-formula>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Eccentricity</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top"><inline-formula><mml:math id="mm12"><mml:mrow><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>c</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi><mml:mo>{</mml:mo><mml:mi>d</mml:mi><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo><mml:mo>:</mml:mo><mml:mi>j</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi><mml:mo>}</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula> where <italic>V</italic> is the set of nodes</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Radiality</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Local</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top"><inline-formula><mml:math id="mm13"><mml:mrow><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>j</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:msub><mml:mo>△</mml:mo><mml:mi>G</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:mi>d</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mi>N</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula> where <inline-formula><mml:math id="mm14"><mml:msub><mml:mo>△</mml:mo><mml:mi>G</mml:mi></mml:msub></mml:math></inline-formula> is the value of the diameter</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Characteristic path length</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Global</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">
+<inline-formula>
+<mml:math id="mm15">
+<mml:mrow>
+<mml:mi>L</mml:mi>
+<mml:mo>=</mml:mo>
+<mml:mfrac>
+<mml:mn>1</mml:mn>
+<mml:mrow>
+<mml:mi>N</mml:mi>
+<mml:mo>(</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>−</mml:mo>
+<mml:mn>1</mml:mn>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+</mml:mfrac>
+<mml:msub>
+<mml:mo>∑</mml:mo>
+<mml:mrow>
+<mml:mi>i</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>j</mml:mi>
+<mml:mo>∈</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>≠</mml:mo>
+<mml:mi>j</mml:mi>
+</mml:mrow>
+</mml:msub>
+<mml:mi>d</mml:mi>
+<mml:mrow>
+<mml:mo>(</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>j</mml:mi>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+</mml:mrow>
+</mml:math>
+</inline-formula>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Global efficiency</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Global</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">
+<inline-formula>
+<mml:math id="mm16">
+<mml:mrow>
+<mml:msub>
+<mml:mi>E</mml:mi>
+<mml:mrow>
+<mml:mi>g</mml:mi>
+<mml:mi>l</mml:mi>
+<mml:mi>o</mml:mi>
+<mml:mi>b</mml:mi>
+</mml:mrow>
+</mml:msub>
+<mml:mo>=</mml:mo>
+<mml:mfrac>
+<mml:mn>1</mml:mn>
+<mml:mrow>
+<mml:mi>N</mml:mi>
+<mml:mo>(</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>−</mml:mo>
+<mml:mn>1</mml:mn>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+</mml:mfrac>
+<mml:msub>
+<mml:mo>∑</mml:mo>
+<mml:mrow>
+<mml:mi>i</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>j</mml:mi>
+<mml:mo>∈</mml:mo>
+<mml:mi>N</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>≠</mml:mo>
+<mml:mi>j</mml:mi>
+</mml:mrow>
+</mml:msub>
+<mml:mfrac>
+<mml:mn>1</mml:mn>
+<mml:mrow>
+<mml:mi>d</mml:mi>
+<mml:mo>(</mml:mo>
+<mml:mi>i</mml:mi>
+<mml:mo>,</mml:mo>
+<mml:mi>j</mml:mi>
+<mml:mo>)</mml:mo>
+</mml:mrow>
+</mml:mfrac>
+</mml:mrow>
+</mml:math>
+</inline-formula>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Minimum spanning tree</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Global</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Kruskal’s algorithms [<xref ref-type="bibr" rid="B20-ijms-17-00862">20</xref>], <italic>etc.</italic></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Modularity</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top">Global</td>
+<td align="left" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="top"><inline-formula><mml:math id="mm17"><mml:mrow><mml:mi>Q</mml:mi><mml:mo>=</mml:mo><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:mrow><mml:mo>(</mml:mo></mml:mrow><mml:msub><mml:mi>e</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:mrow><mml:msubsup><mml:mi>a</mml:mi><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mn>2</mml:mn></mml:msubsup><mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math></inline-formula> where <inline-formula><mml:math id="mm18"><mml:msub><mml:mi>e</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula> is the fraction of edges that connects nodes in module <italic>i</italic>, <inline-formula><mml:math id="mm19"><mml:msubsup><mml:mi>a</mml:mi><mml:mi>i</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:math></inline-formula> is the fraction of edges that connect at least one node in the module <italic>i</italic> and <italic>k</italic> is the number of modules</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="ijms-17-00862-t002" position="float">
+<object-id pub-id-type="pii">ijms-17-00862-t002_Table 2</object-id>
+<label>Table 2</label>
+<caption>
+<p>Biological network public resources. PPI, Protein-Protein Interactions.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="middle">Group</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="middle">Name</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="middle">Description</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin;border-top:solid thin" valign="middle">Uniform Resource Locator and Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="3" style="border-bottom:solid thin" valign="middle">PPI</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">Mint</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Collects experimentally-verified PPIs in a binary or complex representation. Merged with InAct since 2013.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://mint.bio.uniroma2.it/mint/" xlink:type="simple">http://mint.bio.uniroma2.it/mint/</uri> [<xref ref-type="bibr" rid="B27-ijms-17-00862">27</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">String</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">The known and predicted protein interactions. The interactions include direct (physical) and indirect (functional) associations derived from genomic context, high-throughput experiments, coexpression, previous knowledge.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://string-db.org/" xlink:type="simple">http://string-db.org/</uri> [<xref ref-type="bibr" rid="B28-ijms-17-00862">28</xref>,<xref ref-type="bibr" rid="B29-ijms-17-00862">29</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">DIP</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Manually- and automatically-curated database. <break></break>Experimentally-determined interactions between proteins.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://dip.doe-mbi.ucla.edu/dip/Main.cgi" xlink:type="simple">http://dip.doe-mbi.ucla.edu/dip/Main.cgi</uri> [<xref ref-type="bibr" rid="B30-ijms-17-00862">30</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="5" style="border-bottom:solid thin" valign="middle">Biological Pathway</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">HPRD</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Human PPI manually extracted from the literature.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://www.hprd.org/" xlink:type="simple">http://www.hprd.org/</uri> [<xref ref-type="bibr" rid="B31-ijms-17-00862">31</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">KEGG</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Manually-curated pathway maps representing knowledge of the molecular interaction and reaction networks.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://www.genome.jp/kegg/" xlink:type="simple">http://www.genome.jp/kegg/</uri> [<xref ref-type="bibr" rid="B32-ijms-17-00862">32</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">Reactome</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Manually-curated pathway.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://www.reactome.org/" xlink:type="simple">http://www.reactome.org/</uri> [<xref ref-type="bibr" rid="B33-ijms-17-00862">33</xref>,<xref ref-type="bibr" rid="B34-ijms-17-00862">34</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">Alz-Pathway</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Manually-curated; comprehensively catalogs signaling pathways for Alzheimer’s disease.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://alzpathway.org/" xlink:type="simple">http://alzpathway.org/</uri> [<xref ref-type="bibr" rid="B35-ijms-17-00862">35</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">Pathway-Common</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Collection of publicly available pathway information from multiple organisms.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://www.pathwaycommons.org/pc" xlink:type="simple">http://www.pathwaycommons.org/pc</uri> [<xref ref-type="bibr" rid="B36-ijms-17-00862">36</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan=" 2" style="border-bottom:solid thin" valign="middle">Gene Disease Network (GDAs)</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">DisGeNET</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Integrated database from various expert-curated databases and text-mining-derived associations, including Mendelian, complex and environmental diseases.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://www.disgenet.org/web/DisGeNET" xlink:type="simple">http://www.disgenet.org/web/DisGeNET</uri> [<xref ref-type="bibr" rid="B37-ijms-17-00862">37</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">CTDTM</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Integrated chemical-gene, chemical-disease and gene-disease interactions manually-curated from the literature.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://ctdbase.org/" xlink:type="simple">http://ctdbase.org/</uri> [<xref ref-type="bibr" rid="B38-ijms-17-00862">38</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan=" 2" style="border-bottom:solid thin" valign="middle">Multiple Type</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">InAct</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Standards-compliant repository of molecular interactions, including protein-protein, protein-small molecule and protein-nucleic acid interactions.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="https://www.ebi.ac.uk/intact/" xlink:type="simple">https://www.ebi.ac.uk/intact/</uri> [<xref ref-type="bibr" rid="B39-ijms-17-00862">39</xref>,<xref ref-type="bibr" rid="B40-ijms-17-00862">40</xref>]</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom">BioGrid</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Curated biological database of protein-protein interactions, genetic interactions, chemical interactions and post-translational modifications.</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="bottom"><uri xlink:href="http://thebiogrid.org/" xlink:type="simple">http://thebiogrid.org/</uri> [<xref ref-type="bibr" rid="B41-ijms-17-00862">41</xref>]</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

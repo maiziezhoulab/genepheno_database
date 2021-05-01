@@ -1,0 +1,2779 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Data</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Data</journal-id>
+<journal-title-group>
+<journal-title>Scientific Data</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2052-4463</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32546682</article-id>
+<article-id pub-id-type="pmc">7297722</article-id>
+<article-id pub-id-type="publisher-id">514</article-id>
+<article-id pub-id-type="doi">10.1038/s41597-020-0514-7</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Analysis</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Integrated analysis of a compendium of RNA-Seq datasets for splicing factors</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Yu</surname>
+<given-names>Peng</given-names>
+</name>
+<address>
+<email>pengyu.bio@gmail.com</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Jin</given-names>
+</name>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Deng</surname>
+<given-names>Su-Ping</given-names>
+</name>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Feiran</given-names>
+</name>
+<xref ref-type="aff" rid="Aff5">5</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Grozdanov</surname>
+<given-names>Petar N.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff6">6</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Chin</surname>
+<given-names>Eunice W. M.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff7">7</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Martin</surname>
+<given-names>Sheree D.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff8">8</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Vergnes</surname>
+<given-names>Laurent</given-names>
+</name>
+<xref ref-type="aff" rid="Aff9">9</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Islam</surname>
+<given-names>M. Saharul</given-names>
+</name>
+<xref ref-type="aff" rid="Aff10">10</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sun</surname>
+<given-names>Deqiang</given-names>
+</name>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>LaSalle</surname>
+<given-names>Janine M.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff10">10</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>McGee</surname>
+<given-names>Sean L.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff8">8</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-8244-6959</contrib-id>
+<name>
+<surname>Goh</surname>
+<given-names>Eyleen</given-names>
+</name>
+<xref ref-type="aff" rid="Aff7">7</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>MacDonald</surname>
+<given-names>Clinton C.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff6">6</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6137-6659</contrib-id>
+<name>
+<surname>Jin</surname>
+<given-names>Peng</given-names>
+</name>
+<xref ref-type="aff" rid="Aff5">5</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 0807 1581</institution-id><institution-id institution-id-type="GRID">grid.13291.38</institution-id><institution>West China Biomedical Big Data Center, West China Hospital, </institution><institution>Sichuan University, </institution></institution-wrap>Chengdu, China </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 0807 1581</institution-id><institution-id institution-id-type="GRID">grid.13291.38</institution-id><institution>Medical Big Data Center, </institution><institution>Sichuan University, </institution></institution-wrap>Chengdu, China </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 4687 2082</institution-id><institution-id institution-id-type="GRID">grid.264756.4</institution-id><institution>Center for Epigenetics &amp; Disease Prevention, Institute of Biosciences and Technology, College of Medicine, </institution><institution>Texas A&amp;M University, </institution></institution-wrap>Houston, TX 77030 USA </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0604 9016</institution-id><institution-id institution-id-type="GRID">grid.440652.1</institution-id><institution>School of Electronic and Information Engineering, </institution><institution>Suzhou University of Science and Technology, </institution></institution-wrap>Suzhou, Jiangsu 215009 China </aff>
+<aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 0941 6502</institution-id><institution-id institution-id-type="GRID">grid.189967.8</institution-id><institution>Department of Human Genetics, </institution><institution>Emory University School of Medicine, </institution></institution-wrap>Atlanta, Georgia USA </aff>
+<aff id="Aff6"><label>6</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2179 3554</institution-id><institution-id institution-id-type="GRID">grid.416992.1</institution-id><institution>Department of Cell Biology &amp; Biochemistry, </institution><institution>Texas Tech University Health Sciences Center, </institution></institution-wrap>Lubbock, Texas 79430 USA </aff>
+<aff id="Aff7"><label>7</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0385 0924</institution-id><institution-id institution-id-type="GRID">grid.428397.3</institution-id><institution>Neuroscience Academic Clinical Programme, </institution><institution>Duke-NUS Medical School, </institution></institution-wrap>NA, Singapore </aff>
+<aff id="Aff8"><label>8</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 0526 7079</institution-id><institution-id institution-id-type="GRID">grid.1021.2</institution-id><institution>Metabolic Reprogramming Laboratory, Metabolic Research Unit, School of Medicine and Centre for Molecular and Medical Research, </institution><institution>Deakin University, </institution></institution-wrap>Geelong, Victoria Australia </aff>
+<aff id="Aff9"><label>9</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0000 9632 6718</institution-id><institution-id institution-id-type="GRID">grid.19006.3e</institution-id><institution>Department of Human Genetics, David Geffen School of Medicine, </institution><institution>University of California-Los Angeles, </institution></institution-wrap>Los Angeles, CA USA </aff>
+<aff id="Aff10"><label>10</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 9684</institution-id><institution-id institution-id-type="GRID">grid.27860.3b</institution-id><institution>Department of Medical Microbiology and Immunology, Genome Center, and MIND Institute, </institution><institution>University of California Davis, </institution></institution-wrap>Davis, CA USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>16</day>
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>16</day>
+<month>6</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2020</year>
+</pub-date>
+<volume>7</volume>
+<elocation-id>178</elocation-id>
+<history>
+<date date-type="received">
+<day>17</day>
+<month>1</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>13</day>
+<month>3</month>
+<year>2020</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2020</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">A vast amount of public RNA-sequencing datasets have been generated and used widely to study transcriptome mechanisms. These data offer precious opportunity for advancing biological research in transcriptome studies such as alternative splicing. We report the first large-scale integrated analysis of RNA-Seq data of splicing factors for systematically identifying key factors in diseases and biological processes. We analyzed 1,321 RNA-Seq libraries of various mouse tissues and cell lines, comprising more than 6.6 TB sequences from 75 independent studies that experimentally manipulated 56 splicing factors. Using these data, RNA splicing signatures and gene expression signatures were computed, and signature comparison analysis identified a list of key splicing factors in Rett syndrome and cold-induced thermogenesis. We show that cold-induced RNA-binding proteins rescue the neurite outgrowth defects in Rett syndrome using neuronal morphology analysis, and we also reveal that SRSF1 and PTBP1 are required for energy expenditure in adipocytes using metabolic flux analysis. Our study provides an integrated analysis for identifying key factors in diseases and biological processes and highlights the importance of public data resources for identifying hypotheses for experimental testing.</p>
+</abstract>
+<kwd-group kwd-group-type="npg-subject">
+<title>Subject terms</title>
+<kwd>Data mining</kwd>
+<kwd>Data integration</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2020</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par2">High-throughput expression profiling has been used to identify transcriptional changes associated with many diseases and biological processes (BPs). However, the mechanism underlying the associated changes remains mostly unclear. To study the underlying mechanisms, a large amount of high-throughput transcriptomic data have been generated for various upstream factors such as splicing factors (SFs). SFs are proteins regulating pre-mRNA splicing in various BPs and diseases including cancers<sup><xref ref-type="bibr" rid="CR1">1</xref>,<xref ref-type="bibr" rid="CR2">2</xref></sup>. Reanalyzing available public data renders an efficient approach to uncover upstream factors in BPs and diseases.</p>
+<p id="Par3">Given the large scale of high-throughput expression profiling data that are publicly available, any method that can utilize these data to identify upstream factors of transcription in diseases and BPs will be of great value. High-throughput expression profiling has become routine, and much of the resulting data are available from online repositories, such as Gene Expression Omnibus (GEO)<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. Up to the second quarter of 2019, GEO hosted more than 112,000 data series comprising more than 3,000,000 samples (Fig. <xref ref-type="media" rid="MOESM1">S1</xref>). As a popular method for transcriptome analysis, RNA-sequencing (RNA-Seq)<sup><xref ref-type="bibr" rid="CR4">4</xref></sup> has enabled genome-wide analyses of RNA molecules at a high sequencing depth with high accuracy. It has been used successfully on many mouse models<sup><xref ref-type="bibr" rid="CR5">5</xref>,<xref ref-type="bibr" rid="CR6">6</xref></sup>, and thousands of RNA-Seq datasets have been generated and released to the public. This massive amount of biological data brings great opportunity for generating prominent biological hypotheses<sup><xref ref-type="bibr" rid="CR7">7</xref>,<xref ref-type="bibr" rid="CR8">8</xref></sup>. However, these data were produced for diverse purposes and are not friendly to large-scale data integration. Therefore, substantial work is needed to build well-organized resources using these data to enable efficient and extensive integrated analysis. Here, we developed an integrated analysis to reveal upstream factors of post-transcriptional changes and transcriptional changes in diseases and BPs using these public RNA-Seq data.</p>
+<p id="Par4">We focused on datasets related to splicing factors (SFs), as approximately 95% of human multi-exonic genes are alternatively spliced<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>. We previously curated the metadata of a comprehensive and accurate list of mouse RNA-Seq data with perturbed SFs, which are hosted on our SFMetaDB<sup><xref ref-type="bibr" rid="CR10">10</xref>,<xref ref-type="bibr" rid="CR11">11</xref></sup>. Using these metadata, the corresponding RNA-Seq data were used to compute alternative splicing changes related to perturbed SFs, represented in RNA splicing signatures. Because SFs may also mediate gene expression<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, gene expression changes also were calculated to generate gene expression signatures. These signatures were used to determine the biological relevance of SFs to a disease or a BP using signature comparison<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. Highly relevant SFs were considered key factors in the disease or BP.</p>
+<p id="Par5">A number of signature comparison approaches have been introduced to infer relations among various datasets. For example, connectivity map (CMAP) has been used to measure the connectivity of gene expression signatures between disease datasets and compound-treated datasets in drug repositioning<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. Compared to signature comparison methods, datasets themselves are more critical for meaningful biological inference. In our present study, we combined the works of public dataset collection and signature comparisons. The public RNA-Seq datasets in SFMetaDB serve as a variable resource for generating splicing and gene expression signatures. Using these signatures, new evaluation may provide additional biological insights that would not be possible when analyzing these datasets alone.</p>
+<p id="Par6">To demonstrate the effectiveness and generalizability of our approach, we applied it to Rett syndrome (RTT)<sup><xref ref-type="bibr" rid="CR15">15</xref></sup> and cold-induced thermogenesis (CIT)<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Among the key SFs identified in RTT (e.g., cold-induced RNA-binding protein [CIRBP], SF3B1, PTBP1, PTBP2, and RBM3), <italic>Cirbp</italic> knockdown partially rescued the neurite outgrowth defects according to neuronal morphology analysis. In CIT, previous <italic>in vitro</italic> experiments supported several key SFs identified, such as CELF1, PRMT5, HNRNPU, and PQBP1. In addition, NOVA1 and NOVA2 identified by our analysis had been shown to suppress adipose tissue thermogenesis activation via <italic>in vivo</italic> experiments<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. Here, we also show SRSF1 and PTBP1 to regulate energy expenditure in adipocytes using Seahorse metabolic flux analysis.</p>
+<p id="Par7">In summary, our systematic integration of disorganized and unstructured RNA-Seq datasets along with generated signatures provides a novel approach for identifying the most promising hypotheses for experimental testing. These novel hypotheses will form the basis for new experiments leading to the elucidation of detailed regulatory mechanisms at a molecular level.</p>
+</sec>
+<sec id="Sec2" sec-type="results">
+<title>Results</title>
+<sec id="Sec3">
+<title>Generation of a signature database using a comprehensive collection of mouse RNA-Seq datasets with perturbed SFs</title>
+<p id="Par8">A signature database was constructed using a comprehensive collection of mouse RNA-Seq dataset metadata deposited in SFMetaDB, with each dataset having at least one SF perturbed. A group of 75 datasets was used to generate the signature database targeting 56 SFs (some SFs are perturbed in multiple datasets). Specifically analyzed in our workflow were more than 6.6-TB sequences from 1,321 RNA-Seq libraries from various mouse tissues and cell lines.</p>
+<p id="Par9">RNA-Seq datasets in SFMetaDB have various types of SF manipulation (Fig. <xref ref-type="fig" rid="Fig1">1a</xref>). Specifically, most SFs in SFMetaDB have been knocked-out (60%), knocked-down (28.75%), overexpressed, knocked-in, and others (e.g., point mutation) in fewer datasets. Besides various types of manipulation of SFs, datasets in SFMetaDB also span over many tissues and cell lines (Fig. <xref ref-type="fig" rid="Fig1">1b</xref>), of which the central nervous system‒related tissue/cell types are the most frequent, such as frontal cortex, neural stem cells, and neural progenitor cells. In addition, embryonic tissues and cell lines are another prominent source for studying SF perturbation.<fig id="Fig1"><label>Fig. 1</label><caption><p>Meta-information of RNA-Seq datasets analyzed in the signature database. RNA-Seq datasets analyzed in our signature database include various perturbation and tissue types. (<bold>a</bold>) The pie chart shows the percentage of RNA-Seq datasets with perturbed SFs, including knockout (KO), knockdown (KD), overexpression (OE), knockin (KI), and other types (e.g., point mutation). (<bold>b</bold>) The pie chart depicts the number of RNA-Seq libraries for various tissues or cell lines.</p></caption><graphic id="d30e550" xlink:href="41597_2020_514_Fig1_HTML"></graphic></fig></p>
+<p id="Par10">To generate splicing and gene expression signatures for SFs, differential alternative splicing (DAS) and differentially expressed gene (DEG) analyses (see Methods section) were performed on the experimental comparisons of SF perturbation datasets. DAS events and DEGs formed splicing signatures and gene expression signatures for SFs. Among generated signatures, circular Manhattan overview plots show genome-wide splicing and gene expression changes regulated by SFs (Data <xref ref-type="media" rid="MOESM1">S1</xref> and Fig. <xref ref-type="fig" rid="Fig2">2</xref>).<fig id="Fig2"><label>Fig. 2</label><caption><p>Genome-wide splicing and gene expression changes regulated by PRMT5. To evaluate splicing and gene expression changes regulated by SFs, circular Manhattan plots were generated across the whole genome (Data S1). This figure depicts the changes regulated by PRMT5 using the comparison in GSE63800. (<bold>a</bold>) Splicing changes are identified by |ΔΨ| &gt; 0.05 and <italic>q</italic> &lt; 0.05. Magenta or golden bars represent ΔΨs, and blue bars mean −log<sub>10</sub> (<italic>q</italic>-value). (<bold>b</bold>) Gene expression changes are identified by |log<sub>2</sub> (fold change)| &gt;0.5 and <italic>q</italic> &lt; 0.05. Magenta or golden bars represent log<sub>2</sub> (fold change), and blue bars mean −log<sub>10</sub> (<italic>q</italic>-value).</p></caption><graphic id="d30e598" xlink:href="41597_2020_514_Fig2_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec4">
+<title>DAS events and DEGs of the datasets curated for SFMetaDB</title>
+<p id="Par11">To explore the entirety of our generated signature database, we examined the DAS events and the DEGs of the RNA-Seq datasets curated for SFMetaDB. Our DAS analysis identified large-scale splicing changes (Fig. <xref ref-type="media" rid="MOESM1">S2a</xref>), with exon skipping (ES) being the most common event type (Fig. <xref ref-type="media" rid="MOESM1">S2b</xref>), which is consistent with previous studies<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>. In addition, we also identified a large number of DEGs (Fig. <xref ref-type="media" rid="MOESM1">S2c</xref>). The normalized numbers of DAS events and DEGs correlated significantly (Pearson correlation coefficient <italic>r</italic> = 0.66, <italic>p</italic>-value = 2.29 × 10<sup>−9</sup>) in the selected comparisons (Fig. <xref ref-type="media" rid="MOESM1">S2d</xref>) (see Methods section), supporting the existence of potential crosstalk between the splicing process and the transcription process<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>.</p>
+</sec>
+<sec id="Sec5">
+<title>Identification of key factors in RTT</title>
+<p id="Par12">To demonstrate the effectiveness of our integrated analysis, it first was used to identify SFs in RTT, which is a severe neurological disorder<sup><xref ref-type="bibr" rid="CR20">20</xref></sup> without a cure. Because <italic>Mecp2-</italic>null mice feature RTT-like phenotypes<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>, our signature database and RNA-Seq data from <italic>Mecp2</italic>-deficient mice were integrated into our workflow to identify several key factors in RTT at the splicing and gene expression levels, respectively.</p>
+<p id="Par13">A DAS analysis was performed on the RNA-Seq data from dentate gyrus of six-week <italic>Mecp2</italic><sup>−/<italic>y</italic></sup> mice (see Methods section)<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. Under |ΔΨ| &gt; 0.05 and <italic>q</italic> &lt; 0.05, 526 DAS events were identified in <italic>Mecp2</italic> knockout mice (Table <xref ref-type="media" rid="MOESM1">S1</xref> and Fig. <xref ref-type="media" rid="MOESM1">S3a</xref>). The heatmap of percent-spliced-in (PSI, Ψ) values of ES events demonstrated large splicing changes in <italic>Mecp2</italic> knockout mice (Fig. <xref ref-type="media" rid="MOESM1">S3b</xref>). These large-scale splicing changes facilitated the downstream splicing signature comparison analysis in <italic>Mecp2</italic> knockout mice to elucidate key SFs that may regulate the splicing changes in RTT.</p>
+<p id="Par14">To discover key factors in RTT, a splicing signature comparison analysis was performed between the splicing signatures of the <italic>Mecp2</italic> knockout mice and each of the splicing signatures of the SF perturbation datasets (see Methods section). Out of 56 SFs, 7 SFs were identified as the potential key SFs that may regulate the splicing changes in <italic>Mecp2</italic> knockout mice (i.e., CIRBP, DDX5, METTL3, PRMT5, PTBP1, PTBP2, and SF3B1) (Table <xref ref-type="media" rid="MOESM1">S2</xref>).</p>
+<p id="Par15">Among the identified SFs, CIRBP ranked highly (Table <xref ref-type="media" rid="MOESM1">S2</xref><bold>)</bold>, indicating its potential role in modulating a significant number of splicing changes. We conducted a loss-of-function analysis to validate the role of <italic>Cirbp</italic> in the <italic>Mecp2</italic> knockout mice. The expression of <italic>Cirbp</italic> was increased significantly in <italic>Mecp2</italic> knockout mice according to our DEG analysis using RNA-Seq data (<italic>q</italic>-value = 1.27 × 10<sup>−46</sup> and log<sub>2</sub> (fold change) = 1.064). This was confirmed experimentally using qRT-PCR (Fig. <xref ref-type="media" rid="MOESM1">S4a</xref>). A northern blot analysis of <italic>Cirbp</italic> also had shown that its expression level was up-regulated in RTT whole-brain samples<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>. Therefore, a knockdown of <italic>Cirbp</italic> was used to check whether it would rescue the neuronal morphology changes caused by lack of <italic>Mecp2</italic>. Here, the knockdown of <italic>Cirbp</italic> by shRNAs was efficient, as confirmed by the qRT-PCR assays (Fig. <xref ref-type="media" rid="MOESM1">S4b</xref><bold>)</bold>. We analyzed the neuronal morphology of primary hippocampal neurons isolated from embryonic stage 18 (E18) rats, where replicates of neurons were examined from three groups of neurons, namely <italic>Mecp2</italic> knockdown, <italic>Cirbp</italic>, and <italic>Mecp2</italic> double knockdown, and the control (see Methods section)<sup><xref ref-type="bibr" rid="CR24">24</xref>–<xref ref-type="bibr" rid="CR27">27</xref></sup>. The representative neuronal images depict the neuron morphology for three groups of neurons (Fig. <xref ref-type="fig" rid="Fig3">3a</xref>). Specifically, the branch numbers and the neurite lengths were decreased in <italic>Mecp2</italic> knockdown cells compared to the controls, but were partially rescued by the additional <italic>Cirbp</italic> knockdown (Fig. <xref ref-type="fig" rid="Fig3">3b,c</xref>). These results suggest that the <italic>Cirbp</italic> knockdown can rescue the neurite outgrowth defects caused by <italic>Mecp2</italic> silencing.<fig id="Fig3"><label>Fig. 3</label><caption><p>Neuronal morphology analysis on the role of <italic>Cirbp</italic> in RTT. (<bold>a</bold>) A neuronal morphology analysis was performed on the hippocampal neurons of <italic>Mecp2</italic> knockdown (KD), <italic>Mecp2</italic>-<italic>Cirbp</italic> double KD, and control. <italic>Mecp2</italic> KD neurons have less neurite outgrowth compared to normal neurons, yet <italic>Mecp2</italic>-<italic>Cirbp</italic> double KD neurons have more neurite outgrowth. (<bold>b</bold>) The normalized branch numbers are shown for control (Ctrl), <italic>Mecp2</italic> KD, and <italic>Mecp2</italic> and <italic>Cirbp</italic> KD neurons. ANOVA was used to test the changes of branch numbers among the three groups of neurons. <italic>Mecp2</italic> KD significantly reduced the branch numbers. The figure also depicts the significantly increased branch numbers in <italic>Mecp2</italic> and <italic>Cirbp</italic> KD neurons compared to <italic>Mecp2</italic> KD neurons but decreased branch numbers in <italic>Mecp2</italic> and <italic>Cirbp</italic> KD neurons compared to Ctrl. (<bold>c</bold>) The normalized neurite lengths were shown for Ctrl, <italic>Mecp2</italic> KD, and <italic>Mecp2</italic> and <italic>Cirbp</italic> KD neurons. ANOVA was used to test the changes of neurite lengths between the three groups of cells. <italic>Mecp2</italic> KD significantly reduced the neurite lengths. The figure also depicts the significantly increased neurite lengths in <italic>Mecp2</italic> and <italic>Cirbp</italic> KD neurons compared to <italic>Mecp2</italic> KD alone, but also significantly decreased neurite lengths in <italic>Mecp2</italic> and <italic>Cirbp</italic> KD neurons compared to Ctrl neurons. (ANOVA test. *<italic>p-</italic>value &lt; 0.05, **<italic>p-</italic>value &lt; 0.01, ***<italic>p-</italic>value &lt; 0.001. <italic>n</italic> = 47 to 61 neurons in each group).</p></caption><graphic id="d30e898" xlink:href="41597_2020_514_Fig3_HTML"></graphic></fig></p>
+<p id="Par16">To confirm the splicing changes in <italic>Mecp2</italic> knockout mice, the reverse-transcription polymerase chain reaction (RT-PCR) technique was performed on selected DAS events in <italic>Mecp2</italic> knockout mice (see Methods section)<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>. The effectiveness of our DAS analysis in RTT has been demonstrated in previous work<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. Here, we specifically confirmed the potential effect of CIRBPs in this study by validating a subset of RTT DAS events that are also changed by CIRBP knockdown. A total of 11 predicted DAS events were tested by RT-PCR (see Methods section), and 8 events were differentially alternatively spliced in <italic>Mecp2</italic> knockout mice (Fig. <xref ref-type="media" rid="MOESM1">S5</xref>). These RT-PCR results confirmed the potential splicing regulatory contribution of CIRBP in RTT.</p>
+<p id="Par17">SFs may regulate gene expression alterations in various diseases and BPs. For example, <italic>Celf1</italic> promotes expression of <italic>Cebpb</italic> via interacting with <italic>Eif2s1</italic> and <italic>Eif2s2</italic> in proliferating livers and in tumor cells<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. Therefore, we examined the potential role of SFs in regulating gene expression changes in RTT. A DEG analysis was performed on the <italic>Mecp2</italic> knockout mice to facilitate the key factors that regulate gene expression changes in RTT. Under |log<sub>2</sub> (fold change)| &gt; 0.2 and <italic>q</italic> &lt; 0.05, 579 genes were differentially expressed in <italic>Mecp2</italic> knockout mice (Table <xref ref-type="media" rid="MOESM1">S3</xref>). The corresponding heatmap showed large expression changes in <italic>Mecp2</italic> knockout mice compared to wild-type mice (Fig. <xref ref-type="media" rid="MOESM1">S6</xref>).</p>
+<p id="Par18">To elucidate the key factors responsible for the expression changes in RTT, a gene expression signature comparison analysis was performed using the gene expression signatures of <italic>Mecp2</italic> knockout mice compared to the gene expression signatures derived from the SF perturbation datasets (see Methods section). The up-regulated genes in <italic>Mecp2</italic> knockout mice were compared to the up-/down-regulated genes in the SF perturbation datasets, and one SF was potentially responsible for the expression changes in <italic>Mecp2</italic> knockout mice, i.e. RBM3 (Table <xref ref-type="media" rid="MOESM1">S4</xref>).</p>
+</sec>
+<sec id="Sec6">
+<title>Identification of key factors in cold-induced thermogenesis</title>
+<p id="Par19">To demonstrate the utility of our integrated analysis further, key factors of cold-induced thermogenesis (CIT) in adipose tissue were identified. CIT in adipose tissue can increase resting energy expenditure by approximately 10%<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>. If not compensated by changes in food intake, small changes in resting energy expenditure can have long-term effects on body weight. Therefore, activating CIT in adipose tissue is an attractive strategy to combat obesity. Although much is known about adipose commitment and differentiation<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>, the transcriptional mechanisms that ensure the readiness of mature adipose tissue to carry out adaptive thermogenesis remain unknown, including interactions between SFs and thermogenesis<sup><xref ref-type="bibr" rid="CR32">32</xref></sup>. Thus, to improve our understanding of this complexity further, we combined the RNA-Seq data from SF perturbations and from adipose tissues under cold exposure to identify key factors relevant to CIT at the splicing and gene expression levels.</p>
+<p id="Par20">A DAS analysis was performed on RNA-Seq data from brown adipose tissue (BAT) and subcutaneous white adipose tissue (sWAT) from cold-exposed mice (see Methods section). Under |ΔΨ| &gt; 0.05 and <italic>q</italic> &lt; 0.05, the DAS analysis revealed large-scale alternative splicing events in both BAT and sWAT upon cold exposure (Figs. <xref ref-type="fig" rid="Fig4">4a</xref> and <xref ref-type="media" rid="MOESM1">S7a</xref>). Specifically, 760 and 1,481 alternative splicing events were identified in BAT and sWAT, respectively (Table <xref ref-type="media" rid="MOESM1">S5</xref>). The heatmaps of PSI values demonstrated the large splicing changes of ES events in BAT and sWAT upon cold exposure (Figs. <xref ref-type="fig" rid="Fig4">4b</xref> and <xref ref-type="media" rid="MOESM1">S7b</xref>).<fig id="Fig4"><label>Fig. 4</label><caption><p>DAS events of BAT. (<bold>a</bold>) DAS analysis identified seven DAS event types, i.e. exon skipping (ES), alternative 5′ splice sites (A5SS), alternative 3′ splice sites (A3SS), mutually exclusive (ME) exons, intron retention (IR), alternative first exons (AFEs), and alternative last exons (ALEs). The pie chart depicts the number of DAS events of the seven splicing event types in BAT. (<bold>b</bold>) The heatmaps show the PSI values (scaled by standard deviation) for the differential alternative ES events in BAT. Yellow: high PSI value; blue: low PSI value.</p></caption><graphic id="d30e1029" xlink:href="41597_2020_514_Fig4_HTML"></graphic></fig></p>
+<p id="Par21">To discover key factors in CIT, a splicing signature comparison analysis then was performed on the signatures of BAT and sWAT derived from cold-exposed mice compared to the curated SF perturbation datasets (see Methods section). Out of the full SF perturbation datasets that related to a total of 56 SFs, 2 SFs and 6 SFs were shown to be potentially responsible for the splicing changes in BAT and sWAT upon cold exposure, respectively. From these data, NOVA1 and PRMT5 were associated with splicing changes in BAT (Table <xref ref-type="media" rid="MOESM1">S6</xref>). In addition, MAGOH, PRMT5, PTBP1, RBFOX2, RBM8A, and U2AF1 were linked with alternative splicing events in sWAT (Table <xref ref-type="media" rid="MOESM1">S6</xref>). These SFs potentially regulate the splicing changes in adipose tissue that are critical for the activation of adipose tissue thermogenesis upon cold exposure.</p>
+<p id="Par22">In addition to the DAS analysis, a DEG analysis was performed on the RNA-Seq data of BAT and sWAT from cold-exposed mice to help identify key factors of gene expression in adipose tissue CIT. Under |log<sub>2</sub> (fold change)| &gt; 1.0 and <italic>q</italic> &lt; 0.05, a total of 1,836 and 5,266 genes were identified as differentially expressed in BAT and sWAT, respectively (Table <xref ref-type="media" rid="MOESM1">S7</xref>). The heatmaps showed large expression changes in BAT and sWAT upon cold exposure (Fig. <xref ref-type="media" rid="MOESM1">S8a,b</xref>).</p>
+<p id="Par23">A gene expression signature comparison analysis was performed using the gene expression signatures derived from adipose tissue upon cold exposure, compared to the gene expression signatures calculated from the curated SF perturbation datasets (see Methods section). Up-regulated genes in adipose tissue were compared to the up-/down-regulated genes in the SF perturbation datasets, and 22 SFs were shown to potentially regulate gene expression changes in BAT upon cold exposure (i.e., CD2BP2, CELF1, ESRP1, ESRP2, HNRNPK, HNRNPL, HNRNPU, MBNL1, MBNL2, METTL3, NOVA1, NOVA2, PQBP1, PRMT5, PRMT7, PTBP1, QK, RBM10, SF3A1, SF3B1, SRRM4, and U2AF1) (Table <xref ref-type="media" rid="MOESM1">S8</xref>). In addition, 21 SFs were identified to potentially regulate gene expression changes in sWAT upon cold exposure (i.e., ACTA1, CELF1, CIRBP, EIF4A3, ESRP1, ESRP2, HNRNPA2B1, HNRNPU, MBNL1, MBNL2, MBNL3, PAF1, PHF5A, PRMT5, PRMT7, QK, RBFOX2, RBM17, RBM3, RBM8A, and U2AF1) (Table <xref ref-type="media" rid="MOESM1">S8</xref>). These SFs potentially regulate the expression changes in adipose tissue upon cold exposure.</p>
+<p id="Par24">We specifically evaluated SRSF1 in splicing signature comparison results for CIT, and a Seahorse metabolic flux analysis demonstrated a potential regulatory role of SRSF1 on mitochondria respiration in 3T3-L1 adipocytes (see Methods section). These adipocytes recently have been found to have characteristics of brown adipocytes, including high levels of uncoupled respiration<sup><xref ref-type="bibr" rid="CR33">33</xref>,<xref ref-type="bibr" rid="CR34">34</xref></sup>. Such uncoupled respiration was assessed because it is a major component of CIT<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>. Knockdown of <italic>Srsf1</italic> in 3T3-L1 adipocytes by siRNA reduced <italic>Srsf1</italic> gene expression by approximately 95% (Fig. <xref ref-type="media" rid="MOESM1">S9</xref>; <italic>p</italic> &lt; 0.0001) and reduced oxygen consumption rate (OCR) due to uncoupled respiration by approximately 35% (Fig. <xref ref-type="fig" rid="Fig5">5</xref>; <italic>p</italic> = 0.02). This experimental finding supports the prediction that SRSF1 is an important factor in CIT. SRSF1 knockdown also reduced OCR coupled to ATP synthesis in these adipocytes (Fig. <xref ref-type="fig" rid="Fig5">5</xref>, <italic>p</italic> &lt; 0.001), suggesting that it has a broader role in regulating mitochondrial function. SRSF1 knockdown reduced basal adipocyte OCR, which is the sum of these two respiratory measures<sup><xref ref-type="bibr" rid="CR36">36</xref></sup> (Fig. <xref ref-type="fig" rid="Fig5">5</xref>, <italic>p</italic> &lt; 0.001). And our analysis showed no difference in extracellular acidification rate (ECAR), a proxy measure of glycolytic flux, in these adipocytes (Fig. <xref ref-type="media" rid="MOESM1">S10</xref>). Therefore, these data suggest a potential role of SRSF1 in regulating energy expenditure in adipose tissues specific to aspects of mitochondrial function.<fig id="Fig5"><label>Fig. 5</label><caption><p>OCRs of mitochondrial respiration experiments with <italic>Srsf1</italic> knockdown. OCRs were recorded in Seahorse metabolic flux analysis. Three mitochondrial respiration OCRs (for basal cellular respiration, coupled respiration, and uncoupled respiration) were measured for both <italic>Srsf1</italic> knockdown adipocytes (red boxes) and controls (blue boxes). <italic>Srsf1</italic> knockdown adipocytes showed significantly reduced OCRs for all three measurements compared to controls (Unpaired <italic>t-</italic>test: *<italic>p</italic>-value &lt;0.05, ***<italic>p</italic>-value &lt; 0.001, <italic>n</italic> = 8 to 10 in each group).</p></caption><graphic id="d30e1142" xlink:href="41597_2020_514_Fig5_HTML"></graphic></fig></p>
+<p id="Par25">To determine whether PTBP1 is involved in adaptive thermogenesis, we performed <italic>Ptbp1</italic> knockdown using shRNA constructs in undifferentiated brown adipocytes (see Methods section)<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. Partial <italic>Ptbp1</italic> knockdown was achieved with two independent shRNA constructs, as seen by western blot (Fig. <xref ref-type="media" rid="MOESM1">S11a</xref>). To investigate whether <italic>Ptbp1</italic> affected mitochondrial function, we performed <italic>Ptbp1</italic> knockdown in undifferentiated brown adipocytes before assessing mitochondrial respiration by Seahorse metabolic flux analysis. <italic>Ptbp1</italic> knockdown reduced cellular respiration and affected respiratory reserve capacity (Fig. <xref ref-type="media" rid="MOESM1">S11b</xref>)<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>. The decrease in respiration was caused mostly by coupled respiration. In agreement with the mitochondrial activity defect, we observed a decrease in mitochondrial complex abundance by western blot, especially for complexes I, II, and IV (Fig. <xref ref-type="media" rid="MOESM1">S11c</xref>). These results demonstrate that PTBP1 affects key components of brown adipocytes and may have a role during adaptive thermogenesis.</p>
+<p id="Par26">According to both the splicing signature analysis and gene expression signature analysis on cold-exposed adipose tissue, NOVA1 and NOVA2 were identified as key factors in CIT. Vernia <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR17">17</xref></sup> revealed that NOVA-deficient (both NOVA1 and NOVA2) mice have a significantly increased core body temperature compared to wild-type mice upon cold challenge. In addition, the expression of “browning” phenotype marker genes increased in subcutaneous adipocytes of NOVA-deficient mice. These findings indicate that NOVA proteins in adipocytes suppress adipose tissue thermogenesis<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Taken together, our results demonstrate the power of signature comparison analyses.</p>
+</sec>
+</sec>
+<sec id="Sec7" sec-type="discussion">
+<title>Discussion</title>
+<p id="Par27">Technological advances have enabled RNA-Seq for the study of human diseases and BPs. However, RNA-Seq analyses have focused primarily on downstream expression changes, but the genes with changed expression do not necessarily play a critical role in regulating diseases or BPs. Standard RNA-Seq analysis with data limited to a specific biological context is unable to identify key factors in a disease or BP. We filled this void by generating a comprehensive compendium of RNA-Seq data for 56 SFs; these expression profiles were used in an integrated analysis to reveal key factors in diseases and BPs. DAS or DEG analysis alone only reveals genes whose expressions are changed in a disease or BP, but these genes do not necessarily regulate the disease process or BP. However, our signature comparison analyses aimed to reveal key factors that contribute to the regulation of the disease process or BP. As long as a significant portion of the SF targets derived in the SF perturbed datasets is maintained in the disease or BP, our integrated analysis is expected to reveal true factors that may not be ranked highly in DAS or DEG analysis. While the present study focused on an application in neuroscience and an application in metabolism, the integrated analysis described here can be generalized to other diseases and BPs. Thus, we expect that similar resources for other regulatory mechanisms and proteins, such as RNA-binding proteins<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>, as well as full-length RNA-Seq and proteogenomics data<sup><xref ref-type="bibr" rid="CR39">39</xref>–<xref ref-type="bibr" rid="CR41">41</xref></sup>, will serve as an important foundation for identifying key factors in human diseases and BPs.</p>
+<p id="Par28">A number of studies have been conducted to investigate splicing in RTT. For example, dozens of splicing changes were reported in a mouse model of RTT<sup><xref ref-type="bibr" rid="CR42">42</xref></sup> based on a splicing microarray study. A mutant gene in RTT, MECP2 physically interacts with dozens of proteins, including SFs PSIP1 and DHX9, and hundreds of alternative splicing events were misregulated in the cortex of <italic>Mecp2</italic> knockout mice<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. However, few studies have identified key SFs in RTT development systematically. Our work provides an integrated analysis to fill the gap. For example, our identified factor CIRBP plays a critical role in controlling cellular responses to a variety of cellular stresses. Additionally, it has been shown that CIRBP migrates into stress granules under oxidative stress<sup><xref ref-type="bibr" rid="CR44">44</xref></sup>. Interestingly, oxidative stress has been linked to RTT<sup><xref ref-type="bibr" rid="CR45">45</xref></sup>. These facts suggest that CIRBP may affect RTT via the regulation of oxidative stress.</p>
+<p id="Par29">Some identified factors in CIT have been validated experimentally <italic>in vivo</italic> or <italic>in vitro</italic>. For example, NOVA1 has been validated previously <italic>in vivo</italic><sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. In addition, evidence from <italic>in vitro</italic> experiments has been collected for other identified factors that may have roles in relevant processes related to CIT (Online-only Table <xref ref-type="table" rid="Tab1">1</xref>). For example, they may affect adipogenesis (NOVA1<sup><xref ref-type="bibr" rid="CR46">46</xref></sup> and PRMT5<sup><xref ref-type="bibr" rid="CR47">47</xref></sup>), the activity of BAT maker genes (CELF1<sup><xref ref-type="bibr" rid="CR48">48</xref></sup> and HNRNPU<sup><xref ref-type="bibr" rid="CR49">49</xref></sup>), and lipid storage (HNRNPU<sup><xref ref-type="bibr" rid="CR49">49</xref></sup> and PQBP1<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>). In particular, CELF1 represses the expression of its targets by binding their 3′-UTR, such as <italic>Ppargc1a</italic> mRNA and BAT-enriched long noncoding RNA (lncRNA) 10 (lncBATE10). By repressing the expression of <italic>Ppargc1a</italic> mRNA and lncBATE10, thermogenesis was suppressed in brown adipocytes<sup><xref ref-type="bibr" rid="CR48">48</xref></sup>. These experimental results corroborate our computational results, as CELF1 was predicted by our gene expression signature comparison instead of our splicing signature comparison. Online-only Table <xref ref-type="table" rid="Tab1">1</xref> also records regulation directionality of the seven identified factors according to the gene expression changes of markers related to thermogenesis or other relevant BPs. The regulation directionality of three factors predicted by our method, CELF1, NOVA1, and PRMT5, were consistent with experimental results. An alternative direction for PRMT5 also was predicted (Table <xref ref-type="media" rid="MOESM1">S8</xref>). This prediction is not surprising because PRMT5 is a protein arginine methyltransferase with many substrates<sup><xref ref-type="bibr" rid="CR51">51</xref></sup>, and different conditions may lead to methylation of different substrates, which results in diversity in signatures. Such discrepancy can be resolved by additional experiments. The regulation directions of the remaining four factors, HNRNPU, HNRNPK, METTL3, and PQBP1, have not been determined because the corresponding references in Online-only Table <xref ref-type="table" rid="Tab1">1</xref> do not contain expression data of marker genes.</p>
+<p id="Par30">In addition to the SFs supported by evidence of functional roles, those identified SFs without current literature support are connected to those with literature support according to the STRING database<sup><xref ref-type="bibr" rid="CR52">52</xref></sup> (Fig. <xref ref-type="media" rid="MOESM1">S12</xref>). For example, CIRBP, PTBP1, SF3A1, SRSF1, SRSF7, and U2AF1 share STRING associations with the SFs that have literature evidence (Online-only Table <xref ref-type="table" rid="Tab1">1</xref>), suggesting that they also may affect thermogenesis in adipose tissue. Notably, some SFs are highly connected in the interaction network, such as PTBP1, SF3A1, SRSF1, and SRSF7. The <italic>q</italic>-value cutoff of 0.25 used in our integrated analysis may be relaxed. For example, SRSF1 in CIT has <italic>p-</italic>value = 0.045 and <italic>q-</italic>value = 0.59. These values indicate that additional SFs may be key factors as well. Specifically, we examined the functional roles of SRSF1 and PTBP1 in Seahorse metabolic flux analysis. <italic>Srsf1</italic> knockdown showed reduced OCR in multiple mitochondrial respiratory indices, suggesting a regulation role of SRSF1 for energy expenditure in adipose tissues. <italic>Ptbp1</italic> knockdown also reduced cellular respiration and affected the respiratory reserve capacity in brown adipocytes. Thus, the identified factors may be potentially critical candidates for future <italic>in vivo</italic> experiments that study CIT mechanisms.</p>
+<p id="Par31">Even though our integrated analysis identified many factors in CIT, SFs are not yet well-studied <italic>in vivo</italic>, with NOVA1 being the only one with <italic>in vivo</italic> experimental validation. Among more than 100 genes that enhance or suppress CIT supported by <italic>in vivo</italic> experiments<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, SFs are not enriched (one-sided Fisher’s test, <italic>p</italic>-value = 0.8772). Thus, the importance of SFs is not appreciated by the CIT community fully. RNA-related BPs can be a fruitful direction for studying CIT mechanisms. Given that only approximately 15% of SFs currently have related RNA-Seq data<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>, more RNA-Seq data will be generated, which will fuel our integrated analysis to predict more key factors of CIT in the future.</p>
+<p id="Par32">Signatures generated from different tissues or cell types may share similarity for specific SFs. For example, four splicing and gene expression signatures of SRRM4 from different tissue/cell types shared significant similarities (Fig. <xref ref-type="media" rid="MOESM1">S13a</xref> and Table <xref ref-type="media" rid="MOESM1">S9</xref>). However, there are cases in which signatures are different for the same SF perturbation in different cell types or tissues. For example, PRMT5 has two compact groups of splicing and gene expression signatures from different tissues (Fig. <xref ref-type="media" rid="MOESM1">S13b</xref>). Identification of multiple compact signatures for a given SF ensures that the signature comparison results will have a broad coverage of possible effects of the SF.</p>
+<p id="Par33">It is worth noting that although the data used to derive the SF signatures were not necessarily from neuronal and adipose tissues, they still could assist the identification of potential key regulatory factors of RTT and CIT, respectively. For RTT, the RNA-Seq data for CIRBP were from mouse embryonic fibroblasts (Table <xref ref-type="media" rid="MOESM1">S9</xref>). Because our validation results for CIRBP indicated its potential role in RTT, it can be suggested that tissues other than neuronal tissues can be used to generate hypotheses related to neurological diseases. For CIT, cardiac tissues were used to generate the RNA-Seq data for CELF1 (Table <xref ref-type="media" rid="MOESM1">S9</xref>). The heart has a connection to adipose tissue in that catecholamine signaling, which activates thermogenesis in BAT and browning of WAT<sup><xref ref-type="bibr" rid="CR53">53</xref></sup>, also can lead to cardiomyopathy and heart failure<sup><xref ref-type="bibr" rid="CR54">54</xref></sup> when persistently activated in cardiac tissue. This potential suggests that the rich resources of publicly available gene expression data, despite the fact that they may not be from the tissue/cell type seemingly relevant to the biological problem at hand, should not be dismissed, and informative results can be derived from them. Our work is expected to extend beyond the current applications of neuroscience and metabolism, and the integrated analysis based on a compendium of SF RNA-Seq data is an efficient and economical approach to speed up the accurate identification of complex regulatory relationships in more disease and BP studies.</p>
+<p id="Par34">Some SFs belong to several protein types with different functions in the pre-mRNA-splicing process, including the SR family of splicing proteins, polypyrimidine tract-binding proteins, branch site-binding proteins, heterogeneous nuclear ribonucleoproteins (hnRNPs), and small nuclear ribonucleoproteins (snRNPs)<sup><xref ref-type="bibr" rid="CR55">55</xref></sup>. Table <xref ref-type="media" rid="MOESM1">S10</xref> shows classification of the identified SFs. To facilitate classification of the SFs, their Pfam family annotations were extracted from Uniprot because domain structures can elucidate the biological functions of proteins<sup><xref ref-type="bibr" rid="CR56">56</xref></sup>. Although some SFs have clear functions according to the domains, there is still a subset of SFs that cannot be annotated unambiguously. For example, RBM10 has three Pfam domain family annotations (i.e., RNA recognition motif [PF00076], Zn-finger in Ran binding protein and others [PF00641], and G-patch domain [PF01585]). These SFs without a clear single domain classification were annotated as “Unclassified.” The classification result of the SFs provides a clue for a deeper understanding of mechanisms underlying their regulatory roles.</p>
+</sec>
+<sec id="Sec8">
+<title>Methods</title>
+<sec id="Sec9">
+<title>DAS analysis using RNA-Seq data</title>
+<p id="Par35">To identify the DAS events, we performed DAS analysis<sup><xref ref-type="bibr" rid="CR57">57</xref>–<xref ref-type="bibr" rid="CR61">61</xref></sup>. Briefly, the raw RNA-Seq reads first were aligned to mouse genome (mm9) using STAR<sup><xref ref-type="bibr" rid="CR62">62</xref></sup> with default settings, and those uniquely mapped reads were retained to calculate the counts of the reads for each exon and each exon-exon junction annotated in the UCSC knownGene (mm9) table<sup><xref ref-type="bibr" rid="CR63">63</xref></sup> using the Python package HTSeq<sup><xref ref-type="bibr" rid="CR64">64</xref></sup>. UCSC mm9 annotation was downloaded from the table knownGene in the UCSC public MySQL database “mm9” hosting at “genome-mysql.cse.ucsc.edu” with the user “genome.” The mapped exon and exon-exon junction counts were used to construct a directed-acyclic graph representation of DAS events<sup><xref ref-type="bibr" rid="CR65">65</xref></sup>. After modeling the counts in each alternative splicing event using Dirichlet-multinomial (DMN)<sup><xref ref-type="bibr" rid="CR66">66</xref></sup>, the likelihood ratio test was used to test the significance of the changes in alternative splicing between the comparison conditions<sup><xref ref-type="bibr" rid="CR67">67</xref></sup>. The Benjamini-Hochberg‒adjusted <italic>q-</italic>value was calculated from the <italic>p-</italic>values in the likelihood ratio test<sup><xref ref-type="bibr" rid="CR68">68</xref></sup>. To integrate the effect size, PSI (Ψ) was calculated for the splicing events to examine the inclusion level of the variable exons over the total mature mRNAs<sup><xref ref-type="bibr" rid="CR69">69</xref></sup>. The DAS events were identified under |ΔΨ| &gt; 0.05 and <italic>q</italic> &lt; 0.05.</p>
+</sec>
+<sec id="Sec10">
+<title>DEG analysis using RNA-Seq data</title>
+<p id="Par36">To identify the DEGs, we performed a DEG analysis using RNA-Seq data<sup><xref ref-type="bibr" rid="CR70">70</xref>–<xref ref-type="bibr" rid="CR73">73</xref></sup>. A count table was constructed by counting the number of reads aligned to each gene of each sample. The genes with low counts were filtered out for the downstream testing. Normalization and differential gene expression analysis were performed using DESeq2<sup><xref ref-type="bibr" rid="CR74">74</xref></sup>. False discovery rate (FDR)‒adjusted <italic>q</italic>-values were calculated using the Benjamini-Hochberg procedure. The log<sub>2</sub> (fold change) also was calculated for each gene. The DEGs were identified under |log<sub>2</sub>(fold change)| &gt; 0.5 and <italic>q</italic> &lt; 0.05.</p>
+</sec>
+<sec id="Sec11">
+<title>Comparison of the number of DAS events and DEGs</title>
+<p id="Par37">Because of the crosstalk between splicing and transcription<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>, the DAS and DEG analysis results may reflect this relation. To demonstrate this relation, the difference in the experimental designs of the datasets must be accounted. Specifically, we formulated the numbers of DAS events and DEGs using linear models<sup><xref ref-type="bibr" rid="CR67">67</xref></sup>.</p>
+<sec id="Sec12">
+<title>Linear models of the number of DAS events and DEGs</title>
+<p id="Par38">The number of DAS events and the number of DEGs were formulated as linear combinations of the main factors concerning experimental designs, i.e., the total number of reads (<italic>T</italic>), the effective read length (<italic>L</italic>), and the number of samples (<italic>S</italic>). The total number of reads refers to the number of reads of all the samples in comparison to the perturbed samples and the baseline samples. For single-end reads, the effective read length is just the read length; for paired-end reads, the effective read length is the sum of the length of each read in a pair. The number of samples is the sum of the perturbed and unperturbed samples in a comparison.</p>
+<p id="Par39">The number of DAS events was formulated by the following linear model:</p>
+<p id="Par40">It includes the additive terms of the three metadata factors. More reads (<italic>T</italic>) results in more statistical power unless the number of reads is saturated. Given all the other conditions being the same, the greater the total number of reads (<italic>T</italic>), the more likely it is that the rare splicing junctions are covered. Longer effective read lengths (<italic>L</italic>) may result in more exon-exon junctions with reads mapped, leading to the detection of more DAS events. More samples (<italic>S</italic>) will result in more accurate estimates of variation, enabling more robust detection of DAS events. This linear model also includes two interaction terms. The interaction term <italic>T:L</italic> formulates the effect of <italic>T</italic> depending on the value of <italic>L</italic>. For example, increasing the number of reads (i.e., greater <italic>T</italic>) will make it more difficult to increase the number of detected DAS events in a short read length compared to a long read length because a short read length is more likely to have insufficient junction coverage. Similarly, the interaction term <italic>T:S</italic> formulates the effect of <italic>T</italic> depending on the value of <italic>S</italic>. However, our linear model does not include the interaction terms <italic>L:S</italic> and <italic>T:L:S</italic> because there is no prior knowledge that these two interaction terms should exist, and <italic>t</italic>-tests of the coefficients of these two terms were not statistically significant.<disp-formula id="Equa"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\rm{\#DAS}}={\beta }_{0}+{\beta }_{T}\ast T+{\beta }_{L}\ast L+{\beta }_{S}\ast S+{\beta }_{TL}\ast \left(T:L\right)+{\beta }_{TS}\ast \left(T:S\right).$$\end{document}</tex-math><mml:math display="block" id="M2"><mml:mi mathvariant="normal">#DAS</mml:mi><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mi>T</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>L</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mi>L</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>S</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mi>S</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>L</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>T</mml:mi><mml:mo>:</mml:mo><mml:mi>L</mml:mi></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>S</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>T</mml:mi><mml:mo>:</mml:mo><mml:mi>S</mml:mi></mml:mrow></mml:mfenced><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41597_2020_514_Article_Equa.gif"></graphic></alternatives></disp-formula></p>
+<p id="Par41">The number of DEGs was formulated by the following linear model:<disp-formula id="Equb"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\#{\rm{DEG}}={\beta }_{0}+{\beta }_{T}\ast T+{\beta }_{S}\ast S+{\beta }_{TS}\ast \left(T:S\right).$$\end{document}</tex-math><mml:math display="block" id="M4"><mml:mi>#</mml:mi><mml:mi mathvariant="normal">DEG</mml:mi><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mi>T</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>S</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mi>S</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>S</mml:mi></mml:mrow></mml:msub><mml:mo>∗</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>T</mml:mi><mml:mo>:</mml:mo><mml:mi>S</mml:mi></mml:mrow></mml:mfenced><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41597_2020_514_Article_Equb.gif"></graphic></alternatives></disp-formula></p>
+<p id="Par42">Different from splicing analysis, in which longer reads cover more splicing junctions enhancing the detection of DAS events, increasing read lengths beyond a reasonable length (e.g., 50 bps) will not increase read mappablility. Therefore, the effective length (<italic>L</italic>) is not expected to have an effect on the number of DEGs. Hence, the term <italic>L</italic> and the corresponding interaction term <italic>T:L</italic> were omitted in this linear model.</p>
+<p id="Par43">Information from the three factors was retrieved via the SRA Run Info CGI<sup><xref ref-type="bibr" rid="CR75">75</xref></sup>. The coefficients of both linear models were estimated using lm() in R, and their significances were tested by <italic>t-</italic>test.</p>
+</sec>
+<sec id="Sec13">
+<title>Comparison of normalized numbers of DAS events and DEGs</title>
+<p id="Par44">Under the linear models, the number of DAS events and DEGs was normalized to a canonical experimental design for a fair comparison across multiple analyzed datasets. The normalization was performed by shifting standardized residuals in the fitted DAS and DEG models.</p>
+<p id="Par45">A subset of the comparisons was selected for examining the number of DAS events and DEGs. Some comparisons generated few DAS events because the original purpose to collect them was to study gene expression, which only needed relatively short reads. Much longer reads were needed to have enough coverage of exon-exon junctions for splicing analysis. These datasets designed for gene expression analysis performed poorly in detecting DAS events. Therefore, it was required to filter out these comparisons to produce a meaningful comparison between alternative splicing and gene expression analysis results.</p>
+<p id="Par46">The analysis of the linear model for DAS showed significant linear correlations of the number of DAS events with the total number of reads (<italic>t-</italic>test: <italic>p-</italic>value = 0.000172), the effective read length (<italic>t-</italic>test: <italic>p-</italic>value = 0.000825), and their interaction (<italic>t-</italic>test: <italic>p-</italic>value = 0.001188). We selected the high-quality comparisons with the total number of reads ≥ 100 million spots and the effective read length ≥150  ps because few DAS events were detected for the comparisons with &lt;100 millions of reads, and the three coefficients in the linear model became insignificant for comparing with effective read length &lt;150 bps. These two cut-off parameters were consistent with typical experimental design suggestions for splicing studies<sup><xref ref-type="bibr" rid="CR76">76</xref></sup>.</p>
+</sec>
+</sec>
+<sec id="Sec14">
+<title>Splicing signature comparison analysis</title>
+<p id="Par47">To identify the regulatory role of key SFs in a BP, a splicing signature comparison analysis was performed among the splicing signatures derived from the experimental comparisons of SF perturbation datasets and the experiments in the BP, which was previously described by Li <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR57">57</xref></sup>. A DAS event was considered positively regulated by an SF (notated as +) if the event had more inclusion of the variable exon (i.e., ΔΨ &gt; 0.05) upon increased expression of the SF or if the event had less inclusion of the variable exon (i.e., ΔΨ &lt; −0.05) upon decreased expression of the SF. Alternatively, an event was negatively regulated by an SF (notated as −) if the event had more inclusion of the variable exon (i.e., ΔΨ &gt; 0.05) upon decreased expression of the SF or if the event had less inclusion of the variable exon (i.e., ΔΨ &lt; −0.05) upon increased expression of the SF. Given the DAS events in one experimental comparison of the SF and the biological experiments, two vectors of +/−/0 were generated for both experimental comparisons, in which +/− indicated the event was positively or negatively regulated by the SF, and 0 meant that there was no evidence that the event was regulated by the SF. To compare two splicing signatures, a 3 × 3 contingency table was constructed with rows and columns named as +/−/0 that counted the number of events in the two splicing signatures. To determine the specific regulatory roles of an SF, the 3 × 3 table was collapsed into two 2 × 2 contingency tables so that two tables could be used to test the enrichment of ++ events and −− events using Fisher’s exact test (with the null hypothesis H<sub>0</sub>: log-odds-ratio &lt;0.5), respectively. Fig. <xref ref-type="media" rid="MOESM1">S14</xref> illustrates how the splicing signature comparison analysis works with an example. FDR-adjusted <italic>q</italic>-values were calculated using the Benjamini-Hochberg procedure among <italic>p-</italic>values of all SF biological comparisons. Candidate SFs were identified by <italic>q</italic> &lt; 0.25<sup><xref ref-type="bibr" rid="CR77">77</xref></sup>.</p>
+</sec>
+<sec id="Sec15">
+<title>Gene expression signature comparison analysis</title>
+<p id="Par48">To determine the gene expression correlation relationship between SFs and DEGs in a BP, a gene expression signature comparison analysis was performed using gene expression signatures derived from the experimental comparisons of SF perturbation datasets and the BP. In the SF perturbation datasets, a DEG was up-regulated when log<sub>2</sub> (fold change) &gt; 0.5 upon increased expression of the SF or when log<sub>2</sub> (fold change) &lt; −0.5 upon decreased expression of the SF. In the opposite case, the DEG was down-regulated in the SF perturbation dataset. However, in the experimental comparison of the BP, the DEGs were up-/down-regulated when log<sub>2</sub> (fold change) &gt; 0.5 or &lt;−0.5, regardless of the expression changes of a specific SF. Given two gene sets of up-/down-regulated genes from experimental comparisons of the SF perturbation dataset and the BP, taking the expressed genes as background, Fisher’s exact test (with the null hypothesis H<sub>0</sub>: log-odds-ratio &lt; 0.5) was used to test the significance of the genes shared by the two comparisons. Similar to the splicing signature comparison analysis, FDR-adjusted <italic>q</italic>-values were calculated using the Benjamini-Hochberg procedure among <italic>p-</italic>values of all SF biological comparisons. Candidate SFs were identified by <italic>q</italic> &lt; 0.25.</p>
+</sec>
+<sec id="Sec16">
+<title>Generation of RNA-Seq datasets for <italic>Mecp2</italic> knockout mice</title>
+<sec id="Sec17">
+<title>Animals</title>
+<p id="Par49">B6.129P2(C)-<italic>Mecp2</italic><sup><italic>tm1.1Bird</italic></sup>/J mice were purchased from The Jackson Laboratory. Used to genotype the null allele (<italic>Mecp2</italic><sup>−</sup>) were 5′-AAATTGGGTTACACCGCTGA-3′ (universal forward primer) and 5′-CCACCTAGCCYGCCTGTACT-3′ (knockout reverse primer). The universal forward primer and 5′-CTGTATCCTTGGGTCAAGCTG-3′ (wild-type reverse primer) were used to genotype the wild-type allele. Wild-type C57BL/6J male mice (The Jackson Laboratory) were bred with <italic>Mecp2</italic><sup>+/‒</sup> heterozygous females to generate <italic>Mecp2</italic><sup>‒/y</sup> mice and their wild-type littermates (<italic>Mecp2</italic><sup>+/y</sup>). Mice for the experiments were euthanized by CO<sub>2</sub> at 6 to 7 weeks old. Hippocampal dentate gyrus were dissected bilaterally and removed from the brain under a stereomicroscope<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. All animal procedures were performed in accordance with the protocol approved by the Emory University Animal Care and Use Committee.</p>
+</sec>
+<sec id="Sec18">
+<title>RNA isolation, RNA-Seq library preparation, and high-throughput sequencing</title>
+<p id="Par50">Total cellular RNA was purified from dentate gyrus using the TRIzol Reagent (Invitrogen), Phasemaker tubes (Invitrogen), and RNA Clean &amp; Concentrator (Zymo Research) according to manufacturer instructions. DNase I treatment was included. RNA-Seq libraries were generated from 1 μg of total RNA from duplicated samples per condition using the TruSeq LT RNA Library Preparation Kit v2 (Illumina) following manufacturer protocol. Agilent 2100 BioAnalyzer and DNA1000 kit (Agilent) were used to quantify amplified complementary DNA (cDNA) and to control the quality of the libraries. Illumina HiSeq2500 was used to perform 100-cycle pair-end (PE100) sequencing. Image processing, sequence extraction, and adapter trimming were done using the standard cloud-based Illumina pipeline in BaseSpace.</p>
+</sec>
+<sec id="Sec19">
+<title>RT-PCR for confirmation of alternative splicing changes in <italic>Mecp2</italic> knockout mice</title>
+<p id="Par51">cDNA for RT-PCR was prepared from 120 ng of total RNA using SuperScript VILO MasterMix (Life Technologies) to verify gene expression levels. RT-PCR was performed using EmeraldAmp GT PCR Master Mix (Clontech) for 25 to 30 cycles with exon-specific primers as indicated<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>. PCR products were resolved on 2% agarose gel electrophoresis stained with ethidium bromide and visualized with an ultraviolet (UV) transilluminator. All events were tested in the dentate gyrus of three wild-type mice and five knockout mice (littermates) by RT-PCR. PSI was calculated by measuring the relative intensity of the PCR product, including the exon or retained intron, etc., divided by intensity of the PCR product, including the exon or retained intron, etc., plus the intensity of the PCR product, excluding the exon or retained intron, etc., multiplied by 100%. Statistical significance was calculated using a one-tailed Student’s <italic>t</italic>-test with unequal distribution of the variance and <italic>p</italic> smaller than 0.05 being considered significant.</p>
+</sec>
+<sec id="Sec20">
+<title>RT-PCR confirmation of DAS events in <italic>Mecp2</italic> knockout mice</title>
+<p id="Par52">To confirm DAS analysis in <italic>Mecp2</italic> knockout mice, a subset of DAS events was selected for RT-PCR experiment. Because <italic>Cirbp</italic> was increased significantly in <italic>Mecp2</italic> knockout mice (fold change: 2.04), and <italic>Cirbp</italic> was up-regulated in RTT whole-brain samples in a northern blot analysis<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>, we hypothesized that <italic>Cirbp</italic> may play a regulatory role in RTT. Therefore, we overlapped DAS events between <italic>Mecp2</italic> knockout mice and a dataset of <italic>Cirbp</italic> knockdown mouse embryonic fibroblasts (GSE40468). A total of 12 DAS events were commonly identified in two datasets (Data S2). Primer sequences of 11 DAS events were designed for RT-PCR experiments (Data S3), with the DAS event in <italic>Vcam1</italic> excluded because of low expressions of its variable exon in the event.</p>
+</sec>
+<sec id="Sec21">
+<title>qRT-PCR for Cirbp RNA expression in <italic>Mecp2</italic> knockout mice</title>
+<p id="Par53">Total RNA was isolated from mouse cortex using TRIzol Reagent (Invitrogen, Carlsbad, CA). cDNA was synthesized according to manufacturer protocol, using the QuantiTect Reverse Transcription Kit (Qiagen). Real-time qRT-PCR was performed using Sybr Green (Bioline) on an ABi ViiiA 7 in 384-well format using primers to Cirbp (F-GTCTTCTCCAAGTATGGGCAGAT, R-TCCTTAGCGTCATCGATATTTTC), with results normalized to GAPDH. Fold change was calculated relative to wild-type. Reactions were performed as three biological replicates.</p>
+</sec>
+</sec>
+<sec id="Sec22">
+<title>Neuronal morphology experiment</title>
+<sec id="Sec23">
+<title>Primary neuron culture</title>
+<p id="Par54">Procedures for the dissociation and maintenance of primary neuron cultures were performed as described in previous work<sup><xref ref-type="bibr" rid="CR24">24</xref></sup>. Briefly, time-mated Sprague-Dawley dams were euthanized via carbon dioxide asphyxiation, in accordance with guidelines set out by the SingHealth Institutional Animal Care and Use Committee. Embryonic day-18 embryos were extracted from the uterus and decapitated in order to remove their brains. The harvested brains were placed in ice-cold Earle’s Balanced Salt Solution (EBSS) containing 10-mM HEPES. The hippocampi were dissected out, minced, and digested using papain (in EBSS) for 30 minutes at 37 °C. The digested tissues were resuspended in a neuronal plating medium (minimum essential medium containing 10% fetal bovine serum, 1 × N2 supplement, 1 × penicillin/streptomycin, and 3.6-mg/mL glucose). The tissue suspension was passed through a 70-μm cell strainer to sieve out tissue clamps. To obtain neuronal cells, the tissue suspension then was passed through a 7.5% bovine serum albumin (in phosphate-buffered saline [PBS]) layer by centrifuging at 200 × g for 5 minutes. The resultant cell pellet was resuspended in a neuronal plating medium and seeded onto poly-l-lysine-coated glass coverslips (for immunohistochemistry) or culture plates (for RNA extraction). On the following day, the plating medium was exchanged for a maintenance medium (Neurobasal medium supplemented with 1 × B27 supplement, 0.5 × L-glutamine, and 1 × penicillin/streptomycin). The cells were maintained in a humidified incubator at 37 °C and 5% CO<sub>2</sub> level.</p>
+</sec>
+<sec id="Sec24">
+<title>shRNA cloning and vector transduction</title>
+<p id="Par55">shRNAs against different regions of rat <italic>Cirbp</italic> were cloned into FUGW lentiviral vectors. The shRNA target sequence is GCAGGTCTTCTCCAAGTAT. The shRNA sequence against rat <italic>Mecp2</italic>, and the control sequence were cloned into PLL lentiviral vectors—shMeCP2: GGGAAACTTCTCGTCAAGA and shCtrl: AGTTCCAGTACGGCTCCAA<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>. shRNA expression was under the control of the human U6 promoter, while their fluorescent reporters (GFP or mCherry) were co-expressed under the control of the human ubiquitin C promoter in the same vector. Calcium phosphate precipitation was used to transfect the plasmids, and packaging and envelope proteins vectors into HEK293 cells for the production of lentiviruses, as previously described in previous work<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. Viruses were collected via ultracentrifugation and resuspended in sterile PBS for use in transduction of primary neurons. The shRNA viruses were added to the cultures at days <italic>in vitro</italic> 1 (DIV 1). Thereafter, the cells were monitored for the expression of fluorescent tags to verify efficient expression of the shRNAs.</p>
+</sec>
+<sec id="Sec25">
+<title>RNA extraction, cDNA conversion, and semiquantitative PCR</title>
+<p id="Par56">DIV 7‒cultured neurons first were washed twice with ice-cold PBS. Total RNA was extracted from the cells using an RNeasy Mini Kit (QIAGEN) according to manufacturer instructions. The RNA was eluted with nuclease-free water and stored at −80 °C until use. cDNA was synthesized from 1-μg RNA using SuperScript<sup>®</sup> III First-Strand Synthesis System (Invitrogen) with oligo(dT) primers. Conventional RT-PCR was performed on a DNA Engine Peltier Thermal Cycler (Bio-Rad Inc.). Primer sequences used were as follows—Cirbp: TCAGCTTCGACACCAATGAG (forward [F]), GTATCCTCGGGACCGGTTAT (reverse [R]) and Gapdh: CATCACTGCCACTCAGAAGA [F], CAACGGATACATTGGGGGTA [R]. PCR products were separated via agarose gel electrophoresis, and their band intensities were quantitated using ImageJ.</p>
+</sec>
+<sec id="Sec26">
+<title>Immunohistochemistry</title>
+<p id="Par57">DIV 7 neurons grown on glass coverslips were washed twice with PBS and fixed with 4% paraformaldehyde (with 4% sucrose added to maintain osmolality) for 15 minutes at room temperature. Afterward, the cells were washed twice (5 minutes per wash) with Tris-buffered saline (TBS) to remove traces of the fixative. They then were permeabilized for 5 minutes with 0.1% Triton X-100 in TBS (TBS-Tx). Donkey serum (5%) in TBS-Tx was used to block the cells for 2 hours at room temperature. They then were incubated with primary antibodies overnight at 4 °C. Primary antibodies used were as follows—anti-GFP (1:3000, Rockland) and anti-Map2 (1:500, Sigma). On the following day, the primary antibodies were removed, and the cells were washed thrice with TBS-Tx. They then were incubated with Alexa Fluor<sup>®</sup> secondary antibodies diluted 1:500 in TBS-Tx for 2 hours at room temperature. After removing the secondary antibodies, the cells were washed three times in TBS-Tx and then stained with DAPI (1:5000 in TBS-Tx) for 10 minutes at room temperature. After three final washes, two with TBS and one with phosphate buffer, the coverslips were mounted onto glass microscope slides and allowed to dry before imaging.</p>
+</sec>
+<sec id="Sec27">
+<title>Image acquisition and analysis</title>
+<p id="Par58">Images were taken with a Zeiss LSM 710 confocal microscope. For examining neuronal morphology, images were taken at a single plane. Length measurements and tracings of neurites were made based on Map2 immunofluorescence using LSM Image Browser. To evaluate branch complexity, a Sholl analysis was performed on the tracings of the neurite arbors using an ImageJ plugin<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>.</p>
+</sec>
+<sec id="Sec28">
+<title>Statistical analysis</title>
+<p id="Par59">At least 50 cells from three independent cultures were analyzed for each condition. Statistical testing was performed using GraphPad PRISM 5. One-way analysis of variance (ANOVA) with a Bonferroni test <italic>post hoc</italic> was used for comparing the conditions. Statistical significance was set at <italic>p-</italic>value &lt;0.05.</p>
+</sec>
+</sec>
+<sec id="Sec29">
+<title>RNA-Seq data generated from adipose tissues in cold treated mice</title>
+<sec id="Sec30">
+<title>Animals</title>
+<p id="Par60">The study of adipose tissue upon cold exposure was performed on 20 male C57/Bl6 wild-type mice aged 8 to 12 weeks that were divided into two groups. The first group (n = 10) was exposed to thermoneutral temperatures (30 °C) for 72 hours, and the second group (n = 10) was exposed to cold (4 °C) conditions for 72 hours. All experimental mice were housed in a barrier animal facility with a 12-hour dark-light cycle, with free access to water and food. All animal experiments conducted in this study were approved by the Institutional Animal Care and Research Advisory Committee at the University of Texas Southwestern Medical Center (APN# 2015–101207).</p>
+</sec>
+<sec id="Sec31">
+<title>RNA extraction and quantitative and quality RNA controls</title>
+<p id="Par61">sWAT and BAT were harvested and immediately snap-frozen in liquid nitrogen. Total RNA extraction was performed utilizing Trizol reagent (Invitrogen, Carlsbad, CA) and an RNeasy RNA extraction kit (#74106, Qiagen, Valencia, CA). Briefly, after homogenizing the tissues using a TissueLyser (Qiagen), RNA was isolated following manufacturer protocol (Qiagen, Valencia, CA). RNA quality and concentration were determined using a Nanodrop Spectrophotometer (N1-1000, Thermo Scientific, Wilmington, DE). RNA quality was confirmed using an Agilent 2100 Bioanalyzer following manufacturer protocol. The nanochip used for evaluating RNA quality produces electrophoresis peaks, from which the RNA integrity number (RIN) is calculated. RIN is the best predictor for assessing the integrity of the mRNA molecules. The RIN algorithm was calculated for all the normal and tumor tissue samples. The RIN is a decimal number ranging from 1 to 10, where 1 is attributed to completely degraded samples and 10 to intact RNA samples with very good quality. The main features taken into consideration for RNA quality evaluation are the size of the 18S and 28S peaks, the shape of these two peaks, the stability of the baseline, the appearance of additional peaks on the electropherogram, and the elevation of the baseline between the two peaks. A total of 1,000 ng of RNA was used to prepare libraries following Illumina TruSeq protocol. The criteria included the following: total RNA-Seq, 35 M (4/lane) reads per samples, 100PE, long reads, full regular MC pipeline analysis. We performed the experiment on 20 mice. Ten mice were exposed to thermoneutrality, and 10 mice were exposed to cold temperatures (4 °C), both for 72 hours.</p>
+</sec>
+</sec>
+<sec id="Sec32">
+<title>Adipocyte mitochondrial respiration experiments</title>
+<sec id="Sec33">
+<title>Cell culture and reverse transfection</title>
+<p id="Par62">Mouse-immortalized 3T3-L1 fibroblasts (ATCC) were maintained in growth media consisting of high-glucose DMEM (4.5-g/L glucose; Life Technologies) supplemented with 10% heat-inactivated fetal bovine serum (HI-FBS; Thermo Scientific). Cells were maintained in 10-cm dishes and differentiated into adipocytes upon reaching confluence, as previously described<sup><xref ref-type="bibr" rid="CR78">78</xref></sup>. Briefly, cells were induced to differentiate by supplementing growth media with 3 nM insulin (Humulin R; Eli Lilly), 0.25-µM dexamethasone (Sigma-Aldrich), and 0.5 mM isobutyl-1-methyl xanthine (Sigma-Aldrich) for 3 days before being exposed to growth media supplemented with 3 nM insulin only for an additional 4 days. Adipocytes then were maintained in normal growth media for 24 hours before undergoing reverse transfection of control and <italic>Srsf1</italic> siRNA<sup><xref ref-type="bibr" rid="CR79">79</xref></sup>. For respiration analyses, Seahorse V7 plates were coated with ECM (Sigma-Aldrich), and siRNA was prepared for transfection using OPTI-MEM and RNAiMAX (Life Technologies). Per well, 0.45 μL of RNAiMAX was added to 7.5 μL of OPTI-MEM and 0.45 μL of 10-μM ON-TARGETplus SMARTpool siRNA (Dharmacon) directed against <italic>Srsf1</italic>, or nontargeting control siRNA was added to 7.5 μL of OPTI-MEM. The diluted RNAiMAX was mixed with diluted siRNA, and 15 μL per well was added to ECM-coated Seahorse plates and incubated at room temperature for 25 minutes. Adipocytes were trypsin-digested from their 10-cm dish before being seeded into the Seahorse plate at 10,000 cells per well. For gene expression analysis, the differentiation and reverse transfection protocol was followed as described above, but adipocytes were seeded into 12 well plates.</p>
+</sec>
+<sec id="Sec34">
+<title>Respiration analysis</title>
+<p id="Par63">Cells were maintained for 3 days in reverse transfection media prior to respiration analysis. One hour prior to the assay, media were replaced with assay media consisting of unbuffered DMEM (Life Technologies), 25-mM glucose (Sigma-Aldrich), 1-mM sodium pyruvate, and 1-mM Glutamax (Life Technologies), a pH of 7.4, and were incubated at 37 °C in a non-CO<sub>2</sub> incubator for 60 minutes. Cellular respiration was assessed, and mitochondrial function parameters were calculated as previously described<sup><xref ref-type="bibr" rid="CR34">34</xref></sup> using the Seahorse XF24 analyzer. Specifically, OCR was measured before and after injection of inhibitors to derive mitochondrial respiration parameters. Initially, 3 basal measurement cycles consisting of 3-minute mix, 4-minute wait, and 2-minute measure periods were performed, and basal respiration was derived by subtracting nonmitochondrial respiration from the baseline cellular OCR. Next, oligomycin, an inhibitor of ATP synthase (mitochondria complex V) was injected (1 μM final; Sigma-Aldrich), with results able to be used to derive the coupled respiration (also called ATP-linked respiration) and uncoupled respiration (i.e., proton leak). This step was followed by another 3 measurement cycles before the injection of rotenone and antimycin A (both 1 μM final; Sigma-Aldrich). Rotenone is a mitochondria complex I inhibitor, and antimycin A is a mitochondria complex III inhibitor. They shut down mitochondrial respiration, enabling the calculation of nonmitochondrial respiration. Respiration coupled to ATP-linked respiration was defined as the difference between respiration under basal and oligomycin conditions, and proton leak was calculated as the difference in respiration between oligomycin and rotenone/antimycin A conditions. Two independent experiments consisting of five biological replicates were pooled by normalizing all respiration indices to control group values within each experiment.</p>
+</sec>
+<sec id="Sec35">
+<title>Gene expression analysis</title>
+<p id="Par64">Cells were maintained for 3 days in reverse transfection media prior to collection. Media was aspirated from cells and replaced with 500-μL Trizol (Thermo Fisher), which was collected and frozen at ‒80 °C. Samples were thawed later, and RNA was extracted using RNeasy columns (Qiagen). RNA was reverse-transcribed to cDNA using the SuperScript III First-Strand Synthesis System (Life Technologies), and real-time RT-PCR was performed as previously described<sup><xref ref-type="bibr" rid="CR80">80</xref></sup>, with primers for <italic>Srsf1</italic> (Forward 5′-GGC TAC GAC TAC GAC GG TA-3′ Reverse 5′-GGA GGC AGT CCA GAG ACA AC-3′) and using cyclophilin (Forward 5′-CCC ACC GTG TTC TTC GAC A-3′ Reverse 5′-CCA GTG CTC AGA GCT CGA AA-3′) as the housekeeping gene.</p>
+</sec>
+<sec id="Sec36">
+<title>Statistics</title>
+<p id="Par65">All data were expressed as mean ± SEM and were analyzed by unpaired <italic>t</italic>-test. Statistical significant differences were identified where <italic>p &lt; </italic>0.05.</p>
+</sec>
+</sec>
+<sec id="Sec37">
+<title><italic>Ptbp1</italic> knockdown in brown adipocytes</title>
+<sec id="Sec38">
+<title>Cell culture</title>
+<p id="Par66">An established mouse brown adipocyte cell line was obtained from Dr. Bruce Spiegelman (Dana-Farber Cancer Institute, Boston, US). Four mouse shRNA constructs against <italic>Ptbp1</italic> and a scrambled shRNA in pGFP-V-RS vector were purchased from Origene. shRNA constructs B (TTCTCTAAGTTTGGCACCGTCCTGAAGAT) and D (ACAATGATAAGAGCAGAGACTACACTCGA) were efficient at knocking down endogenous <italic>Ptbp1</italic> expression and were selected to perform experiments. Plasmids were transfected with BioT reagent (Bioland) according to the manufacturer protocol. Cells were analyzed or collected 2 days post-transfection.</p>
+</sec>
+<sec id="Sec39">
+<title>Cellular bioenergetics</title>
+<p id="Par67">Cellular respiration was measured using a Seahorse XF24 analyzer (Agilent), as previously published<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. Transfected brown pre-adipocytes were replated in the XF24 plates at a density of 30,000 cells per well using trypsin. Measurements were obtained before and after the sequential injection of 0.75 µM oligomycin, 0.75 µM FCCP, and 0.75 µM rotenone/myxothiazol. Results were normalized to total protein. Maximal respiration was determined after FCCP injection. Coupled respiration corresponded to the oligomycin response.</p>
+</sec>
+<sec id="Sec40">
+<title>Immunoblot analysis</title>
+<p id="Par68">Cells were lysed in 10 mM Tris pH 7.5, 10 mM NaCl, 1 mM EDTA and 0.5% Triton X-100, supplemented with complete mini EDTA-free protease (Roche Diagnostics) and phosphatase (Cocktail 2 and 3, Sigma) inhibitors, followed by 10 second sonication. Protein lysates were separated by SDS-PAGE (4–12% Bis-Tris, Invitrogen) and transferred to a nitrocellulose membrane. Transfer was confirmed by Ponceau staining (P7170, Sigma). After blocking in 5% milk, 0.1% Tween-20 in Tris-buffered saline (TBS), primary antibody was incubated overnight at 4 °C in 5% bovine serum albumin and 0.1% Tween-20 in TBS. Primary antibodies against PTBP1 (gift from Douglas L. Black, UCLA) and electron transport chain protein complexes (Total OXPHOS rodent WB antibody cocktail ab110413, Abcam) were used at 1:2000. Peroxidase goat anti-rabbit (sc-2030, Santa Cruz Biotechnology, Inc) or rabbit anti-mouse (A9044, Sigma) secondary antibody was used at a 1:10,000 dilution for 1 hour at room temperature in 5% milk and 0.1% Tween-20 in TBS. Immunoreactive bands were revealed with ECL Prime (Amersham) and visualized with a Bio-Rad Gel-doc imager.</p>
+</sec>
+<sec id="Sec41">
+<title>Statistical analyses</title>
+<p id="Par69">Statistical analyses were performed by an unpaired two-tailed Student’s <italic>t</italic>-test. A value of <italic>p</italic> &lt; 0.05 was considered significant.</p>
+</sec>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec42">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41597_2020_514_MOESM1_ESM.docx"><caption><p>Supplemental figures</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<app-group>
+<app id="App2">
+<sec id="Sec43">
+<title>Online-only Table</title>
+<p id="Par72">
+<table-wrap id="Tab1"><label>Online-only Table 1</label><caption><p>Evidence for identified SFs in CIT from the literature.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td>Gene symbol</td><td>Relevance to processes related to thermogenesis</td><td>Dir<sup>a</sup></td><td>PMID</td></tr><tr><td><italic>Celf1</italic>
+</td><td><italic>Celf1</italic> represses the activity of <italic>Ppargc1a</italic> mRNA by binding to its 3′UTR in primary brown preadipocytes. As <italic>Ppargc1a</italic> has been demonstrated to be a master regulator of the UCP1-mediated thermogenesis in BAT based on an <italic>in vivo</italic> experiment using <italic>Ppargc1a</italic> knockout mice, BAT thermogenesis can be activated by inhibiting <italic>Celf1</italic><sup><xref ref-type="bibr" rid="CR48">48</xref></sup>.</td><td>S</td><td>28763438</td></tr><tr><td><italic>Hnrnpu</italic>
+</td><td>The siRNAs knockdown of <italic>Hnrnpu</italic> in differentiating brown adipocytes significantly impairs lipid droplet accumulation and decreases the gene expression of BAT markers including <italic>Ucp1</italic>, <italic>Dio2</italic>, <italic>Ppargc1a</italic>, <italic>Prdm16</italic>, <italic>Pparg</italic>, and <italic>Cox8b</italic>, indicating that <italic>Hnrnpu</italic> is needed for brown adipogenesis and is critical for thermogenesis in BAT<sup><xref ref-type="bibr" rid="CR49">49</xref></sup>.</td><td>NA</td><td>25921091</td></tr><tr><td><italic>Nova1</italic>
+</td><td><italic>Nova1</italic> can function as a brown-adipogenic repressor. Transient overexpression of FLAG-tagged NOVA1 protein reduces the gene expression of brown adipocyte‒specific markers <italic>Prdm16</italic> and <italic>Ucp1</italic> compared to the controls<sup><xref ref-type="bibr" rid="CR46">46</xref></sup>. In contrast, shRNA-induced knockdown of <italic>Nova1</italic> increases <italic>Prdm16</italic> and <italic>Ucp1</italic> transcript levels in the differentiating cells. <italic>Nova1</italic>-overexpressing cells exhibit less lipid accumulation compared to controls. These results have identified the repressive effect of <italic>Nova1</italic> on the brown adipocyte development and metabolism. Therefore, <italic>Nova1</italic> may affect thermogenesis in BAT.</td><td>S</td><td>26857472</td></tr><tr><td><italic>Pqbp1</italic>
+</td><td>The shRNA knockdown of <italic>Pqbp1</italic> reduces lipid storage in mammalian white adipocyte, indicating that <italic>Pqbp1</italic> is critical for thermogenesis<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>.</td><td>NA</td><td>19119319</td></tr><tr><td><italic>Prmt5</italic>
+</td><td><italic>Prmt5</italic> proliferates the activation of adipogenic gene expression and promotes adipogenic differentiation. <italic>Prmt5</italic> is required for adipogenesis via an <italic>in vitro</italic> experiment in preadipocytes, indicating that <italic>Prmt5</italic> is critical for thermogenesis<sup><xref ref-type="bibr" rid="CR47">47</xref></sup>.</td><td>E</td><td>22361822</td></tr><tr><td><italic>Hnrnpk</italic>
+</td><td>Overexpression of hnRNP K protein modulates insulin-activated mitochondrial gene expression, and mitochondrial biogenesis and remodeling are inherent to adipose differentiation <italic>per se</italic> and are influenced by the actions of insulin sensitizers, suggesting the potential role of <italic>Hnrnpk</italic> in CIT<sup><xref ref-type="bibr" rid="CR157">157</xref></sup>.</td><td>NA</td><td>16519889</td></tr><tr><td><italic>Mettl3</italic>
+</td><td>Knockdown of METTL3 increases lipid accumulation during adipogenesis<sup><xref ref-type="bibr" rid="CR158">158</xref></sup>.</td><td>NA</td><td>25412662</td></tr></tbody></table><table-wrap-foot><p><sup>a</sup>The column “Regulation direction of thermogenesis (Dir)” indicates whether an MSF enhances or suppresses thermogenesis based on mRNA-level changes of markers of relevant processes related to thermogenesis, such as adipogenesis and lipid accumulation. The “Enhancing (E)” regulation direction represents increased mRNA levels of markers given the overexpression of the MSF or decreased levels under knockdown of the MSF. On the contrary, the “Suppressive (S)” regulation direction means decreased mRNA levels of markers given the overexpression of the MSF or increased levels under knockdown of the MSF. “NA” represents that the regulation direction cannot be determined because mRNA levels of markers are not evaluated in the reference.</p></table-wrap-foot></table-wrap>
+</p>
+</sec>
+</app>
+</app-group>
+<fn-group>
+<fn>
+<p><bold>Publisher’s note</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p>is available for this paper at 10.1038/s41597-020-0514-7.</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>The authors would like to thank Mike Zwick and Ben Isett at the Emory Integrated Genomics Core (EIGC), Nolwenn Joffin and Philipp E. Scherer at the University of Texas Southwestern Medical Center for assistance with high-throughput sequencing. The authors would also like to thank Wan Ying Leong for generating and determining efficiencies of shCirbp lentiviral constructs and Douglas L. Black for the primary antibodies against PTBP1. The research was supported partly by the Eunice Kennedy Shriver National Institute of Child Health and Human Development of the National Institutes of Health under award number R01HD037109 to C.C.M. P.Y. was supported by 1.3.5 project for disciplines of excellence, West China Hospital, Sichuan University (No.ZYJC18010). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author contributions</title>
+<p>P.Y., J.L. and S.P.D. carried out the analyses and wrote the manuscript. F.Z., P.N.G., E.W.M.C., S.D.M., L.V., M.S.I., J.M.L., S.L.M., E.G., C.C.M. and P.J. performed validation experiments. All the authors reviewed and approved the final manuscript.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Data availability</title>
+<p>The metadata of analyzed datasets are available in SFMetaDB (<ext-link ext-link-type="uri" xlink:href="http://SFMetaDB.yubiolab.org">http://SFMetaDB.yubiolab.org</ext-link>). The analyzed datasets are listed in Data Citations<sup><xref ref-type="bibr" rid="CR81">81</xref>–<xref ref-type="bibr" rid="CR156">156</xref></sup>, and the processed splicing and gene expression signature data from this study are available at Figshare<sup><xref ref-type="bibr" rid="CR156">156</xref></sup>.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Code availability</title>
+<p>The scripts and source codes of raw DAS and DEG analyses are deployed in Docker image and deposited at Docker Hub with the public tag sfrs/dasdegdocker:latest<sup><xref ref-type="bibr" rid="CR156">156</xref></sup>. The docker image for signature comparison analysis workflow also was deposited at Docker Hub with the public tag sfrs/sfsigdb:latest<sup><xref ref-type="bibr" rid="CR156">156</xref></sup>.</p>
+</notes>
+<notes id="FPar1" notes-type="COI-statement">
+<title>Competing interests</title>
+<p id="Par70">The authors declare no competing interests.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Braunschweig</surname>
+<given-names>U</given-names>
+</name>
+<name>
+<surname>Gueroussov</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Plocik</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Graveley</surname>
+<given-names>BR</given-names>
+</name>
+<name>
+<surname>Blencowe</surname>
+<given-names>BJ</given-names>
+</name>
+</person-group>
+<article-title>Dynamic integration of splicing within gene regulatory pathways</article-title>
+<source/>Cell
+          <year>2013</year>
+<volume>152</volume>
+<issue>6</issue>
+<fpage>1252</fpage>
+<lpage>1269</lpage>
+<pub-id pub-id-type="pmid">23498935</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dvinge</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Abdel-Wahab</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Bradley</surname>
+<given-names>RK</given-names>
+</name>
+</person-group>
+<article-title>RNA splicing factors as oncoproteins and tumour suppressors</article-title>
+<source/>Nat Rev Cancer
+          <year>2016</year>
+<volume>16</volume>
+<issue>7</issue>
+<fpage>413</fpage>
+<lpage>430</lpage>
+<pub-id pub-id-type="pmid">27282250</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<mixed-citation publication-type="other">Barrett T, <italic>et al</italic>. NCBI GEO: archive for functional genomics data sets–update. <italic>Nucleic Acids Res</italic>, <bold>41</bold> (Database issue), D991–995 (2013).</mixed-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Gerstein</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Snyder</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>RNA-Seq: a revolutionary tool for transcriptomics</article-title>
+<source/>Nat Rev Genet
+          <year>2009</year>
+<volume>10</volume>
+<issue>1</issue>
+<fpage>57</fpage>
+<lpage>63</lpage>
+<pub-id pub-id-type="pmid">19015660</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guo</surname>
+<given-names>Z</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>RNASeqMetaDB: a database and web server for navigating metadata of publicly available mouse RNA-Seq datasets</article-title>
+<source/>Bioinformatics
+          <year>2015</year>
+<volume>31</volume>
+<issue>24</issue>
+<fpage>4038</fpage>
+<lpage>4040</lpage>
+<pub-id pub-id-type="pmid">26323714</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<mixed-citation publication-type="other">Li, J. <italic>et al</italic>. RBPMetaDB: a comprehensive annotation of mouse RNA-Seq datasets with perturbations of RNA-binding proteins. <italic>DataBase-Oxford</italic><bold>2018</bold> (2018).</mixed-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Agarwal</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Dhar</surname>
+<given-names>V</given-names>
+</name>
+</person-group>
+<article-title>Big Data, Data Science, and Analytics: The Opportunity and Challenge for IS Research</article-title>
+<source/>Inform Syst Res
+          <year>2014</year>
+<volume>25</volume>
+<issue>3</issue>
+<fpage>443</fpage>
+<lpage>448</lpage>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A data mining paradigm for identifying key factors in biological processes using gene expression data</article-title>
+<source/>Sci Rep
+          <year>2018</year>
+<volume>8</volume>
+<issue>1</issue>
+<fpage>9083</fpage>
+<pub-id pub-id-type="pmid">29899432</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pan</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Shai</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>LJ</given-names>
+</name>
+<name>
+<surname>Frey</surname>
+<given-names>BJ</given-names>
+</name>
+<name>
+<surname>Blencowe</surname>
+<given-names>BJ</given-names>
+</name>
+</person-group>
+<article-title>Deep surveying of alternative splicing complexity in the human transcriptome by high-throughput sequencing</article-title>
+<source/>Nat Genet
+          <year>2008</year>
+<volume>40</volume>
+<issue>12</issue>
+<fpage>1413</fpage>
+<lpage>1415</lpage>
+<pub-id pub-id-type="pmid">18978789</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>SFMetaDB: a comprehensive annotation of mouse RNA splicing factor RNA-Seq datasets</article-title>
+<source/>DataBase-Oxford
+          <year>2017</year>
+<volume>2017</volume>
+<fpage>bax071</fpage>
+<lpage>bax071</lpage>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<mixed-citation publication-type="other">Li, Z., Li, J. &amp; Yu P. GEOMetaCuration: a web-based application for accurate manual curation of Gene Expression Omnibus metadata. <italic>DataBase-Oxford</italic>, <bold>2018</bold> (2018).</mixed-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kornblihtt</surname>
+<given-names>AR</given-names>
+</name>
+<name>
+<surname>de la Mata</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Fededa</surname>
+<given-names>JP</given-names>
+</name>
+<name>
+<surname>Munoz</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Nogues</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Multiple links between transcription and splicing</article-title>
+<source/>RNA
+          <year>2004</year>
+<volume>10</volume>
+<issue>10</issue>
+<fpage>1489</fpage>
+<lpage>1498</lpage>
+<pub-id pub-id-type="pmid">15383674</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>l1kdeconv: an R package for peak calling analysis with LINCS L1000 data</article-title>
+<source/>BMC Bioinformatics
+          <year>2017</year>
+<volume>18</volume>
+<issue>1</issue>
+<fpage>356</fpage>
+<pub-id pub-id-type="pmid">28750623</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cheng</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Kumar</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Agarwal</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Systematic evaluation of connectivity map for disease indications</article-title>
+<source/>Genome Med
+          <year>2014</year>
+<volume>6</volume>
+<issue>12</issue>
+<fpage>540</fpage>
+<pub-id pub-id-type="pmid">25606058</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Osenberg</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Activity-dependent aberrations in gene expression and alternative splicing in a mouse model of Rett syndrome</article-title>
+<source/>P Natl Acad Sci USA
+          <year>2018</year>
+<volume>115</volume>
+<issue>23</issue>
+<fpage>E5363</fpage>
+<lpage>E5372</lpage>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Deng</surname>
+<given-names>S-P</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>CITGeneDB: a comprehensive database of human and mouse genes enhancing or suppressing cold-induced thermogenesis validated by perturbation experiments in mice</article-title>
+<source/>Database-Oxford
+          <year>2018</year>
+<volume>2018</volume>
+<fpage>bay012</fpage>
+<lpage>bay012</lpage>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<mixed-citation publication-type="other">Vernia S. <italic>et al</italic>. An alternative splicing program promotes adipose tissue thermogenesis. <italic>Elife</italic>, <bold>5</bold> (2016).</mixed-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sammeth</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Foissac</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Guigo</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>A General Definition and Nomenclature for Alternative Splicing Events</article-title>
+<source/>Plos Comput. Biol.
+          <year>2008</year>
+<volume>4</volume>
+<fpage>e1000147</fpage>
+<pub-id pub-id-type="pmid">18688268</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Alexander</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Beggs</surname>
+<given-names>JD</given-names>
+</name>
+</person-group>
+<article-title>Cross-talk in transcription, splicing and chromatin: who makes the first call?</article-title>
+<source/>Biochem Soc Trans
+          <year>2010</year>
+<volume>38</volume>
+<issue>5</issue>
+<fpage>1251</fpage>
+<lpage>1256</lpage>
+<pub-id pub-id-type="pmid">20863294</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shahbazian</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Zoghbi</surname>
+<given-names>HY</given-names>
+</name>
+</person-group>
+<article-title>Rett syndrome and MeCP2: linking epigenetics and neuronal function</article-title>
+<source/>Am J Hum Genet
+          <year>2002</year>
+<volume>71</volume>
+<issue>6</issue>
+<fpage>1259</fpage>
+<lpage>1272</lpage>
+<pub-id pub-id-type="pmid">12442230</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guy</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hendrich</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Holmes</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Martin</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Bird</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>A mouse Mecp2-null mutation causes neurological symptoms that mimic Rett syndrome</article-title>
+<source/>Nat Genet
+          <year>2001</year>
+<volume>27</volume>
+<issue>3</issue>
+<fpage>322</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="pmid">11242117</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<mixed-citation publication-type="other">Hagihara, H., Toyama, K., Yamasaki, N., Miyakawa, T. Dissection of hippocampal dentate gyrus from adult mouse. <italic>J Vis Exp</italic> (33) (2009).</mixed-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nuber</surname>
+<given-names>UA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Up-regulation of glucocorticoid-regulated genes in a mouse model of Rett syndrome</article-title>
+<source/>Hum Mol Genet
+          <year>2005</year>
+<volume>14</volume>
+<issue>15</issue>
+<fpage>2247</fpage>
+<lpage>2256</lpage>
+<pub-id pub-id-type="pmid">16002417</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Su</surname>
+<given-names>CT</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An optogenetic approach for assessing formation of neuronal connections in a co-culture system</article-title>
+<source/>J Vis Exp
+          <year>2015</year>
+<volume>96</volume>
+<fpage>e52408</fpage>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Rescue of Methyl-CpG Binding Protein 2 Dysfunction-induced Defects in Newborn Neurons by Pentobarbital</article-title>
+<source/>Neurotherapeutics
+          <year>2015</year>
+<volume>12</volume>
+<issue>2</issue>
+<fpage>477</fpage>
+<lpage>490</lpage>
+<pub-id pub-id-type="pmid">25753729</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chew</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Lentiviral silencing of GSK-3beta in adult dentate gyrus impairs contextual fear memory and synaptic plasticity</article-title>
+<source/>Front Behav Neurosci
+          <year>2015</year>
+<volume>9</volume>
+<fpage>158</fpage>
+<pub-id pub-id-type="pmid">26157370</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ferreira</surname>
+<given-names>TA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Neuronal morphometry directly from bitmap images</article-title>
+<source/>Nat Methods
+          <year>2014</year>
+<volume>11</volume>
+<issue>10</issue>
+<fpage>982</fpage>
+<lpage>984</lpage>
+<pub-id pub-id-type="pmid">25264773</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grozdanov</surname>
+<given-names>PN</given-names>
+</name>
+<name>
+<surname>Amatullah</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Graber</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>MacDonald</surname>
+<given-names>CC</given-names>
+</name>
+</person-group>
+<article-title>TauCstF-64 Mediates Correct mRNA Polyadenylation and Splicing of Activator and Repressor Isoforms of the Cyclic AMP-Responsive Element Modulator (CREM) in Mouse Testis</article-title>
+<source/>Biol Reprod
+          <year>2016</year>
+<volume>94</volume>
+<issue>2</issue>
+<fpage>34</fpage>
+<pub-id pub-id-type="pmid">26700942</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Timchenko</surname>
+<given-names>NA</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>GL</given-names>
+</name>
+<name>
+<surname>Timchenko</surname>
+<given-names>LT</given-names>
+</name>
+</person-group>
+<article-title>RNA CUG-binding protein 1 increases translation of 20-kDa isoform of CCAAT/enhancer-binding protein beta by interacting with the alpha and beta subunits of eukaryotic initiation translation factor 2</article-title>
+<source/>J Biol Chem
+          <year>2005</year>
+<volume>280</volume>
+<issue>21</issue>
+<fpage>20549</fpage>
+<lpage>20557</lpage>
+<pub-id pub-id-type="pmid">15788409</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>KY</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Brown fat activation mediates cold-induced thermogenesis in adult humans in response to a mild decrease in ambient temperature</article-title>
+<source/>J Clin Endocrinol Metab
+          <year>2013</year>
+<volume>98</volume>
+<issue>7</issue>
+<fpage>E1218</fpage>
+<lpage>1223</lpage>
+<pub-id pub-id-type="pmid">23780370</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Harms</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Seale</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Brown and beige fat: development, function and therapeutic potential</article-title>
+<source/>Nat Med
+          <year>2013</year>
+<volume>19</volume>
+<issue>10</issue>
+<fpage>1252</fpage>
+<lpage>1263</lpage>
+<pub-id pub-id-type="pmid">24100998</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Loft</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Forss</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Mandrup</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Genome-Wide Insights into the Development and Function of Thermogenic Adipocytes</article-title>
+<source/>Trends Endocrin Met
+          <year>2017</year>
+<volume>28</volume>
+<issue>2</issue>
+<fpage>104</fpage>
+<lpage>120</lpage>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<mixed-citation publication-type="other">Olson, A. L. RalA signaling may reveal the true nature of 3T3-L1 adipocytes as a model for thermogenic adipocytes. <italic>P Natl Acad Sci USA</italic> (2018).</mixed-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morrison</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>McGee</surname>
+<given-names>SL</given-names>
+</name>
+</person-group>
+<article-title>3T3-L1 adipocytes display phenotypic characteristics of multiple adipocyte lineages</article-title>
+<source/>Adipocyte
+          <year>2015</year>
+<volume>4</volume>
+<issue>4</issue>
+<fpage>295</fpage>
+<lpage>302</lpage>
+<pub-id pub-id-type="pmid">26451286</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Klingenspor</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Cold-induced recruitment of brown adipose tissue thermogenesis</article-title>
+<source/>Exp Physiol
+          <year>2003</year>
+<volume>88</volume>
+<issue>1</issue>
+<fpage>141</fpage>
+<lpage>148</lpage>
+<pub-id pub-id-type="pmid">12525862</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Divakaruni</surname>
+<given-names>AS</given-names>
+</name>
+<name>
+<surname>Brand</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<article-title>The regulation and physiology of mitochondrial proton leak</article-title>
+<source/>Physiology
+          <year>2011</year>
+<volume>26</volume>
+<issue>3</issue>
+<fpage>192</fpage>
+<lpage>205</lpage>
+<pub-id pub-id-type="pmid">21670165</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Plaisier</surname>
+<given-names>CL</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Zbtb16 has a role in brown adipocyte bioenergetics</article-title>
+<source/>Nutr Diabetes
+          <year>2012</year>
+<volume>2</volume>
+<fpage>e46</fpage>
+<pub-id pub-id-type="pmid">23446662</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rose</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Oxidative stress induces mitochondrial dysfunction in a subset of autism lymphoblastoid cell lines in a well-matched case control cohort</article-title>
+<source/>Plos One
+          <year>2014</year>
+<volume>9</volume>
+<issue>1</issue>
+<fpage>e85436</fpage>
+<pub-id pub-id-type="pmid">24416410</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anvar</surname>
+<given-names>SY</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Full-length mRNA sequencing uncovers a widespread coupling between transcription initiation and mRNA processing</article-title>
+<source/>Genome Biol
+          <year>2018</year>
+<volume>19</volume>
+<issue>1</issue>
+<fpage>46</fpage>
+<pub-id pub-id-type="pmid">29598823</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<mixed-citation publication-type="other">Chen, M. X., <italic>et al</italic>. Full-length transcript-based proteogenomics of rice improves its genome and proteome annotation. <italic>Plant Physiol</italic> (2019).</mixed-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<mixed-citation publication-type="other">Blank-Landeshammer, B., <italic>et al</italic> Combination of Proteogenomics with Peptide De Novo Sequencing Identifies New Genes and Hidden Posttranscriptional Modifications. <italic>mBio</italic>, <bold>10</bold>(5) (2019).</mixed-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Young</surname>
+<given-names>JI</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Regulation of RNA splicing by the methylation-dependent transcriptional repressor methyl-CpG binding protein 2</article-title>
+<source/>P Natl Acad Sci USA
+          <year>2005</year>
+<volume>102</volume>
+<issue>49</issue>
+<fpage>17551</fpage>
+<lpage>17558</lpage>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Misregulation of Alternative Splicing in a Mouse Model of Rett Syndrome</article-title>
+<source/>PLoS Genet
+          <year>2016</year>
+<volume>12</volume>
+<issue>6</issue>
+<fpage>e1006129</fpage>
+<pub-id pub-id-type="pmid">27352031</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>De Leeuw</surname>
+<given-names>F</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The cold-inducible RNA-binding protein migrates from the nucleus to cytoplasmic stress granules by a methylation-dependent mechanism and acts as a translational repressor</article-title>
+<source/>Exp Cell Res
+          <year>2007</year>
+<volume>313</volume>
+<issue>20</issue>
+<fpage>4130</fpage>
+<lpage>4144</lpage>
+<pub-id pub-id-type="pmid">17967451</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Filosa</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Pecorelli</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>D’Esposito</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Valacchi</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Hajek</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Exploring the possible link between MeCP2 and oxidative stress in Rett syndrome</article-title>
+<source/>Free Radic Biol Med
+          <year>2015</year>
+<volume>88</volume>
+<issue>Pt A</issue>
+<fpage>81</fpage>
+<lpage>90</lpage>
+<pub-id pub-id-type="pmid">25960047</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lin</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>YH</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>YR</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>YJ</given-names>
+</name>
+</person-group>
+<article-title>RBM4a-regulated splicing cascade modulates the differentiation and metabolic activities of brown adipocytes</article-title>
+<source/>Sci Rep
+          <year>2016</year>
+<volume>6</volume>
+<fpage>20665</fpage>
+<pub-id pub-id-type="pmid">26857472</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>LeBlanc</surname>
+<given-names>SE</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Protein arginine methyltransferase 5 (Prmt5) promotes gene expression of peroxisome proliferator-activated receptor gamma2 (PPARgamma2) and its target genes during adipogenesis</article-title>
+<source/>Mol Endocrinol
+          <year>2012</year>
+<volume>26</volume>
+<issue>4</issue>
+<fpage>583</fpage>
+<lpage>597</lpage>
+<pub-id pub-id-type="pmid">22361822</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bai</surname>
+<given-names>Z</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Dynamic transcriptome changes during adipose tissue energy expenditure reveal critical roles for long noncoding RNA regulators</article-title>
+<source/>Plos Biol
+          <year>2017</year>
+<volume>15</volume>
+<issue>8</issue>
+<fpage>e2002176</fpage>
+<pub-id pub-id-type="pmid">28763438</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Alvarez-Dominguez</surname>
+<given-names>JR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>De Novo Reconstruction of Adipose Tissue Transcriptomes Reveals Long Non-coding RNA Regulators of Brown Adipocyte Development</article-title>
+<source/>Cell Metab
+          <year>2015</year>
+<volume>21</volume>
+<issue>5</issue>
+<fpage>764</fpage>
+<lpage>776</lpage>
+<pub-id pub-id-type="pmid">25921091</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Takahashi</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Nematode homologue of PQBP1, a mental retardation causative gene, is involved in lipid metabolism</article-title>
+<source/>Plos One
+          <year>2009</year>
+<volume>4</volume>
+<issue>1</issue>
+<fpage>e4104</fpage>
+<pub-id pub-id-type="pmid">19119319</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stopa</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Krebs</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Shechter</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>The PRMT5 arginine methyltransferase: many roles in development, cancer and beyond</article-title>
+<source/>Cell Mol Life Sci
+          <year>2015</year>
+<volume>72</volume>
+<issue>11</issue>
+<fpage>2041</fpage>
+<lpage>2059</lpage>
+<pub-id pub-id-type="pmid">25662273</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Szklarczyk</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The STRING database in 2017: quality-controlled protein-protein association networks, made broadly accessible</article-title>
+<source/>Nucleic Acids Res
+          <year>2017</year>
+<volume>45</volume>
+<issue>D1</issue>
+<fpage>D362</fpage>
+<lpage>D368</lpage>
+<pub-id pub-id-type="pmid">27924014</pub-id>
+</element-citation>
+</ref>
+<ref id="CR53">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ohno</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Shinoda</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Spiegelman</surname>
+<given-names>BM</given-names>
+</name>
+<name>
+<surname>Kajimura</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>PPAR gamma agonists Induce a White-to-Brown Fat Conversion through Stabilization of PRDM16 Protein</article-title>
+<source/>Cell Metab
+          <year>2012</year>
+<volume>15</volume>
+<issue>3</issue>
+<fpage>395</fpage>
+<lpage>404</lpage>
+<pub-id pub-id-type="pmid">22405074</pub-id>
+</element-citation>
+</ref>
+<ref id="CR54">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nissen</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Wolski</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>Effect of rosiglitazone on the risk of myocardial infarction and death from cardiovascular causes</article-title>
+<source/>N Engl J Med
+          <year>2007</year>
+<volume>356</volume>
+<issue>24</issue>
+<fpage>2457</fpage>
+<lpage>2471</lpage>
+<pub-id pub-id-type="pmid">17517853</pub-id>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kramer</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>The structure and function of proteins involved in mammalian pre-mRNA splicing</article-title>
+<source/>Annu Rev Biochem
+          <year>1996</year>
+<volume>65</volume>
+<fpage>367</fpage>
+<lpage>409</lpage>
+<pub-id pub-id-type="pmid">8811184</pub-id>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56.</label>
+<mixed-citation publication-type="other">UniProt, C. UniProt: a hub for protein information. <italic>Nucleic Acids Res</italic>, <bold>43</bold>, (Database issue), D204–212 (2015).</mixed-citation>
+</ref>
+<ref id="CR57">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Genome-wide transcriptome analysis identifies alternative splicing regulatory network and key splicing factors in mouse and human psoriasis</article-title>
+<source/>Sci Rep
+          <year>2018</year>
+<volume>8</volume>
+<issue>1</issue>
+<fpage>4124</fpage>
+<pub-id pub-id-type="pmid">29515135</pub-id>
+</element-citation>
+</ref>
+<ref id="CR58">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dai</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cytoplasmic Drosha activity generated by alternative splicing</article-title>
+<source/>Nucleic Acids Res
+          <year>2016</year>
+<volume>44</volume>
+<issue>21</issue>
+<fpage>10454</fpage>
+<lpage>10466</lpage>
+<pub-id pub-id-type="pmid">27471035</pub-id>
+</element-citation>
+</ref>
+<ref id="CR59">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cress</surname>
+<given-names>WD</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Expression and alternative splicing of the cyclin-dependent kinase inhibitor-3 gene in human cancer</article-title>
+<source/>Int. J Biochem. Cell. B.
+          <year>2017</year>
+<volume>91</volume>
+<issue>Pt B</issue>
+<fpage>98</fpage>
+<lpage>101</lpage>
+</element-citation>
+</ref>
+<ref id="CR60">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Belanger</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>CELF1 contributes to aberrant alternative splicing patterns in the type 1 diabetic heart</article-title>
+<source/>Biochem. Bioph. Res. Co.
+          <year>2018</year>
+<volume>503</volume>
+<issue>4</issue>
+<fpage>3205</fpage>
+<lpage>3211</lpage>
+</element-citation>
+</ref>
+<ref id="CR61">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Monedero Cobeta</surname>
+<given-names>I</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Specification of Drosophila neuropeptidergic neurons by the splicing component brr2</article-title>
+<source/>Plos Genet
+          <year>2018</year>
+<volume>14</volume>
+<issue>8</issue>
+<fpage>e1007496</fpage>
+<pub-id pub-id-type="pmid">30133436</pub-id>
+</element-citation>
+</ref>
+<ref id="CR62">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dobin</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>STAR: ultrafast universal RNA-seq aligner</article-title>
+<source/>Bioinformatics
+          <year>2013</year>
+<volume>29</volume>
+<issue>1</issue>
+<fpage>15</fpage>
+<lpage>21</lpage>
+<pub-id pub-id-type="pmid">23104886</pub-id>
+</element-citation>
+</ref>
+<ref id="CR63">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hsu</surname>
+<given-names>F</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The UCSC known genes</article-title>
+<source/>Bioinformatics
+          <year>2006</year>
+<volume>22</volume>
+<fpage>1036</fpage>
+<lpage>1046</lpage>
+<pub-id pub-id-type="pmid">16500937</pub-id>
+</element-citation>
+</ref>
+<ref id="CR64">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anders</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Pyl</surname>
+<given-names>PT</given-names>
+</name>
+<name>
+<surname>Huber</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>HTSeq–a Python framework to work with high-throughput sequencing data</article-title>
+<source/>Bioinformatics
+          <year>2015</year>
+<volume>31</volume>
+<issue>2</issue>
+<fpage>166</fpage>
+<lpage>169</lpage>
+<pub-id pub-id-type="pmid">25260700</pub-id>
+</element-citation>
+</ref>
+<ref id="CR65">
+<label>65.</label>
+<mixed-citation publication-type="other">Yu, P. &amp; Shaw, C. A. Modeling and Predicting Differential Alternative Splicing Events and Applications Thereof. <italic>US Patent Application</italic>, US 15/040,514 (2016).</mixed-citation>
+</ref>
+<ref id="CR66">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yu</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Shaw</surname>
+<given-names>CA</given-names>
+</name>
+</person-group>
+<article-title>An efficient algorithm for accurate computation of the Dirichlet-multinomial log-likelihood function</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<volume>30</volume>
+<issue>11</issue>
+<fpage>1547</fpage>
+<lpage>1554</lpage>
+<pub-id pub-id-type="pmid">24519380</pub-id>
+</element-citation>
+</ref>
+<ref id="CR67">
+<label>67.</label>
+<mixed-citation publication-type="other">Casella, G. &amp; Berger, R. L. <italic>Statistical inference</italic>, 2 edn. Thomson Learning, (2001).</mixed-citation>
+</ref>
+<ref id="CR68">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Benjamini</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Hochberg</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing</article-title>
+<source/>J Roy Stat Soc B Met
+          <year>1995</year>
+<volume>57</volume>
+<issue>1</issue>
+<fpage>289</fpage>
+<lpage>300</lpage>
+</element-citation>
+</ref>
+<ref id="CR69">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Katz</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>ET</given-names>
+</name>
+<name>
+<surname>Airoldi</surname>
+<given-names>EM</given-names>
+</name>
+<name>
+<surname>Burge</surname>
+<given-names>CB</given-names>
+</name>
+</person-group>
+<article-title>Analysis and design of RNA sequencing experiments for identifying isoform regulation</article-title>
+<source/>Nat Methods
+          <year>2010</year>
+<volume>7</volume>
+<issue>12</issue>
+<fpage>1009</fpage>
+<lpage>1015</lpage>
+<pub-id pub-id-type="pmid">21057496</pub-id>
+</element-citation>
+</ref>
+<ref id="CR70">
+<label>70.</label>
+<mixed-citation publication-type="other">Grozdanov, P. N., Li, J., Yu, P., Yan, W. &amp; MacDonald, CC. Cstf2t Regulates expression of histones and histone-like proteins in male germ cells. <italic>Andrology</italic> (2018).</mixed-citation>
+</ref>
+<ref id="CR71">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Qian</surname>
+<given-names>X</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>RNA-seq analysis of glycosylation related gene expression in STZ-induced diabetic rat kidney inner medulla</article-title>
+<source/>Front Physiol
+          <year>2015</year>
+<volume>6</volume>
+<fpage>274</fpage>
+<pub-id pub-id-type="pmid">26483702</pub-id>
+</element-citation>
+</ref>
+<ref id="CR72">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Z</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>ASXL1 interacts with the cohesin complex to maintain chromatid separation and gene expression for normal hematopoiesis</article-title>
+<source/>Sci Adv
+          <year>2017</year>
+<volume>3</volume>
+<issue>1</issue>
+<fpage>e1601602</fpage>
+<pub-id pub-id-type="pmid">28116354</pub-id>
+</element-citation>
+</ref>
+<ref id="CR73">
+<label>73.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A simple computer vision pipeline reveals the effects of isolation on social interaction dynamics in Drosophila</article-title>
+<source/>Plos Comput Biol
+          <year>2018</year>
+<volume>14</volume>
+<issue>8</issue>
+<fpage>e1006410</fpage>
+<pub-id pub-id-type="pmid">30161262</pub-id>
+</element-citation>
+</ref>
+<ref id="CR74">
+<label>74.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Love</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Huber</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Anders</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2</article-title>
+<source/>Genome Biol
+          <year>2014</year>
+<volume>15</volume>
+<issue>12</issue>
+<fpage>550</fpage>
+<pub-id pub-id-type="pmid">25516281</pub-id>
+</element-citation>
+</ref>
+<ref id="CR75">
+<label>75.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kodama</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Shumway</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Leinonen</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>International Nucleotide Sequence Database C. The Sequence Read Archive: explosive growth of sequencing data</article-title>
+<source/>Nucleic Acids Res
+          <year>2012</year>
+<volume>40</volume>
+<issue>Database issue</issue>
+<fpage>D54</fpage>
+<lpage>56</lpage>
+<pub-id pub-id-type="pmid">22009675</pub-id>
+</element-citation>
+</ref>
+<ref id="CR76">
+<label>76.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sims</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Sudbery</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Ilott</surname>
+<given-names>NE</given-names>
+</name>
+<name>
+<surname>Heger</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Ponting</surname>
+<given-names>CP</given-names>
+</name>
+</person-group>
+<article-title>Sequencing depth and coverage: key considerations in genomic analyses</article-title>
+<source/>Nat Rev Genet
+          <year>2014</year>
+<volume>15</volume>
+<issue>2</issue>
+<fpage>121</fpage>
+<lpage>132</lpage>
+<pub-id pub-id-type="pmid">24434847</pub-id>
+</element-citation>
+</ref>
+<ref id="CR77">
+<label>77.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Subramanian</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</article-title>
+<source/>P Natl Acad Sci USA
+          <year>2005</year>
+<volume>102</volume>
+<issue>43</issue>
+<fpage>15545</fpage>
+<lpage>15550</lpage>
+</element-citation>
+</ref>
+<ref id="CR78">
+<label>78.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Martin</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Morrison</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Konstantopoulos</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>McGee</surname>
+<given-names>SL</given-names>
+</name>
+</person-group>
+<article-title>Mitochondrial dysfunction has divergent, cell type-dependent effects on insulin action</article-title>
+<source/>Mol Metab
+          <year>2014</year>
+<volume>3</volume>
+<issue>4</issue>
+<fpage>408</fpage>
+<lpage>418</lpage>
+<pub-id pub-id-type="pmid">24944900</pub-id>
+</element-citation>
+</ref>
+<ref id="CR79">
+<label>79.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Isidor</surname>
+<given-names>MS</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An siRNA-based method for efficient silencing of gene expression in mature brown adipocytes</article-title>
+<source/>Adipocyte
+          <year>2016</year>
+<volume>5</volume>
+<issue>2</issue>
+<fpage>175</fpage>
+<lpage>185</lpage>
+<pub-id pub-id-type="pmid">27386153</pub-id>
+</element-citation>
+</ref>
+<ref id="CR80">
+<label>80.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McGee</surname>
+<given-names>SL</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Compensatory regulation of HDAC5 in muscle maintains metabolic adaptive responses and metabolism in response to energetic stress</article-title>
+<source/>Faseb J
+          <year>2014</year>
+<volume>28</volume>
+<issue>8</issue>
+<fpage>3384</fpage>
+<lpage>3395</lpage>
+<pub-id pub-id-type="pmid">24732133</pub-id>
+</element-citation>
+</ref>
+<ref id="CR81">
+<label>81.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE65542">GSE65542</pub-id>
+</element-citation>
+</ref>
+<ref id="CR82">
+<label>82.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE54794">GSE54794</pub-id>
+</element-citation>
+</ref>
+<ref id="CR83">
+<label>83.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE62571">GSE62571</pub-id>
+</element-citation>
+</ref>
+<ref id="CR84">
+<label>84.</label>
+<element-citation publication-type="data">
+<year>2013</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE40468">GSE40468</pub-id>
+</element-citation>
+</ref>
+<ref id="CR85">
+<label>85.</label>
+<element-citation publication-type="data">
+<year>2012</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE38497">GSE38497</pub-id>
+</element-citation>
+</ref>
+<ref id="CR86">
+<label>86.</label>
+<element-citation publication-type="data">
+<year>2013</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE45284">GSE45284</pub-id>
+</element-citation>
+</ref>
+<ref id="CR87">
+<label>87.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE57875">GSE57875</pub-id>
+</element-citation>
+</ref>
+<ref id="CR88">
+<label>88.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE61994">GSE61994</pub-id>
+</element-citation>
+</ref>
+<ref id="CR89">
+<label>89.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE62001">GSE62001</pub-id>
+</element-citation>
+</ref>
+<ref id="CR90">
+<label>90.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE85576">GSE85576</pub-id>
+</element-citation>
+</ref>
+<ref id="CR91">
+<label>91.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE67647">GSE67647</pub-id>
+</element-citation>
+</ref>
+<ref id="CR92">
+<label>92.</label>
+<element-citation publication-type="data">
+<year>2013</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE46207">GSE46207</pub-id>
+</element-citation>
+</ref>
+<ref id="CR93">
+<label>93.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE89834">GSE89834</pub-id>
+</element-citation>
+</ref>
+<ref id="CR94">
+<label>94.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus,
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE86248">GSE86248</pub-id>
+</element-citation>
+</ref>
+<ref id="CR95">
+<label>95.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE63800">GSE63800</pub-id>
+</element-citation>
+</ref>
+<ref id="CR96">
+<label>96.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE60875">GSE60875</pub-id>
+</element-citation>
+</ref>
+<ref id="CR97">
+<label>97.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE56284">GSE56284</pub-id>
+</element-citation>
+</ref>
+<ref id="CR98">
+<label>98.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE71075">GSE71075</pub-id>
+</element-citation>
+</ref>
+<ref id="CR99">
+<label>99.</label>
+<element-citation publication-type="data">
+<year>2013</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE53599">GSE53599</pub-id>
+</element-citation>
+</ref>
+<ref id="CR100">
+<label>100.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE61444">GSE61444</pub-id>
+</element-citation>
+</ref>
+<ref id="CR101">
+<label>101.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE85646">GSE85646</pub-id>
+</element-citation>
+</ref>
+<ref id="CR102">
+<label>102.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE75993">GSE75993</pub-id>
+</element-citation>
+</ref>
+<ref id="CR103">
+<label>103.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE79020">GSE79020</pub-id>
+</element-citation>
+</ref>
+<ref id="CR104">
+<label>104.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE57278">GSE57278</pub-id>
+</element-citation>
+</ref>
+<ref id="CR105">
+<label>105.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE64357">GSE64357</pub-id>
+</element-citation>
+</ref>
+<ref id="CR106">
+<label>106.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE65818">GSE65818</pub-id>
+</element-citation>
+</ref>
+<ref id="CR107">
+<label>107.</label>
+<element-citation publication-type="data">
+<year>2017</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE74178">GSE74178</pub-id>
+</element-citation>
+</ref>
+<ref id="CR108">
+<label>108.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE69733">GSE69733</pub-id>
+</element-citation>
+</ref>
+<ref id="CR109">
+<label>109.</label>
+<element-citation publication-type="data">
+<year>2013</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE51733">GSE51733</pub-id>
+</element-citation>
+</ref>
+<ref id="CR110">
+<label>110.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE70895">GSE70895</pub-id>
+</element-citation>
+</ref>
+<ref id="CR111">
+<label>111.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE67164">GSE67164</pub-id>
+</element-citation>
+</ref>
+<ref id="CR112">
+<label>112.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE66793">GSE66793</pub-id>
+</element-citation>
+</ref>
+<ref id="CR113">
+<label>113.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE68178">GSE68178</pub-id>
+</element-citation>
+</ref>
+<ref id="CR114">
+<label>114.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE81716">GSE81716</pub-id>
+</element-citation>
+</ref>
+<ref id="CR115">
+<label>115.</label>
+<element-citation publication-type="data">
+<year>2012</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE39911">GSE39911</pub-id>
+</element-citation>
+</ref>
+<ref id="CR116">
+<label>116.</label>
+<element-citation publication-type="data">
+<year>2017</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE80204">GSE80204</pub-id>
+</element-citation>
+</ref>
+<ref id="CR117">
+<label>117.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE66822">GSE66822</pub-id>
+</element-citation>
+</ref>
+<ref id="CR118">
+<label>118.</label>
+<element-citation publication-type="data">
+<year>2010</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE21993">GSE21993</pub-id>
+</element-citation>
+</ref>
+<ref id="CR119">
+<label>119.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE76222">GSE76222</pub-id>
+</element-citation>
+</ref>
+<ref id="CR120">
+<label>120.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE67960">GSE67960</pub-id>
+</element-citation>
+</ref>
+<ref id="CR121">
+<label>121.</label>
+<element-citation publication-type="data">
+<year>2012</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE33306">GSE33306</pub-id>
+</element-citation>
+</ref>
+<ref id="CR122">
+<label>122.</label>
+<element-citation publication-type="data">
+<year>2012</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE40918">GSE40918</pub-id>
+</element-citation>
+</ref>
+<ref id="CR123">
+<label>123.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE72790">GSE72790</pub-id>
+</element-citation>
+</ref>
+<ref id="CR124">
+<label>124.</label>
+<element-citation publication-type="data">
+<year>2017</year>
+<source/>Gene Expression Omnibus,
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE76929">GSE76929</pub-id>
+</element-citation>
+</ref>
+<ref id="CR125">
+<label>125.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE69937">GSE69937</pub-id>
+</element-citation>
+</ref>
+<ref id="CR126">
+<label>126.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE86043">GSE86043</pub-id>
+</element-citation>
+</ref>
+<ref id="CR127">
+<label>127.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE57967">GSE57967</pub-id>
+</element-citation>
+</ref>
+<ref id="CR128">
+<label>128.</label>
+<element-citation publication-type="data">
+<year>2017</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE93279">GSE93279</pub-id>
+</element-citation>
+</ref>
+<ref id="CR129">
+<label>129.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE85712">GSE85712</pub-id>
+</element-citation>
+</ref>
+<ref id="CR130">
+<label>130.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus,
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE53538">GSE53538</pub-id>
+</element-citation>
+</ref>
+<ref id="CR131">
+<label>131.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus,
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE61891">GSE61891</pub-id>
+</element-citation>
+</ref>
+<ref id="CR132">
+<label>132.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE58432">GSE58432</pub-id>
+</element-citation>
+</ref>
+<ref id="CR133">
+<label>133.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE68890">GSE68890</pub-id>
+</element-citation>
+</ref>
+<ref id="CR134">
+<label>134.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE61997">GSE61997</pub-id>
+</element-citation>
+</ref>
+<ref id="CR135">
+<label>135.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE67828">GSE67828</pub-id>
+</element-citation>
+</ref>
+<ref id="CR136">
+<label>136.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE70108">GSE70108</pub-id>
+</element-citation>
+</ref>
+<ref id="CR137">
+<label>137.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE76317">GSE76317</pub-id>
+</element-citation>
+</ref>
+<ref id="CR138">
+<label>138.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE79487">GSE79487</pub-id>
+</element-citation>
+</ref>
+<ref id="CR139">
+<label>139.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE79095">GSE79095</pub-id>
+</element-citation>
+</ref>
+<ref id="CR140">
+<label>140.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE79889">GSE79889</pub-id>
+</element-citation>
+</ref>
+<ref id="CR141">
+<label>141.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE60188">GSE60188</pub-id>
+</element-citation>
+</ref>
+<ref id="CR142">
+<label>142.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE60487">GSE60487</pub-id>
+</element-citation>
+</ref>
+<ref id="CR143">
+<label>143.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE71916">GSE71916</pub-id>
+</element-citation>
+</ref>
+<ref id="CR144">
+<label>144.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE53249">GSE53249</pub-id>
+</element-citation>
+</ref>
+<ref id="CR145">
+<label>145.</label>
+<element-citation publication-type="data">
+<year>2017</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE76824">GSE76824</pub-id>
+</element-citation>
+</ref>
+<ref id="CR146">
+<label>146.</label>
+<element-citation publication-type="data">
+<year>2013</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE44402">GSE44402</pub-id>
+</element-citation>
+</ref>
+<ref id="CR147">
+<label>147.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE89270">GSE89270</pub-id>
+</element-citation>
+</ref>
+<ref id="CR148">
+<label>148.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE70985">GSE70985</pub-id>
+</element-citation>
+</ref>
+<ref id="CR149">
+<label>149.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE84386">GSE84386</pub-id>
+</element-citation>
+</ref>
+<ref id="CR150">
+<label>150.</label>
+<element-citation publication-type="data">
+<year>2015</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE67052">GSE67052</pub-id>
+</element-citation>
+</ref>
+<ref id="CR151">
+<label>151.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE69709">GSE69709</pub-id>
+</element-citation>
+</ref>
+<ref id="CR152">
+<label>152.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE58928">GSE58928</pub-id>
+</element-citation>
+</ref>
+<ref id="CR153">
+<label>153.</label>
+<element-citation publication-type="data">
+<year>2016</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE76294">GSE76294</pub-id>
+</element-citation>
+</ref>
+<ref id="CR154">
+<label>154.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE56185">GSE56185</pub-id>
+</element-citation>
+</ref>
+<ref id="CR155">
+<label>155.</label>
+<element-citation publication-type="data">
+<year>2014</year>
+<source/>Gene Expression Omnibus
+          <pub-id pub-id-type="accession" xlink:href="https://identifiers.org/geo:GSE61890">GSE61890</pub-id>
+</element-citation>
+</ref>
+<ref id="CR156">
+<label>156.</label>
+<element-citation publication-type="data">
+<name>
+<surname>Yu</surname>
+<given-names>P</given-names>
+</name>
+<etal></etal>
+<year>2020</year>
+<data-title>Integrated analysis of a compendium of RNA-Seq datasets for splicing factors</data-title>
+<source/>figshare
+          <pub-id pub-id-type="doi">10.6084/m9.figshare.c.4363706</pub-id>
+</element-citation>
+</ref>
+<ref id="CR157">
+<label>157.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dzwonek</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Mikula</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ostrowski</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>The diverse involvement of heterogeneous nuclear ribonucleoprotein K in mitochondrial response to insulin</article-title>
+<source/>FEBS Lett
+          <year>2006</year>
+<volume>580</volume>
+<issue>7</issue>
+<fpage>1839</fpage>
+<lpage>1845</lpage>
+<pub-id pub-id-type="pmid">16519889</pub-id>
+</element-citation>
+</ref>
+<ref id="CR158">
+<label>158.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>X</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>FTO-dependent demethylation of N6-methyladenosine regulates mRNA splicing and is required for adipogenesis</article-title>
+<source/>Cell Res
+          <year>2014</year>
+<volume>24</volume>
+<issue>12</issue>
+<fpage>1403</fpage>
+<lpage>1419</lpage>
+<pub-id pub-id-type="pmid">25412662</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

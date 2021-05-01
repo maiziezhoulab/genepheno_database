@@ -1,0 +1,663 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">28134345</article-id>
+<article-id pub-id-type="pmc">5278360</article-id>
+<article-id pub-id-type="pii">srep41329</article-id>
+<article-id pub-id-type="doi">10.1038/srep41329</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Computational predictors fail to identify amino acid substitution effects at rheostat positions</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Miller</surname>
+<given-names>M.</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="aff" rid="a2">2</xref>
+<xref ref-type="aff" rid="a3">3</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Bromberg</surname>
+<given-names>Y.</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="aff" rid="a4">4</xref>
+<xref ref-type="aff" rid="a5">5</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Swint-Kruse</surname>
+<given-names>L.</given-names>
+</name>
+<xref ref-type="aff" rid="a6">6</xref>
+<xref ref-type="author-notes" rid="n1">*</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>Department of Biochemistry and Microbiology, Rutgers University</institution>, 76 Lipman Dr, New Brunswick, NJ 08901, <country>USA</country></aff>
+<aff id="a2"><label>2</label><institution>Department for Bioinformatics and Computational Biology, Technische Universität München</institution>, Boltzmannstr. 3, 85748 Garching/Munich, <country>Germany</country></aff>
+<aff id="a3"><label>3</label><institution>TUM Graduate School, Center of Doctoral Studies in Informatics and its Applications (CeDoSIA), Technische Universität München</institution>, 85748 Garching/Munich, <country>Germany</country></aff>
+<aff id="a4"><label>4</label><institution>Department of Genetics, Rutgers University, Human Genetics Institute, Life Sciences Building</institution>, 145 Bevier Road, Piscataway, NJ 08854, <country>USA</country></aff>
+<aff id="a5"><label>5</label><institution>Institute for Advanced Study at Technische Universität München (TUM-IAS)</institution>, Lichtenbergstraße 2a, 85748, Garching/Munich, <country>Germany</country></aff>
+<aff id="a6"><label>6</label><institution>The Department of Biochemistry and Molecular Biology, The University of Kansas Medical Center</institution>, 3901 Rainbow Blvd, Kansas City, KS 66160, <country>USA</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>yana@bromberglab.org</email>
+</corresp>
+<fn id="n1">
+<label>*</label>
+<p>These authors contributed equally to this work.</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>30</day>
+<month>01</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2017</year>
+</pub-date>
+<volume>7</volume>
+<elocation-id>41329</elocation-id>
+<history>
+<date date-type="received">
+<day>11</day>
+<month>10</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>15</day>
+<month>12</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2017, The Author(s)</copyright-statement>
+<copyright-year>2017</copyright-year>
+<copyright-holder>The Author(s)</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>Many computational approaches exist for predicting the effects of amino acid substitutions. Here, we considered whether the protein sequence position class – rheostat or toggle – affects these predictions. The classes are defined as follows: experimentally evaluated effects of amino acid substitutions at toggle positions are binary, while rheostat positions show progressive changes. For substitutions in the LacI protein, all evaluated methods failed two key expectations: toggle neutrals were incorrectly predicted as more non-neutral than rheostat non-neutrals, while toggle and rheostat neutrals were incorrectly predicted to be different. However, toggle non-neutrals were distinct from rheostat neutrals. Since many toggle positions are conserved, and most rheostats are not, predictors appear to annotate position conservation better than mutational effect. This finding can explain the well-known observation that predictors assign disproportionate weight to conservation, as well as the field’s inability to improve predictor performance. Thus, building reliable predictors requires distinguishing between rheostat and toggle positions.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Recent years have seen an explosion in the number of genomes and exomes sequenced for research and medical purposes, <italic>e.g.</italic> for diagnosing and prognosing predisposition to or progression of disease<xref ref-type="bibr" rid="b1">1</xref><xref ref-type="bibr" rid="b2">2</xref><xref ref-type="bibr" rid="b3">3</xref>. Unfortunately, our ability to interpret sequence data lags far behind. Take exomes, for example: Any given individual can have over 10,000 amino-acid differences in their protein coding regions, as compared to the reference genome<xref ref-type="bibr" rid="b4">4</xref>. These differences are often caused by nsSNPs (non-synonymous single nucleotide polymorphisms); in this manuscript, we refer to amino acid substitutions as <italic>variants</italic>. Given the large number of variants, it is not feasible to experimentally determine the <italic>outcomes/effects</italic> for all changes, <italic>i.e.</italic> how they alter molecular function, protein structure, evolutionary fitness, or lead to pathogenesis. Thus, dozens of computational algorithms have been developed to predict outcomes. However, current algorithms have significant room for improvement<xref ref-type="bibr" rid="b5">5</xref>.</p>
+<p>Interestingly, underneath the assortment of computational/mathematical techniques and numerous data inputs, all variant-effect predictors rely, to various extents, on two broad concepts: (i) basic biological principles and (ii) pattern recognition techniques, optimized using results from wet-lab experiments. We examined the assumptions underlying these concepts, hoping to identify avenues to improve predictions.</p>
+<p>The basic biological principles include biochemical amino acid similarities and evolutionary information about the protein of interest. The latter is usually in the form of a multiple sequence alignment (MSA) of homologs and is used to determine which specific sequence positions show evolutionary constraints (<italic>i.e.</italic> conserved <italic>vs.</italic> non-conserved). This information serves as a proxy to predict which amino acid substitutions are “allowed” (inferred by their presence in functionally-active homologs) and which are “bad” (selected against during evolution and, thus, absent from the multiple sequence alignment). Some variant-effect predictors use globally-applicable scoring matrices, <italic>e.g.</italic> BLOSUM<xref ref-type="bibr" rid="b6">6</xref>, that represent the likelihoods of amino acid substitutions in curated MSAs. The substitutions allowed by these matrices often match the biochemical classifications of side chains found in textbooks, which, in turn, are often used to design experimental mutation studies. By convention, only substitutions of “similar” amino acids are expected to allow normal or near-normal protein activity, while other substitutions are expected to alter or abolish function.</p>
+<p>Variant-effect predictors that incorporate pattern recognition approaches are often training-driven. That is, they use large sets of experimentally verified functional effects of amino acid substitutions to build predictive models. These methods often (wrongly) assume that the variants used for training broadly represent the entire world of variation. Another extrapolation is implicit in any computational method that incorporates MSAs: if a particular variant-effect is known for one homolog, similar outcomes are expected for the same variant in other family members.</p>
+<p>Both the conventional substitution rules and training datasets are biased by a gap between unbounded evolutionary reality and limited laboratory work; <italic>i.e.</italic> laboratory variants are subject to experimental limitations and to the interests of the scientists. Indeed, available experimentally-annotated sets of variants are heavily biased to the study of conserved amino acid positions<xref ref-type="bibr" rid="b7">7</xref>.</p>
+<p>However, many protein positions are <italic>not</italic> conserved in MSAs; <italic>i.e.</italic> they <italic>do</italic> change during evolution. Non-conserved positions are often ignored as not important, but this need not be true: homologs often evolve functional variance <italic>via</italic> amino acid changes at non-conserved positions<xref ref-type="bibr" rid="b8">8</xref> and disease-causing substitutions can occur at non-conserved positions<xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref>.</p>
+<p>We hypothesized that key non-conserved positions follow different substitution rules than conserved positions. If so, prediction algorithms that rely on the conventional substitution rules or on laboratory-derived training sets might not correctly predict the variant outcomes at non-conserved positions. Indeed, we recently showed that some functionally-important, non-conserved positions do <italic>not</italic> follow <italic>any</italic> of the evolutionary or biochemical assumptions made for conserved positions<xref ref-type="bibr" rid="b11">11</xref>: In that work, we identified 12 positions in the LacI/GalR family of proteins that varied widely among family members<xref ref-type="bibr" rid="b8">8</xref>. Next, using the natural <italic>E. coli</italic> lactose repressor protein (LacI) and modified (synthetic) versions of seven LacI/GalR homologs (including GalR, PurR, and RbsR), we substituted the native amino acid in each of these positions with 5–13 other amino acids and measured functional outcomes<xref ref-type="bibr" rid="b11">11</xref>. If these positions were functionally important, the conventional rules would predict that only a few similar substitutions would allow normal function and that most others would abolish function (<italic>e.g.</italic>
+<xref ref-type="fig" rid="f1">Fig. 1</xref>, left panel). However, at most of the chosen non-conserved positions, variants exhibited a wide range of functional effects (<xref ref-type="fig" rid="f1">Fig. 1</xref>, right panel). Furthermore, these effects did not correlate with evolutionary frequency, side chain similarities, or functional effects of the same substitutions in homologous proteins<xref ref-type="bibr" rid="b11">11</xref>.</p>
+<p>We named these positions <italic>rheostats</italic> after their most prominent characteristic: When multiple amino acids were substituted at one rheostat position, functions of the mutant proteins could be rank-ordered to show a progressive effect (<xref ref-type="fig" rid="f1">Fig. 1</xref>, right panel). This contrasts with the <italic>toggle</italic> (on-off) behavior that is frequently observed at conserved positions and is predicted by the conventional rules (<xref ref-type="fig" rid="f1">Fig. 1</xref>, left panel). We have also noted rheostatic behavior in published variant datasets for other proteins (<italic>e.g.</italic> refs <xref ref-type="bibr" rid="b12">12</xref>, <xref ref-type="bibr" rid="b13">13</xref>), which indicates that rheostat positions are likely widespread in the protein universe. Importantly, the progressive functional impact of variants at rheostat positions is all but disregarded by the current variant-effect predictors, which were either developed using variants at toggle positions and/or the thresholded (binary) version of functional outcomes. We also hypothesized that the poor correlation observed between functional outcomes of substitutions and biophysical/evolutionary amino acid properties could contribute to erroneous predictions.</p>
+<p>Here we compare predictions from 16 widely-used computational methods for experimentally-evaluated substitutions at rheostat and toggle positions in LacI. Each variant at each position was assigned as either non-neutral or neutral based on experimental outcomes (Methods). When experimental outcomes were compared to predictions at rheostat positions, many non-neutral variants were incorrectly predicted to be neutral. At toggle positions, neutral variants were also poorly predicted, as previously observed by Gray <italic>et al</italic>.<xref ref-type="bibr" rid="b7">7</xref>. We gained insight into this problem by comparing the overall prediction ranges for rheostat and toggle positions, instead of using the default binary neutral/non-neutral thresholds: Our results suggest that current computational predictions could be enhanced by first determining whether the affected position functions as a rheostat or as a toggle.</p>
+<p>Finally, our results show that evaluations of predictor performance are misled by bias in the available experimental data: As noted above, there is a dearth of experimental results for variants at rheostat positions; in addition, at toggle positions, the number of experimentally validated non-neutral variants is high and the number of validated neutral variants is very low. The latter is further complicated by an arguably obfuscated definition of “neutrality” that often differs among methods. Together, these biases have had the practical effect that all toggle variants appear to be non-neutral and all rheostat variants are assumed to be neutral. This leads to an artificially low number of variants incorrectly predicted as non-neutral, whereas the number of incorrect, neutral predictions cannot be properly estimated due to the low number of experimentally-validated neutral toggles. We propose that eliminating data bias, <italic>e.g.</italic> by using experimental results that annotate rheostat position variants, and optimizing prediction algorithms to account for position type will lead to more accurate evaluations of variant impact.</p>
+<sec disp-level="1">
+<title>Results</title>
+<p>To test the performance of variant-effect predictors at rheostat and toggle positions, we extracted positions that exhibit these behaviors from two experimental datasets for LacI (Methods; <xref ref-type="fig" rid="f2">Fig. 2</xref>)<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b14">14</xref>. Rheostatic positions were identified by variants whose outcomes showed a progressive distribution; notably the outcomes of individual variants did not correlate with evolutionary frequency, side chain similarities, or outcomes in homologous proteins<xref ref-type="bibr" rid="b11">11</xref>. Rheostats were identified in both experimental datasets; for this work, predictions were compared to the quantitative measurements of Meinhardt <italic>et al</italic>.<xref ref-type="bibr" rid="b11">11</xref>. Toggle behavior was identified by <italic>binary</italic> variant outcomes, <italic>i.e.</italic> amino acid substitutions caused either a severe impact or no/weak effects; predictions were compared to data from the semi-quantitative study by the Miller lab<xref ref-type="bibr" rid="b14">14</xref>.</p>
+<p>We designated three sets of rheostat and toggle variants (Methods, <xref ref-type="supplementary-material" rid="S1">Supplemental Tables 1</xref> and <xref ref-type="supplementary-material" rid="S1">2</xref>): (i) The <italic>stringent</italic> set comprised the nine rheostat positions that were identified by both experimental studies, and a comparable number of nearby toggle positions. (ii) The <italic>complete</italic> set comprised all 12 rheostat positions from the quantitative experiments and a comparable number of toggle positions. (iii) The <italic>extended</italic> set comprised all 12 rheostat positions and 50 toggles from the semi-quantitative study. For both rheostat and toggle positions, individual variants were classified as either neutral or non-neutral according to their experimentally-determined fold-change relative to wild-type repression.</p>
+<p>For all variants in these sets, we predicted outcomes using 16 selected prediction algorithms (<xref ref-type="fig" rid="f3">Fig. 3</xref>; <xref ref-type="supplementary-material" rid="S1">Supplementary Tables 3</xref> and <xref ref-type="supplementary-material" rid="S1">4</xref>). Most prediction trends were similar for all three sets (<xref ref-type="fig" rid="f4">Fig. 4</xref>; <xref ref-type="supplementary-material" rid="S1">Supplementary Figs 1, 2</xref> and <xref ref-type="supplementary-material" rid="S1">3</xref>); differences are highlighted in the text below and likely stem from the small numbers of neutral variants at toggle positions (the <italic>stringent</italic> set contained only four neutral variants and the <italic>extended</italic> set contained 28). Experimentally-determined outcomes were compared to computational predictions in two ways: First, we compared the overall distributions for prediction scores from each of the four classes (rheostat non-neutral, rheostat neutral, toggle non-neutral, and toggle neutral). Second, for algorithms that generate continuous prediction scores, we directly compared predictions and experiments for individual variants.</p>
+<sec disp-level="2">
+<title>Differences between rheostat and toggle positions confound variant-effect predictions</title>
+<p>Variant predictors report their results in one of two ways: as a binary decision (neutral/non-neutral) or as a scored value representing the likelihood of non-neutrality, often thresholded to make a binary decision. Ideally, each algorithm would clearly separate the distributions of neutral and non-neutral variants, regardless of their toggle or rheostat position location (<xref ref-type="fig" rid="f4">Fig. 4a</xref>). That is, methods should differentiate toggle neutrals from both toggle and rheostat non-neutrals; moreover, rheostat neutrals should be classified similarly to toggle neutrals. Finally, the progressive effect of rheostat non-neutrals should be different from the binary effect of toggle non-neutrals (<xref ref-type="fig" rid="f4">Fig. 4a</xref>).</p>
+<p>However, for the <italic>stringent</italic> comparison set, no algorithm significantly distinguished toggle neutrals from toggle non-neutrals (<xref ref-type="fig" rid="f4">Fig. 4b</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>, (<italic>B) vs. (D</italic>): dark red vs. dark blue), as determined by the Kolmogorov-Smirnov test (KS-test) for continuous predictors and the Fisher exact T-test for binary predictors. The <italic>extended</italic> set was better differentiated at toggle positions by 8 of 16 methods (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 3</xref>). At rheostat positions in the <italic>stringent</italic> set, neutrals and non-neutrals were significantly differentiated by only three of the methods (SNAP2<xref ref-type="bibr" rid="b15">15</xref>, PROVEAN<xref ref-type="bibr" rid="b16">16</xref>, and PolyPhen-2<xref ref-type="bibr" rid="b17">17</xref>; <xref ref-type="fig" rid="f4">Fig. 4b</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>, (<italic>A) vs. (C</italic>), light red vs. light blue).</p>
+<p>Note, however, that non-neutral variant PolyPhen-2 scores are nearly uniformly distributed over the entire score range. The <italic>complete</italic> and <italic>extended</italic> sets were differentiated by four methods (the three above and MutPred2, the unpublished successor of MutPred<xref ref-type="bibr" rid="b18">18</xref>; <xref ref-type="supplementary-material" rid="S1">Supplementary Figs 2</xref> and <xref ref-type="supplementary-material" rid="S1">3</xref>).</p>
+<p>In contrast, toggle non-neutrals were well-differentiated from rheostat neutrals (<xref ref-type="fig" rid="f4">Fig. 4b</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>, (<italic>B) vs. (C</italic>), dark red vs. light blue) in all three comparison sets by all methods except PANTHER<xref ref-type="bibr" rid="b19">19</xref>. Note that PANTHER only returned predictions for 30% of all variants; no predictions were made for neutrals in the <italic>stringent</italic> or <italic>complete</italic> sets, and only 8 of 26 neutrals had predictions in the <italic>extended</italic> set. This makes PANTHER an outlier to most trends observed for all other methods. Some of the algorithms also correctly and significantly differentiated rheostat non-neutrals from toggle neutrals (<xref ref-type="fig" rid="f4">Fig. 4b</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>, (<italic>A) vs. (D</italic>), light red vs. dark blue). However, all of the continuous prediction methods erroneously assigned higher scores to toggle neutrals than to rheostat non-neutrals – the opposite of the correct prediction. Furthermore, for the larger <italic>extended</italic> set, the distinction between rheostat non-neutrals and toggle neutrals was eliminated (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 3</xref>); this finding, again, likely indicates the influence of the low number of toggle neutrals in the <italic>stringent</italic> set.</p>
+<p>Finally, every method scored toggle neutrals (<xref ref-type="fig" rid="f4">Fig. 4b</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>, dark blue), on average, above the neutrality threshold and higher than rheostat neutrals (light blue), which on average scored below the neutrality threshold. This difference was significant for 12 of 16 methods. This trend was maintained for the larger comparison sets, suggesting that this issue is inherent to the prediction methods.</p>
+</sec>
+<sec disp-level="2">
+<title>Weak correlation between predictions and experimental outcomes at rheostat positions</title>
+<p>The main goal of variant-effect prediction is to classify functional outcomes into binary neutral/non-neutral categories. Nevertheless, several predictors calculate continuous prediction scores, allowing us to correlate predictions with experimental effects for individual variants.</p>
+<p>For rheostat positions, this would be a more valuable prediction, since the thresholds for biological effects can change with environment (<italic>e.g</italic>., in response to changes in other proteins or in cellular conditions)<xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref>. Thus, we examined whether the progressive nature of variant outcomes at rheostat positions was captured by the continuous score prediction methods for the <italic>rheostat_9</italic> and <italic>rheostat_12</italic> sets.</p>
+<p>For the <italic>rheostat_9</italic> set, only 50% of the continuous prediction methods showed any correlation (<xref ref-type="fig" rid="f5">Fig. 5</xref>; <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 4</xref>). Moreover, only four of the sixteen methods (SNAP2, PROVEAN, MutPred2, and PolyPhen-2) showed statistically-significant differentiation of rheostat neutrals from non-neutrals in the <italic>rheostat_9</italic> or <italic>rheostat_12</italic> sets. Of these, SNAP2 exhibited the highest correlation (Pearson’s <italic>r</italic> = 0.58, <italic>rheostat_9</italic>; <xref ref-type="fig" rid="f5">Fig. 5</xref>). Using the <italic>rheostat_12</italic> set did not alter the observed trends (<xref ref-type="supplementary-material" rid="S1">Supplementary Table 5</xref>).</p>
+</sec>
+<sec disp-level="2">
+<title>Predictions for variants at <italic>neutral positions</italic> have unclear outcomes</title>
+<p>The LacI/GalR experimental study carried out experiments at the same positions in multiple homologs<xref ref-type="bibr" rid="b11">11</xref>. When outcomes were compared, each rheostat position showed a rheostatic profile in ~80% of the homologs studied. Thus, rheostat behavior appears to be the baseline for these positions within the protein family, even though individual homologs may evolve the position to different roles. Positions 60 and 62 were among those that appear able to evolve new roles: These positions acted as rheostats in most of the homologs, but in LacI were neither toggle nor rheostat in either dimer or the tetramer datasets<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b14">14</xref>. Instead, these were <italic>neutral positions</italic> – no variant had a significant effect on repression (in the absence of inducer). Note the distinction between a neutral position and a neutral substitution. Rheostat positions comprise both neutral and non-neutral substitutions, as long as the number of non-neutral variants greatly exceeds the number of neutral variants. Neutral positions comprise only neutral substitutions.</p>
+<p>Here, most variants at neutral positions 60 and 62 were indeed predicted to be neutral (<xref ref-type="fig" rid="f5">Fig. 5</xref>, set <italic>rheostat</italic> {<italic>60, 62</italic>}). However, the apparent success may be spurious for two reasons: First, our other current results show that all variants at rheostat positions generally score lower than those at toggle positions, and the results for positions 60/62 could just be a manifestation of that. Second, one of the correctly predicted neutral variants at position 62 was not inducible in experiments. In this work, we generally did not consider the variant effect on LacI induction, because for most variants, significant changes were not experimentally observed (<xref ref-type="supplementary-material" rid="S1">Supplementary Table 2</xref>). However, altered response to inducer is classified as dramatic biological impact (the “+s” phenotype in the tetramer dataset)<xref ref-type="bibr" rid="b14">14</xref>. If this information were taken into consideration, the predictors would be considered to have failed for this non-inducible variant.</p>
+<p>To resolve the performance of variant-effect predictors at neutral positions, we ideally need two additional experimental datasets: One comprising variants at positions 60/62 in other natural LacI/GalR homologs (the first study used synthetic homologs, as described in Methods below); and one comprising variants at other neutral positions in a variety of proteins.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>We previously showed experimentally that amino acid substitutions at rheostat positions have different functional outcomes than those expected for toggle positions<xref ref-type="bibr" rid="b11">11</xref>. Here, we show that these differences impair the performance of variant-effect prediction algorithms. Overall, the predictors differentiated toggle positions from rheostat positions better than neutral variants from non-neutral variants. This may be due to the fact that, in LacI, rheostat positions are not conserved, whereas most toggle positions are. Many studies have noted that conservation is a key factor in identifying neutral and non-neutral variants<xref ref-type="bibr" rid="b22">22</xref>. Moreover, the rheostats host the majority of neutral variants. If these characteristics are common to other proteins, then our results demonstrate one possible reason for the disproportionate importance of conservation for existing tools and for the consistent lack of significant improvement of method performance.</p>
+<p>Furthermore, we previously found that predictors disagreed in their annotation for roughly a fifth of the variants<xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b23">23</xref>. Here, we show that this number cannot be accounted for by mis-predictions at toggle positions: Most methods correctly predict toggle non-neutrals, and toggle neutrals are few in number, comprising a small percentage of the total predictions. Thus, mis-predicted rheostat variants are, arguably, a key factor that differentiates prediction methods.</p>
+<p>Next, we considered the fact that threshold choice directly affects binary variant-effect predictions. Current variant-effect predictors use various input parameters to calculate a likelihood that a given, single amino acid substitution has an effect on protein function, disease relevance, structure, etc. Many methods use likelihood thresholds to further categorize substitutions as either neutral (tolerant, wild-type, benign) or non-neutral (damaging, pathogenic, deleterious). However, the methods for choosing thresholds vary widely. Some categorization thresholds are established by assessing score distributions across the training sets, and some are determined heuristically.</p>
+<p>We further note that thresholding based on experimental training sets can be biased, since different “wet-lab” approaches use different thresholds to classify variant effects and each assay has a technical limit. For example, here we called an experimentally measured two-fold change in repression <italic>neutral</italic>, and everything above that threshold <italic>non-neutral</italic> because biological differences were detected at this level for variants in the quantitative dataset<xref ref-type="bibr" rid="b24">24</xref>. However, in the semi-quantitative tetramer dataset, everything within ~26-fold of wild-type repression was classified as neutral (“+”)<xref ref-type="bibr" rid="b14">14</xref>, and variants that repress <italic>better</italic> than wild-type (also non-neutral in our definition) were also considered to be experimentally neutral. Note that the trends of experiment to prediction comparisons were not changed with altered thresholds (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 5</xref>).</p>
+<p>Adding to the overall confusion in the field is the fact that the “effect” definitions are often unclear; <italic>i.e.</italic> manuscripts detailing predictor implementations and/or performance comparisons often mix different effect terms and types of experimental data used for training/development. Thus, at best, most predictors ultimately differentiate between variants of severe effect (<italic>e.g.</italic> those that abolish function or obviously lead to disease) from those that are unlabeled (<italic>e.g.</italic> variants found in healthy populations, 1000 Genomes<xref ref-type="bibr" rid="b25">25</xref> or EXAC)<xref ref-type="bibr" rid="b26">26</xref> or poorly labeled<xref ref-type="bibr" rid="b27">27</xref><xref ref-type="bibr" rid="b28">28</xref> (<italic>e.g.</italic> UniProt<xref ref-type="bibr" rid="b29">29</xref> polymorphisms or variants between orthologous sequences).</p>
+<p>Here, we showed that thresholding hides the fact that predictors behave differently for rheostat and toggle positions, <italic>i.e.</italic> they generate different score distributions for the two classes. The nearly identical overall performance of all methods – regardless of the effect to be predicted (disease, functional significance, structure, <italic>etc.</italic>) – reveals that current prediction methods are, in essence, trained to differentiate toggle non-neutrals from rheostat neutrals, rather than for the general differentiation of neutral variants from non-neutral ones. This could explain why all predictors appear to have reached an upper threshold in performance.</p>
+<p>However, within the rheostat and toggle sets, several methods were able to differentiate neutrals from non-neutrals (<xref ref-type="fig" rid="f4">Fig. 4b</xref>, <xref ref-type="supplementary-material" rid="S1">Supplementary Figs 1b, 2b</xref> and <xref ref-type="supplementary-material" rid="S1">3b</xref>). Thus, our results suggest that, if we could reliably label sequence positions as toggle or rheostat, predictions could be improved by using different neutral/non-neutral thresholds for each position class. In particular, this would circumvent the problems that all methods failed to recognize rheostat non-neutrals as having more effect than toggle neutrals and that toggle neutrals scored higher than rheostat neutrals – a difference that is not biologically feasible, as all neutrals are by definition equivalent.</p>
+<p>Finally, we note that binary classifications are insufficient to capture variant effects at rheostat positions. Our results show that thresholding prediction scores into binary classes obscures the progressive effects seen for variants at rheostat positions. Nevertheless, the progressive changes are often biologically significant. For the LacI/GalR homologs, progressive functional outcomes translated into progressive and significant changes on bacterial growth rates<xref ref-type="bibr" rid="b24">24</xref>. Nor can small changes, classified as neutral, be always disregarded: (i) Less than two-fold differences in the function of the tetracycline resistance protein were biologically-adaptive to bacteria in clinically-relevant conditions<xref ref-type="bibr" rid="b30">30</xref>. (ii) Neutral substitutions in DNA methyl-transferase were deleterious to a host organism under some conditions<xref ref-type="bibr" rid="b31">31</xref>. (iii) The wide range of normal human phenotypes appears to arise through combinations of weakly non-neutral protein variants<xref ref-type="bibr" rid="b27">27</xref>. These observations make a compelling argument for building variant-effect predictors that determine a range of outcomes.</p>
+<p>For some current algorithms, the magnitude of the prediction scores correlated with the size of the effects. We illustrated this behavior earlier for our method, SNAP<xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b23">23</xref><xref ref-type="bibr" rid="b27">27</xref> and, additionally here, for SNAP2. Further, PROVEAN and PolyPhen-2 showed significant, though weak, correlations for non-neutral variants at rheostat positions. Note that none of the methods was explicitly trained to recognize the severity of effects. Instead, they were trained to differentiate binary effects: neutral from non-neutral. Thus, their prediction scores are indications of a statistical likelihood that a variant of a particular effect will occupy a particular scoring space. Indeed, high impact substitutions at toggle positions, which make up a disproportionately large fraction of the available training sets<xref ref-type="bibr" rid="b7">7</xref>, were predicted with higher statistical likelihood; <italic>i.e.</italic> toggle non-neutrals score distributions were more dense and significantly higher than rheostat non-neutral scores. In contrast, a statistical likelihood of a variant occupying a neutral scoring space has no equivalent meaning in biology – neutral (no effect) variants cannot be less or more neutral.</p>
+<p>We conclude with the acknowledgement that change in protein functionality is not consistently predictive of disease. Regardless of the accuracy of any particular prediction, annotating outcomes is just the first step in a series of inquiries that must be made when trying to map pathogenicity. Each protein must ultimately be considered in the context of its biological role. For example, an interacting protein can change to offset a pathogenic variant to restore normal function<xref ref-type="bibr" rid="b32">32</xref>. Moreover, functionally deficient proteins may cause disease in some contexts yet protect in others. For example, the variant in hemoglobin that leads to sickle cell anemia in homozygotic humans is protective from malaria for heterozygotes<xref ref-type="bibr" rid="b33">33</xref>. Thus, variant pathogenicity predictor scores are but one step in modeling the specific mechanisms of disease. Nevertheless, to provide a reliable foundation for quantitative models that predict changes in larger biological systems, we must build consistently-reliable variant-effect predictors.</p>
+</sec>
+<sec disp-level="1">
+<title>Methods</title>
+<sec disp-level="2">
+<title>Experimental characteristics of rheostat positions</title>
+<p>In our earlier work<xref ref-type="bibr" rid="b11">11</xref>, we used a dimeric version of the <italic>E. coli</italic> LacI repressor and synthetic versions of seven other LacI/GalR homologs as hosts for amino acid substitutions at twelve non-conserved positions. All of these positions were located within the linker region that joins the N-terminal DNA binding domain and the allosteric regulatory domain (<xref ref-type="fig" rid="f2">Fig. 2</xref>; PDB 1EFA<xref ref-type="bibr" rid="b34">34</xref>; positions 46–62). These positions were experimentally shown to be rheostats: At each position, the progressive functional effects of multiple amino acids substitutions were quantified by determining ability to repress transcription of a reporter gene <italic>in vivo</italic>. These studies were extensively validated: For all variants, we confirmed that the protein was expressed at comparable levels, folded, and capable of binding DNA<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b35">35</xref>. We also benchmarked the <italic>in vivo</italic> repression data against <italic>in vitro</italic> biophysical measurements of protein-DNA interactions; in most cases, the repression changes resulted from altered K<sub>d</sub> for DNA binding<xref ref-type="bibr" rid="b36">36</xref><xref ref-type="bibr" rid="b37">37</xref><xref ref-type="bibr" rid="b38">38</xref>. Finally, we determined the impact of altered repression on bacterial growth rates to show that the changes were biologically significant<xref ref-type="bibr" rid="b24">24</xref>.</p>
+<p>For the current work, we only used experimental results for <italic>E. coli</italic> LacI (UniProt accession number: P03023). While the synthetic LacI/GalR homologs were critical for disproving the assumptions discussed in the introduction about amino acid interchangeability<xref ref-type="bibr" rid="b11">11</xref>, these proteins were not naturally evolved and we excluded them to avoid the possibility that they are not properly evaluated by available computational techniques. We also considered whether amino acid substitutions in dimeric LacI had equivalent outcomes in wild-type, tetrameric LacI. The latter is a dimer of dimers, with each dimer serving as a functional unit capable of binding the DNA operator and inducer molecules<xref ref-type="bibr" rid="b39">39</xref>. Dimeric LacI was created by truncating the C-terminal tetramerization domain<xref ref-type="bibr" rid="b40">40</xref>. Aside from its lessened ability to simultaneously bind and “loop” two DNA operators<xref ref-type="bibr" rid="b41">41</xref>, dimeric LacI is extremely similar to tetrameric LacI<xref ref-type="bibr" rid="b40">40</xref><xref ref-type="bibr" rid="b42">42</xref>. Dimeric LacI was chosen in the 2013 study<xref ref-type="bibr" rid="b11">11</xref> so that substitution outcomes could be directly compared with the synthetic homologs, all of which lack a tetramerization domain. For nine of the twelve LacI rheostat positions, the quantitative substitution outcomes experimentally measured for dimeric variants<xref ref-type="bibr" rid="b11">11</xref> were in strong agreement with the semi-quantitative <italic>in vivo</italic> measurements previously made for the tetrameric LacI<xref ref-type="bibr" rid="b14">14</xref> (<xref ref-type="fig" rid="f1">Fig. 1</xref>, right panel) and with <italic>in vitro</italic> measurements of LacI/DNA variant binding affinities<xref ref-type="bibr" rid="b38">38</xref>.</p>
+<p>Disagreements between the dimeric and tetrameric datasets were only observed for positions 48, 50, and 54. These three positions showed toggle behavior in the tetrameric study, <italic>i.e.</italic> most substitutions abolished function<xref ref-type="bibr" rid="b14">14</xref>, and rheostat outcomes in the dimeric study<xref ref-type="bibr" rid="b11">11</xref>. This difference is <italic>opposite</italic> any artifacts expected from truncating the dimerization domain: The tetramerization domain enhances LacI stability relative to the dimer<xref ref-type="bibr" rid="b43">43</xref> and tetramer looping enhances repression<xref ref-type="bibr" rid="b44">44</xref>; either outcome would enhance DNA binding and repression, concealing diminished function of the variants. Thus, we propose the differences between the datasets are due to very low (or zero) LacI protein expression in the tetramer study, which relied upon suppression of amber codons in mutated bacterial strains to create the protein variants<xref ref-type="bibr" rid="b45">45</xref>. The latter can be an inefficient process that obscures the true outcome of the protein variation. Since the tetramer data are widely used to benchmark computational predictions, developers should be aware that this is a potential experimental bias of this dataset.</p>
+<p>For this work, analyses were carried out in parallel using two sets of rheostat positions: all twelve identified in our 2013 study<xref ref-type="bibr" rid="b11">11</xref>, and the nine that showed agreement between the dimer and tetramer forms of LacI. To determine the categories of neutral/non-neutral, we used the two-fold technical limit of the quantitative repression assay. Thus, variants exhibiting fold-changes in the range of [0.5, 2] relative to wild-type were assigned to the category of <italic>rheostat neutrals</italic>. All other variants were designated as <italic>rheostat non-neutrals</italic>. The fold change used for determining rheostatic behavior was calculated relative to the wild-type repression of 0.124 Miller units. The <italic>rheostat_12</italic> set comprised a total of 103 variants across 12 positions, of which 18 (17%) were neutral and 85 were non-neutral. The <italic>rheostat_9</italic> set comprised 78 variants across 9 positions, of which 18 (23%) were neutral and 60 were non-neutral.</p>
+<p>For this study, we considered only the functional impact on repression in the absence of allosteric inducer, since most variants did not show significant changes in allosteric response. For each variant, we re-cast repression in the absence of inducer as fold-change with respect to repression by dimeric wild-type LacI, using <xref ref-type="disp-formula" rid="eq1">equation (1)</xref> (<xref ref-type="supplementary-material" rid="S1">Supplementary Table 1</xref>):</p>
+<p>
+<disp-formula id="eq1">
+<inline-graphic id="d32e832" xlink:href="srep41329-m1.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where (<italic>AxB</italic>) stands for a substitution of amino acid <italic>A</italic> by amino acid <italic>B</italic> at position <italic>x</italic> and having the amino acid <italic>A</italic> corresponds to the wild-type protein. Experimental errors associated with the wild-type and variant functional data (standard deviations from the average of ~8 technical and biological replicates) were propagated using <xref ref-type="disp-formula" rid="eq2">equation (2)</xref>:</p>
+<p>
+<disp-formula id="eq2">
+<inline-graphic id="d32e856" xlink:href="srep41329-m2.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where <bold>σ</bold> is the standard deviation. This equation is derived for correlated variables. For uncorrelated variables, covariance terms present in the original formula equal zero. Solving that formula for the non-squared ratio of two variables results in <xref ref-type="disp-formula" rid="eq2">equation (2)</xref>.</p>
+</sec>
+<sec disp-level="2">
+<title>Selection and characteristics of toggle positions</title>
+<p>Our 2013 study focused on non-conserved positions, and none of the tested LacI positions showed toggle behavior. Thus, to obtain a set of toggle positions for this study, we used the semi-quantitative variant data for tetrameric LacI generated by the Miller lab<xref ref-type="bibr" rid="b14">14</xref>. In that work, positions 2–329 were substituted with 12–13 amino acids each (<xref ref-type="supplementary-material" rid="S1">Supplementary Table 2</xref>) and functional outcomes were broadly grouped into several phenotypes, including those with severe effects (non-neutral) and those with no effects (neutral; <xref ref-type="supplementary-material" rid="S1">Supplementary Table 6</xref>). In this work, we defined toggle positions as those with at least 8 severe variants and at most 2 neutral variants. This definition identified 53 toggle positions distributed over the LacI protein. As noted above, rheostat positions 48, 50 and 54 fell in this set of toggles positions. As noted above, we hypothesized that these results are due to extremely low protein concentrations, perhaps related to inefficient suppression of the amber codon, and we thus excluded these positions to yield the final <italic>toggle_50</italic> set (618 variants, 26 neutral and 592 non-neutral).</p>
+<p>To create a toggle set of comparable size to the rheostat set, we selected a subset of toggle positions based on the availability of neutral variants and structural proximity to rheostat positions: First, we selected all positions within the DNA-binding domain with at least one neutral variant (10, 13, 30, 49). Second, toggle positions 47, 49, 53, 56, and 57 were chosen because they interdigitate with rheostat positions in the linker region (46–62). Of the remaining 13 toggles within the DNA-binding domain, we selected positions 16, 18, 21, and 22. The resulting <italic>toggle_12</italic> set comprised 145 variants across 12 positions, of which 4 (2.8%) were neutral. We also designated the <italic>toggle_9</italic> set (<italic>toggle_12</italic> minus variants at positions 16, 21 and 22), which comprised 109 variants (4 <italic>toggle neutrals</italic> and 105 <italic>non-neutrals</italic>) across 9 positions.</p>
+<p>In Results, we labeled the <italic>rheostat_9 vs. toggle_9</italic> comparison as the <italic>stringent</italic> set (see <xref ref-type="fig" rid="f4">Fig. 4</xref>, <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>). For a more comprehensive analysis, we also computed results for <italic>complete</italic> (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 2</xref>) and <italic>extended</italic> (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 3</xref>) sets; which included the <italic>rheostat_12</italic> set and, respectively, the <italic>toggle_12</italic> or the full <italic>toggle</italic>_<italic>50</italic> set (<xref ref-type="supplementary-material" rid="S1">Supplementary Table 2</xref>). By using the three comparison sets, we hoped to minimize the impact of mis-assigned toggle positions due to poor protein expression.</p>
+</sec>
+<sec disp-level="2">
+<title>Variant-effect prediction algorithms</title>
+<p>To predict variant effects at rheostat and toggle positions, we used 16 publicly available computational methods (<xref ref-type="fig" rid="f3">Fig. 3</xref>, <xref ref-type="supplementary-material" rid="S1">Supplementary Table 7</xref>). These were selected to cover a wide variety of computational techniques and training sets. Note that not all publications explicitly mention what is meant by the word “effect.” Some predict disease variants, others focus on evolutionary conservation or evolutionary fitness, and still others evaluate functional or structural impacts. To be able to use all tools, here we broadly use the term <italic>outcome</italic> without further identifying differences between methods. For all methods that require a 3D structure, we used 1EFA (PDB ID: 1EFA)<xref ref-type="bibr" rid="b34">34</xref>, consisting of dimeric LacI bound to DNA operator and an “anti-inducer” allosteric ligand. All reported graphs/statistics were generated using R<xref ref-type="bibr" rid="b46">46</xref>.<list id="l1" list-type="order"><list-item><p>SIFT<xref ref-type="bibr" rid="b22">22</xref> uses PSI-BLAST<xref ref-type="bibr" rid="b47">47</xref> (position-specific iterated Basic Local Alignment Search Tool; BLAST) to query a sequence database (<italic>e.g.</italic> NCBInr)<xref ref-type="bibr" rid="b48">48</xref> and generates a position-specific scoring matrix (PSSM) based on the retrieved sequences. Note that we used SIFT with a manually curated MSA (<xref ref-type="supplementary-material" rid="S1">Supplementary File 1</xref>)<xref ref-type="bibr" rid="b49">49</xref> rendering the initial PSI-BLAST query obsolete. Combined with known generic likelihoods of amino acid substitutions (BLOSUM62 substitution matrix), this approach allows estimating probabilities of effect for any position-specific amino acid substitution.</p></list-item><list-item><p>PROVEAN<xref ref-type="bibr" rid="b16">16</xref> uses BLAST<xref ref-type="bibr" rid="b50">50</xref> to collect homologous and distantly related sequences from NCBInr, which are then clustered by sequence identity. To measure the effect of a variation, the algorithm calculates the average divergence score between the cluster sequences and the query sequence using the BLOSUM62 substitution matrix.</p></list-item><list-item><p>PANTHER<xref ref-type="bibr" rid="b19">19</xref> uses BLAST to identify the best match to the input query in the PANTHER database<xref ref-type="bibr" rid="b51">51</xref>. This matched protein is linked to a pre-computed phylogenetic tree of the specific protein family. To evaluate the effect of the substitution, the mutated residue is traced back through increasingly older ancestral proteins in this tree.</p></list-item><list-item><p>MutationAssessor<xref ref-type="bibr" rid="b52">52</xref> uses BLAST to query the UniProt and identify related protein sub-families, which are used to extract characteristic conservation patterns. The latter are used to calculate the effect of mutating a specific residue in a protein family and, separately, in each of its sub-families.</p></list-item><list-item><p>FoldX (PositionScan)<xref ref-type="bibr" rid="b53">53</xref> uses protein 3D structures and an empirical force field to evaluate the effects (free energy changes) due to variation.</p></list-item><list-item><p>Align-GVGD<xref ref-type="bibr" rid="b54">54</xref> is an extension of the Grantham Difference<xref ref-type="bibr" rid="b55">55</xref>, combining a conservation score based on a given MSA (Grantham Variation) with a measure of the biochemical difference between the mutant and the wild-type amino acids (Grantham Deviation).</p></list-item><list-item><p>MAPP<xref ref-type="bibr" rid="b56">56</xref> constructs a phylogenetic tree based on substitution frequency per site within an MSA of orthologs or closely related paralogs. Topology and branch lengths of the tree are used to calculate weights for each sequence respectively. These weights are used to generate an alignment summary that is interpreted using a matrix of physiochemical properties resulting in an estimate of the physiochemical constraints on each position of the MSA. Deviations from these constraints are calculated for each position of the query sequence and transformed into an effect prediction score.</p></list-item><list-item><p>PolyPhen-1<xref ref-type="bibr" rid="b57">57</xref> classifies variants via empirically derived rules using various sequence-based characteristics of the substitution site (<italic>e.g.</italic> UniProt annotations), along with structure and homology descriptors.</p></list-item><list-item><p>PolyPhen-2<xref ref-type="bibr" rid="b17">17</xref> trains a Naïve Bayes classifier on HumDiv (set of single amino acid substitutions from UniProt known to cause human Mendelian diseases and non-damaging variants found in closely related mammalian homologs) and HumVar<xref ref-type="bibr" rid="b58">58</xref> (set of disease- and neutral polymorphism-annotated single amino acid substitutions of human proteins from Swiss-Prot)<xref ref-type="bibr" rid="b29">29</xref> variants. PolyPhen-2 uses structure-based (<italic>e.g.</italic> accessible surface area and conformational mobility of the wild-type amino acid residue) and sequence-based features (<italic>e.g.</italic> MSA-based conservation and depth, CpG context and residue volume).</p></list-item><list-item><p>SNAP2<xref ref-type="bibr" rid="b15">15</xref> uses an artificial neural network, trained on experimentally-obtained variant functional effect data, with a variety of precomputed biochemical and evolutionary amino acid substitution rules, as well as conservation and predicted sequence-derived protein features, <italic>e.g.</italic> secondary structure and solvent accessibility.</p></list-item><list-item><p>PhD-SNP<xref ref-type="bibr" rid="b58">58</xref> applies a decision tree to predict effects either using a profile based support vector machine (SVM; sequence profile calculated by BLAST against UniRef90) or by a single sequence based SVM. Training data are extracted from Swiss-Prot (disease <italic>vs.</italic> polymorphism variants) and enriched with OMIM<xref ref-type="bibr" rid="b59">59</xref> annotations.</p></list-item><list-item><p>iMutant3<xref ref-type="bibr" rid="b58">58</xref><xref ref-type="bibr" rid="b60">60</xref> offers different SVMs to predict (i) stability changes, using SVMs trained on the ProTherm database<xref ref-type="bibr" rid="b61">61</xref>, from sequence only or from structural information, and (ii) disease associated variants from sequence only using the PhD-SNP prediction pipeline.</p></list-item><list-item><p>nsSNPAnalyzer<xref ref-type="bibr" rid="b62">62</xref> uses a random forest classifier, trained on a curated dataset of variants (ModSNP)<xref ref-type="bibr" rid="b63">63</xref> using (i) variant structural environment, (ii) position conservation within the MSA, and (iii) similarity between variant and original amino acid. If no structural information is provided, the ASTRAL database<xref ref-type="bibr" rid="b64">64</xref> is queried for a homolog structure.</p></list-item><list-item><p>PredictSNP<xref ref-type="bibr" rid="b65">65</xref> is a meta-predictor incorporating eight methods (MAPP, nsSNPAnalyzer, PANTHER, PhD-SNP, PolyPhen-1/-2, SIFT, SNAP2) into a consensus classifier based on a majority vote weighted by the method-specific confidence scores. PredictSNP is trained on a benchmark dataset compiled from five different sources (training datasets of four variant-effect prediction tools not selected for the PredictSNP pipeline: SNPs&amp;GO, MutPred<xref ref-type="bibr" rid="b18">18</xref>, PON-P and HumVar; the fifth source is a subset of UniProt variants). Testing datasets are derived from the Protein Mutant Database<xref ref-type="bibr" rid="b66">66</xref> (PMD) and from experimental studies.</p></list-item><list-item><p>Meta-SNP<xref ref-type="bibr" rid="b67">67</xref> is a random forest-based binary classifier meta-predictor, combining the predictions of four methods (SNAP2, SIFT, PANTHER, PhD-SNP) and four features extracted from the PhD-SNP protein sequence profile; the training dataset is derived from Swiss-Prot (disease <italic>vs.</italic> polymorphism variants).</p></list-item><list-item><p>MutPred2 (unpublished; the successor of MutPred)<xref ref-type="bibr" rid="b18">18</xref> consists of an ensemble of bagged neural networks, trained on amino acid substitutions from HGMD<xref ref-type="bibr" rid="b68">68</xref>, Swiss-Prot, dbSNP<xref ref-type="bibr" rid="b69">69</xref>, and ortholog alignments. In addition to sequence, conservation, and physicochemical features in and around the variant position, MutPred2 uses predictions of change due to amino acid variation in over 50 local structural and functional properties (<italic>e.g.</italic> post-translational modification sites, macromolecular binding, among others).</p></list-item></list></p>
+<p>For all variants in the LacI rheostat and toggle sets, predictions were generated using the 16 algorithms listed above. When no publicly available web-service was present, prediction methods were installed and run locally. Input parameters were set to default values. To obtain comparable predictions between the different algorithms, all predictor scores were transformed and normalized: Some tools provide a probability or some other score for the likelihood of variant non-neutrality. For these, we converted pre-defined, method-specific binary thresholds to a value of 0.5 and normalized the neutral and non-neutral score ranges separately to [0, 0.5] and (0.5, 1], respectively. For methods that predict the classes of functional outcomes, scores were assigned manually. Details of scoring and thresholds used for normalization are as follows:<list id="l2" list-type="order"><list-item><p>SNAP2 scores are [−100, 100], threshold at 0, neutrals below threshold.</p></list-item><list-item><p>SIFT scores are [0, 1], threshold at 0.05, neutrals above threshold. Scores were reversed (<xref ref-type="disp-formula" rid="eq3">equation (3)</xref> prior to normalization.<disp-formula id="eq3"><inline-graphic id="d32e1098" xlink:href="srep41329-m3.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></disp-formula></p></list-item><list-item><p>MutationAssessor score range was not defined by the authors, but available data<xref ref-type="bibr" rid="b52">52</xref> suggests a [−4, 5] range, which we use in normalization; default threshold is 1.9, neutrals below threshold. Note, however, in this work we used a threshold of 0.8, as described in ref. <xref ref-type="bibr" rid="b16">16</xref>, to more accurately differentiate neutrals.</p></list-item><list-item><p>PROVEAN score range was not defined by the authors, but predicted scores for our variants occurred in the [−14.875, 1.908] range, which we use in normalization; threshold at −2.5, neutrals above threshold.</p></list-item><list-item><p>MAPP scores are [0, 1], threshold at 0.5, neutrals above threshold. Scores were reversed using <xref ref-type="disp-formula" rid="eq3">equation (3)</xref>.</p></list-item><list-item><p>iMutant3 score range was not defined by the authors, but predicted scores for our variants occurred in the [−3.5, 0.63] range, which we use in normalization; threshold at −0.5, neutrals above threshold. Note that we used this threshold to transform predictions into a binary form.</p></list-item><list-item><p>FoldX (PositionScan) score range is not defined by the authors, but predictions for free energy changes below 0.05 kcal/mol (neutrals) are not reported. The maximum predicted score for our variants was 3.76102. Here we assigned a score of 0 to missing predictions, resulting in [0, 3.76102] range, and set the threshold at 0.5 (as in iMutant, above), neutrals below the threshold. Note that we used this threshold (as in iMutant, above), to transform predictions into a binary form.</p></list-item><list-item><p>PolyPhen-1 classifications of [benign, possibly damaging, probably damaging], were converted to [0, 0.5, 1]</p></list-item><list-item><p>Align-GVGD classifications are [C0, C15, C25, C35, C45, C55, C65], assigned to corresponding risk estimates, ranging [1.16, 3.12]<xref ref-type="bibr" rid="b70">70</xref>. The authors did not define the threshold, but C0 was suggested to be the only neutral class. Thus, threshold was set at the corresponding risk estimate of 1.16, neutrals below threshold. Note that we used this threshold to transform predictions into a binary form.</p></list-item><list-item><p>PolyPhen-2 scores are [0, 1], threshold at 0.92, neutrals below threshold.</p></list-item></list></p>
+<p> 11-14. MutPred2, PANTHER, PhD-SNP, and Meta-SNP obtain probability scores, which range [0, 1] with a threshold at 0.5, neutrals below threshold. Note that scores for PANTHER and PhD-SNP reported here were each obtained from meta-predictors (PredictSNP and Meta-SNP, respectively).</p>
+<p> 15,16. nsSNPAnalyzer and PredictSNP are binary classifiers [neutral, non-neutral], which were converted to [0, 1].</p>
+<p>To analyze the performance of prediction tools in differentiating rheostat and toggle position non-neutrals and neutrals, we applied the Kolmogorov-Smirnov (KS) test (two-sided) for continuous predictors and Fisher exact T-test (two-sided) for binary predictors. To compare the correlation between experimentally-measured fold-changes for rheostat variants and predicted variant-effect scores, we computed the Pearson product-moment correlation coefficient (Pearson’s r). For this analysis, we made two assumptions: (i) In addition to the variants with diminished repression, five variants showed enhanced repression relative to wild-type (fold-change values less than 0.5) and thus were treated as non-neutral. We used the reciprocal of the fold-change to correlate them to prediction scores. (ii) Neutral variants are, by definition, all equivalent to wild-type. However, the continuous predictors usually assign a range of scores that fall below their neutrality threshold (here normalized to 0.5). Thus, we assigned all neutrally predicted variants a score of 0.5.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article:</bold> Miller, M. <italic>et al</italic>. Computational predictors fail to identify amino acid substitution effects at rheostat positions. <italic>Sci. Rep.</italic>
+<bold>7</bold>, 41329; doi: 10.1038/srep41329 (2017).</p>
+<p><bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</sec>
+<sec id="S1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="d32e27">
+<caption>
+<title>Supplementary File 1</title>
+</caption>
+<media xlink:href="srep41329-s2.csv" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d32e30">
+<caption>
+<title>Supplementary Information</title>
+</caption>
+<media xlink:href="srep41329-s3.pdf" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d32e33">
+<caption>
+<title>Supplementary Table 1</title>
+</caption>
+<media xlink:href="srep41329-s4.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d32e36">
+<caption>
+<title>Supplementary Table 2</title>
+</caption>
+<media xlink:href="srep41329-s5.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d32e39">
+<caption>
+<title>Supplementary Table 3</title>
+</caption>
+<media xlink:href="srep41329-s6.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d32e42">
+<caption>
+<title>Supplementary Table 4</title>
+</caption>
+<media xlink:href="srep41329-s7.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="d32e45">
+<caption>
+<title>Supplementary Table 7</title>
+</caption>
+<media xlink:href="srep41329-s1.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank Vikas R. Pejaver, Predrag Radivojac (Indiana University, Bloomington) and Sean Mooney (University of Washington, Seattle) for sharing their not-yet-published MutPred2 code and for helpful advice on how to implement it; Yannick Mahlich, Chengsheng Zhu, Yanran Wang (all Rutgers University) Konrad Schreiber (Ludwig-Maximilians-Universität of Munich, LMU) and Sonakshi Bhattacharjee (Technical University of Munich, TUM) for discussions and technical support, and Inga Weise (TUM) for other support. Particular thanks are due to Burkhard Rost (TUM) for his hospitality and valuable discussions. Last but not least, we thank all those who deposit their experimental data in public databases, those who maintain these databases, and all researchers who maintain public accessibility to their variant-effect predictors. L.S.K. was supported by an internal Lied basic science grant from the KUMC Research Institute, with support from a NIH Clinical and Translational Science Award grant (UL1TR000001, formerly UL1RR033179) and by private funds. Y.B. and M.M. were supported by the NIH/NIGMS grant U01 GM115486. Y.B. was additionally supported by an Informatics Research Starter grant from the PhRMA foundation, NIH 01 GM 115486, and USDA-NIFA 1015:0228906 grants.</p>
+</ack>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal"><name><surname>Bruse</surname><given-names>S.</given-names></name>
+<etal></etal>. <article-title>Whole exome sequencing identifies novel candidate genes that modify chronic obstructive pulmonary disease susceptibility</article-title>. <source/>Hum Genomics
+<volume>10</volume>, <fpage>1</fpage>, doi: <pub-id pub-id-type="doi">10.1186/s40246-015-0058-7</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">26744305</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Ellinghaus</surname><given-names>D.</given-names></name>
+<etal></etal>. <article-title>Association between variants of PRDM1 and NDP52 and Crohn’s disease, based on exome sequencing and functional studies</article-title>. <source/>Gastroenterology
+<volume>145</volume>, <fpage>339</fpage>–<lpage>347</lpage>, doi: <pub-id pub-id-type="doi">10.1053/j.gastro.2013.04.040</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23624108</pub-id></mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>Turner</surname><given-names>T. N.</given-names></name>
+<etal></etal>. <article-title>Genome Sequencing of Autism-Affected Families Reveals Disruption of Putative Noncoding Regulatory DNA</article-title>. <source/>Am J Hum Genet
+<volume>98</volume>, <fpage>58</fpage>–<lpage>74</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.ajhg.2015.11.023</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">26749308</pub-id></mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Bromberg</surname><given-names>Y.</given-names></name>
+<article-title>Building a genome analysis pipeline to predict disease risk and prevent disease</article-title>. <source/>J Mol Biol
+<volume>425</volume>, <fpage>3993</fpage>–<lpage>4005</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.jmb.2013.07.038</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23928561</pub-id></mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Dong</surname><given-names>C.</given-names></name>
+<etal></etal>. <article-title>Comparison and integration of deleteriousness prediction methods for nonsynonymous SNVs in whole exome sequencing studies</article-title>. <source/>Hum Mol Genet
+<volume>24</volume>, <fpage>2125</fpage>–<lpage>2137</lpage>, doi: <pub-id pub-id-type="doi">10.1093/hmg/ddu733</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25552646</pub-id></mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Henikoff</surname><given-names>S.</given-names></name> &amp; <name><surname>Henikoff</surname><given-names>J. G.</given-names></name>
+<article-title>Amino acid substitution matrices from protein blocks</article-title>. <source/>Proc Natl Acad Sci USA
+<volume>89</volume>, <fpage>10915</fpage>–<lpage>10919</lpage> (<year>1992</year>).<pub-id pub-id-type="pmid">1438297</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Gray</surname><given-names>V. E.</given-names></name>, <name><surname>Kukurba</surname><given-names>K. R.</given-names></name> &amp; <name><surname>Kumar</surname><given-names>S.</given-names></name>
+<article-title>Performance of computational tools in evaluating the functional impact of laboratory-induced amino acid mutations</article-title>. <source/>Bioinformatics
+<volume>28</volume>, <fpage>2093</fpage>–<lpage>2096</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/bts336</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22685075</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Swint-Kruse</surname><given-names>L.</given-names></name>, <name><surname>Larson</surname><given-names>C.</given-names></name>, <name><surname>Pettitt</surname><given-names>B. M.</given-names></name> &amp; <name><surname>Matthews</surname><given-names>K. S.</given-names></name>
+<article-title>Fine-tuning function: correlation of hinge domain interactions with functional distinctions between LacI and PurR</article-title>. <source/>Protein Sci
+<volume>11</volume>, <fpage>778</fpage>–<lpage>794</lpage>, doi: <pub-id pub-id-type="doi">10.1110/ps.4050102</pub-id> (<year>2002</year>).<pub-id pub-id-type="pmid">11910022</pub-id></mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Pendergrass</surname><given-names>D. C.</given-names></name>, <name><surname>Williams</surname><given-names>R.</given-names></name>, <name><surname>Blair</surname><given-names>J. B.</given-names></name> &amp; <name><surname>Fenton</surname><given-names>A. W.</given-names></name>
+<article-title>Mining for allosteric information: natural mutations and positional sequence conservation in pyruvate kinase</article-title>. <source/>IUBMB Life
+<volume>58</volume>, <fpage>31</fpage>–<lpage>38</lpage>, doi: <pub-id pub-id-type="doi">10.1080/15216540500531705</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16540430</pub-id></mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>de Beer</surname><given-names>T. A.</given-names></name>
+<etal></etal>. <article-title>Amino acid changes in disease-associated variants differ radically from variants observed in the 1000 genomes project dataset</article-title>. <source/>PLoS Comput Biol
+<volume>9</volume>, <fpage>e1003382</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pcbi.1003382</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">24348229</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Meinhardt</surname><given-names>S.</given-names></name>, <name><surname>Manley</surname><given-names>M. W.</given-names><suffix>Jr.</suffix></name>, <name><surname>Parente</surname><given-names>D. J.</given-names></name> &amp; <name><surname>Swint-Kruse</surname><given-names>L.</given-names></name>
+<article-title>Rheostats and toggle switches for modulating protein function</article-title>. <source/>PLoS One
+<volume>8</volume>, <fpage>e83502</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0083502</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">24386217</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Ishwar</surname><given-names>A.</given-names></name>, <name><surname>Tang</surname><given-names>Q.</given-names></name> &amp; <name><surname>Fenton</surname><given-names>A. W.</given-names></name>
+<article-title>Distinguishing the interactions in the fructose 1,6-bisphosphate binding site of human liver pyruvate kinase that contribute to allostery</article-title>. <source/>Biochemistry
+<volume>54</volume>, <fpage>1516</fpage>–<lpage>1524</lpage>, doi: <pub-id pub-id-type="doi">10.1021/bi501426w</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25629396</pub-id></mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="journal"><name><surname>Weaver</surname><given-names>Y. M.</given-names></name> &amp; <name><surname>Hagenbuch</surname><given-names>B.</given-names></name>
+<article-title>Several conserved positively charged amino acids in OATP1B1 are involved in binding or translocation of different substrates</article-title>. <source/>J Membr Biol
+<volume>236</volume>, <fpage>279</fpage>–<lpage>290</lpage>, doi: <pub-id pub-id-type="doi">10.1007/s00232-010-9300-3</pub-id> (<year>2010</year>).<pub-id pub-id-type="pmid">20821001</pub-id></mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Suckow</surname><given-names>J.</given-names></name>
+<etal></etal>. <article-title>Genetic studies of the Lac repressor. XV: 4000 single amino acid substitutions and analysis of the resulting phenotypes on the basis of the protein structure</article-title>. <source/>J Mol Biol
+<volume>261</volume>, <fpage>509</fpage>–<lpage>523</lpage>, doi: <pub-id pub-id-type="doi">10.1006/jmbi.1996.0479</pub-id> (<year>1996</year>).<pub-id pub-id-type="pmid">8794873</pub-id></mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Hecht</surname><given-names>M.</given-names></name>, <name><surname>Bromberg</surname><given-names>Y.</given-names></name> &amp; <name><surname>Rost</surname><given-names>B.</given-names></name>
+<article-title>Better prediction of functional effects for sequence variants</article-title>. <source/>BMC Genomics
+<volume>16</volume> Suppl 8, <fpage>S1</fpage>, doi: <pub-id pub-id-type="doi">10.1186/1471-2164-16-S8-S1</pub-id> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Choi</surname><given-names>Y.</given-names></name>, <name><surname>Sims</surname><given-names>G. E.</given-names></name>, <name><surname>Murphy</surname><given-names>S.</given-names></name>, <name><surname>Miller</surname><given-names>J. R.</given-names></name> &amp; <name><surname>Chan</surname><given-names>A. P.</given-names></name>
+<article-title>Predicting the functional effect of amino acid substitutions and indels</article-title>. <source/>PLoS One
+<volume>7</volume>, <fpage>e46688</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0046688</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">23056405</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Adzhubei</surname><given-names>I. A.</given-names></name>
+<etal></etal>. <article-title>A method and server for predicting damaging missense mutations</article-title>. <source/>Nat Methods
+<volume>7</volume>, <fpage>248</fpage>–<lpage>249</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nmeth0410-248</pub-id> (<year>2010</year>).<pub-id pub-id-type="pmid">20354512</pub-id></mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Li</surname><given-names>B.</given-names></name>
+<etal></etal>. <article-title>Automated inference of molecular mechanisms of disease from amino acid substitutions</article-title>. <source/>Bioinformatics
+<volume>25</volume>, <fpage>2744</fpage>–<lpage>2750</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/btp528</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19734154</pub-id></mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"><name><surname>Tang</surname><given-names>H.</given-names></name> &amp; <name><surname>Thomas</surname><given-names>P. D.</given-names></name>
+<article-title>PANTHER-PSEP: predicting disease-causing genetic variants using position-specific evolutionary preservation</article-title>. <source/>Bioinformatics, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/btw222</pub-id> (<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Firnberg</surname><given-names>E.</given-names></name>, <name><surname>Labonte</surname><given-names>J. W.</given-names></name>, <name><surname>Gray</surname><given-names>J. J.</given-names></name> &amp; <name><surname>Ostermeier</surname><given-names>M.</given-names></name>
+<article-title>A comprehensive, high-resolution map of a gene’s fitness landscape</article-title>. <source/>Mol Biol Evol
+<volume>31</volume>, <fpage>1581</fpage>–<lpage>1592</lpage>, doi: <pub-id pub-id-type="doi">10.1093/molbev/msu081</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24567513</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Swint-Kruse</surname><given-names>L.</given-names></name>
+<article-title>Using Evolution to Guide Protein Engineering: The Devil IS in the Details</article-title>. <source/>Biophys J
+<volume>111</volume>, <fpage>10</fpage>–<lpage>18</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.bpj.2016.05.030</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">27410729</pub-id></mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Ng</surname><given-names>P. C.</given-names></name> &amp; <name><surname>Henikoff</surname><given-names>S.</given-names></name>
+<article-title>Predicting deleterious amino acid substitutions</article-title>. <source/>Genome Res
+<volume>11</volume>, <fpage>863</fpage>–<lpage>874</lpage>, doi: <pub-id pub-id-type="doi">10.1101/gr.176601</pub-id> (<year>2001</year>).<pub-id pub-id-type="pmid">11337480</pub-id></mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Bromberg</surname><given-names>Y.</given-names></name> &amp; <name><surname>Rost</surname><given-names>B.</given-names></name>
+<article-title>SNAP: predict effect of non-synonymous polymorphisms on function</article-title>. <source/>Nucleic Acids Res
+<volume>35</volume>, <fpage>3823</fpage>–<lpage>3835</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkm238</pub-id> (<year>2007</year>).<pub-id pub-id-type="pmid">17526529</pub-id></mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><name><surname>Meinhardt</surname><given-names>S.</given-names></name>
+<etal></etal>. <article-title>Novel insights from hybrid LacI/GalR proteins: family-wide functional attributes and biologically significant variation in transcription repression</article-title>. <source/>Nucleic Acids Res
+<volume>40</volume>, <fpage>11139</fpage>–<lpage>11154</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gks806</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22965134</pub-id></mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal"><name><surname>Genomes Project</surname><given-names>C.</given-names></name>
+<etal></etal>. <article-title>A global reference for human genetic variation</article-title>. <source/>Nature
+<volume>526</volume>, <fpage>68</fpage>–<lpage>74</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nature15393</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">26432245</pub-id></mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Lek</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Analysis of protein-coding genetic variation in 60,706 humans</article-title>. <source/>Nature
+<volume>536</volume>, <fpage>285</fpage>–<lpage>291</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nature19057</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">27535533</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Bromberg</surname><given-names>Y.</given-names></name>, <name><surname>Kahn</surname><given-names>P. C.</given-names></name> &amp; <name><surname>Rost</surname><given-names>B.</given-names></name>
+<article-title>Neutral and weakly nonneutral sequence variants may define individuality</article-title>. <source/>Proc Natl Acad Sci USA
+<volume>110</volume>, <fpage>14255</fpage>–<lpage>14260</lpage>, doi: <pub-id pub-id-type="doi">10.1073/pnas.1216613110</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23940345</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>Rost</surname><given-names>B.</given-names></name>, <name><surname>Radivojac</surname><given-names>P.</given-names></name> &amp; <name><surname>Bromberg</surname><given-names>Y.</given-names></name>
+<article-title>Protein function in precision medicine: deep understanding with machine learning</article-title>. <source/>FEBS Lett
+<volume>590</volume>, <fpage>2327</fpage>–<lpage>2341</lpage>, doi: <pub-id pub-id-type="doi">10.1002/1873-3468.12307</pub-id> (<year>2016</year>).<pub-id pub-id-type="pmid">27423136</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>UniProt</surname><given-names>C.</given-names></name>
+<article-title>UniProt: a hub for protein information</article-title>. <source/>Nucleic Acids Res
+<volume>43</volume>, <fpage>D204</fpage>–<lpage>212</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gku989</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25348405</pub-id></mixed-citation>
+</ref>
+<ref id="b30">
+<mixed-citation publication-type="journal"><name><surname>Walkiewicz</surname><given-names>K.</given-names></name>
+<etal></etal>. <article-title>Small changes in enzyme function can lead to surprisingly large fitness effects during adaptive evolution of antibiotic resistance</article-title>. <source/>Proc Natl Acad Sci USA
+<volume>109</volume>, <fpage>21408</fpage>–<lpage>21413</lpage>, doi: <pub-id pub-id-type="doi">10.1073/pnas.1209335110</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">23236139</pub-id></mixed-citation>
+</ref>
+<ref id="b31">
+<mixed-citation publication-type="journal"><name><surname>Rockah-Shmuel</surname><given-names>L.</given-names></name>, <name><surname>Toth-Petroczy</surname><given-names>A.</given-names></name> &amp; <name><surname>Tawfik</surname><given-names>D. S.</given-names></name>
+<article-title>Systematic Mapping of Protein Mutational Space by Prolonged Drift Reveals the Deleterious Effects of Seemingly Neutral Mutations</article-title>. <source/>PLoS Comput Biol
+<volume>11</volume>, <fpage>e1004421</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pcbi.1004421</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">26274323</pub-id></mixed-citation>
+</ref>
+<ref id="b32">
+<mixed-citation publication-type="journal"><name><surname>Urano</surname><given-names>D.</given-names></name>, <name><surname>Dong</surname><given-names>T.</given-names></name>, <name><surname>Bennetzen</surname><given-names>J. L.</given-names></name> &amp; <name><surname>Jones</surname><given-names>A. M.</given-names></name>
+<article-title>Adaptive evolution of signaling partners</article-title>. <source/>Mol Biol Evol
+<volume>32</volume>, <fpage>998</fpage>–<lpage>1007</lpage>, doi: <pub-id pub-id-type="doi">10.1093/molbev/msu404</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25568345</pub-id></mixed-citation>
+</ref>
+<ref id="b33">
+<mixed-citation publication-type="journal"><name><surname>Williams</surname><given-names>T. N.</given-names></name>
+<article-title>Human red blood cell polymorphisms and malaria</article-title>. <source/>Curr Opin Microbiol
+<volume>9</volume>, <fpage>388</fpage>–<lpage>394</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.mib.2006.06.009</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16815736</pub-id></mixed-citation>
+</ref>
+<ref id="b34">
+<mixed-citation publication-type="journal"><name><surname>Bell</surname><given-names>C. E.</given-names></name> &amp; <name><surname>Lewis</surname><given-names>M.</given-names></name>
+<article-title>A closer view of the conformation of the Lac repressor bound to operator</article-title>. <source/>Nat Struct Biol
+<volume>7</volume>, <fpage>209</fpage>–<lpage>214</lpage>, doi: <pub-id pub-id-type="doi">10.1038/73317</pub-id> (<year>2000</year>).<pub-id pub-id-type="pmid">10700279</pub-id></mixed-citation>
+</ref>
+<ref id="b35">
+<mixed-citation publication-type="journal"><name><surname>Meinhardt</surname><given-names>S.</given-names></name> &amp; <name><surname>Swint-Kruse</surname><given-names>L.</given-names></name>
+<article-title>Experimental identification of specificity determinants in the domain linker of a LacI/GalR protein: bioinformatics-based predictions generate true positives and false negatives</article-title>. <source/>Proteins
+<volume>73</volume>, <fpage>941</fpage>–<lpage>957</lpage>, doi: <pub-id pub-id-type="doi">10.1002/prot.22121</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18536016</pub-id></mixed-citation>
+</ref>
+<ref id="b36">
+<mixed-citation publication-type="journal"><name><surname>Tungtur</surname><given-names>S.</given-names></name>, <name><surname>Skinner</surname><given-names>H.</given-names></name>, <name><surname>Zhan</surname><given-names>H.</given-names></name>, <name><surname>Swint-Kruse</surname><given-names>L.</given-names></name> &amp; <name><surname>Beckett</surname><given-names>D.</given-names></name>
+<article-title><italic>In vivo</italic> tests of thermodynamic models of transcription repressor function</article-title>. <source/>Biophys Chem
+<volume>159</volume>, <fpage>142</fpage>–<lpage>151</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.bpc.2011.06.005</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21715082</pub-id></mixed-citation>
+</ref>
+<ref id="b37">
+<mixed-citation publication-type="journal"><name><surname>Zhan</surname><given-names>H.</given-names></name>, <name><surname>Taraban</surname><given-names>M.</given-names></name>, <name><surname>Trewhella</surname><given-names>J.</given-names></name> &amp; <name><surname>Swint-Kruse</surname><given-names>L.</given-names></name>
+<article-title>Subdividing repressor function: DNA binding affinity, selectivity, and allostery can be altered by amino acid substitution of nonconserved residues in a LacI/GalR homologue</article-title>. <source/>Biochemistry
+<volume>47</volume>, <fpage>8058</fpage>–<lpage>8069</lpage>, doi: <pub-id pub-id-type="doi">10.1021/bi800443k</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18616293</pub-id></mixed-citation>
+</ref>
+<ref id="b38">
+<mixed-citation publication-type="journal"><name><surname>Zhan</surname><given-names>H.</given-names></name>, <name><surname>Swint-Kruse</surname><given-names>L.</given-names></name> &amp; <name><surname>Matthews</surname><given-names>K. S.</given-names></name>
+<article-title>Extrinsic interactions dominate helical propensity in coupled binding and folding of the lactose repressor protein hinge helix</article-title>. <source/>Biochemistry
+<volume>45</volume>, <fpage>5896</fpage>–<lpage>5906</lpage>, doi: <pub-id pub-id-type="doi">10.1021/bi052619p</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16669632</pub-id></mixed-citation>
+</ref>
+<ref id="b39">
+<mixed-citation publication-type="journal"><name><surname>Lewis</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Crystal structure of the lactose operon repressor and its complexes with DNA and inducer</article-title>. <source/>Science
+<volume>271</volume>, <fpage>1247</fpage>–<lpage>1254</lpage> (<year>1996</year>).<pub-id pub-id-type="pmid">8638105</pub-id></mixed-citation>
+</ref>
+<ref id="b40">
+<mixed-citation publication-type="journal"><name><surname>Chen</surname><given-names>J.</given-names></name> &amp; <name><surname>Matthews</surname><given-names>K. S.</given-names></name>
+<article-title>Subunit dissociation affects DNA binding in a dimeric lac repressor produced by C-terminal deletion</article-title>. <source/>Biochemistry
+<volume>33</volume>, <fpage>8728</fpage>–<lpage>8735</lpage> (<year>1994</year>).<pub-id pub-id-type="pmid">8038163</pub-id></mixed-citation>
+</ref>
+<ref id="b41">
+<mixed-citation publication-type="journal"><name><surname>Muller</surname><given-names>J.</given-names></name>, <name><surname>Barker</surname><given-names>A.</given-names></name>, <name><surname>Oehler</surname><given-names>S.</given-names></name> &amp; <name><surname>Muller-Hill</surname><given-names>B.</given-names></name>
+<article-title>Dimeric lac repressors exhibit phase-dependent co-operativity</article-title>. <source/>J Mol Biol
+<volume>284</volume>, <fpage>851</fpage>–<lpage>857</lpage>, doi: <pub-id pub-id-type="doi">10.1006/jmbi.1998.2253</pub-id> (<year>1998</year>).<pub-id pub-id-type="pmid">9837708</pub-id></mixed-citation>
+</ref>
+<ref id="b42">
+<mixed-citation publication-type="journal"><name><surname>Chen</surname><given-names>J.</given-names></name> &amp; <name><surname>Matthews</surname><given-names>K. S.</given-names></name>
+<article-title>Deletion of lactose repressor carboxyl-terminal domain affects tetramer formation</article-title>. <source/>J Biol Chem
+<volume>267</volume>, <fpage>13843</fpage>–<lpage>13850</lpage> (<year>1992</year>).<pub-id pub-id-type="pmid">1629185</pub-id></mixed-citation>
+</ref>
+<ref id="b43">
+<mixed-citation publication-type="journal"><name><surname>Barry</surname><given-names>J. K.</given-names></name> &amp; <name><surname>Matthews</surname><given-names>K. S.</given-names></name>
+<article-title>Thermodynamic analysis of unfolding and dissociation in lactose repressor protein</article-title>. <source/>Biochemistry
+<volume>38</volume>, <fpage>6520</fpage>–<lpage>6528</lpage>, doi: <pub-id pub-id-type="doi">10.1021/bi9900727</pub-id> (<year>1999</year>).<pub-id pub-id-type="pmid">10350470</pub-id></mixed-citation>
+</ref>
+<ref id="b44">
+<mixed-citation publication-type="journal"><name><surname>Oehler</surname><given-names>S.</given-names></name>, <name><surname>Eismann</surname><given-names>E. R.</given-names></name>, <name><surname>Kramer</surname><given-names>H.</given-names></name> &amp; <name><surname>Muller-Hill</surname><given-names>B.</given-names></name>
+<article-title>The three operators of the lac operon cooperate in repression</article-title>. <source/>EMBO J
+<volume>9</volume>, <fpage>973</fpage>–<lpage>979</lpage> (<year>1990</year>).<pub-id pub-id-type="pmid">2182324</pub-id></mixed-citation>
+</ref>
+<ref id="b45">
+<mixed-citation publication-type="journal"><name><surname>Markiewicz</surname><given-names>P.</given-names></name>, <name><surname>Kleina</surname><given-names>L. G.</given-names></name>, <name><surname>Cruz</surname><given-names>C.</given-names></name>, <name><surname>Ehret</surname><given-names>S.</given-names></name> &amp; <name><surname>Miller</surname><given-names>J. H.</given-names></name>
+<article-title>Genetic studies of the lac repressor. XIV. Analysis of 4000 altered Escherichia coli lac repressors reveals essential and non-essential residues, as well as “spacers” which do not require a specific sequence</article-title>. <source/>J Mol Biol
+<volume>240</volume>, <fpage>421</fpage>–<lpage>433</lpage>, doi: <pub-id pub-id-type="doi">10.1006/jmbi.1994.1458</pub-id> (<year>1994</year>).<pub-id pub-id-type="pmid">8046748</pub-id></mixed-citation>
+</ref>
+<ref id="b46">
+<mixed-citation publication-type="journal">R Core Team. <source/>R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b47">
+<mixed-citation publication-type="journal"><name><surname>Altschul</surname><given-names>S. F.</given-names></name>
+<etal></etal>. <article-title>Gapped BLAST and PSI-BLAST: a new generation of protein database search programs</article-title>. <source/>Nucleic Acids Res
+<volume>25</volume>, <fpage>3389</fpage>–<lpage>3402</lpage> (<year>1997</year>).<pub-id pub-id-type="pmid">9254694</pub-id></mixed-citation>
+</ref>
+<ref id="b48">
+<mixed-citation publication-type="journal"><name><surname>Pruitt</surname><given-names>K. D.</given-names></name>
+<etal></etal>. <article-title>RefSeq: an update on mammalian reference sequences</article-title>. <source/>Nucleic Acids Res
+<volume>42</volume>, <fpage>D756</fpage>–<lpage>763</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkt1114</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24259432</pub-id></mixed-citation>
+</ref>
+<ref id="b49">
+<mixed-citation publication-type="journal"><name><surname>Tungtur</surname><given-names>S.</given-names></name>, <name><surname>Parente</surname><given-names>D. J.</given-names></name> &amp; <name><surname>Swint-Kruse</surname><given-names>L.</given-names></name>
+<article-title>Functionally important positions can comprise the majority of a protein’s architecture</article-title>. <source/>Proteins
+<volume>79</volume>, <fpage>1589</fpage>–<lpage>1608</lpage>, doi: <pub-id pub-id-type="doi">10.1002/prot.22985</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21374721</pub-id></mixed-citation>
+</ref>
+<ref id="b50">
+<mixed-citation publication-type="journal"><name><surname>Altschul</surname><given-names>S. F.</given-names></name>, <name><surname>Gish</surname><given-names>W.</given-names></name>, <name><surname>Miller</surname><given-names>W.</given-names></name>, <name><surname>Myers</surname><given-names>E. W.</given-names></name> &amp; <name><surname>Lipman</surname><given-names>D. J.</given-names></name>
+<article-title>Basic local alignment search tool</article-title>. <source/>J Mol Biol
+<volume>215</volume>, <fpage>403</fpage>–<lpage>410</lpage>, doi: <pub-id pub-id-type="doi">10.1016/S0022-2836(05)80360-2</pub-id> (<year>1990</year>).<pub-id pub-id-type="pmid">2231712</pub-id></mixed-citation>
+</ref>
+<ref id="b51">
+<mixed-citation publication-type="journal"><name><surname>Mi</surname><given-names>H.</given-names></name>, <name><surname>Muruganujan</surname><given-names>A.</given-names></name> &amp; <name><surname>Thomas</surname><given-names>P. D.</given-names></name>
+<article-title>PANTHER in 2013: modeling the evolution of gene function, and other gene attributes, in the context of phylogenetic trees</article-title>. <source/>Nucleic Acids Res
+<volume>41</volume>, <fpage>D377</fpage>–<lpage>386</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gks1118</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23193289</pub-id></mixed-citation>
+</ref>
+<ref id="b52">
+<mixed-citation publication-type="journal"><name><surname>Reva</surname><given-names>B.</given-names></name>, <name><surname>Antipin</surname><given-names>Y.</given-names></name> &amp; <name><surname>Sander</surname><given-names>C.</given-names></name>
+<article-title>Predicting the functional impact of protein mutations: application to cancer genomics</article-title>. <source/>Nucleic Acids Res
+<volume>39</volume>, <fpage>e118</fpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkr407</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21727090</pub-id></mixed-citation>
+</ref>
+<ref id="b53">
+<mixed-citation publication-type="journal"><name><surname>Schymkowitz</surname><given-names>J.</given-names></name>
+<etal></etal>. <article-title>The FoldX web server: an online force field</article-title>. <source/>Nucleic Acids Res
+<volume>33</volume>, <fpage>W382</fpage>–<lpage>388</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gki387</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15980494</pub-id></mixed-citation>
+</ref>
+<ref id="b54">
+<mixed-citation publication-type="journal"><name><surname>Mathe</surname><given-names>E.</given-names></name>
+<etal></etal>. <article-title>Computational approaches for predicting the biological effect of p53 missense mutations: a comparison of three sequence analysis based methods</article-title>. <source/>Nucleic Acids Res
+<volume>34</volume>, <fpage>1317</fpage>–<lpage>1325</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkj518</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16522644</pub-id></mixed-citation>
+</ref>
+<ref id="b55">
+<mixed-citation publication-type="journal"><name><surname>Grantham</surname><given-names>R.</given-names></name>
+<article-title>Amino acid difference formula to help explain protein evolution</article-title>. <source/>Science
+<volume>185</volume>, <fpage>862</fpage>–<lpage>864</lpage> (<year>1974</year>).<pub-id pub-id-type="pmid">4843792</pub-id></mixed-citation>
+</ref>
+<ref id="b56">
+<mixed-citation publication-type="journal"><name><surname>Stone</surname><given-names>E. A.</given-names></name> &amp; <name><surname>Sidow</surname><given-names>A.</given-names></name>
+<article-title>Physicochemical constraint violation by missense substitutions mediates impairment of protein function and disease severity</article-title>. <source/>Genome Res
+<volume>15</volume>, <fpage>978</fpage>–<lpage>986</lpage>, doi: <pub-id pub-id-type="doi">10.1101/gr.3804205</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15965030</pub-id></mixed-citation>
+</ref>
+<ref id="b57">
+<mixed-citation publication-type="journal"><name><surname>Ramensky</surname><given-names>V.</given-names></name>, <name><surname>Bork</surname><given-names>P.</given-names></name> &amp; <name><surname>Sunyaev</surname><given-names>S.</given-names></name>
+<article-title>Human non-synonymous SNPs: server and survey</article-title>. <source/>Nucleic Acids Res
+<volume>30</volume>, <fpage>3894</fpage>–<lpage>3900</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12202775</pub-id></mixed-citation>
+</ref>
+<ref id="b58">
+<mixed-citation publication-type="journal"><name><surname>Capriotti</surname><given-names>E.</given-names></name>, <name><surname>Calabrese</surname><given-names>R.</given-names></name> &amp; <name><surname>Casadio</surname><given-names>R.</given-names></name>
+<article-title>Predicting the insurgence of human genetic diseases associated to single point protein mutations with support vector machines and evolutionary information</article-title>. <source/>Bioinformatics
+<volume>22</volume>, <fpage>2729</fpage>–<lpage>2734</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/btl423</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16895930</pub-id></mixed-citation>
+</ref>
+<ref id="b59">
+<mixed-citation publication-type="journal"><name><surname>McKusick</surname><given-names>V. A.</given-names></name>
+<article-title>Mendelian Inheritance in Man and its online version, OMIM</article-title>. <source/>Am J Hum Genet
+<volume>80</volume>, <fpage>588</fpage>–<lpage>604</lpage>, doi: <pub-id pub-id-type="doi">10.1086/514346</pub-id> (<year>2007</year>).<pub-id pub-id-type="pmid">17357067</pub-id></mixed-citation>
+</ref>
+<ref id="b60">
+<mixed-citation publication-type="journal"><name><surname>Capriotti</surname><given-names>E.</given-names></name>, <name><surname>Fariselli</surname><given-names>P.</given-names></name>, <name><surname>Calabrese</surname><given-names>R.</given-names></name> &amp; <name><surname>Casadio</surname><given-names>R.</given-names></name>
+<article-title>Predicting protein stability changes from sequences using support vector machines</article-title>. <source/>Bioinformatics
+<volume>21</volume> Suppl 2, <fpage>ii54</fpage>–<lpage>58</lpage>, doi: <pub-id pub-id-type="doi">10.1093/bioinformatics/bti1109</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">16204125</pub-id></mixed-citation>
+</ref>
+<ref id="b61">
+<mixed-citation publication-type="journal"><name><surname>Bava</surname><given-names>K. A.</given-names></name>, <name><surname>Gromiha</surname><given-names>M. M.</given-names></name>, <name><surname>Uedaira</surname><given-names>H.</given-names></name>, <name><surname>Kitajima</surname><given-names>K.</given-names></name> &amp; <name><surname>Sarai</surname><given-names>A.</given-names></name>
+<article-title>ProTherm, version 4.0: thermodynamic database for proteins and mutants</article-title>. <source/>Nucleic Acids Res
+<volume>32</volume>, <fpage>D120</fpage>–<lpage>121</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkh082</pub-id> (<year>2004</year>).<pub-id pub-id-type="pmid">14681373</pub-id></mixed-citation>
+</ref>
+<ref id="b62">
+<mixed-citation publication-type="journal"><name><surname>Bao</surname><given-names>L.</given-names></name>, <name><surname>Zhou</surname><given-names>M.</given-names></name> &amp; <name><surname>Cui</surname><given-names>Y.</given-names></name>
+<article-title>nsSNPAnalyzer: identifying disease-associated nonsynonymous single nucleotide polymorphisms</article-title>. <source/>Nucleic Acids Res
+<volume>33</volume>, <fpage>W480</fpage>–<lpage>482</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gki372</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15980516</pub-id></mixed-citation>
+</ref>
+<ref id="b63">
+<mixed-citation publication-type="journal"><name><surname>Yip</surname><given-names>Y. L.</given-names></name>
+<etal></etal>. <article-title>The Swiss-Prot variant page and the ModSNP database: a resource for sequence and structure information on human protein variants</article-title>. <source/>Hum Mutat
+<volume>23</volume>, <fpage>464</fpage>–<lpage>470</lpage>, doi: <pub-id pub-id-type="doi">10.1002/humu.20021</pub-id> (<year>2004</year>).<pub-id pub-id-type="pmid">15108278</pub-id></mixed-citation>
+</ref>
+<ref id="b64">
+<mixed-citation publication-type="journal"><name><surname>Chandonia</surname><given-names>J. M.</given-names></name>
+<etal></etal>. <article-title>The ASTRAL Compendium in 2004</article-title>. <source/>Nucleic Acids Res
+<volume>32</volume>, <fpage>D189</fpage>–<lpage>192</lpage>, doi: <pub-id pub-id-type="doi">10.1093/nar/gkh034</pub-id> (<year>2004</year>).<pub-id pub-id-type="pmid">14681391</pub-id></mixed-citation>
+</ref>
+<ref id="b65">
+<mixed-citation publication-type="journal"><name><surname>Bendl</surname><given-names>J.</given-names></name>
+<etal></etal>. <article-title>PredictSNP: robust and accurate consensus classifier for prediction of disease-related mutations</article-title>. <source/>PLoS Comput Biol
+<volume>10</volume>, <fpage>e1003440</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pcbi.1003440</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24453961</pub-id></mixed-citation>
+</ref>
+<ref id="b66">
+<mixed-citation publication-type="journal"><name><surname>Kawabata</surname><given-names>T.</given-names></name>, <name><surname>Ota</surname><given-names>M.</given-names></name> &amp; <name><surname>Nishikawa</surname><given-names>K.</given-names></name>
+<article-title>The Protein Mutant Database</article-title>. <source/>Nucleic Acids Res
+<volume>27</volume>, <fpage>355</fpage>–<lpage>357</lpage> (<year>1999</year>).<pub-id pub-id-type="pmid">9847227</pub-id></mixed-citation>
+</ref>
+<ref id="b67">
+<mixed-citation publication-type="journal"><name><surname>Capriotti</surname><given-names>E.</given-names></name>, <name><surname>Altman</surname><given-names>R. B.</given-names></name> &amp; <name><surname>Bromberg</surname><given-names>Y.</given-names></name>
+<article-title>Collective judgment predicts disease-associated single nucleotide variants</article-title>. <source/>BMC Genomics
+<volume>14</volume> Suppl 3, <fpage>S2</fpage>, doi: <pub-id pub-id-type="doi">10.1186/1471-2164-14-S3-S2</pub-id> (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b68">
+<mixed-citation publication-type="journal"><name><surname>Stenson</surname><given-names>P. D.</given-names></name>
+<etal></etal>. <article-title>Human Gene Mutation Database (HGMD): 2003 update</article-title>. <source/>Hum Mutat
+<volume>21</volume>, <fpage>577</fpage>–<lpage>581</lpage>, doi: <pub-id pub-id-type="doi">10.1002/humu.10212</pub-id> (<year>2003</year>).<pub-id pub-id-type="pmid">12754702</pub-id></mixed-citation>
+</ref>
+<ref id="b69">
+<mixed-citation publication-type="journal"><name><surname>Sherry</surname><given-names>S. T.</given-names></name>
+<etal></etal>. <article-title>dbSNP: the NCBI database of genetic variation</article-title>. <source/>Nucleic Acids Res
+<volume>29</volume>, <fpage>308</fpage>–<lpage>311</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11125122</pub-id></mixed-citation>
+</ref>
+<ref id="b70">
+<mixed-citation publication-type="journal"><name><surname>Tavtigian</surname><given-names>S. V.</given-names></name>, <name><surname>Byrnes</surname><given-names>G. B.</given-names></name>, <name><surname>Goldgar</surname><given-names>D. E.</given-names></name> &amp; <name><surname>Thomas</surname><given-names>A.</given-names></name>
+<article-title>Classification of rare missense substitutions, using risk surfaces, with genetic- and molecular-epidemiology applications</article-title>. <source/>Hum Mutat
+<volume>29</volume>, <fpage>1342</fpage>–<lpage>1354</lpage>, doi: <pub-id pub-id-type="doi">10.1002/humu.20896</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18951461</pub-id></mixed-citation>
+</ref>
+<ref id="b71">
+<mixed-citation publication-type="other"><name><surname>Schrödinger</surname><given-names>L. L. C.</given-names></name>
+<italic>The PyMOL Molecular Graphics System, Version 1.8</italic>. <ext-link ext-link-type="uri" xlink:href="URLhttps://www.pymol.org" xmlns:xlink="http://www.w3.org/1999/xlink">URL https://www.pymol.org</ext-link> (2015).</mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn fn-type="COI-statement">
+<p>The authors declare no competing financial interests.</p>
+</fn>
+<fn>
+<p><bold>Author Contributions</bold> L.S.K. and Y.B. conceived of the study; all three authors contributed to parameter definitions; M.M. carried out the analyses; and all three authors contributed to data interpretation and writing the manuscript.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Experimental differentiation of toggle and rheostat positions.</title>
+<p>The left panel shows an example of a toggle position (tyrosine in position 47): Relative to wild-type (value normalized to 1), most substitutions at LacI position 47 abolish transcription repression of the reporter-gene. The right panel shows an example of a rheostat position (valine in position 52): Variants at this position in LacI exhibit a wide range of repression levels relative to wild-type (value normalized to 1). Data for position 52 (right panel) are adapted from11; the dark gray bar shows the ratio of no-repression (full expression of the reporter gene) to repression by wild-type LacI. Data for position 47 (left panel) were adapted from<xref ref-type="bibr" rid="b14">14</xref>. Briefly, the earlier study categorized these semi-quantitative data relative to the activity of un-repressed reporter gene (i.e., in the absence of repressor protein). For this figure, we translated the semi-quantitative ranges to the quantitative scale using the “none” value on the right panel.</p>
+</caption>
+<graphic xlink:href="srep41329-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>Locations of toggle and rheostat position sets on the structure of the LacI homodimer bound to DNA (PDB 1EFA<xref ref-type="bibr" rid="b34">34</xref>; visualized with PyMOL)<xref ref-type="bibr" rid="b71">71</xref>.</title>
+<p>On one monomer, positions are colored by the sets described in the text. Note that smaller sets are included in the larger sets. For example, <italic>toggle_12</italic> positions are also part of <italic>toggle_50</italic>. Chain B (identical to Chain A) is shown in the background at 50% transparency. DNA is shown as a double helix at the top of the figure.</p>
+</caption>
+<graphic xlink:href="srep41329-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>Variant-effect predictors vary in features and development data used.</title>
+<p>The 16 publicly available variant-effect prediction algorithms can be broadly grouped by use of (i) basic biological principles and evolutionary information, (ii) pattern recognition techniques and machine learning, and (iii) meta/ensemble predictors.</p>
+</caption>
+<graphic xlink:href="srep41329-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f4">
+<label>Figure 4</label>
+<caption>
+<title>Distributions of variant scores from continuous prediction methods differ between rheostat and toggle positions (<italic>stringent</italic> set).</title>
+<p>Panel (a) shows the distributions expected from an ideal variant-effect predictor, while panel (b) shows the distributions determined for neutral and non-neutral variants at both rheostat and toggle positions in the stringent set. These four predictors were selected on the basis of top performance in differentiating rheostat non-neutrals from rheostat neutrals. Results for all other predictors are in <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 1</xref>. The violin plot is an augmented box plot where the width at any given Y-axis value indicates the probability density of the data (median, white circles; interquartile range, box outline). The p-values in the legend are from a Kolmogorov-Smirnov (KS) test, indicating whether a method can significantly distinguish between the two distributions pointed to by the respective arrows. Results from the complete and extended sets are in <xref ref-type="supplementary-material" rid="S1">Supplementary Figs 2</xref> and <xref ref-type="supplementary-material" rid="S1">3</xref>.</p>
+</caption>
+<graphic xlink:href="srep41329-f4" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f5">
+<label>Figure 5</label>
+<caption>
+<title>Correlation between experimentally measured fold-changes and predicted variant-effect scores.</title>
+<p>Panels (a) SNAP2; (b) PROVEAN; (c) MutPred2; (d) PolyPhen-2 show the relationship of the computationally and experimentally derived scores. For each variant at all rheostat positions, fold-change in repression relative to wild-type LacI is shown on log scale (Y axis), whereas predicted scores are normalized to the linear range [0, 1] (X axis). The blue area depicts the scores expected for neutral variants (fold-change between 0.5 and 2.0); the green area depicts scores expected for non-neutral variants. The Pearson product-moment correlation coefficient (Pearson’s r) is given for the <italic>rheostat_9</italic> set. Results from other predictors are in <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. 4</xref>.</p>
+</caption>
+<graphic xlink:href="srep41329-f5" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+</floats-group>
+</article>
+</pmc-articleset>

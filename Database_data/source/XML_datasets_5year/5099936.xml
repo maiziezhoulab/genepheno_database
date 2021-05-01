@@ -1,0 +1,1012 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27824084</article-id>
+<article-id pub-id-type="pmc">5099936</article-id>
+<article-id pub-id-type="pii">srep36205</article-id>
+<article-id pub-id-type="doi">10.1038/srep36205</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Systematic Analysis of Drug Targets Confirms Expression in Disease-Relevant Tissues</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Kumar</surname>
+<given-names>Vinod</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sanseau</surname>
+<given-names>Philippe</given-names>
+</name>
+<xref ref-type="aff" rid="a2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Simola</surname>
+<given-names>Daniel F.</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hurle</surname>
+<given-names>Mark R.</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Agarwal</surname>
+<given-names>Pankaj</given-names>
+</name>
+<xref ref-type="aff" rid="a1">1</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>Computational Biology, GlaxoSmithKline</institution>, 709 Swedeland Road, King of Prussia, PA 19406, <country>USA</country></aff>
+<aff id="a2"><label>2</label><institution>Computational Biology, GlaxoSmithKline</institution>, Gunnels Wood Road, Stevenage, SG1 2NY, <country>UK</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>vinod.d.kumar@gsk.com</email>
+</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>08</day>
+<month>11</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>6</volume>
+<elocation-id>36205</elocation-id>
+<history>
+<date date-type="received">
+<day>08</day>
+<month>01</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>12</day>
+<month>10</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016, The Author(s)</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>The Author(s)</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>It is commonly assumed that drug targets are expressed in tissues relevant to their indicated diseases, even under normal conditions. While multiple anecdotal cases support this hypothesis, a comprehensive study has not been performed to verify it. We conducted a systematic analysis to assess gene and protein expression for all targets of marketed and phase III drugs across a diverse collection of normal human tissues. For 87% of gene-disease pairs, the target is expressed in a disease-affected tissue under healthy conditions. This result validates the importance of confirming expression of a novel drug target in an appropriate tissue for each disease indication and strengthens previous findings showing that targets of efficacious drugs should be expressed in relevant tissues under normal conditions. Further characterization of the remaining 13% of gene-disease pairs revealed that most genes are expressed in a different tissue linked to another disease. Our analysis demonstrates the value of extensive tissue specific expression resources.both in terms of tissue and cell diversity as well as techniques used to measure gene expression.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Tissue specificity is an important aspect of many diseases that reflects the potentially different roles of proteins and pathways in diverse cell lineages<xref ref-type="bibr" rid="b1">1</xref>. Although a variety of diseases have tissue specific etiology, many diseases ultimately affect multiple organs and tissues<xref ref-type="bibr" rid="b2">2</xref>. Genes with tissue-specific patterns of expression and function play key roles in the physiological processes of complex organisms, and such genes are regarded to be intrinsic components of many human diseases<xref ref-type="bibr" rid="b2">2</xref>. In particular, gene activity has been reported to vary more greatly across organs or tissues within an individual than in the same tissue across individuals<xref ref-type="bibr" rid="b3">3</xref>.</p>
+<p>Large scale genome-wide analysis of gene expression patterns has routinely been used to study human disease, as it enables the comprehensive comparison of different tissues<xref ref-type="bibr" rid="b4">4</xref><xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. To gain insight into the genes, pathways, and mechanisms affected by disease, most studies utilizing this approach have focused on comparing disease and non-disease states<xref ref-type="bibr" rid="b4">4</xref><xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. However, understanding a gene’s normal pattern of expression in different healthy tissues provides a meaningful complementary perspective as well. For example, Lage <italic>et al</italic>.<xref ref-type="bibr" rid="b7">7</xref> presented the first quantitative study of the tissue-specific mRNA expression of over 2,000 Mendelian disease-associated genes and showed these genes are selectively expressed only in tissues where their disruption causes pathology—even under non-disease conditions. This finding supports an important mechanistic hypothesis that pathogenic gene dysregulation tends to be localized to the tissue(s) in which the affected genes are already expressed.</p>
+<p>In our present study, we focused on addressing a specific prediction of this hypothesis, that disease-associated genes targeted by marketed and Phase III drugs (i.e., those genes that have clinical evidence relating them to diseases and thus also a high-quality subset of disease-modifying genes) are in particular expressed in the appropriate disease-relevant tissue even under normal/non-disease conditions. The rationale for this study is to evaluate whether confirming expression of a novel drug target in the appropriate disease-relevant tissue should serve as an early and perhaps necessary step when selecting that gene to pursue for a particular disease indication. To perform this evaluation, we integrated both tissue specific mRNA and protein expression data to overcome the inherent technical limitations of each individual source.</p>
+<sec disp-level="1">
+<title>Results</title>
+<p>We investigated if drug targets are expressed in disease-relevant tissues under normal conditions. For the purpose of this analysis, disease-relevant tissue means healthy samples from specific tissues that are biologically relevant to the disease; it does not imply samples from patients who have the disease. The targets considered here are limited to proteins encoded by human genes. An overview of the data sources, filtering and processing applied is provided in <xref ref-type="fig" rid="f1">Fig. 1</xref>. We compiled a gold standard set of gene-disease relationships by extracting the genes and their disease indications for all drugs that are currently in Phase III or marketed as per the drug industry pipeline database Pharmaprojects (<ext-link ext-link-type="uri" xlink:href="http://www.citeline.com/products/pharmaprojects/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.citeline.com/products/pharmaprojects/</ext-link>) as of July 2014. This produced a set of 1,305 unique gene-disease pairs spanning 345 target genes and 406 diseases (<xref ref-type="fig" rid="f1">Fig. 1A</xref>). Tissue assignments for each disease are based on the maximal association score (MAS) threshold (<xref ref-type="fig" rid="f1">Fig. 1B</xref>), following the protocol developed by Lage <italic>et al</italic>.<xref ref-type="bibr" rid="b7">7</xref> (see Methods). We then determined whether a given gene was expressed in a disease-associated tissue by computing a binary tissue-specific expression profile from 32 healthy tissues based on the RNA-Seq data generated by Uhlen <italic>et al</italic>.<xref ref-type="bibr" rid="b8">8</xref>. <xref ref-type="fig" rid="f1">Figure 1C</xref> illustrates the workflow for assigning relevant tissues to each drug targets based on their expression patterns in normal healthy tissues.</p>
+<p>Based on this assignment of tissue-specific expression to gene-disease pairs, a total of 1,081 (83%) gene-disease pairs showed detectable expression in one or more of the predicted tissue assignments (see Methods). When we further restricted each gene-disease association to the single tissue with the highest MAS score, the number of genes expressed in the assigned tissue was reduced to 969 (74%). These observations are comparable to the findings from a previous study reporting that 71% of 920 gene-disease pairs compiled from literature sources are expressed in a disease-relevant tissue<xref ref-type="bibr" rid="b9">9</xref>. To determine if the observed expression levels for these genes are elevated specifically in the disease-relevant tissues, we averaged (across all gene-disease pairs) their normalized expression (<italic>z-</italic>scores, see Methods) and compared them to average expression in all remaining tissues. The average <italic>z</italic> -normalized expression level for the targets is over three-fold higher (0.57 vs 0.16; fpkm: 79.6 vs 23.7) in the disease-relevant tissues compared to remaining tissues (P = 1.6 e<sup>−12</sup>; paired t-test). These results indicate that not only is the mRNA of a typical drug target expressed in the healthy version of the disease-relevant tissue, it is normally expressed at a significantly higher level in this healthy tissue compared to other tissues. Thus, broad panels of tissue-specific mRNA expression data provide valuable information when evaluating drug targets.</p>
+<p>To assess if successful drug targets are also expressed at the protein-level, we constructed tissue-specific profiles using protein data obtained from the Human Protein Atlas (HPA)<xref ref-type="bibr" rid="b8">8</xref>. These HPA data were generated using an antibody-based detection method that indicates the spatial distribution of a given protein at the single-cell level in the various substructures and cell types of a tissue. In contrast to RNA-seq data, these protein measurements are qualitative and are labeled as ordinal variables to describe relative abundance (i.e., Absent, Low, Medium and High). In our analysis, we further summarized these values into two states, where Absent and Low become “Undetected”, while Medium and High become “Expressed”. For consistency with the binary protein expression profiles, we converted the RNA-seq data into binary values, where genes showing mRNA expression levels over 1 FPKM were classified as “Expressed” and the remaining are labeled as “Undetected”. Using these estimates, we identified 737 gene-disease pairs showing detectable protein expression. Unsurprisingly, this is lower than the 1,081 associations detected at the mRNA level, which can be attributed to the significantly better detection limit (reduced false negative rate) provided by current RNA-Seq technologies<xref ref-type="bibr" rid="b10">10</xref>.</p>
+<p>Despite the identification of fewer expressed genes using protein expression data, some genes may be detected at the protein but not mRNA level, due to non-linear amplification during translation. Hence, we integrated both mRNA and protein expression data sets to obtain a more comprehensive estimate of the total number of gene-disease pairs with detectable expression levels in disease-relevant tissue. In this way, we identified 1,137 (87%) pairs with detected expression in the assigned tissues at either mRNA or protein levels (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>). A majority (681, or 60%) of these gene-disease pairs are detected at both mRNA and protein levels. However, 400 gene-disease pairs were detected exclusively at the mRNA level and an additional 56 pairs only at the protein level (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>). <xref ref-type="table" rid="t1">Table 1</xref> shows a selected subset of the unique gene-disease pairs and their predicted tissue assignments. The entire list for all 1,305 unique gene-disease pairs spanning 345 targets and 406 diseases with their tissue assignments can be found as <xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>.</p>
+<p>Next, we evaluated the tissue distribution of the expressed drug targets with respect to different therapeutic areas as defined by their <italic>Disease Ontology</italic> (<xref ref-type="fig" rid="f2">Fig. 2</xref>). As expected, several therapeutic areas show a similar enrichment for targets expressed in specific tissues, especially <italic>cardiovascular system, nervous system</italic>, and <italic>metabolic diseases</italic>. The exception here are <italic>diseases of cellular proliferation</italic> (i.e. cancers), which are enriched for targets spanning most tissues surveyed. Correspondingly, many drugs for expressed targets are indicated for the treatment of diseases in multiple therapeutic areas (as in <xref ref-type="table" rid="t2">Table 2</xref>). For example, 23 and 12 targets for <italic>nervous system diseases</italic> are shared with <italic>cardiovascular system disease</italic> and <italic>disease of metabolism</italic> respectively (listed in <xref ref-type="table" rid="t3">Table 3</xref>). This is consistent with previous observations that both nervous system and metabolic syndrome play important roles in the regulation of cardiovascular function over multiple time scales<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref>. For instance impairment in the sympathetic nervous system (SNS) signaling is one of the common factors implicated in the diabetic heart failure<xref ref-type="bibr" rid="b13">13</xref>. Glucose, insulin, and free fatty acids produce elevated circulating levels of norepinephrine which contribute to increased sympathetic nervous activity, eventually resulting in enhanced Ca<sup>2+</sup> influx and cardiac contractility<xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref>. We also found 17 shared targets between <italic>cardiovascular system disease</italic> and <italic>disease of metaboli</italic>sm (listed in <xref ref-type="table" rid="t3">Table 3</xref>) which may be attributed to the cross-talk between these two systems as well as their common overlap with <italic>nervous system diseases</italic><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref>.</p>
+<p>We then focused on characterizing the remaining 168 (13%) of the gene-disease pairs without detected mRNA or protein expression in the predicted tissue. First, we confirmed that the majority (86%) of the 66 genes represented among these 168 pairs do show a tissue specific pattern of expression. 39 genes are predominantly expressed in a single tissue with at least five-fold higher expression levels in a single tissue compared to average of all other tissues. Another 14 genes have at least five-fold higher levels of expression in up to seven tissues. Of the remaining 13 genes, 4 are expressed without notable tissue enrichment, while only 2 genes (MPL and TRHR) were not detected in any of the 32 tissues in Uhlen <italic>et al</italic>. or the 45 tissues in GTEx, showing an average expression of 0.66 and 0.52 FPKM, respectively, using the tissue with highest expression for each gene.</p>
+<p>Next, we also looked at the distribution of the 168 unconfirmed gene-disease pairs across therapeutic areas. Interestingly, we found that relatively few targets are indicated for multiple indications. 85 (52%) of the unconfirmed gene-disease pairs represent just 11 genes (17%) that each have at least four indications: SLC6A4 (16), IL2RA(16), PTGER1(10), GNRHR(10), SLC6A2(6), SERPINC1(5), OPRM1(5), F2(5), CUBN(4), IL(5) and PGR(4) (<xref ref-type="fig" rid="f3">Fig. 3a</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Table I</xref>). Further, 41 unconfirmed gene-disease pairs represent another 18 genes with 2 or 3 disease indications. Combined, this shows that drugs with multiple indications (77%, n = 126) are enriched among the unconfirmed gene-disease pairs (P = 3e<sup>−6</sup>, chi-square frequency test).</p>
+<p>Given the observations above that most unconfirmed genes both show tissue-specific expression and are targeted for multiple indications, we next asked whether the 66 unconfirmed genes are expressed in a different tissue specified by one of the alternate indications. Indeed, 38 of the 66 (58%) unconfirmed genes are expressed in a different tissue (<xref ref-type="fig" rid="f3">Fig. 3a</xref>). For example, Plasminogen (PLG) is a target indicated for multiple diseases: Conjunctivitis Allergic, Myocardial Infarction, Pulmonary Embolism and Venous Thrombosis. This gene is detected in tissues assigned to 3 of the 4 disease indications with Myocardial Infarction being the only exception. These 38 genes also tend to have robust expression with a median FPKM of 4.8 and detected expression (FPKM &gt; 1) in 10 tissues on average. In contrast, an additional 22 of the 66 genes are associated with a single indication and tend to have weak expression, with a median FPKM of 0.2 and detected expression in 4 tissues on average. These results indicate that the majority of unconfirmed genes are targets of drugs for multiple indications and are expressed in the predicted tissue for at least one other indication.</p>
+<p>Another explanation for the 168 unconfirmed gene-disease pairs is that certain classes of drug targets simply may be difficult to measure, due to extreme tissue specificity or localization. In such cases, measured expression may be diluted or absent due to cell-type heterogeneity within a sampled tissue (e.g., brain) or due to absence of a tissue in a given data set. In fact, we identified 30 pairs that were assigned brain as the predicted disease-relevant tissue with high confidence (average MAS score greater than 70%), yet have undetected expression levels in brain. To evaluate these genes further, we employed an independent large-scale mRNA data set (GTEx)<xref ref-type="bibr" rid="b19">19</xref> which contains an extensive panel of 13 sampled brain regions. Overall, 6 of the 30 unconfirmed pairs for brain are expressed in one or more of the brain regions in GTEx (3 in pituitary, 3 in nucleus accumbens) (<xref ref-type="supplementary-material" rid="S1">Supplementary Table I</xref>). We also confirmed expression for another 5 pairs using GTEx: (2 in salivary gland, 1 apiece in lung, stomach and 1 adrenal gland). These results are consistent with the possibility that some genes remain undetected simply due to current technical limitations in available data, due to tissue sampling bias or resolution, tissue-specific differences in absolute mRNA copy number, or short protein half-life.</p>
+<p>Finally, we examined the functional properties of the 66 unconfirmed genes to identify enriched classes (<xref ref-type="fig" rid="f3">Fig. 3b</xref>). The most enriched target classes are G-protein coupled receptors (19 members), enzymes (13), transporters (6), cytokines (4), and unclassified (13) (<xref ref-type="supplementary-material" rid="S1">Supplementary Table I</xref>). Notably, 6 of the undetected enzymes are coagulation proteins involved in hemostasis; these genes are expressed in the liver (<xref ref-type="supplementary-material" rid="S1">Supplementary Table I</xref>; F2, F9, F10, PLG, PROC, XDH), but were not detected in the tissue predicted to associate best with the disease phenotype. We used DAVID to evaluate shared functional properties by gene ontology enrichment<xref ref-type="bibr" rid="b20">20</xref>. Notably, 21 genes are involved in cell-cell signaling (GO:0007267, FDR p-value: 2.8e<sup>−12</sup>), 12 of which are directly involved in impairing synaptic transmission (GO:0007268, FDR p-value: 1.5e<sup>−7</sup>) and consist of primarily calcium-channels, GABA transporters, dopamine and serotonin receptors<xref ref-type="bibr" rid="b21">21</xref>. Many of these drug targets are associated with psychiatric and neurologic disorders, ranging from addiction, mental retardation and autism.</p>
+<p>The next most represented class of lowly expressed genes (19) is involved in homeostatic processes (GO: 0042592, FDR p-value: 6e<sup>−7</sup>). Many (10) of these proteins play a key role in calcium ion homeostasis, Ca(<sup>2+</sup>) signaling by regulating multiple neuronal functions, including synaptic transmission, plasticity, and cell survival<xref ref-type="bibr" rid="b22">22</xref>. We also identified fourteen lowly expressed genes that are central to wound healing response (FDR E-Value: 3.9 e<sup>−5</sup>). Several of them are known regulators of apoptosis and are expressed at high levels when subjected to inflammatory response. Amongst them are seven proteins that are involved in coagulation cascade, a major aspect of wound healing. Notably these genes are selectively expressed only in the liver, but not in tissues associated with cardiovascular diseases such as heart, adipose tissue etc.</p>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>In the current study, we evaluated both gene and protein expression variation for clinically successful targets (defined as Phase III or marketed) across a diverse set of normal human tissue types that are relevant to the disease phenotype. By integrating protein and mRNA expression data, we are able to show that a majority (87%) of marketed and Phase III drug targets are expressed at detectable levels in a tissue relevant to the disease under normal conditions. This systematic evaluation reiterates the importance of confirming expression of a target protein in a disease relevant tissue and lends support to previous findings that for a drug treating it to have an effect, its target should be expressed in that tissue under normal conditions. This finding corresponds with a quantitative view of disease progression, whereby genes that are already expressed in normal tissue become more highly or more weakly expressed in the disease state; in contrast to a model in which successful drug targets become selectively expressed only in the diseased state.</p>
+<p>Several factors account for the drug target-disease pairs (13%) not detected in the expected tissues. Our analysis of the 66 implicated genes revealed that 86% have a tissue-specific pattern of expression. In fact only 2 of the 345 (2.6%) genes examined did not have detectable expression in any tissue surveyed in two of the largest expression resources provided by Uhlen <italic>et al</italic>. and the GTEx Consortium. Furthermore, 58% of the 66 genes are expressed in to at least one tissue linked to an indication for the drug with multiple indications. Therefore, our inability to detect expression in relevant tissues for all indications is not due to a true absence of mRNA or protein.</p>
+<p>Instead, inability to detect tissue-specific expression more likely reflects error (a high false negative rate) either due to limitations in the technology used to detect weakly expressed genes or due to the computational inference of disease-tissue association. Second, the current analysis is limited by the number of tissues for which expression data is available (32 tissues) and therefore the predicted tissue assignments for some of the diseases will be sub-optimal at best. For example, genes associated with breast neoplasms are more likely to be associated with breast. However, as no expression profiles are available in the database from breast tissue per se, our methodology assigned lymph nodes as the most optimal tissue for this disease. Another key limitation is tissue heterogeneity, arising from multiple cell types. A major confounding factor in experiments when applying these genome-wide gene expression profiling methods at whole tissue levels is that the contribution of a specific cell type to the total amount of measured gene expression cannot be determined. As genome scale data from single cell experiments becomes more widely available for multiple tissues, one can extend these data to estimate the extent of cell-type heterogeneity present in existing “bulk tissue” resources, such as GTEx.</p>
+<p>Furthermore, inability to detect tissue-specific expression may reflect a true biological phenomenon. For example, a protein may be active or stable even when the mRNA levels are very low. Beyond established differences between mRNA and protein levels for the same gene, there may be proteins which perform their function in relatively low levels. Indeed, we found that several of these genes that are lowly expressed in their disease assigned tissue also appear to have low overall expression levels across all tissues. This suggests that these proteins (or genes) might still be functional in the diseased tissue. Most of the lowly expressed targets are primarily involved in ion transport, regulation of cell apoptosis, and synaptic transmission. One possibility may be that these proteins may not be active in the normal tissues as manifested by their low expression levels, but may be altered in disease state. For example, expression levels of solute carriers (SLCs) are generally higher in a disease states as they are modulated by cytokines, hormones, and growth factors, extracellular signals in response to the metabolic state of the cell affected by stress or other stimuli. Recent advances in quantifying half-lives, transcription and translation rate constants across the entire genome have shown that many fast responding genes have short protein and/or mRNA half-lives<xref ref-type="bibr" rid="b23">23</xref>. Half-life measurements of proteins and mRNAs can be used to search for properties that characterize these unstable mRNAs and proteins. The challenge, however, is that knowledge of relationships between half-life of mRNA and protein is limited to a few lower organisms and some mammalian cell lines, therefore its applicability to whole organism remains unclear.</p>
+<p>The complexity and the dependencies between tissues in a multi-tissue organism may also explain inconsistencies between tissue-specific expression of a target and the locus of disease. For example, most coagulation proteins are expressed in the liver, but are targets for cardiovascular diseases where the primary tissue is heart. Another example is in cancers where a mutation in a protein active in one tissue may result in clinical pathology in different tissue<xref ref-type="bibr" rid="b9">9</xref>. In summary, the role of weakly expressed genes in causing disease in a specific tissue is complex and will require additional analysis.</p>
+</sec>
+<sec disp-level="1">
+<title>Conclusion</title>
+<p>In the current study, we evaluated both tissue-specific gene and protein expression variation for clinically successful targets (defined as targets of Phase III or marketed drugs) across a diverse set of normal human tissue types that are relevant to the disease phenotype. The results of our systematic study broadly agree with previous case studies and reiterate the importance of confirming target expression in normal or healthy state of a disease relevant tissue. Secondly our results highlight the value of comprehensive expression resources that advance expression technology, understanding tissue diversity, and our ability to dissect tissue heterogeneity through single cell technologies. The benchmarking of our methodology on efficacious drug targets shows that normal tissue expression can be used routinely by all drug discoverers when choosing a new drug target to pursue for a particular disease indication. Finally this effort of quantification using measurements taken from mRNA and protein levels should be considered complementary because both these molecular populations are necessary for a complete understanding of the cell behaviour under normal conditions.</p>
+<p>In conclusion, our results suggest that in addition tothe currently accepted use of dysregulated genes and pathway as a means of selecting a new drug target, we provide an additional criterion in evaluating potential novel drug targets that involves confirmation of gene expression at the mRNA and protein levels in the proper disease-relevant tissue.</p>
+</sec>
+<sec disp-level="1">
+<title>Methods</title>
+<sec disp-level="2">
+<title>Drug Targets</title>
+<p>To benchmark our approach, we compiled a gold standard set of gene-disease relationships by extracting all genes and their disease indications that are currently in Phase III or marketed as per the drug industry pipeline database Pharmaprojects (<ext-link ext-link-type="uri" xlink:href="http://www.citeline.com/products/pharmaprojects/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.citeline.com/products/pharmaprojects/</ext-link>). We restricted ourselves to Phase III and Marketed drugs as for these there is human clinical evidence pointing to efficacy based on the phase II trials. We primarily focused on drugs that listed only a single human protein as their target to avoid the ambiguity associated with multiple targets<xref ref-type="bibr" rid="b24">24</xref>. We also excluded non-human drug targets, thus excluding most anti-infective targets. We also mapped diseases to MeSH. An additional filtering step removed genes that lacked organ specificity targeting non-specific disease terms like Inflammation and Neoplasms. The final list produced a set of 1,305 unique disease-gene associations spanning 345 targets and 406 diseases (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>). In addition, each MeSH disease term was mapped to the Human Disease Ontology (DO) (<ext-link ext-link-type="uri" xlink:href="http://www.disease-ontology.org" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.disease-ontology.org</ext-link>). DO is a biomedical resource of standardized common and rare disease concepts with stable identifiers organized by disease etiology<xref ref-type="bibr" rid="b25">25</xref>.</p>
+<p>Target class assignments for each drug target was applied according to the molecular function of the gene product using the Swissprot accession numbers<xref ref-type="bibr" rid="b26">26</xref>. The breakdown of the 345 drug targets is: 69 enzymes, 68 G-protein coupled receptors (GPCRS), 27 transporters, 15 cytokine receptors, 12 cytokines, 11 nuclear receptors, 11 kinases, 10 ligands, 7 structural and adhesion proteins, 5 ligand-gated ion channel receptors and 4 others. The remaining 94 targets could not be assigned a target class and were designated as “Unclassified”.</p>
+</sec>
+<sec disp-level="2">
+<title>RNA-Seq Expression</title>
+<p>Tissue-specific gene expression data set expression profiles for 32 tissues/organs based on RNA-Seq analyses of 122 individual samples, including classification of tissue specificity and predictions of secreted and transmembrane regions was downloaded from the supplementary section of recent publication by Uhlen<xref ref-type="bibr" rid="b8">8</xref>. Quantification scores for each gene/transcripts across all 122 samples are represented in FPKM (fragments per kilobase of exon model per million mapped reads) values. A cutoff value of 1 FPKM was used as a limit for detection across all tissues. A total of 20,344 unique genes were measured. The ensuing data was log-transformed and normalized as described by Uhlen<xref ref-type="bibr" rid="b8">8</xref>.</p>
+<p>GTEx v6 RNA-seq data were downloaded from <ext-link ext-link-type="uri" xlink:href="http://gtexportal.org" xmlns:xlink="http://www.w3.org/1999/xlink">http://gtexportal.org</ext-link> and summarized by computing the median FPKM value for each gene across replicate samples of each tissue. For each of the 163 undetected gene-indication pairs, the median FPKM value is reported for the tissue indicated in the “Disease-Tissue Association” column of <xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>. For cases where multiple relevant tissues exist (e.g. multiple brain regions were sampled), the tissue with the highest median FPKM was reported. If a specified tissue was not sampled in GTEx, a suitable proxy was used (e.g. EBV transformed lymphoblasts was used for lymph node; whole blood was used for bone marrow), otherwise NA was reported (e.g. placenta).</p>
+</sec>
+<sec disp-level="2">
+<title>Proteomics Expression</title>
+<p>Evidence for the existence of protein was obtained by downloading data from the Human Protein Atlas (HPA)<xref ref-type="bibr" rid="b8">8</xref>. The current Version 13 of the Human Protein Atlas contains protein data for 83% of the predictive human genes and is derived from 44 different human tissues. The Human Protein Atlas based on immunohistochemistry contains images and protein profiles showing the spatial distribution of proteins in 44 different normal human tissues and 20 different cancer types, as well as 46 different human cell lines based. In total, the new Human Protein Atlas contains expression profiles at the tissue or sub cellular level based on 24,028 antibodies toward 16,975 genes. Each protein is annotated with a “reliability score” to indicate the level of reliability of the analyzed protein expression pattern based on available protein/RNA/gene characterization data. Only genes defined as “supportive”, taking into account only antibodies with HPA evidence of high and medium reliability, according to the latest Human Proteome Project metrics guidelines were considered in this analysis<xref ref-type="bibr" rid="b27">27</xref>.</p>
+</sec>
+<sec disp-level="2">
+<title>Disease-tissue Associations</title>
+<p>The disease-tissue association matrix was generated according to the method defined by Lage <italic>et al</italic>.<xref ref-type="bibr" rid="b27">27</xref>. The association of a tissue and a disease was estimated by measuring their co-occurrence in PubMed abstracts relative to the number of abstracts mentioning the disease or tissue term alone. The disease search terms was limited to PubMed abstracts in which they were qualified as major MeSH<xref ref-type="bibr" rid="b28">28</xref> topics of the article, while the tissue search term was more general limiting to a MeSH topic (no requirement for major). For example, search terms “psoriasis[majr]” and “skin[mh]” was used to measure abstracts that mention psoriasis or skin alone respectively. In order to measure the co-occurrences, the search term “psoriasis[majr] AND skin[mh]” was utilized. The maximal association score (MAS) was computed using the results from the search terms based on the approach using Ochiai’s coefficient<xref ref-type="bibr" rid="b29">29</xref>, and then normalized by the sum of all OCs for the each disease as shown previously<xref ref-type="bibr" rid="b7">7</xref>. These scores range between 0 and 100 with 100 representing the most specific tissue for that particular disease. The entire MAS matrix can be found in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>. For tissue assignments, we picked the top three tissues with highest MAS score provided they met the threshold score of &gt; = 8%. Increasing this number further did not change the number of observed expression trends significantly (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S3</xref>). The final step for assigning a single tissue to each gene-disease association was based on picking the tissue that either showed the highest levels of mRNA/gene expression or could be detected at the protein level (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>).</p>
+</sec>
+<sec disp-level="2">
+<title>Statistical analysis</title>
+<p>For each gene disease pair, we created matched pairs of expression in the disease-relevant tissue to average expression all other tissues. We did a Paired <italic>t</italic> test across all the gene-disease pairs to compare the average expression <italic>Z</italic> score over all disease genes in the most disease-relevant tissue to the other tissues. A level of <italic>p</italic> &lt; 0.05 was considered significant.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article</bold>: Kumar, V. <italic>et al</italic>. Systematic Analysis of Drug Targets Confirms Expression in Disease-Relevant Tissues. <italic>Sci. Rep.</italic>
+<bold>6</bold>, 36205; doi: 10.1038/srep36205 (2016).</p>
+<p><bold>Publisher’s note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</sec>
+<sec id="S1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="d33e22">
+<caption>
+<title>Supplementary Information</title>
+</caption>
+<media xlink:href="srep36205-s1.xls" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal"><name><surname>Winter</surname><given-names>E. E.</given-names></name>, <name><surname>Goodstadt</surname><given-names>L.</given-names></name> &amp; <name><surname>Ponting</surname><given-names>C. P.</given-names></name>
+<article-title>Elevated rates of protein secretion, evolution, and disease among tissue-specific genes</article-title>. <source/>Genome Res. <volume>14</volume>, <fpage>54</fpage>–<lpage>61</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">14707169</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Hanahan</surname><given-names>D.</given-names></name> &amp; <name><surname>Weinberg</surname><given-names>R. A.</given-names></name>
+<article-title>The hallmarks of cancer</article-title>. <source/>Cell
+<volume>100</volume>, <fpage>57</fpage>–<lpage>70</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">10647931</pub-id></mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>Mele</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Human genomics. The human transcriptome across tissues and individuals</article-title>. <source/>Science
+<volume>348</volume>, <fpage>660</fpage>–<lpage>665</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25954002</pub-id></mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Su</surname><given-names>A. I.</given-names></name>
+<etal></etal>. <article-title>Large-scale analysis of the human and mouse transcriptomes</article-title>. <source/>Proc. Natl. Acad. Sci. USA
+<volume>99</volume>, <fpage>4465</fpage>–<lpage>4470</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">11904358</pub-id></mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Su</surname><given-names>A. I.</given-names></name>
+<etal></etal>. <article-title>A gene atlas of the mouse and human protein-encoding transcriptomes</article-title>. <source/>Proc. Natl. Acad. Sci. USA
+<volume>101</volume>, <fpage>6062</fpage>–<lpage>6067</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15075390</pub-id></mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Shyamsundar</surname><given-names>R.</given-names></name>
+<etal></etal>. <article-title>A DNA microarray survey of gene expression in normal human tissues</article-title>. <source/>Genome Biol. <volume>6</volume>, <fpage>R22</fpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15774023</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Lage</surname><given-names>K.</given-names></name>
+<etal></etal>. <article-title>A large-scale analysis of tissue-specific pathology and gene expression of human disease genes and complexes</article-title>. <source/>Proc. Natl. Acad. Sci. USA
+<volume>105</volume>, <fpage>20870</fpage>–<lpage>20875</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">19104045</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Uhlen</surname><given-names>M.</given-names></name>
+<etal></etal>. <article-title>Proteomics. Tissue-based map of the human proteome</article-title>. <source/>Science
+<volume>347</volume>, <fpage>1260419</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25613900</pub-id></mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Magger</surname><given-names>O.</given-names></name>, <name><surname>Waldman</surname><given-names>Y. Y.</given-names></name>, <name><surname>Ruppin</surname><given-names>E.</given-names></name> &amp; <name><surname>Sharan</surname><given-names>R.</given-names></name>
+<article-title>Enhancing the prioritization of disease-causing genes through tissue specific protein interaction networks</article-title>. <source/>PLoS. Comput. Biol.
+<volume>8</volume>, <fpage>e1002690</fpage> (<year>2012</year>).<pub-id pub-id-type="pmid">23028288</pub-id></mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>Kim</surname><given-names>M. S.</given-names></name>
+<etal></etal>. <article-title>A draft map of the human proteome</article-title>. <source/>Nature
+<volume>509</volume>, <fpage>575</fpage>–<lpage>581</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24870542</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Malpas</surname><given-names>S. C.</given-names></name>
+<article-title>Sympathetic nervous system overactivity and its role in the development of cardiovascular disease</article-title>. <source/>Physiol Rev. <volume>90</volume>, <fpage>513</fpage>–<lpage>557</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20393193</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Sun</surname><given-names>J.</given-names></name>, <name><surname>Zhu</surname><given-names>K.</given-names></name>, <name><surname>Zheng</surname><given-names>W.</given-names></name> &amp; <name><surname>Xu</surname><given-names>H.</given-names></name>
+<article-title>A comparative study of disease genes and drug targets in the human protein interactome.</article-title>
+<source/>BMC. Bioinformatics.
+<volume>16</volume> Suppl 5, <fpage>S1</fpage> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="journal"><name><surname>Facchini</surname><given-names>F. S.</given-names></name>, <name><surname>Stoohs</surname><given-names>R. A.</given-names></name> &amp; <name><surname>Reaven</surname><given-names>G. M.</given-names></name>
+<article-title>Enhanced sympathetic nervous system activity. The linchpin between insulin resistance, hyperinsulinemia, and heart rate</article-title>. <source/>Am. J. Hypertens.
+<volume>9</volume>, <fpage>1013</fpage>–<lpage>1017</lpage> (<year>1996</year>).<pub-id pub-id-type="pmid">8896654</pub-id></mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Fein</surname><given-names>F. S.</given-names></name>, <name><surname>Strobeck</surname><given-names>J. E.</given-names></name>, <name><surname>Malhotra</surname><given-names>A.</given-names></name>, <name><surname>Scheuer</surname><given-names>J.</given-names></name> &amp; <name><surname>Sonnenblick</surname><given-names>E. H.</given-names></name>
+<article-title>Reversibility of diabetic cardiomyopathy with insulin in rats</article-title>. <source/>Circ. Res.
+<volume>49</volume>, <fpage>1251</fpage>–<lpage>1261</lpage> (<year>1981</year>).<pub-id pub-id-type="pmid">7030513</pub-id></mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Florian</surname><given-names>J. P.</given-names></name> &amp; <name><surname>Pawelczyk</surname><given-names>J. A.</given-names></name>
+<article-title>Sympathetic and haemodynamic responses to lipids in healthy human ageing</article-title>. <source/>Exp. Physiol
+<volume>95</volume>, <fpage>486</fpage>–<lpage>497</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20061355</pub-id></mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Levin</surname><given-names>B. E.</given-names></name>, <name><surname>Govek</surname><given-names>E. K.</given-names></name> &amp; <name><surname>Dunn-Meynell</surname><given-names>A. A.</given-names></name>
+<article-title>Reduced glucose-induced neuronal activation in the hypothalamus of diet-induced obese rats</article-title>. <source/>Brain Res. <volume>808</volume>, <fpage>317</fpage>–<lpage>319</lpage> (<year>1998</year>).<pub-id pub-id-type="pmid">9767180</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Amann</surname><given-names>K.</given-names></name>, <name><surname>Wanner</surname><given-names>C.</given-names></name> &amp; <name><surname>Ritz</surname><given-names>E.</given-names></name>
+<article-title>Cross-talk between the kidney and the cardiovascular system</article-title>. <source/>J. Am. Soc. Nephrol.
+<volume>17</volume>, <fpage>2112</fpage>–<lpage>2119</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16825329</pub-id></mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Velloso</surname><given-names>L. A.</given-names></name>
+<etal></etal>. <article-title>Cross-talk between the insulin and angiotensin signaling systems</article-title>. <source/>Proc. Natl. Acad. Sci. USA
+<volume>93</volume>, <fpage>12490</fpage>–<lpage>12495</lpage> (<year>1996</year>).<pub-id pub-id-type="pmid">8901609</pub-id></mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"> Human genomics. <article-title>The Genotype-Tissue Expression (GTEx) pilot analysis: multitissue gene regulation in humans.</article-title>
+<source/>Science
+<volume>348</volume>, <fpage>648</fpage>–<lpage>660</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25954001</pub-id></mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Huang</surname><given-names>D. W.</given-names></name>
+<etal></etal>. <article-title>The DAVID Gene Functional Classification Tool: a novel biological module-centric algorithm to functionally analyze large gene lists</article-title>. <source/>Genome Biol. <volume>8</volume>, <fpage>R183</fpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17784955</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Fujiyama</surname><given-names>F.</given-names></name>, <name><surname>Stephenson</surname><given-names>F. A.</given-names></name> &amp; <name><surname>Bolam</surname><given-names>J. P.</given-names></name>
+<article-title>Synaptic localization of GABA(A) receptor subunits in the substantia nigra of the rat: effects of quinolinic acid lesions of the striatum</article-title>. <source/>Eur. J. Neurosci.
+<volume>15</volume>, <fpage>1961</fpage>–<lpage>1975</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12099902</pub-id></mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Supnet</surname><given-names>C.</given-names></name> &amp; <name><surname>Bezprozvanny</surname><given-names>I.</given-names></name>
+<article-title>The dysregulation of intracellular calcium in Alzheimer disease</article-title>. <source/>Cell Calcium
+<volume>47</volume>, <fpage>183</fpage>–<lpage>189</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20080301</pub-id></mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Friedel</surname><given-names>C. C.</given-names></name>, <name><surname>Dolken</surname><given-names>L.</given-names></name>, <name><surname>Ruzsics</surname><given-names>Z.</given-names></name>, <name><surname>Koszinowski</surname><given-names>U. H.</given-names></name> &amp; <name><surname>Zimmer</surname><given-names>R.</given-names></name>
+<article-title>Conserved principles of mammalian transcriptional regulation revealed by RNA half-life</article-title>. <source/>Nucleic Acids Res. <volume>37</volume>, <fpage>e115</fpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19561200</pub-id></mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><name><surname>Agarwal</surname><given-names>P.</given-names></name>, <name><surname>Sanseau</surname><given-names>P.</given-names></name> &amp; <name><surname>Cardon</surname><given-names>L. R.</given-names></name>
+<article-title>Novelty in the target landscape of the pharmaceutical industry</article-title>. <source/>Nat. Rev. Drug Discov.
+<volume>12</volume>, <fpage>575</fpage>–<lpage>576</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23903214</pub-id></mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal"><name><surname>Schriml</surname><given-names>L. M.</given-names></name>
+<etal></etal>. <article-title>Disease Ontology: a backbone for disease semantic integration</article-title>. <source/>Nucleic Acids Res. <volume>40</volume>, <fpage>D940</fpage>–<lpage>D946</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22080554</pub-id></mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Rask-Andersen</surname><given-names>M.</given-names></name>, <name><surname>Almen</surname><given-names>M. S.</given-names></name> &amp; <name><surname>Schioth</surname><given-names>H. B.</given-names></name>
+<article-title>Trends in the exploitation of novel drug targets</article-title>. <source/>Nat. Rev. Drug Discov.
+<volume>10</volume>, <fpage>579</fpage>–<lpage>590</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21804595</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Lane</surname><given-names>L. J.</given-names></name>, <name><surname>Nichols</surname><given-names>M. H.</given-names></name> &amp; <name><surname>Osborn</surname><given-names>H. B.</given-names></name>
+<article-title>Time series analyses of global change data</article-title>. <source/>Environ. Pollut.
+<volume>83</volume>, <fpage>63</fpage>–<lpage>68</lpage> (<year>1994</year>).<pub-id pub-id-type="pmid">15091751</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>RogersF</surname><given-names>B.</given-names></name>
+<article-title>Medical subject headings</article-title>. <source/>Bull. Med. Libr. Assoc. <volume>51</volume>, <fpage>114</fpage>–<lpage>116</lpage> (<year>1963</year>).<pub-id pub-id-type="pmid">13982385</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>Ochiai</surname><given-names>A.</given-names></name>
+<article-title>Zoogeographic studies on the soleoid fishes found in Japan and its neighbouring regions</article-title>. <source/>Bull. Jpn. Soc. Sci. Fish. [22], <fpage>526</fpage>–<lpage>530</lpage> (<year>1957</year>).</mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn>
+<p><bold>Author Contributions</bold> Conceived and designed the experiments: V.K., P.S. and P.A. Performed the experiments: V.K. and P.A. Analyzed the data: V.K. Contributed reagents/materials/analysis tools: V.K., P.S., D.F.S., M.R.H. and P.A. Wrote the paper: V.K., P.S., D.S., M.R.H. and P.A. All authors reviewed the manuscript.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Work flow with the key filtering and processing steps applied to generate the final set of drug-target–tissue combinations investigated in this study.</title>
+<p>(<bold>A</bold>) Gold standard set of gene-disease relationships obtained by extracting all genes and their disease indications that are currently in Phase III or marketed as per the drug industry pipeline. (<bold>B</bold>) Generate a MAS score to assess the connection between a particular disease and tissue. (<bold>C</bold>) Mapping the relevant tissues to each drug-disease pair.</p>
+</caption>
+<graphic xlink:href="srep36205-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>Ward’s hierarchical clustering of all drug-targets and their top three predicted tissue assignments across different disease classes.</title>
+<p>Each data point represents the number of targets for a specific tissue in a particular disease class. For example, targets associated with <italic>diseases of cellular proliferation</italic> (Cancer) are clustered across several tissues because they are indicated for cancers involving multiple tissues. Similarly <italic>diseases of metabolism</italic> include targets for diseases such as Obesity, Hyperuricemia, and Amylodosis and are often associated with multiple tissues. In contrast, <italic>urinary system diseases</italic> are highly specific in that they target kidney, urinary bladder and prostate. The color scale shown in the figure used only min/max/average values (min = 0, avg = 3.75, max = 28).</p>
+</caption>
+<graphic xlink:href="srep36205-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>Analysis of the 66 targets whose expression could not be confirmed in an available disease relevant tissue type.</title>
+<p>(<bold>a</bold>) The number of total indications for each target (<bold>b</bold>). The target classes (protein families) of the 66 drug targets.</p>
+</caption>
+<graphic xlink:href="srep36205-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<table-wrap id="t1" position="float">
+<label>Table 1</label>
+<caption>
+<title>A select subset of the unique gene-disease associations with their predicted tissue assignments and gene expression intensities.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="left"/>
+<col align="left"/>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">Gene</th>
+<th align="left" charoff="50" valign="top">Disease Name</th>
+<th align="left" charoff="50" valign="top">Disease Ontology</th>
+<th align="center" charoff="50" valign="top">Predicted Tissue</th>
+<th align="center" charoff="50" valign="top">MAS Score</th>
+<th align="center" charoff="50" valign="top">mRNA Detected</th>
+<th align="center" charoff="50" valign="top">mRNA Intensity (FPKM)</th>
+<th align="center" charoff="50" valign="top">Protein Detected</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>ACPP</italic>
+</td>
+<td align="left" charoff="50" valign="top">Prostatic Neoplasms</td>
+<td align="left" charoff="50" valign="top">disease of cellular proliferation</td>
+<td align="left" charoff="50" valign="top">prostate</td>
+<td align="center" charoff="50" valign="top">71.1</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">1916.41</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>AGTR1</italic>
+</td>
+<td align="left" charoff="50" valign="top">Diabetic Nephropathies</td>
+<td align="left" charoff="50" valign="top">urinary system disease</td>
+<td align="left" charoff="50" valign="top">kidney</td>
+<td align="center" charoff="50" valign="top">84.66</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">11.97</td>
+<td align="center" charoff="50" valign="top">N</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>CD22</italic>
+</td>
+<td align="left" charoff="50" valign="top">Lymphoma, B-Cell</td>
+<td align="left" charoff="50" valign="top">disease of cellular proliferation</td>
+<td align="left" charoff="50" valign="top">lymph node</td>
+<td align="center" charoff="50" valign="top">30.58</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">267.91</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>CHRM1</italic>
+</td>
+<td align="left" charoff="50" valign="top">Sjogren’s Syndrome</td>
+<td align="left" charoff="50" valign="top">immune system disease</td>
+<td align="left" charoff="50" valign="top">salivary gland</td>
+<td align="center" charoff="50" valign="top">79.04</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">18.19</td>
+<td align="center" charoff="50" valign="top">N</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>DMD</italic>
+</td>
+<td align="left" charoff="50" valign="top">Muscular Dystrophy, Duchenne</td>
+<td align="left" charoff="50" valign="top">nervous system disease</td>
+<td align="left" charoff="50" valign="top">skeletal muscle</td>
+<td align="center" charoff="50" valign="top">74.91</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">41.85</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>GLA</italic>
+</td>
+<td align="left" charoff="50" valign="top">Fabry Disease</td>
+<td align="left" charoff="50" valign="top">disease of metabolism</td>
+<td align="left" charoff="50" valign="top">kidney</td>
+<td align="center" charoff="50" valign="top">28.81</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">14.6</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>HCAR2</italic>
+</td>
+<td align="left" charoff="50" valign="top">Brain Ischemia</td>
+<td align="left" charoff="50" valign="top">cardiovascular system disease</td>
+<td align="left" charoff="50" valign="top">brain</td>
+<td align="center" charoff="50" valign="top">85.26</td>
+<td align="center" charoff="50" valign="top">N</td>
+<td align="center" charoff="50" valign="top">0.12</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>MC2R</italic>
+</td>
+<td align="left" charoff="50" valign="top">Addison Disease</td>
+<td align="left" charoff="50" valign="top">endocrine system disease</td>
+<td align="left" charoff="50" valign="top">adrenal gland</td>
+<td align="center" charoff="50" valign="top">59.95</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">36.71</td>
+<td align="center" charoff="50" valign="top">N</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>PPIA</italic>
+</td>
+<td align="left" charoff="50" valign="top">Arthritis, Rheumatoid</td>
+<td align="left" charoff="50" valign="top">musculoskeletal system disease</td>
+<td align="left" charoff="50" valign="top">lymph node</td>
+<td align="center" charoff="50" valign="top">10.27</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">308.36</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>PRKCD</italic>
+</td>
+<td align="left" charoff="50" valign="top">Keratosis, Actinic</td>
+<td align="left" charoff="50" valign="top">disease of cellular proliferation</td>
+<td align="left" charoff="50" valign="top">skin</td>
+<td align="center" charoff="50" valign="top">100</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">20.55</td>
+<td align="center" charoff="50" valign="top">N</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>SCN9A</italic>
+</td>
+<td align="left" charoff="50" valign="top">Neuralgia</td>
+<td align="left" charoff="50" valign="top">nervous system disease</td>
+<td align="left" charoff="50" valign="top">brain</td>
+<td align="center" charoff="50" valign="top">33.83</td>
+<td align="center" charoff="50" valign="top">N</td>
+<td align="center" charoff="50" valign="top">0.68</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>SLC12A3</italic>
+</td>
+<td align="left" charoff="50" valign="top">Hypertension</td>
+<td align="left" charoff="50" valign="top">cardiovascular system disease</td>
+<td align="left" charoff="50" valign="top">kidney</td>
+<td align="center" charoff="50" valign="top">33.3</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">142.87</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>TUBB</italic>
+</td>
+<td align="left" charoff="50" valign="top">Pancreatic Neoplasms</td>
+<td align="left" charoff="50" valign="top">disease of cellular proliferation</td>
+<td align="left" charoff="50" valign="top">pancreas</td>
+<td align="center" charoff="50" valign="top">49.23</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">55.13</td>
+<td align="center" charoff="50" valign="top">Y</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">VDR</td>
+<td align="left" charoff="50" valign="top">Keratosis</td>
+<td align="left" charoff="50" valign="top">integumentary system disease</td>
+<td align="left" charoff="50" valign="top">skin</td>
+<td align="center" charoff="50" valign="top">81.82</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">15.85</td>
+<td align="center" charoff="50" valign="top">N</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t1-fn1">
+<p>The entire list for all 1,305 unique gene-disease associations spanning 345 targets and 406 diseases can be found as <xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t2" position="float">
+<label>Table 2</label>
+<caption>
+<title>Number of Drug-Targets shared between disease classes.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">Disease Class</th>
+<th align="center" charoff="50" valign="top">Cardiovascular system Disease</th>
+<th align="center" charoff="50" valign="top">Disease by infectious agent</th>
+<th align="center" charoff="50" valign="top">Disease of cellular proliferation</th>
+<th align="center" charoff="50" valign="top">Disease of mental health</th>
+<th align="center" charoff="50" valign="top">Disease of metabolism</th>
+<th align="center" charoff="50" valign="top">Endocrine system disease</th>
+<th align="center" charoff="50" valign="top">Gastrointestinal system disease</th>
+<th align="center" charoff="50" valign="top">Genetic disease</th>
+<th align="center" charoff="50" valign="top">Immune system disease</th>
+<th align="center" charoff="50" valign="top">Integumentary system disease</th>
+<th align="center" charoff="50" valign="top">Musculoskeletal system disease</th>
+<th align="center" charoff="50" valign="top">Nervous system disease</th>
+<th align="center" charoff="50" valign="top">Reproductive system disease</th>
+<th align="center" charoff="50" valign="top">Respiratory system disease</th>
+<th align="center" charoff="50" valign="top">syndrome</th>
+<th align="center" charoff="50" valign="top">Thoracic disease</th>
+<th align="center" charoff="50" valign="top">Urinary system disease</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">Cardiovascular system disease</td>
+<td align="center" charoff="50" valign="top">70</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Disease by infectious agent</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">20</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Disease of cellular proliferation</td>
+<td align="center" charoff="50" valign="top">12</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">88</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Disease of mental health</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">29</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Disease of metabolism</td>
+<td align="center" charoff="50" valign="top">17</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">66</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Endocrine system disease</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Gastrointestinal system disease</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">41</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Genetic disease</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">18</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Immune system disease</td>
+<td align="center" charoff="50" valign="top">12</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">12</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">45</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Integumentary system disease</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">11</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">47</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Musculoskeletal disease system</td>
+<td align="center" charoff="50" valign="top">11</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top">14</td>
+<td align="center" charoff="50" valign="top">39</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Nervous system disease</td>
+<td align="center" charoff="50" valign="top">23</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">14</td>
+<td align="center" charoff="50" valign="top">15</td>
+<td align="center" charoff="50" valign="top">12</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">11</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">11</td>
+<td align="center" charoff="50" valign="top">18</td>
+<td align="center" charoff="50" valign="top">15</td>
+<td align="center" charoff="50" valign="top">90</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Reproductive system disease</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top">19</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Respiratory system disease</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">9</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">24</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Syndrome</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">6</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">19</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Thoracic disease</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Urinary system disease</td>
+<td align="center" charoff="50" valign="top">11</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">5</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">8</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">4</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">18</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="t3" position="float">
+<label>Table 3</label>
+<caption>
+<title>List of targets shared between two different disease classes.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="left"/>
+<col align="center"/>
+<col align="left"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">Disease Ontology 1</th>
+<th align="left" charoff="50" valign="top">Disease Ontology 2</th>
+<th align="center" charoff="50" valign="top">Shared Targets</th>
+<th align="left" charoff="50" valign="top">Targets</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>nervous system disease</italic>
+</td>
+<td align="left" charoff="50" valign="top">
+<italic>cardiovascular system disease</italic>
+</td>
+<td align="center" charoff="50" valign="top">23</td>
+<td align="left" charoff="50" valign="top">ADRA1A;ADRA2A;ADRB1;AVPR2;CA2;CACNA1C;HMGCR;HTR2A;IL1B;INSR;MS4A1;MTOR;NR3C1;PDE5A;PLG;PPARG;PPIA;PTGER1;SLC12A3;SLC6A4;TBXAS1;TNF;VEGFA;</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>nervous system disease</italic>
+</td>
+<td align="left" charoff="50" valign="top">
+<italic>disease of metabolism</italic>
+</td>
+<td align="center" charoff="50" valign="top">12</td>
+<td align="left" charoff="50" valign="top">AKR1B1;AVPR2;CNR1;CUBN;DRD2;HMGCR;IL1B;INSR;NR3C1;PGR;PPARG;SLC6A4;</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">
+<italic>disease of metabolism</italic>
+</td>
+<td align="left" charoff="50" valign="top">
+<italic>cardiovascular system disease</italic>
+</td>
+<td align="center" charoff="50" valign="top">17</td>
+<td align="left" charoff="50" valign="top">ACE;AGTR1;AVPR2;CETP;HCAR2;HMGCR;IL1B;INSR;LPL;NR3C1;PDE3A;PPARG;SLC22A12;SLC5A2;SLC6A2;SLC6A4;XDH;</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t3-fn1">
+<p>The complete list of all shared targets between all disease classes can be found in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S4</xref>.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

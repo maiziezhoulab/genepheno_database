@@ -1,0 +1,610 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Nucleic Acids Res</journal-id>
+<journal-id journal-id-type="iso-abbrev">Nucleic Acids Res</journal-id>
+<journal-id journal-id-type="hwp">nar</journal-id>
+<journal-id journal-id-type="publisher-id">nar</journal-id>
+<journal-title-group>
+<journal-title>Nucleic Acids Research</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">0305-1048</issn>
+<issn pub-type="epub">1362-4962</issn>
+<publisher>
+<publisher-name>Oxford University Press</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27507884</article-id>
+<article-id pub-id-type="pmc">5175347</article-id>
+<article-id pub-id-type="doi">10.1093/nar/gkw695</article-id>
+<article-categories>
+<subj-group subj-group-type="hwp-journal-coll">
+<subject>15</subject>
+</subj-group>
+<subj-group subj-group-type="heading">
+<subject>Methods Online</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Enhanced copy number variants detection from whole-exome sequencing data using EXCAVATOR2</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>D'Aurizio</surname>
+<given-names>Romina</given-names>
+</name>
+<xref ref-type="aff" rid="AFF1">
+<sup>1</sup>
+</xref>
+<xref ref-type="corresp" rid="COR1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Pippucci</surname>
+<given-names>Tommaso</given-names>
+</name>
+<xref ref-type="aff" rid="AFF2">
+<sup>2</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Tattini</surname>
+<given-names>Lorenzo</given-names>
+</name>
+<xref ref-type="aff" rid="AFF3">
+<sup>3</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Giusti</surname>
+<given-names>Betti</given-names>
+</name>
+<xref ref-type="aff" rid="AFF4">
+<sup>4</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Pellegrini</surname>
+<given-names>Marco</given-names>
+</name>
+<xref ref-type="aff" rid="AFF1">
+<sup>1</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Magi</surname>
+<given-names>Alberto</given-names>
+</name>
+<xref ref-type="aff" rid="AFF4">
+<sup>4</sup>
+</xref>
+<xref ref-type="corresp" rid="COR2">*</xref>
+</contrib>
+<aff id="AFF1"><label>1</label>Laboratory of Integrative Systems Medicine (LISM), Institute of Informatics and Telematics and Institute of Clinical Physiology, National Research Council, Pisa, Italy</aff>
+<aff id="AFF2"><label>2</label>Medical Genetics Unit, Sant'Orsola Malpighi Polyclinic, Bologna, Italy</aff>
+<aff id="AFF3"><label>3</label>Department of Computer Science, University of Pisa, Pisa, Italy</aff>
+<aff id="AFF4"><label>4</label>Department of Experimental and Clinical Medicine, University of Florence, Florence</aff>
+</contrib-group>
+<author-notes>
+<corresp id="COR1"><label>*</label>To whom correspondence should be addressed. Tel: +39 50 3152741; Fax: +39 50 3152593; Email: <email>romina.daurizio@gmail.com</email></corresp>
+<corresp id="COR2">Correspondence may also be addressed to Alberto Magi. Tel: +39 55 7948909; Fax: + 39 55 7949929; Email: <email>albertomagi@gmail.com</email></corresp>
+</author-notes>
+<pub-date pub-type="ppub">
+<day>16</day>
+<month>11</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>09</day>
+<month>8</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>09</day>
+<month>8</month>
+<year>2016</year>
+</pub-date>
+<!-- PMC Release delay is 0 months and 0 days and was based on the <pub-date pub-type="epub"/>. -->
+<volume>44</volume>
+<issue>20</issue>
+<fpage>e154</fpage>
+<lpage>e154</lpage>
+<history>
+<date date-type="accepted">
+<day>27</day>
+<month>7</month>
+<year>2016</year>
+</date>
+<date date-type="rev-recd">
+<day>25</day>
+<month>7</month>
+<year>2016</year>
+</date>
+<date date-type="received">
+<day>21</day>
+<month>3</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2016. Published by Oxford University Press on behalf of Nucleic Acids Research.</copyright-statement>
+<copyright-year>2016</copyright-year>
+<license license-type="creative-commons" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">
+<license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link>), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact <email>journals.permissions@oup.com</email></license-p>
+</license>
+</permissions>
+<self-uri xlink:href="gkw695.pdf" xlink:title="pdf"></self-uri>
+<abstract>
+<p>Copy Number Variants (CNVs) are structural rearrangements contributing to phenotypic variation that have been proved to be associated with many disease states. Over the last years, the identification of CNVs from whole-exome sequencing (WES) data has become a common practice for research and clinical purpose and, consequently, the demand for more and more efficient and accurate methods has increased. In this paper, we demonstrate that more than 30% of WES data map outside the targeted regions and that these reads, usually discarded, can be exploited to enhance the identification of CNVs from WES experiments. Here, we present EXCAVATOR2, the first read count based tool that exploits all the reads produced by WES experiments to detect CNVs with a genome-wide resolution. To evaluate the performance of our novel tool we use it for analysing two WES data sets, a population data set sequenced by the 1000 Genomes Project and a tumor data set made of bladder cancer samples. The results obtained from these analyses demonstrate that EXCAVATOR2 outperforms other four state-of-the-art methods and that our combined approach enlarge the spectrum of detectable CNVs from WES data with an unprecedented resolution. EXCAVATOR2 is freely available at <ext-link ext-link-type="uri" xlink:href="http://sourceforge.net/projects/excavator2tool/">http://sourceforge.net/projects/excavator2tool/</ext-link>.</p>
+</abstract>
+<counts>
+<page-count count="9"></page-count>
+</counts>
+<custom-meta-group>
+<custom-meta>
+<meta-name>cover-date</meta-name>
+<meta-value>16 November 2016</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body><sec id="SEC1" sec-type="intro"><title>INTRODUCTION</title><p>Copy Number Variants (CNVs) are structural rearrangements involving DNA segments of at least 50 bp (<xref ref-type="bibr" rid="B1">1</xref>,<xref ref-type="bibr" rid="B2">2</xref>) that can be present with an altered copy number compared to the reference genome. CNVs are unbalanced events, i.e. they alter the total number of base pairs in a genome since they involve loss (deletion) or gain (duplication) of segments. During the last 10 years the advances in genomic technologies have enhanced the ability to detect these alterations, revealing that they are spread along the human genome (<xref ref-type="bibr" rid="B3">3</xref>–<xref ref-type="bibr" rid="B7">7</xref>). Latest comprehensive study estimated that from 4.8% to 9.5% of the genome contributes to CNVs of size 50 bp–3 Mb (<xref ref-type="bibr" rid="B7">7</xref>). Moreover, the total amount of bases associated with CNVs exceeds the number of bases involved in single nucleotides polymorphisms (SNPs) by an order of magnitude (<xref ref-type="bibr" rid="B8">8</xref>). CNVs may participate to phenotypic variation, underlying both adaptive traits and different classes of diseases (<xref ref-type="bibr" rid="B9">9</xref>). Pathogenic CNVs have been found so far associated with autism (<xref ref-type="bibr" rid="B10">10</xref>), neurological disorders (<xref ref-type="bibr" rid="B11">11</xref>), Crohn's disease (<xref ref-type="bibr" rid="B12">12</xref>) and cancer (<xref ref-type="bibr" rid="B13">13</xref>,<xref ref-type="bibr" rid="B14">14</xref>) and they are also suspected to be associated with complex diseases such as type I diabetes (<xref ref-type="bibr" rid="B15">15</xref>) and cardiovascular disease (<xref ref-type="bibr" rid="B16">16</xref>,<xref ref-type="bibr" rid="B17">17</xref>).</p><p>Over the past decade, the introduction of next generation sequencing (NGS) technologies has greatly improved CNVs detection, allowing base-pair resolution of breakpoints (<xref ref-type="bibr" rid="B18">18</xref>). The advent of these platforms favoured the accomplishment of large-scale re-sequencing projects, such as the 1000 Genomes Project and The Cancer Genome Atlas, but the cost and the computational complexity of downstream analysis still limit the routine use of whole-genome sequencing (WGS) to large scale projects. Whole-exome sequencing (WES), on the other hand, represents a cost-effective alternative to WGS for the study of disease-associated variants affecting the coding regions of the genome (<xref ref-type="bibr" rid="B10">10</xref>,<xref ref-type="bibr" rid="B19">19</xref>–<xref ref-type="bibr" rid="B22">22</xref>) and is extensively used for diagnostic purposes.</p><p>Most of the computational methods developed for the discovery of CNVs from WES data are based on read count (RC) approach (<xref ref-type="bibr" rid="B2">2</xref>,<xref ref-type="bibr" rid="B20">20</xref>,<xref ref-type="bibr" rid="B23">23</xref>–<xref ref-type="bibr" rid="B25">25</xref>). All the methods implement different strategies to normalise the depth of coverage (DoC), which is known to be heavily biased by uneven capture and enrichment efficiency across exons. In nearly every case, the available algorithms exploit solely the DoC of captured regions, limiting the possibility to investigate variations along the full-length genome. Therefore alterations in intergenic regions are completely excluded from the investigation loosing the opportunity to study the impact of CNVs on non coding genome from WES so far. Moreover, since the exons only encompass a sparse 1% of the genome, most breakpoints fall out of the targeted exons and therefore they are usually misplaced by current algorithms.</p><p>Almost all commercial enrichment kits lack specificity for the target regions, resulting in up to 60% of produced reads which map to sequences outside the target design (<xref ref-type="bibr" rid="B26">26</xref>). These off-target reads are generally ignored by classical computational methods for the analysis of WES data that focus on the on-target reads only. Recently, Kuilman <italic>et al.</italic> introduced CopywriteR (<xref ref-type="bibr" rid="B27">27</xref>), an R based method that makes use of off-target reads to build uniformly distributed DNA copy number profiles. Here, we show, for the first time, that the distribution of In- and Off-Target RCs have similar statistical properties. We demonstrate that bias reduction methods previously developed for targeted regions also work for Off-target data and that properly normalized Off-Target RCs allow for the prediction of the absolute number of DNA copies with an accuracy comparable to In-Target RCs.</p><p>Following these observations we developed a novel release of our EXCAVATOR tool (<xref ref-type="bibr" rid="B20">20</xref>), names EXCAVATOR2. EXCAVATOR2 enhances the identification of genomic CNVs (overlapping or non-overlapping exons) from WES data by integrating the analysis of In-targets and Off-targets reads. It extends the RC approach to the whole genome sequence and exploits the Shifting Level Model (SLM) algorithm (<xref ref-type="bibr" rid="B28">28</xref>,<xref ref-type="bibr" rid="B29">29</xref>) to segment the two combined profiles. Thereafter, the FastCall algorithm (<xref ref-type="bibr" rid="B30">30</xref>) allows to classify each segmented region into five possible states (two-copy deletion, one-copy deletion, normal, one-copy duplication and multiple-copy amplification). In order to show the versatility of our tool in different experimental settings, we applied it to two WES data sets: a population study and a cancer genomic study. As a first step we evaluated the performance of EXCAVATOR2 to identify genomic CNVs in a data set made of HapMap samples sequenced by the 1000 Genomes Project and we compared it to other four state-of-the-art methods for WES data that include CoNIFER, XHMM and the recently published CODEX and CopywriteR tools. As a further step, EXCAVATOR2 and CopywriteR were used for the analysis of the WES data of 14 matched tumor/control of Bladder samples, and their results were compared with those obtained from high-density SNP-array assays. The new methodological advances have been included in a new version of the tool that is freely available at <ext-link ext-link-type="uri" xlink:href="http://sourceforge.net/projects/excavator2tool/">http://sourceforge.net/projects/excavator2tool/</ext-link>.</p></sec><sec id="SEC2" sec-type="materials|methods"><title>MATERIALS AND METHODS</title><sec id="SEC2-1"><title>WES data inspection, WMRC description and biases normalization</title><p>In order to study the distribution of reads generated by WES experiments we used a Survey Data set made of 30 WES samples sequenced by using three capture kits: NimbleGen SeqCap EZ Exome v2.0 44 Mb, Agilent SureSelect Human All Exon 50 Mb and Illumina TruSeq Exome Enrichment 62 Mb. This data set includes both public available data generated by two previous comparative studies (<xref ref-type="bibr" rid="B31">31</xref>,<xref ref-type="bibr" rid="B32">32</xref>) and exomes sequenced in our laboratories. More details are available in Section 2.1 and Table S1 of Supplementary Material.</p><p>Although commercial WES kits are designed to capture specific genomic regions, mainly transcribed sequences, we found that a substantial fraction of reads systematically aligned outside the designed targeted regions (see Results). In order to extend the RC approach to Off-target regions and exploit this measure to increase the potentiality of identifying regions with altered copy number in intronic/intergenic DNA segments we divided the genome into two distinct classes of genomic features: (i) all the regions targeted by WES kits (according to respective manufacturers design) and (ii) non-overlapping genomic windows that belong to intronic/intergenic regions. We defined the Window Mean Read Count (WMRC) measure that expands the Exon Mean Read Count (<xref ref-type="bibr" rid="B20">20</xref>). Specifically, WMRC corresponds to:
+<disp-formula id="M1"><label>(1)</label><tex-math id="M2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}\begin{eqnarray*} &amp;WMRC_{\rm w} = \frac{RC_{\rm w}}{W}, \\ \quad \scriptstyle \text{where} \quad W =&amp; \left\lbrace \begin{array}{@{}l@{\quad }l@{}}\scriptstyle ExonSize &amp; \quad \scriptstyle \text{if } In-Target \\ \scriptstyle \lbrace 5K,10K,...\rbrace bp &amp; \quad \scriptstyle \text{if } Off-Target \nonumber \end{array}\right. \end{eqnarray*}\end{document}</tex-math></disp-formula>
+and <italic>RC</italic><inline-formula><tex-math id="M3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym} 
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+}{}${\rm w}$\end{document}</tex-math></inline-formula> is the number of reads aligned to a genomic region of length <italic>W</italic>. <italic>W</italic> varies according to the size of each designed targeted DNA segment or, in case of Off-target, it corresponds to the selected fixed size of non-overlapping windows in which the intergenic chromosome is divided.</p><p>We studied the relationship between WMRC data and classical genomic systematic biases: (i) local GC-content and (ii) mappability, that have already been proved to influence read depth in targeted regions (<xref ref-type="bibr" rid="B33">33</xref>,<xref ref-type="bibr" rid="B34">34</xref>). We applied previously adopted RC median normalization approach introduced by Yoon <italic>et al.</italic> and extended in our previous work (<xref ref-type="bibr" rid="B34">34</xref>) for mitigating the effect of both CG-content and mappability in WMRC, separately for In- and Off-Target windows (details are in Supplementary Section 1).</p></sec><sec id="SEC2-2"><title>Integration into EXCAVATOR2</title><p>The new WMRC was introduced into a new version of EXCAVATOR tool (<xref ref-type="bibr" rid="B20">20</xref>). Starting from the .bed file of the target regions, EXCAVATOR2 first creates the new pseudo-target splitting intronic/intergenic regions into non-overlapping windows of fixed length and skipping 200 bp stretches flanking the target exons. WMRC biases are corrected for In- and Off-Target regions independently exploiting the median normalisation approach (Supplementary Section 1). We used the log-transformed ratio (log2 ratio) between the WMRC values of test and control samples. WMRC ratio is median-normalised for both In- and Off-Target. Then normalised WMRC is segmented by means of the previously described Heterogeneous Shifting Level Model (HSLM) segmentation algorithm (<xref ref-type="bibr" rid="B28">28</xref>,<xref ref-type="bibr" rid="B29">29</xref>). Finally, FastCall algorithm (<xref ref-type="bibr" rid="B30">30</xref>) classifies each segmented regions as one of the five possible discrete states (two-copy deletion, one-copy deletion, normal, one-copy duplication and multiple-copy amplification). The FastCall calling procedure takes into account sample heterogeneity and exploits the Expectation Maximisation algorithm to estimate the parameters of a five gaussian mixture model and to provide the probability that each segment belongs to a specific copy number state. The new functionalities were included in a new version of the tool. EXCAVATOR2 is freely available at <ext-link ext-link-type="uri" xlink:href="http://sourceforge.net/projects/excavator2tool/">http://sourceforge.net/projects/excavator2tool/</ext-link>.</p></sec><sec id="SEC2-3"><title>Validation data sets</title><p>To evaluate the accuracy of our novel computational approach for predicting the absolute number of DNA copies of genomic regions from WES data in a population study, the exomes of 8 healthy individuals sequenced by the 1000 Genomes Project (Supplementary Table S2) were selected. They were previously genotyped by both McCarroll (<xref ref-type="bibr" rid="B35">35</xref>) and Conrad (<xref ref-type="bibr" rid="B36">36</xref>) using array-based technologies. Specifically, McCarroll estimated regions with altered copy number in 270 individuals by using SNP 6.0 arrays, performing all the experiments in duplicates, using two different computational approaches for analysing array data and confirming the presence of CNV at 27 loci in 30 individuals using q-PCR. In Conrad's study on the other hand, a customised high-density tiling CGH array was exploited to accurately detect the genotype of common CNV loci in 450 HapMap samples (inferring integer copy numbers only in the range of 0 to 5). With this technology the power of detection and resolution improved significantly.</p><p>We also built a gold standard data set made of 100 healthy individuals randomly picked out from the catalogue of the 1000 Genomes Project and belonging to 3 different populations (37 CEU-Utah residents with northern and western European ancestry, 17 JPT-Japanese people from Tokyo, 32 YRI-Yoruba people from Ibadan and 14 CHB-Han Chinese individuals from Beijing). The exomes were sequenced during phase3 of the Project in 2 different Centres using various sequencing libraries and WES enrichment kits (see Supplementary Table S3 for details). All the individuals were genotyped by the International HapMap Consortium (<xref ref-type="bibr" rid="B37">37</xref>) and also by the 1000 Genomes Consortium (<xref ref-type="bibr" rid="B6">6</xref>). The HapMap Consortium (HapMap) made use of two distinct SNP arrays (Affimetrix 6.0 and Illumina 1M) and regional PCR-Sanger sequencing to outline alterations of copy number at genomic level for both common and rare alleles. In addition, the sequencing-based genotypes of CNVs identified by the Pilot 1 and 2 of the 1000 Genomes Project (1KG Pilot) for those individuals were considered to assess the ability of our method to detect CNVs. We compared our results to recently published CopywriteR (<xref ref-type="bibr" rid="B27">27</xref>) and to a selection of three existing RC-based computational methods, largely used for CNV identification from WES data (i.e. CoNIFER, XHMM and CODEX). A complete description of the data set and running parameters of each tool are available in Supplementary Section 2.2 and 3.</p><p>Finally, to test the performance of our method in detecting somatic CNVs we analysed 28 WES from Urothelial bladder cancer samples (Supplementary Table S4). The somatic data set comprises 14 pairs of tumor and matched normal samples (<xref ref-type="bibr" rid="B38">38</xref>) enriched using the Agilent SureSelect Human All Exon plus v3 50 Mb or v4 51 Mb. Same samples were also genotyped by F.X. Real's laboratory using Illumina HumanOmniExpress-12 v1.0 SNP-array.</p></sec></sec><sec id="SEC3" sec-type="results"><title>RESULTS</title><sec id="SEC3-1"><title>WES read count in Off-Target regions</title><p>To study the distribution of the reads aligned along the genome we used a WES Survey Data set (see Materials and Methods) made of 30 sequencing experiments and we split the genome into regions of three different categories: <italic>In-Target, Off-Target</italic> or <italic>Flanking</italic>. Following Asan (<xref ref-type="bibr" rid="B39">39</xref>) we considered as <italic>Flanking</italic> stretches of 200 bp adjacent to each of the boundaries of the targeted regions. The 30 WES experiments were chosen to balance the three enrichment kits (10 SureSelect, 10 SeqCap and 10 TruSeq) and with diversified sequencing throughput in order to have a general overview of reads distribution. All reads were aligned to the human reference genome (hg19). Reads overlapping the targeted regions of each exome kit (<italic>In-Target</italic>), reads surrounding enriched regions (<italic>Flanking</italic>) and reads mapping outside those regions (<italic>Off-Target</italic>) were counted separately (see Supplementary Section 2.1 for more details). Despite the sequencing throughput variability, the overall mean percentage of reads that unambiguously maps to Off-Target regions is nearly 30% for all three different enrichment kits (see Figure <xref ref-type="fig" rid="F1">1</xref>). Specifically, 23–43% of reads for TruSeq, 20–50% for SeqCap and 21–35% for SureSelect (see Supplementary Figure S1 for per sample details).</p><fig id="F1" orientation="portrait" position="float"><label>Figure 1.</label><caption><p>Mapping statistics. The distribution of mapped reads into In-Target, Flanking and Off-Target regions are shown for the 30 WES samples belonging to the Survey Data set. They are split per enrichment kit. TS62M states for Illumina TruSeq Exome Enrichment 62 Mb, SS50M is Agilent SureSelect Human All Exon 50 Mb and SCV2 is the NimbleGen SeqCap EZ Exome v2.0 44 Mb. The absolute and relative means of mapped reads are respectively showed on the left and right.</p></caption><graphic xlink:href="gkw695fig1"></graphic></fig><p>In order to exploit this large amount of extra-target reads, we studied the properties of RC distribution across Off-Target regions and how it is influenced by classical sources of bias, like GC content and mappability. To this end, we calculated the WMRC (see Materials and Methods) for different window sizes and we found that they are similarly influenced by local nucleotide content and sequence uniqueness in Off-Target regions (see Figure <xref ref-type="fig" rid="F2">2</xref>, panel A and C for Off-Target and Supplementary Figure S2 panel C and E for In-Target) as it has been already proved for targeted regions in our previous study (<xref ref-type="bibr" rid="B20">20</xref>). The median normalisation approach allowed to mitigate both GC-content and uniqueness biases in Off-Target regions (Figure <xref ref-type="fig" rid="F2">2</xref>, panel B and D, respectively) as well as in In-Target regions (Supplementary Figure S2 panel D and F).</p><fig id="F2" orientation="portrait" position="float"><label>Figure 2.</label><caption><p>Pre- and post-normalisation WMRC distribution in Off-Target regions. The influence of mappability and GC content percentage on WMRC are shown in (<bold>A</bold>) and (<bold>C</bold>) and compared with normalised signals (<bold>B</bold>) and (<bold>D</bold>).</p></caption><graphic xlink:href="gkw695fig2"></graphic></fig></sec><sec id="SEC3-2"><title>Copy number resolution</title><p>To measure the capability of our method to correctly predict the absolute number of DNA copies of each genomic region, we calculated the normalised WMRC for In-Target and Off-Target regions from eight WES data from the 1000 Genomes Project. The ratio of normalised WMRC between each test and the control (NA10847) was compared to the copy number ratio of regions inferred by McCarroll and Conrad studies (<xref ref-type="bibr" rid="B35">35</xref>,<xref ref-type="bibr" rid="B36">36</xref>). McCarroll identified an average of 112 amplifications (with size of around 50 Kb on average) and 123 deletions (with size of around 33 Kb on average) per sample (Supplementary Table S2), while Conrad recognised in those samples 356 duplications and 441 deletions (with size of around 10 Kb on average for both variants).</p><p>The WMRC-based copy number profiles are highly correlated with McCarroll prediction for both In-Target and Off-target regions (Pearson R = 0.9 and R = 0.86, respectively; see Figure <xref ref-type="fig" rid="F3">3</xref> panel B and C) and the correlation of combined WMRC reaches R = 0.89 (Figure <xref ref-type="fig" rid="F3">3</xref>, panel A). Interestingly, the analyses performed on Conrad data set demonstrate that the use of Off-Target reads can improve the prediction capability of RC data: the correlation between real CN and WMRC for Off-Target is larger than for In-Target regions (Supplementary Figure S3). In conclusion, these results clearly demonstrate the capability of WMRC to accurately predict copy numbers from WES data in Off-Target as well as in In-Target regions.</p><fig id="F3" orientation="portrait" position="float"><label>Figure 3.</label><caption><p>Copy number correlation with McCarroll calls. Boxplots summarize the capability of WMRC data to predict the exact number of DNA copies of a CNV region. Normalised WMRC ratio were calculated for eight samples using NA10847 as control and compared with copy number ratios from McCarroll characterisation. R is the Pearson correlation coefficient. (<bold>A</bold>) all genomic regions, (<bold>B</bold>) In-Target regions and (<bold>C</bold>) Off-Target regions.</p></caption><graphic xlink:href="gkw695fig3"></graphic></fig></sec><sec id="SEC3-3"><title>1KG data analysis</title><p>In order to evaluate the capability of our method to identify CNVs in a population study we analysed the WES data of a cohort of 100 healthy individuals from the catalogue of the 1000 Genomes Project. We analysed the same data set also with four other different tools that include XHMM (<xref ref-type="bibr" rid="B25">25</xref>), CoNIFER (<xref ref-type="bibr" rid="B23">23</xref>), the recently published CODEX (<xref ref-type="bibr" rid="B21">21</xref>) and CopywriteR (<xref ref-type="bibr" rid="B27">27</xref>) using the collections of all genomic CNVs genotyped by HapMap or by 1KG Pilot projects for the inspected 100 individuals as a gold standard (see Supplementary Section 2.2 and 3 for details).</p><p>To compare the performance of the five methods in identifying (i) all genomic CNVs and (ii) CNVs in targeted regions, we calculated precision (P) and recall (R) rates. For each tool P corresponds to the fraction of calls overlapping the reference set (TP) and the total number of calls (TP + FP), while R is the fraction of TP calls with respect to the whole reference set of CNVs (TP + FN). For the comparison at genomic level, the gold standard consisted of the whole set of CNVs identified by HapMap/1KG Pilot projects for the selected 100 individuals while, to measure the performance in targeted exons, the gold standard was restricted to the HapMap/1KG Pilot CNVs overlapping regions covered by each enrichment kit. To classify the calls made by each tool, we used the approach previously described by Yoon <italic>et al.</italic> (<xref ref-type="bibr" rid="B40">40</xref>) and Magi <italic>et al.</italic> (<xref ref-type="bibr" rid="B29">29</xref>) for calls classification: a detected segment is considered a true positive (TP) if there is at least 10% overlap with the gold standard CNVs for the same sample identified by HapMap/1KG Pilot, and is considered a false positive (FP) if there is no overlap or is smaller than 10%. Since the capability of detecting regions with altered copy number is influenced by the length of the segment, we distinguished three classes of events: Small (length ≤ 20Kb), Medium (length &gt; 20 Kb and ≤ 100 Kb) and Large (length &gt; 100 Kb). Figure <xref ref-type="fig" rid="F4">4</xref> summarises the results using the F-measure (the harmonic mean of precision and recall). We run our tool with 3 different windows size for Off-Target regions (5 Kb, 10 Kb, 20 Kb) and we obtained the best results with the 20 Kb windows. Overall, EXCAVATOR2 outperforms all the other tools with the highest F-measure with respect to HapMap and 1KG Pilot calls sets (Figure <xref ref-type="fig" rid="F4">4</xref>, panel (A,C) and (B,D), respectively). Specifically, EXCAVATOR2 has the highest precision rates in identifying genomic CNVs (panel A for HapMap, panel B for 1KG Pilot) as well as in identifying CNVs that overlap only targeted exonic regions (panel C for HapMap, panel D for 1KG Pilot). CopywriteR shows higher recall than EXCAVATOR2 only for Large and Medium genomic events in the HapMap data set (panel A), while CODEX's recall rates are only higher with respect to CNVs overlapping targeted exons for all except Large events (panel C and D). The precision levels of XHMM and CONIFER are similar to those of CopywriteR and CODEX but with significant lower recall rates. As expected, the best absolute performance in terms of precision and recall involves Large CNVs. Remarkably, Figure <xref ref-type="fig" rid="F4">4</xref> also shows that the two gold standard data sets used in this comparison give different results in terms of algorithm performance. In particular, almost all tools obtain lower sensitivity in recognising Medium and Small CNVs from HapMap than from 1KG Pilot. These differences can be mainly ascribed to the different nature of CNV events comprised in the two sets. HapMap data set was generated by using Affimetrix 6.0 and Illumina 1M array platforms, while the 1KG Pilot data set includes structural variants identified with three different computational approaches (split read, paired-end and depth of coverage) from low-coverage whole genome sequencing data.</p><fig id="F4" orientation="portrait" position="float"><label>Figure 4.</label><caption><p>CNV calls assessment for the population data set. CNV events identified in 100 samples from 1000 Genomes Project catalogue by using Codex, CONIFER, CopywriteR, EXCAVATOR2 and XHMM were validated respect to the (<bold>A</bold> and <bold>C</bold>) HapMap Consortium and (<bold>B</bold> and <bold>D</bold>) 1KG Pilot genotyping calls. Results are reported from the comparison with all (<bold>A</bold> and <bold>B</bold>) genomic CNVs and restricted to only the targeted regions (C and D). Precision-recall plots are shown with light grey curves representing F-measure levels. CNV events are distinguished based on their size (Small: ≤ 20 Kb, Medium &gt; 20 Kb and ≤ 100 Kb and Large &gt; 100 Kb).</p></caption><graphic xlink:href="gkw695fig4"></graphic></fig></sec><sec id="SEC3-4"><title>Somatic calls</title><p>To evaluate whether our method can give insight into cancer genomic studies we used EXCAVATOR2 and CopywriteR to analyse WES data from 28 Urothelial bladder cancer samples. To measure the accuracy and resolution of the two methods in discovering CNVs, same samples were also genotyped by F.X. Real and his group using high-resolution Illumina HumanOmniExpress SNP-array. First, we observed that CopywriteR produced a signal characterized by higher variance than EXCAVATOR2 (see Figure <xref ref-type="fig" rid="F5">5</xref>, panel B for EXCAVATOR2 and C for CopywriteR) compared to the SNP-array (Figure <xref ref-type="fig" rid="F5">5</xref>, panel A). To measure the noise level generated by the two approaches we calculated the Median Absolute Deviation (MAD) values of their segmented signals. As shown in Figure <xref ref-type="fig" rid="F5">5D</xref>, CopywriteR MAD (mean = 0.43, range = 0.02–0.98) was higher than that of EXCAVATOR2 (mean = 0.26, range = 0.13–0.65) while the mean MAD for SNP-array was smaller at 0.09 (see Figure <xref ref-type="fig" rid="F5">5D</xref>). This can be mainly ascribed to the normalization approaches adopted by the two tools and to the capability of segmentation algorithms to discriminate between the real biological signals and the experimental noise. Moreover tumor samples are characterised by clonal heterogeneity and somatic CNVs belonging to subclones with different percentages produce signals that can be confounded with the experimental noise of normal copy state. Thus, P and R are not the most appropriate statistics to compare somatic CNVs with a SNP-array gold standard. Hence, we studied the correlation between the SNP-array segmented profiles and those inferred by EXCAVATOR2 and CopywriteR along the genome. To this end, for each paired tumor/control samples we juxtaposed the median value of each region segmented by our tool and by CopywriteR (see Supplementary Sec. 2.3 and 3) with the log2 ratio median values of the SNP-array signal and calculated the global and per CNV-size correlations. The table in Figure <xref ref-type="fig" rid="F5">5E</xref> indicates that segmented profiles inferred by EXCAVATOR2 well correlates with those from SNP-array, and outperforms CopywriteR irrespective of the CNV size. In addition, the use of combined signals from In- and Off-Target allows our method to better detect CNVs in exon-rich regions and to be more accurate in breakpoints detection with respect to CopywriteR. As an example, we reported a 20 Kb deletion involving an exon-rich region detected by SNP-array (see panel F of Figure <xref ref-type="fig" rid="F5">5</xref>) that was correctly identified by EXCAVATOR2 with similar breakpoints (panel G) but completely missed by CopywriteR (panel H). Additional examples are shown in Supplementary Figure S4.</p><fig id="F5" orientation="portrait" position="float"><label>Figure 5.</label><caption><p>Analysis on somatic data set. A total of 14 WES tumour/control samples pairs of Urothelial Bladder cancer were analysed using EXCAVATOR2 and CopywriteR, and results were compared to the SNP-array genotyping. Copy number profiles for the chromosome 5 of patient 251 with segmentation values depicted in red are shown for (<bold>A</bold>) SNP-array, (<bold>B</bold>) EXCAVATOR2 and (<bold>C</bold>) CopywriteR. MAD values for all 14 samples pairs are represented in (<bold>D</bold>). Table (<bold>E</bold>) shows the Spearman correlation coefficient values for different CNV sizes between the array-based profiles and those resulting from EXCAVATOR2 and CopywriteR. Finally, the ‘zoomed’ in region containing a potential deletion in the chromosome 5 of the patient 64 is showed with CN profiles and calls from (<bold>F</bold>) SNP-array, (<bold>G</bold>) EXCAVATOR2 and (<bold>H</bold>) CopywriteR.</p></caption><graphic xlink:href="gkw695fig5"></graphic></fig></sec></sec><sec id="SEC4" sec-type="discussion"><title>DISCUSSION</title><p>Recent studies have remarked the increasingly relevance of CNVs identification for elucidating the molecular mechanisms underlying several diseases. Germline CNVs contribute to phenotypic variation and recurrent somatic CN alterations (gains and losses) in tumor genomes often involve genes with key-roles as oncogenes or oncosuppressors. Thus, improving the accuracy of breakpoint mapping and copy number prediction is fundamental for straightforward genotype–phenotype correlations and diagnostic classification of CNVs. The last years have seen the emergence of several tools for the detection of CNVs from the analysis of WES data. The first generation of these tools, as CoNIFER, XHMM, ExomeCNV, EXCAVATOR and CODEX, exploits only coverage information from targeted regions. All these tools use a similar procedure consisting of two stages: a normalization step to mitigate systematic biases due to GC content, mappability and capture efficiency, and a segmentation step for the identification of the boundaries of the altered region and the estimation of the absolute or relative number of DNA copies. ExomeCNV is the first tool implemented for the detection of CNVs from WES data. It estimates copy number values by using uncalibrated read-depth. CoNIFER and XHMM employ singular value decomposition (SVD) and principal-component analysis (PCA) techniques to identify and remove the principal sources of variation underlying the non-uniform read-depth among captured regions. SVD and PCA normalization procedures require the analysis of many samples at once, thus limiting their application to large-scale sequencing projects. CODEX, as CoNIFER and XHMM, uses latent factor models to remove systematic biases (GC content, mappability, capture and amplification efficiency) assuming a Poisson log-linear model that is more suitable for discrete count data rather than the continuous Gaussian model employed by the other two methods. In this way CODEX estimates a ‘control coverage’ for no CNV that it compares with the observed coverage for each exon and each samples.</p><p>The first release of EXCAVATOR combines a three-step normalization procedure with a novel heterogeneous hidden Markov model algorithm and a calling method that classifies genomic regions into five copy number states. CopywriteR is instead the first published method that makes direct use of off-target reads to build uniformly distributed genomic copy number profiles. It uses MACS-based peak calling to identify all regions that are well covered by reads (peaks) and keeps only the background reads which are used to build a compensated binned Depth of Coverage profile. The compensated DoC is normalized using loess-based corrections for mappability and GC content and finally segmented by means of circular binary segmentation method. In this way the authors claim to reduce the noise and they show that the segmented profile built from reads after peaks removal is ‘close’ to the one from low-coverage WGS. This choice, together with a filtering step aiming at removing extreme values for coverage, length, mappability and GC content, allowed the method to (globally) outperform both CoNIFER and XHMM and also our previous version of EXCAVATOR when compared with calls from the International HapMap Consortium, McCarroll and Conrad genotyping studies (<xref ref-type="bibr" rid="B27">27</xref>). In this work, we present the first computational approach that combines together reads aligned to In- and Off-targeted regions of WES experiments to identify CNVs. This approach significantly improves the detection of CNVs in targeted regions with respect to all other state-of-the-art computational methods and (globally) outperforms CopywriteR in identifying CNVs at genomic-level. We proved that around 30% of the reads produced by WES experiments align outside the targeted regions. These reads are often regarded as the ‘junk’ of WES experiments, because they consume a substantial amount of sequencing throughput but are of no value for the common scope of WES, that is, identifying variants in targeted exons. In order to exploit this amount of extra-exonic data, we measured the RC in these regions and we found that they is affected by the same sources of biases and is able to predict the exact number of DNA copies with nearly the same accuracy. For this reason we extended the EMRC that we introduced in (<xref ref-type="bibr" rid="B20">20</xref>) by defining the WMRC which accounts for both In-Target exons and Off-Target windows of fixed size. We integrated the WMRC into a new tool, EXCAVATOR2 that we used to analyse two different data sets and we showed that it outperforms the other state-of-the-art tools in calling genomic CNVs. In particular, EXCAVATOR2 is able to identify CNVs involving large intergenic regions with few exons that are usually missed by first generation methods, included the previous version of our tool. Indeed, only EXCAVATOR2 detected and correctly genotyped a heterozygous deletion implicated in epilepsy (<xref ref-type="bibr" rid="B11">11</xref>). The deletion spans around 270 kb of intergenic regions across exons 2–3 of CNTNAP2 (Contactin-associated protein-like 2; OMIM 604569) which was predicted to produce an out-of-frame transcript p.Gln33Argfs*7 (NM 014141:c.98402_del). Furthermore, as shown, EXCAVATOR2 is able to detect also CNVs belonging to exon-rich regions that CopywriteR fails to catch. This is due to the fact that it removes regions that are well covered by reads and only keeps the background to build CN profiles. All together the results obtained for the two data sets, a population-based and a cancer study, clearly prove that our combined approach improves the precision of calling CNVs overlapping targeted exons from WES data and enlarges the spectrum of detectable CNVs to off-target events. Therefore, EXCAVATOR2 can be effectively employed for the identification of CNVs in small as well as large-scale re-sequencing studies with best performance and so maximizing the utility of exome sequencing data in genetic and cancer studies. Lastly, it's of particular interest that all WES experiments can be re-analysed using our method with the beneficial effect to identify novel CNVs in extra-exonic regions by having the full-genome CN profile.</p></sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="PMC_1">
+<caption>
+<title>SUPPLEMENTARY DATA</title>
+</caption>
+<media mime-subtype="html" mimetype="text" xlink:href="supp_44_20_e154__index.html"></media>
+<media mime-subtype="pdf" mimetype="application" xlink:href="supp_gkw695_EXCAVATOR2_Supplemental.pdf" xlink:role="associated-file"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>The authors wish to acknowledge E. Carrillo-de-Santa-Pau, N. Malats, and F.X. Real for providing the tumor data used in the study.</p>
+</ack>
+<sec id="SEC5">
+<title>SUPPLEMENTARY DATA</title>
+<p><ext-link ext-link-type="uri" xlink:href="http://nar.oxfordjournals.org/lookup/suppl/doi:10.1093/nar/gkw695/-/DC1">Supplementary Data</ext-link> are available at NAR Online.</p>
+</sec>
+<sec id="SEC6">
+<title>FUNDING</title>
+<p>Flagship project InterOmics (PB. P05, CUP B91J12000270001), Italian Ministry for Instruction University and Research (MIUR) and CNR organisations; Italian Ministry of Health, Young Investigators Award for the Project GR-2011-02352026 ‘Detecting copy number variants from whole-exome sequencing data applied to acute myeloid leukemias’ (to A.M.). Funding for open access charge: Flagship project InterOmics (PB. P05, CUP B91J12000270001), Italian Ministry for Instruction University and Research (MIUR) and CNR organisations.</p>
+<p><italic>Conflict of interest statement</italic>. None declared.</p>
+</sec>
+<ref-list>
+<title>REFERENCES</title>
+<ref id="B1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Alkan</surname><given-names>C.</given-names></name><name><surname>Coe</surname><given-names>B.P.</given-names></name><name><surname>Eichler</surname><given-names>E.E.</given-names></name></person-group>
+<article-title>Genome structural variation discovery and genotyping</article-title>
+<source/>Nat. Rev. Genet.
+<year>2011</year>
+<volume>12</volume>
+<fpage>363</fpage><lpage>376</lpage><pub-id pub-id-type="pmid">21358748</pub-id></element-citation>
+</ref>
+<ref id="B2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tattini</surname><given-names>L.</given-names></name><name><surname>D'Aurizio</surname><given-names>R.</given-names></name><name><surname>Magi</surname><given-names>A.</given-names></name></person-group>
+<article-title>Detection of genomic structural variants from next-generation sequencing data</article-title>
+<source/>Front. Bioeng. Biotechnol.
+<year>2015</year>
+<volume>3</volume>
+<fpage>92</fpage><pub-id pub-id-type="pmid">26161383</pub-id></element-citation>
+</ref>
+<ref id="B3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Mills</surname><given-names>R.E.</given-names></name><name><surname>Walter</surname><given-names>K.</given-names></name><name><surname>Stewart</surname><given-names>C.</given-names></name><name><surname>Handsaker</surname><given-names>R.E.</given-names></name><name><surname>Chen</surname><given-names>K.</given-names></name><name><surname>Alkan</surname><given-names>C.</given-names></name><name><surname>Abyzov</surname><given-names>A.</given-names></name><name><surname>Yoon</surname><given-names>S.C.</given-names></name><name><surname>Ye</surname><given-names>K.</given-names></name><name><surname>Cheetham</surname><given-names>R.K.</given-names></name><etal></etal></person-group>
+<article-title>Mapping copy number variation by population-scale genome sequencing</article-title>
+<source/>Nature
+<year>2011</year>
+<volume>470</volume>
+<fpage>59</fpage><lpage>65</lpage><pub-id pub-id-type="pmid">21293372</pub-id></element-citation>
+</ref>
+<ref id="B4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Conrad</surname><given-names>D.F.</given-names></name><name><surname>Hurles</surname><given-names>M.E.</given-names></name></person-group>
+<article-title>The population genetics of structural variation</article-title>
+<source/>Nat. Genet.
+<year>2007</year>
+<volume>39</volume><issue>Suppl. 7</issue><fpage>S30</fpage><lpage>S36</lpage><pub-id pub-id-type="pmid">17597779</pub-id></element-citation>
+</ref>
+<ref id="B5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pang</surname><given-names>A.W.</given-names></name><name><surname>MacDonald</surname><given-names>J.R.</given-names></name><name><surname>Pinto</surname><given-names>D.</given-names></name><name><surname>Wei</surname><given-names>J.</given-names></name><name><surname>Rafiq</surname><given-names>M.A.</given-names></name><name><surname>Conrad</surname><given-names>D.F.</given-names></name><name><surname>Park</surname><given-names>H.</given-names></name><name><surname>Hurles</surname><given-names>M.E.</given-names></name><name><surname>Lee</surname><given-names>C.</given-names></name><name><surname>Venter</surname><given-names>J.C.</given-names></name><etal></etal></person-group>
+<article-title>Towards a comprehensive structural variation map of an individual human genome</article-title>
+<source/>Genome Biol.
+<year>2010</year>
+<volume>11</volume>
+<fpage>R52</fpage><pub-id pub-id-type="pmid">20482838</pub-id></element-citation>
+</ref>
+<ref id="B6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><collab>1000 Genomes Project Consortium</collab><name><surname>Abecasis</surname><given-names>G.R.</given-names></name><name><surname>Altshuler</surname><given-names>D.</given-names></name><name><surname>Auton</surname><given-names>A.</given-names></name><name><surname>Brooks</surname><given-names>L.D.</given-names></name><name><surname>Durbin</surname><given-names>R.M.</given-names></name><name><surname>Gibbs</surname><given-names>R.A.</given-names></name><name><surname>Hurles</surname><given-names>M.E.</given-names></name><name><surname>McVean</surname><given-names>G.A.</given-names></name></person-group>
+<article-title>A map of human genome variation from population-scale sequencing</article-title>
+<source/>Nature
+<year>2010</year>
+<volume>467</volume>
+<fpage>1061</fpage><lpage>1073</lpage><pub-id pub-id-type="pmid">20981092</pub-id></element-citation>
+</ref>
+<ref id="B7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zarrei</surname><given-names>M.</given-names></name><name><surname>MacDonald</surname><given-names>J.R.</given-names></name><name><surname>Merico</surname><given-names>D.</given-names></name><name><surname>Scherer</surname><given-names>S.W.</given-names></name></person-group>
+<article-title>A copy number variation map of the human genome</article-title>
+<source/>Nat. Rev. Genet.
+<year>2015</year>
+<volume>16</volume>
+<fpage>172</fpage><lpage>183</lpage><pub-id pub-id-type="pmid">25645873</pub-id></element-citation>
+</ref>
+<ref id="B8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>MacDonald</surname><given-names>J.R.</given-names></name><name><surname>Ziman</surname><given-names>R.</given-names></name><name><surname>Yuen</surname><given-names>R.K.C.</given-names></name><name><surname>Feuk</surname><given-names>L.</given-names></name><name><surname>Scherer</surname><given-names>S.W.</given-names></name></person-group>
+<article-title>The database of genomic variants: a curated collection of structural variation in the human genome</article-title>
+<source/>Nucleic Acids Res.
+<year>2014</year>
+<volume>42</volume>
+<fpage>D986</fpage><lpage>D992</lpage><pub-id pub-id-type="pmid">24174537</pub-id></element-citation>
+</ref>
+<ref id="B9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lee</surname><given-names>C.</given-names></name><name><surname>Scherer</surname><given-names>S.W.</given-names></name></person-group>
+<article-title>The clinical context of copy number variation in the human genome</article-title>
+<source/>Expert Rev. Mol. Med.
+<year>2010</year>
+<volume>12</volume>
+<fpage>e8</fpage><pub-id pub-id-type="pmid">20211047</pub-id></element-citation>
+</ref>
+<ref id="B10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sanders</surname><given-names>S.J.</given-names></name><name><surname>Murtha</surname><given-names>M.T.</given-names></name><name><surname>Gupta</surname><given-names>A.R.</given-names></name><name><surname>Murdoch</surname><given-names>J.D.</given-names></name><name><surname>Raubeson</surname><given-names>M.J.</given-names></name><name><surname>Willsey</surname><given-names>A.J.</given-names></name><name><surname>Ercan-Sencicek</surname><given-names>A.G.</given-names></name><name><surname>DiLullo</surname><given-names>N.M.</given-names></name><name><surname>Parikshak</surname><given-names>N.N.</given-names></name><name><surname>Stein</surname><given-names>J.L.</given-names></name><etal></etal></person-group>
+<article-title>De novo mutations revealed by whole-exome sequencing are strongly associated with autism</article-title>
+<source/>Nature
+<year>2012</year>
+<volume>485</volume>
+<fpage>237</fpage><lpage>241</lpage><pub-id pub-id-type="pmid">22495306</pub-id></element-citation>
+</ref>
+<ref id="B11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pippucci</surname><given-names>T.</given-names></name><name><surname>Licchetta</surname><given-names>L.</given-names></name><name><surname>Baldassari</surname><given-names>S.</given-names></name><name><surname>Palombo</surname><given-names>F.</given-names></name><name><surname>Menghi</surname><given-names>V.</given-names></name><name><surname>D'Aurizio</surname><given-names>R.</given-names></name><name><surname>Leta</surname><given-names>C.</given-names></name><name><surname>Stipa</surname><given-names>C.</given-names></name><name><surname>Boero</surname><given-names>G.</given-names></name><name><surname>d'Orsi</surname><given-names>G.</given-names></name></person-group>
+<article-title>Epilepsy with auditory features: A heterogeneous clinico-molecular disease</article-title>
+<source/>Neurol. Genet.
+<year>2015</year>
+<volume>1</volume>
+<fpage>e5</fpage><pub-id pub-id-type="pmid">27066544</pub-id></element-citation>
+</ref>
+<ref id="B12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>McCarroll</surname><given-names>S.A.</given-names></name><name><surname>Huett</surname><given-names>A.</given-names></name><name><surname>Kuballa</surname><given-names>P.</given-names></name><name><surname>Chilewski</surname><given-names>S.D.</given-names></name><name><surname>Landry</surname><given-names>A.</given-names></name><name><surname>Goyette</surname><given-names>P.</given-names></name><name><surname>Zody</surname><given-names>M.C.</given-names></name><name><surname>Hall</surname><given-names>J.L.</given-names></name><name><surname>Brant</surname><given-names>S.R.</given-names></name><name><surname>Cho</surname><given-names>J.H.</given-names></name><etal></etal></person-group>
+<article-title>Deletion polymorphism upstream of irgm associated with altered irgm expression and crohn's disease</article-title>
+<source/>Nat. Genet.
+<year>2008</year>
+<volume>40</volume>
+<fpage>1107</fpage><lpage>1112</lpage><pub-id pub-id-type="pmid">19165925</pub-id></element-citation>
+</ref>
+<ref id="B13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Campbell</surname><given-names>P.J.</given-names></name><name><surname>Stephens</surname><given-names>P.J.</given-names></name><name><surname>Pleasance</surname><given-names>E.D.</given-names></name><name><surname>O'Meara</surname><given-names>S.</given-names></name><name><surname>Li</surname><given-names>H.</given-names></name><name><surname>Santarius</surname><given-names>T.</given-names></name><name><surname>Stebbings</surname><given-names>L.A.</given-names></name><name><surname>Leroy</surname><given-names>C.</given-names></name><name><surname>Edkins</surname><given-names>S.</given-names></name><name><surname>Hardy</surname><given-names>C.</given-names></name><etal></etal></person-group>
+<article-title>Identification of somatically acquired rearrangements in cancer using genome-wide massively parallel paired-end sequencing</article-title>
+<source/>Nat. Genet.
+<year>2008</year>
+<volume>40</volume>
+<fpage>722</fpage><lpage>729</lpage><pub-id pub-id-type="pmid">18438408</pub-id></element-citation>
+</ref>
+<ref id="B14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Poliseno</surname><given-names>L.</given-names></name><name><surname>Salmena</surname><given-names>L.</given-names></name><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Carver</surname><given-names>B.</given-names></name><name><surname>Haveman</surname><given-names>W.J.</given-names></name><name><surname>Pandolfi</surname><given-names>P.P.</given-names></name></person-group>
+<article-title>A coding-independent function of gene and pseudogene mrnas regulates tumour biology</article-title>
+<source/>Nature
+<year>2010</year>
+<volume>465</volume>
+<fpage>1033</fpage><lpage>1038</lpage><pub-id pub-id-type="pmid">20577206</pub-id></element-citation>
+</ref>
+<ref id="B15">
+<label>15.</label>
+<element-citation publication-type="journal"><collab>Wellcome Trust Case Control Consortium</collab><article-title>Genome-wide association study of cnvs in 16,000 cases of eight common diseases and 3,000 shared controls</article-title>
+<source/>Nature
+<year>2010</year>
+<volume>464</volume>
+<fpage>713</fpage><lpage>720</lpage><pub-id pub-id-type="pmid">20360734</pub-id></element-citation>
+</ref>
+<ref id="B16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Fahed</surname><given-names>A.C.</given-names></name><name><surname>Gelb</surname><given-names>B.D.</given-names></name><name><surname>Seidman</surname><given-names>J.G.</given-names></name><name><surname>Seidman</surname><given-names>C.E.</given-names></name></person-group>
+<article-title>Genetics of congenital heart disease: the glass half empty</article-title>
+<source/>Circ. Res.
+<year>2013</year>
+<volume>112</volume>
+<fpage>707</fpage><lpage>720</lpage><pub-id pub-id-type="pmid">23410880</pub-id></element-citation>
+</ref>
+<ref id="B17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Fakhro</surname><given-names>K.A.</given-names></name><name><surname>Choi</surname><given-names>K.</given-names></name><name><surname>Ware</surname><given-names>S.M.</given-names></name><name><surname>Belmont</surname><given-names>J.W.</given-names></name><name><surname>Towbin</surname><given-names>J.A.</given-names></name><name><surname>Lifton</surname><given-names>R.P.</given-names></name><name><surname>Khokha</surname><given-names>M.K.</given-names></name><name><surname>Brueckner</surname><given-names>M.</given-names></name></person-group>
+<article-title>Rare copy number variations in congenital heart disease patients identify unique genes in left-right patterning</article-title>
+<source/>Proc. Natl. Acad. Sci. U.S.A.
+<year>2011</year>
+<volume>7</volume>
+<fpage>2915</fpage><lpage>2920</lpage></element-citation>
+</ref>
+<ref id="B18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Chiang</surname><given-names>D.Y.</given-names></name><name><surname>Getz</surname><given-names>G.</given-names></name><name><surname>Jaffe</surname><given-names>D.B.</given-names></name><name><surname>O'Kelly</surname><given-names>M.J.T.</given-names></name><name><surname>Zhao</surname><given-names>X.</given-names></name><name><surname>Carter</surname><given-names>S.L.</given-names></name><name><surname>Russ</surname><given-names>C.</given-names></name><name><surname>Nusbaum</surname><given-names>C.</given-names></name><name><surname>Meyerson</surname><given-names>M.</given-names></name><name><surname>Lander</surname><given-names>E.S.</given-names></name></person-group>
+<article-title>High-resolution mapping of copy-number alterations with massively parallel sequencing</article-title>
+<source/>Nat. Methods
+<year>2009</year>
+<volume>6</volume>
+<fpage>99</fpage><lpage>103</lpage><pub-id pub-id-type="pmid">19043412</pub-id></element-citation>
+</ref>
+<ref id="B19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ng</surname><given-names>S.B.</given-names></name><name><surname>Buckingham</surname><given-names>K.J.</given-names></name><name><surname>Lee</surname><given-names>C.</given-names></name><name><surname>Bigham</surname><given-names>A.W.</given-names></name><name><surname>Tabor</surname><given-names>H.K.</given-names></name><name><surname>Dent</surname><given-names>K.M.</given-names></name><name><surname>Huff</surname><given-names>C.D.</given-names></name><name><surname>Shannon</surname><given-names>P.T.</given-names></name><name><surname>Jabs</surname><given-names>E.W.</given-names></name><name><surname>Nickerson</surname><given-names>D.A.</given-names></name><etal></etal></person-group>
+<article-title>Exome sequencing identifies the cause of a mendelian disorder</article-title>
+<source/>Nat. Genet.
+<year>2010</year>
+<volume>42</volume>
+<fpage>30</fpage><lpage>35</lpage><pub-id pub-id-type="pmid">19915526</pub-id></element-citation>
+</ref>
+<ref id="B20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Magi</surname><given-names>A.</given-names></name><name><surname>Tattini</surname><given-names>L.</given-names></name><name><surname>Cifola</surname><given-names>I.</given-names></name><name><surname>D'Aurizio</surname><given-names>R.</given-names></name><name><surname>Benelli</surname><given-names>M.</given-names></name><name><surname>Mangano</surname><given-names>E.</given-names></name><name><surname>Battaglia</surname><given-names>C.</given-names></name><name><surname>Bonora</surname><given-names>E.</given-names></name><name><surname>Kurg</surname><given-names>A.</given-names></name><name><surname>Seri</surname><given-names>M.</given-names></name><etal></etal></person-group>
+<article-title>Excavator: detecting copy number variants from whole-exome sequencing data</article-title>
+<source/>Genome Biol.
+<year>2013</year>
+<volume>14</volume>
+<fpage>R120</fpage><pub-id pub-id-type="pmid">24172663</pub-id></element-citation>
+</ref>
+<ref id="B21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jiang</surname><given-names>Y.</given-names></name><name><surname>Oldridge</surname><given-names>D.A.</given-names></name><name><surname>Diskin</surname><given-names>S.J.</given-names></name><name><surname>Zhang</surname><given-names>N.R.</given-names></name></person-group>
+<article-title>Codex: a normalization and copy number variation detection method for whole exome sequencing</article-title>
+<source/>Nucleic Acids Res.
+<year>2015</year>
+<volume>43</volume>
+<fpage>e39</fpage><pub-id pub-id-type="pmid">25618849</pub-id></element-citation>
+</ref>
+<ref id="B22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Magi</surname><given-names>A.</given-names></name><name><surname>D'Aurizio</surname><given-names>R.</given-names></name><name><surname>Palombo</surname><given-names>F.</given-names></name><name><surname>Cifola</surname><given-names>I.</given-names></name><name><surname>Tattini</surname><given-names>L.</given-names></name><name><surname>Semeraro</surname><given-names>R.</given-names></name><name><surname>Pippucci</surname><given-names>T.</given-names></name><name><surname>Giusti</surname><given-names>B.</given-names></name><name><surname>Romeo</surname><given-names>G.</given-names></name><name><surname>Abbate</surname><given-names>R.</given-names></name><etal></etal></person-group>
+<article-title>Characterization and identification of hidden rare variants in the human genome</article-title>
+<source/>BMC Genomics
+<year>2015</year>
+<volume>16</volume>
+<fpage>340</fpage><pub-id pub-id-type="pmid">25903059</pub-id></element-citation>
+</ref>
+<ref id="B23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Krumm</surname><given-names>N.</given-names></name><name><surname>Sudmant</surname><given-names>P.H.</given-names></name><name><surname>Ko</surname><given-names>A.</given-names></name><name><surname>O'Roak</surname><given-names>B.J.</given-names></name><name><surname>Malig</surname><given-names>M.</given-names></name><name><surname>Coe</surname><given-names>B.P.</given-names></name><name><surname>Quinlan</surname><given-names>A.R.</given-names></name><name><surname>Nickerson</surname><given-names>D.A.</given-names></name><name><surname>Eichler</surname><given-names>E.E.</given-names></name><collab>NHLBI Exome Sequencing Project</collab></person-group>
+<article-title>Copy number variation detection and genotyping from exome sequence data</article-title>
+<source/>Genome Res.
+<year>2012</year>
+<volume>22</volume>
+<fpage>1525</fpage><lpage>1532</lpage><pub-id pub-id-type="pmid">22585873</pub-id></element-citation>
+</ref>
+<ref id="B24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sathirapongsasuti</surname><given-names>J.F.</given-names></name><name><surname>Lee</surname><given-names>H.</given-names></name><name><surname>Horst</surname><given-names>B.A.J.</given-names></name><name><surname>Brunner</surname><given-names>G.</given-names></name><name><surname>Cochran</surname><given-names>A.J.</given-names></name><name><surname>Binder</surname><given-names>S.</given-names></name><name><surname>Quackenbush</surname><given-names>J.</given-names></name><name><surname>Nelson</surname><given-names>S.F.</given-names></name></person-group>
+<article-title>Exome sequencing-based copy-number variation and loss of heterozygosity detection: Exomecnv</article-title>
+<source/>Bioinformatics
+<year>2011</year>
+<volume>27</volume>
+<fpage>2648</fpage><lpage>2654</lpage><pub-id pub-id-type="pmid">21828086</pub-id></element-citation>
+</ref>
+<ref id="B25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Fromer</surname><given-names>M.</given-names></name><name><surname>Moran</surname><given-names>J.L.</given-names></name><name><surname>Chambert</surname><given-names>K.</given-names></name><name><surname>Banks</surname><given-names>E.</given-names></name><name><surname>Bergen</surname><given-names>S.E.</given-names></name><name><surname>Ruderfer</surname><given-names>D.M.</given-names></name><name><surname>Handsaker</surname><given-names>R.E.</given-names></name><name><surname>McCarroll</surname><given-names>S.A.</given-names></name><name><surname>O'Donovan</surname><given-names>M.C.</given-names></name><name><surname>Owen</surname><given-names>M.J.</given-names></name><etal></etal></person-group>
+<article-title>Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth</article-title>
+<source/>Am. J. Hum. Genet.
+<year>2012</year>
+<volume>91</volume>
+<fpage>597</fpage><lpage>607</lpage><pub-id pub-id-type="pmid">23040492</pub-id></element-citation>
+</ref>
+<ref id="B26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Samuels</surname><given-names>D.C.</given-names></name><name><surname>Han</surname><given-names>L.</given-names></name><name><surname>Li</surname><given-names>J.</given-names></name><name><surname>Quanghu</surname><given-names>S.</given-names></name><name><surname>Clark</surname><given-names>T.A.</given-names></name><name><surname>Shyr</surname><given-names>Y.</given-names></name><name><surname>Guo</surname><given-names>Y.</given-names></name></person-group>
+<article-title>Finding the lost treasures in exome sequencing data</article-title>
+<source/>Trends Genet.
+<year>2013</year>
+<volume>29</volume>
+<fpage>593</fpage><lpage>599</lpage><pub-id pub-id-type="pmid">23972387</pub-id></element-citation>
+</ref>
+<ref id="B27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kuilman</surname><given-names>T.</given-names></name><name><surname>Velds</surname><given-names>A.</given-names></name><name><surname>Kemper</surname><given-names>K.</given-names></name><name><surname>Ranzani</surname><given-names>M.</given-names></name><name><surname>Bombardelli</surname><given-names>L.</given-names></name><name><surname>Hoogstraat</surname><given-names>M.</given-names></name><name><surname>Nevedomskaya</surname><given-names>E.</given-names></name><name><surname>Xu</surname><given-names>G.</given-names></name><name><surname>de Ruiter</surname><given-names>J.</given-names></name><name><surname>Lolkema</surname><given-names>M.P.</given-names></name><etal></etal></person-group>
+<article-title>CopywriteR: DNA copy number detection from off-target sequence data</article-title>
+<source/>Genome Biol.
+<year>2015</year>
+<volume>16</volume>
+<fpage>49</fpage><pub-id pub-id-type="pmid">25887352</pub-id></element-citation>
+</ref>
+<ref id="B28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Magi</surname><given-names>A.</given-names></name><name><surname>Benelli</surname><given-names>M.</given-names></name><name><surname>Marseglia</surname><given-names>G.</given-names></name><name><surname>Nannetti</surname><given-names>G.</given-names></name><name><surname>Scordo</surname><given-names>M.R.</given-names></name><name><surname>Torricelli</surname><given-names>F.</given-names></name></person-group>
+<article-title>A shifting level model algorithm that identifies aberrations in array-cgh data</article-title>
+<source/>Biostatistics
+<year>2010</year>
+<volume>11</volume>
+<fpage>265</fpage><lpage>280</lpage><pub-id pub-id-type="pmid">19948744</pub-id></element-citation>
+</ref>
+<ref id="B29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Magi</surname><given-names>A.</given-names></name><name><surname>Benelli</surname><given-names>M.</given-names></name><name><surname>Yoon</surname><given-names>S.</given-names></name><name><surname>Roviello</surname><given-names>F.</given-names></name><name><surname>Torricelli</surname><given-names>F.</given-names></name></person-group>
+<article-title>Detecting common copy number variants in high-throughput sequencing data by using jointslm algorithm</article-title>
+<source/>Nucleic Acids Res.
+<year>2011</year>
+<volume>39</volume>
+<fpage>e65</fpage><pub-id pub-id-type="pmid">21321017</pub-id></element-citation>
+</ref>
+<ref id="B30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Benelli</surname><given-names>M.</given-names></name><name><surname>Marseglia</surname><given-names>G.</given-names></name><name><surname>Nannetti</surname><given-names>G.</given-names></name><name><surname>Paravidino</surname><given-names>R.</given-names></name><name><surname>Zara</surname><given-names>F.</given-names></name><name><surname>Bricarelli</surname><given-names>F.D.</given-names></name><name><surname>Torricelli</surname><given-names>F.</given-names></name><name><surname>Magi</surname><given-names>A.</given-names></name></person-group>
+<article-title>A very fast and accurate method for calling aberrations in array-cgh data</article-title>
+<source/>Biostatistics
+<year>2010</year>
+<volume>11</volume>
+<fpage>515</fpage><lpage>518</lpage><pub-id pub-id-type="pmid">20207682</pub-id></element-citation>
+</ref>
+<ref id="B31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Clark</surname><given-names>M.J.</given-names></name><name><surname>Chen</surname><given-names>R.</given-names></name><name><surname>Lam</surname><given-names>H.Y.K.</given-names></name><name><surname>Karczewski</surname><given-names>K.J.</given-names></name><name><surname>Chen</surname><given-names>R.</given-names></name><name><surname>Euskirchen</surname><given-names>G.</given-names></name><name><surname>Butte</surname><given-names>A.J.</given-names></name><name><surname>Snyder</surname><given-names>M.</given-names></name></person-group>
+<article-title>Performance comparison of exome dna sequencing technologies</article-title>
+<source/>Nat. Biotechnol.
+<year>2011</year>
+<volume>29</volume>
+<fpage>908</fpage><lpage>914</lpage><pub-id pub-id-type="pmid">21947028</pub-id></element-citation>
+</ref>
+<ref id="B32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sulonen</surname><given-names>A-M.</given-names></name><name><surname>Ellonen</surname><given-names>P.</given-names></name><name><surname>Almusa</surname><given-names>H.</given-names></name><name><surname>Lepistö</surname><given-names>M.</given-names></name><name><surname>Eldfors</surname><given-names>S.</given-names></name><name><surname>Hannula</surname><given-names>S.</given-names></name><name><surname>Miettinen</surname><given-names>T.</given-names></name><name><surname>Tyynismaa</surname><given-names>H.</given-names></name><name><surname>Salo</surname><given-names>P.</given-names></name><name><surname>Heckman</surname><given-names>C.</given-names></name><etal></etal></person-group>
+<article-title>Comparison of solution-based exome capture methods for next generation sequencing</article-title>
+<source/>Genome Biol.
+<year>2011</year>
+<volume>12</volume>
+<fpage>R94</fpage><pub-id pub-id-type="pmid">21955854</pub-id></element-citation>
+</ref>
+<ref id="B33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Miller</surname><given-names>C.A.</given-names></name><name><surname>Hampton</surname><given-names>O.</given-names></name><name><surname>Coarfa</surname><given-names>C.</given-names></name><name><surname>Milosavljevic</surname><given-names>A.</given-names></name></person-group>
+<article-title>Readdepth: a parallel r package for detecting copy number alterations from short sequencing reads</article-title>
+<source/>PLoS One
+<year>2011</year>
+<volume>6</volume>
+<fpage>e16327</fpage><pub-id pub-id-type="pmid">21305028</pub-id></element-citation>
+</ref>
+<ref id="B34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Magi</surname><given-names>A.</given-names></name><name><surname>Tattini</surname><given-names>L.</given-names></name><name><surname>Pippucci</surname><given-names>T.</given-names></name><name><surname>Torricelli</surname><given-names>F.</given-names></name><name><surname>Benelli</surname><given-names>M.</given-names></name></person-group>
+<article-title>Read count approach for dna copy number variants detection</article-title>
+<source/>Bioinformatics
+<year>2012</year>
+<volume>28</volume>
+<fpage>470</fpage><lpage>478</lpage><pub-id pub-id-type="pmid">22199393</pub-id></element-citation>
+</ref>
+<ref id="B35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>McCarroll</surname><given-names>S.A.</given-names></name><name><surname>Kuruvilla</surname><given-names>F.G.</given-names></name><name><surname>Korn</surname><given-names>J.M.</given-names></name><name><surname>Cawley</surname><given-names>S.</given-names></name><name><surname>Nemesh</surname><given-names>J.</given-names></name><name><surname>Wysoker</surname><given-names>A.</given-names></name><name><surname>Shapero</surname><given-names>M.H.</given-names></name><name><surname>de Bakker</surname><given-names>P.I.W.</given-names></name><name><surname>Maller</surname><given-names>J.B.</given-names></name><name><surname>Kirby</surname><given-names>A.</given-names></name><etal></etal></person-group>
+<article-title>Integrated detection and population-genetic analysis of snps and copy number variation</article-title>
+<source/>Nat. Genet.
+<year>2008</year>
+<volume>40</volume>
+<fpage>1166</fpage><lpage>1174</lpage><pub-id pub-id-type="pmid">18776908</pub-id></element-citation>
+</ref>
+<ref id="B36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Conrad</surname><given-names>D.F.</given-names></name><name><surname>Pinto</surname><given-names>D.</given-names></name><name><surname>Redon</surname><given-names>R.</given-names></name><name><surname>Feuk</surname><given-names>L.</given-names></name><name><surname>Gokcumen</surname><given-names>O.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name><name><surname>Aerts</surname><given-names>J.</given-names></name><name><surname>Andrews</surname><given-names>T.D.</given-names></name><name><surname>Barnes</surname><given-names>C.</given-names></name><name><surname>Campbell</surname><given-names>P.</given-names></name><etal></etal></person-group>
+<article-title>Origins and functional impact of copy number variation in the human genome</article-title>
+<source/>Nature
+<year>2010</year>
+<volume>464</volume>
+<fpage>704</fpage><lpage>12</lpage><pub-id pub-id-type="pmid">19812545</pub-id></element-citation>
+</ref>
+<ref id="B37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Consortium</surname><given-names>T.I.H.</given-names></name></person-group>
+<article-title>Integrating common and rare genetic variation in diverse human populations</article-title>
+<source/>Nature
+<year>2010</year>
+<volume>467</volume>
+<fpage>52</fpage><lpage>58</lpage><pub-id pub-id-type="pmid">20811451</pub-id></element-citation>
+</ref>
+<ref id="B38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Balbas-Martinez</surname><given-names>C.</given-names></name><name><surname>Sagrera</surname><given-names>A.</given-names></name><name><surname>Carrillo-de Santa-Pau</surname><given-names>E.</given-names></name><name><surname>Earl</surname><given-names>J.</given-names></name><name><surname>Marquez</surname><given-names>M.</given-names></name><name><surname>Vazquez</surname><given-names>M.</given-names></name><name><surname>Lapi</surname><given-names>E.</given-names></name><name><surname>Castro-Giner</surname><given-names>F.</given-names></name><name><surname>Beltran</surname><given-names>S.</given-names></name><name><surname>Bayes</surname><given-names>M.</given-names></name><etal></etal></person-group>
+<article-title>Recurrent inactivation of stag2 in bladder cancer is not associated with aneuploidy</article-title>
+<source/>Nat. Genet.
+<year>2013</year>
+<volume>45</volume>
+<fpage>1464</fpage><lpage>U221</lpage><pub-id pub-id-type="pmid">24121791</pub-id></element-citation>
+</ref>
+<ref id="B39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Asan</surname><given-names>Y</given-names></name><name><surname>Xu</surname><given-names>H.</given-names></name><name><surname>Jiang</surname><given-names>C.</given-names></name><name><surname>Tyler-Smith</surname><given-names>Y.</given-names></name><name><surname>Xue</surname><given-names>T.</given-names></name><name><surname>Jiang</surname><given-names>J.</given-names></name><name><surname>Wang</surname><given-names>M.</given-names></name><name><surname>Wu</surname><given-names>X.</given-names></name><name><surname>Liu</surname><given-names>G.</given-names></name><name><surname>Tian</surname><given-names>J.</given-names></name><etal></etal></person-group>
+<article-title>Comprehensive comparison of three commercial human whole-exome capture platforms</article-title>
+<source/>Genome Biol.
+<year>2011</year>
+<volume>12</volume>
+<fpage>R95</fpage><pub-id pub-id-type="pmid">21955857</pub-id></element-citation>
+</ref>
+<ref id="B40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yoon</surname><given-names>S.</given-names></name><name><surname>Xuan</surname><given-names>Z.</given-names></name><name><surname>Makarov</surname><given-names>V.</given-names></name><name><surname>Ye</surname><given-names>K.</given-names></name><name><surname>Sebat</surname><given-names>J.</given-names></name></person-group>
+<article-title>Sensitive and accurate detection of copy number variants using read depth of coverage</article-title>
+<source/>Genome Res.
+<year>2009</year>
+<volume>19</volume>
+<fpage>1586</fpage><lpage>1592</lpage><pub-id pub-id-type="pmid">19657104</pub-id></element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

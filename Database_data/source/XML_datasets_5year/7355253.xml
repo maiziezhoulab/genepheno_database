@@ -1,0 +1,908 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Bioinformatics</journal-id>
+<journal-id journal-id-type="iso-abbrev">Bioinformatics</journal-id>
+<journal-id journal-id-type="publisher-id">bioinformatics</journal-id>
+<journal-title-group>
+<journal-title>Bioinformatics</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1367-4803</issn>
+<issn pub-type="epub">1367-4811</issn>
+<publisher>
+<publisher-name>Oxford University Press</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">32657361</article-id>
+<article-id pub-id-type="pmc">7355253</article-id>
+<article-id pub-id-type="doi">10.1093/bioinformatics/btaa452</article-id>
+<article-id pub-id-type="publisher-id">btaa452</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Systems Biology and Networks</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Prediction of cancer driver genes through network-based moment propagation of mutation scores</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Gumpinger</surname>
+<given-names>Anja C</given-names>
+</name>
+<xref ref-type="aff" rid="btaa452-aff1">b1</xref>
+<xref ref-type="aff" rid="btaa452-aff2">b2</xref>
+<xref ref-type="corresp" rid="btaa452-cor1"></xref>
+<!--<email>anja.gumpinger@bsse.ethz.ch</email>-->
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Lage</surname>
+<given-names>Kasper</given-names>
+</name>
+<xref ref-type="aff" rid="btaa452-aff3">b3</xref>
+<xref ref-type="aff" rid="btaa452-aff4">b4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Horn</surname>
+<given-names>Heiko</given-names>
+</name>
+<xref ref-type="aff" rid="btaa452-aff3">b3</xref>
+<xref ref-type="aff" rid="btaa452-aff4">b4</xref>
+<xref ref-type="corresp" rid="btaa452-cor1"></xref>
+<!--<email>hhorn@broadinstitute.org</email>-->
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Borgwardt</surname>
+<given-names>Karsten</given-names>
+</name>
+<xref ref-type="aff" rid="btaa452-aff1">b1</xref>
+<xref ref-type="aff" rid="btaa452-aff2">b2</xref>
+<xref ref-type="corresp" rid="btaa452-cor1"></xref>
+<!--<email>karsten.borgwardt@bsse.ethz.ch</email>-->
+</contrib>
+</contrib-group>
+<aff id="btaa452-aff1"><label>b1</label>
+<institution>Department of Biosystems Science and Engineering, Machine Learning and Computational Biology Lab, ETH Zürich</institution>, Basel 4058, <country country="CH">Switzerland</country></aff>
+<aff id="btaa452-aff2"><label>b2</label>
+<institution>SIB Swiss Institute of Bioinformatics</institution>, Lausanne 1015, <country country="CH">Switzerland</country></aff>
+<aff id="btaa452-aff3"><label>b3</label>
+<institution>Department of Surgery, Massachusetts General Hospital, Harvard Medical School</institution>, Boston, MA 02114, <country country="US">USA</country></aff>
+<aff id="btaa452-aff4"><label>b4</label>
+<institution>Broad Institute of MIT and Harvard</institution>, Cambridge, MA 02142, <country country="US">USA</country></aff>
+<author-notes>
+<corresp id="btaa452-cor1">To whom correspondence should be addressed. E-mail: <email>anja.gumpinger@bsse.ethz.ch</email> or <email>karsten.borgwardt@bsse.ethz.ch</email> or <email>hhorn@broadinstitute.org</email></corresp>
+</author-notes>
+<pub-date pub-type="ppub">
+<month>7</month>
+<year>2020</year>
+</pub-date>
+<pub-date iso-8601-date="2020-07-13" pub-type="epub">
+<day>13</day>
+<month>7</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>13</day>
+<month>7</month>
+<year>2020</year>
+</pub-date>
+<!-- PMC Release delay is 0 months and 0 days and was based on the <pub-date pub-type="epub"/>. -->
+<volume>36</volume>
+<issue>Suppl 1</issue>
+<issue-title>ISMB 2020 Proceedings</issue-title>
+<fpage>i508</fpage>
+<lpage>i515</lpage>
+<permissions>
+<copyright-statement>© The Author(s) 2020. Published by Oxford University Press.</copyright-statement>
+<copyright-year>2020</copyright-year>
+<license license-type="cc-by-nc" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">
+<license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link>), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com</license-p>
+</license>
+</permissions>
+<self-uri xlink:href="btaa452.pdf"></self-uri>
+<abstract>
+<title>Abstract</title>
+<sec id="s1">
+<title>Motivation</title>
+<p>Gaining a comprehensive understanding of the genetics underlying cancer development and progression is a central goal of biomedical research. Its accomplishment promises key mechanistic, diagnostic and therapeutic insights. One major step in this direction is the identification of genes that drive the emergence of tumors upon mutation. Recent advances in the field of computational biology have shown the potential of combining genetic summary statistics that represent the mutational burden in genes with biological networks, such as protein–protein interaction networks, to identify cancer driver genes. Those approaches superimpose the summary statistics on the nodes in the network, followed by an unsupervised propagation of the node scores through the network. However, this unsupervised setting does not leverage any knowledge on well-established cancer genes, a potentially valuable resource to improve the identification of novel cancer drivers.</p>
+</sec>
+<sec id="s2">
+<title>Results</title>
+<p>We develop a novel node embedding that enables classification of cancer driver genes in a <italic>supervised</italic> setting. The embedding combines a representation of the mutation score distribution in a node’s local neighborhood with network propagation. We leverage the knowledge of well-established cancer driver genes to define a positive class, resulting in a partially labeled dataset, and develop a cross-validation scheme to enable supervised prediction. The proposed node embedding followed by a supervised classification improves the predictive performance compared with baseline methods and yields a set of promising genes that constitute candidates for further biological validation.</p>
+</sec>
+<sec id="s3">
+<title>Availability and implementation</title>
+<p>Code available at <ext-link ext-link-type="uri" xlink:href="https://github.com/BorgwardtLab/MoProEmbeddings">https://github.com/BorgwardtLab/MoProEmbeddings</ext-link>.</p>
+</sec>
+<sec id="s5">
+<title>Supplementary information</title>
+<p>
+<xref ref-type="supplementary-material" rid="sup1">Supplementary data</xref> are available at <italic>Bioinformatics</italic> online.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>SNSF</institution>
+<institution-id institution-id-type="DOI">10.13039/501100001711</institution-id>
+</institution-wrap>
+</funding-source>
+</award-group>
+<award-group award-type="grant">
+<funding-source>
+<institution-wrap>
+<institution>Significant Pattern Mining</institution>
+</institution-wrap>
+</funding-source>
+<award-id>155913</award-id>
+</award-group>
+</funding-group>
+<counts>
+<page-count count="515"></page-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec>
+<title>1 Introduction</title>
+<p>Cancer is a disease of unchecked cellular growth, caused by genetic alterations such as mutations, copy number variations or gene fusions in so called <italic>cancer driver genes</italic>. Those alterations can modify both, the activity and cellular function of the gene, and can be classified into activating (proto-oncogenes), or loss of function (tumor suppressor genes and DNA repair genes). Identification of such cancer driver genes is one of the main goals of oncogenic research, as it facilitates mechanistic, diagnostic and therapeutic insights.</p>
+<p>Cancer genes can be identified through statistical tests that evaluate the mutational burden of the gene (e.g. <xref ref-type="bibr" rid="btaa452-B18">Kandoth <italic>et al.</italic>, 2013</xref>; <xref ref-type="bibr" rid="btaa452-B25">Leiserson <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa452-B28">Mularoni <italic>et al.</italic>, 2016</xref>). However, those analyses are complicated by the extensive mutational heterogeneity: Many genes are mutated in a small number of samples, and only few genes show significant mutation across many samples (<xref ref-type="bibr" rid="btaa452-B46">Vogelstein <italic>et al.</italic>, 2013</xref>). This phenomenon convolutes the differentiation between genes that only carry passenger mutations, and rarely mutated cancer genes. A potential explanation of this diversity in candidate genes is that genes interact in various pathways (<xref ref-type="bibr" rid="btaa452-B13">Hanahan and Weinberg, 2011</xref>) and protein complexes, and the cancerous potential of a cell is a consequence of the disruption of the pathway, but not necessarily the mutation of <italic>one</italic> specific gene within the pathway.</p>
+<p>Recent research adopted this interaction-based view on cancer biology: the combination of biological networks and summary statistics that measure each gene’s association to cancer helped the identification of novel cancer driver genes (e.g. <xref ref-type="bibr" rid="btaa452-B14">Horn <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa452-B25">Leiserson <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa452-B31">Reyna <italic>et al.</italic>, 2018</xref>). In those networks, nodes correspond to genes and edges represent relationships between the adjacent genes. There exists a vast number of biological networks, that are derived from different sources and that cover different scales. Prominent examples are co-expression networks (<xref ref-type="bibr" rid="btaa452-B48">Willsey <italic>et al.</italic>, 2013</xref>), co-dependency networks (e.g. AchillesNet; <xref ref-type="bibr" rid="btaa452-B27">Li <italic>et al.</italic>, 2018</xref>), co-evolution networks (<xref ref-type="bibr" rid="btaa452-B29">Niu <italic>et al.</italic>, 2017</xref>), metabolic pathways (<xref ref-type="bibr" rid="btaa452-B19">Kanehisa <italic>et al.</italic>, 2017</xref>) or protein–protein interaction (PPI) networks (<xref ref-type="bibr" rid="btaa452-B23">Lage <italic>et al.</italic>, 2007</xref>; <xref ref-type="bibr" rid="btaa452-B26">Li <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa452-B41">Szklarczyk <italic>et al.</italic>, 2019</xref>). Especially, PPI networks constitute an interesting representation of gene interactions, as they commonly combine information from different data sources, tissues, and molecular processes at different scales. However, those PPI networks are far from complete, and our knowledge of them is biased toward well-studied genes (<xref ref-type="bibr" rid="btaa452-B14">Horn <italic>et al.</italic>, 2018</xref>). This phenomenon is referred to as <italic>knowledge contamination</italic>: well-studied (cancer) genes have a tendency to have more connections in the networks. The potentially large impact on the interpretation of network analyses has to be considered and accounted for, as it might confound results.</p>
+<p>Methods that use networks as a representation of molecular relationships commonly start with superimposing scores on the nodes. These scores measure the marginal association of the gene to the disease of interest. A prominent choice to represent each gene’s association to cancer is the MutSig <italic>P</italic>-value (<xref ref-type="bibr" rid="btaa452-B24">Lawrence <italic>et al.</italic>, 2014</xref>): it is a meta-<italic>P</italic>-value describing whether there is a statistically significant difference in (i) the mutational burden, (ii) the clustering of mutations and (iii) the functional impact of mutations in a gene between healthy and cancer tissues. A plethora of methods has been developed to analyze such gene scores in combination with network information to identify altered subnetworks of genes within the original network. They can be broadly categorized into clustering methods, that aim to find modules of associated genes that cluster together in a network (e.g. <xref ref-type="bibr" rid="btaa452-B16">Jia <italic>et al.</italic>, 2011</xref>; <xref ref-type="bibr" rid="btaa452-B32">Rossin <italic>et al.</italic>, 2011</xref>) and methods that use network diffusion or network propagation (reviewed in <xref ref-type="bibr" rid="btaa452-B6">Cowen <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa452-B31">Reyna <italic>et al.</italic>, 2018</xref>) to detect altered subnetworks. Both types of methods underlie the common paradigm that genes influencing the same phenotype interact within a network. Especially network propagation methods have shown success in identifying novel cancer driver genes (<xref ref-type="bibr" rid="btaa452-B15">Hristov <italic>et al.</italic>, 2020</xref>; <xref ref-type="bibr" rid="btaa452-B25">Leiserson <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa452-B31">Reyna <italic>et al.</italic>, 2018</xref>; <xref ref-type="bibr" rid="btaa452-B33">Ruffalo <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa452-B43">Vandin <italic>et al.</italic>, 2011</xref>, <xref ref-type="bibr" rid="btaa452-B44">2012</xref>). However, network propagation methods exploit by construction the flow of information between genes along paths, and the longer the paths are, the more information gets diluted. This complicates the detection of cancer genes that do not lie on short paths between other cancer genes.</p>
+<p>Another approach that has proven successful and does not leverage this assumption is <italic>NetSig</italic>. It identifies cancer genes based solely on the local neighborhood of genes in a network (<xref ref-type="bibr" rid="btaa452-B14">Horn <italic>et al.</italic>, 2018</xref>). At its core lies the computation of an empirical <italic>P</italic>-value for each gene that describes the aggregation of genes with low MutSig <italic>P</italic>-values in the direct neighborhood. Due to knowledge contamination, the size of a gene’s local neighborhood is affecting the NetSig statistic. To circumvent this, NetSig implements various permutation schemes that take the node degree into account, thereby correcting for this bias.</p>
+<p>Although the aforementioned methods showed great success in many biomedical applications (<xref ref-type="bibr" rid="btaa452-B6">Cowen <italic>et al.</italic>, 2017</xref>), including the discovery of novel cancer genes, they approach the task of gene identification from an unsupervised perspective. However, there exists knowledge on well-established cancer genes (e.g <xref ref-type="bibr" rid="btaa452-B38">Sondka <italic>et al.</italic>, 2018</xref>), an important layer of additional information that has, to the best of our knowledge, only been leveraged in few methods for the prediction of cancer driver genes, namely Bayesian modeling (<xref ref-type="bibr" rid="btaa452-B34">Sanchez-Garcia <italic>et al.</italic>, 2014</xref>) and unsupervised network propagation (<xref ref-type="bibr" rid="btaa452-B15">Hristov <italic>et al.</italic>, 2020</xref>). In most cases, well-established cancer genes are only used to validate the importance and correctness of findings from new methods as a post-processing step. It seems to be an interesting approach to reformulate the task of identifying novel cancer genes as a supervised problem, and learning by exploiting <italic>what we already know</italic>.</p>
+<p>Herein, we propose a novel approach to classify cancer genes in a supervised manner, leveraging the cancer gene annotations from the Cancer Gene Census (CGC) in the COSMIC database (<xref ref-type="bibr" rid="btaa452-B38">Sondka <italic>et al.</italic>, 2018</xref>). We achieve this by formulating the problem of finding novel cancer driver genes as a node-classification problem in an interaction network. The heart of our contribution is a novel embedding of nodes in the network based on the distributions of node-features in <italic>k</italic>-hop neighborhoods, coupled with a network propagation. We combine the InWeb PPI network (<xref ref-type="bibr" rid="btaa452-B23">Lage <italic>et al.</italic>, 2007</xref>; <xref ref-type="bibr" rid="btaa452-B26">Li <italic>et al.</italic>, 2017</xref>) with MutSig <italic>P</italic>-values (<xref ref-type="bibr" rid="btaa452-B24">Lawrence <italic>et al.</italic>, 2014</xref>), and the CGC genes, resulting in an imbalanced dataset due to the low number of known cancer genes compared with the gene corpus. To address this, we develop a cross-validation scheme that enables the supervised prediction of cancer driver genes with a set of classifiers. We compare our approach against both, supervised and unsupervised baselines, and show an improvement with respect to all classification metrics. Last, we evaluate the resulting set of high confidence novel cancer driver candidate genes and find strong links between the predictions and cancer. The list includes known tumor suppressors such as GATA4 (<xref ref-type="bibr" rid="btaa452-B1">Agnihotri <italic>et al.</italic>, 2011</xref>), genes known to be affected by recurrent rearrangements FOS (<xref ref-type="bibr" rid="btaa452-B9">Fittall <italic>et al.</italic>, 2018</xref>) as well as genes known to be involved in tumor relevant pathways ID2 (<xref ref-type="bibr" rid="btaa452-B20">Kijewska <italic>et al.</italic>, 2019</xref>), MYLK (<xref ref-type="bibr" rid="btaa452-B2">Avizienyte <italic>et al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="btaa452-B7">Cui <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa452-B49">Zhou <italic>et al.</italic>, 2008</xref>), RALA (<xref ref-type="bibr" rid="btaa452-B36">Seibold <italic>et al.</italic>, 2019</xref>).</p>
+</sec>
+<sec>
+<title>2 Materials and methods</title>
+<p>Before we present our novel node embedding procedure, we start by introducing the notation used in this Section, and formally state the problem at hand.</p>
+<sec>
+<title>2.1 Notation and problem statement</title>
+<p>Consider a PPI network that describes interactions between genes. We can represent this interaction network as a graph <inline-formula id="IE1"><mml:math id="IM1"><mml:mi mathvariant="script">G</mml:mi></mml:math></inline-formula>, where the <italic>n</italic> nodes correspond to the genes, and the <italic>m</italic> edges correspond to interactions between genes. We denote the vertex-set as <italic>V</italic>, and the edge set as <italic>E</italic>. We denote an edge between two nodes <inline-formula id="IE2"><mml:math id="IM2"><mml:mrow><mml:mi>u</mml:mi><mml:mo>,</mml:mo><mml:mi>v</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:math></inline-formula> as <italic>e</italic>(<italic>u</italic>, <italic>v</italic>), and assume a weighting function <inline-formula id="IE3"><mml:math id="IM3"><mml:mrow><mml:mo>ω</mml:mo><mml:mo>:</mml:mo><mml:mi>V</mml:mi><mml:mo>×</mml:mo><mml:mi>V</mml:mi><mml:mo>→</mml:mo><mml:mo stretchy="false">[</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="false">]</mml:mo></mml:mrow></mml:math></inline-formula> that assigns each pair of nodes in the network a value between 0 and 1, such that <inline-formula id="IE4"><mml:math id="IM4"><mml:mrow><mml:mo>ω</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>u</mml:mi><mml:mo>,</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>&gt;</mml:mo><mml:mn>0</mml:mn><mml:mo>⇔</mml:mo><mml:mi>e</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>u</mml:mi><mml:mo>,</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:mi>E</mml:mi></mml:mrow></mml:math></inline-formula>. In the case of a weighted network, the function <italic>ω</italic> might correspond to confidence scores of edges, in the case on an unweighted network, <italic>ω</italic> is a binary indicator. Additionally, we assume the existence of a <italic>d</italic>-dimensional feature representation for every vertex <inline-formula id="IE5"><mml:math id="IM5"><mml:mrow><mml:mi>v</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:math></inline-formula>, denoted by <inline-formula id="IE6"><mml:math id="IM6"><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>v</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mi>d</mml:mi></mml:msup></mml:mrow></mml:math></inline-formula> or in matrix notation by <inline-formula id="IE7"><mml:math id="IM7"><mml:mrow><mml:mi>X</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mo>×</mml:mo><mml:mi>d</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>. We write the graph as <inline-formula id="IE8"><mml:math id="IM8"><mml:mrow><mml:mi mathvariant="script">G</mml:mi><mml:mo>=</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>V</mml:mi><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mi>X</mml:mi><mml:mo>,</mml:mo><mml:mo>ω</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>.</p>
+<p>We define the <italic>k</italic>-hop neighborhood of a vertex <inline-formula id="IE9"><mml:math id="IM9"><mml:mrow><mml:mi>v</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:math></inline-formula> as the set of all genes that can be reached from <italic>v</italic> along at least <italic>k</italic> edges. This can be expressed recursively as
+<disp-formula id="E1"><label>(1)</label><mml:math id="M1"><mml:mrow><mml:mrow><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo>=</mml:mo><mml:mo>{</mml:mo><mml:mi>u</mml:mi><mml:mo> </mml:mo><mml:mo>|</mml:mo><mml:mo> </mml:mo></mml:mrow><mml:mrow><mml:mi>e</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>w</mml:mi><mml:mo>,</mml:mo><mml:mi>u</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo>∀</mml:mo><mml:mi>w</mml:mi><mml:mo>∈</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msubsup><mml:mo>,</mml:mo></mml:mrow><mml:mrow></mml:mrow><mml:mo> </mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo><mml:mrow><mml:mi>u</mml:mi><mml:mo>∉</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mi>l</mml:mi></mml:msubsup><mml:mo> </mml:mo><mml:mo>∀</mml:mo><mml:mo> </mml:mo><mml:mi>l</mml:mi><mml:mo>∈</mml:mo><mml:mo>{</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>..</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mo>}</mml:mo><mml:mo>}</mml:mo><mml:mo>,</mml:mo></mml:mrow></mml:mrow></mml:math></disp-formula>where <inline-formula id="IE10"><mml:math id="IM10"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mn>0</mml:mn></mml:msubsup><mml:mo>=</mml:mo><mml:mi>v</mml:mi></mml:mrow></mml:math></inline-formula> (see <xref ref-type="fig" rid="btaa452-F1">Fig. 1a</xref> for visualization of one- and two-hop neighborhoods).
+</p>
+<fig id="btaa452-F1" orientation="portrait" position="float">
+<label>Fig. 1.</label>
+<caption>
+<p>Illustration of moment propagation embeddings for node feature <italic>i</italic>. (a) Computation of moment embedding <inline-formula id="IE11"><mml:math id="IM11"><mml:mrow><mml:msubsup><mml:mo>η</mml:mo><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> for vertex <italic>v</italic> and <italic>k </italic>=<italic> </italic>2. Blue nodes indicate the one-hop, orange nodes the two-hop neighborhood. Moments of the distributions <inline-formula id="IE12"><mml:math id="IM12"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">P</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mn>1</mml:mn></mml:msubsup></mml:mrow></mml:math></inline-formula> and <inline-formula id="IE13"><mml:math id="IM13"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">P</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math></inline-formula> that describe the values of feature <italic>i</italic> in the one- and two-hop neighborhood of vertex <italic>v</italic> are computed and aggregated. (<bold>b</bold>) Computation of propagation embedding: The node representation is updated by aggregating over all nodes in its one-hop neighborhood. (<bold>c</bold>) Two paths <italic>q</italic><sub>1</sub> and <italic>q</italic><sub>2</sub> connect root vertex <italic>v</italic> with its two-hop neighbor <italic>u</italic></p>
+</caption>
+<graphic xlink:href="btaa452f1"></graphic>
+</fig>
+<sec>
+<title> </title>
+<p> </p>
+<sec>
+<title>Problem statement</title>
+<p>We assume a partially labeled, one-class setting in which we have a positive label <italic>l</italic><sub>1</sub> for a subset <italic>V<sub>l</sub></italic> of the nodes, but the majority of the nodes are unlabeled, denoted by the set <italic>V<sub>u</sub></italic>. Our goal is to develop a node embedding <inline-formula id="IE14"><mml:math id="IM14"><mml:mrow><mml:msub><mml:mo>γ</mml:mo><mml:mi mathvariant="script">G</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> based on the feature representation <italic>X</italic> of all vertices <inline-formula id="IE15"><mml:math id="IM15"><mml:mrow><mml:mi>v</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:math></inline-formula> and the network <inline-formula id="IE16"><mml:math id="IM16"><mml:mi mathvariant="script">G</mml:mi></mml:math></inline-formula> that, in combination with a binary classifier <italic>C</italic>, enables the decision of whether any unlabeled node <inline-formula id="IE17"><mml:math id="IM17"><mml:mrow><mml:mi>u</mml:mi><mml:mo>∈</mml:mo><mml:msub><mml:mi>V</mml:mi><mml:mi>u</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> belongs to the class <italic>l</italic><sub>1</sub>. That is <inline-formula id="IE18"><mml:math id="IM18"><mml:mrow><mml:mi>C</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mo>γ</mml:mo><mml:mi mathvariant="script">G</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mi mathvariant="script">P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>, where <italic>y<sub>v</sub></italic> denotes the label of node <italic>v</italic>.</p>
+<p>More specifically, our goal is to develop a node embedding that serves as input for the supervised, binary classification task of identifying cancer driver genes. It is based on the integration of a PPI network with scores that measure the marginal association of each gene to cancer, when those scores are superimposed on the nodes in the network.</p>
+</sec>
+</sec>
+</sec>
+<sec>
+<title>2.2 Generation of node embeddings for the prediction of cancer driver genes</title>
+<p>The node embeddings proposed in this article are based on two different concepts. The first one is the representation of each node as a distribution across its neighbors’ feature vectors. It is motivated by the success of methods such as NetSig (<xref ref-type="bibr" rid="btaa452-B14">Horn <italic>et al.</italic>, 2018</xref>) that focus on the local neighborhood of nodes in the network. However, we extend this idea in three directions: (i) we do not restrict ourselves to one-hop neighborhoods, (ii) we condense the distributions into their <italic>moments</italic>, resulting in a concise and computationally efficient representation and (iii) we integrate edge weights into the approach. This moment representation addresses the knowledge-bias in the network, as the description of a distribution via its moments is independent of the number of draws from that distribution. The second concept is a Weisfeiler–Lehman like (<xref ref-type="bibr" rid="btaa452-B151">Weisfeiler and Lehmann, 1968</xref>; <xref ref-type="bibr" rid="btaa452-B37">Shervashidze <italic>et al.</italic>, 2011</xref>) aggregation of local features, that is an iterative combination of features from a node’s local neighborhood. It is similar to the network propagation approaches described in <xref ref-type="bibr" rid="btaa452-B6">Cowen <italic>et al.</italic> (2017)</xref>, and is widely used in methods such as hierarchical HotNet (<xref ref-type="bibr" rid="btaa452-B31">Reyna <italic>et al.</italic>, 2018</xref>) and its earlier versions (<xref ref-type="bibr" rid="btaa452-B25">Leiserson <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa452-B44">Vandin <italic>et al.</italic>, 2012</xref>), but also in graph convolutional networks (e.g. <xref ref-type="bibr" rid="btaa452-B10">Gilmer <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa452-B21">Kipf and Welling, 2016</xref>), where different regimes for aggregation over local neighborhoods are being actively researched.</p>
+<sec>
+<title>2.2.1 Embedding genes using moments of local neighborhood distributions</title>
+<p>Each node <inline-formula id="IE19"><mml:math id="IM19"><mml:mrow><mml:mi>v</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:math></inline-formula> in the network is represented by its <italic>d</italic>-dimensional feature vector <inline-formula id="IE20"><mml:math id="IM20"><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>v</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mi>d</mml:mi></mml:msup></mml:mrow></mml:math></inline-formula>, and we denote the <italic>i</italic>th feature by <inline-formula id="IE21"><mml:math id="IM21"><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula>. The moment embeddings described in this section are computed for each of the <italic>d</italic> features identically and independently, and eventually stacked together. We assume the existence of a probability distribution <inline-formula id="IE22"><mml:math id="IM22"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">P</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup></mml:mrow></mml:math></inline-formula> that generates the <italic>i</italic>th feature for all nodes in the <italic>k</italic>-hop neighborhood of node <italic>v</italic>. That is, the <italic>i</italic>th feature values of <italic>k</italic>-hop neighbors of <italic>v</italic> constitute draws from this distribution, <inline-formula id="IE23"><mml:math id="IM23"><mml:mrow><mml:mo>∀</mml:mo><mml:mi>u</mml:mi><mml:mo>∈</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo>:</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>u</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>∼</mml:mo><mml:msubsup><mml:mi mathvariant="script">P</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup></mml:mrow></mml:math></inline-formula>. We create an embedding for every vertex <italic>v</italic> that is based on a concise description of the distributions <inline-formula id="IE24"><mml:math id="IM24"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">P</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup></mml:mrow></mml:math></inline-formula> for <inline-formula id="IE25"><mml:math id="IM25"><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>..</mml:mn><mml:mo>,</mml:mo><mml:mi>d</mml:mi></mml:mrow></mml:math></inline-formula>, and hyperparameter <inline-formula id="IE26"><mml:math id="IM26"><mml:mrow><mml:mi>k</mml:mi><mml:mo>∈</mml:mo><mml:msub><mml:mo>ℕ</mml:mo><mml:mo>+</mml:mo></mml:msub></mml:mrow></mml:math></inline-formula>. For this, we start by defining a function <inline-formula id="IE27"><mml:math id="IM27"><mml:mrow><mml:mover accent="true"><mml:mi>ν</mml:mi><mml:mo>¯</mml:mo></mml:mover><mml:mo stretchy="false">(</mml:mo><mml:mi>X</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> that maps a scalar random variable <inline-formula id="IE28"><mml:math id="IM28"><mml:mrow><mml:mi>X</mml:mi><mml:mo>∼</mml:mo><mml:mi mathvariant="script">P</mml:mi></mml:mrow></mml:math></inline-formula> to its first four moments, that is:
+<disp-formula id="E2"><label>(2)</label><mml:math id="M2"><mml:mrow><mml:mover accent="true"><mml:mi>ν</mml:mi><mml:mo>¯</mml:mo></mml:mover><mml:mo stretchy="false">(</mml:mo><mml:mi>X</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mrow><mml:mo stretchy="false">[</mml:mo><mml:mrow><mml:msub><mml:mi mathvariant="double-struck">E</mml:mi><mml:mi>X</mml:mi></mml:msub><mml:mo stretchy="false">[</mml:mo><mml:mi>X</mml:mi><mml:mo stretchy="false">]</mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:msub><mml:mi mathvariant="double-struck">E</mml:mi><mml:mi>X</mml:mi></mml:msub><mml:mo stretchy="false">[</mml:mo><mml:msup><mml:mi>X</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo stretchy="false">]</mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:msub><mml:mi mathvariant="double-struck">E</mml:mi><mml:mi>X</mml:mi></mml:msub><mml:mo stretchy="false">[</mml:mo><mml:msup><mml:mi>X</mml:mi><mml:mn>3</mml:mn></mml:msup><mml:mo stretchy="false">]</mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:msub><mml:mi mathvariant="double-struck">E</mml:mi><mml:mi>X</mml:mi></mml:msub><mml:mo stretchy="false">[</mml:mo><mml:msup><mml:mi>X</mml:mi><mml:mn>4</mml:mn></mml:msup><mml:mo stretchy="false">]</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo stretchy="false">]</mml:mo></mml:mrow><mml:mo>.</mml:mo></mml:mrow></mml:math></disp-formula></p>
+<p>In practice, the expectations in <xref ref-type="disp-formula" rid="E2">Equation (2)</xref> can be replaced with the sample mean <inline-formula id="IE29"><mml:math id="IM29"><mml:mrow><mml:mo>μ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>, variance <inline-formula id="IE30"><mml:math id="IM30"><mml:mrow><mml:mo>σ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>, skewness <inline-formula id="IE31"><mml:math id="IM31"><mml:mrow><mml:mo>ξ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> and kurtosis <inline-formula id="IE32"><mml:math id="IM32"><mml:mrow><mml:mo>κ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> and applied to a realization of the random variable <italic>X</italic>, denoted by <inline-formula id="IE33"><mml:math id="IM33"><mml:mrow><mml:mi mathvariant="bold-italic">x</mml:mi><mml:mo>=</mml:mo><mml:mo stretchy="false">[</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>q</mml:mi></mml:msub><mml:mo stretchy="false">]</mml:mo></mml:mrow></mml:math></inline-formula>. We write this function as
+<disp-formula id="E3"><label>(3)</label><mml:math id="M3"><mml:mrow><mml:mo>ν</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="bold-italic">x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mrow><mml:mo stretchy="false">[</mml:mo><mml:mrow><mml:mo>μ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="bold-italic">x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo>σ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="bold-italic">x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo>ξ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="bold-italic">x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo>κ</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="bold-italic">x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo stretchy="false">]</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula>and call it a <italic>moment embedding function</italic>. For a vertex <italic>v</italic>, we denote with <inline-formula id="IE34"><mml:math id="IM34"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">X</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup></mml:mrow></mml:math></inline-formula> the values of the <italic>i</italic>th feature of vertices in the <italic>k</italic>-hop neighborhood of <italic>v</italic>, i.e. <inline-formula id="IE35"><mml:math id="IM35"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">X</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:mo>=</mml:mo><mml:mo>{</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>u</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo> </mml:mo><mml:mo>|</mml:mo><mml:mo> </mml:mo><mml:mi>u</mml:mi><mml:mo>∈</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo>}</mml:mo></mml:mrow></mml:math></inline-formula>. Those values constitute a draw from the distribution <inline-formula id="IE36"><mml:math id="IM36"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">P</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup></mml:mrow></mml:math></inline-formula>. We describe the node embedding of vertex <italic>v</italic> with respect to feature <italic>i</italic> by applying the function <inline-formula id="IE37"><mml:math id="IM37"><mml:mrow><mml:mo>ν</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> up to its <italic>k</italic>-hop neighborhoods, that is
+<disp-formula id="E4"><label>(4)</label><mml:math id="M4"><mml:mrow><mml:msubsup><mml:mo>η</mml:mo><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mrow><mml:mo stretchy="false">[</mml:mo><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo>ν</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:msubsup><mml:mi mathvariant="script">X</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mn>1</mml:mn></mml:msubsup><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo>ν</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:msubsup><mml:mi mathvariant="script">X</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo stretchy="false">]</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula></p>
+<p>The value <italic>k</italic> is a hyperparameter of the embedding that indicates the maximum neighborhood to be included (see <xref ref-type="fig" rid="btaa452-F1">Fig. 1a</xref> for an example of the node embeddings). The moment embedding <inline-formula id="IE38"><mml:math id="IM38"><mml:mrow><mml:msubsup><mml:mo>η</mml:mo><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:msubsup></mml:mrow></mml:math></inline-formula> is a function that creates a representation of every vertex <inline-formula id="IE39"><mml:math id="IM39"><mml:mrow><mml:mi>v</mml:mi><mml:mo>∈</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:math></inline-formula> by describing its <italic>k</italic>-hop neighborhoods with respect to a scalar feature indexed by <italic>i</italic>, such that <inline-formula id="IE40"><mml:math id="IM40"><mml:mrow><mml:msubsup><mml:mo>η</mml:mo><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:mn>4</mml:mn><mml:mi>k</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>. This function can be applied to each of the <italic>d</italic> node features separately, and the resulting representations are stacked to give
+<disp-formula id="E5"><label>(5)</label><mml:math id="M5"><mml:msup><mml:mo>η</mml:mo><mml:mi>k</mml:mi></mml:msup><mml:mo>(</mml:mo><mml:mi>v</mml:mi><mml:mo>)</mml:mo><mml:mo>=</mml:mo><mml:msup><mml:mrow><mml:mo>[</mml:mo><mml:mrow><mml:msubsup><mml:mo>η</mml:mo><mml:mn>1</mml:mn><mml:mi>k</mml:mi></mml:msubsup><mml:mo>(</mml:mo><mml:mi>v</mml:mi><mml:mo>)</mml:mo><mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:msubsup><mml:mo>η</mml:mo><mml:mi>d</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo>(</mml:mo><mml:mi>v</mml:mi><mml:mo>)</mml:mo></mml:mrow><mml:mo>]</mml:mo></mml:mrow><mml:mi>T</mml:mi></mml:msup><mml:mo>.</mml:mo></mml:math></disp-formula></p>
+<p>This results in the moment embedding function <inline-formula id="IE41"><mml:math id="IM41"><mml:mrow><mml:msup><mml:mo>η</mml:mo><mml:mi>k</mml:mi></mml:msup><mml:mo>:</mml:mo><mml:mi>V</mml:mi><mml:mo>→</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mrow><mml:mi>d</mml:mi><mml:mo>×</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:mn>4</mml:mn><mml:mi>k</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>.</p>
+</sec>
+<sec>
+<title>2.2.2 Embeddings using network propagation</title>
+<p>The second type of node embeddings is based on a Weisfeiler–Lehman like aggregation of nodes in the neighborhood with continuous node features. In this procedure, the representation of every node is simultaneously updated based on the representations of the node’s direct neighborhood (see <xref ref-type="fig" rid="btaa452-F1">Fig. 1b</xref> for an example). That is, given an initial feature representation <italic>x<sub>v</sub></italic> of vertex <italic>v</italic>, it is represented as
+<disp-formula id="E6"><label>(6)</label><mml:math id="M6"><mml:mrow><mml:msubsup><mml:mi>x</mml:mi><mml:mi>v</mml:mi><mml:mi>t</mml:mi></mml:msubsup><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:mo>|</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mn>1</mml:mn></mml:msubsup><mml:mo>|</mml:mo></mml:mrow></mml:mfrac><mml:msub><mml:mo>∑</mml:mo><mml:mrow><mml:mi>v</mml:mi><mml:mo>′</mml:mo><mml:mo>∈</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mn>1</mml:mn></mml:msubsup></mml:mrow></mml:msub><mml:mrow><mml:msubsup><mml:mi>x</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>′</mml:mo></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msubsup></mml:mrow></mml:mrow></mml:math></disp-formula>at the <italic>t</italic>th Weisfeiler–Lehman iteration. This aggregation corresponds to the element-wise mean across a node’s one-hop neighborhood, and can be used to generate node embeddings by stacking the representations for <italic>t</italic> iterations as follows:
+<disp-formula id="E7"><label>(7)</label><mml:math id="M7"><mml:mrow><mml:msup><mml:mo>ρ</mml:mo><mml:mi>t</mml:mi></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mo stretchy="false">[</mml:mo><mml:msubsup><mml:mi>x</mml:mi><mml:mi>v</mml:mi><mml:mn>0</mml:mn></mml:msubsup><mml:mo>,</mml:mo><mml:msubsup><mml:mi>x</mml:mi><mml:mi>v</mml:mi><mml:mn>1</mml:mn></mml:msubsup><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msubsup><mml:mi>x</mml:mi><mml:mi>v</mml:mi><mml:mi>t</mml:mi></mml:msubsup><mml:mo stretchy="false">]</mml:mo><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula>and <inline-formula id="IE42"><mml:math id="IM42"><mml:mrow><mml:msup><mml:mo>ρ</mml:mo><mml:mi>t</mml:mi></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>:</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mi>d</mml:mi></mml:msup><mml:mo>→</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:mi>t</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>×</mml:mo><mml:mi>d</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>. The number <italic>t</italic> of iterations of this propagation scheme is treated as a hyperparameter that can be tuned during learning.</p>
+</sec>
+<sec>
+<title>2.2.3 Combining moment and propagation embeddings to represent genes in a network</title>
+<p>Here, we propose a combination of the two concepts introduced above, and call the resulting node embedding a <italic>moment propagation embedding</italic>, short <italic>MoPro</italic> embedding. It corresponds to a composition of the moment embeddings <italic>η<sup>k</sup></italic> and the propagation embedding <italic>ρ<sup>t</sup></italic> above, and can be written as:
+<disp-formula id="E8"><label>(8)</label><mml:math id="M8"><mml:mrow><mml:msub><mml:mo>γ</mml:mo><mml:mrow><mml:mi>t</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mo>ρ</mml:mo><mml:mi>t</mml:mi></mml:msup><mml:mo>°</mml:mo><mml:msup><mml:mo>η</mml:mo><mml:mi>k</mml:mi></mml:msup><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>.</mml:mo></mml:mrow></mml:math></disp-formula></p>
+<p>This function first creates the moment embedding from the feature vector <italic>x<sub>v</sub></italic> of a vertex <italic>v</italic>, and continues to propagate this representation of the local neighborhoods through the network. As the combination of both functions, it maps the original feature representations of the vertices to a higher dimensional space as follows: <inline-formula id="IE43"><mml:math id="IM43"><mml:msub><mml:mo>γ</mml:mo><mml:mrow><mml:mi>t</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>:</mml:mo><mml:mi>V</mml:mi><mml:mo>→</mml:mo><mml:msup><mml:mo mathvariant="double-struck">ℝ</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:mi>t</mml:mi><mml:mo>)</mml:mo><mml:mo>(</mml:mo><mml:mn>1</mml:mn><mml:mo>+</mml:mo><mml:mn>4</mml:mn><mml:mi>k</mml:mi><mml:mo>)</mml:mo><mml:mo>×</mml:mo><mml:mi>d</mml:mi></mml:mrow></mml:msup></mml:math></inline-formula>.</p>
+</sec>
+<sec>
+<title>2.2.4 Extension to networks with weighted edges</title>
+<p>If a non-binary weighting function <italic>ω</italic> exists, i.e. the edges in the network are weighted and weights can for instance represent confidence scores, we can incorporate this layer of information into our approach: for every edge in the network, the value of the weighting function is non-zero, that is <inline-formula id="IE44"><mml:math id="IM44"><mml:mrow><mml:mo>∀</mml:mo><mml:mi>e</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo>,</mml:mo><mml:mi>u</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:mi>E</mml:mi><mml:mo>:</mml:mo><mml:mo> </mml:mo><mml:mo>ω</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo>,</mml:mo><mml:mi>u</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="false">]</mml:mo></mml:mrow></mml:math></inline-formula>, with 1 indicating the highest confidence. These weights can be used to distribute importance of neighbors in a local neighborhood by rescaling the node-features in the moment embedding. This rescaling is done for each feature <italic>i</italic> separately, such that the values of features <italic>i</italic> in the <italic>k</italic>-hop neighborhood of node <italic>v</italic> become
+<disp-formula id="E9"><label>(9)</label><mml:math id="M9"><mml:mrow><mml:msubsup><mml:mi mathvariant="script">X</mml:mi><mml:mrow><mml:mi>v</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mtext>weight</mml:mtext></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:mo>{</mml:mo><mml:mi>f</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>u</mml:mi><mml:mo>:</mml:mo><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mo>ω</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo>,</mml:mo><mml:mi>u</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo> </mml:mo><mml:mo>|</mml:mo><mml:mo> </mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>u</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msubsup><mml:mi mathvariant="script">N</mml:mi><mml:mi>v</mml:mi><mml:mi>k</mml:mi></mml:msubsup><mml:mo>,</mml:mo><mml:mo>}</mml:mo></mml:mrow></mml:math></disp-formula>with a problem-specific weighting-function <inline-formula id="IE45"><mml:math id="IM45"><mml:mrow><mml:mi>f</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>. For <italic>k</italic>-hop neighbors <italic>u</italic> of <italic>v</italic> with <italic>k </italic>&gt;<italic> </italic>1 the weight <inline-formula id="IE46"><mml:math id="IM46"><mml:mrow><mml:mo>ω</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>u</mml:mi><mml:mo>,</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> is zero by definition. Hence, we compute it in the following three-step process, and denote it as <inline-formula id="IE47"><mml:math id="IM47"><mml:mrow><mml:msup><mml:mo>ω</mml:mo><mml:mi>k</mml:mi></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mi>u</mml:mi><mml:mo>,</mml:mo><mml:mi>v</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>: (i) First, we enumerate all paths of length <italic>k</italic> between <italic>v</italic> and <italic>u</italic>, denoted by the set <inline-formula id="IE48"><mml:math id="IM48"><mml:mrow><mml:msup><mml:mi mathvariant="script">Q</mml:mi><mml:mi>k</mml:mi></mml:msup></mml:mrow></mml:math></inline-formula>, and individual paths in <inline-formula id="IE49"><mml:math id="IM49"><mml:mrow><mml:msup><mml:mi mathvariant="script">Q</mml:mi><mml:mi>k</mml:mi></mml:msup></mml:mrow></mml:math></inline-formula> are denoted as <inline-formula id="IE50"><mml:math id="IM50"><mml:mrow><mml:msub><mml:mi>q</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo>,</mml:mo><mml:mi>u</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> (see <xref ref-type="fig" rid="btaa452-F1">Fig. 1c</xref>). (ii) Second, we compute the weight of each path in <inline-formula id="IE51"><mml:math id="IM51"><mml:mrow><mml:msup><mml:mi mathvariant="script">Q</mml:mi><mml:mi>k</mml:mi></mml:msup></mml:mrow></mml:math></inline-formula> as the product of its <italic>k</italic> edge weights and (iii) third we compute the weight <inline-formula id="IE52"><mml:math id="IM52"><mml:mrow><mml:msup><mml:mo>ω</mml:mo><mml:mi>k</mml:mi></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mo>,</mml:mo><mml:mi>u</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> as a function on the set of path weights, <inline-formula id="IE53"><mml:math id="IM53"><mml:mrow><mml:mi>g</mml:mi><mml:mo>:</mml:mo><mml:msup><mml:mrow><mml:mo stretchy="false">[</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="false">]</mml:mo></mml:mrow><mml:mrow><mml:mo>|</mml:mo><mml:msup><mml:mi mathvariant="script">Q</mml:mi><mml:mi>k</mml:mi></mml:msup><mml:mo>|</mml:mo></mml:mrow></mml:msup><mml:mo>→</mml:mo><mml:mo>ℝ</mml:mo></mml:mrow></mml:math></inline-formula>. We treat this function <inline-formula id="IE54"><mml:math id="IM54"><mml:mrow><mml:mi>g</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> as a hyperparameter, and use either <inline-formula id="IE55"><mml:math id="IM55"><mml:mrow><mml:mi>g</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mtext>max</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> or <inline-formula id="IE56"><mml:math id="IM56"><mml:mrow><mml:mi>g</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mtext>mean</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>.</p>
+</sec>
+</sec>
+</sec>
+<sec>
+<title>3 Results</title>
+<sec>
+<title>3.1 Dataset description</title>
+<p>In order to find novel cancer driver genes, we combine data from a The Cancer Genome Atlas (TCGA) pan-cancer study of 9 423 tumor exomes (comprising all 33 of TCGA projects; <xref ref-type="bibr" rid="btaa452-B3">Bailey <italic>et al.</italic>, 2018</xref>) with the well-established InBio Map PPI network (<xref ref-type="bibr" rid="btaa452-B23">Lage <italic>et al.</italic>, 2007</xref>; <xref ref-type="bibr" rid="btaa452-B26">Li <italic>et al.</italic>, 2017</xref>). The network constitutes our view of interactions between genes on a protein level. The network has an average degree of 61.02 (±128.33), and the sizes of the <italic>k</italic>-hop neighborhoods are illustrated in <xref ref-type="fig" rid="btaa452-F2">Figure 2a</xref>. We represent each node in the network with its −log<sub>10</sub> transformed MutSig <italic>P</italic>-value (<xref ref-type="bibr" rid="btaa452-B24">Lawrence <italic>et al.</italic>, 2014</xref>). Those <italic>P</italic>-values measure whether a gene shows significantly different mutational patterns in tumor versus normal tissues. In total, we have access to <italic>P</italic>-values for 18 154 genes. As a pre-processing step, we remove all nodes from the network that cannot be represented with a MutSig <italic>P</italic>-value, as well as all isolated nodes. This results in a total of 11 449 genes that are present in the InBio Map network, are connected to at least one other node and have been tested with the MutSig tool. Those constitute our candidates for network-based prediction of cancer driver genes.
+</p>
+<fig id="btaa452-F2" orientation="portrait" position="float">
+<label>Fig. 2.</label>
+<caption>
+<p>Dataset description: (<bold>a</bold>) the distribution of neighborhood sizes, for neighborhoods defined as in <xref ref-type="disp-formula" rid="E1">Equation (1)</xref>, for <inline-formula id="IE57"><mml:math id="IM57"><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mn>3</mml:mn></mml:mrow></mml:math></inline-formula>. (<bold>b</bold>) The distribution of the node degree, shown for 635 cancer genes and 10 816 unlabeled genes. (<bold>c</bold>) The distribution of the MutSig <italic>P</italic>-values, in cancer genes and unlabeled genes. (<bold>d</bold>) The correlation between the degree and the MutSig <italic>P</italic>-values for cancer genes and for unlabeled genes</p>
+</caption>
+<graphic xlink:href="btaa452f2"></graphic>
+</fig>
+<sec>
+<title> </title>
+<p> </p>
+<sec>
+<title>Class labels</title>
+<p>In general, supervised machine learning requires access to labeled data to train a classifier. To obtain labels for the genes, we use the CGC data from the COSMIC database (<xref ref-type="bibr" rid="btaa452-B38">Sondka <italic>et al.</italic>, 2018</xref>). We downloaded a list of 723 genes that have been causally implicated in cancer, and use this set as our ground truth. Genes in the CGC are categorized into Tiers 1 and 2, where genes in Tier 1 show a documented activity relevant to cancer, and genes in Tier 2 show strong indications to play a role in cancer. For our analysis we treat both tiers equally. We overlap the set of 723 genes with our network, giving a total of 635 cancer genes. This leads to a dataset, in which ‘positive’ samples make up &lt;6.0% of our dataset. We refer to the remaining genes as <italic>unlabeled genes</italic>, and we are interested in finding new cancer genes among them.</p>
+<p>Using the CGC genes, we observe a knowledge-bias in the InBio Map PPI network (see <xref ref-type="fig" rid="btaa452-F2">Fig. 2b</xref>), that is cancer genes tend to have higher degrees in the network. We furthermore observe an increased correlation between degree and MutSig <italic>P</italic>-values for cancer genes (Pearson correlation: 0.17) compared with unlabeled genes (Pearson correlation: 0.10), as can be seen in <xref ref-type="fig" rid="btaa452-F2">Figure 2c and d</xref>. Although this indicates that MutSig can identify the highly mutated cancer genes, there exist many well-established cancer genes whose mutation rates lie within the background distribution (i.e. their MutSig <italic>P</italic>-values are undistinguishable between cancer genes and unlabeled genes). This poses three challenges that have to be addressed: (i) we do not have a high-quality negative class, i.e. in general any gene not classified as a cancer gene might potentially be a cancer driver, (ii) the dataset is imbalanced, a fact that requires attention during supervised classification and (iii) the dataset is affected by knowledge contamination. We address challenges (i) and (ii) with an elaborate and unbiased cross-validation procedure to train and test a classifier, as well as to predict cancer driver genes from the unlabeled genes. The third challenge is addressed by using the moments in the MoPro embeddings. Although we observe that moments such as skewness and kurtosis exhibit positive correlations with the node-degree, this is the case for both, cancer genes and unlabeled genes (see <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S1</xref>).</p>
+</sec>
+</sec>
+</sec>
+<sec>
+<title>3.2 Experimental setup</title>
+<sec>
+<title>3.2.1 Cross-validation for one-class, imbalanced learning</title>
+<p>To address the above mentioned challenges imposed by the class imbalance and the lack of a negative class, we developed a cross-validation procedure that is based on the repeated undersampling of the majority class. The cross-validation procedure is illustrated in <xref ref-type="fig" rid="btaa452-F3">Figure 3</xref>, and a pseudocode can be found in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Algorithm S1</xref>. The dataset can be represented as a matrix <inline-formula id="IE58"><mml:math id="IM58"><mml:mrow><mml:mi>D</mml:mi><mml:mo>∈</mml:mo><mml:msup><mml:mo>ℝ</mml:mo><mml:mrow><mml:mn>11</mml:mn><mml:mo> </mml:mo><mml:mn>449</mml:mn><mml:mo>×</mml:mo><mml:mi>d</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>, where <italic>d</italic> is the number of node features (<xref ref-type="fig" rid="btaa452-F3">Fig. 3a</xref>). The cross-validation procedure consists of three main steps:</p>
+<sec>
+<title>Step 1: Data splits</title>
+<p>We split the dataset <italic>D</italic> into two disjoint datasets, <italic>D<sub>l</sub></italic> and <italic>D<sub>u</sub></italic> (<xref ref-type="fig" rid="btaa452-F3">Fig. 3b</xref>), where <italic>D<sub>l</sub></italic> consists of all genes in the positive class, and a random subsample of the unlabeled genes. We undersample the majority class such that 10% of samples in <italic>D<sub>l</sub></italic> are cancer genes. For the sake of training a classifier, we assign the unlabeled samples in <italic>D<sub>l</sub></italic> to the negative class, and assume this to be the ground truth for the current split. This dataset will be used in the second step to train and evaluate a classifier. The genes in <italic>D<sub>u</sub></italic> remain unlabeled, and we use the classifier trained on <italic>D<sub>l</sub></italic> to predict their cancer status.</p>
+</sec>
+<sec>
+<title>Step 2: Training and evaluation of the classifier</title>
+<p>Next, the dataset <italic>D<sub>l</sub></italic> is split into a cross-validation (80% of data) and a hold-out test set (20% of data; <xref ref-type="fig" rid="btaa452-F3">Fig. 3c</xref>). On the cross-validation set, we do a 5-fold stratified cross-validation to find the best hyperparameters of the classifier <inline-formula id="IE63"><mml:math id="IM59"><mml:mi mathvariant="script">C</mml:mi></mml:math></inline-formula>, resulting in <inline-formula id="IE64"><mml:math id="IM60"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula>. We retrain the classifier on the complete cross-validation set, and evaluate the predictive performance of <inline-formula id="IE65"><mml:math id="IM61"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula> on the hold-out test set. Importantly, the cross-validation and hold-out test sets are disjoint. This implies that samples in the hold-out test set have never been seen during training, nor were they used to choose the best hyperparameters of the classifier. This set is solely used to evaluate the ability of the classifier to generalize to unseen samples. The strict separation of the cross-validation and the hold-out test set is necessary to avoid an inflation of the evaluation metrics. Furthermore, each classifier was run and evaluated on the test data only once.</p>
+</sec>
+<sec>
+<title>Step 3: Prediction.</title>
+<p>Last, we apply the classifier <inline-formula id="IE66"><mml:math id="IM62"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula> from the previous step to predict the cancer status of genes in the unlabeled dataset <italic>D<sub>u</sub></italic> (<xref ref-type="fig" rid="btaa452-F3">Fig. 3d</xref>).
+</p>
+<fig id="btaa452-F3" orientation="portrait" position="float">
+<label>Fig. 3.</label>
+<caption>
+<p>(<bold>a</bold>) The dataset consists of 11 449 genes, each one represented by a set of features. 635 of those genes are classified as cancer genes (<xref ref-type="bibr" rid="btaa452-B38">Sondka <italic>et al.</italic>, 2018</xref>), highlighted in yellow. The remaining 10 814 genes are unlabeled (green). Cross-validation scheme on <italic>one</italic> data split, resulting in one best classifier <inline-formula id="IE59"><mml:math id="IM63"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula>. (<bold>b</bold>) The unlabeled genes are sub-sampled at random and combined with the cancer genes, giving rise to the labeled dataset <italic>D<sub>l</sub></italic>. The unlabeled genes in <italic>D<sub>l</sub></italic> are assigned a negative class label. The remaining unlabeled genes make up the set <italic>D<sub>u</sub></italic>. Those are the genes for which the cancer status will be predicted in the current split. (<bold>c</bold>) The <italic>D<sub>l</sub></italic> dataset is split, and 80% of the data are used to find the best hyperparameters of the classifier via 5-fold CV, resulting in the classifier <inline-formula id="IE60"><mml:math id="IM64"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula>. The remaining 20% are used as test set for evaluation of the classifier <inline-formula id="IE61"><mml:math id="IM65"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula>. (<bold>d</bold>) The classifier <inline-formula id="IE62"><mml:math id="IM66"><mml:mrow><mml:mi mathvariant="script">C</mml:mi><mml:mo>′</mml:mo></mml:mrow></mml:math></inline-formula> that has been trained on the cross-validation set in <italic>D<sub>l</sub></italic> is used to predict the cancer status of genes in <italic>D<sub>u</sub></italic></p>
+</caption>
+<graphic xlink:href="btaa452f3"></graphic>
+</fig>
+<p>This cross-validation procedure learns to distinguish cancer genes from a random split of the unlabeled genes. However, this is a potentially incorrect assumption, since unlabeled genes in the set <italic>D<sub>l</sub></italic> might be yet-to-discover cancer genes. For this reason, we repeat the complete cross-validation procedure for <italic>r</italic> different random splits of the dataset into a labeled subset <italic>D<sub>l</sub></italic> and a unlabeled subset <italic>D<sub>u</sub></italic>, resulting in a <italic>set of classifiers</italic> <inline-formula id="IE67"><mml:math id="IM67"><mml:mrow><mml:mi mathvariant="script">E</mml:mi><mml:mo>=</mml:mo><mml:mo>{</mml:mo><mml:mi mathvariant="script">C</mml:mi><mml:msub><mml:mo>′</mml:mo><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mn>..</mml:mn><mml:mo>,</mml:mo><mml:mi mathvariant="script">C</mml:mi><mml:msub><mml:mo>′</mml:mo><mml:mi>r</mml:mi></mml:msub><mml:mo>}</mml:mo></mml:mrow></mml:math></inline-formula>. Each <italic>D<sub>l</sub></italic> is divided into an 80% cross-validation dataset and a 20% test dataset. The cross-validation dataset is used for hyperparameter optimization of the classifiers and the test dataset is used for evaluation in terms of area under the precision recall curve (AUPRC), precision, recall and F1-score. <inline-formula id="IE68"><mml:math id="IM68"><mml:mrow><mml:mi>C</mml:mi><mml:msub><mml:mo>′</mml:mo><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> is the best classifier on the <italic>i</italic>th random split of the data, determined on the cross-validation dataset. For each <inline-formula id="IE69"><mml:math id="IM69"><mml:mrow><mml:mi>C</mml:mi><mml:msub><mml:mo>′</mml:mo><mml:mi>i</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:mi mathvariant="script">E</mml:mi></mml:mrow></mml:math></inline-formula>, where <inline-formula id="IE70"><mml:math id="IM70"><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>..</mml:mn><mml:mo>,</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:math></inline-formula>, we compute the performance metrics (AUPRC, precision, recall, F1-score) on the test set of the <italic>i</italic>th split, and report the mean and standard deviation of the metrics across all <italic>r</italic> classifiers in the set <inline-formula id="IE71"><mml:math id="IM71"><mml:mi mathvariant="script">E</mml:mi></mml:math></inline-formula> as the final result.</p>
+<p>In order to obtain comparable results for different classification algorithms, we ensure that each algorithm is trained and evaluated on the same <italic>r</italic> splits of the data. We determine the total number of splits <italic>r</italic> based on the minimum number of predictions we want to obtain for every gene without a cancer label in the dataset. We set this value to five, resulting in <italic>r </italic>=<italic> </italic>11 data splits, and evaluate the effect of varying <italic>r</italic> in terms of the average AUPRC on the test sets in an experiment (see Section 3.3.3 and <xref ref-type="fig" rid="btaa452-F4">Fig. 4b</xref>).</p>
+<fig id="btaa452-F4" orientation="portrait" position="float">
+<label>Fig. 4.</label>
+<caption>
+<p>Evaluation of a set of logistic regression classifiers (hyperparameters as in <xref ref-type="table" rid="btaa452-T2">Table 2</xref>). (<bold>a</bold>) AUPRC when varying the number of random splits <italic>r</italic>, and therefore the number of classifiers in the set <inline-formula id="IE72"><mml:math id="IM72"><mml:mi mathvariant="script">E</mml:mi></mml:math></inline-formula>. (<bold>b</bold>) Evaluation metrics as functions of the training set size</p>
+</caption>
+<graphic xlink:href="btaa452f4"></graphic>
+</fig>
+<p>Since this splitting of the data is random, the underlying data distribution of the negative class varies from split to split, and the classifier optimized on each split learns the data modalities of the negative class in the current split. Every gene is predicted with each classifier in our set of classifiers (excluding the ones for which it was in the <italic>D<sub>l</sub></italic> set used for training), and might be classified as a cancer gene by some of the classifiers, but not by others. This can be interpreted as the fact that a gene might be more similar to a cancer gene in some aspects, but more similar to a non-cancer gene in others. Eventually, a gene is classified as a cancer gene according to the majority vote across all classifiers (for which it was not in the training data). In the case of ties, we resort to the conservative prediction of ‘no cancer gene’. Importantly, as there exist no known labels for those genes, we analyze them qualitatively.</p>
+</sec>
+<sec>
+<title>3.2.2 Classification</title>
+<p>We represent each node in the network by the MoPro embeddings computed from the log-transformed MutSig <italic>P</italic>-values, as described in Section 2.2.3. We apply four different state-of-the-art classification algorithms to predict the binary class labels in the cross-validation procedure described above, using python’s sklearn module: logistic regression, random forests, support vector machines (SVMs) and gradient boosting. For every classifier, we optimize across a grid of standard hyperparameters, as well as the following data-specific hyperparameters: (i) whether or not to include a scaling step in the classification pipeline (SCALE), (ii) whether to use edge weights to generate node embeddings (WEIGHT), (iii) how to represent weights between two nodes in a <italic>k</italic>-hop neighborhoods with <italic>k </italic>&gt;<italic> </italic>1 (PATH; see Section 2.2.4), as well as (iv) the number of propagation steps <italic>t</italic> and (v) the number of <italic>k</italic>-hops to generate moment embeddings from, where <inline-formula id="IE73"><mml:math id="IM73"><mml:mi>k</mml:mi><mml:mo>∈</mml:mo><mml:mo>{</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>}</mml:mo></mml:math></inline-formula>, <inline-formula id="IE74"><mml:math id="IM74"><mml:mi>t</mml:mi><mml:mo>∈</mml:mo><mml:mo>[</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mn>6</mml:mn><mml:mo>]</mml:mo></mml:math></inline-formula>. We restrict the value of <italic>k</italic> to a maximum of 2, as we observe that three-hop neighborhoods in the InBio Map network already span major parts of the network (see <xref ref-type="fig" rid="btaa452-F2">Fig. 2a</xref>). In order to weight the contribution of node features in local neighborhoods during the generation of moment embeddings (function <inline-formula id="IE75"><mml:math id="IM75"><mml:mrow><mml:mi>f</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo>,</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> in <xref ref-type="disp-formula" rid="E9">Equation 9</xref>), we use a simple multiplication between the node features and the edge weights, resulting in a lowering of the contribution of the −log<sub>10</sub> transformed <italic>P</italic>-values for edges that exhibit confidences below 1.0.</p>
+<p>In order to evaluate the predictive performance of each classifier, we use the AUPRC, as well as precision, recall and the F1-score. As described in the previous Section, to evaluate the performance of a set of classifiers <inline-formula id="IE76"><mml:math id="IM76"><mml:mi mathvariant="script">E</mml:mi></mml:math></inline-formula> resulting from the cross-validation procedure, those metrics correspond to the average across the classifiers in <inline-formula id="IE77"><mml:math id="IM77"><mml:mi mathvariant="script">E</mml:mi></mml:math></inline-formula>. We furthermore report the number of predicted genes that are novel, i.e. those that are not contained in the COSMIC CGC gene set. We would like to note that, although the area under the ROC curve (AUROC) is a common metric to evaluate binary classifiers, its interpretation is difficult in our setting. Due to the high class imbalance and our primary interest in detecting members of the minority class (i.e. the cancer genes), measuring precision and recall on the minority class is a better suited metric for our task. The AUROC values can be found in the <xref ref-type="supplementary-material" rid="sup1">Supplementary Tables S1 and S2</xref>.</p>
+</sec>
+</sec>
+<sec>
+<title>3.3 Classification of cancer genes</title>
+<sec>
+<title>3.3.1 Baseline methods</title>
+<p>We compare our approach against univariate baselines, that is we determine the cancer driver status of a gene based on (i) its degree, (ii) its MutSig <italic>P</italic>-value and (iii) its NetSig <italic>P</italic>-value. Those results are listed in <xref ref-type="table" rid="btaa452-T1">Table 1</xref>. For all node features, we compare a ranking of the genes by the respective feature (<italic>ranking</italic>) and a prediction with a set of logistic regressors (<italic>LogReg</italic>), generated with the cross-validation procedure described in Section 3.2.1. When ranking the genes based on features, we report precision and recall at the threshold that gave the best F1-score. For the MutSig and NetSig <italic>P</italic>-values, we also evaluate predictive performance after Benjamini–Hochberg (BH) correction at a false discovery rate of 10%. Note that since there is only one classification result for the ranking and Benjamini–Hochberg procedure, there are no standard deviations reported in the table. Furthermore, in both cases, the number of novel genes does not correspond to a majority vote, but is based on a single prediction, using the prediction threshold that resulted in the highest F1-score. We also apply hierarchical HotNet (<xref ref-type="bibr" rid="btaa452-B31">Reyna <italic>et al.</italic>, 2018</xref>), a state-of-the-art network propagation method for the detection of altered subnetworks in cancer, to the MutSig <italic>P</italic>-values (after −log<sub>10</sub> transformation). We chose the score permutation scheme to obtain a measure of significance (<italic>P </italic>=<italic> </italic>0.01) and report all genes in subnetworks of sizes &gt; 1 as positives. For all methods we observe that using the set of classifiers improves predictive performance with respect to the AUPRC. Furthermore, we observe that the degree of a gene in the network reaches AUROC values of up to 70% (see <xref ref-type="supplementary-material" rid="sup1">Supplementary Table S1a</xref>), hinting toward the problem of knowledge bias in biological networks. That is, the degree operates as a confounder in those networks. </p>
+<table-wrap id="btaa452-T1" orientation="portrait" position="float">
+<label>Table 1.</label>
+<caption>
+<p>Results of cancer gene classification for the baselines</p>
+</caption>
+<table frame="hsides" rules="groups">
+<colgroup span="1">
+<col align="left" span="1" valign="top"/>
+<col align="left" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="char" char="." span="1" valign="top"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="1" rowspan="1">Feature</th>
+<th colspan="1" rowspan="1">Method</th>
+<th colspan="1" rowspan="1">AUPRC</th>
+<th colspan="1" rowspan="1">Precision</th>
+<th colspan="1" rowspan="1">Recall</th>
+<th colspan="1" rowspan="1">F1</th>
+<th colspan="1" rowspan="1">No. of novel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">Degree</td>
+<td colspan="1" rowspan="1">Ranking</td>
+<td colspan="1" rowspan="1">0.096</td>
+<td colspan="1" rowspan="1">0.105</td>
+<td colspan="1" rowspan="1">0.436</td>
+<td colspan="1" rowspan="1">0.169</td>
+<td colspan="1" rowspan="1">2368</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Degree</td>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">0.199 (0.007)</td>
+<td colspan="1" rowspan="1">0.243 (0.012)</td>
+<td colspan="1" rowspan="1">0.236 (0.000)</td>
+<td colspan="1" rowspan="1">0.239 (0.006)</td>
+<td colspan="1" rowspan="1">905</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">MutSig</td>
+<td colspan="1" rowspan="1">Ranking</td>
+<td colspan="1" rowspan="1">0.248</td>
+<td colspan="1" rowspan="1">0.474</td>
+<td colspan="1" rowspan="1">0.202</td>
+<td colspan="1" rowspan="1">0.283</td>
+<td colspan="1" rowspan="1">142</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">MutSig</td>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">
+<bold>0.312 (0.007)</bold>
+</td>
+<td colspan="1" rowspan="1">0.552 (0.060)</td>
+<td colspan="1" rowspan="1">0.236 (0.000)</td>
+<td colspan="1" rowspan="1">0.330 (0.011)</td>
+<td colspan="1" rowspan="1">243</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">MutSig</td>
+<td colspan="1" rowspan="1">BH</td>
+<td colspan="1" rowspan="1">0.248</td>
+<td colspan="1" rowspan="1">0.490</td>
+<td colspan="1" rowspan="1">0.191</td>
+<td colspan="1" rowspan="1">0.274</td>
+<td colspan="1" rowspan="1">126</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">MutSig</td>
+<td colspan="1" rowspan="1">Hier. HotNet</td>
+<td colspan="1" rowspan="1">—</td>
+<td colspan="1" rowspan="1">0.137</td>
+<td colspan="1" rowspan="1">0.111</td>
+<td colspan="1" rowspan="1">0.123</td>
+<td colspan="1" rowspan="1">444</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">NetSig</td>
+<td colspan="1" rowspan="1">Ranking</td>
+<td colspan="1" rowspan="1">0.158</td>
+<td colspan="1" rowspan="1">0.219</td>
+<td colspan="1" rowspan="1">0.235</td>
+<td colspan="1" rowspan="1">0.226</td>
+<td colspan="1" rowspan="1">532</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">NetSig</td>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">0.275 (0.012)</td>
+<td colspan="1" rowspan="1">0.278 (0.019)</td>
+<td colspan="1" rowspan="1">0.228 (0.000)</td>
+<td colspan="1" rowspan="1">0.250 (0.008)</td>
+<td colspan="1" rowspan="1">704</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">NetSig</td>
+<td colspan="1" rowspan="1">BH</td>
+<td colspan="1" rowspan="1">0.158</td>
+<td colspan="1" rowspan="1">0.263</td>
+<td colspan="1" rowspan="1">0.169</td>
+<td colspan="1" rowspan="1">0.205</td>
+<td colspan="1" rowspan="1">300</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="tblfn1">
+<p>
+<italic>Note</italic>: The first column indicates the feature that was used to represent each gene during classification, the second column indicates the method that was used for classification. In case of LogReg, we used the cross-validation procedure described in Section 3.2.1 and fixed the recall at 23.5%. AUPRC is the area under the precision recall curve, the method with the highest AUPRC is printed in bold. The last column indicates the number of de novo cancer genes, i.e. those genes that are not contained in the set of cancer genes.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec>
+<title>3.3.2 Cancer gene classification with MoPro embeddings</title>
+<p>We generate MoPro embeddings from the −log<sub>10</sub> transformed MutSig <italic>P</italic>-values, and use these embeddings as input to the classifiers. The results are listed in <xref ref-type="table" rid="btaa452-T2">Table 2</xref>. We evaluate the four classifiers on a grid of hyperparameters, and list the best values of the ones specific to our proposed approach (see Section 3.2.2) in the table. We observe a similar performance of all classifiers with respect to AUPRC, with a minor exception for the random forest classifier. The classification using MoPro embeddings combined with the cross-validation procedure to handle imbalanced classes clearly outperforms the baselines. The baseline with the best AUPRC is the logistic regression classification using MutSig <italic>P</italic>-values (AUPRC = 31.2%). With the MoPro embeddings, AUPRC values of up to 43.7% are achieved with the gradient boosting classifier (closely followed by logistic regression and SVMs). A similar trend can be observed for AUROC scores (see <xref ref-type="supplementary-material" rid="sup1">Supplementary Table S1</xref>). </p>
+<table-wrap id="btaa452-T2" orientation="portrait" position="float">
+<label>Table 2.</label>
+<caption>
+<p>Results of cancer gene classification for the moment propagation embeddings</p>
+</caption>
+<table frame="hsides" rules="groups">
+<colgroup span="1">
+<col align="left" span="1" valign="top"/>
+<col align="left" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="left" span="1" valign="top"/>
+<col align="char" char="." span="1" valign="top"/>
+<col align="char" char="." span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+<col align="char" char="." span="1" valign="top"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="1" rowspan="1">Method</th>
+<th colspan="1" rowspan="1">Scale</th>
+<th colspan="1" rowspan="1">Weight</th>
+<th colspan="1" rowspan="1">Path</th>
+<th colspan="1" rowspan="1">
+<italic>t</italic>
+</th>
+<th colspan="1" rowspan="1">
+<italic>k</italic>
+</th>
+<th colspan="1" rowspan="1">AUPRC</th>
+<th colspan="1" rowspan="1">Precision</th>
+<th colspan="1" rowspan="1">Recall</th>
+<th colspan="1" rowspan="1">F1</th>
+<th colspan="1" rowspan="1">No. of novel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">True</td>
+<td colspan="1" rowspan="1">—</td>
+<td colspan="1" rowspan="1">--</td>
+<td colspan="1" rowspan="1">3</td>
+<td colspan="1" rowspan="1">2</td>
+<td colspan="1" rowspan="1">0.434 (0.014)</td>
+<td colspan="1" rowspan="1">0.572 (0.046)</td>
+<td colspan="1" rowspan="1">0.236 (0.000)</td>
+<td colspan="1" rowspan="1">0.334 (0.009)</td>
+<td colspan="1" rowspan="1">202</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">SVM</td>
+<td colspan="1" rowspan="1">False</td>
+<td colspan="1" rowspan="1">—</td>
+<td colspan="1" rowspan="1">--</td>
+<td colspan="1" rowspan="1">6</td>
+<td colspan="1" rowspan="1">2</td>
+<td colspan="1" rowspan="1">0.431 (0.012)</td>
+<td colspan="1" rowspan="1">0.584 (0.058)</td>
+<td colspan="1" rowspan="1">0.236 (0.000)</td>
+<td colspan="1" rowspan="1">0.336 (0.010)</td>
+<td colspan="1" rowspan="1">198</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">RandFor</td>
+<td colspan="1" rowspan="1">True</td>
+<td colspan="1" rowspan="1">standard</td>
+<td colspan="1" rowspan="1">Mean</td>
+<td colspan="1" rowspan="1">3</td>
+<td colspan="1" rowspan="1">1</td>
+<td colspan="1" rowspan="1">0.396 (0.021)</td>
+<td colspan="1" rowspan="1">0.560 (0.057)</td>
+<td colspan="1" rowspan="1">0.234 (0.004)</td>
+<td colspan="1" rowspan="1">0.330 (0.011)</td>
+<td colspan="1" rowspan="1">193</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">GradBoost</td>
+<td colspan="1" rowspan="1">True</td>
+<td colspan="1" rowspan="1">standard</td>
+<td colspan="1" rowspan="1">Max</td>
+<td colspan="1" rowspan="1">3</td>
+<td colspan="1" rowspan="1">2</td>
+<td colspan="1" rowspan="1">
+<bold>0.437 (0.020)</bold>
+</td>
+<td colspan="1" rowspan="1">0.636 (0.088)</td>
+<td colspan="1" rowspan="1">0.236 (0.000)</td>
+<td colspan="1" rowspan="1">0.343 (0.012)</td>
+<td colspan="1" rowspan="1">150</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="tblfn2">
+<p>
+<italic>Note</italic>: Classification results for different classifiers using the proposed moment propagation embeddings and the described cross-validation procedure. The Columns 2–6 indicate the hyperparameters that gave the best classification performance for each set of classifiers. <italic>t</italic> and <italic>k</italic> are the hyperparameters of the moment propagation embeddings, namely the number of propagation steps and the neighborhood degree up to which moments are computed. AUPRC is the area under the precision recall curve, the method with the highest AUPRC is printed in bold. The last column indicates the number of de novo cancer genes, i.e. those genes that are not contained in the set of cancer genes.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<p>For all analyses, we fixed the recall at 23.5%, that is the recall achieved by ranking the NetSig <italic>P</italic>-values. We observe that with MoPro embeddings, we obtain an up to three-fold improvement of precision at that same recall value compared with the NetSig approach (ranked NetSig <italic>P</italic>-values: 21.9%, gradient boosting 63.6%). When contrasting the precision of MoPro embeddings with the one of the best baseline, that is logistic regression using the MutSig <italic>P</italic>-value, we observe an improvement of ∼8%.</p>
+<p>We optimize the data-specific hyperparameters, and find that for all classifiers, using at least three propagation steps enables best classification. All methods but random forests performed best when deriving moments from the <italic>k </italic>=<italic> </italic>2-hop neighborhoods. Although random forests and gradient boosting achieve better classification performance when using weighted neighborhood distributions, this was not the case in logistic regression and SVMs. There seems to be no clear winner between the generation of weights in <italic>k</italic>-hop neighborhoods when using the mean or the maximum aggregation (Section 2.2.4).</p>
+</sec>
+<sec>
+<title>3.3.3 Dependence of results on cross-validation parameters</title>
+<p>The results in <xref ref-type="table" rid="btaa452-T2">Table 2</xref> are produced with <italic>r </italic>=<italic> </italic>11 splits of the data into <italic>D<sub>l</sub></italic> and <italic>D<sub>u</sub></italic> (Section 3.2.1). We evaluate the performance of classification with MoPro embeddings for values of <italic>r</italic> in the range [5, 500] while keeping all data-specific hyperparameters (as described in Section 3.2.2) fixed (using logistic regression). We observe that the classification performance is not affected by changes in the parameter <italic>r</italic> (see <xref ref-type="fig" rid="btaa452-F4">Fig. 4a</xref>). Note that we lose ∼2% in AUPRC due to fixing the data hyperparameters.</p>
+<p>We furthermore evaluate how the size of the training set affects the classification performance. In our proposed cross-validation scheme, the training set size is fixed due to the 5-fold cross-validation, and contains 4064 genes (the cross-validation set contains 5080 genes, such that 4064 genes are used in a 5-fold cross-validation to train the classifier). We conducted an experiment where this number is reduced, ranging between 10 and 4000 samples. We observe a steep increase in performance with an increasing training set size up to 1000 training samples (see <xref ref-type="fig" rid="btaa452-F4">Fig. 4b</xref>), and a saturation when using more than 1000 samples. This indicates, that at least 1000 samples are required to represent the data distribution during classification.</p>
+</sec>
+<sec>
+<title>3.3.4 Ablation study</title>
+<p>We conduct an ablation study to understand how the individual parts in the moment propagation embedding contribute to the improved performance. The results can be found in <xref ref-type="table" rid="btaa452-T3">Table 3</xref>. We evaluate two different types of experiments: (i) we only use the node feature (i.e. the −log<sub>10</sub> transformed MutSig <italic>P</italic>-value), and propagate it through the network with the propagation embedding <inline-formula id="IE78"><mml:math id="IM78"><mml:mrow><mml:msup><mml:mo>ρ</mml:mo><mml:mi>t</mml:mi></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> described in Section 2.2.2. This representation of the node features is used to train a set of logistic regression classifiers. The results of this analysis are listed in the row with label ‘propagation only’. (ii) We represent each node with the moment embedding <inline-formula id="IE79"><mml:math id="IM79"><mml:mrow><mml:msup><mml:mo>η</mml:mo><mml:mi>k</mml:mi></mml:msup><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>2</mml:mn></mml:mrow></mml:math></inline-formula> described in Section 2.2.1, without propagating the resulting representation through the network. The results of this approach are listed in the row with label ‘moments only’. We observe that removing the moment embedding results in a severe drop in performance of ∼8%, while keeping moments but not propagating them leads to a less severe reduction (∼2.8%). This observation indicates that the main improvement of performance compared with the baselines is due to the description of a node by means of the distribution of node features in its neighborhood, motivating the development of methods that improve the representation of local neighborhoods. </p>
+<table-wrap id="btaa452-T3" orientation="portrait" position="float">
+<label>Table 3.</label>
+<caption>
+<p>Results of the ablation study for the set of logistic regression classifiers</p>
+</caption>
+<table frame="hsides" rules="groups">
+<colgroup span="1">
+<col align="left" span="1" valign="top"/>
+<col align="left" span="1" valign="top"/>
+<col align="center" span="1" valign="top"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="1" rowspan="1">Setting</th>
+<th colspan="1" rowspan="1">Method</th>
+<th colspan="1" rowspan="1">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">Baseline</td>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">0.434 (0.014)</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Propagation only</td>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">0.348 (0.010)</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">Moments only</td>
+<td colspan="1" rowspan="1">LogReg</td>
+<td colspan="1" rowspan="1">0.406 (0.011)</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="tblfn3">
+<p>
+<italic>Note</italic>: In <italic>propagation only</italic>, the node feature is propagated, but no moment embedding is computed. In <italic>moments only</italic>, moments are computed, but no propagation embedding is computed. The first row repeats the baseline results (moment propagation embeddings) for comparability reasons.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+</sec>
+<sec>
+<title>3.4 Evaluation of predicted cancer driver genes</title>
+<p>To generate a candidate gene list, we created a consensus set of all genes as follows: for each of the four classification algorithms (logistic regression, SVM, random forest, gradient boosting), we took the intersection of genes that were classified as ‘novel’ (see <xref ref-type="table" rid="btaa452-T2">Table 2</xref>). This means that a gene in the consensus set has (i) not been classified as a cancer driver gene in the CGC dataset, and (ii) all four sets of classifiers identified the gene as a cancer driver (as described in Section 3.2.1). This led to 50 candidate genes, 31 of which were significant in the MutSig data (<inline-formula id="IE80"><mml:math id="IM80"><mml:mrow><mml:mi>P</mml:mi><mml:mo>=</mml:mo><mml:mn>8.04</mml:mn><mml:mo>*</mml:mo><mml:msup><mml:mrow><mml:mn>10</mml:mn></mml:mrow><mml:mrow><mml:mo>−</mml:mo><mml:mn>42</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>, hypergeometric test), 10 in the NetSig data (<inline-formula id="IE81"><mml:math id="IM81"><mml:mrow><mml:mi>P</mml:mi><mml:mo>=</mml:mo><mml:mn>1.07</mml:mn><mml:mo>*</mml:mo><mml:msup><mml:mrow><mml:mn>10</mml:mn></mml:mrow><mml:mrow><mml:mo>−</mml:mo><mml:mn>6</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>, hypergeometric test) and 12 with hierarchical HotNet (<inline-formula id="IE82"><mml:math id="IM82"><mml:mrow><mml:mi>P</mml:mi><mml:mo>=</mml:mo><mml:mn>2.04</mml:mn><mml:mo>*</mml:mo><mml:msup><mml:mrow><mml:mn>10</mml:mn></mml:mrow><mml:mrow><mml:mo>−</mml:mo><mml:mn>7</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>, hypergeometric test), where <italic>P</italic>-values measure whether the set of 50 consensus genes is significantly enriched with MutSig, NetSig and hierarchical HotNet hits, respectively. By removing all genes from the consensus set that were detected with at least one other method, 14 novel genes remained. For those, we performed a literature review to estimate the evidence for links to cancer.</p>
+<p>In brief, four genes have a direct link to tumorigenesis in human. The transcription factor GATA4 is a known tumor suppressor in Glioblastoma Multiforme (<xref ref-type="bibr" rid="btaa452-B1">Agnihotri <italic>et al.</italic>, 2011</xref>). . In breast cancer patients, ID2 is upregulated in brain metastasis and high expression is linked to an increased risk of developing relapse (<xref ref-type="bibr" rid="btaa452-B20">Kijewska <italic>et al.</italic>, 2019</xref>). Last, FOS exhibits recurrent rearrangements Osteoblastoma (<xref ref-type="bibr" rid="btaa452-B9">Fittall <italic>et al.</italic>, 2018</xref>).</p>
+<p>Five genes can be strongly linked to tumor relevant behavior and pathways. ACVR1B (also known as ALK4) is linked to tumorigenesis through its interaction with activin-A (<xref ref-type="bibr" rid="btaa452-B17">Kalli <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa452-B30">Rautela <italic>et al.</italic>, 2019</xref>). CASP10 inhibition leads to reduced apoptosis, while loss-of-function of RAP1A causes a reversion to a non-malignant phenotype in a model of invasive carcinoma (<xref ref-type="bibr" rid="btaa452-B40">Stammer <italic>et al.</italic>, 2017</xref>). MYLK is involved in proliferation and the migration of cancers of the breast, prostate and colon (<xref ref-type="bibr" rid="btaa452-B2">Avizienyte <italic>et al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="btaa452-B7">Cui <italic>et al.</italic>, 2010</xref>; <xref ref-type="bibr" rid="btaa452-B49">Zhou <italic>et al.</italic>, 2008</xref>). CSNK1A1, a member of the CK1 kinase family, is a regulator of the autophagic pathway in RAS-driven cancers, and knock-out experiments lead to cell death in Multiple myeloma (<xref ref-type="bibr" rid="btaa452-B4">Carrino <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa452-B5">Cheong <italic>et al.</italic>, 2015</xref>).</p>
+<p>For the remaining six genes, five (CASP1, CASP14, RBL1, HNF4A and RALA) had weaker links (e.g. expression linked or pathway membership), but no clear experimental evidence (<xref ref-type="bibr" rid="btaa452-B11">Gouravani <italic>et al.</italic>, 2020</xref>; <xref ref-type="bibr" rid="btaa452-B22">Krajewska, 2005</xref>; <xref ref-type="bibr" rid="btaa452-B35">Schade <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa452-B36">Seibold <italic>et al.</italic>, 2019</xref>; <xref ref-type="bibr" rid="btaa452-B47">Wang <italic>et al.</italic>, 2020</xref>).</p>
+<p>Only for one gene (DLGAP2) we could not find any evidence for a link to cancer.</p>
+</sec>
+</sec>
+<sec>
+<title>4 Discussion and conclusions</title>
+<p>In this article, we proposed a novel approach for the identification of cancer driver genes by integrating MutSig summary statistics (<xref ref-type="bibr" rid="btaa452-B24">Lawrence <italic>et al.</italic>, 2014</xref>) with PPI networks (<xref ref-type="bibr" rid="btaa452-B23">Lage <italic>et al.</italic>, 2007</xref>; <xref ref-type="bibr" rid="btaa452-B26">Li <italic>et al.</italic>, 2017</xref>). In stark contrast to state-of-the-art approaches that set out to solve this problem with unsupervised processes, we developed an innovative node embedding procedure (MoPro embeddings) to enable supervised classification of cancer driver genes. Reformulating the problem of cancer-gene prediction in a supervised fashion enables learning from <italic>what we already know</italic>: we include knowledge on the data distributions of well-established cancer driver genes and learn from these distributions to improve the prediction task. We do so by combining two concepts: (i) the representation of a node based on the distribution of node features in its <italic>k</italic>-hop neighborhood, followed by (ii) a network propagation. The neighborhood distributions in (i) are described concisely by their first four moments, which constitutes a computationally efficient summary, and addresses the knowledge contamination that often confounds analyses of biological networks.</p>
+<p>We show that our approach outperforms baselines with respect to AUPRC by a margin of more than 10%, and that results are stable with respect to the hyperparameters of the method. Interestingly, we find that the main improvement in predictive performance is presumably caused by the representation of the distributions of node features in a gene’s neighborhood, rather than the network propagation. This finding paves the way for further research: while the proposed representation of the distributions by means of their moments is straightforward and computationally efficient, another option is to exploit principles of optimal transport (<xref ref-type="bibr" rid="btaa452-B45">Villani, 2008</xref>) to compare two nodes based on the distributions of features in their neighborhoods. <xref ref-type="bibr" rid="btaa452-B42">Togninalli <italic>et al.</italic> (2019)</xref> developed a kernel based on Wasserstein distances between distributions for graph classification, and this idea can be readily extended to node classification. Another possible route for future research is to build models that combine both, node embeddings and classification, and to train them end-to-end, as is done with graph convolutional networks (e.g. <xref ref-type="bibr" rid="btaa452-B8">Duvenaud <italic>et al.</italic>, 2015</xref>; <xref ref-type="bibr" rid="btaa452-B12">Hamilton <italic>et al.</italic>, 2017</xref>; <xref ref-type="bibr" rid="btaa452-B21">Kipf and Welling, 2016</xref>).</p>
+<p>The set of high confidence consensus genes discovered with our proposed approach contained both, genes that were previously identified as cancer drivers with methods such as MutSig, NetSig and hierarchical HotNet, as well as novel genes that were not detected with established methods. Those genes constitute promising targets for future biological evaluation, and their detection showcases the potential of combining network-derived features with supervised machine learning techniques for the prediction of cancer driver genes.</p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="sup1">
+<label>btaa452_Supplementary_Data</label>
+<media xlink:href="btaa452_supplementary_data.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack id="ack1">
+<title>Acknowledgements</title>
+<p>The results shown here are in whole or part based upon data generated by the TCGA Research Network: <ext-link ext-link-type="uri" xlink:href="https://www.cancer.gov/tcga">https://www.cancer.gov/tcga</ext-link>.</p>
+<sec>
+<title>Funding</title>
+<p>This work was supported by the SNSF Starting Grant ‘Significant Pattern Mining’ (no. 155913, K.B.).</p>
+<p>
+<italic>Conflict of Interest</italic>: none declared.</p>
+</sec>
+</ack>
+<ref-list id="ref1">
+<title>References</title>
+<ref id="btaa452-B1">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Agnihotri</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>A GATA4-regulated tumor suppressor network represses formation of malignant human astrocytomas</article-title>. <source/>J. Exp. Med., <volume>208</volume>, <fpage>689</fpage>–<lpage>702</lpage>.<pub-id pub-id-type="pmid">21464220</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B2">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Avizienyte</surname><given-names>E.</given-names></name></person-group>
+<etal>et al</etal> (<year>2005</year>) 
+<article-title>The SRC-induced mesenchymal state in late-stage colon cancer cells</article-title>. <source/>Cells Tissues Organs., <volume>179</volume>, <fpage>73</fpage>–<lpage>80</lpage>.<pub-id pub-id-type="pmid">15942195</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B3">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Bailey</surname><given-names>M.H.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>Comprehensive characterization of cancer driver genes and mutations</article-title>. <source/>Cell, <volume>173</volume>, <fpage>371</fpage>–<lpage>385.e18</lpage>.<pub-id pub-id-type="pmid">29625053</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B4">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Carrino</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Prosurvival autophagy is regulated by protein kinase CK1 alpha in multiple myeloma</article-title>. <source/>Cell Death Discov., <volume>5</volume>, <fpage>98</fpage>.<pub-id pub-id-type="pmid">31123604</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B5">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cheong</surname><given-names>J.K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>Casein kinase 1<italic>α</italic>-dependent feedback loop controls autophagy in RAS-driven cancers</article-title>. <source/>J. Clin. Invest., <volume>125</volume>, <fpage>1401</fpage>–<lpage>1418</lpage>.<pub-id pub-id-type="pmid">25798617</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B6">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cowen</surname><given-names>L.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>Network propagation: a universal amplifier of genetic associations</article-title>. <source/>Nat. Rev. Genet., <volume>18</volume>, <fpage>551</fpage>–<lpage>562</lpage>.<pub-id pub-id-type="pmid">28607512</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B7">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cui</surname><given-names>W.-J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) 
+<article-title>Myosin light chain kinase is responsible for high proliferative ability of breast cancer cells via anti-apoptosis involving p38 pathway</article-title>. <source/>Acta Pharmacol. Sin., <volume>31</volume>, <fpage>725</fpage>–<lpage>732</lpage>.<pub-id pub-id-type="pmid">20453870</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B8">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Duvenaud</surname><given-names>D.K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) Convolutional networks on graphs for learning molecular fingerprints. In: <italic>Advances in Neural Information Processing Systems</italic>, Curran Associates Inc, USA, Vol. 28. pp. <fpage>2224</fpage>–<lpage>2232</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa452-B9">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Fittall</surname><given-names>M.W.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>Recurrent rearrangements of FOS and FOSB define osteoblastoma</article-title>. <source/>Nat. Commun., <volume>9</volume>, <fpage>2150</fpage>.<pub-id pub-id-type="pmid">29858576</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B10">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Gilmer</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) Neural message passing for quantum chemistry. In: <italic>Proceedings of the 34th InternatUSAional Conference on Machine Learning-Volume</italic><volume>70</volume>, PMLR, USA, pp. <fpage>1263</fpage>–<lpage>1272</lpage>. JMLR. org.</mixed-citation>
+</ref>
+<ref id="btaa452-B11">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Gouravani</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2020</year>) 
+<article-title>The NLRP3 inflammasome: a therapeutic target for inflammation-associated cancers</article-title>. <source/>Expert Rev. Clin. Immunol., <volume>16</volume>, <fpage>175</fpage>–<lpage>187</lpage>.<pub-id pub-id-type="pmid">31928260</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B12">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Hamilton</surname><given-names>W.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) Inductive representation learning on large graphs. In: <italic>Advances in Neural Information Processing Systems</italic>, Curran Associates Inc, USA, Vol. 30. pp. <fpage>1024</fpage>–<lpage>1034</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa452-B13">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Hanahan</surname><given-names>D.</given-names></name>, <name name-style="western"><surname>Weinberg</surname><given-names>R.A.</given-names></name></person-group> (<year>2011</year>) 
+<article-title>Hallmarks of cancer: the next generation</article-title>. <source/>Cell, <volume>144</volume>, <fpage>646</fpage>–<lpage>674</lpage>.<pub-id pub-id-type="pmid">21376230</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B14">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Horn</surname><given-names>H.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>NetSig: network-based discovery from cancer genomes</article-title>. <source/>Nat. Methods, <volume>15</volume>, <fpage>61</fpage>–<lpage>66</lpage>.<pub-id pub-id-type="pmid">29200198</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B15">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Hristov</surname><given-names>B.H.</given-names></name></person-group>
+<etal>et al</etal> (<year>2020</year>) A guided network propagation approach to identify disease genes that combines prior and new information. <italic>arXiv preprint arXiv : 2001.06135.</italic></mixed-citation>
+</ref>
+<ref id="btaa452-B16">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Jia</surname><given-names>P.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>dmGWAS: dense module searching for genome-wide association studies in protein–protein interaction networks</article-title>. <source/>Bioinformatics, <volume>27</volume>, <fpage>95</fpage>–<lpage>102</lpage>.<pub-id pub-id-type="pmid">21045073</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B17">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kalli</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Activin a signaling regulates IL13R<italic>α</italic>2 expression to promote breast cancer metastasis</article-title>. <source/>Front. Oncol., <volume>9</volume>, <fpage>32</fpage>.<pub-id pub-id-type="pmid">30805303</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B18">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kandoth</surname><given-names>C.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>Mutational landscape and significance across 12 major cancer types</article-title>. <source/>Nature, <volume>502</volume>, <fpage>333</fpage>–<lpage>339</lpage>.<pub-id pub-id-type="pmid">24132290</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B19">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kanehisa</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>KEGG: new perspectives on genomes, pathways, diseases and drugs</article-title>. <source/>Nucleic Acids Res., <volume>45</volume>, <fpage>D353</fpage>–<lpage>D361</lpage>.<pub-id pub-id-type="pmid">27899662</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B20">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kijewska</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Using an in-vivo syngeneic spontaneous metastasis model identifies ID2 as a promoter of breast cancer colonisation in the brain</article-title>. <source/>Breast Cancer Res., <volume>21</volume>, <fpage>4</fpage>.<pub-id pub-id-type="pmid">30642388</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B21">
+<mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Kipf</surname><given-names>T.N.</given-names></name>, <name name-style="western"><surname>Welling</surname><given-names>M.</given-names></name></person-group> (<year>2016</year>) Semi-supervised classification with graph convolutional networks. <italic>arXiv preprint arXiv:1609.02907.</italic></mixed-citation>
+</ref>
+<ref id="btaa452-B22">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Krajewska</surname><given-names>M.</given-names></name></person-group> (<year>2005</year>) 
+<article-title>Tumor-associated alterations in caspase-14 expression in epithelial malignancies</article-title>. <source/>Clin. Cancer Res., <volume>11</volume>, <fpage>5462</fpage>–<lpage>5471</lpage>.<pub-id pub-id-type="pmid">16061862</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B23">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lage</surname><given-names>K.</given-names></name></person-group>
+<etal>et al</etal> (<year>2007</year>) 
+<article-title>A human phenome-interactome network of protein complexes implicated in genetic disorders</article-title>. <source/>Nat. Biotechnol., <volume>25</volume>, <fpage>309</fpage>–<lpage>316</lpage>.<pub-id pub-id-type="pmid">17344885</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B24">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lawrence</surname><given-names>M.S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) 
+<article-title>Discovery and saturation analysis of cancer genes across 21 tumour types</article-title>. <source/>Nature, <volume>505</volume>, <fpage>495</fpage>–<lpage>501</lpage>.<pub-id pub-id-type="pmid">24390350</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B25">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Leiserson</surname><given-names>M.D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>Pan-cancer network analysis identifies combinations of rare somatic mutations across pathways and protein complexes</article-title>. <source/>Nat. Genet., <volume>47</volume>, <fpage>106</fpage>–<lpage>114</lpage>.<pub-id pub-id-type="pmid">25501392</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B26">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Li</surname><given-names>T.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>A scored human protein–protein interaction network to catalyze genomic interpretation</article-title>. <source/>Nat. Methods, <volume>14</volume>, <fpage>61</fpage>–<lpage>64</lpage>.<pub-id pub-id-type="pmid">27892958</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B27">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Li</surname><given-names>T.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>GeNets: a unified web platform for network-based genomic analyses</article-title>. <source/>Nat. Methods, <volume>15</volume>, <fpage>543</fpage>–<lpage>546</lpage>.<pub-id pub-id-type="pmid">29915188</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B28">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Mularoni</surname><given-names>L.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) 
+<article-title>OncodriveFML: a general framework to identify coding and non-coding regions with cancer driver mutations</article-title>. <source/>Genome Biol., <volume>17</volume>, <fpage>128</fpage>.<pub-id pub-id-type="pmid">27311963</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B29">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Niu</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>PrePhyloPro: phylogenetic profile-based prediction of whole proteome linkages</article-title>. <source/>PeerJ, <volume>5</volume>, <fpage>e3712</fpage>.<pub-id pub-id-type="pmid">28875072</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B30">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Rautela</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>Therapeutic blockade of activin-A improves NK cell function and antitumor immunity</article-title>. <source/>Sci. Signal., <volume>12</volume>, <fpage>eaat7527</fpage>.<pub-id pub-id-type="pmid">31455725</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B31">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Reyna</surname><given-names>M.A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>Hierarchical hotnet: identifying hierarchies of altered subnetworks</article-title>. <source/>Bioinformatics, <volume>34</volume>, <fpage>i972</fpage>–<lpage>i980</lpage>.<pub-id pub-id-type="pmid">30423088</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B32">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Rossin</surname><given-names>E.J.</given-names></name></person-group>
+<etal>et al</etal>; International Inflammatory Bowel Disease Genetics Constortium. (<year>2011</year>) 
+<article-title>Proteins encoded in genomic regions associated with immune-mediated disease physically interact and suggest underlying biology</article-title>. <source/>PLoS Genet., <volume>7</volume>, <fpage>e1001273</fpage>.<pub-id pub-id-type="pmid">21249183</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B33">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ruffalo</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) 
+<article-title>Network-based integration of disparate omic data to identify ‘silent players’ in cancer</article-title>. <source/>PLoS Comput. Biol., <volume>11</volume>, <fpage>e1004595</fpage>.<pub-id pub-id-type="pmid">26683094</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B34">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Sanchez-Garcia</surname><given-names>F.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) 
+<article-title>Integration of genomic data enables selective discovery of breast cancer drivers</article-title>. <source/>Cell, <volume>159</volume>, <fpage>1461</fpage>–<lpage>1475</lpage>.<pub-id pub-id-type="pmid">25433701</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B35">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Schade</surname><given-names>A.E.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>RB, p130 and p107 differentially repress G1/S and G2/M genes after p53 activation</article-title>. <source/>Nucleic Acids Res., <volume>47</volume>, <fpage>11197</fpage>–<lpage>11208</lpage>.<pub-id pub-id-type="pmid">31667499</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B36">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Seibold</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>RAL GTPases mediate multiple myeloma cell survival and are activated independently of oncogenic RAS</article-title>. <source/>Haematologica.doi:<pub-id pub-id-type="doi">10.3324/haematol.2019.223024</pub-id>.</mixed-citation>
+</ref>
+<ref id="btaa452-B37">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Shervashidze</surname><given-names>N.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>Weisfeiler-Lehman graph kernels</article-title>. <source/>J. Mach. Learn. Res., <volume>12</volume>, <fpage>2539</fpage>–<lpage>2561</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa452-B38">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Sondka</surname><given-names>Z.</given-names></name></person-group>
+<etal>et al</etal> (<year>2018</year>) 
+<article-title>The cosmic cancer gene census: describing genetic dysfunction across all human cancers</article-title>. <source/>Nat. Rev. Cancer, <volume>18</volume>, <fpage>696</fpage>–<lpage>705</lpage>.<pub-id pub-id-type="pmid">30293088</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B39">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Song</surname><given-names>Z.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>HIF-1<italic>α</italic>-induced RIT1 promotes liver cancer growth and metastasis and its deficiency increases sensitivity to sorafenib</article-title>. <source/>Cancer Lett., <volume>460</volume>, <fpage>96</fpage>–<lpage>107</lpage>.<pub-id pub-id-type="pmid">31247273</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B40">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Stammer</surname><given-names>R.M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) 
+<article-title>Synergistic antitumour properties of viscumTT in alveolar rhabdomyosarcoma</article-title>. <source/>J. Immunol. Res., <volume>2017</volume>, <fpage>1</fpage>–<lpage>13</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa452-B41">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Szklarczyk</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) 
+<article-title>STRING v11: protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets</article-title>. <source/>Nucleic Acids Res., <volume>47</volume>, <fpage>D607</fpage>–<lpage>D613</lpage>.<pub-id pub-id-type="pmid">30476243</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B42">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Togninalli</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2019</year>) Wasserstein Weisfeiler-Lehman graph kernels. In: <italic>Advances in Neural Information Processing Systems</italic>, vol. <volume>32</volume>, pp. <fpage>6436</fpage>–<lpage>6446</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa452-B43">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Vandin</surname><given-names>F.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) 
+<article-title>Algorithms for detecting significantly mutated pathways in cancer</article-title>. <source/>J. Comput. Biol., <volume>18</volume>, <fpage>507</fpage>–<lpage>522</lpage>.<pub-id pub-id-type="pmid">21385051</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B44">
+<mixed-citation publication-type="book">
+<person-group person-group-type="author"><name name-style="western"><surname>Vandin</surname><given-names>F.</given-names></name></person-group>
+<etal>et al</etal> (<year>2012</year>) <chapter-title>Discovery of mutated subnetworks associated with clinical data in cancer</chapter-title> In: <source/>Biocomputing 2012, pp. <fpage>55</fpage>–<lpage>66</lpage>. 
+<publisher-name>World Scientific Publishing Co. Pte. Ltd., Singapore</publisher-name>.</mixed-citation>
+</ref>
+<ref id="btaa452-B45">
+<mixed-citation publication-type="book">
+<person-group person-group-type="author"><name name-style="western"><surname>Villani</surname><given-names>C.</given-names></name></person-group> (<year>2008</year>) <source/>Optimal Transport: Old and New, Vol. <volume>338</volume>
+<publisher-name>Springer Verlag, Berlin, Heidelberg.</publisher-name></mixed-citation>
+</ref>
+<ref id="btaa452-B46">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Vogelstein</surname><given-names>B.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>Cancer genome landscapes</article-title>. <source/>Science, <volume>339</volume>, <fpage>1546</fpage>–<lpage>1558</lpage>.<pub-id pub-id-type="pmid">23539594</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B47">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Wang</surname><given-names>Z.</given-names></name></person-group>
+<etal>et al</etal> (<year>2020</year>) 
+<article-title>Nuclear receptor HNF4<italic>α</italic> performs a tumor suppressor function in prostate cancer via its induction of p21-driven cellular senescence</article-title>. <source/>Oncogene, <volume>39</volume>, <fpage>1572</fpage>–<lpage>1589</lpage>.<pub-id pub-id-type="pmid">31695151</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B151">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Weisfeiler</surname><given-names>B.</given-names></name>, <name name-style="western"><surname>Andrei</surname><given-names>A.L.</given-names></name></person-group> (<year>1968</year>) 
+<article-title>A reduction of a graph to a canonical form and an algebra arising during this reduction</article-title>. <source/>Nauchno-Technicheskaya Informatsia, <volume>2</volume>, <fpage>12</fpage>–<lpage>16</lpage>.</mixed-citation>
+</ref>
+<ref id="btaa452-B48">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Willsey</surname><given-names>A.J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2013</year>) 
+<article-title>Coexpression networks implicate human midfetal deep cortical projection neurons in the pathogenesis of autism</article-title>. <source/>Cell, <volume>155</volume>, <fpage>997</fpage>–<lpage>1007</lpage>.<pub-id pub-id-type="pmid">24267886</pub-id></mixed-citation>
+</ref>
+<ref id="btaa452-B49">
+<mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Zhou</surname><given-names>X.</given-names></name></person-group>
+<etal>et al</etal> (<year>2008</year>) 
+<article-title>Myosin light-chain kinase contributes to the proliferation and migration of breast cancer cells through cross-talk with activated ERK1/2</article-title>. <source/>Cancer Lett., <volume>270</volume>, <fpage>312</fpage>–<lpage>327</lpage>.<pub-id pub-id-type="pmid">18710790</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

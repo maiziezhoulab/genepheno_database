@@ -1,0 +1,2013 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">BMC Med Genomics</journal-id>
+<journal-id journal-id-type="iso-abbrev">BMC Med Genomics</journal-id>
+<journal-title-group>
+<journal-title>BMC Medical Genomics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1755-8794</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">30255812</article-id>
+<article-id pub-id-type="pmc">6157196</article-id>
+<article-id pub-id-type="publisher-id">389</article-id>
+<article-id pub-id-type="doi">10.1186/s12920-018-0389-z</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Integrative pathway-based survival prediction utilizing the interaction between gene expression and DNA methylation in breast cancer</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>So Yeon</given-names>
+</name>
+<address>
+<email>jebi1771@ajou.ac.kr</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>Tae Rim</given-names>
+</name>
+<address>
+<email>qwert12a@ajou.ac.kr</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Jeong</surname>
+<given-names>Hyun-Hwan</given-names>
+</name>
+<address>
+<email>Hyun-Hwan.Jeong@bcm.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Sohn</surname>
+<given-names>Kyung-Ah</given-names>
+</name>
+<address>
+<email>kasohn@ajou.ac.kr</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0532 3933</institution-id><institution-id institution-id-type="GRID">grid.251916.8</institution-id><institution>Department of Computer Engineering, </institution><institution>Ajou University, </institution></institution-wrap>Suwon, 16499 South Korea </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2160 926X</institution-id><institution-id institution-id-type="GRID">grid.39382.33</institution-id><institution>Department of Molecular and Human Genetics, </institution><institution>Baylor College of Medicine, </institution></institution-wrap>Houston, TX 77030 USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2200 2638</institution-id><institution-id institution-id-type="GRID">grid.416975.8</institution-id><institution>Jan and Dan Duncan Neurological Research Institute, Texas Children’s Hospital, </institution></institution-wrap>Houston, TX 77030 USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>14</day>
+<month>9</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>14</day>
+<month>9</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2018</year>
+</pub-date>
+<volume>11</volume>
+<issue>Suppl 3</issue>
+<issue-sponsor>Publication of this supplement has not been supported by sponsorship. Information about the source of funding for publication charges can be found in the individual articles. The articles have undergone the journal's standard peer review process for supplements. The Supplement Editors declare that they have no competing interests.</issue-sponsor>
+<elocation-id>68</elocation-id>
+<permissions>
+<copyright-statement>© The Author(s). 2018</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<sec>
+<title>Background</title>
+<p id="Par1">Integrative analysis on multi-omics data has gained much attention recently. To investigate the interactive effect of gene expression and DNA methylation on cancer, we propose a directed random walk-based approach on an integrated gene-gene graph that is guided by pathway information.</p>
+</sec>
+<sec>
+<title>Methods</title>
+<p id="Par2">Our approach first extracts a single pathway profile matrix out of the gene expression and DNA methylation data by performing the random walk over the integrated graph. We then apply a denoising autoencoder to the pathway profile to further identify important pathway features and genes. The extracted features are validated in the survival prediction task for breast cancer patients.</p>
+</sec>
+<sec>
+<title>Results</title>
+<p id="Par3">The results show that the proposed method substantially improves the survival prediction performance compared to that of other pathway-based prediction methods, revealing that the combined effect of gene expression and methylation data is well reflected in the integrated gene-gene graph combined with pathway information. Furthermore, we show that our joint analysis on the methylation features and gene expression profile identifies cancer-specific pathways with genes related to breast cancer.</p>
+</sec>
+<sec>
+<title>Conclusions</title>
+<p id="Par4">In this study, we proposed a DRW-based method on an integrated gene-gene graph with expression and methylation profiles in order to utilize the interactions between them. The results showed that the constructed integrated gene-gene graph can successfully reflect the combined effect of methylation features on gene expression profiles. We also found that the selected features by DA can effectively extract topologically important pathways and genes specifically related to breast cancer.</p>
+</sec>
+</abstract>
+<kwd-group xml:lang="en">
+<title>Keywords</title>
+<kwd>Multi-omics</kwd>
+<kwd>Integrative analysis</kwd>
+<kwd>Random walk</kwd>
+<kwd>Denoising autoencoder</kwd>
+<kwd>Pathway</kwd>
+<kwd>Breast cancer</kwd>
+<kwd>Gene expression</kwd>
+<kwd>DNA methylation</kwd>
+</kwd-group>
+<conference xlink:href="https://ritchielab.psu.edu/tbc2017">
+<conf-name>The 7th Translational Bioinformatics Conference</conf-name>
+<conf-acronym>TBC 2017</conf-acronym>
+<conf-loc>Los Angeles, CA, USA</conf-loc>
+<conf-date>29 September - 01 October 2017</conf-date>
+</conference>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2018</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1">
+<title>Background</title>
+<p id="Par9">Integrative analysis on multi-omics data to find biomarkers or pathway features highly associated with cancer has received considerable attention [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR6">6</xref>]. Considering the rich information contained in multi-omics data, many studies have investigated the interrelationships among multiple meta-dimensional data for improved biological interpretation and analysis [<xref ref-type="bibr" rid="CR7">7</xref>–<xref ref-type="bibr" rid="CR12">12</xref>]. To understand the interaction between different types of genomic features requires more sophisticated modeling and analysis. In particular, the causal relationships between gene expression data and DNA methylation have been extensively studied [<xref ref-type="bibr" rid="CR13">13</xref>–<xref ref-type="bibr" rid="CR16">16</xref>]. For joint analysis of gene expression and methylation data in cancer, pathway and subtype information have proven especially useful [<xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR19">19</xref>]. In this study, we address the problem of pathway-driven integrated analysis of gene expression and methylation data in cancer.</p>
+<p id="Par10">To combine pathway information into genomic analysis and cancer prediction, several methods of inferring pathway activity have been proposed [<xref ref-type="bibr" rid="CR20">20</xref>–<xref ref-type="bibr" rid="CR24">24</xref>]. For example, the mean and median of the expression values of pathway member genes can be used for precise cancer classification [<xref ref-type="bibr" rid="CR24">24</xref>]. In [<xref ref-type="bibr" rid="CR20">20</xref>], pathway activity inference method of condition-responsive genes (the pathway member genes whose combined expression show optimal discriminative power for the disease phenotype) have been proposed to incorporate pathway information into the precise disease classification. Pathway activity inference approaches using probabilistic inference have been used for combining multiple types of omics data and a better cancer classification [<xref ref-type="bibr" rid="CR21">21</xref>–<xref ref-type="bibr" rid="CR23">23</xref>]. However, those existing pathway-based methods simply take pathways as the set of genes and have ignored the topological importance of the hub genes in the pathway network that can be highly associated with diseases. In this respect, Liu, et al. proposed a directed random walk (DRW)-based pathway inference method to identify the topologically important genes and pathways by weighting the genes in the pathway network [<xref ref-type="bibr" rid="CR25">25</xref>]. Because this original DRW method targeted a single profile of gene expression data, recent approaches have focused on integrating multiple types of data, for example, gene expression and metabolite data [<xref ref-type="bibr" rid="CR26">26</xref>]. Directed random walk on a gene-metabolite graph (DRW-GM) was performed guided by pathway information, and identified important differential genes and risk pathways in prostate cancer.</p>
+<p id="Par11">In this study, we propose a DRW-based approach on an integrated gene-gene graph especially redefined for gene expression and methylation data in order to extract important pathway and gene features for survival prediction. We first construct an integrated gene-gene graph by adding edges between gene expression and methylation features as well as edges within each profile. In constructing the integrated gene-gene graph, we consider two approaches: one that adds bi-directional edges between expression and methylation features of the same gene that has both profiles, and another that considers only the anti-correlated interactions between the expression and methylation data. For the edges within each single profile, we adopt the pathway-based interaction graph from the previous study [<xref ref-type="bibr" rid="CR25">25</xref>]. DRW is then performed, which produces the weight values of both expression and methylation features. The initial weights of the gene expression nodes are measured by DESeq2 [<xref ref-type="bibr" rid="CR27">27</xref>], which is a method for differential gene expression analysis in count data from high-throughput sequencing assays. The methylation feature nodes are initially weighted by using a two-tailed <italic>t</italic>-test between two phenotypes. By using the output from the DRW, a pathway activity profile is computed. In summary, integrative DRW (iDRW) on a graph defined over gene expression and methylation features transforms the combined profile of gene expression and methylation data into a single pathway profile. To further extract important pathway features, we apply a denoising autoencoder (DA) [<xref ref-type="bibr" rid="CR28">28</xref>] to the pathway profile matrix. DA has proven to be effective in selecting robust features against input noise and extracting more specific cancer-related pathways or genes [<xref ref-type="bibr" rid="CR29">29</xref>–<xref ref-type="bibr" rid="CR31">31</xref>]. The resulting features are validated on a survival prediction task of breast cancer patients. The topologically significant pathways and pathway member genes are identified and analyzed as well. The overall process of the proposed approach is illustrated in Fig. <xref ref-type="fig" rid="Fig1">1</xref>.<fig id="Fig1"><label>Fig. 1</label><caption><p>Overview of the proposed integrative pathway-based survival prediction method</p></caption><graphic id="MO1" xlink:href="12920_2018_389_Fig1_HTML"></graphic></fig></p>
+<p id="Par12">The pathway features selected with our scheme are based on gene expression and methylation features as well as interactions between the two. These extracted pathway features are effective at improving the prediction performance when compared to the gene-based profile or other pathway-driven methods. We also reveal that the iDRW method with a denoising autoencoder selects a more cancer-specific pathways or genes as compared to that directly selected by the iDRW method.</p>
+</sec>
+<sec id="Sec2">
+<title>Methods</title>
+<sec id="Sec3">
+<title>Dataset</title>
+<p id="Par13">Gene expression and DNA methylation data of 868 breast cancer patients were obtained from the TCGA dataset of the Broad Institute GDAC Firehose [<xref ref-type="bibr" rid="CR32">32</xref>]. Gene expression data from RNA sequencing consisted of 17,673 genes, which are upper-quartile normalized RSEM count estimates in the Broad Institute GDAC Firehose [<xref ref-type="bibr" rid="CR33">33</xref>]. DNA methylation data were obtained as a gene-level feature of 17,037 genes by selecting the probe having a minimum correlation with expression data for each gene [<xref ref-type="bibr" rid="CR34">34</xref>]. We removed genes in which more than half had gene expression values of 0. In contrast to gene expression data, 5134 missing values were present in the methylation data. To impute missing values, we replaced them with a median of the corresponding patient’s data. For each breast cancer patient, the vital status and survival days were recorded. Among 868 patients, we extracted 568 samples that had both RNA sequencing and methylation data. We removed patients whose survival days were not recorded or wrongly so as negative values. In this study, we split the patients into good (&gt; 3 years) and poor (≤ 3 years) groups with respect to their survival days [<xref ref-type="bibr" rid="CR35">35</xref>]. Patients who were living (vital status reported as 1) but whose survival days were less than 3 years were removed. In total, 465 samples were divided into two groups of 218 good and 247 poor. Finally, the gene expression and methylation data were normalized for the mean to be 0 and standard deviation to be 1 over all samples.</p>
+</sec>
+<sec id="Sec4">
+<title>Pathway-based global directed integrated gene-gene graph</title>
+<p id="Par14">To transform each gene profile into a pathway profile, a DRW-based method was performed on a global directed gene-gene graph, which was constructed based on both 150 metabolic and 150 non-metabolic KEGG pathways [<xref ref-type="bibr" rid="CR25">25</xref>]. Interactions between genes in the global directed graph were manually drawn from the KEGG database [<xref ref-type="bibr" rid="CR36">36</xref>] by researchers in [<xref ref-type="bibr" rid="CR25">25</xref>]. The global directed graph contained 4113 genes and 40,875 directed edges. Details regarding the construction method of the global directed graph are provided in [<xref ref-type="bibr" rid="CR25">25</xref>].</p>
+<p id="Par15">To define the directed graph across gene expression and methylation data, we first included all edges in the global directed graph from [<xref ref-type="bibr" rid="CR25">25</xref>] within each profile. In addition, the interactions between 16,454 overlapping genes in the two profiles were defined in the global directed graph. As most of the methylation profiles inhibited the genes in the gene expression data [<xref ref-type="bibr" rid="CR37">37</xref>], we experimented with two cases. First, we assigned bi-directional edges to all overlapping genes between gene expression and methylation data. Second, we only assigned the edge when the expression and methylation values of the same gene were anti-correlated. Correlation was measured by the Pearson correlation and significance test of a correlation coefficient was performed. The correlation coefficient with a negative value and <italic>p</italic>-value of a significant test &lt; 0.05 meant that the methylation profile might inhibit the corresponding gene expression. The final integrated gene-gene graph contained 4113 genes as nodes, which were either from the gene expression data or methylation profiles. The number of directed edges in the graph was 88,440 when all overlapping edges were added and 81,750 (the removal of edges is about 7.6% of all overlapping edges) when only the anti-correlated edges were added.</p>
+</sec>
+<sec id="Sec5">
+<title>DRW-based method on an integrated gene-gene graph</title>
+<p id="Par16">We utilized the recently proposed DRW method (DRW-GM) [<xref ref-type="bibr" rid="CR26">26</xref>] to integrate information in a graph constructed from multiple profiles. To perform random walk, the initial weights of the genes should be assigned. As the DRW-GM method is specifically designed to integrate gene expression profiles and metabolomic profiles, the weights of the genes were modified for the graph from the gene expression and methylation profiles. For each gene profile, <italic>W</italic><sub>0</sub> is constructed as:<disp-formula id="Equa"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {W}_0=-\mathit{\log}\left({w}_g+\epsilon \right) $$\end{document}</tex-math><mml:math display="block" id="M2"><mml:msub><mml:mi>W</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:mo>−</mml:mo><mml:mo mathvariant="italic">log</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mi>g</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mi>ϵ</mml:mi></mml:mrow></mml:mfenced></mml:math><graphic position="anchor" xlink:href="12920_2018_389_Article_Equa.gif"></graphic></alternatives></disp-formula>where <italic>w</italic><sub><italic>g</italic></sub> is the weight of the gene <italic>g</italic> in the directed integrated gene-gene graph <italic>G</italic>, and <italic>ϵ</italic> = 2.2<italic>e</italic><sup>−16</sup><italic>.</italic> The weight of the gene is the <italic>p</italic>-value from either a two-tailed <italic>t</italic>-test for the methylation profiles or a DESeq2, which is a method for differential gene expression analysis based on negative binomial distribution for RNA sequence genes [<xref ref-type="bibr" rid="CR27">27</xref>]. Each gene weight vector is normalized to scale the range between 0 and 1. Finally, <italic>W</italic><sub>0</sub> is <italic>L</italic><sub>1</sub>-normalized to a unit vector. A random walker starts on a source node <italic>s</italic> and transits to a randomly selected neighbor or returns to the source node <italic>s</italic> with a restart probability <italic>r</italic> at each time step <italic>t</italic>. The DRW method is formally defined as:<disp-formula id="Equb"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {W}_{t+1}=\left(1-r\right){M}^T{W}_t+r{W}_0 $$\end{document}</tex-math><mml:math display="block" id="M4"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:mfenced><mml:msup><mml:mi>M</mml:mi><mml:mi>T</mml:mi></mml:msup><mml:msub><mml:mi>W</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mi>r</mml:mi><mml:msub><mml:mi>W</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:math><graphic position="anchor" xlink:href="12920_2018_389_Article_Equb.gif"></graphic></alternatives></disp-formula>where <italic>W</italic><sub><italic>t</italic></sub> is the weight vector in which the <italic>i</italic>-th element represents the probability of being at node <italic>i</italic> at time step <italic>t</italic>; <italic>M</italic> is a row-normalized adjacency matrix of the directed integrated gene-gene graph <italic>G</italic>; <italic>r</italic> is the restart probability, which is set to 0.7 (as it was previously shown that the performance of the DRW method is not sensitive to the varying <italic>r</italic> [<xref ref-type="bibr" rid="CR25">25</xref>]), and <italic>W</italic><sub>0</sub> is the initial weight vector of genes in the graph <italic>G</italic>. At each time step, <italic>W</italic><sub><italic>t</italic></sub> is updated and guaranteed to converge to a steady state <italic>W</italic><sub>∞</sub> [<xref ref-type="bibr" rid="CR38">38</xref>] when∣<italic>W</italic><sub><italic>t</italic> + 1</sub> − <italic>W</italic><sub><italic>t</italic></sub>∣&lt; 10<sup>−10</sup><italic>.</italic></p>
+</sec>
+<sec id="Sec6">
+<title>Pathway activity inference</title>
+<p id="Par17">For a <italic>j</italic>-th pathway <italic>P</italic><sub><italic>j</italic></sub> containing <italic>n</italic><sub><italic>j</italic></sub> differential genes <inline-formula id="IEq1"><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \left({g}_1,{g}_2,\dots, {g}_{n_j}\right) $$\end{document}</tex-math><mml:math display="inline" id="M6"><mml:mfenced close=")" open="(" separators=",,,"><mml:msub><mml:mi>g</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:msub><mml:mi>g</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>…</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:msub><mml:mi>n</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:msub></mml:mfenced></mml:math><inline-graphic xlink:href="12920_2018_389_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula> whose <italic>p</italic>-value (<italic>w</italic><sub><italic>g</italic></sub>) is &lt; 0.05, the pathway activity is defined as:<disp-formula id="Equc"><alternatives><tex-math id="M7">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ a\left({P}_j\right)=\frac{\sum_{i=1}^{n_j}{W}_{\infty}\left({g}_i\right)\ast score\left({g}_i\right)\ast z\left({g}_i\right)}{\sqrt{\sum_{i=1}^{n_j}{\left({W}_{\infty}\left({g}_i\right)\right)}^2}} $$\end{document}</tex-math><mml:math display="block" id="M8"><mml:mi>a</mml:mi><mml:mfenced close=")" open="("><mml:msub><mml:mi>P</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mfenced><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:msubsup><mml:msub><mml:mi>W</mml:mi><mml:mo>∞</mml:mo></mml:msub><mml:mfenced close=")" open="("><mml:msub><mml:mi>g</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced><mml:mo>∗</mml:mo><mml:mtext mathvariant="italic">score</mml:mtext><mml:mfenced close=")" open="("><mml:msub><mml:mi>g</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced><mml:mo>∗</mml:mo><mml:mi>z</mml:mi><mml:mfenced close=")" open="("><mml:msub><mml:mi>g</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced></mml:mrow><mml:msqrt><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:msub><mml:mi>n</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:msubsup><mml:msup><mml:mfenced close=")" open="("><mml:mrow><mml:msub><mml:mi>W</mml:mi><mml:mo>∞</mml:mo></mml:msub><mml:mfenced close=")" open="("><mml:msub><mml:mi>g</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:msqrt></mml:mfrac></mml:math><graphic position="anchor" xlink:href="12920_2018_389_Article_Equc.gif"></graphic></alternatives></disp-formula>where <italic>W</italic><sub>∞</sub>(<italic>g</italic><sub><italic>i</italic></sub>) is the weight of gene <italic>g</italic><sub><italic>i</italic></sub> from the DRW method, <italic>z</italic>(<italic>g</italic><sub><italic>i</italic></sub>) is the normalized expression vector of <italic>g</italic><sub><italic>i</italic></sub> across overall samples, and <italic>score</italic>(<italic>g</italic><sub><italic>i</italic></sub>) is either a <italic>log</italic><sub>2</sub>
+<italic>fold change</italic> from the DESeq2 [<xref ref-type="bibr" rid="CR27">27</xref>] analysis if <italic>g</italic><sub><italic>i</italic></sub> is a gene from the gene expression data, or a <italic>sign</italic>(<italic>tscore</italic>(<italic>g</italic><sub><italic>i</italic></sub>)) from two-tailed <italic>t</italic>-test statistics if <italic>g</italic><sub><italic>i</italic></sub> is a gene with the methylation feature. For DESeq2 in the gene expression data, <italic>log</italic><sub>2</sub>
+<italic>fold change</italic> indicates the extent to which gene expression values have changed between groups of samples. For each pathway, the pathway activity is computed from the normalized gene expression values for each sample, which corresponds to a pathway profile. As a result, the pathway profile is used as an input to a classification model.</p>
+</sec>
+<sec id="Sec7">
+<title>Feature selection and ranking strategy</title>
+<p id="Par18">To select pathway features, the pathways are first scored by the weight matrix from DA [<xref ref-type="bibr" rid="CR28">28</xref>]. Given an input <italic>x</italic> ∈ ℝ<sup><italic>d</italic></sup> that is a feature vector and corrupted input <inline-formula id="IEq2"><alternatives><tex-math id="M9">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \overset{\sim }{x}\in {\mathrm{\mathbb{R}}}^d $$\end{document}</tex-math><mml:math display="inline" id="M10"><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="true">~</mml:mo></mml:mover><mml:mo>∈</mml:mo><mml:msup><mml:mi mathvariant="normal">ℝ</mml:mi><mml:mi>d</mml:mi></mml:msup></mml:math><inline-graphic xlink:href="12920_2018_389_Article_IEq2.gif"></inline-graphic></alternatives></inline-formula> that is perturbed by a random binomial error, <inline-formula id="IEq3"><alternatives><tex-math id="M11">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \overset{\sim }{x} $$\end{document}</tex-math><mml:math display="inline" id="M12"><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="true">~</mml:mo></mml:mover></mml:math><inline-graphic xlink:href="12920_2018_389_Article_IEq3.gif"></inline-graphic></alternatives></inline-formula> is mapped to a hidden representation <italic>y</italic> ∈ ℝ<sup><italic>p</italic></sup> as follows:<disp-formula id="Equd"><alternatives><tex-math id="M13">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ y=s\left(W\overset{\sim }{x}+b\right) $$\end{document}</tex-math><mml:math display="block" id="M14"><mml:mi>y</mml:mi><mml:mo>=</mml:mo><mml:mi>s</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:mi>W</mml:mi><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="true">~</mml:mo></mml:mover><mml:mo>+</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced></mml:math><graphic position="anchor" xlink:href="12920_2018_389_Article_Equd.gif"></graphic></alternatives></disp-formula>where <italic>s</italic> is a sigmoid activation function, <italic>W</italic> is a weight matrix that is randomly initialized depending on its input and hidden layer size, <italic>b</italic> is a bias, and <italic>y</italic> is a latent representation of the encoded <inline-formula id="IEq4"><alternatives><tex-math id="M15">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \overset{\sim }{x} $$\end{document}</tex-math><mml:math display="inline" id="M16"><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="true">~</mml:mo></mml:mover></mml:math><inline-graphic xlink:href="12920_2018_389_Article_IEq4.gif"></inline-graphic></alternatives></inline-formula> by the encoder. <italic>y</italic> is then used as an input into a decoder to reconstruct <italic>z</italic> as follows:<disp-formula id="Eque"><alternatives><tex-math id="M17">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ z=s\left({W}^Ty+{b}^T\right) $$\end{document}</tex-math><mml:math display="block" id="M18"><mml:mi>z</mml:mi><mml:mo>=</mml:mo><mml:mi>s</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:msup><mml:mi>W</mml:mi><mml:mi>T</mml:mi></mml:msup><mml:mi>y</mml:mi><mml:mo>+</mml:mo><mml:msup><mml:mi>b</mml:mi><mml:mi>T</mml:mi></mml:msup></mml:mrow></mml:mfenced></mml:math><graphic position="anchor" xlink:href="12920_2018_389_Article_Eque.gif"></graphic></alternatives></disp-formula></p>
+<p id="Par19">Here, <italic>z</italic> C input of <italic>x</italic> given <italic>y</italic>. To calculate the reconstruction error, we used a mean squared error, not the cross-entropy as the scale of our data was not in [0, 1]. <italic>L</italic>(<italic>xz</italic>)<italic>,</italic> which is the loss on the reconstruction of the original input <italic>x</italic> from <italic>z</italic>, is defined as:<disp-formula id="Equf"><alternatives><tex-math id="M19">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ L(xz)=\frac{\parallel x-z{\parallel}^2}{2} $$\end{document}</tex-math><mml:math display="block" id="M20"><mml:mi>L</mml:mi><mml:mfenced close=")" open="("><mml:mi mathvariant="italic">xz</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo>∥</mml:mo><mml:mi>x</mml:mi><mml:mo>−</mml:mo><mml:mi>z</mml:mi><mml:msup><mml:mo>∥</mml:mo><mml:mn>2</mml:mn></mml:msup></mml:mrow><mml:mn>2</mml:mn></mml:mfrac></mml:math><graphic position="anchor" xlink:href="12920_2018_389_Article_Equf.gif"></graphic></alternatives></disp-formula></p>
+<p id="Par20">For feature importance scoring purposes, we used a single hidden layer because the input features are scored by the weight matrix between input and hidden layers, and the more abstract features are selected when using the more number of hidden layers which can lead to lose pathway information. Note that the purpose of using DA in this study was primarily for feature selection than for accurate reconstruction of the original input. To rank the pathway features, we first trained the DA to obtain the weight matrix between input and hidden layers. The weight of each input feature was then defined as the mean value of the weight vector of the input node to all hidden nodes. We experimented with a varying number of hidden nodes (50, 100, 150, 200). As the number of hidden nodes did not greatly affect the list of selected pathway features and the final classification performance, the number of hidden nodes was set to 200. In the experiments, the selected pathway features from DA combined with the iDRW method (iDRW+DA) were compared with those obtained using the iDRW method. The pathway features were ranked by their <italic>p</italic>-values from the <italic>t</italic>-test of pathway activities across samples with the iDRW method. Therefore, the ranked features by the iDRW+DA method were selected to best fit the classification model using a greedy search as performed in [<xref ref-type="bibr" rid="CR25">25</xref>].</p>
+</sec>
+<sec id="Sec8">
+<title>Classification performance evaluation</title>
+<p id="Par21">We performed a logistic regression analysis using the extracted features. A 5-fold cross validation was conducted to evaluate the classification performance. We first divided the entire samples into five folds. We then trained the regression model using four folds and validated the performance using the remaining fold. For each fold, the top-<italic>N</italic> pathway features that yielded the best classification performance were selected; this was measured by area under the curve (AUC) and the accuracy. AUC is the area under the Receiving operating characteristic (ROC) curve evaluating the trade-off between true positive rate (sensitivity) and false positive rate (1- specificity) and the accuracy measures the proportion of true positives and true negatives; the more AUC and the accuracy is, the better the trained regression model classifies the test samples into good and poor group. To select the best pathway features, we repeated the entire cross validation process 10 times and assessed the pathway features that appeared more than three times in a union of 50 feature sets. Finally, the average AUC and accuracy after 10 repeats of the process using five folds was used as a final classification performance.</p>
+</sec>
+</sec>
+<sec id="Sec9">
+<title>Results</title>
+<sec id="Sec10">
+<title>Performance comparison on a single type of feature data</title>
+<p id="Par22">To check the utility of the pathway profiles obtained using the DRW method, we first experimented with each single-layered feature data. The performances were evaluated using four types of data: RNA-seq gene expression profile, methylation profile, RNA-seq pathway profile, and methylation pathway profile. The pathway profiles were obtained by the original DRW method. The classification performance was evaluated using the selected top-<italic>N</italic> pathway features ranked by their t-test scores. For a fair comparison, top-<italic>N</italic> genes of the gene profiles were also ranked by their DESeq2 or t-test scores. Note that the genes and pathways are weighted via two-group (good and poor groups) comparison that is considered as a supervised learning task. Figure <xref ref-type="fig" rid="Fig2">2</xref> shows the average AUC and the accuracy from a 5-fold cross validation measured using a logistic regression model. As shown in Fig. <xref ref-type="fig" rid="Fig2">2</xref>, the overall performance using the pathway profiles from the DRW method was better than that when using the gene profiles. These findings reveal that the pathway features extracted using the DRW method can improve the prediction performance when compared to the gene features. We also determined that the performance difference between RNA-seq data and the methylation profile was considerable when using pathway profiles. This means that gene expression plays a more critical role in survival prediction in a breast cancer patient group than does a methylation profile. Moreover, this difference was particularly remarkable when raw feature values were transformed into pathway features.<fig id="Fig2"><label>Fig. 2</label><caption><p>Classification performance comparison between a single type of feature data and converted pathway profiles by DRW in terms of mean AUC (left) and mean accuracy (right) after 10 repeats of 5-fold cross validation process. Gene and pathway profiles with gene expression and methylation profiles were evaluated. The pathway profiles were obtained by the original DRW method. Error bars represent the standard error of the mean values</p></caption><graphic id="MO2" xlink:href="12920_2018_389_Fig2_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec11">
+<title>Performance comparison of the pathway-based prediction methods on combined feature data</title>
+<p id="Par23">To show the utility of the proposed method on the combined feature data, we compared different pathway-based prediction methods on the combined RNA-seq and DNA methylation data (Fig. <xref ref-type="fig" rid="Fig3">3</xref>). First, we simply employed means (Mean) and medians (Median) of the expression values of the significant pathway member genes to construct a pathway profile matrix. To show the utility of the integrated gene-gene graph, we also assessed the performance when the pathway profiles obtained from the RNA-seq and methylation data were concatenated (DRW-concat). In this method, we used the DRW method to obtain pathway profiles but the interaction of the RNA sequence and methylation data were not considered. The last three results shown in Fig. <xref ref-type="fig" rid="Fig3">3</xref> are from the pathway profiles obtained by the proposed DRW method on the integrated gene-gene graph. As a baseline, the classification performance over the concatenated RNA-seq and methylation profile without using pathway information is shown as a dotted horizontal line in Fig. <xref ref-type="fig" rid="Fig3">3</xref>. All performances of the iDRW-based methods outperformed the simple concatenation of the DRW method and the baselines, as expected.<fig id="Fig3"><label>Fig. 3</label><caption><p>Classification performance comparison of the pathway-based prediction methods on the combined feature data. Mean AUC (left) and mean accuracy (right) after 10 repeats of 5-fold cross validation process are shown. Error bars represent the standard error of the mean values</p></caption><graphic id="MO3" xlink:href="12920_2018_389_Fig3_HTML"></graphic></fig></p>
+<p id="Par24">These results reveal that the interactions between gene expression and methylation profiles have considerable joint effect on the integrated gene-gene graph and survival prediction. Regarding the construction of the integrated graph, we first linked all the nodes of the same gene between RNA-seq and methylation profiles (iDRW). Second, we only considered the anti-correlated interactions (iDRW-anti). The classification performance of iDRW combined with the DA (iDRW+DA) was the best, whereas the performance difference between the three iDRW methods was marginal.</p>
+</sec>
+<sec id="Sec12">
+<title>Identification of significant pathways and genes in breast cancer</title>
+<p id="Par25">In our study, we could extract significant pathway features from both the iDRW outputs and the iDRW+ DA. Figure <xref ref-type="fig" rid="Fig4">4</xref> compares the lists of selected pathways from both the iDRW and the iDRW+DA as a heatmap. Each cell in the heatmap represents similarity using the Simpson coefficient [<xref ref-type="bibr" rid="CR39">39</xref>] between two lists of differentially expressed genes and methylation sites from a pair of pathways. It measures how many genes were overlapped between the selected pathways by the iDRW and the iDRW+DA. The rows and columns in the heatmap represent selected pathways by DA and the iDRW method, respectively. Note that the iDRW method weighted the pathway features by the two-tailed t-test statistics, whereas the iDRW+DA used the weight matrix between the input nodes and hidden nodes in DA. We observed that the pathways selected by the iDRW method had similar patterns to those from iDRW+DA, which are marked as colored rows in the heatmap. This means that the iDRW method can detect general and non-specific pathways such as MAPK signaling pathway (86 genes), pathways in cancer (86 genes), and endocytosis (47 genes). However, iDRW+DA identified dorso-ventral axis formation as a top-scoring pathway which is an extremely specific pathway and contains four differentially expressed genes: ETS proto-oncogene 1, transcription factor (ETS1); notch 2 (NOTCH); mitogen-activated protein kinase 3 (MAPK3); and SOS Ras/Rac guanine nucleotide exchange factor 1 (SOS1). The dorso-ventral axis formation is related to the Wnt signaling pathway [<xref ref-type="bibr" rid="CR40">40</xref>]. Wnt signaling pathway is one of the closely associated pathways with cancer [<xref ref-type="bibr" rid="CR41">41</xref>]. We also found that approximately 40% of patients (439 of 1098) showed genetic alterations for the four genes in the pathway from the Breast Invasive Carcinoma dataset in the cBioPortal (<ext-link ext-link-type="uri" xlink:href="http://www.cbioportal.org/">http://www.cbioportal.org/</ext-link>), as shown in Fig. <xref ref-type="fig" rid="Fig5">5</xref>. Moreover, the DisGeNET database (<ext-link ext-link-type="uri" xlink:href="http://www.disgenet.org">http://www.disgenet.org</ext-link>), which shows relations between genes and diseases, indicates that those genes are associated with cancer-related diseases or disorders such as precancerous conditions (umls: C0032927), follicular thyroid carcinoma (umls: C0206682), and tumor initiation (umls: C0598935). We did not identify any strong evidence of association with pancreatic secretion (KEGG ID: hsa04972). However, we found that 13 genes in the pancreatic secretion pathway may regulate blood circulation as a means of releasing nucleic acids [<xref ref-type="bibr" rid="CR42">42</xref>]. The circulating nucleic acids by the biological process can be a biomarker of breast cancer. Based on our findings, we can hypothesize that the top-ranked pathways can be directly associated with the survivability of breast cancer patients given additional biological experiments.<fig id="Fig4"><label>Fig. 4</label><caption><p>Heat-map for comparing selected pathways by the iDRW and iDRW + DA methods. Each cell represents similarity using Simpson coefficient between two lists of differentially expressed genes and methylated genes from a pair of pathways selected by each method. Note that the rows and columns represent selected pathways by iDRW+DA and the iDRW method, respectively, and are clustered via hierarchical clustering with complete-linkage method</p></caption><graphic id="MO4" xlink:href="12920_2018_389_Fig4_HTML"></graphic></fig><fig id="Fig5"><label>Fig. 5</label><caption><p>Genetic alterations for the four genes in the dorso-ventral axis formation pathway from the Breast Invasive Carcinoma dataset in cBioPortal (<ext-link ext-link-type="uri" xlink:href="http://www.cbioportal.org/">http://www.cbioportal.org/</ext-link>)</p></caption><graphic id="MO5" xlink:href="12920_2018_389_Fig5_HTML"></graphic></fig></p>
+<p id="Par26">One of the advantages of our method is that it can obtain both differentially expressed genes from gene expression data as well as differentially methylated genes in each pathway. Thus, we can perform a joint analysis of the gene expression and methylation data. Table <xref ref-type="table" rid="Tab1">1</xref> shows the risk-active pathways selected by the proposed iDRW+DA method. The pathways that appear more than five times during 50 iterations are shown, and the number of significant pathway member genes from the gene expression and methylation data are also reported. The top-ranked pathways (i.e., dorso-ventral axis formation, pancreatic secretion, and neurotrophin signaling pathway) are reported as breast-cancer-related pathways as shown above. The genes in the top-10 pathways in Table <xref ref-type="table" rid="Tab1">1</xref> are also visualized in the gene-gene network shown in Fig. <xref ref-type="fig" rid="Fig6">6</xref>. The hub genes in the network play a crucial role in pathways selected by both the iDRW+DA method and the iDRW method. For example, MAPK3, transforming protein p21 (HRAS), and v-akt murine thymoma viral oncogene homolog 1 (AKT1) were all reported as highly related to the MAPK signaling pathway (KEGG ID: map 04010) known to be associated broadly with many cancers [<xref ref-type="bibr" rid="CR43">43</xref>, <xref ref-type="bibr" rid="CR44">44</xref>]. In addition, PTK2 protein tyrosine kinase 2 (PTK2), phosphatidylinositol 3-kinase regulatory subunit gamma (PIK3R3), and phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit delta (PIK3CD) are shown to be related to pathways in cancer (KEGG ID: map 05200) [<xref ref-type="bibr" rid="CR9">9</xref>]. Additionally, we investigated the association between the genes in the network and breast cancer using a gene-disease association (GDA) score from DisGeNET database. Note that the hub genes whose degrees in the network are greater than 4 and those genes detected in differential methylation regions are selected (which are colored in Fig. <xref ref-type="fig" rid="Fig6">6</xref>). Based on these criteria, 38 genes are used as input to the DisGeNET database. The GDA score above 0.2 for a gene can be interpreted to mean that it is strongly related to the disease, and the GDA score of a gene above 0 reveals that an association between that gene and the disease may be found in public databases and publications. Moreover, if the GDA score for a gene is 0, then no reports exist in any database or literature showing evidence of association between the gene and the disease. According to the GDA scores, 73.69% of hub genes (28 of 38) have GDA scores above 0 for breast cancer-related diseases, and we can claim that among hub-genes in the network, these genes are highly related to the breast cancer-related diseases. Table <xref ref-type="table" rid="Tab2">2</xref> summarizes the top-5 genes (as ranked by GDA scores from the DisGeNET database) that are associated with each disease. Based on these results, we can conclude that the genes and pathways detected by the proposed iDRW+DA method are related to breast cancer.<table-wrap id="Tab1"><label>Table 1</label><caption><p>Risk-active pathways identified by the proposed method (iDRW+DA)</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Pathway ID</th><th>Pathway name</th><th>Frequency<sup>a</sup></th><th>Total genes<sup>b</sup></th><th>DE genes</th><th>DM genes</th></tr></thead><tbody><tr><td>map 04320</td><td>Dorso-ventral axis formation</td><td>10/50</td><td>27</td><td>4</td><td>0</td></tr><tr><td>map 04972</td><td>Pancreatic secretion</td><td>8/50</td><td>65</td><td>26</td><td>3</td></tr><tr><td>map 04722</td><td>Neurotrophin signaling pathway</td><td>7/50</td><td>90</td><td>47</td><td>3</td></tr><tr><td>map 05020</td><td>Prion diseases</td><td>7/50</td><td>30</td><td>12</td><td>0</td></tr><tr><td>map 00670</td><td>One carbon pool by folate</td><td>5/50</td><td>33</td><td>6</td><td>1</td></tr><tr><td>map 00592</td><td>alpha-Linolenic acid metabolism</td><td>5/50</td><td>23</td><td>8</td><td>1</td></tr><tr><td>map 00620</td><td>Pyruvate metabolism</td><td>5/50</td><td>96</td><td>7</td><td>1</td></tr><tr><td>map 03320</td><td>PPAR signaling pathway</td><td>5/50</td><td>61</td><td>13</td><td>1</td></tr><tr><td>map 04660</td><td>T cell receptor signaling pathway</td><td>5/50</td><td>85</td><td>52</td><td>8</td></tr><tr><td>map 04510</td><td>Focal adhesion</td><td>5/50</td><td>148</td><td>83</td><td>11</td></tr><tr><td>map 03010</td><td>Ribosome</td><td>5/50</td><td>143</td><td>1</td><td>0</td></tr><tr><td>map 05214</td><td>Glioma</td><td>5/50</td><td>52</td><td>27</td><td>0</td></tr><tr><td>map 04711</td><td>Circadian rhythm - fly</td><td>5/50</td><td>8</td><td>4</td><td>1</td></tr><tr><td>map 00960</td><td>Tropane, piperidine, and pyridine alkaloid biosynthesis</td><td>5/50</td><td>26</td><td>1</td><td>0</td></tr></tbody></table><table-wrap-foot><p><sup>a</sup>Frequency: the number of times the pathway has been selected over 10 times of 5-fold cross validation process (50 iterations)</p><p><sup>b</sup>Total genes: the number of genes mapped to the pathway in the KEGG database</p><p>Note that the number of differentially expressed genes (DE genes) and differentially methylated genes (DM genes) are also shown (<italic>p</italic>-value of DESeq2 or <italic>t</italic>-test &lt; 0.05)</p></table-wrap-foot></table-wrap><fig id="Fig6"><label>Fig. 6</label><caption><p>Pathway-based gene-gene interaction network between gene expression profiles and DNA methylation features extracted by iDRW + DA. The genes in the top-10 pathways are shown; the hub genes whose degree is greater than 4 in the gene expression data (green) and genes that are detected in differential methylation regions (orange) are emphasized in different colors</p></caption><graphic id="MO6" xlink:href="12920_2018_389_Fig6_HTML"></graphic></fig><table-wrap id="Tab2"><label>Table 2</label><caption><p>Top-5 genes ranked by GDA scores from the DisGeNET database (<ext-link ext-link-type="uri" xlink:href="http://www.disgenet.org/">http://www.disgenet.org/</ext-link>) that are associated with breast-cancer-related diseases</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Disease ID</th><th>Disease</th><th>Gene</th><th>GDA score</th></tr></thead><tbody><tr><td rowspan="5">C0678222</td><td rowspan="5">Breast Carcinoma</td><td>AKT1</td><td>0.2418</td></tr><tr><td>PIK3CD</td><td>0.0448</td></tr><tr><td>MAPK3</td><td>0.0118</td></tr><tr><td>HRAS</td><td>0.0077</td></tr><tr><td>BCAR1</td><td>0.0074</td></tr><tr><td rowspan="5">C0006142</td><td rowspan="5">Malignant neoplasm of breast</td><td>AKT1</td><td>0.2420</td></tr><tr><td>PIK3CD</td><td>0.0475</td></tr><tr><td>KDR</td><td>0.0119</td></tr><tr><td>MAPK3</td><td>0.0110</td></tr><tr><td>PAK1</td><td>0.0095</td></tr><tr><td rowspan="5">C3539878</td><td rowspan="5">Triple Negative Breast Neoplasms</td><td>PIK3CD</td><td>0.0047</td></tr><tr><td>AKT1</td><td>0.0022</td></tr><tr><td>AKT3</td><td>0.0011</td></tr><tr><td>MAPK3</td><td>0.0011</td></tr><tr><td>KDR</td><td>0.0008</td></tr></tbody></table></table-wrap></p>
+</sec>
+</sec>
+<sec id="Sec13">
+<title>Discussion</title>
+<p id="Par27">The selected pathways by iDRW+DA showed different patterns in comparison with the iDRW method. As the heatmap in Fig. <xref ref-type="fig" rid="Fig4">4</xref> shows, only two pathways of Focal adhesion (KEGG ID: map 04510) and Endocytosis (KEGG ID: map 04144) were identified by both the iDRW+DA method and the iDRW method. In the iDRW+DA method, the genes in the pathways of sphingolipid metabolism (KEGG ID: map 00600), one carbon pool by folate (KEGG ID: map 00670), and chemical carcinogenesis (KEGG ID: map 05204) were detected and previous studies reported that these pathways are associated with breast cancer. The pathway of sphingolipid metabolism is activated by the steroid hormone estrogen. Estrogen includes a variety of cytoplasmic second messengers linked to a multitude of tissue-specific effects, and Sukocheva et al. reported that this hormone triggers the sphingolipid signaling cascade in various tissues, including breast cancer [<xref ref-type="bibr" rid="CR45">45</xref>]. We also identified chemical carcinogenesis (KEGG ID: map 05204) using our method. In many cases, chemical and physical agents play a critical role in cancer induction, and one study shows that diethylstilbestrol (DES) and bisphenol A (BPA) are estrogen-like endocrine disruption chemicals that induce continual epigenetic changes affecting emerging breast cancer [<xref ref-type="bibr" rid="CR46">46</xref>]. Moreover, many studies revealed that one carbon pool by folate (KEGG ID: map 00670) is related to cancer. Experiments revealed that one carbon pool by folate is upregulated in a cancer cell line [<xref ref-type="bibr" rid="CR47">47</xref>]. Furthermore, Shuvalov et al. reported cancer-related metabolism is a hallmark of cancesr. In particular, one-carbon metabolism is reported as the keystone of them all [<xref ref-type="bibr" rid="CR48">48</xref>]. Thus, we can conclude that the proposed iDRW+DA method contributes to identifying more specific cancer-related pathways, whereas the iDRW method tends to find generally important pathways for cancers. The main difference between the iDRW and iDRW+DA methods is the pathway features ranking strategy. Taken pathway profiles as an input, the pathways are ranked by the t-test statistics (iDRW) or the weight matrix of DA (iDRW+DA). Denoising process of DA can differentiate the features more and discover interesting structure in the input [<xref ref-type="bibr" rid="CR28">28</xref>]. As it is shown that DA is effective at capturing more distinctive features by learning latent representations of the input [<xref ref-type="bibr" rid="CR28">28</xref>], we can observe that the iDRW+DA method detects more cancer-specific pathways despite that the performance difference between iDRW and iDRW+DA methods was marginal.</p>
+</sec>
+<sec id="Sec14">
+<title>Conclusions</title>
+<p id="Par28">In this study, we proposed a DRW-based method on an integrated gene-gene graph with expression and methylation profiles in order to utilize the interactions between them. DA-based feature selection was also employed to discover more cancer-specific genes and pathways. The results showed that the constructed integrated gene-gene graph can successfully reflect the combined effect of methylation features on gene expression profiles. The classification performance of the methods showed that pathway-based prediction outperforms gene-based methods. We also found that the selected features by DA can effectively extract topologically important pathways and genes specifically related to breast cancer. Although the classification performance improvement by DA was found to be marginal in our study, DA can extract specific cancer-related biomarkers and facilitate the analysis of biologically meaningful features. The proposed method also identified known breast-cancer-related genes and risk-active pathways successfully. As the integrated gene-gene graph utilized the pathway information using multi-omics data, our study showed that an effective joint analysis on gene expression and methylation data is possible under our framework.</p>
+</sec>
+</body>
+<back>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item>
+<term>AUC</term>
+<def>
+<p id="Par5">Area under the curve</p>
+</def>
+</def-item>
+<def-item>
+<term>DA</term>
+<def>
+<p id="Par6">Denoising autoencoder</p>
+</def>
+</def-item>
+<def-item>
+<term>DRW</term>
+<def>
+<p id="Par7">Directed random walk</p>
+</def>
+</def-item>
+<def-item>
+<term>GDA</term>
+<def>
+<p id="Par8">Gene-disease association</p>
+</def>
+</def-item>
+</def-list>
+</glossary>
+<ack>
+<title>Acknowledgements</title>
+<p>We gratefully acknowledge the TCGA Consortium and all its members for the TCGA Project initiative, for providing sample, tissues, data processing and making data and results available. The results published here are in whole or part based upon data generated by The Cancer Genome Atlas pilot project established by the NCI and NHGRI. Information about TCGA and the investigators and institutions that constitute the TCGA research network can be found at <ext-link ext-link-type="uri" xlink:href="http://cancergenome.nih.gov">http://cancergenome.nih.gov</ext-link>.</p>
+<sec id="FPar1">
+<title>Funding</title>
+<p id="Par29">This research was supported by Basic Science Research Program through the National Research Foundation of Korea (NRF) funded by the Ministry of Education [NRF- 2016R1D1A1B03933875]. The publication cost of this article was funded by NRF of Korea [2016R1D1A1B03933875] and Ajou university.</p>
+</sec>
+<sec id="FPar2">
+<title>Availability of data and materials</title>
+<p id="Par30">The TCGA dataset used in this study were downloaded from BROAD GDAC Firehose (<ext-link ext-link-type="uri" xlink:href="https://gdac.broadinstitute.org/">https://gdac.broadinstitute.org/</ext-link>).</p>
+</sec>
+<sec id="FPar3">
+<title>About this supplement</title>
+<p id="Par31">This article has been published as part of <italic>BMC Medical Genomics</italic> Volume 11 Supplement 3<italic>,</italic> 2018: Selected articles from the 7th Translational Bioinformatics Conference (TBC 2017): medical genomics<italic>.</italic> The full contents of the supplement are available online at <ext-link ext-link-type="uri" xlink:href="https://bmcmedgenomics.biomedcentral.com/articles/supplements/volume-11-supplement-3">https://bmcmedgenomics.biomedcentral.com/articles/supplements/volume-11-supplement-3</ext-link>.</p>
+</sec>
+</ack>
+<notes notes-type="author-contribution">
+<title>Authors’ contributions</title>
+<p>SK, TK, HJ, and KS designed the study. SK, TK, and HJ implemented the idea and performed the experiments. SK, TK, HJ, and KS developed the idea and performed the analysis. SK, TK, HJ, and KS wrote the paper. All authors read and approved the final manuscript.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar4">
+<title>Ethics approval and consent to participate</title>
+<p>Not applicable.</p>
+</sec>
+<sec id="FPar5">
+<title>Consent for publication</title>
+<p>Not applicable.</p>
+</sec>
+<sec id="FPar6">
+<title>Competing interests</title>
+<p>The authors declare that they have no competing interests.</p>
+</sec>
+<sec id="FPar7">
+<title>Publisher’s Note</title>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>H-h</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Leem</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Wee</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Sohn</surname>
+<given-names>K-A</given-names>
+</name>
+</person-group>
+<article-title>Integrative network analysis for survival-associated gene-gene interactions across multiple genomic profiles in ovarian cancer</article-title>
+<source/>J Ovarian Res
+          <year>2015</year>
+<volume>8</volume>
+<issue>1</issue>
+<fpage>42</fpage>
+<pub-id pub-id-type="doi">10.1186/s13048-015-0171-1</pub-id>
+<pub-id pub-id-type="pmid">26138921</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Joung</surname>
+<given-names>J-G</given-names>
+</name>
+<name>
+<surname>Sohn</surname>
+<given-names>K-A</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>YR</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<article-title>Knowledge boosting: a graph-based integration approach with multi-omics data and genomic knowledge for cancer clinical outcome prediction</article-title>
+<source/>J Am Med Inform Assoc
+          <year>2014</year>
+<volume>22</volume>
+<issue>1</issue>
+<fpage>109</fpage>
+<lpage>120</lpage>
+<pub-id pub-id-type="pmid">25002459</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Lucas</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Verma</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>Dudek</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<article-title>Using knowledge-driven genomic interactions for multi-omics data analysis: metadimensional models for predicting clinical outcomes in ovarian carcinoma</article-title>
+<source/>J Am Med Inform Assoc
+          <year>2017</year>
+<volume>24</volume>
+<issue>3</issue>
+<fpage>577</fpage>
+<lpage>587</lpage>
+<pub-id pub-id-type="pmid">28040685</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Sohn</surname>
+<given-names>K-A</given-names>
+</name>
+<name>
+<surname>Verma</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<article-title>Incorporating inter-relationships between different levels of genomic data into cancer clinical outcome prediction</article-title>
+<source/>Methods
+          <year>2014</year>
+<volume>67</volume>
+<issue>3</issue>
+<fpage>344</fpage>
+<lpage>353</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ymeth.2014.02.003</pub-id>
+<pub-id pub-id-type="pmid">24561168</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Nie</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Integrating multiple ‘omics’ analysis for microbial biology: application and methodologies</article-title>
+<source/>Microbiology
+          <year>2010</year>
+<volume>156</volume>
+<issue>2</issue>
+<fpage>287</fpage>
+<lpage>301</lpage>
+<pub-id pub-id-type="doi">10.1099/mic.0.034793-0</pub-id>
+<pub-id pub-id-type="pmid">19910409</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gevaert</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Villalobos</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Sikic</surname>
+<given-names>BI</given-names>
+</name>
+<name>
+<surname>Plevritis</surname>
+<given-names>SK</given-names>
+</name>
+</person-group>
+<article-title>Identification of ovarian cancer driver genes by using module network integration of multi-omics data</article-title>
+<source/>Interface Focus
+          <year>2013</year>
+<volume>3</volume>
+<issue>4</issue>
+<fpage>20130013</fpage>
+<pub-id pub-id-type="doi">10.1098/rsfs.2013.0013</pub-id>
+<pub-id pub-id-type="pmid">24511378</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Higdon</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Earl</surname>
+<given-names>RK</given-names>
+</name>
+<name>
+<surname>Stanberry</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Hudac</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Montague</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Stewart</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Janko</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Choiniere</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Broomall</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Kolker</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>The promise of multi-omics and clinical data integration to identify and target personalized healthcare approaches in autism spectrum disorders</article-title>
+<source/>Omics
+          <year>2015</year>
+<volume>19</volume>
+<issue>4</issue>
+<fpage>197</fpage>
+<lpage>208</lpage>
+<pub-id pub-id-type="doi">10.1089/omi.2015.0020</pub-id>
+<pub-id pub-id-type="pmid">25831060</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Meng</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kuster</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Culhane</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Gholami</surname>
+<given-names>AM</given-names>
+</name>
+</person-group>
+<article-title>A multivariate approach to the integration of multi-omics datasets</article-title>
+<source/>BMC Bioinformatics
+          <year>2014</year>
+<volume>15</volume>
+<issue>1</issue>
+<fpage>162</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-15-162</pub-id>
+<pub-id pub-id-type="pmid">24884486</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kristensen</surname>
+<given-names>VN</given-names>
+</name>
+<name>
+<surname>Lingjærde</surname>
+<given-names>OC</given-names>
+</name>
+<name>
+<surname>Russnes</surname>
+<given-names>HG</given-names>
+</name>
+<name>
+<surname>Vollan</surname>
+<given-names>HKM</given-names>
+</name>
+<name>
+<surname>Frigessi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Børresen-Dale</surname>
+<given-names>A-L</given-names>
+</name>
+</person-group>
+<article-title>Principles and methods of integrative genomic analyses in cancer</article-title>
+<source/>Nat Rev Cancer
+          <year>2014</year>
+<volume>14</volume>
+<issue>5</issue>
+<fpage>299</fpage>
+<lpage>313</lpage>
+<pub-id pub-id-type="doi">10.1038/nrc3721</pub-id>
+<pub-id pub-id-type="pmid">24759209</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sanchez-Garcia</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Villagrasa</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Matsui</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Kotliar</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Castro</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Akavia</surname>
+<given-names>U-D</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>B-J</given-names>
+</name>
+<name>
+<surname>Saucedo-Cuevas</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Barrueco</surname>
+<given-names>RR</given-names>
+</name>
+<name>
+<surname>Llobet-Navas</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Integration of genomic data enables selective discovery of breast cancer drivers</article-title>
+<source/>Cell
+          <year>2014</year>
+<volume>159</volume>
+<issue>6</issue>
+<fpage>1461</fpage>
+<lpage>1475</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2014.10.048</pub-id>
+<pub-id pub-id-type="pmid">25433701</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Holzinger</surname>
+<given-names>ER</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Pendergrass</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Methods of integrating data to uncover genotype-phenotype interactions</article-title>
+<source/>Nat Rev Genet
+          <year>2015</year>
+<volume>16</volume>
+<issue>2</issue>
+<fpage>85</fpage>
+<lpage>97</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg3868</pub-id>
+<pub-id pub-id-type="pmid">25582081</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gonzalez-Reymundez</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>de los Campos</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Gutierrez</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Lunt</surname>
+<given-names>SY</given-names>
+</name>
+<name>
+<surname>Vazquez</surname>
+<given-names>AI</given-names>
+</name>
+</person-group>
+<article-title>Prediction of years of life after diagnosis of breast cancer using omics and omic-by-treatment interactions</article-title>
+<source/>Eur J Hum Genet
+          <year>2017</year>
+<volume>25</volume>
+<issue>5</issue>
+<fpage>538</fpage>
+<lpage>544</lpage>
+<pub-id pub-id-type="doi">10.1038/ejhg.2017.12</pub-id>
+<pub-id pub-id-type="pmid">28272536</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>De Carvalho</surname>
+<given-names>DD</given-names>
+</name>
+<name>
+<surname>Lay</surname>
+<given-names>FD</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Liang</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Gene body methylation can alter gene expression and is a therapeutic target in cancer</article-title>
+<source/>Cancer Cell
+          <year>2014</year>
+<volume>26</volume>
+<issue>4</issue>
+<fpage>577</fpage>
+<lpage>590</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ccr.2014.07.028</pub-id>
+<pub-id pub-id-type="pmid">25263941</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jiao</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Widschwendter</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Teschendorff</surname>
+<given-names>AE</given-names>
+</name>
+</person-group>
+<article-title>A systems-level integrative framework for genome-wide DNA methylation and gene expression data identifies differential gene expression modules under epigenetic control</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<volume>30</volume>
+<issue>16</issue>
+<fpage>2360</fpage>
+<lpage>2366</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu316</pub-id>
+<pub-id pub-id-type="pmid">24794928</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Network</surname>
+<given-names>CGA</given-names>
+</name>
+</person-group>
+<article-title>Comprehensive molecular portraits of human breast tumors</article-title>
+<source/>Nature
+          <year>2012</year>
+<volume>490</volume>
+<issue>7418</issue>
+<fpage>61</fpage>
+<pub-id pub-id-type="doi">10.1038/nature11412</pub-id>
+<pub-id pub-id-type="pmid">23000897</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anjum</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Fourkala</surname>
+<given-names>E-O</given-names>
+</name>
+<name>
+<surname>Zikan</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wong</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Gentry-Maharaj</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hardy</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Cibula</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Kuh</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Jacobs</surname>
+<given-names>IJ</given-names>
+</name>
+</person-group>
+<article-title>A BRCA1-mutation associated DNA methylation signature in blood cells predicts sporadic breast cancer incidence and survival</article-title>
+<source/>Genome Med
+          <year>2014</year>
+<volume>6</volume>
+<issue>6</issue>
+<fpage>47</fpage>
+<pub-id pub-id-type="doi">10.1186/gm567</pub-id>
+<pub-id pub-id-type="pmid">25067956</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Creixell</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Reimand</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Haider</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Shibata</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Vazquez</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Mustonen</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Gonzalez-Perez</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Pearson</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Sander</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Pathway and network analysis of cancer genomes</article-title>
+<source/>Nat Methods
+          <year>2015</year>
+<volume>12</volume>
+<issue>7</issue>
+<fpage>615</fpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.3440</pub-id>
+<pub-id pub-id-type="pmid">26125594</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Michaut</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Chin</surname>
+<given-names>S-F</given-names>
+</name>
+<name>
+<surname>Majewski</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Severson</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Bismeijer</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>de Koning</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Peeters</surname>
+<given-names>JK</given-names>
+</name>
+<name>
+<surname>Schouten</surname>
+<given-names>PC</given-names>
+</name>
+<name>
+<surname>Rueda</surname>
+<given-names>OM</given-names>
+</name>
+<name>
+<surname>Bosma</surname>
+<given-names>AJ</given-names>
+</name>
+</person-group>
+<article-title>Integration of genomic, transcriptomic and proteomic data identifies two biologically distinct subtypes of invasive lobular breast cancer</article-title>
+<source/>Sci Rep
+          <year>2016</year>
+<volume>6</volume>
+<fpage>18517</fpage>
+<pub-id pub-id-type="doi">10.1038/srep18517</pub-id>
+<pub-id pub-id-type="pmid">26729235</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Bang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>SY</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Sohn</surname>
+<given-names>K-A</given-names>
+</name>
+</person-group>
+<article-title>Identifying subtype-specific associations between gene expression and DNA methylation profiles in breast cancer</article-title>
+<source/>BMC Med Genet
+          <year>2017</year>
+<volume>10</volume>
+<issue>1</issue>
+<fpage>28</fpage>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Chuang</surname>
+<given-names>H-Y</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>J-W</given-names>
+</name>
+<name>
+<surname>Ideker</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Inferring pathway activity toward precise disease classification</article-title>
+<source/>PLoS Comput Biol
+          <year>2008</year>
+<volume>4</volume>
+<issue>11</issue>
+<fpage>e1000217</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1000217</pub-id>
+<pub-id pub-id-type="pmid">18989396</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vaske</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Benz</surname>
+<given-names>SC</given-names>
+</name>
+<name>
+<surname>Sanborn</surname>
+<given-names>JZ</given-names>
+</name>
+<name>
+<surname>Earl</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Szeto</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Haussler</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Stuart</surname>
+<given-names>JM</given-names>
+</name>
+</person-group>
+<article-title>Inference of patient-specific pathway activities from multi-dimensional cancer genomics data using PARADIGM</article-title>
+<source/>Bioinformatics
+          <year>2010</year>
+<volume>26</volume>
+<issue>12</issue>
+<fpage>i237</fpage>
+<lpage>i245</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btq182</pub-id>
+<pub-id pub-id-type="pmid">20529912</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Su</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yoon</surname>
+<given-names>B-J</given-names>
+</name>
+<name>
+<surname>Dougherty</surname>
+<given-names>ER</given-names>
+</name>
+</person-group>
+<article-title>Accurate and reliable cancer classification based on probabilistic inference of pathway activity</article-title>
+<source/>PLoS One
+          <year>2009</year>
+<volume>4</volume>
+<issue>12</issue>
+<fpage>e8161</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0008161</pub-id>
+<pub-id pub-id-type="pmid">19997592</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khunlertgit</surname>
+<given-names>Navadon</given-names>
+</name>
+<name>
+<surname>Yoon</surname>
+<given-names>Byung-Jun</given-names>
+</name>
+</person-group>
+<article-title>Identification of Robust Pathway Markers for Cancer through Rank-Based Pathway Activity Inference</article-title>
+<source/>Advances in Bioinformatics
+          <year>2013</year>
+<volume>2013</volume>
+<fpage>1</fpage>
+<lpage>8</lpage>
+<pub-id pub-id-type="doi">10.1155/2013/618461</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guo</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Topol</surname>
+<given-names>EJ</given-names>
+</name>
+</person-group>
+<article-title>Towards precise classification of cancers based on robust gene functional expression profiles</article-title>
+<source/>BMC Bioinformatics
+          <year>2005</year>
+<volume>6</volume>
+<issue>1</issue>
+<fpage>58</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-6-58</pub-id>
+<pub-id pub-id-type="pmid">15774002</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Yao</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Shang</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Su</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>X</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Topologically inferring risk-active pathways toward precise cancer classification by directed random walk</article-title>
+<source/>Bioinformatics
+          <year>2013</year>
+<volume>29</volume>
+<issue>17</issue>
+<fpage>2169</fpage>
+<lpage>2177</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btt373</pub-id>
+<pub-id pub-id-type="pmid">23842813</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Bai</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>X</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Topologically inferring pathway activity toward precise cancer classification via integrating genomic and metabolomic data: prostate cancer as a case</article-title>
+<source/>Sci Rep
+          <year>2015</year>
+<volume>5</volume>
+<fpage>13192</fpage>
+<pub-id pub-id-type="doi">10.1038/srep13192</pub-id>
+<pub-id pub-id-type="pmid">26286638</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Love</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Huber</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Anders</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2</article-title>
+<source/>Genome Biol
+          <year>2014</year>
+<volume>15</volume>
+<issue>12</issue>
+<fpage>550</fpage>
+<pub-id pub-id-type="doi">10.1186/s13059-014-0550-8</pub-id>
+<pub-id pub-id-type="pmid">25516281</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<mixed-citation publication-type="other">Vincent P, Larochelle H, Bengio Y, Manzagol P-A: Extracting and composing robust features with denoising autoencoders. In: Proceedings of the 25th international conference on Machine learning: 2008. ACM: 1096–1103.</mixed-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<mixed-citation publication-type="other">Tan J, Ung M, Cheng C, Greene CS: Unsupervised feature construction and knowledge extraction from genome-wide assays of breast cancer with denoising autoencoders. In: Pacific Symposium on Biocomputing Pacific Symposium on Biocomputing<italic>:</italic> 2015. NIH Public Access: 132.</mixed-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tan</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hammond</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Hogan</surname>
+<given-names>DA</given-names>
+</name>
+<name>
+<surname>Greene</surname>
+<given-names>CS</given-names>
+</name>
+</person-group>
+<article-title>Adage-based integration of publicly available pseudomonas aeruginosa gene expression data with denoising autoencoders illuminates microbe-host interactions</article-title>
+<source/>mSystems
+          <year>2016</year>
+<volume>1</volume>
+<issue>1</issue>
+<fpage>e00025</fpage>
+<lpage>e00015</lpage>
+<pub-id pub-id-type="doi">10.1128/mSystems.00025-15</pub-id>
+<pub-id pub-id-type="pmid">27822512</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hira</surname>
+<given-names>Zena M.</given-names>
+</name>
+<name>
+<surname>Gillies</surname>
+<given-names>Duncan F.</given-names>
+</name>
+</person-group>
+<article-title>A Review of Feature Selection and Feature Extraction Methods Applied on Microarray Data</article-title>
+<source/>Advances in Bioinformatics
+          <year>2015</year>
+<volume>2015</volume>
+<fpage>1</fpage>
+<lpage>13</lpage>
+<pub-id pub-id-type="doi">10.1155/2015/198363</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<mixed-citation publication-type="other">Center BITGDA: Analysis-ready standardized TCGA data from Broad GDAC Firehose 2016_01_28 run. In<italic>.</italic>: Broad Institute of MIT and Harvard; 2016.</mixed-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Ruotti</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Stewart</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Thomson</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Dewey</surname>
+<given-names>CN</given-names>
+</name>
+</person-group>
+<article-title>RNA-Seq gene expression estimation with read mapping uncertainty</article-title>
+<source/>Bioinformatics
+          <year>2009</year>
+<volume>26</volume>
+<issue>4</issue>
+<fpage>493</fpage>
+<lpage>500</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btp692</pub-id>
+<pub-id pub-id-type="pmid">20022975</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Dudek</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<article-title>Predicting censored survival data based on the interactions between meta-dimensional omics data in breast cancer</article-title>
+<source/>J Biomed Inform
+          <year>2015</year>
+<volume>56</volume>
+<fpage>220</fpage>
+<lpage>228</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jbi.2015.05.019</pub-id>
+<pub-id pub-id-type="pmid">26048077</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liedtke</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Mazouni</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Hess</surname>
+<given-names>KR</given-names>
+</name>
+<name>
+<surname>André</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Tordai</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Mejia</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Symmans</surname>
+<given-names>WF</given-names>
+</name>
+<name>
+<surname>Gonzalez-Angulo</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Hennessy</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Green</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Response to Neoadjuvant therapy and long-term survival in patients with triple-negative breast Cancer</article-title>
+<source/>J Clin Oncol
+          <year>2008</year>
+<volume>26</volume>
+<issue>8</issue>
+<fpage>1275</fpage>
+<lpage>1281</lpage>
+<pub-id pub-id-type="doi">10.1200/JCO.2007.14.4147</pub-id>
+<pub-id pub-id-type="pmid">18250347</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kanehisa</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Goto</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>KEGG: Kyoto encyclopedia of genes and genomes</article-title>
+<source/>Nucleic Acids Res
+          <year>2000</year>
+<volume>28</volume>
+<issue>1</issue>
+<fpage>27</fpage>
+<lpage>30</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/28.1.27</pub-id>
+<pub-id pub-id-type="pmid">10592173</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yoo</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Takikawa</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Geraghty</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Argmann</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Campbell</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Tu</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Foronjy</surname>
+<given-names>RF</given-names>
+</name>
+<name>
+<surname>Spira</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Integrative analysis of DNA methylation and gene expression data identifies EPAS1 as a key regulator of COPD</article-title>
+<source/>PLoS Genet
+          <year>2015</year>
+<volume>11</volume>
+<issue>1</issue>
+<fpage>e1004898</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1004898</pub-id>
+<pub-id pub-id-type="pmid">25569234</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lü</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y-C</given-names>
+</name>
+<name>
+<surname>Yeung</surname>
+<given-names>CH</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Leaders in social networks, the delicious case</article-title>
+<source/>PLoS One
+          <year>2011</year>
+<volume>6</volume>
+<issue>6</issue>
+<fpage>e21202</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0021202</pub-id>
+<pub-id pub-id-type="pmid">21738620</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bass</surname>
+<given-names>JIF</given-names>
+</name>
+<name>
+<surname>Diallo</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Soto</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Myers</surname>
+<given-names>CL</given-names>
+</name>
+<name>
+<surname>Walhout</surname>
+<given-names>AJM</given-names>
+</name>
+</person-group>
+<article-title>Using networks to measure similarity between genes: association index selection</article-title>
+<source/>Nat Meth
+          <year>2013</year>
+<volume>10</volume>
+<issue>12</issue>
+<fpage>1169</fpage>
+<lpage>1176</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.2728</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Navarro-Garberi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Bueno</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Martinez</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Wnt1 signal determines the patterning of the diencephalic dorso-ventral axis</article-title>
+<source/>Brain Struct Funct
+          <year>2016</year>
+<volume>221</volume>
+<issue>7</issue>
+<fpage>3693</fpage>
+<lpage>3708</lpage>
+<pub-id pub-id-type="doi">10.1007/s00429-015-1126-4</pub-id>
+<pub-id pub-id-type="pmid">26452989</pub-id>
+</element-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhan</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Rindtorff</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Boutros</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Wnt signaling in cancer</article-title>
+<source/>Oncogene
+          <year>2017</year>
+<volume>36</volume>
+<issue>11</issue>
+<fpage>1461</fpage>
+<lpage>1473</lpage>
+<pub-id pub-id-type="doi">10.1038/onc.2016.304</pub-id>
+<pub-id pub-id-type="pmid">27617575</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schwarzenbach</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Circulating nucleic acids as biomarkers in breast cancer</article-title>
+<source/>Breast Cancer Res
+          <year>2013</year>
+<volume>15</volume>
+<issue>5</issue>
+<fpage>211</fpage>
+<pub-id pub-id-type="doi">10.1186/bcr3446</pub-id>
+<pub-id pub-id-type="pmid">24090167</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Monlish</surname>
+<given-names>DA</given-names>
+</name>
+<name>
+<surname>Cavanaugh</surname>
+<given-names>JE</given-names>
+</name>
+</person-group>
+<article-title>Abstract 2242: the MAPK and PI3K signaling pathways in breast cancer: crosstalk mechanisms and the effect on cell proliferation</article-title>
+<source/>Cancer Res
+          <year>2012</year>
+<volume>72</volume>
+<issue>8 Supplement</issue>
+<fpage>2242</fpage>
+<pub-id pub-id-type="doi">10.1158/1538-7445.AM2012-2242</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wagner</surname>
+<given-names>EF</given-names>
+</name>
+<name>
+<surname>Nebreda</surname>
+<given-names>AR</given-names>
+</name>
+</person-group>
+<article-title>Signal integration by JNK and p38 MAPK pathways in cancer development</article-title>
+<source/>Nat Rev Cancer
+          <year>2009</year>
+<volume>9</volume>
+<issue>8</issue>
+<fpage>537</fpage>
+<lpage>549</lpage>
+<pub-id pub-id-type="doi">10.1038/nrc2694</pub-id>
+<pub-id pub-id-type="pmid">19629069</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sukocheva</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Wadham</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Role of sphingolipids in oestrogen signalling in breast cancer cells: an update</article-title>
+<source/>J Endocrinol
+          <year>2014</year>
+<volume>220</volume>
+<issue>3</issue>
+<fpage>R25</fpage>
+<lpage>R35</lpage>
+<pub-id pub-id-type="doi">10.1530/JOE-13-0388</pub-id>
+<pub-id pub-id-type="pmid">24323911</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<mixed-citation publication-type="other">Roberts SM, James RC, Williams PL: Principles of toxicology: environmental and industrial applications: John Wiley &amp; Sons; 2014.</mixed-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ertel</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Verghese</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Byers</surname>
+<given-names>SW</given-names>
+</name>
+<name>
+<surname>Ochs</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Tozeren</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Pathway-specific differences between tumor cell lines and normal and tumor tissue cells</article-title>
+<source/>Mol Cancer
+          <year>2006</year>
+<volume>5</volume>
+<issue>1</issue>
+<fpage>55</fpage>
+<pub-id pub-id-type="doi">10.1186/1476-4598-5-55</pub-id>
+<pub-id pub-id-type="pmid">17081305</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shuvalov</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Petukhov</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Daks</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Fedorova</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Vasileva</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Barlev</surname>
+<given-names>NA</given-names>
+</name>
+</person-group>
+<article-title>One-carbon metabolism and nucleotide biosynthesis as attractive targets for anticancer therapy</article-title>
+<source/>Oncotarget
+          <year>2017</year>
+<volume>8</volume>
+<issue>14</issue>
+<fpage>23955</fpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.15053</pub-id>
+<pub-id pub-id-type="pmid">28177894</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

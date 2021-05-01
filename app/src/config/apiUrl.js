@@ -1,8 +1,8 @@
 // local environment
-// let ipUrl = 'http://localhost:5000/api/';
+let ipUrl = 'http://localhost:5000/api/';
 
 // heroku environment
-let ipUrl = 'https://gene-phenotype.herokuapp.com/api/';
+// let ipUrl = 'https://gene-phenotype.herokuapp.com/api/';
 
 let servicePath = {
     getHomePaper: ipUrl + 'home',   //Home page of paper

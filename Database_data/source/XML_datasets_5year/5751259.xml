@@ -1,0 +1,4645 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+<journal-id journal-id-type="publisher-id">ijms</journal-id>
+<journal-title-group>
+<journal-title>International Journal of Molecular Sciences</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1422-0067</issn>
+<publisher>
+<publisher-name>MDPI</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29215599</article-id>
+<article-id pub-id-type="pmc">5751259</article-id>
+<article-id pub-id-type="doi">10.3390/ijms18122657</article-id>
+<article-id pub-id-type="publisher-id">ijms-18-02657</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Systematic Analysis of Transcriptomic Profile of Renal Cell Carcinoma under Long-Term Hypoxia Using Next-Generation Sequencing and Bioinformatics</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-1610-4184</contrib-id>
+<name>
+<surname>Chen</surname>
+<given-names>Szu-Chia</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-18-02657">1</xref>
+<xref ref-type="aff" rid="af2-ijms-18-02657">2</xref>
+<xref ref-type="aff" rid="af3-ijms-18-02657">3</xref>
+<xref ref-type="aff" rid="af4-ijms-18-02657">4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Feng-Wei</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-18-02657">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hsu</surname>
+<given-names>Ya-Ling</given-names>
+</name>
+<xref ref-type="aff" rid="af5-ijms-18-02657">5</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Kuo</surname>
+<given-names>Po-Lin</given-names>
+</name>
+<xref ref-type="aff" rid="af1-ijms-18-02657">1</xref>
+<xref ref-type="aff" rid="af6-ijms-18-02657">6</xref>
+<xref ref-type="corresp" rid="c1-ijms-18-02657">*</xref>
+</contrib>
+</contrib-group>
+<aff id="af1-ijms-18-02657"><label>1</label>Graduate Institute of Clinical Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung 807, Taiwan; <email>scarchenone@yahoo.com.tw</email> (S.-C.C.); <email>s821721@hotmail.com</email> (F.-W.C.)</aff>
+<aff id="af2-ijms-18-02657"><label>2</label>Division of Nephrology, Department of Internal Medicine, Kaohsiung Medical University Hospital, Kaohsiung Medical University, Kaohsiung 807, Taiwan</aff>
+<aff id="af3-ijms-18-02657"><label>3</label>Department of Internal Medicine, Kaohsiung Municipal Hsiao-Kang Hospital, Kaohsiung Medical University, Kaohsiung 812, Taiwan</aff>
+<aff id="af4-ijms-18-02657"><label>4</label>Faculty of Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung 807, Taiwan</aff>
+<aff id="af5-ijms-18-02657"><label>5</label>Graduate Institute of Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung 807, Taiwan; <email>yainghsu@kmu.edu.tw</email></aff>
+<aff id="af6-ijms-18-02657"><label>6</label>Institute of Medical Science and Technology, National Sun Yat-Sen University, Kaohsiung 804, Taiwan</aff>
+<author-notes>
+<corresp id="c1-ijms-18-02657"><label>*</label>Correspondence: <email>kuopolin@seed.net.tw</email>; Tel.: +886-7-312-1101</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>07</day>
+<month>12</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>12</month>
+<year>2017</year>
+</pub-date>
+<volume>18</volume>
+<issue>12</issue>
+<elocation-id>2657</elocation-id>
+<history>
+<date date-type="received">
+<day>02</day>
+<month>11</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>04</day>
+<month>12</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© 2017 by the authors.</copyright-statement>
+<copyright-year>2017</copyright-year>
+<license license-type="open-access">
+<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Patients with clear cell renal cell carcinoma (ccRCC) are often diagnosed with both von Hippel-Lindau (VHL) mutations and the constitutive activation of hypoxia-inducible factor-dependent signaling. In this study, we investigated the effects of long-term hypoxia in 786-O, a VHL-defective renal cell carcinoma cell line, to identify potential genes and microRNAs associated with tumor malignancy. The transcriptomic profiles of 786-O under normoxia, short-term hypoxia and long-term hypoxia were analyzed using next-generation sequencing. The results showed that long-term hypoxia promoted the ability of colony formation and transwell migration compared to normoxia. In addition, the differentially expressed genes induced by long-term hypoxia were involved in various biological processes including cell proliferation, the tumor necrosis factor signaling pathway, basal cell carcinoma and cancer pathways. The upregulated (<italic>L1CAM</italic> and <italic>FBN1</italic>) and downregulated (<italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic>) genes in 786-O under long-term hypoxia were also observed in clinical ccRCC samples along with malignant grade. The expressions of these genes were significantly correlated with survival outcomes in patients with renal cancer. We also found that long-term hypoxia in 786-O resulted in decreased expressions of hsa-mir-<italic>100</italic> and hsa-mir-<italic>378</italic> and this effect was also observed in samples of metastatic ccRCC compared to samples of non-metastatic ccRCC. These findings may provide a new direction for the study of potential molecular mechanisms associated with the progression of ccRCC.</p>
+</abstract>
+<kwd-group>
+<kwd>clear cell renal cell carcinoma</kwd>
+<kwd>long-term hypoxia</kwd>
+<kwd>next-generation sequencing</kwd>
+<kwd>poor survival</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1-ijms-18-02657">
+<title>1. Introduction</title>
+<p>Renal cell carcinoma (RCC) includes various malignancies that originate in the epithelium of renal tubules [<xref ref-type="bibr" rid="B1-ijms-18-02657">1</xref>]. It is the most common form of adult kidney cancer, accounting for approximately 90–95% of cases. RCC can be classified into several histopathological types, of which clear cell RCC (ccRCC) is the most common. Partial or complete removal of the affected kidneys has been reported to be the initial treatment for ccRCC in 75–80% of cases [<xref ref-type="bibr" rid="B2-ijms-18-02657">2</xref>,<xref ref-type="bibr" rid="B3-ijms-18-02657">3</xref>]. Most cases of ccRCC are sporadic [<xref ref-type="bibr" rid="B4-ijms-18-02657">4</xref>] and inherited ccRCC accounts for only 1–4% of cases [<xref ref-type="bibr" rid="B5-ijms-18-02657">5</xref>]. Surgery is the treatment of choice for localized RCC, however metastasis develops in 20–30% of patients with limited disease at the time of surgery. The 5-year survival rate in patients with advanced RCC is low and the reported time to relapse after nephrectomy ranges from 15 to 18 months [<xref ref-type="bibr" rid="B6-ijms-18-02657">6</xref>]. The mechanism of the development of RCC is unclear. The risk factors for RCC have been reported to be associated with carcinogens, chronic kidney inflammation and genetic alterations [<xref ref-type="bibr" rid="B7-ijms-18-02657">7</xref>], however further studies are needed to elucidate the etiology.</p>
+<p>The progression of cancer is a long and complicated process and often involves a microenvironment surrounding the tumor cells which is deficient of nutrients and oxygen. Tumor cells that adapt to a stressful environment can develop into a more aggressive phenotype and this almost always leads to metastatic disease [<xref ref-type="bibr" rid="B8-ijms-18-02657">8</xref>]. One such critical stressful factor is hypoxia. Hypoxia-activated signaling occurs via the hypoxia-inducible factor (HIF)-1 signaling pathway, which regulates various molecules involved in proliferation, angiogenesis, migration and apoptosis [<xref ref-type="bibr" rid="B9-ijms-18-02657">9</xref>,<xref ref-type="bibr" rid="B10-ijms-18-02657">10</xref>]. Hypoxia has also been reported to affect chromosomal instability, leading to a disordered genetic expression [<xref ref-type="bibr" rid="B11-ijms-18-02657">11</xref>,<xref ref-type="bibr" rid="B12-ijms-18-02657">12</xref>]. The proteolytic regulation of HIF-α subunits is regulated by von Hippel-Lindau (VHL) protein, which is a ubiquitin ligase complex [<xref ref-type="bibr" rid="B13-ijms-18-02657">13</xref>]. VHL-defective tumor cells have been shown to express high levels of HIF-α subunits (HIF-1α and HIF-2α), leading to the constitutive activation of hypoxia signaling [<xref ref-type="bibr" rid="B14-ijms-18-02657">14</xref>,<xref ref-type="bibr" rid="B15-ijms-18-02657">15</xref>]. VHL mutations in ccRCC have been found in sporadic (46–82%) and inherited cases [<xref ref-type="bibr" rid="B13-ijms-18-02657">13</xref>].</p>
+<p>There are two main types of hypoxia in human tumors according to traditional classification systems: long-term (4 h to several weeks) and short-term (30 min to 72 h) [<xref ref-type="bibr" rid="B16-ijms-18-02657">16</xref>]. As both short- and long-term hypoxia represent different pathophysiologies with various biological and therapeutic consequences, distinguishing between them is important [<xref ref-type="bibr" rid="B16-ijms-18-02657">16</xref>]. The main cause of long-term hypoxia is a severe restriction of oxygen diffusion from the microvessels of the tumor into the surrounding tissue. Cells receiving long-term hypoxia treatment for several weeks have been shown to have a higher invasive capacity than those receiving short-term hypoxia treatment [<xref ref-type="bibr" rid="B17-ijms-18-02657">17</xref>]. However, few studies have evaluated the effects of long-term hypoxia in renal cancer. Recent evidence suggests that HIF-1α is mostly involved in short-term hypoxic responses, whereas HIF-2α is mostly involved in long-term hypoxic responses [<xref ref-type="bibr" rid="B18-ijms-18-02657">18</xref>]. Therefore, in this study, we investigated the effects of long-term hypoxia (3 months) in a VHL-defective ccRCC cell line. We used 786-O, a VHL-defective ccRCC cell line lacking HIF-1α due to sequence depletion and constitutively expressing HIF-2α [<xref ref-type="bibr" rid="B13-ijms-18-02657">13</xref>]. We hypothesized that cells under long-term hypoxia would become more aggressive. In addition, we hypothesized that long-term hypoxia may partially mimic a stressful microenvironment where tumor cells could grow and that the mechanisms may also be observed in clinical specimens with different grades of malignancy. There are currently no specific biomarkers for the prognosis or target therapy of ccRCC. Therefore, the aim of this study was to identify the novel genes involved in RCC progression and malignancy.</p>
+</sec>
+<sec id="sec2-ijms-18-02657">
+<title>2. Results</title>
+<sec id="sec2dot1-ijms-18-02657">
+<title>2.1. Long-Term Hypoxia Promoted Colony Formation Ability and Transwell Migration Ability in the Von Hippel-Lindau (VHL)-Defective Clear Cell Renal Cell Carcinoma (ccRCC) Cell Line 786-O</title>
+<p>We wanted to investigate the long-term effects of hypoxia in ccRCC using 786-O, a well-known VHL-defective ccRCC cell line lacking HIF-1α. We postulated that 786-O cells grown in long-term hypoxic conditions would develop more malignant characteristics. Our approach was to simultaneously maintain 786-O cells in normoxic and hypoxic conditions for at least 3 months. To avoid exposing the hypoxia-incubated cells to a normoxic environment during the subculture procedure, we maintained the cells in a pysiological oxygen workstations InvivO<sub>2</sub> 400 system so that the subculture could be performed in hypoxic conditions. Both normoxic and hypoxic cells were passaged once every week on the same day to ensure that passage was equal. After 3 months, total RNA lysates were harvested for next-generation sequencing (NGS) and the cells were used in phenotypic assay analysis. To exclude short-term hypoxic effects, hypoxia was carried out for 24 h (<xref ref-type="fig" rid="ijms-18-02657-f001">Figure 1</xref>A). In the phenotypic analysis, the 786-O cells grown in long-term hypoxic conditions exhibited increased colony formation and transwell migration ability compared to normoxia (<xref ref-type="fig" rid="ijms-18-02657-f001">Figure 1</xref>B,C), indicating that long-term hypoxia promoted 786-O to become more aggressive.</p>
+</sec>
+<sec id="sec2dot2-ijms-18-02657">
+<title>2.2. Long-Term Hypoxia Altered the Expression Levels of Genes Involved in Various Biological Functions</title>
+<p>The sequencing data of 786-O cells grown in normoxic, short-term hypoxic and long-term hypoxic conditions were systematically analyzed and focused on protein-coding mRNAs and microRNAs. The threshold of protein-coding mRNAs was determined as fragments per kilobase of transcript per million mapped reads (FPKM) &gt;0.3 and |fold change (long-term hypoxia/normoxia or short-term hypoxia/normoxia)| &gt;2 (<xref ref-type="fig" rid="ijms-18-02657-f002">Figure 2</xref>A). We identified 279 upregulated genes and 193 downregulated genes in long-term hypoxia compared to normoxia and 78 upregulated genes and 60 downregulated genes in short-term hypoxia compared to normoxia (<xref ref-type="fig" rid="ijms-18-02657-f002">Figure 2</xref>B). 42 upregulated genes and 18 downregulated genes were observed in both short-term and long-term hypoxia, implying that these genes may be specifically regulated by hypoxia conditions in 786-O cells.</p>
+<p>We used the Database for Annotation, Visualization and Integrated Discovery (DAVID) database for Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway analysis [<xref ref-type="bibr" rid="B19-ijms-18-02657">19</xref>]. In short-term hypoxia, the differentially expressed genes were significantly involved in the tumor necrosis factor (TNF) signaling pathway. In long-term hypoxia, five biological pathways were highly affected including basal cell carcinoma, TNF signaling pathway, cancer pathways, cancer proteoglycans and glycerolipid metabolism (<xref ref-type="table" rid="ijms-18-02657-t001">Table 1</xref>), all of which have been reported to be associated with tumor progression-related functions.</p>
+<p>In Gene Set Enrichment Analysis (GSEA), the biological processes were compared between normoxia (<xref ref-type="fig" rid="ijms-18-02657-f003">Figure 3</xref>A; <xref ref-type="table" rid="ijms-18-02657-t002">Table 2</xref>) and long-term hypoxia (<xref ref-type="fig" rid="ijms-18-02657-f003">Figure 3</xref>B) and cell proliferation were upregulated in long-term hypoxia. These results suggested that the increased colony formation and transwell migration ability in 786-O cells under long-term hypoxia may be regulated via activation of various signaling pathways.</p>
+</sec>
+<sec id="sec2dot3-ijms-18-02657">
+<title>2.3. Identification of Potential Genes Associated with Advanced Malignancy of RCC Progression</title>
+<p>We postulated that some differentially expressed genes identified in 786-O under long-term hypoxia may play important roles in the malignancy of clinical tumor progression. To identify potential targets, we searched microarrays (GSE66272 and GSE73731) using the Gene Expression Omnibus (GEO) database for advanced analysis. GSE66272 provides 27 clinical samples of ccRCC with grade 1 (<italic>n</italic> = 1), grade 2 (<italic>n</italic> = 16), grade 3 (<italic>n</italic> = 8) and grade 4 (<italic>n</italic> = 2). GSE73731 provides 256 clinical samples of ccRCC with grade 1 (<italic>n</italic> = 22), grade 2 (<italic>n</italic> = 90), grade 3 (<italic>n</italic> = 95) and grade 4 (<italic>n</italic> = 49). We excluded genes overlapping with short-term hypoxia and analyzed the top 20% of 279 upregulated genes and 193 downregulated genes in long-term hypoxia (<xref ref-type="fig" rid="ijms-18-02657-f004">Figure 4</xref>A). We found that the expression levels of two upregulated genes (<italic>L1CAM</italic> and <italic>FBN1</italic>) were also increased along with tumor grade and that the expression levels of four downregulated genes (<italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic>) were decreased along with tumor grade (<xref ref-type="fig" rid="ijms-18-02657-f004">Figure 4</xref>B,C). We next validated the expression of these genes in 786-O treated with normoxia and long-term hypoxia. The results showed that <italic>L1CAM</italic> was significantly upregulated and <italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic> were significantly downregulated in long-term hypoxia-treated 786-O (<xref ref-type="fig" rid="ijms-18-02657-f004">Figure 4</xref>D). <italic>FBN1</italic> was also observed with increased expression in long-term hypoxia-treated 786-O but there was no significant change (<italic>p</italic> = 0.0613). These findings suggested that the expression of these genes may play important roles in malignant progression of ccRCC.</p>
+<p>We then used the SurvExpress database to analyze the expression effects of these seven candidates genes with regards to survival outcomes in patients with renal cancer. The results showed that a higher mRNA expression of either <italic>L1CAM</italic> or <italic>FBN1</italic> was associated with a poor survival outcome and that a lower mRNA expression of either <italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic>, or <italic>USH1C</italic> was also associated with a poor survival outcome (<xref ref-type="fig" rid="ijms-18-02657-f005">Figure 5</xref>). These data suggest that during tumor progression, <italic>L1CAM</italic> and <italic>FBN1</italic> may exert a potentially oncogenic effect and that <italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic> may have potential tumor suppressor functions.</p>
+</sec>
+<sec id="sec2dot4-ijms-18-02657">
+<title>2.4. Analysis of Differentially Expressed microRNAs in 786-O under Long-Term Hypoxia </title>
+<p>In addition to protein-coding mRNA, we also performed small RNA-seq to screen the microRNAs profile and to identify potential microRNA-mRNA interactions in 786-O cells under long-term hypoxia. Using NGS, the threshold was determined as reads per million (RPM) ≥1 and |fold change| ≥2 (<xref ref-type="fig" rid="ijms-18-02657-f006">Figure 6</xref>A). We identified 15 upregulated microRNAs and 24 downregulated microRNAs in long-term hypoxia and 6 upregulated microRNAs and 11 downregulated microRNAs in short-term hypoxia (<xref ref-type="fig" rid="ijms-18-02657-f006">Figure 6</xref>B). One microRNA (<italic>hsa-mir-889-3p</italic>) was upregulated and two microRNAs (<italic>hsa-mir-1306-5p, hsa-mir-193a-3p</italic>) were downregulated in both short-term and long-term hypoxia.</p>
+<p>To further identify putative target genes of microRNAs, we used the miRmap database (Available online: <uri xlink:href="http://mirmap.ezlab.org/">http://mirmap.ezlab.org/</uri>) for analysis with the criterion defined as a miRmap score ≥97.0. There were 21 putative targets of eight upregulated microRNAs (seven upregulated microRNAs with no predicted targets) and 45 putative targets of 16 downregulated microRNAs (eight downregulated microRNAs with no predicted targets) (<xref ref-type="fig" rid="ijms-18-02657-f007">Figure 7</xref>).</p>
+<p>To identify potential microRNA-mRNA interactions, we observed whether the putative target genes of the upregulated microRNAs were downregulated in our mRNA sequencing data and vice versa. The results showed that 20 targets of upregulated microRNAs were also observed in the downregulated mRNA list and that 41 targets of downregulated microRNAs were observed in the upregulated mRNA list. TargetScan (Available online: <uri xlink:href="http://www.targetscan.org/vert_71/">http://www.targetscan.org/vert_71/</uri>) and miRDB (Available online: <uri xlink:href="http://mirdb.org/">http://mirdb.org/</uri>) were used for second step target prediction (<xref ref-type="table" rid="ijms-18-02657-t003">Table 3</xref> and <xref ref-type="table" rid="ijms-18-02657-t004">Table 4</xref>).</p>
+<p>We next investigated whether the expression levels of microRNAs identified in 786-O cells under long-term hypoxia could be observed in clinical specimens along with malignancy. In microarray (GSE37989) which provided 12 clinical ccRCC and nine bone metastasis ccRCC specimens, the results showed that <italic>hsa-mir-100</italic> and <italic>hsa-mir-378</italic> are significantly decreased in bone metastatic ccRCC compared to malignant ccRCC (<xref ref-type="fig" rid="ijms-18-02657-f008">Figure 8</xref>A,B). In qRT-PCR analysis, we found that <italic>hsa-mir-100-5p</italic> and <italic>hsa-mir-378i</italic> were significantly decreased in long-term hypoxia treated 786-O (<xref ref-type="fig" rid="ijms-18-02657-f008">Figure 8</xref>C), suggesting the potential functions of <italic>hsa-mir-100</italic> and <italic>hsa-mir-378</italic> in renal cancer progression.</p>
+<p>In this study, we maintained the VHL-defective ccRCC cell line under long-term hypoxic conditions to partially mimic a stressful environment where tumor cells develop in the human body. Transcriptomic profile analysis showed that two genes (<italic>L1CAM</italic> and <italic>FBN1</italic>) were upregulated and that four genes (<italic>AUST2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic>) and two microRNAs (hsa-mir-100 and hsa-mir-378) were downregulated, all of which were associated with tumor malignancy. The putative microRNA-mRNA interactions identified in our analysis may play an important role in tumor progression.</p>
+</sec>
+</sec>
+<sec id="sec3-ijms-18-02657">
+<title>3. Discussion</title>
+<p>We conducted this study to investigate the long-term effects of hypoxia in 786-O, a VHL-defective renal cell carcinoma cell line, to identify potential genes and microRNAs associated with tumor malignancy using NGS and bioinformatics. Long-term hypoxia promoted the ability of colony formation and transwell migration compared to normoxia. In addition, some upregulated and downregulated genes in 786-O under long-term hypoxia were observed in clinical ccRCC samples along with malignant grade. These findings may provide a new direction for the study of potential molecular mechanisms associated with the progression of ccRCC.</p>
+<p>Cancer progression is a long process and occurs in environments surrounding tumor cells which are deficient in nutrients and oxygen. This stressful environment can then cause the tumor cells to become more malignant as they adapt to the environment. We hypothesized that long-term hypoxia can partially mimic the stressful conditions where tumor cells grow. To test this hypothesis, we used a hypoxia workstation for long-term hypoxia to reduce exposure to normoxic conditions during the subculture procedure. We focused on the effects of hypoxia and so we did not change the serum concentration in the medium. We found that the 786-O cells that underwent long-term hypoxia exhibited increased colony formation and transwell migration ability, implying that long-term hypoxia induced more aggressive characteristics. However, we did not observe a significant change in wound healing assay (<xref ref-type="app" rid="app1-ijms-18-02657">Figure S1</xref>), which indicated that the increased transwell migration ability in long-term hypoxia treated 786-O cells may be associated with elevated chemoattractive properties.</p>
+<p>Hypoxia-induced HIF1/2α-dependent mechanisms have been widely reported to regulate gene expression. In 786-O cell line, we postulated that hypoxia treatment-affected gene expression is majorly through HIF1/2α-independent mechanisms. Hypoxia condition can cause increased production of reactive oxygen species (ROS) [<xref ref-type="bibr" rid="B20-ijms-18-02657">20</xref>,<xref ref-type="bibr" rid="B21-ijms-18-02657">21</xref>]. The accumulation of ROS is involved in activation of NF-κB-regulated signaling [<xref ref-type="bibr" rid="B22-ijms-18-02657">22</xref>,<xref ref-type="bibr" rid="B23-ijms-18-02657">23</xref>] and can also cause endoplasmic reticulum (ER) stress [<xref ref-type="bibr" rid="B24-ijms-18-02657">24</xref>,<xref ref-type="bibr" rid="B25-ijms-18-02657">25</xref>] and metabolic reprogramming [<xref ref-type="bibr" rid="B26-ijms-18-02657">26</xref>,<xref ref-type="bibr" rid="B27-ijms-18-02657">27</xref>] in cancer cells. In addition, chronic oxidative stress can induce chromosomal instability [<xref ref-type="bibr" rid="B28-ijms-18-02657">28</xref>]. These hypoxia-induced mechanisms are associated with regulation of gene expression in response to stressful stimulations.</p>
+<p>To elucidate these long-term effects of hypoxia in the 786-O cells, we also investigated short-term hypoxia. Through NGS analysis, we identified 42 upregulated genes and 18 downregulated genes in both short- and long-term hypoxia, suggesting that these genes may be regulated by hypoxia-specific mechanisms. Excluding these genes, 78 genes were upregulated and 60 genes downregulated in short-term hypoxia, compared to 279 genes and 193 genes, respectively, in long-term hypoxia. We therefore hypothesized that short-term hypoxia-specific genes may be rapidly regulated to adapt to stress in response to sudden exposure to hypoxia and that the genes associated with long-term hypoxia may be mostly regulated by the accumulation of reactive oxygen species (ROS) or genetic instability.</p>
+<p>In short-term hypoxia, the differentially expressed genes were strongly associated with the TNF signaling pathway and the activation of TNF signaling via ROS has been demonstrated [<xref ref-type="bibr" rid="B29-ijms-18-02657">29</xref>,<xref ref-type="bibr" rid="B30-ijms-18-02657">30</xref>]. The upregulated genes, including <italic>CSF2</italic>, <italic>PTGS2</italic>, <italic>SOCS3</italic>, <italic>CXCL3</italic> and <italic>CXCL2</italic> are downstream products of TNF signaling. Colony stimulating factor 2 (CSF2) and prostaglandin-endoperoxide synthase 2 (PTGS2) were also observed in long-term hypoxia, suggesting hypoxia-specific regulation. The overexpression of CSF2 has been associated with poor survival in patients with urothelial carcinoma and NF-κB-induced CSF2 has been shown to promote tumor metastasis in patients with lung cancer and breast cancer [<xref ref-type="bibr" rid="B31-ijms-18-02657">31</xref>,<xref ref-type="bibr" rid="B32-ijms-18-02657">32</xref>]. <italic>PTGS2</italic>, also called <italic>COX-2</italic>, has been reported to play a critical role in tumor growth and metastasis in colon cancer [<xref ref-type="bibr" rid="B33-ijms-18-02657">33</xref>,<xref ref-type="bibr" rid="B34-ijms-18-02657">34</xref>] and high expressions of <italic>CXCL2</italic> and <italic>CXCL3</italic> have been associated with tumor metastasis [<xref ref-type="bibr" rid="B35-ijms-18-02657">35</xref>,<xref ref-type="bibr" rid="B36-ijms-18-02657">36</xref>,<xref ref-type="bibr" rid="B37-ijms-18-02657">37</xref>]. <italic>SOCS3</italic> has also been reported to play a role in anti-proliferation and this may be regulated by negative feedback signaling [<xref ref-type="bibr" rid="B38-ijms-18-02657">38</xref>,<xref ref-type="bibr" rid="B39-ijms-18-02657">39</xref>]. The signaling axis of TNF-ROS-NF-κB induced by hypoxia [<xref ref-type="bibr" rid="B40-ijms-18-02657">40</xref>] in tumor cells has also been reported to lead to the production of various inflammatory cytokines [<xref ref-type="bibr" rid="B41-ijms-18-02657">41</xref>].</p>
+<p>Various biological processes are strongly regulated by long-term hypoxia, including basal carcinoma, TNF signaling and cancer pathways. In TNF signaling, <italic>CXCL1</italic>, <italic>IL6</italic>, <italic>CCL20</italic> and <italic>CCL5</italic> have been shown to be upregulated and <italic>VCAM1</italic>, <italic>IL18R1</italic> and <italic>MAPK13</italic> downregulated. <italic>CXCL1</italic> is a critical cytokine involved in tumor metastasis, angiogenesis and chemoresistance and a high expression of <italic>CXCL1</italic> has been associated with a poor prognosis [<xref ref-type="bibr" rid="B42-ijms-18-02657">42</xref>,<xref ref-type="bibr" rid="B43-ijms-18-02657">43</xref>,<xref ref-type="bibr" rid="B44-ijms-18-02657">44</xref>,<xref ref-type="bibr" rid="B45-ijms-18-02657">45</xref>]. The oncogenic role of IL6 has also been well described [<xref ref-type="bibr" rid="B46-ijms-18-02657">46</xref>,<xref ref-type="bibr" rid="B47-ijms-18-02657">47</xref>]. Paracrine <italic>CCL20</italic> has been shown to induce epithelial-mesenchymal transition in breast cancer [<xref ref-type="bibr" rid="B48-ijms-18-02657">48</xref>,<xref ref-type="bibr" rid="B49-ijms-18-02657">49</xref>] and <italic>CCL5</italic> has been shown to promote vascular endothelial growth factor <italic>VEGF</italic>-induced angiogenesis [<xref ref-type="bibr" rid="B50-ijms-18-02657">50</xref>]. In addition, depletion of <italic>IL18R1</italic>, an <italic>IL18</italic> receptor, has been shown to enhance tumor growth due to inhibitory recruitment of tumor-infiltrating lymphocytes [<xref ref-type="bibr" rid="B51-ijms-18-02657">51</xref>]. Silencing of <italic>MAPK13</italic> has also been shown to promote cell growth in triple-negative breast cancer [<xref ref-type="bibr" rid="B52-ijms-18-02657">52</xref>]. The expression of <italic>VCAM1</italic> on the cell surface has been shown to increase the survival of tumor cells by decreasing the number of infiltrating lymphocytes [<xref ref-type="bibr" rid="B53-ijms-18-02657">53</xref>,<xref ref-type="bibr" rid="B54-ijms-18-02657">54</xref>]. However, our results showed that the level of <italic>VCAM1</italic> was downregulated in the 786-O cells subjected to long-term hypoxia. It is important to understand how TNF signaling is affected by long-term hypoxia. One possible effect may be the accumulation of ROS, leading to activation of NF-κB. Biological processes involve complicated signaling networks, which may be influenced by changes in other signaling cascades. In addition to TNF signaling, many molecules involved in the wingless-type MMTV integration site family (<italic>WNT</italic>) signaling pathway were affected, including <italic>WNT3</italic>, <italic>WNT5A</italic>, <italic>WNT5B</italic>, <italic>WNT7B</italic> and <italic>FZD8</italic>. The functions of WNT signaling in cancer progression include cell proliferation, migration and tumor angiogenesis [<xref ref-type="bibr" rid="B55-ijms-18-02657">55</xref>,<xref ref-type="bibr" rid="B56-ijms-18-02657">56</xref>,<xref ref-type="bibr" rid="B57-ijms-18-02657">57</xref>]. Moreover, matrix metalloproteinase-2 (<italic>MMP-2</italic>), an extracellular matrix protease which is known to play an important role in cell migration [<xref ref-type="bibr" rid="B58-ijms-18-02657">58</xref>], was upregulated in the 786-O cells that underwent long-term hypoxia. Furthermore, the increased expression of vascular edothelial growth factor A (<italic>VEGFA)</italic>, which can regulate angiogenesis and vascular permeability [<xref ref-type="bibr" rid="B59-ijms-18-02657">59</xref>], indicated the enhanced malignancy in the 786-O cells that underwent long-term hypoxia. Taken together, these findings suggest potential mechanisms that may be involved in malignancy induced by long-term hypoxia. However, further studies are needed to elucidate the activity of each signaling pathway.</p>
+<p>With regards to the clinical analysis of ccRCC samples from microarrays of GSE66272 and GSE73731, the upregulation of <italic>L1CAM</italic> and <italic>FBN1</italic> and downregulation of <italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic> were observed along with an increase in tumor grade. Combined with survival curve analysis, higher expressions of <italic>L1CAM</italic> and <italic>FBN1</italic> and lower expressions of <italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic> were associated with poor survival outcomes. These findings imply that <italic>L1CAM</italic> and <italic>FBN1</italic> may potentially exhibit oncogenic functionality and that <italic>AUTS2</italic>, <italic>MAPT</italic>, <italic>AGT</italic> and <italic>USH1C</italic> may act as tumor suppressors in renal cancer.</p>
+<p><italic>L1CAM</italic>, L1 cell adhesion molecule, is a transmembrane protein which has been reported to promote tumor progression and metastasis in gastric cancer [<xref ref-type="bibr" rid="B60-ijms-18-02657">60</xref>]. The role of <italic>L1CAM</italic> in invasive tumors has also been reported [<xref ref-type="bibr" rid="B61-ijms-18-02657">61</xref>]. In endometrial cancer, the expression of <italic>L1CAM</italic> has been shown to be a predictor of poor survival and this has been shown to be associated with an advanced stage [<xref ref-type="bibr" rid="B62-ijms-18-02657">62</xref>]. <italic>FBN1</italic>, fibrillin-1, is an extracellular matrix molecule which has been shown to promote ovarian cancer metastasis [<xref ref-type="bibr" rid="B63-ijms-18-02657">63</xref>]. In addition, the identification of hypermethylated <italic>FBN1</italic> in stool samples has been used to detect colorectal cancer [<xref ref-type="bibr" rid="B64-ijms-18-02657">64</xref>]. These reports support our findings that <italic>L1CAM</italic> and <italic>FBN1</italic> are upregulated in ccRCC along with a higher malignant grade and may also provide a new target for the development of therapies or diagnostic tools for renal cancer. Most reports studying <italic>MAPT</italic> (microtubule-associated protein tau) and <italic>AUTS2</italic> (autism susceptibility gene 2 protein) have focused on neural diseases and only a few studies have investigated their functions in cancer progression. Currently, it is only known that the expression of <italic>MAPT</italic> has been correlated with drug resistance in breast and gastric cancer [<xref ref-type="bibr" rid="B65-ijms-18-02657">65</xref>,<xref ref-type="bibr" rid="B66-ijms-18-02657">66</xref>]. <italic>AUTS2</italic> has also been shown to be a potential therapeutic target for pancreatic cancer with liver metastasis [<xref ref-type="bibr" rid="B67-ijms-18-02657">67</xref>]. However, our findings suggest the potential tumor suppression function of <italic>MAPT</italic> and <italic>AUTS2</italic> in the progression of ccRCC. Thus, further studies are warranted to elucidate the role of <italic>MAPT</italic> and <italic>AUTS2</italic> in renal cancer. <italic>AGT</italic>, <italic>O</italic><sup>6</sup>-alkylguanine-DNA alkyltransferase, is an important DNA repair protein [<xref ref-type="bibr" rid="B68-ijms-18-02657">68</xref>] and many studies have reported that hypoxia can inhibit DNA repair to promote tumor malignancy and genetic instability [<xref ref-type="bibr" rid="B69-ijms-18-02657">69</xref>,<xref ref-type="bibr" rid="B70-ijms-18-02657">70</xref>,<xref ref-type="bibr" rid="B71-ijms-18-02657">71</xref>,<xref ref-type="bibr" rid="B72-ijms-18-02657">72</xref>]. This is consistent with our findings in that long-term hypoxia led to the downregulation of <italic>AGT</italic> in 786-O and that this effect was also observed in clinical ccRCC samples with an advanced grade. <italic>USH1C</italic>, USH1 protein network component harmonin, is a scaffold protein that has been associated with Usher syndrome type 1C [<xref ref-type="bibr" rid="B73-ijms-18-02657">73</xref>]. However, no previous study has investigated its role in cancer progression and its role in ccRCC still needs to be elucidated.</p>
+<p>In small RNA analysis, we found that the downregulation of miR-100 and miR-378 was correlated with metastatic ccRCC. In addition, the expression of hsa-mir-100-3p was lower in long-term hypoxia (2.2-fold change) compared to normoxia. However, hsa-mir-100-3p is not the major form of hsa-mir-100 and the expression of hsa-mir-100-5p was also lower in long-term hypoxia (1.89-fold change). Several studies have reported that miR-100 has a tumor suppressor effect in oral cancer [<xref ref-type="bibr" rid="B74-ijms-18-02657">74</xref>] and prostate cancer [<xref ref-type="bibr" rid="B75-ijms-18-02657">75</xref>] and the overexpression of hsa-mir-100 has been reported to suppress cell growth in esophageal squamous cancer [<xref ref-type="bibr" rid="B76-ijms-18-02657">76</xref>] and non-small cell lung cancer (NSCLC) cells [<xref ref-type="bibr" rid="B77-ijms-18-02657">77</xref>]. <italic>GSE37989</italic> has also been associated with the significant downregulation of hsa-mir-100 in metastatic ccRCC [<xref ref-type="bibr" rid="B78-ijms-18-02657">78</xref>]. Another potential microRNA, hsa-mir-378, has also been sown to be downregulated in metastatic ccRCC identified from <italic>GSE37989</italic>. Our sequencing data showed that the expressions of most members of the hsa-mir-378 family were decreased in the 786-O cells under long-term hypoxia, including hsa-mir-378a-3p, hsa-mir-378a-5p, hsa-mir-378d and hsa-mir-378i. MicroRNA-378 has been reported to be a tumor suppressor in gastric [<xref ref-type="bibr" rid="B79-ijms-18-02657">79</xref>], colon [<xref ref-type="bibr" rid="B80-ijms-18-02657">80</xref>] and prostate cancer [<xref ref-type="bibr" rid="B81-ijms-18-02657">81</xref>]. However, in liver cancer, the overexpression of hsa-mir-378 has been shown to promote cell migration [<xref ref-type="bibr" rid="B82-ijms-18-02657">82</xref>], suggesting the potential tissue-specific effect of hsa-mir-378. Further studies are needed to elucidate the function of hsa-mir-378 in the progression of renal cancer. In this study, we also analyzed the putative microRNA-gene interactions through prediction databases and this may provide a new direction to study the progression of renal cancer.</p>
+</sec>
+<sec id="sec4-ijms-18-02657">
+<title>4. Material and Methods</title>
+<sec id="sec4dot1-ijms-18-02657">
+<title>4.1. Cell Culture</title>
+<p>The RCC cell line, 786-O (ATCC<sup>®</sup> CRL1932™) was purchased from ATCC (American Type Culture Collection, Manassas, VA, USA). Cells were grown in Roswell Park Memorial Institute (RPMI) 1640 (Lonza, Walkersville, MD, USA), supplemented with 10% fetal bovine serum (Gibco-BRL, Grand Island, NY, USA) and 10,000 U penicillin/10 μg streptomycin/25 μg amphotericin B per mL (Lonza, Walkersville, MD, USA). Trypsin- ethylenediaminetetraacetic acid (EDTA) (0.05%, Gibco-BRL, Grand Island, NY, USA) was used for subcultures. For normoxia, the cells were incubated at 37 °C, with 20% O<sub>2</sub> and 5% CO<sub>2</sub>. For hypoxia, the cells were incubated and passaged in a physiological oxygen workstations InvivO<sub>2</sub> 400 (Baker Ruskinn, Sanford, ME, USA) at 37 °C, with 1% O<sub>2</sub> and 5% CO<sub>2</sub> for 3 months.</p>
+</sec>
+<sec id="sec4dot2-ijms-18-02657">
+<title>4.2. Colony Formation Assay</title>
+<p>786-O cells with the same number of passages (at least 20 passages) grown in normoxic and hypoxic conditions were used for the assay. The cells were seeded onto 6-well plates at 1 × 10<sup>2</sup> cells/well and incubated for 9 days. The colonies in each well were stained with 0.4% crystal violet in 100% ethanol and counted. The results were derived from at least three independent experiments.</p>
+</sec>
+<sec id="sec4dot3-ijms-18-02657">
+<title>4.3. Transwell Assay</title>
+<p>786-O cells with the same number of passages (at least 20 passages) grown in normoxic and hypoxic conditions were used for assay. 4 × 10<sup>4</sup> cells were suspended in 300 μL serum-free RPMI 1640 and poured into 24-well hanging inserts (0.8 μm, EMD Millipore Corporation, Billerica, MA, USA) and 500 μL complete RPMI 1640 (Lonza) was added to the lower wells. After 22 h, the insert membranes were stained with 0.2% crystal violet in 20% methanol. The cells on the inner side were wiped off with cotton swabs and the migrated cells on the outside membrane were counted. The results were derived from at least three independent experiments.</p>
+</sec>
+<sec id="sec4dot4-ijms-18-02657">
+<title>4.4. QRT-PCR</title>
+<p>Cell lysates were homogenized and harvested with Trizol reagent (Invitrogen Life Technologies, Carlsbad, CA, USA). Total RNAs were extracted using Phenol:Chloroform:Isoamyl alcohol (25:24:1, <italic>v</italic>/<italic>v</italic>, Invitrogen Life Technologies) and isopropanol (Sigma-Aldrich, Saint Louis, MO, USA) according to the manufacturer’s instructions. Total RNA concentration was determined by O.D value 260 nm using PowerWave™ XS Microplate Spectrophotometer (BioTek Instruments, Inc., Winooski, VT, USA). RNAs (500 ng) were reverse transcribed into cDNAs using PrimeScriptTM RT reagent Kit (Takara Bio, Tokyo, Japan) according to the manufacturer’s instructions. For microRNA, RNAs (2 μg) were reverse transcribed into cDNAs using Mir-X™ miRNA First-Strand Synthesis kit (Clontech Laboratories, Inc., Foster, CA, USA). Real-time PCR was performed by using Fast SYBR<sup>®</sup> Green Master Mix (Applied Biosystems, Foster, CA, USA) and StepOne real-time PCR machine (Applied Biosystems). The relative expression level was quantified by 2<sup>−∆∆<italic>C</italic>t</sup>. All results were performed with at least 3 independent experiments. qRT-PCR primers were <italic>L1CAM</italic>—forward 5′-CCATTGGTCCTGGAGTGCAT-3′ and reverse 5′-TGCAGGGTCTTGTTGTGGTT-3′; <italic>FBN1</italic>—5′-CCTATGCCGAGGTGGTGTTT-3′ and reverse 5′-TGTCGATACACGCGGAGATG-3′; <italic>AUTS2</italic>—5′-GCCAGCACCTCCCATGTTT-3′ and reverse 5′-GCAGCGACATCGATAGGGTT-3′; <italic>AGT</italic>—5′-GACCCCACCTTCATACCTGC-3′ and reverse 5′-GTTTTGCAGCGACTAGCACC-3′; <italic>USH1C</italic>—5′-CGGCTCCTACGCATCAAGAA-3′ and reverse 5′-GCCAGGGTGTAGTCTGTCAC-3′; <italic>MAPT</italic>—5′-ATGCACCAAGACCAAGAGGG-3′ and reverse 5′-CCGCTGTTGGAGTGCTCTTA-3′. The microRNA primers (hsa-mir-100-3p, hsa-mir-100-5p, hsa-mir-378a-3p, hsa-mir-378a-5p, hsa-mir-378d and hsa-mir-378i) were ordered as custom oligonucleotide synthesis (Bio-search, Inc., San Rafael, CA, USA).</p>
+</sec>
+<sec id="sec4dot5-ijms-18-02657">
+<title>4.5. Next-Generation Sequencing (NGS)</title>
+<p>Total RNA lysates were harvested using Trizol<sup>®</sup> Reagent (Invitrogen Life Technologies) according to the manufacturer’s instructions. The expression profiles of protein-coding mRNA and microRNAs were evaluated by performing RNA-seq and small RNA-seq respectively [<xref ref-type="bibr" rid="B83-ijms-18-02657">83</xref>]. The quality of OD260 nm was detected using an ND-1000 spectrophotometer (Nanodrop Technology, Wilmington, CA, USA). Samples were sent to Welgene Biotechnology Company (Taipei, Taiwan) for RNA preparation and sequencing analysis. The detailed information was provided in <xref ref-type="app" rid="app1-ijms-18-02657">Supplementary information file</xref>.</p>
+</sec>
+<sec id="sec4dot6-ijms-18-02657">
+<title>4.6. Gene Expression Omnibus (GEO) Database Analysis</title>
+<p>The GEO database includes a comprehensive amount of publicly submitted data, including microarrays, chips, RNA-seq and small RNA-seq of NGS data (Available online: <uri xlink:href="https://www.ncbi.nlm.nih.gov/geo/">https://www.ncbi.nlm.nih.gov/geo/</uri>, accessed on 8 August 2017 and 23 November 2017) [<xref ref-type="bibr" rid="B84-ijms-18-02657">84</xref>]. In this project, we selected microarrays GSE66272 [<xref ref-type="bibr" rid="B85-ijms-18-02657">85</xref>], GSE73731 [<xref ref-type="bibr" rid="B86-ijms-18-02657">86</xref>] and GSE37989 [<xref ref-type="bibr" rid="B78-ijms-18-02657">78</xref>] for further analysis. The gene expression levels were extracted using the GEO2R online tool (Available online: <uri xlink:href="https://www.ncbi.nlm.nih.gov/geo/geo2r/">https://www.ncbi.nlm.nih.gov/geo/geo2r/</uri>, accessed on 8 August 2017 and 23 November 2017) and re-plotted using GraphPad Prism 5.0 software (GraphPad Software, La Jolla, CA, USA).</p>
+</sec>
+<sec id="sec4dot7-ijms-18-02657">
+<title>4.7. SurvExpress Analysis</title>
+<p>SurvExpress integrates TCGA datasets (Available online: <uri xlink:href="https://tcga-data.nci.nih.gov">https://tcga-data.nci.nih.gov</uri>, accessed on 21 August 2017) of different cancer types to provide correlation analysis of gene expressions and survival outcomes. Survival curves comparing two populations of patients at high and low risk of renal cancer were plotted using the SurvExpress online database (Available online: <uri xlink:href="http://bioinformatica.mty.itesm.mx/SurvExpress">http://bioinformatica.mty.itesm.mx/SurvExpress</uri>, accessed on 21 August 2017). The samples of each datasets were split into two risk groups with the same size, which was determined using the ordered prognostic index (PI, high value for high risk) [<xref ref-type="bibr" rid="B87-ijms-18-02657">87</xref>]. The raw data were extracted and re-plotted using GraphPad Prism 5.0 software. The PI is the linear component of a Cox model, calculated as the gene expression value multiplied by values estimated from Cox fitting [<xref ref-type="bibr" rid="B88-ijms-18-02657">88</xref>].</p>
+</sec>
+<sec id="sec4dot8-ijms-18-02657">
+<title>4.8. miRMap Database Analysis</title>
+<p>The miRMap database was used to predict the microRNA target (Available online: <uri xlink:href="http://mirmap.ezlab.org/">http://mirmap.ezlab.org/</uri>, accessed on 20 July 2017) [<xref ref-type="bibr" rid="B89-ijms-18-02657">89</xref>]. The putative targets were identified based on calculating the complementary ability of microRNA-mRNA interactions. The predictor also estimated the strength of mRNA repression to rank potential candidate targets using features including thermodynamics, evolution, probability and sequence-based features. The prediction results provided a list of putative target genes with miRmap scores, which were used as predictive reference values. The threshold of microRNA target prediction was set at a miRmap score ≥97.0 in this study.</p>
+</sec>
+<sec id="sec4dot9-ijms-18-02657">
+<title>4.9. DAVID Database Analysis</title>
+<p>We used the Database for Annotation, Visualization and Integrated Discovery (DAVID, Available online: <uri xlink:href="https://david.ncifcrf.gov/">https://david.ncifcrf.gov/</uri>, accessed on 14 September 2017) combined with functional annotation databases including Gene Ontology (GO), Biological Process and KEGG Pathway [<xref ref-type="bibr" rid="B19-ijms-18-02657">19</xref>] to classify genetic functions and analyze the related pathways. The list of genes was classified into clusters of related biological functions, signaling pathways and diseases by calculating the similarity of global annotation profiles using an agglomeration algorithm. It also provided the EASE score for analysis, which is a modified Fisher’s exact <italic>p</italic>-value. The reference score represented how specifically the user genes were involved in the category (for example: signaling pathways). We selected an EASE (a modified Fisher Exact <italic>p</italic>-value) score ≥1 to extend the clustering range in our analysis.</p>
+</sec>
+<sec id="sec4dot10-ijms-18-02657">
+<title>4.10. Gene Set Enrichment Analysis (GSEA)</title>
+<p>GSEA (Available online: <uri xlink:href="http://software.broadinstitute.org/gsea/index.jsp">http://software.broadinstitute.org/gsea/index.jsp</uri>, accessed on 13 September 2017) is software used to compare two sets of gene expression data and determine which group has upregulated biological processes or pathways [<xref ref-type="bibr" rid="B90-ijms-18-02657">90</xref>].</p>
+</sec>
+<sec id="sec4dot11-ijms-18-02657">
+<title>4.11. Statistical Analysis</title>
+<p>The raw data extracted from the GEO database were statistically analyzed using the unpaired <italic>t</italic>-test to analyze two groups or one-way ANOVA with Tukey’s <italic>post hoc</italic> test to compare all pairs of columns in multiple group analysis using GraphPad Prism 5.0 software. </p>
+</sec>
+</sec>
+<sec id="sec5-ijms-18-02657">
+<title>5. Conclusions</title>
+<p>The results showed that long-term hypoxia promoted the ability of colony formation and transwell migration compared to normoxia. In addition, the differentially expressed genes induced by long-term hypoxia were involved in various biological processes including cell proliferation, the TNF-signaling pathway, basal cell carcinoma and cancer pathways. The expressions of upregulated and downregulated genes were correlated with survival outcomes in patients with renal cancer. Besides, this study identified potential genes and microRNAs that may be regulated by long-term hypoxia. These factors may be novel targets to study the molecular mechanisms involved in the advanced stage of renal cancer.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>This study was supported by grants from the Ministry of Science and Technology (MOST 104-2314-B-037-053-MY4; MOST 104-2320-B-037-014-MY3), Kaohsiung Medical University Hospital (KMUHS10601) and the “KMU-KMUH Co-Project of Key Research” (Grant No. KMU-DK 107009 from Kaohsiung Medical University).</p>
+</ack>
+<app-group>
+<app id="app1-ijms-18-02657">
+<title>Supplementary Materials</title>
+<p>Supplementary materials can be found at <uri xlink:href="www.mdpi.com/1422-0067/18/12/2657/s1">www.mdpi.com/1422-0067/18/12/2657/s1</uri>.</p>
+<supplementary-material content-type="local-data" id="ijms-18-02657-s001">
+<media xlink:href="ijms-18-02657-s001.pdf">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</app>
+</app-group>
+<notes>
+<title>Author Contributions</title>
+<p>Szu-Chia Chen, Feng-Wei Chen, Ya-Ling Hsu and Po-Lin Kuo conceived and designed the experiments; Szu-Chia Chen, Feng-Wei Chen, Ya-Ling Hsu and Po-Lin Kuo performed the experiments; Szu-Chia Chen, Feng-Wei Chen, Po-Lin Kuo analyzed the data; Ya-Ling Hsu and Po-Lin Kuo contributed reagents/materials/analysis tools; Szu-Chia Chen and Feng-Wei Chen wrote the paper.</p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Conflicts of Interest</title>
+<p>The authors declare no conflict of interest.</p>
+</notes>
+<glossary>
+<title>Abbreviations</title>
+<array orientation="portrait">
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">RCC</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">renal cell carcinoma </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">ccRCC</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">clear cell RCC </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">HIF</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">hypoxia-inducible factor</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">VHL</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">von Hippel-Lindau </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">FPKM</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">fragments per kilobase of transcript per million mapped reads </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">GSEA</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">gene set enrichment analysis </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">ROS</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">reactive oxygen species </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">CSF2</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">colony stimulating factor 2 </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">PTGS2</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">prostaglandin-endoperoxide synthase 2 </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">MAPT</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">microtubule-associated protein tau </td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="middle">AUTS2</td>
+<td align="left" colspan="1" rowspan="1" valign="middle">autism susceptibility gene 2 protein </td>
+</tr>
+</tbody>
+</array>
+</glossary>
+<ref-list>
+<title>References</title>
+<ref id="B1-ijms-18-02657">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Murai</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Oya</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Renal cell carcinoma: Etiology, incidence and epidemiology</article-title>
+<source/>Curr. Opin. Urol.
+          <year>2004</year>
+<volume>14</volume>
+<fpage>229</fpage>
+<lpage>233</lpage>
+<pub-id pub-id-type="doi">10.1097/01.mou.0000135078.04721.f5</pub-id>
+<pub-id pub-id-type="pmid">15205579</pub-id>
+</element-citation>
+</ref>
+<ref id="B2-ijms-18-02657">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rini</surname>
+<given-names>B.I.</given-names>
+</name>
+<name>
+<surname>Rathmell</surname>
+<given-names>W.K.</given-names>
+</name>
+<name>
+<surname>Godley</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Renal cell carcinoma</article-title>
+<source/>Curr. Opin. Oncol.
+          <year>2008</year>
+<volume>20</volume>
+<fpage>300</fpage>
+<lpage>306</lpage>
+<pub-id pub-id-type="doi">10.1097/CCO.0b013e3282f9782b</pub-id>
+<pub-id pub-id-type="pmid">18391630</pub-id>
+</element-citation>
+</ref>
+<ref id="B3-ijms-18-02657">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cairns</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Renal cell carcinoma</article-title>
+<source/>Cancer Biomark.
+          <year>2010</year>
+<volume>9</volume>
+<fpage>461</fpage>
+<lpage>473</lpage>
+<pub-id pub-id-type="doi">10.3233/CBM-2011-0176</pub-id>
+<pub-id pub-id-type="pmid">22112490</pub-id>
+</element-citation>
+</ref>
+<ref id="B4-ijms-18-02657">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schraml</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Frew</surname>
+<given-names>I.J.</given-names>
+</name>
+<name>
+<surname>Thoma</surname>
+<given-names>C.R.</given-names>
+</name>
+<name>
+<surname>Boysen</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Struckmann</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Krek</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Moch</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Sporadic clear cell renal cell carcinoma but not the papillary type is characterized by severely reduced frequency of primary cilia</article-title>
+<source/>Mod. Pathol.
+          <year>2009</year>
+<volume>22</volume>
+<fpage>31</fpage>
+<lpage>36</lpage>
+<pub-id pub-id-type="doi">10.1038/modpathol.2008.132</pub-id>
+<pub-id pub-id-type="pmid">18660794</pub-id>
+</element-citation>
+</ref>
+<ref id="B5-ijms-18-02657">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pavlovich</surname>
+<given-names>C.P.</given-names>
+</name>
+<name>
+<surname>Schmidt</surname>
+<given-names>L.S.</given-names>
+</name>
+</person-group>
+<article-title>Searching for the hereditary causes of renal-cell carcinoma</article-title>
+<source/>Nat. Rev. Cancer
+          <year>2004</year>
+<volume>4</volume>
+<fpage>381</fpage>
+<lpage>393</lpage>
+<pub-id pub-id-type="doi">10.1038/nrc1364</pub-id>
+<pub-id pub-id-type="pmid">15122209</pub-id>
+</element-citation>
+</ref>
+<ref id="B6-ijms-18-02657">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Athar</surname>
+<given-names>U.</given-names>
+</name>
+<name>
+<surname>Gentile</surname>
+<given-names>T.C.</given-names>
+</name>
+</person-group>
+<article-title>Treatment options for metastatic renal cell carcinoma: A review</article-title>
+<source/>Can. J. Urol.
+          <year>2008</year>
+<volume>15</volume>
+<fpage>3954</fpage>
+<lpage>3966</lpage>
+<pub-id pub-id-type="pmid">18405442</pub-id>
+</element-citation>
+</ref>
+<ref id="B7-ijms-18-02657">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kume</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Takahashi</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Teramoto</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Isurugi</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Risk factors for adult renal cell carcinoma: A systematic review and implications for prevention</article-title>
+<source/>BJU Int.
+          <year>2001</year>
+<volume>88</volume>
+<fpage>804</fpage>
+<pub-id pub-id-type="doi">10.1046/j.1464-410X.2001.2505b.x</pub-id>
+<pub-id pub-id-type="pmid">11890260</pub-id>
+</element-citation>
+</ref>
+<ref id="B8-ijms-18-02657">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moreno-Smith</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Lutgendorf</surname>
+<given-names>S.K.</given-names>
+</name>
+<name>
+<surname>Sood</surname>
+<given-names>A.K.</given-names>
+</name>
+</person-group>
+<article-title>Impact of stress on cancer metastasis</article-title>
+<source/>Future Oncol.
+          <year>2010</year>
+<volume>6</volume>
+<fpage>1863</fpage>
+<lpage>1881</lpage>
+<pub-id pub-id-type="doi">10.2217/fon.10.142</pub-id>
+<pub-id pub-id-type="pmid">21142861</pub-id>
+</element-citation>
+</ref>
+<ref id="B9-ijms-18-02657">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ziello</surname>
+<given-names>J.E.</given-names>
+</name>
+<name>
+<surname>Jovin</surname>
+<given-names>I.S.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>Y.</given-names>
+</name>
+</person-group>
+<article-title>Hypoxia-inducible factor (HIF)-1 regulatory pathway and its potential for therapeutic intervention in malignancy and ischemia</article-title>
+<source/>Yale J. Biol. Med.
+          <year>2007</year>
+<volume>80</volume>
+<fpage>51</fpage>
+<lpage>60</lpage>
+<pub-id pub-id-type="pmid">18160990</pub-id>
+</element-citation>
+</ref>
+<ref id="B10-ijms-18-02657">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Avni</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Cohen</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Neeman</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Hypoxic stress and cancer: Imaging the axis of evil in tumor metastasis</article-title>
+<source/>NMR Biomed.
+          <year>2011</year>
+<volume>24</volume>
+<fpage>569</fpage>
+<lpage>581</lpage>
+<pub-id pub-id-type="doi">10.1002/nbm.1632</pub-id>
+<pub-id pub-id-type="pmid">21793071</pub-id>
+</element-citation>
+</ref>
+<ref id="B11-ijms-18-02657">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kondoh</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Ohga</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Akiyama</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Hida</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Maishi</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Towfik</surname>
+<given-names>A.M.</given-names>
+</name>
+<name>
+<surname>Inoue</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Shindoh</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Hida</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Hypoxia-induced reactive oxygen species cause chromosomal abnormalities in endothelial cells in the tumor microenvironment</article-title>
+<source/>PLoS ONE
+          <year>2013</year>
+<volume>8</volume>
+<elocation-id>e80349</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0080349</pub-id>
+<pub-id pub-id-type="pmid">24260373</pub-id>
+</element-citation>
+</ref>
+<ref id="B12-ijms-18-02657">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Luoto</surname>
+<given-names>K.R.</given-names>
+</name>
+<name>
+<surname>Kumareswaran</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Bristow</surname>
+<given-names>R.G.</given-names>
+</name>
+</person-group>
+<article-title>Tumor hypoxia as a driving force in genetic instability</article-title>
+<source/>Genome Integr.
+          <year>2013</year>
+<volume>4</volume>
+<fpage>5</fpage>
+<pub-id pub-id-type="doi">10.1186/2041-9414-4-5</pub-id>
+<pub-id pub-id-type="pmid">24152759</pub-id>
+</element-citation>
+</ref>
+<ref id="B13-ijms-18-02657">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Foster</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Prowse</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>van den Berg</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Fleming</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Hulsbeek</surname>
+<given-names>M.M.</given-names>
+</name>
+<name>
+<surname>Crossey</surname>
+<given-names>P.A.</given-names>
+</name>
+<name>
+<surname>Richards</surname>
+<given-names>F.M.</given-names>
+</name>
+<name>
+<surname>Cairns</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Affara</surname>
+<given-names>N.A.</given-names>
+</name>
+<name>
+<surname>Ferguson-Smith</surname>
+<given-names>M.A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Somatic mutations of the von Hippel-Lindau disease tumour suppressor gene in non-familial clear cell renal carcinoma</article-title>
+<source/>Hum. Mol. Genet.
+          <year>1994</year>
+<volume>3</volume>
+<fpage>2169</fpage>
+<lpage>2173</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/3.12.2169</pub-id>
+<pub-id pub-id-type="pmid">7881415</pub-id>
+</element-citation>
+</ref>
+<ref id="B14-ijms-18-02657">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Clifford</surname>
+<given-names>S.C.</given-names>
+</name>
+<name>
+<surname>Cockman</surname>
+<given-names>M.E.</given-names>
+</name>
+<name>
+<surname>Smallwood</surname>
+<given-names>A.C.</given-names>
+</name>
+<name>
+<surname>Mole</surname>
+<given-names>D.R.</given-names>
+</name>
+<name>
+<surname>Woodward</surname>
+<given-names>E.R.</given-names>
+</name>
+<name>
+<surname>Maxwell</surname>
+<given-names>P.H.</given-names>
+</name>
+<name>
+<surname>Ratcliffe</surname>
+<given-names>P.J.</given-names>
+</name>
+<name>
+<surname>Maher</surname>
+<given-names>E.R.</given-names>
+</name>
+</person-group>
+<article-title>Contrasting effects on HIF-1α regulation by disease-causing pVHL mutations correlate with patterns of tumourigenesis in von Hippel-Lindau disease</article-title>
+<source/>Hum. Mol. Genet.
+          <year>2001</year>
+<volume>10</volume>
+<fpage>1029</fpage>
+<lpage>1038</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/10.10.1029</pub-id>
+<pub-id pub-id-type="pmid">11331613</pub-id>
+</element-citation>
+</ref>
+<ref id="B15-ijms-18-02657">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hoffman</surname>
+<given-names>M.A.</given-names>
+</name>
+<name>
+<surname>Ohh</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Klco</surname>
+<given-names>J.M.</given-names>
+</name>
+<name>
+<surname>Ivan</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Kaelin</surname>
+<given-names>W.G.</given-names>
+<suffix>Jr.</suffix>
+</name>
+</person-group>
+<article-title>Von Hippel-Lindau protein mutants linked to type 2C VHL disease preserve the ability to downregulate HIF</article-title>
+<source/>Hum. Mol. Genet.
+          <year>2001</year>
+<volume>10</volume>
+<fpage>1019</fpage>
+<lpage>1027</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/10.10.1019</pub-id>
+<pub-id pub-id-type="pmid">11331612</pub-id>
+</element-citation>
+</ref>
+<ref id="B16-ijms-18-02657">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bayer</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Shi</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Astner</surname>
+<given-names>S.T.</given-names>
+</name>
+<name>
+<surname>Maftei</surname>
+<given-names>C.A.</given-names>
+</name>
+<name>
+<surname>Vaupel</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Acute versus chronic hypoxia: Why a simplified classification is simply not enough</article-title>
+<source/>Int. J. Radiat. Oncol. Biol. Phys.
+          <year>2011</year>
+<volume>80</volume>
+<fpage>965</fpage>
+<lpage>968</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ijrobp.2011.02.049</pub-id>
+<pub-id pub-id-type="pmid">21683887</pub-id>
+</element-citation>
+</ref>
+<ref id="B17-ijms-18-02657">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Alqawi</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H.P.</given-names>
+</name>
+<name>
+<surname>Espiritu</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Singh</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Chronic hypoxia promotes an aggressive phenotype in rat prostate cancer cells</article-title>
+<source/>Free. Radic. Res.
+          <year>2007</year>
+<volume>41</volume>
+<fpage>788</fpage>
+<lpage>797</lpage>
+<pub-id pub-id-type="doi">10.1080/10715760701361531</pub-id>
+<pub-id pub-id-type="pmid">17577739</pub-id>
+</element-citation>
+</ref>
+<ref id="B18-ijms-18-02657">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Henze</surname>
+<given-names>A.T.</given-names>
+</name>
+<name>
+<surname>Acker</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>Feedback regulators of hypoxia-inducible factors and their role in cancer biology</article-title>
+<source/>Cell Cycle
+          <year>2010</year>
+<volume>9</volume>
+<fpage>2749</fpage>
+<lpage>2763</lpage>
+<pub-id pub-id-type="doi">10.4161/cc.9.14.12249</pub-id>
+<pub-id pub-id-type="pmid">20603601</pub-id>
+</element-citation>
+</ref>
+<ref id="B19-ijms-18-02657">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>D.W.</given-names>
+</name>
+<name>
+<surname>Sherman</surname>
+<given-names>B.T.</given-names>
+</name>
+<name>
+<surname>Tan</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>J.R.</given-names>
+</name>
+<name>
+<surname>Alvord</surname>
+<given-names>W.G.</given-names>
+</name>
+<name>
+<surname>Roayaei</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Stephens</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Baseler</surname>
+<given-names>M.W.</given-names>
+</name>
+<name>
+<surname>Lane</surname>
+<given-names>H.C.</given-names>
+</name>
+<name>
+<surname>Lempicki</surname>
+<given-names>R.A.</given-names>
+</name>
+</person-group>
+<article-title>The DAVID gene functional classification tool: A novel biological module-centric algorithm to functionally analyze large gene lists</article-title>
+<source/>Genome Biol.
+          <year>2007</year>
+<volume>8</volume>
+<fpage>R183</fpage>
+<pub-id pub-id-type="doi">10.1186/gb-2007-8-9-r183</pub-id>
+<pub-id pub-id-type="pmid">17784955</pub-id>
+</element-citation>
+</ref>
+<ref id="B20-ijms-18-02657">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bell</surname>
+<given-names>E.L.</given-names>
+</name>
+<name>
+<surname>Klimova</surname>
+<given-names>T.A.</given-names>
+</name>
+<name>
+<surname>Eisenbart</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Moraes</surname>
+<given-names>C.T.</given-names>
+</name>
+<name>
+<surname>Murphy</surname>
+<given-names>M.P.</given-names>
+</name>
+<name>
+<surname>Budinger</surname>
+<given-names>G.R.</given-names>
+</name>
+<name>
+<surname>Chandel</surname>
+<given-names>N.S.</given-names>
+</name>
+</person-group>
+<article-title>The Qo site of the mitochondrial complex III is required for the transduction of hypoxic signaling via reactive oxygen species production</article-title>
+<source/>J. Cell Biol.
+          <year>2007</year>
+<volume>177</volume>
+<fpage>1029</fpage>
+<lpage>1036</lpage>
+<pub-id pub-id-type="doi">10.1083/jcb.200609074</pub-id>
+<pub-id pub-id-type="pmid">17562787</pub-id>
+</element-citation>
+</ref>
+<ref id="B21-ijms-18-02657">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chandel</surname>
+<given-names>N.S.</given-names>
+</name>
+<name>
+<surname>Maltepe</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Goldwasser</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Mathieu</surname>
+<given-names>C.E.</given-names>
+</name>
+<name>
+<surname>Simon</surname>
+<given-names>M.C.</given-names>
+</name>
+<name>
+<surname>Schumacker</surname>
+<given-names>P.T.</given-names>
+</name>
+</person-group>
+<article-title>Mitochondrial reactive oxygen species trigger hypoxia-induced transcription</article-title>
+<source/>Proc. Natl. Acad. Sci. USA
+          <year>1998</year>
+<volume>95</volume>
+<fpage>11715</fpage>
+<lpage>11720</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.95.20.11715</pub-id>
+<pub-id pub-id-type="pmid">9751731</pub-id>
+</element-citation>
+</ref>
+<ref id="B22-ijms-18-02657">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Cang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Gao</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Yamamoto</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Osaki</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Yi</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>The endogenous reactive oxygen species promote NF-κB activation by targeting on activation of NF-κB-inducing kinase in oral squamous carcinoma cells</article-title>
+<source/>Free Radic. Res.
+          <year>2007</year>
+<volume>41</volume>
+<fpage>963</fpage>
+<lpage>971</lpage>
+<pub-id pub-id-type="doi">10.1080/10715760701445045</pub-id>
+<pub-id pub-id-type="pmid">17729113</pub-id>
+</element-citation>
+</ref>
+<ref id="B23-ijms-18-02657">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Morgan</surname>
+<given-names>M.J.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Z.G.</given-names>
+</name>
+</person-group>
+<article-title>Crosstalk of reactive oxygen species and NF-κB signaling</article-title>
+<source/>Cell Res.
+          <year>2011</year>
+<volume>21</volume>
+<fpage>103</fpage>
+<lpage>115</lpage>
+<pub-id pub-id-type="doi">10.1038/cr.2010.178</pub-id>
+<pub-id pub-id-type="pmid">21187859</pub-id>
+</element-citation>
+</ref>
+<ref id="B24-ijms-18-02657">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cao</surname>
+<given-names>S.S.</given-names>
+</name>
+<name>
+<surname>Kaufman</surname>
+<given-names>R.J.</given-names>
+</name>
+</person-group>
+<article-title>Endoplasmic reticulum stress and oxidative stress in cell fate decision and human disease</article-title>
+<source/>Antioxid. Redox Signal.
+          <year>2014</year>
+<volume>21</volume>
+<fpage>396</fpage>
+<lpage>413</lpage>
+<pub-id pub-id-type="doi">10.1089/ars.2014.5851</pub-id>
+<pub-id pub-id-type="pmid">24702237</pub-id>
+</element-citation>
+</ref>
+<ref id="B25-ijms-18-02657">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zeeshan</surname>
+<given-names>H.M.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>G.H.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>H.R.</given-names>
+</name>
+<name>
+<surname>Chae</surname>
+<given-names>H.J.</given-names>
+</name>
+</person-group>
+<article-title>Endoplasmic Reticulum Stress and Associated ROS</article-title>
+<source/>Int. J. Mol. Sci.
+          <year>2016</year>
+<volume>17</volume>
+<elocation-id>327</elocation-id>
+<pub-id pub-id-type="doi">10.3390/ijms17030327</pub-id>
+<pub-id pub-id-type="pmid">26950115</pub-id>
+</element-citation>
+</ref>
+<ref id="B26-ijms-18-02657">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Costa</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Scholer-Dahirel</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Mechta-Grigoriou</surname>
+<given-names>F.</given-names>
+</name>
+</person-group>
+<article-title>The role of reactive oxygen species and metabolism on cancer cells and their microenvironment</article-title>
+<source/>Semin. Cancer Biol.
+          <year>2014</year>
+<volume>25</volume>
+<fpage>23</fpage>
+<lpage>32</lpage>
+<pub-id pub-id-type="doi">10.1016/j.semcancer.2013.12.007</pub-id>
+<pub-id pub-id-type="pmid">24406211</pub-id>
+</element-citation>
+</ref>
+<ref id="B27-ijms-18-02657">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Panieri</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Santoro</surname>
+<given-names>M.M.</given-names>
+</name>
+</person-group>
+<article-title>ROS homeostasis and metabolism: A dangerous liason in cancer cells</article-title>
+<source/>Cell Death Dis.
+          <year>2016</year>
+<volume>7</volume>
+<fpage>e2253</fpage>
+<pub-id pub-id-type="doi">10.1038/cddis.2016.105</pub-id>
+<pub-id pub-id-type="pmid">27277675</pub-id>
+</element-citation>
+</ref>
+<ref id="B28-ijms-18-02657">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Limoli</surname>
+<given-names>C.L.</given-names>
+</name>
+<name>
+<surname>Giedzinski</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Induction of chromosomal instability by chronic oxidative stress</article-title>
+<source/>Neoplasia
+          <year>2003</year>
+<volume>5</volume>
+<fpage>339</fpage>
+<lpage>346</lpage>
+<pub-id pub-id-type="doi">10.1016/S1476-5586(03)80027-1</pub-id>
+<pub-id pub-id-type="pmid">14511405</pub-id>
+</element-citation>
+</ref>
+<ref id="B29-ijms-18-02657">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schwabe</surname>
+<given-names>R.F.</given-names>
+</name>
+<name>
+<surname>Brenner</surname>
+<given-names>D.A.</given-names>
+</name>
+</person-group>
+<article-title>Mechanisms of liver injury. I. TNF-α-induced liver injury: Role of IKK, JNK and ROS pathways</article-title>
+<source/>Am. J. Physiol. Gastrointest. Liver Physiol.
+          <year>2006</year>
+<volume>290</volume>
+<fpage>G583</fpage>
+<lpage>G589</lpage>
+<pub-id pub-id-type="doi">10.1152/ajpgi.00422.2005</pub-id>
+<pub-id pub-id-type="pmid">16537970</pub-id>
+</element-citation>
+</ref>
+<ref id="B30-ijms-18-02657">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liou</surname>
+<given-names>G.Y.</given-names>
+</name>
+<name>
+<surname>Storz</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Reactive oxygen species in cancer</article-title>
+<source/>Free Radic. Res.
+          <year>2010</year>
+<volume>44</volume>
+<fpage>479</fpage>
+<lpage>496</lpage>
+<pub-id pub-id-type="doi">10.3109/10715761003667554</pub-id>
+<pub-id pub-id-type="pmid">20370557</pub-id>
+</element-citation>
+</ref>
+<ref id="B31-ijms-18-02657">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rudisch</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Dewhurst</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Horga</surname>
+<given-names>L.G.</given-names>
+</name>
+<name>
+<surname>Kramer</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Harrer</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>van der Kuip</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wernitznig</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Bernthaler</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Dolznig</surname>
+<given-names>H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>High EMT signature score of invasive non-small cell lung cancer (NSCLC) cells correlates with NFκB driven colony-stimulating factor 2 (CSF2/GM-CSF) secretion by neighboring stromal fibroblasts</article-title>
+<source/>PLoS ONE
+          <year>2015</year>
+<volume>10</volume>
+<elocation-id>e0124283</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0124283</pub-id>
+<pub-id pub-id-type="pmid">25919140</pub-id>
+</element-citation>
+</ref>
+<ref id="B32-ijms-18-02657">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Park</surname>
+<given-names>B.K.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Zeng</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Dai</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Keller</surname>
+<given-names>ET.</given-names>
+</name>
+<name>
+<surname>Giordano</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Gu</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Shah</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Pei</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Zarbo</surname>
+<given-names>R.J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Nf-kappab in breast cancer cells promotes osteolytic bone metastasis by inducing osteoclastogenesis via GM-CSF</article-title>
+<source/>Nat. Med.
+          <year>2007</year>
+<volume>13</volume>
+<fpage>62</fpage>
+<lpage>69</lpage>
+<pub-id pub-id-type="doi">10.1038/nm1519</pub-id>
+<pub-id pub-id-type="pmid">17159986</pub-id>
+</element-citation>
+</ref>
+<ref id="B33-ijms-18-02657">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Xia</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Dubois</surname>
+<given-names>R.N.</given-names>
+</name>
+</person-group>
+<article-title>The crosstalk of PTGS2 and EGF signaling pathways in colorectal cancer</article-title>
+<source/>Cancers
+          <year>2011</year>
+<volume>3</volume>
+<fpage>3894</fpage>
+<lpage>3908</lpage>
+<pub-id pub-id-type="doi">10.3390/cancers3043894</pub-id>
+<pub-id pub-id-type="pmid">24213116</pub-id>
+</element-citation>
+</ref>
+<ref id="B34-ijms-18-02657">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Srinath</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Rao</surname>
+<given-names>P.N.</given-names>
+</name>
+<name>
+<surname>Knaus</surname>
+<given-names>E.E.</given-names>
+</name>
+<name>
+<surname>Suresh</surname>
+<given-names>M.R.</given-names>
+</name>
+</person-group>
+<article-title>Effect of cyclooxygenase-2 (Cox-2) inhibitors on prostate cancer cell proliferation</article-title>
+<source/>Anticancer Res.
+          <year>2003</year>
+<volume>23</volume>
+<fpage>3923</fpage>
+<lpage>3928</lpage>
+<pub-id pub-id-type="pmid">14666698</pub-id>
+</element-citation>
+</ref>
+<ref id="B35-ijms-18-02657">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Oue</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>J.W.</given-names>
+</name>
+<name>
+<surname>Sakamoto</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Iimura</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Aoki</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Kayamori</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Michi</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Yamashiro</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Harada</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Amagasa</surname>
+<given-names>T.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>CXCL2 synthesized by oral squamous cell carcinoma is involved in cancer-associated bone destruction</article-title>
+<source/>Biochem. Biophys. Res. Commun.
+          <year>2012</year>
+<volume>424</volume>
+<fpage>456</fpage>
+<lpage>461</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbrc.2012.06.132</pub-id>
+<pub-id pub-id-type="pmid">22771802</pub-id>
+</element-citation>
+</ref>
+<ref id="B36-ijms-18-02657">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Ye</surname>
+<given-names>Y.L.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>M.X.</given-names>
+</name>
+<name>
+<surname>Ye</surname>
+<given-names>S.B.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>W.R.</given-names>
+</name>
+<name>
+<surname>Cai</surname>
+<given-names>T.T.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Peng</surname>
+<given-names>J.Y.</given-names>
+</name>
+<name>
+<surname>Duan</surname>
+<given-names>T.H.</given-names>
+</name>
+<name>
+<surname>Cui</surname>
+<given-names>J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>CXCL2/MIF-CXCR2 signaling promotes the recruitment of myeloid-derived suppressor cells and is correlated with prognosis in bladder cancer</article-title>
+<source/>Oncogene
+          <year>2017</year>
+<volume>36</volume>
+<fpage>2095</fpage>
+<lpage>2104</lpage>
+<pub-id pub-id-type="doi">10.1038/onc.2016.367</pub-id>
+<pub-id pub-id-type="pmid">27721403</pub-id>
+</element-citation>
+</ref>
+<ref id="B37-ijms-18-02657">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gui</surname>
+<given-names>S.L.</given-names>
+</name>
+<name>
+<surname>Teng</surname>
+<given-names>L.C.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>S.Q.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>Y.L.</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>X.L.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Sui</surname>
+<given-names>H.Y.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Liang</surname>
+<given-names>L.C.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Overexpression of CXCL3 can enhance the oncogenic potential of prostate cancer</article-title>
+<source/>Int. Urol. Nephrol.
+          <year>2016</year>
+<volume>48</volume>
+<fpage>701</fpage>
+<lpage>709</lpage>
+<pub-id pub-id-type="doi">10.1007/s11255-016-1222-2</pub-id>
+<pub-id pub-id-type="pmid">26837773</pub-id>
+</element-citation>
+</ref>
+<ref id="B38-ijms-18-02657">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chu</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>W.</given-names>
+</name>
+</person-group>
+<article-title>Prognostic significance of SOCS3 and its biological function in colorectal cancer</article-title>
+<source/>Gene
+          <year>2017</year>
+<volume>627</volume>
+<fpage>114</fpage>
+<lpage>122</lpage>
+<pub-id pub-id-type="doi">10.1016/j.gene.2017.06.013</pub-id>
+<pub-id pub-id-type="pmid">28603075</pub-id>
+</element-citation>
+</ref>
+<ref id="B39-ijms-18-02657">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iwahori</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Serada</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Fujimoto</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Nomura</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Osaki</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>C.M.</given-names>
+</name>
+<name>
+<surname>Mizuguchi</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Takahashi</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Ripley</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Okumura</surname>
+<given-names>M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Overexpression of SOCS3 exhibits preclinical antitumor activity against malignant pleural mesothelioma</article-title>
+<source/>Int. J. Cancer
+          <year>2011</year>
+<volume>129</volume>
+<fpage>1005</fpage>
+<lpage>1017</lpage>
+<pub-id pub-id-type="doi">10.1002/ijc.25716</pub-id>
+<pub-id pub-id-type="pmid">20949562</pub-id>
+</element-citation>
+</ref>
+<ref id="B40-ijms-18-02657">
+<label>40.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chandel</surname>
+<given-names>N.S.</given-names>
+</name>
+<name>
+<surname>Trzyna</surname>
+<given-names>W.C.</given-names>
+</name>
+<name>
+<surname>McClintock</surname>
+<given-names>D.S.</given-names>
+</name>
+<name>
+<surname>Schumacker</surname>
+<given-names>P.T.</given-names>
+</name>
+</person-group>
+<article-title>Role of oxidants in NF-κB activation and TNF-α gene transcription induced by hypoxia and endotoxin</article-title>
+<source/>J. Immunol.
+          <year>2000</year>
+<volume>165</volume>
+<fpage>1013</fpage>
+<lpage>1021</lpage>
+<pub-id pub-id-type="doi">10.4049/jimmunol.165.2.1013</pub-id>
+<pub-id pub-id-type="pmid">10878378</pub-id>
+</element-citation>
+</ref>
+<ref id="B41-ijms-18-02657">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Imtiyaz</surname>
+<given-names>H.Z.</given-names>
+</name>
+<name>
+<surname>Simon</surname>
+<given-names>M.C.</given-names>
+</name>
+</person-group>
+<article-title>Hypoxia-inducible factors as essential regulators of inflammation</article-title>
+<source/>Curr. Top. Microbiol. Immunol.
+          <year>2010</year>
+<volume>345</volume>
+<fpage>105</fpage>
+<lpage>120</lpage>
+<pub-id pub-id-type="pmid">20517715</pub-id>
+</element-citation>
+</ref>
+<ref id="B42-ijms-18-02657">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Acharyya</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Oskarsson</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Vanharanta</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Malladi</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Morris</surname>
+<given-names>P.G.</given-names>
+</name>
+<name>
+<surname>Manova-Todorova</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Leversha</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Hogg</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Seshan</surname>
+<given-names>V.E.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A CXCL1 paracrine network links cancer chemoresistance and metastasis</article-title>
+<source/>Cell
+          <year>2012</year>
+<volume>150</volume>
+<fpage>165</fpage>
+<lpage>178</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2012.04.042</pub-id>
+<pub-id pub-id-type="pmid">22770218</pub-id>
+</element-citation>
+</ref>
+<ref id="B43-ijms-18-02657">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Cen</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>DuBois</surname>
+<given-names>R.N.</given-names>
+</name>
+</person-group>
+<article-title>CXCL1 is critical for premetastatic niche formation and metastasis in colorectal cancer</article-title>
+<source/>Cancer Res.
+          <year>2017</year>
+<volume>77</volume>
+<fpage>3655</fpage>
+<lpage>3665</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-16-3199</pub-id>
+<pub-id pub-id-type="pmid">28455419</pub-id>
+</element-citation>
+</ref>
+<ref id="B44-ijms-18-02657">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Le Rolle</surname>
+<given-names>A.F.</given-names>
+</name>
+<name>
+<surname>C.hiu</surname>
+<given-names>T.K.</given-names>
+</name>
+<name>
+<surname>Fara</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Shia</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Zeng</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Weiser</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Paty</surname>
+<given-names>P.B.</given-names>
+</name>
+<name>
+<surname>Chiu</surname>
+<given-names>V.K.</given-names>
+</name>
+</person-group>
+<article-title>The prognostic significance of CXCL1 hypersecretion by human colorectal cancer epithelia and myofibroblasts</article-title>
+<source/>J. Transl. Med.
+          <year>2015</year>
+<volume>13</volume>
+<fpage>199</fpage>
+<pub-id pub-id-type="doi">10.1186/s12967-015-0555-4</pub-id>
+<pub-id pub-id-type="pmid">26104296</pub-id>
+</element-citation>
+</ref>
+<ref id="B45-ijms-18-02657">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>Z.W.</given-names>
+</name>
+<name>
+<surname>Xia</surname>
+<given-names>G.K.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Xiang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Schwarz</surname>
+<given-names>R.E.</given-names>
+</name>
+<name>
+<surname>Brekken</surname>
+<given-names>R.A.</given-names>
+</name>
+<name>
+<surname>Awasthi</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>Y.L.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>C.H.</given-names>
+</name>
+</person-group>
+<article-title>CXCL1 promotes tumor growth through VEGF pathway activation and is associated with inferior survival in gastric cancer</article-title>
+<source/>Cancer Lett.
+          <year>2015</year>
+<volume>359</volume>
+<fpage>335</fpage>
+<lpage>343</lpage>
+<pub-id pub-id-type="doi">10.1016/j.canlet.2015.01.033</pub-id>
+<pub-id pub-id-type="pmid">25641338</pub-id>
+</element-citation>
+</ref>
+<ref id="B46-ijms-18-02657">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kumari</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Dwarakanath</surname>
+<given-names>B.S.</given-names>
+</name>
+<name>
+<surname>Das</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Bhatt</surname>
+<given-names>A.N.</given-names>
+</name>
+</person-group>
+<article-title>Role of interleukin-6 in cancer progression and therapeutic resistance</article-title>
+<source/>Tumour Biol.
+          <year>2016</year>
+<volume>37</volume>
+<fpage>11553</fpage>
+<lpage>11572</lpage>
+<pub-id pub-id-type="doi">10.1007/s13277-016-5098-7</pub-id>
+<pub-id pub-id-type="pmid">27260630</pub-id>
+</element-citation>
+</ref>
+<ref id="B47-ijms-18-02657">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ancrile</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Lim</surname>
+<given-names>K.H.</given-names>
+</name>
+<name>
+<surname>Counter</surname>
+<given-names>C.M.</given-names>
+</name>
+</person-group>
+<article-title>Oncogenic Ras-induced secretion of il6 is required for tumorigenesis</article-title>
+<source/>Genes Dev.
+          <year>2007</year>
+<volume>21</volume>
+<fpage>1714</fpage>
+<lpage>1719</lpage>
+<pub-id pub-id-type="doi">10.1101/gad.1549407</pub-id>
+<pub-id pub-id-type="pmid">17639077</pub-id>
+</element-citation>
+</ref>
+<ref id="B48-ijms-18-02657">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marsigliante</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Vetrugno</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Muscella</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>CCL20 induces migration and proliferation on breast epithelial cells</article-title>
+<source/>J. Cell. Physiol.
+          <year>2013</year>
+<volume>228</volume>
+<fpage>1873</fpage>
+<lpage>1883</lpage>
+<pub-id pub-id-type="doi">10.1002/jcp.24349</pub-id>
+<pub-id pub-id-type="pmid">23460117</pub-id>
+</element-citation>
+</ref>
+<ref id="B49-ijms-18-02657">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marsigliante</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Vetrugno</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Muscella</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Paracrine CCL20 loop induces epithelial-mesenchymal transition in breast epithelial cells</article-title>
+<source/>Mol. Carcinog.
+          <year>2016</year>
+<volume>55</volume>
+<fpage>1175</fpage>
+<lpage>1186</lpage>
+<pub-id pub-id-type="doi">10.1002/mc.22360</pub-id>
+<pub-id pub-id-type="pmid">26154142</pub-id>
+</element-citation>
+</ref>
+<ref id="B50-ijms-18-02657">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ding</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Dai</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Shan</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>CCL5 secreted by tumor associated macrophages may be a new target in treatment of gastric cancer</article-title>
+<source/>Biomed. Pharmacother.
+          <year>2016</year>
+<volume>77</volume>
+<fpage>142</fpage>
+<lpage>149</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopha.2015.12.004</pub-id>
+<pub-id pub-id-type="pmid">26796278</pub-id>
+</element-citation>
+</ref>
+<ref id="B51-ijms-18-02657">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Markowitz</surname>
+<given-names>G.J.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Fu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Michelotti</surname>
+<given-names>G.A.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Sui</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Qin</surname>
+<given-names>W.H.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>F.S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Inflammation-dependent IL18 signaling restricts hepatocellular carcinoma growth by enhancing the accumulation and activity of tumor-infiltrating lymphocytes</article-title>
+<source/>Cancer Res.
+          <year>2016</year>
+<volume>76</volume>
+<fpage>2394</fpage>
+<lpage>2405</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-15-1548</pub-id>
+<pub-id pub-id-type="pmid">26893476</pub-id>
+</element-citation>
+</ref>
+<ref id="B52-ijms-18-02657">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Choi</surname>
+<given-names>Y.K.</given-names>
+</name>
+<name>
+<surname>Woo</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Cho</surname>
+<given-names>S.G.</given-names>
+</name>
+<name>
+<surname>Moon</surname>
+<given-names>H.E.</given-names>
+</name>
+<name>
+<surname>Yun</surname>
+<given-names>Y.J.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>J.W.</given-names>
+</name>
+<name>
+<surname>Noh</surname>
+<given-names>D.Y.</given-names>
+</name>
+<name>
+<surname>Jang</surname>
+<given-names>B.H.</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>Y.C.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>J.H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Brain-metastatic triple-negative breast cancer cells regain growth ability by altering gene expression patterns</article-title>
+<source/>Cancer Genom. Proteom.
+          <year>2013</year>
+<volume>10</volume>
+<fpage>265</fpage>
+<lpage>275</lpage>
+</element-citation>
+</ref>
+<ref id="B53-ijms-18-02657">
+<label>53.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>T.C.</given-names>
+</name>
+</person-group>
+<article-title>The role of vascular cell adhesion molecule-1 in tumor immune evasion</article-title>
+<source/>Cancer Res.
+          <year>2007</year>
+<volume>67</volume>
+<fpage>6003</fpage>
+<lpage>6006</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-07-1543</pub-id>
+<pub-id pub-id-type="pmid">17616653</pub-id>
+</element-citation>
+</ref>
+<ref id="B54-ijms-18-02657">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Massague</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Molecular pathways: VCAM-1 as a potential therapeutic target in metastasis</article-title>
+<source/>Clin. Cancer Res.
+          <year>2012</year>
+<volume>18</volume>
+<fpage>5520</fpage>
+<lpage>5525</lpage>
+<pub-id pub-id-type="doi">10.1158/1078-0432.CCR-11-2904</pub-id>
+<pub-id pub-id-type="pmid">22879387</pub-id>
+</element-citation>
+</ref>
+<ref id="B55-ijms-18-02657">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>B.E.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>X.D.</given-names>
+</name>
+<name>
+<surname>Ernst</surname>
+<given-names>J.A.</given-names>
+</name>
+<name>
+<surname>Polakis</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Gao</surname>
+<given-names>W.Q.</given-names>
+</name>
+</person-group>
+<article-title>Regulation of epithelial branching morphogenesis and cancer cell growth of the prostate by Wnt signaling</article-title>
+<source/>PLoS ONE
+          <year>2008</year>
+<volume>3</volume>
+<elocation-id>e2186</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0002186</pub-id>
+<pub-id pub-id-type="pmid">18478098</pub-id>
+</element-citation>
+</ref>
+<ref id="B56-ijms-18-02657">
+<label>56.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Fernandez-Ruiz</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Shan</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Kawa</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Martinez-Anso</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Prieto</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Blockade of Wnt signaling inhibits angiogenesis and tumor growth in hepatocellular carcinoma</article-title>
+<source/>Cancer Res.
+          <year>2009</year>
+<volume>69</volume>
+<fpage>6951</fpage>
+<lpage>6959</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-09-0541</pub-id>
+<pub-id pub-id-type="pmid">19690140</pub-id>
+</element-citation>
+</ref>
+<ref id="B57-ijms-18-02657">
+<label>57.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Mao</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>X.</given-names>
+</name>
+</person-group>
+<article-title>Inhibition of Wnt/β-catenin by anthelmintic drug niclosamide effectively targets growth, survival and angiogenesis of retinoblastoma</article-title>
+<source/>Am. J. Transl. Res.
+          <year>2017</year>
+<volume>9</volume>
+<fpage>3776</fpage>
+<lpage>3786</lpage>
+<pub-id pub-id-type="pmid">28861168</pub-id>
+</element-citation>
+</ref>
+<ref id="B58-ijms-18-02657">
+<label>58.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mendes</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>H.T.</given-names>
+</name>
+<name>
+<surname>Lungu</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Stoica</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>MMP2 role in breast cancer brain metastasis development and its regulation by TIMP2 and ERK1/2</article-title>
+<source/>Clin. Exp. Metastasis
+          <year>2007</year>
+<volume>24</volume>
+<fpage>341</fpage>
+<lpage>351</lpage>
+<pub-id pub-id-type="doi">10.1007/s10585-007-9071-0</pub-id>
+<pub-id pub-id-type="pmid">17505812</pub-id>
+</element-citation>
+</ref>
+<ref id="B59-ijms-18-02657">
+<label>59.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shibuya</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Vascular endothelial growth factor (VEGF) and its receptor (VEGFR) signaling in angiogenesis: A crucial target for anti- and pro-angiogenic therapies</article-title>
+<source/>Genes. Cancer
+          <year>2011</year>
+<volume>2</volume>
+<fpage>1097</fpage>
+<lpage>1105</lpage>
+<pub-id pub-id-type="doi">10.1177/1947601911423031</pub-id>
+<pub-id pub-id-type="pmid">22866201</pub-id>
+</element-citation>
+</ref>
+<ref id="B60-ijms-18-02657">
+<label>60.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>D.L.</given-names>
+</name>
+<name>
+<surname>Zeng</surname>
+<given-names>Z.L.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Ren</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>D.S.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>W.J.</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>R.H.</given-names>
+</name>
+</person-group>
+<article-title>L1cam promotes tumor progression and metastasis and is an independent unfavorable prognostic factor in gastric cancer</article-title>
+<source/>J. Hematol. Oncol.
+          <year>2013</year>
+<volume>6</volume>
+<fpage>43</fpage>
+<pub-id pub-id-type="doi">10.1186/1756-8722-6-43</pub-id>
+<pub-id pub-id-type="pmid">23806079</pub-id>
+</element-citation>
+</ref>
+<ref id="B61-ijms-18-02657">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Raveh</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Gavert</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Ben-Ze’ev</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>L1 cell adhesion molecule (L1CAM) in invasive tumors</article-title>
+<source/>Cancer Lett.
+          <year>2009</year>
+<volume>282</volume>
+<fpage>137</fpage>
+<lpage>145</lpage>
+<pub-id pub-id-type="doi">10.1016/j.canlet.2008.12.021</pub-id>
+<pub-id pub-id-type="pmid">19144458</pub-id>
+</element-citation>
+</ref>
+<ref id="B62-ijms-18-02657">
+<label>62.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dellinger</surname>
+<given-names>T.H.</given-names>
+</name>
+<name>
+<surname>Smith</surname>
+<given-names>D.D.</given-names>
+</name>
+<name>
+<surname>Ouyang</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Warden</surname>
+<given-names>C.D.</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>J.C.</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>E.S.</given-names>
+</name>
+</person-group>
+<article-title>L1CAM is an independent predictor of poor survival in endometrial cancer—An analysis of the cancer genome atlas (TCGA)</article-title>
+<source/>Gynecol. Oncol.
+          <year>2016</year>
+<volume>141</volume>
+<fpage>336</fpage>
+<lpage>340</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ygyno.2016.02.003</pub-id>
+<pub-id pub-id-type="pmid">26861585</pub-id>
+</element-citation>
+</ref>
+<ref id="B63-ijms-18-02657">
+<label>63.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Yin</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Qi</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Meng</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Zang</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Fibrillin-1, induced by Aurora-A but inhibited by BRCA2, promotes ovarian cancer metastasis</article-title>
+<source/>Oncotarget
+          <year>2015</year>
+<volume>6</volume>
+<fpage>6670</fpage>
+<lpage>6683</lpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.3118</pub-id>
+<pub-id pub-id-type="pmid">25749384</pub-id>
+</element-citation>
+</ref>
+<ref id="B64-ijms-18-02657">
+<label>64.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guo</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Song</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Xia</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Dang</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Detection of hypermethylated fibrillin-1 in the stool samples of colorectal cancer patients</article-title>
+<source/>Med. Oncol.
+          <year>2013</year>
+<volume>30</volume>
+<fpage>695</fpage>
+<pub-id pub-id-type="doi">10.1007/s12032-013-0695-4</pub-id>
+<pub-id pub-id-type="pmid">23963856</pub-id>
+</element-citation>
+</ref>
+<ref id="B65-ijms-18-02657">
+<label>65.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ikeda</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Taira</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Hara</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Fujita</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Yamamoto</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Soh</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Toyooka</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Nogami</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Shien</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Doihara</surname>
+<given-names>H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The estrogen receptor influences microtubule-associated protein tau (MAPT) expression and the selective estrogen receptor inhibitor fulvestrant downregulates MAPT and increases the sensitivity to taxane in breast cancer cells</article-title>
+<source/>Breast. Cancer Res.
+          <year>2010</year>
+<volume>12</volume>
+<fpage>R43</fpage>
+<pub-id pub-id-type="doi">10.1186/bcr2598</pub-id>
+<pub-id pub-id-type="pmid">20579400</pub-id>
+</element-citation>
+</ref>
+<ref id="B66-ijms-18-02657">
+<label>66.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Shu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Cao</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Regulation of microtubule-associated protein tau (MAPT) by mir-34c-5p determines the chemosensitivity of gastric cancer to paclitaxel</article-title>
+<source/>Cancer Chemother. Pharmacol.
+          <year>2013</year>
+<volume>71</volume>
+<fpage>1159</fpage>
+<lpage>1171</lpage>
+<pub-id pub-id-type="doi">10.1007/s00280-013-2108-y</pub-id>
+<pub-id pub-id-type="pmid">23423488</pub-id>
+</element-citation>
+</ref>
+<ref id="B67-ijms-18-02657">
+<label>67.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Han</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Ru</surname>
+<given-names>G.Q.</given-names>
+</name>
+<name>
+<surname>Mo</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H.J.</given-names>
+</name>
+<name>
+<surname>Ma</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>X.L.</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>AUTS2 is a potential therapeutic target for pancreatic cancer patients with liver metastases</article-title>
+<source/>Med. Hypotheses
+          <year>2015</year>
+<volume>85</volume>
+<fpage>203</fpage>
+<lpage>206</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mehy.2015.04.029</pub-id>
+<pub-id pub-id-type="pmid">25962312</pub-id>
+</element-citation>
+</ref>
+<ref id="B68-ijms-18-02657">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kelley</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Fishel</surname>
+<given-names>M.L.</given-names>
+</name>
+</person-group>
+<article-title>DNA repair proteins as molecular targets for cancer therapeutics</article-title>
+<source/>Anticancer Agents Med. Chem.
+          <year>2008</year>
+<volume>8</volume>
+<fpage>417</fpage>
+<lpage>425</lpage>
+<pub-id pub-id-type="doi">10.2174/187152008784220294</pub-id>
+<pub-id pub-id-type="pmid">18473726</pub-id>
+</element-citation>
+</ref>
+<ref id="B69-ijms-18-02657">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yuan</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Narayanan</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Rockwell</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Glazer</surname>
+<given-names>P.M.</given-names>
+</name>
+</person-group>
+<article-title>Diminished DNA repair and elevated mutagenesis in mammalian cells exposed to hypoxia and low ph</article-title>
+<source/>Cancer Res.
+          <year>2000</year>
+<volume>60</volume>
+<fpage>4372</fpage>
+<lpage>4376</lpage>
+<pub-id pub-id-type="pmid">10969780</pub-id>
+</element-citation>
+</ref>
+<ref id="B70-ijms-18-02657">
+<label>70.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Glazer</surname>
+<given-names>P.M.</given-names>
+</name>
+<name>
+<surname>Hegan</surname>
+<given-names>D.C.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Czochor</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Scanlon</surname>
+<given-names>S.E.</given-names>
+</name>
+</person-group>
+<article-title>Hypoxia and DNA repair</article-title>
+<source/>Yale J. Biol. Med.
+          <year>2013</year>
+<volume>86</volume>
+<fpage>443</fpage>
+<lpage>451</lpage>
+<pub-id pub-id-type="pmid">24348208</pub-id>
+</element-citation>
+</ref>
+<ref id="B71-ijms-18-02657">
+<label>71.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bindra</surname>
+<given-names>R.S.</given-names>
+</name>
+<name>
+<surname>Schaffer</surname>
+<given-names>P.J.</given-names>
+</name>
+<name>
+<surname>Meng</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Woo</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Maseide</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Roth</surname>
+<given-names>M.E.</given-names>
+</name>
+<name>
+<surname>Lizardi</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Hedley</surname>
+<given-names>D.W.</given-names>
+</name>
+<name>
+<surname>Bristow</surname>
+<given-names>R.G.</given-names>
+</name>
+<name>
+<surname>Glazer</surname>
+<given-names>P.M.</given-names>
+</name>
+</person-group>
+<article-title>Alterations in DNA repair gene expression under hypoxia: Elucidating the mechanisms of hypoxia-induced genetic instability</article-title>
+<source/>Ann. N. Y. Acad. Sci.
+          <year>2005</year>
+<volume>1059</volume>
+<fpage>184</fpage>
+<lpage>195</lpage>
+<pub-id pub-id-type="doi">10.1196/annals.1339.049</pub-id>
+<pub-id pub-id-type="pmid">16382054</pub-id>
+</element-citation>
+</ref>
+<ref id="B72-ijms-18-02657">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pires</surname>
+<given-names>I.M.</given-names>
+</name>
+<name>
+<surname>Bencokova</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Milani</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Folkes</surname>
+<given-names>L.K.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>J.L.</given-names>
+</name>
+<name>
+<surname>Stratford</surname>
+<given-names>M.R.</given-names>
+</name>
+<name>
+<surname>Harris</surname>
+<given-names>A.L.</given-names>
+</name>
+<name>
+<surname>Hammond</surname>
+<given-names>E.M.</given-names>
+</name>
+</person-group>
+<article-title>Effects of acute versus chronic hypoxia on DNA damage responses and genomic instability</article-title>
+<source/>Cancer Res.
+          <year>2010</year>
+<volume>70</volume>
+<fpage>925</fpage>
+<lpage>935</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-09-2715</pub-id>
+<pub-id pub-id-type="pmid">20103649</pub-id>
+</element-citation>
+</ref>
+<ref id="B73-ijms-18-02657">
+<label>73.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Verpy</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Leibovici</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Zwaenepoel</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>X.Z.</given-names>
+</name>
+<name>
+<surname>Gal</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Salem</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Mansour</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Blanchard</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Kobayashi</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Keats</surname>
+<given-names>B.J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A defect in harmonin, a PDZ domain-containing protein expressed in the inner ear sensory hair cells, underlies usher syndrome type 1c</article-title>
+<source/>Nat. Genet.
+          <year>2000</year>
+<volume>26</volume>
+<fpage>51</fpage>
+<lpage>55</lpage>
+<pub-id pub-id-type="pmid">10973247</pub-id>
+</element-citation>
+</ref>
+<ref id="B74-ijms-18-02657">
+<label>74.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Henson</surname>
+<given-names>B.J.</given-names>
+</name>
+<name>
+<surname>Bhattacharjee</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>O’Dee</surname>
+<given-names>D.M.</given-names>
+</name>
+<name>
+<surname>Feingold</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Gollin</surname>
+<given-names>S.M.</given-names>
+</name>
+</person-group>
+<article-title>Decreased expression of miR-125b and miR-100 in oral cancer cells contributes to malignancy</article-title>
+<source/>Genes Chromosomes Cancer
+          <year>2009</year>
+<volume>48</volume>
+<fpage>569</fpage>
+<lpage>582</lpage>
+<pub-id pub-id-type="doi">10.1002/gcc.20666</pub-id>
+<pub-id pub-id-type="pmid">19396866</pub-id>
+</element-citation>
+</ref>
+<ref id="B75-ijms-18-02657">
+<label>75.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Giangreco</surname>
+<given-names>A.A.</given-names>
+</name>
+<name>
+<surname>Vaishnav</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Wagner</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Finelli</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Fleshner</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Van der Kwast</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Vieth</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Nonn</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Tumor suppressor microRNAs, miR-100 and -125b, are regulated by 1,25-dihydroxyvitamin D in primary prostate cells and in patient tissue</article-title>
+<source/>Cancer Prev. Res.
+          <year>2013</year>
+<volume>6</volume>
+<fpage>483</fpage>
+<lpage>494</lpage>
+<pub-id pub-id-type="doi">10.1158/1940-6207.CAPR-12-0253</pub-id>
+<pub-id pub-id-type="pmid">23503652</pub-id>
+</element-citation>
+</ref>
+<ref id="B76-ijms-18-02657">
+<label>76.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>S.M.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>X.B.</given-names>
+</name>
+<name>
+<surname>Jun</surname>
+<given-names>C.M.</given-names>
+</name>
+<name>
+<surname>Jing</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>D.X.</given-names>
+</name>
+<name>
+<surname>Xia</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>Y.B.</given-names>
+</name>
+<name>
+<surname>Xiao</surname>
+<given-names>X.Q.</given-names>
+</name>
+<name>
+<surname>Jia</surname>
+<given-names>R.Q.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>miR-100 suppresses the proliferation and tumor growth of esophageal squamous cancer cells via targeting CXCR7</article-title>
+<source/>Oncol. Rep.
+          <year>2016</year>
+<volume>35</volume>
+<fpage>3453</fpage>
+<lpage>3459</lpage>
+<pub-id pub-id-type="doi">10.3892/or.2016.4701</pub-id>
+<pub-id pub-id-type="pmid">27035873</pub-id>
+</element-citation>
+</ref>
+<ref id="B77-ijms-18-02657">
+<label>77.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Luo</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Ji</surname>
+<given-names>X.X.</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>S.W.</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>Overexpression of miR-100 inhibits cancer growth, migration and chemosensitivity in human NSCLC cells through fibroblast growth factor receptor 3</article-title>
+<source/>Tumour Biol.
+          <year>2016</year>
+<volume>37</volume>
+<fpage>15517</fpage>
+<lpage>15524</lpage>
+<pub-id pub-id-type="doi">10.1007/s13277-015-3850-z</pub-id>
+<pub-id pub-id-type="pmid">26314855</pub-id>
+</element-citation>
+</ref>
+<ref id="B78-ijms-18-02657">
+<label>78.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wotschofsky</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Liep</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Meyer</surname>
+<given-names>H.A.</given-names>
+</name>
+<name>
+<surname>Jung</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Wagner</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Disch</surname>
+<given-names>A.C.</given-names>
+</name>
+<name>
+<surname>Schaser</surname>
+<given-names>K.D.</given-names>
+</name>
+<name>
+<surname>Melcher</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Kilic</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Busch</surname>
+<given-names>J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification of metastamirs as metastasis-associated microRNAs in clear cell renal cell carcinomas</article-title>
+<source/>Int. J. Biol. Sci.
+          <year>2012</year>
+<volume>8</volume>
+<fpage>1363</fpage>
+<lpage>1374</lpage>
+<pub-id pub-id-type="doi">10.7150/ijbs.5106</pub-id>
+<pub-id pub-id-type="pmid">23139634</pub-id>
+</element-citation>
+</ref>
+<ref id="B79-ijms-18-02657">
+<label>79.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fei</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>miR-378 inhibits progression of human gastric cancer MGC-803 cells by targeting MAPK1 in vitro</article-title>
+<source/>Oncol. Res.
+          <year>2012</year>
+<volume>20</volume>
+<fpage>557</fpage>
+<lpage>564</lpage>
+<pub-id pub-id-type="doi">10.3727/096504013X13775486749254</pub-id>
+<pub-id pub-id-type="pmid">24139413</pub-id>
+</element-citation>
+</ref>
+<ref id="B80-ijms-18-02657">
+<label>80.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zeng</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>miR-378 suppresses the proliferation, migration and invasion of colon cancer cells by inhibiting sdad1</article-title>
+<source/>Cell. Mol. Biol. Lett.
+          <year>2017</year>
+<volume>22</volume>
+<fpage>12</fpage>
+<pub-id pub-id-type="doi">10.1186/s11658-017-0041-5</pub-id>
+<pub-id pub-id-type="pmid">28725241</pub-id>
+</element-citation>
+</ref>
+<ref id="B81-ijms-18-02657">
+<label>81.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Q.G.</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Du</surname>
+<given-names>S.Q.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Z.H.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Shan</surname>
+<given-names>G.Y.</given-names>
+</name>
+<name>
+<surname>Kong</surname>
+<given-names>C.Z.</given-names>
+</name>
+</person-group>
+<article-title>miR-378 suppresses prostate cancer cell growth through downregulation of MAPK1 in vitro and in vivo</article-title>
+<source/>Tumour Biol.
+          <year>2016</year>
+<volume>37</volume>
+<fpage>2095</fpage>
+<lpage>2103</lpage>
+<pub-id pub-id-type="doi">10.1007/s13277-015-3996-8</pub-id>
+<pub-id pub-id-type="pmid">26346167</pub-id>
+</element-citation>
+</ref>
+<ref id="B82-ijms-18-02657">
+<label>82.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Yin</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Wen</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Guo</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Deng</surname>
+<given-names>Z.</given-names>
+</name>
+</person-group>
+<article-title>miR-378 promotes the migration of liver cancer cells by down-regulating FUS expression</article-title>
+<source/>Cell. Physiol. Biochem.
+          <year>2014</year>
+<volume>34</volume>
+<fpage>2266</fpage>
+<lpage>2274</lpage>
+<pub-id pub-id-type="doi">10.1159/000369669</pub-id>
+<pub-id pub-id-type="pmid">25562172</pub-id>
+</element-citation>
+</ref>
+<ref id="B83-ijms-18-02657">
+<label>83.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Qu</surname>
+<given-names>H.</given-names>
+</name>
+</person-group>
+<article-title>Systematic review of next-generation sequencing simulators: Computational tools, features and perspectives</article-title>
+<source/>Brief. Funct. Genom.
+          <year>2017</year>
+<volume>16</volume>
+<fpage>121</fpage>
+<lpage>128</lpage>
+<pub-id pub-id-type="doi">10.1093/bfgp/elw012</pub-id>
+<pub-id pub-id-type="pmid">27069250</pub-id>
+</element-citation>
+</ref>
+<ref id="B84-ijms-18-02657">
+<label>84.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Clough</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Barrett</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>The gene expression omnibus database</article-title>
+<source/>Methods Mol. Biol.
+          <year>2016</year>
+<volume>1418</volume>
+<fpage>93</fpage>
+<lpage>110</lpage>
+<pub-id pub-id-type="pmid">27008011</pub-id>
+</element-citation>
+</ref>
+<ref id="B85-ijms-18-02657">
+<label>85.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wotschofsky</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Gummlich</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Liep</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Stephan</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Kilic</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Jung</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Billaud</surname>
+<given-names>J.N.</given-names>
+</name>
+<name>
+<surname>Meyer</surname>
+<given-names>H.A.</given-names>
+</name>
+</person-group>
+<article-title>Integrated microrna and mRNA signature associated with the transition from the locally confined to the metastasized clear cell renal cell carcinoma exemplified by miR-146–5p</article-title>
+<source/>PLoS ONE
+          <year>2016</year>
+<volume>11</volume>
+<elocation-id>e0148746</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0148746</pub-id>
+<pub-id pub-id-type="pmid">26859141</pub-id>
+</element-citation>
+</ref>
+<ref id="B86-ijms-18-02657">
+<label>86.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Choudhury</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Lim</surname>
+<given-names>W.K.</given-names>
+</name>
+<name>
+<surname>Anema</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Kahnoski</surname>
+<given-names>R.J.</given-names>
+</name>
+<name>
+<surname>Lane</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Ludlow</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Takahashi</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Kanayama</surname>
+<given-names>H.O.</given-names>
+</name>
+<name>
+<surname>Belldegrun</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Recognizing the Continuous Nature of Expression Heterogeneity and Clinical Outcomes in Clear Cell Renal Cell Carcinoma</article-title>
+<source/>Sci. Rep.
+          <year>2017</year>
+<volume>7</volume>
+<fpage>7342</fpage>
+<pub-id pub-id-type="doi">10.1038/s41598-017-07191-y</pub-id>
+<pub-id pub-id-type="pmid">28779136</pub-id>
+</element-citation>
+</ref>
+<ref id="B87-ijms-18-02657">
+<label>87.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Aguirre-Gamboa</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Gomez-Rueda</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Martinez-Ledesma</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Martinez-Torteya</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Chacolla-Huaringa</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Rodriguez-Barrientos</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Tamez-Pena</surname>
+<given-names>J.G.</given-names>
+</name>
+<name>
+<surname>Trevino</surname>
+<given-names>V.</given-names>
+</name>
+</person-group>
+<article-title>Survexpress: An online biomarker validation tool and database for cancer gene expression data using survival analysis</article-title>
+<source/>PLoS ONE
+          <year>2013</year>
+<volume>8</volume>
+<elocation-id>e74250</elocation-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0074250</pub-id>
+<pub-id pub-id-type="pmid">24066126</pub-id>
+</element-citation>
+</ref>
+<ref id="B88-ijms-18-02657">
+<label>88.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Collett</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<source/>Modelling Survival Data in Medical Research
+          <publisher-name>CRC Press</publisher-name>
+<publisher-loc>Boca Raton, FL, USA</publisher-loc>
+<year>2015</year>
+</element-citation>
+</ref>
+<ref id="B89-ijms-18-02657">
+<label>89.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vejnar</surname>
+<given-names>C.E.</given-names>
+</name>
+<name>
+<surname>Zdobnov</surname>
+<given-names>E.M.</given-names>
+</name>
+</person-group>
+<article-title>miRmap: Comprehensive prediction of microrna target repression strength</article-title>
+<source/>Nucleic Acids Res.
+          <year>2012</year>
+<volume>40</volume>
+<fpage>11673</fpage>
+<lpage>11683</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gks901</pub-id>
+<pub-id pub-id-type="pmid">23034802</pub-id>
+</element-citation>
+</ref>
+<ref id="B90-ijms-18-02657">
+<label>90.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Subramanian</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Tamayo</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Mootha</surname>
+<given-names>V.K.</given-names>
+</name>
+<name>
+<surname>Mukherjee</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Ebert</surname>
+<given-names>B.L.</given-names>
+</name>
+<name>
+<surname>Gillette</surname>
+<given-names>M.A.</given-names>
+</name>
+<name>
+<surname>Paulovich</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Pomeroy</surname>
+<given-names>S.L.</given-names>
+</name>
+<name>
+<surname>Golub</surname>
+<given-names>T.R.</given-names>
+</name>
+<name>
+<surname>Lander</surname>
+<given-names>E.S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles</article-title>
+<source/>Proc. Nat. Acad. Sci. USA
+          <year>2005</year>
+<volume>102</volume>
+<fpage>15545</fpage>
+<lpage>15550</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0506580102</pub-id>
+<pub-id pub-id-type="pmid">16199517</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="ijms-18-02657-f001" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Long-term effects of hypoxia promoted colony formation ability and transwell migration ability in 786-O. (<bold>A</bold>) 786-O cells with the same number of passages were grown in normoxic and hypoxic conditions for 3 months. The normoxic conditions were 37 °C, 20% O<sub>2</sub> and 5% CO<sub>2</sub> and the hypoxic conditions were 37 °C, 1% O<sub>2</sub> and 5% CO<sub>2</sub>. The long-term hypoxia-incubated 786-O cells were maintained in a physiological oxygen workstations InvivO<sub>2</sub> 400 system. The cells were passaged once per week. Short-term hypoxia was performed with 24-h incubation. Total RNA lysates of the 786-O cells with the same number of passages under normoxia, short-term hypoxia and long-term hypoxia were harvested for next-generation sequencing (NGS); Colony forming ability (<bold>B</bold>) and transwell migration ability (<bold>C</bold>) were analyzed in the 786-O cells (with the same number of passages) maintained in either normoxic or hypoxic conditions for at least 3 months. (Scale bar = 100 μm) Each experiment was repeated at least three times. (<italic>p</italic>-values were calculated using the unpaired <italic>t</italic>-test, * <italic>p</italic>-value &lt; 0.05).</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g001"></graphic>
+</fig>
+<fig id="ijms-18-02657-f002" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Analysis of protein-coding mRNA profiles using next-generation sequencing in 786-O cells under short- and long-term hypoxia. (<bold>A</bold>) A hierarchical clustering heat map showed the differentially expressed mRNAs in the 786-O cells that underwent normoxia, short-term hypoxia and long-term hypoxia. Scale = column Zscore (fragments per kilobase of transcript per million mapped reads, FPKM). The red and green colors represent higher and lower expression levels, respectively; (<bold>B</bold>) Venn diagram analysis showed 279 upregulated genes and 193 downregulated genes in 786-O cells that underwent long-term hypoxia compared to normoxia and 78 upregulated genes and 60 downregulated genes in 786-O cells that underwent short-term hypoxia compared to normoxia. There were 42 upregulated genes and 18 downregulated genes in both short- and long-term hypoxia. The criteria were a |fold change (FC)| &gt;2 (short- or long-term hypoxia/normoxia) and fragments per kilobase of transcript per million mapped reads (FPKM) &gt;0.3.</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g002"></graphic>
+</fig>
+<fig id="ijms-18-02657-f003" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Gene set enrichment analysis (GSEA) of differentially expressed genes in 786-O with long-term hypoxia compared to normoxia. Gene set enrichment analysis (GSEA) was performed against differentially expressed genes in 786-O cells that underwent both long-term hypoxia and normoxia. (<bold>A</bold>,<bold>B</bold>) Two biological processes of cell proliferation were observed with strong correlations in long-term hypoxia. Class A (red) is normoxia group and class B (blue) is long-term hypoxia group. The detailed information is shown in <xref ref-type="table" rid="ijms-18-02657-t002">Table 2</xref>.</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g003"></graphic>
+</fig>
+<fig id="ijms-18-02657-f004" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>Analysis of the gene expression in clinical ccRCC samples with different malignant grades. (<bold>A</bold>) A hierarchical clustering heat map showing the top 20% of ranked genes in the 786-O cells with long-term hypoxia compared to normoxia; (<bold>B</bold>,<bold>C</bold>) The correlation of gene expression and ccRCC tumor grade was analyzed using microarrays (GSE66272 and GSE73731) data from the Gene Expression Omnibus (GEO) database. GSE66272 provides information of 27 clinical ccRCC samples (grade 1, <italic>n</italic> = 1; grade 2, <italic>n</italic> = 16; grade 3, <italic>n</italic> = 8; and grade 4, <italic>n</italic> = 2). GSE73731 provides information of 256 clinical ccRCC samples (grade 1, <italic>n</italic> = 22; grade 2, <italic>n</italic> = 90; grade 3, <italic>n</italic> = 95; and grade 4, <italic>n</italic> = 49); (<bold>D</bold>) qRT-PCR analysis of gene expression in 786-O cells treated with normoxia and long-term hypoxia. <italic>GAPDH</italic> was used as internal control. The raw data of GEO microarray datasets were obtained using the GEO2R online tool (Available online: <uri xlink:href="https://www.ncbi.nlm.nih.gov/geo/geo2r/">https://www.ncbi.nlm.nih.gov/geo/geo2r/</uri>; accessed on 08 August 2017 and 23 November 2017) and re-plotted. (<italic>p</italic>-values of GEO microarray data were calculated using one-way ANOVA, qRT-PCR data were calculated using paired <italic>t</italic>-test, *** <italic>p</italic>-value &lt; 0.001, ** <italic>p</italic>-value &lt; 0.01, * <italic>p</italic>-value &lt; 0.05 and n.s. = no significance).</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g004"></graphic>
+</fig>
+<fig id="ijms-18-02657-f005" orientation="portrait" position="float">
+<label>Figure 5</label>
+<caption>
+<p>Correlation analysis of gene expressions and survival outcomes in renal cancer. The associations between survival outcomes and gene expressions of <italic>L1CAM</italic> (<bold>A</bold>); <italic>FBN1</italic> (<bold>B</bold>); <italic>AUTS2</italic> (<bold>C</bold>,<bold>D</bold>); <italic>USH1C</italic> (<bold>E</bold>,<bold>F</bold>); <italic>AGT</italic> (<bold>G</bold>,<bold>H</bold>); and <italic>MAPT</italic> (<bold>I</bold>–<bold>K</bold>) were analyzed using the SurvExpress database. TCGA-kidney cancer datasets were used for analysis. Red and green lines represent high- and low-risk groups, respectively. The box plot shows each gene expression in two groups (high and low risk).</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g005"></graphic>
+</fig>
+<fig id="ijms-18-02657-f006" orientation="portrait" position="float">
+<label>Figure 6</label>
+<caption>
+<p>Analysis of microRNA profiles in 786-O with short- and long-term hypoxia compared to normoxia using next-generation sequencing. (<bold>A</bold>) A hierarchical clustering heat map showing the differentially expressed microRNAs in 786-O cells that underwent normoxia, short-term hypoxia and long-term hypoxia. Scale = column Z-score (reads per million, RPM). The red and green colors represent higher and lower expression levels, respectively; (<bold>B</bold>) Venn diagram analysis showed 15 upregulated genes and 24 downregulated genes in the 786-O cells undergoing long-term hypoxia compared to normoxia and 6 upregulated genes and 11 downregulated genes in 786-O cells undergoing short-term hypoxia compared to normoxia. There were 1 upregulated gene and 2 downregulated genes in both short- and long-term hypoxia. The criteria were a |fold change| ≥2 (short- or long-term hypoxia/normoxia) and reads per million (RPM) &gt;1.</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g006"></graphic>
+</fig>
+<fig id="ijms-18-02657-f007" orientation="portrait" position="float">
+<label>Figure 7</label>
+<caption>
+<p>Analysis of putative microRNA-gene interactions using a target prediction database. The putative targets of differentially expressed microRNAs (excluding microRNAs overlapping in short-term hypoxia) in the 786-O cells undergoing long-term hypoxia were analyzed using the miRmap database. The criterion was defined as a miRmap score ≥97.0. Venn diagram analysis showed that (<bold>A</bold>) 20 putative targets of 8 upregulated microRNAs were also observed in the gene list of 193 downregulated mRNAs; and (<bold>B</bold>) 41 putative targets of 16 downregulated microRNAs were also observed in the gene list of 279 upregulated mRNAs.</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g007"></graphic>
+</fig>
+<fig id="ijms-18-02657-f008" orientation="portrait" position="float">
+<label>Figure 8</label>
+<caption>
+<p>The expression levels of differentially expressed microRNAs, hsa-mir-100 (<bold>A</bold>) and hsa-mir-378 (<bold>B</bold>); identified in 786-O cells with long-term hypoxia compared to normoxia were analyzed on a microarray (GSE37989), which provides 21 clinical ccRCC samples (malignant ccRCC, <italic>n</italic> = 12; bone metastasis ccRCC, <italic>n</italic> = 9). The expression values were obtained using the GEO2R web tool and re-plotted; (<bold>C</bold>) qRT-PCR analysis of microRNAs expressions (hsa-mir-378a-3p, hsa-mir-378a-5p, hsa-mir-378d, hsa-mir-378i, hsa-mir-100-3p and hsa-mir-100-5p) in 786-O treated with normoxia and long-term hypoxia. U6 was used as internal control. (<italic>p</italic>-value of GSE37989 microarray and qRT-PCR were calculated by unpaired <italic>t</italic>-test and paired <italic>t</italic>-test respectively, * <italic>p</italic>-value &lt; 0.05, ** <italic>p</italic>-value &lt; 0.01, *** <italic>p</italic>-value &lt; 0.001 and n.s. = no significance).</p>
+</caption>
+<graphic xlink:href="ijms-18-02657-g008"></graphic>
+</fig>
+<table-wrap id="ijms-18-02657-t001" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-18-02657-t001_Table 1</object-id>
+<label>Table 1</label>
+<caption>
+<p>KEGG pathway analysis of differentially expressed genes in 786-O treated with short-term and long-term hypoxia.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Condition</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">KEGG Pathway</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Counts</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle"><italic>p</italic>-Value</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Up Genes</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Down Genes</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Fold Enrichment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Short-term hypoxia</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">TNF signaling pathway</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">5</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.024267</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle"><italic>CSF2</italic>, <italic>PTGS2</italic>, <italic>SOCS3</italic>, <italic>CXCL3</italic>, <italic>CXCL2</italic></td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">4.46497803</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="5" style="border-bottom:solid thin" valign="middle">Long-term hypoxia</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">Basal cell carcinoma</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">8</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.000622</td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>FZD8</italic>, <italic>WNT7B</italic>, <italic>TCF7</italic>, <italic>WNT3</italic>, <italic>WNT5B</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>WNT5A</italic>, <italic>PTCH1</italic>, <italic>GLI1</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle">5.374818</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">TNF signaling pathway</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">9</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.007555</td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>CXCL1</italic>, <italic>CSF2</italic>, <italic>IL6</italic>, <italic>PTGS2</italic>, <italic>CCL20</italic>, <italic>CCL5</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>VCAM1</italic>, <italic>IL18R1</italic>, <italic>MAPK13</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle">3.137423</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">Pathways in cancer</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">19</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.018474</td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>JUP</italic>, <italic>FZD8</italic>, <italic>WNT7B</italic>, <italic>IL6</italic>, <italic>TCF7</italic>, <italic>WNT3</italic>, <italic>WNT5B</italic>, <italic>PTGS2</italic>, <italic>PGF</italic>, <italic>VEGFA</italic>, <italic>EGLN3</italic>, <italic>GNG4</italic>, <italic>MMP2</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>WNT5A</italic>, <italic>PDGFRB</italic>, <italic>PTCH1</italic>, <italic>FGF12</italic>, <italic>MMP1</italic>, <italic>GLI1</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle">1.786477</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">Proteoglycans in cancer</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">12</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.018829</td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>FZD8</italic>, <italic>WNT7B</italic>, <italic>WNT3</italic>, <italic>WNT5B</italic>, <italic>ANK3</italic>, <italic>VEGFA</italic>, <italic>MMP2</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle"><italic>WNT5A</italic>, <italic>MAPK13</italic>, <italic>HPSE</italic>, <italic>LUM</italic>, <italic>PTCH1</italic></td>
+<td align="center" colspan="1" rowspan="1" valign="middle">2.217112</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Glycerolipid metabolism</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">6</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.019391</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle"><italic>ALDH2</italic>, <italic>DGKI</italic></td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle"><italic>DGKA</italic>, <italic>DGAT1</italic>, <italic>AKR1B10</italic>, <italic>PNPLA3</italic></td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">3.822607</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>KEGG—Kyoto Encyclopedia of Genes and Genomes; TNF—tumor necrosis factor pathway.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="ijms-18-02657-t002" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-18-02657-t002_Table 2</object-id>
+<label>Table 2</label>
+<caption>
+<p>Detailed information of Gene set enrichment analysis (GSEA) analysis.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="7" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Normoxia vs. Long-Term_Hypoxia (Class A vs. Class B)</th>
+</tr>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">GSEA Set Name</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">MSigDB</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">Counts</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">ES</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">NES</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">NOM <italic>p</italic>-Value</th>
+<th align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">FDR <italic>q</italic>-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">REGULATION_OF_CELL_PROLIFERATION</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">C5</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">15</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">−0.39</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">−1.64</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.021</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">0.241</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">CELL_PROLIFERATION_GO_0008283</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">C5</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">22</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">−0.33</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">−1.61</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.047</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">0.215</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>The criteria were a NOM (nominal) <italic>p</italic>-value &lt; 0.05 and a false discovery rate (FDR) <italic>q</italic>-value &lt; 0.25. Platform—MSigDB, C5, gene ontology (GO) gene sets; ES—enrichment score; NES—normalized enrichment score.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="ijms-18-02657-t003" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-18-02657-t003_Table 3</object-id>
+<label>Table 3</label>
+<caption>
+<p>The target prediction of downregulated microRNAs in 786-O under long-term hypoxia treatment.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRNA ID</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Gene Symbol</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRmap</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">TargetScan</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRDB</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRNA ID</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Gene Symbol</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRmap</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">TargetScan</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-100-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CEP97</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>DGKI</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-125b-2-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PYGO1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>OAS1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-1306-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>STRA6</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CAMK1D</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-1306-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CDC42BPG</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>KCNK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-1306-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PAQR7</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>HMGA1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-1306-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PGM2L1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>AFAP1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-1306-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>GPRC5B</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>OLFML2A</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-1306-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>EGLN3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CHRDL1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-148a-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>EIF4E3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>ALPK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-149-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>MDGA1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>LIMD2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-149-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>RAB3IL1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CRABP2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-149-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>GNG4</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>TCF7</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-149-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>TANC2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>GPRC5B</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-188-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>GDAP1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>INHBB</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-193a-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>OLFML2A</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SLC7A6</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-193a-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SLC5A3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>TIMP2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-218-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>MDGA1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>VEGFA</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-218-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>LOX</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-9-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>FBN1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-218-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>LRIG1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-9-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>EIF4E3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-3200-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CDH13</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-9-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SPTLC2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378a-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>OTUB2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>DIRAS2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378a-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>ALPK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>MDGA1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378a-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PLXNA2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>APLN</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378d</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>OTUB2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>KCNK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378d</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>ALPK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>AFAP1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378i</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>OTUB2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SPNS3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-378i</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>ALPK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>GNG4</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-5094</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>EPB41L4B</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>WNT7B</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-5094</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SPOCK1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>KIAA0513</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-873-3p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>WNT3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">hsa-mir-6511b-5p</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SPTLC2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">hsa-mir-939-5p</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>CYP26B1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>The potential microRNA-mRNA interactions identified through miRmap were analyzed by using TargetScan and miRDB. MicroRNAs in table are downregulated with fold change ≤−2 and protein-coding mRNAs are upregulated with fold change &gt;2. “+”and “-”mean predicted and not predicted respectively.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="ijms-18-02657-t004" orientation="portrait" position="float">
+<object-id pub-id-type="pii">ijms-18-02657-t004_Table 4</object-id>
+<label>Table 4</label>
+<caption>
+<p>The target prediction of upregulated microRNAs in 786-O under long-term hypoxia treatment.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRNA ID</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">Gene Symbol</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRmap</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">TargetScan</th>
+<th align="center" colspan="1" rowspan="1" style="border-top:solid thin;border-bottom:solid thin" valign="middle">miRDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-122-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CYBRD1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>IL17RE</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>LIN7A</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PLSCR4</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SEMA3A</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>MOCS1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>KSR1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PDK4</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>BTG2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CLDN2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>PTCH1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SYNJ1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-195-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CACNA2D1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-204-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>SAMD12</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-204-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>MAPT</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-204-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>EGR1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-381-3p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>ULK2</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-381-3p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>CACNA2D1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-411-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>LUM</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-486-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>NTRK3</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>hsa-mir-767-5p</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">
+<italic>VASH1</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" valign="middle">-</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>hsa-mir-943</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">
+<italic>PLSCR4</italic>
+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">+</td>
+<td align="center" colspan="1" rowspan="1" style="border-bottom:solid thin" valign="middle">-</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn>
+<p>The potential microRNA-mRNA interactions identified through miRmap were analyzed by using TargetScan and miRDB. MicroRNAs in table are upregulated with fold change ≥2 and protein-coding mRNAs are downregulated with fold change &lt;−2. “+”and “-”mean predicted and not predicted respectively.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

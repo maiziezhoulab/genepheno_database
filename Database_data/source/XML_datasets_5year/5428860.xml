@@ -1,0 +1,1751 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">28377602</article-id>
+<article-id pub-id-type="pmc">5428860</article-id>
+<article-id pub-id-type="publisher-id">638</article-id>
+<article-id pub-id-type="doi">10.1038/s41598-017-00638-2</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Performance Gains in Genome-Wide Association Studies for Longitudinal Traits via Modeling Time-varied effects</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes">
+<name>
+<surname>Ning</surname>
+<given-names>Chao</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes">
+<name>
+<surname>Kang</surname>
+<given-names>Huimin</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>Lei</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Dan</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Haifei</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Aiguo</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Fu</surname>
+<given-names>Jinluan</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Shengli</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Liu</surname>
+<given-names>Jianfeng</given-names>
+</name>
+<address>
+<email>liujf@cau.edu.cn</email>
+</address>
+<xref ref-type="aff" rid="Aff1"></xref>
+</contrib>
+<aff id="Aff1"><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0369 6250</institution-id><institution-id institution-id-type="GRID">grid.418524.e</institution-id><institution></institution><institution>National Engineering Laboratory for Animal Breeding; Key Laboratory of Animal Genetics, Breeding and Reproduction, Ministry of Agriculture; College of Animal Science and Technology, China Agricultural University, </institution></institution-wrap>Beijing, 100193 China </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>4</day>
+<month>4</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>4</day>
+<month>4</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2017</year>
+</pub-date>
+<volume>7</volume>
+<elocation-id>590</elocation-id>
+<history>
+<date date-type="received">
+<day>1</day>
+<month>7</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>8</day>
+<month>3</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2017</copyright-statement>
+<license license-type="OpenAccess">
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>
+</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p>Complex traits with multiple phenotypic values changing over time are called longitudinal traits. In traditional genome-wide association studies (GWAS) for longitudinal traits, a combined/averaged estimated breeding value (EBV) or deregressed proof (DRP) instead of multiple phenotypic measurements per se for each individual was frequently treated as response variable in statistical model. This can result in power losses or even inflate false positive rates (FPRs) in the detection due to failure of exploring time-dependent relationship among measurements. Aiming at overcoming such limitation, we developed two random regression-based models for functional GWAS on longitudinal traits, which could directly use original time-dependent records as response variable and fit the time-varied Quantitative Trait Nucleotide (QTN) effect. Simulation studies showed that our methods could control the FPRs and increase statistical powers in detecting QTN in comparison with traditional methods where EBVs, DRPs or estimated residuals were considered as response variables. Besides, our proposed models also achieved reliable powers in gene detection when implementing into two real datasets, a Chinese Holstein Cattle data and the Genetic Analysis Workshop 18 data. Our study herein offers an optimal way to enhance the power of gene detection and further understand genetic control of developmental processes for complex longitudinal traits.</p>
+</abstract>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2017</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p>Genome-wide association studies (GWAS) have become a powerful tool to pinpoint genetic variation of complex traits in livestock, plants, humans and model organisms. Linear mixed models (LMM) have been widely applied in GWAS as they performed well in correcting environmental factors, controlling population stratification and accounting for relatedness between individuals<sup><xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR6">6</xref></sup>.</p>
+<p>So far, most of these commonly-used methods have been focusing on typical phenotypic data where single record per individual is collected. However, a different type of phenotypic data generated from longitudinal traits has seldom received attentions in GWAS. Longitudinal traits belong to a type of complex traits measured at various time points during a life cycle, such as blood pressures, daily gain, milk production, and residual feed intake, <italic>etc</italic>. Analyzing such kind of data affords us an opportunity to investigate the heterogeneity of traits over time and early prediction of longitudinal traits or diseases<sup><xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref></sup>.</p>
+<p>In previous quantitative trait loci (QTL) linkage analysis on longitudinal traits, three statistical strategies are proposed as follows: The first one is based on repeatability model or multivariate model, which treats the multi-point measured trait as repeated measurements of the same trait or as different traits<sup><xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR10">10</xref></sup>. The second one is based on phenotypic combination where multi-point measures of each individual are firstly fitted by some smoothing methods, and the estimated curve parameters, accumulated or average values for a period of time are then used as the alternative response variables<sup><xref ref-type="bibr" rid="CR11">11</xref>–<xref ref-type="bibr" rid="CR13">13</xref></sup>. The third one is based on varying coefficient model, which fits the coefficients of genetic and environmental effects as the linear regression on a set of splines or polynomials of time to model the time-varied effects<sup><xref ref-type="bibr" rid="CR14">14</xref>–<xref ref-type="bibr" rid="CR17">17</xref></sup>.</p>
+<p>These methods aforementioned have respective limitations. Specifically, repeatability/multivariate model is unable to explore time-dependent relationship between successive measures, and multivariate model is often difficult to apply in practice because it fits too many parameters in the model<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>. The strategy of phenotypic combination merely works when all effects are supposed to be constant over time<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>. Varying coefficient model is only suitable to well-structured dada where all individuals must be measured at the fixed time points. The drawbacks for these strategies limit their further application in the GWAS.</p>
+<p>In dairy cattle breeding, estimated breeding values (EBVs) or deregressed proofs of EBV (DRPs) are preferred as the response variable of GWAS<sup><xref ref-type="bibr" rid="CR20">20</xref>, <xref ref-type="bibr" rid="CR21">21</xref></sup>. Nevertheless, it has been indicated that EBVs incorporating familial information would lead to higher false positive rates (FPRs)<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. DRPs had adjusted for parental average effect<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>, but could still lead to higher FPRs when the EBVs were the results of repeated measurements<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. In human disease studies, the interaction between Single Nucleotide Polymorphism (SNP) and time/age was incorporated in the analysis model<sup><xref ref-type="bibr" rid="CR24">24</xref>–<xref ref-type="bibr" rid="CR26">26</xref></sup>. However, Wu and Lin indicated that there were various dynamic patterns of genetic control (permanent QTLs, early QTLs, late QTLs and inverse QTLs)<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>, which could not be completely explained by the interaction model.</p>
+<p>Random regression model<sup><xref ref-type="bibr" rid="CR28">28</xref></sup> provides a better way to model the time-varied measurements/traits, and has been widely used in genetic evaluation of dairy cattle<sup><xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref></sup>. Recent studies have proved that it increased the power to detect QTL compared with the combining phenotypes strategy, repeatability model and multivariate model in QTL mapping<sup><xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref></sup>. Random regression model was also suitable for QTL detecting in the presence of gene by environment interactions<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. However, application of this model in GWAS has not been fully surveyed so far.</p>
+<p>In this study, we developed two models based on random regression model to model the time-varied SNP effect for the GWAS analysis, <italic>i.e</italic>., functional GWAS model treating each SNP as the covariate (fGWAS-C) and functional GWAS model treating each SNP as the factor (fGWAS-F). A series of simulation studies were performed to investigate the properties of the proposed models, and to compare with previous developed models, <italic>i.e</italic>., genome-wide association studies where EBVs or DRPs were used as response variable with polygenic effects modelled (GWAS-EBV-P or GWAS-DRP-P), genome-wide association studies where EBVs or DRPs were used as response variable without polygenic effects modelled (GWAS-EBV-NP or GWAS-DRP-NP), and genome-wide association studies where estimated residuals were used as response variable (GWAS-Residual). We further validated our model with a Chinese Holstein cattle data and the Genetic Analysis Workshop 18 (GAW18)<sup><xref ref-type="bibr" rid="CR32">32</xref></sup>.</p>
+</sec>
+<sec id="Sec2" sec-type="results">
+<title>Results</title>
+<sec id="Sec3">
+<title>Simulations</title>
+<sec id="Sec4">
+<title>Comparison of false positive rates</title>
+<p>The FPRs (obtained by comparison with tabulated thresholds of <italic>p</italic> value = 0.01 and 0.05) of the evaluated models were shown in Fig. <xref ref-type="fig" rid="Fig1">1</xref>. As the FPRs were independent of the QTN heritability (the proportion of phenotypic variance explained by a single QTN) in the simulation (see Materials and Methods), we averaged the FPRs across different QTN heritabilities (<inline-formula id="IEq1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${h}_{{\rm{QTN}}}^{2}$$\end{document}</tex-math><mml:math id="M2"><mml:msubsup><mml:mrow><mml:mi>h</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">QTN</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula> = 0.1%, 0.5%, 1% and 2%).<fig id="Fig1"><label>Figure 1</label><caption><p>The type I errors (false positive rates, FPRs) of different GWAS models for the simulated data at the tabulated thresholds of <italic>p</italic> = 0.05 and <italic>p</italic> = 0.01 for the simulation study.</p></caption><graphic id="d29e394" xlink:href="41598_2017_638_Fig1_HTML"></graphic></fig>
+</p>
+<p>Our results indicated that FPRs of proposed fGWAS-C and fGWAS-F models as well as traditional GWAS-EBV-P and GWAS-DRP-P models were very close to the tabulated thresholds of 0.01 and 0.05, denoting these models could be used to detect QTN underlying longitudinal traits with reasonable FPRs.</p>
+<p>It is notable that both GWAS-EBV-NP and GWAS-DRP-NP models resulted in a clearly higher FPRs compared with other models, which was in agreement with the findings of Ekine <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. This was due to failures of reflecting genetic relationship among experimental individuals in the models. GWAS-Residual model rendered relatively conservative FPRs among all models investigated, which further verified the similar findings of GRAMMAR<sup><xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR22">22</xref>, <xref ref-type="bibr" rid="CR33">33</xref></sup>.</p>
+</sec>
+<sec id="Sec5">
+<title>Power comparison</title>
+<p>Figure <xref ref-type="fig" rid="Fig2">2</xref> showed the powers of QTN detection corresponding to seven different models under each scenario with different QTN heritabilities. In general, the powers of all methods improved with the increase of QTN heritability. Especially when the QTN heritability reached 2%, the powers were very close to 100% for all methods.<fig id="Fig2"><label>Figure 2</label><caption><p>The powers of different GWAS models with alternative QTN heritabilities at tabulated thresholds of <italic>p</italic> = 0.01 and <italic>p</italic> = 0.05 for the simulation study.</p></caption><graphic id="d29e439" xlink:href="41598_2017_638_Fig2_HTML"></graphic></fig>
+</p>
+<p>As expected, our proposed models (fGWAS-C and fGWAS-F) achieved the highest power among all the models employed under all scenarios except when <inline-formula id="IEq2"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${h}_{{\rm{QTN}}}^{2}=0.1 \% $$\end{document}</tex-math><mml:math id="M4"><mml:msubsup><mml:mrow><mml:mi>h</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">QTN</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:mn>0</mml:mn><mml:mo>.</mml:mo><mml:mn>1</mml:mn><mml:mi>%</mml:mi></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq2.gif"></inline-graphic></alternatives></inline-formula>, where the GWAS-EBV-NP and GWAS-DRP-NP models achieved a higher power at the cost of high FPRs. It should be pointed out that the GWAS-Residual model also obtained relatively higher power even under the relatively conservative circumstance. For our two models, the model fGWAS-C achieved more power than fGWAS-F. The advantage of fGWAS-F was that it could test additive and dominant effect simultaneously. But it could lose power for testing the additive effect in some degree. Interestingly, we found that the GWAS-EBV-P gained more power than GWAS-DRP-P in our simulation.</p>
+<p>We also evaluated powers of all models using empirical thresholds based on different FPRs for null-effect SNP. The receiver operating characteristic (ROC) curves plotting the statistical powers against FPRs were shown in Figures <xref ref-type="media" rid="MOESM1">S1</xref> and <xref ref-type="media" rid="MOESM1">S2</xref>. The curves indicated that the fGWAS-C model performed best at all levels of QTN heritabilities, and fGWAS-F model was the second best except it achieved a slightly lower power than GWAS-Residual model at a lower QTN heritability (0.1%).</p>
+<p>Furthermore, we discovered that the <italic>p</italic>-values (<inline-formula id="IEq3"><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$-{\mathrm{log}}_{10}(p)$$\end{document}</tex-math><mml:math id="M6"><mml:mo>-</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">log</mml:mi></mml:mrow><mml:mrow><mml:mn>10</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq3.gif"></inline-graphic></alternatives></inline-formula>) between our two proposed models as well as the <italic>p</italic>-values for the GWAS-EBV-P and GWAS-DRP-P models were strongly correlated (r &gt; 0.9) (Fig. <xref ref-type="fig" rid="Fig3">3</xref>). This indicated that these two pairs of models could lead to similar orders of <italic>p</italic> values, respectively.<fig id="Fig3"><label>Figure 3</label><caption><p>Comparison of <italic>p</italic>-values (<inline-formula id="IEq4"><alternatives><tex-math id="M7">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$-{\mathrm{log}}_{{\rm{10}}}({p})$$\end{document}</tex-math><mml:math id="M8"><mml:mo>-</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">log</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">10</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq4.gif"></inline-graphic></alternatives></inline-formula>) using different GWAS models at QTN heritability of 1.0% for the simulation study. Scatterplots of <inline-formula id="IEq5"><alternatives><tex-math id="M9">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$-{\mathrm{log}}_{10}(p)$$\end{document}</tex-math><mml:math id="M10"><mml:mo>-</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">log</mml:mi></mml:mrow><mml:mrow><mml:mn>10</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq5.gif"></inline-graphic></alternatives></inline-formula> for any two GWAS models were shown at the upper triangular, with Pearson correlation coefficients listed at the lower triangular. The read lines represented regression line y = x; the blue lines were the lines of best fit for <inline-formula id="IEq6"><alternatives><tex-math id="M11">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$-{\mathrm{log}}_{10}(p)$$\end{document}</tex-math><mml:math id="M12"><mml:mo>-</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">log</mml:mi></mml:mrow><mml:mrow><mml:mn>10</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq6.gif"></inline-graphic></alternatives></inline-formula> of each two models.</p></caption><graphic id="d29e605" xlink:href="41598_2017_638_Fig3_HTML"></graphic></fig>
+</p>
+</sec>
+<sec id="Sec6">
+<title>Estimation accuracy of functional QTN effect</title>
+<p>The average of estimated cumulative additive effect (see equation <xref ref-type="media" rid="MOESM1">S3</xref> in Supplementary Methods for calculation) or estimated cumulative effect of the QTN for different models and their corresponding standard deviations (SD) and root-mean-square errors (RMSE) were summarized in Table <xref ref-type="table" rid="Tab1">1</xref>. As no dominant effect was simulated for the causal QTN, the cumulative dominant effect predicted by fGWAS-F was very close to zero (Table <xref ref-type="media" rid="MOESM2">S1</xref>). In the simulation, the true cumulative QTN effect was fixed at 175.21. It could be seen that the fGWAS-C and fGWAS-F models achieved the most accurate estimate of the QTN effect regardless of QTN heritability, while the other models always underestimated the true QTN effect in different degree. Meanwhile, the standard deviations of the cumulative effect estimated by all the models decreased as the QTN heritability increased except the GWAS-Residual model, which implied that a more accurate estimation of QTN effect could be realized at a higher QTN heritability. The root-mean-square-errors of our two proposed models were always the smallest across all models for each QTN heritability scenario, and they were very close to the corresponding standard deviations for these two models. Furthermore, the average additive genetic effect curves across the 1,000 replicates predicted by the fGWAS-C and fGWAS-F models shared perfect concordance with the true curves (Fig. <xref ref-type="fig" rid="Fig4">4</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption><p>Means, standard deviations (SD), and root-mean-square errors (RMSE) of estimated cumulative additive genetic effect of the QTN for different GWAS models with various QTN heritabilities in the simulation study.</p></caption><table frame="hsides" rules="groups"><thead><tr><th rowspan="3">Models</th><th colspan="8">
+<italic>h</italic>
+<sup>2</sup>
+<sub>QTN</sub>
+</th></tr><tr><th colspan="2">0.1%</th><th colspan="2">0.5%</th><th colspan="2">1%</th><th colspan="2">2%</th></tr><tr><th>Mean ± SD</th><th>RMSE</th><th>Mean ± SD</th><th>RMSE</th><th>Mean ± SD</th><th>RMSE</th><th>Mean ± SD</th><th>RMSE</th></tr></thead><tbody><tr><td>fGWAS-C</td><td>179.45 ± 135.33</td><td>135.33</td><td>175.9 ± 63.54</td><td>63.52</td><td>176.97 ± 48.09</td><td>48.10</td><td>174.76 ± 34.17</td><td>34.15</td></tr><tr><td>fGWAS-F</td><td>182.87 ± 142.99</td><td>143.12</td><td>177.5 ± 63.55</td><td>63.56</td><td>175.04 ± 47.53</td><td>47.50</td><td>176.1 ± 34.26</td><td>34.26</td></tr><tr><td>GWAS-EBV-P</td><td>29.17 ± 41.67</td><td>151.87</td><td>34.97 ± 16.59</td><td>141.22</td><td>35.84 ± 11.62</td><td>139.86</td><td>35.19 ± 7.28</td><td>140.21</td></tr><tr><td>GWAS-EBV-NP</td><td>71.52 ± 114.81</td><td>154.66</td><td>67.92 ± 52.39</td><td>119.39</td><td>69.81 ± 37.35</td><td>111.82</td><td>69.73 ± 24.71</td><td>108.34</td></tr><tr><td>GWAS-DRP-P</td><td>71.65 ± 109.83</td><td>150.91</td><td>97.95 ± 48.75</td><td>91.34</td><td>108.85 ± 37.93</td><td>76.43</td><td>119.37 ± 27.21</td><td>62.11</td></tr><tr><td>GWAS-DRP-NP</td><td>108.00 ± 147.73</td><td>162.24</td><td>121.61 ± 69.30</td><td>87.58</td><td>132.73 ± 52.31</td><td>67.37</td><td>143.59 ± 36.18</td><td>48.04</td></tr><tr><td>GWAS-Residual</td><td>1.46 ± 1.08</td><td>173.75</td><td>6.40 ± 2.30</td><td>168.82</td><td>11.74 ± 3.25</td><td>163.50</td><td>21.53 ± 4.33</td><td>153.74</td></tr></tbody></table></table-wrap>
+<fig id="Fig4"><label>Figure 4</label><caption><p>The plots of average additive genetic effect curves predicted by the fGWAS-C and fGWAS-F models against the simulated true curves with alternative QTN heritabilities for the simulation study.</p></caption><graphic id="d29e903" xlink:href="41598_2017_638_Fig4_HTML"></graphic></fig>
+</p>
+</sec>
+</sec>
+<sec id="Sec7">
+<title>Chinese Holstein cattle data</title>
+<p>We used Akaike information criterion<sup><xref ref-type="bibr" rid="CR34">34</xref></sup> (AIC) as well as Bayesian Information Criterion<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> (BIC) to determine the orders of basis functions. After model selection with AIC and BIC values, the model with a fifth-order basis functions for population mean, a third-order for additive genetic effects and a fifth-order for permanent environmental effects was best fit to the data for all the three traits (Table <xref ref-type="media" rid="MOESM2">S2</xref>). Manhattan plots of <inline-formula id="IEq7"><alternatives><tex-math id="M13">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$-{\mathrm{log}}_{10}(p)$$\end{document}</tex-math><mml:math id="M14"><mml:mo>-</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">log</mml:mi></mml:mrow><mml:mrow><mml:mn>10</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq7.gif"></inline-graphic></alternatives></inline-formula> for milk yield (MY), fat percentage (FP) and protein percentage (PP) by the fGWAS-C and fGWAS-F models were shown in Fig. <xref ref-type="fig" rid="Fig5">5</xref>. For the three traits of Chinese Holstein cattle population, we found 215 genome-wise significant SNPs in total by our fGWAS-C and fGWAS-F models (Figure <xref ref-type="media" rid="MOESM1">S3A</xref>). Among the 215 SNPs, 179 were commonly detected by both methods, while 33 and three were solely detected by fGWAS-C and fGWAS-F, respectively (Figure <xref ref-type="media" rid="MOESM1">S3B</xref>). The results indicated that fGWAS-C and fGWAS-F shared perfect concordance, and fGWAS-F could lose power in some degree. Furthermore, 11 of these 215 SNPs, located in a relatively narrow segment (from 1.65 to 4.36 MB) of chromosome 14, were discovered to affect all the three traits. The well-known <italic>DGAT1</italic> (diacylglycerol O-acyltransferase 1) gene, reported to be a major gene affecting milk production traits<sup><xref ref-type="bibr" rid="CR36">36</xref></sup>, is located within this region.<fig id="Fig5"><label>Figure 5</label><caption><p>Manhattan plots of <italic>p</italic>-values for milk yield (MY), fat percentage (FP), and protein percentage (PP) by the fGWAS-C and fGWAS-F model for the Chinese Holstein cattle data. Chromosomes 1–29 were shown with black and grey intervals. The red horizontal lines indicated the genome-wise significance level of −log<sub>10</sub>(6.98 × 10<sup>−7</sup>) and SNPs above the lines were highlighted in green.</p></caption><graphic id="d29e980" xlink:href="41598_2017_638_Fig5_HTML"></graphic></fig>
+</p>
+<p>For milk yield, 3 of 17 significant SNPs were located on chromosome 5, 12 and 15, respectively, while all the remaining SNPs were located between 1.48 and 4.36 MB of chromosome 14. For fat percentage, 126 significant SNPs were found, and most of which were located between 91.13 and 95.74 MB on chromosome 5 (15 SNPs) and between 1.41 and 8.45 MB on chromosome 14 (106 SNPs). For protein percentage, most of the total 113 significant SNPs were located in the region 1.65–4.47 MB on chromosome 14 (24 SNPs), 28.80–38.49 MB on chromosome 20 (62 SNPs), and 44.16–45.87 MB on chromosome 20 (7 SNPs). Meanwhile, the majority of genome-wise significant SNPs (14 of 17 for milk yield, 103 of 126 for fat percentage and 88 of 113 for protein percentage) were located within reported QTLs for three corresponding traits. Interestingly, two regions (93.13–95.74 MB on chromosome 5 for FP, 44.16–45.87 MB on chromosome 20 for PP) were not overlapped with the known QTL regions and could be potential candidate QTL regions influencing the milk traits. QTL information of the three traits was obtained from Animal QTL Database (QTLdb; <ext-link ext-link-type="uri" xlink:href="http://www.animalgenome.org/QTLdb">http://www.animalgenome.org/QTLdb</ext-link>). The detailed information of SNPs showing significant associations with the three traits, including their positions in the genome, <italic>p</italic> values, detected model, the nearest known genes and the PudMed IDs for nearest QTLs, were given in Tables <xref ref-type="media" rid="MOESM2">S3</xref> through <xref ref-type="media" rid="MOESM4">S5</xref>.</p>
+<p>The top significant SNP for the three traits was SNP ARS-BFGL-NGS-4939, which was located within <italic>DGAT1</italic> gene region. This SNP explained 1.45%, 13.72% and 1.93% of the phenotypic variation for milk yield, fat percentage and protein percentage with the fGWAS-F model, respectively. The curves of additive effects, dominance effects and QTL heritabilities of this SNP for three traits were shown in Figure <xref ref-type="media" rid="MOESM3">S4</xref>.</p>
+</sec>
+<sec id="Sec8">
+<title>GAW18 data</title>
+<p>As higher order basis functions did not converge, the model with a second-order basis functions for all the time-varied effects was used to fit GAW18 data. Manhattan plots of <italic>p</italic> values for two traits by the fGWAS-F model were shown in Fig. <xref ref-type="fig" rid="Fig6">6</xref>. For systolic blood pressure, two SNPs (on Chr13) reached the genome-wide significance level. Both of them are located within the region of gene <italic>CUL4A</italic>, which participates in the biological processes including nucleotide-excision repair, DNA damage recognition and regulation of DNA damage checkpoint. For diastolic blood pressure, 6 SNPs showed the genome-wide significance. The nearest genes to these 6 SNPs are <italic>CDC42</italic> (within), <italic>TMEM248</italic> (within), <italic>RN7SL43P</italic> (782 bp away), <italic>VAV2</italic> (within), <italic>UFM1</italic> (53 kb away), and <italic>AP000959.2</italic> (1.47 Mb away), respectively. Interestingly, both <italic>CDC42</italic> and <italic>VAV2</italic> genes participate in the biological process of blood coagulation, and <italic>CDC42</italic> gene also participates in heart contraction.<fig id="Fig6"><label>Figure 6</label><caption><p>Manhattan plots of <italic>p</italic> values for systolic blood pressure (SBP) and diastolic blood pressure (DBP) by the fGWAS-F model for the GAW18 data. Odd numbered autosomes were shown with black and grey intervals. The significant SNPs (<italic>q</italic> values &lt; 0.05) were highlighted in green.</p></caption><graphic id="d29e1063" xlink:href="41598_2017_638_Fig6_HTML"></graphic></fig>
+</p>
+</sec>
+</sec>
+<sec id="Sec9" sec-type="discussion">
+<title>Discussion</title>
+<p>Recently, a growing number of studies indicated that the expression of genes was time-dependent<sup><xref ref-type="bibr" rid="CR37">37</xref>–<xref ref-type="bibr" rid="CR39">39</xref></sup>. In current study, we proposed two models for the GWAS of longitudinal trait which could fit the time-varied QTN effects and directly use the raw longitudinal records. This can fully avoid the necessity of transforming phenotypes into pseudo-phenotypes, such as EBVs<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>, DRPs<sup><xref ref-type="bibr" rid="CR40">40</xref></sup>, or estimated residuals. The simulation results indicated that our proposed models could capture genetic differences varied in the entire process of the time period, thereby increasing the statistical power of QTN detection. Although pseudo-phenotypes were substitutions for longitudinal records, the scales of them would be changed<sup><xref ref-type="bibr" rid="CR41">41</xref></sup>. Therefore, the QTN effects predicted by these pseudo-phenotypes methods were biased. This might not influence the significance test, as the scales of corresponding estimated errors would also change. However, the pseudo-phenotypes methods could not directly predict the true proportions of the phenotypic variance explained by QTNs. As our fGWAS-C and fGWAS-F models directly used raw phenotypes and achieved the most accurate estimate of the QTN effects, they could be used to predict QTN heritability in practice. Overall, the proposed random regression-based methods clearly outperformed other traditional methods validated by extensive simulations.</p>
+<p>Among the traditional GWAS models, while no polygenetic effects were fitted to account for cryptic relationships between individuals, the GWAS-EBV-NP and GWAS-DRP-NP models resulted in high FPRs. DRPs had adjusted for parental average effect<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>. However, the cryptic relationships between individuals still existed when the EBVs were estimated from repeated measurements<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. In the simulation study, our results indicated that GWAS-EBV-P and GWAS-DRP-P models had similar performance in controlling the FPRs. The GWAS-DRP-P models lowered the power in some degree in our simulation. This may be because the cryptic relationships were corrected twice. One is removing the parental average information from EBVs, the other is including the polygenetic effects into the GWAS model. The EBVs or DRPs had removed the environmental effects and combined the repeated phenotypic values into a single one for each individual, which resulted in a much smaller dimension of the mixed model equation, and thus was more computationally efficient and feasible. Therefore, the GWAS-EBV-P and GWAS-DRP-P models are still an appealing alternative for GWAS study of longitudinal data when the computational efficiency is the primary consideration.</p>
+<p>Meanwhile, we applied our two models to a Chinese Holstein cattle data and the fGWAS-F model to the GAW18 data. The GWAS for milk production traits of Chinese Holstein population had been implemented by Jiang <italic>et al</italic>. with method similar to GWAS-EBV-P<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>. Here, we expanded the population size from 2,093 to 6,619. Furthermore, the Animal QTLdb had collected 4,585 QTLs (including the QTLs obtained from association analysis) for MY, FP and PP of dairy cattle since 1994, which made our study population be a suitable dataset for validating GWAS approaches for longitudinal traits. We mapped our significant SNPs to the Animal QTLdb and discovered that most of them (165/215) located within the reported QTL regions. Moreover, two novel regions (Chr5:93.49–94.65 MB for FP; Chr20: 44.16–45.87 MB for PP) contained several significant SNPs (15 SNPs for the former and 7 SNPs for the later) in relatively narrow segments, and they were potential candidate QTLs regions for milk production traits. The estimated curves of additive effects, dominance effects and QTN heritabilities of SNP ARS-BFGL-NGS-4939 (within the <italic>DGAT1</italic> region) for milk yield, fat percentage, and protein percentage were also predicted by our fGWAS-F model. The trend of these estimated curves implied that the genetic effects were not constant, and could depend on the data or environment.</p>
+<p>For GAW18 dataset, Chen <italic>et al</italic>. did not find any significant SNPs using admixture mapping analysis<sup><xref ref-type="bibr" rid="CR42">42</xref></sup>, and Chung and Zou found four significant SNPs with extended EMMA<sup><xref ref-type="bibr" rid="CR1">1</xref></sup> model<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. These studies indicated that human blood pressure might have a complicated genetic background, and there might be no major genomic region affecting it. In our studies, totally eight significant SNPs were discovered by our fGWAS-F model, and their nearest genes participated in the biological processes of nucleotide-excision repair, blood coagulation, heart contraction and so on, which closely related to heart disease. These eight significant SNPs could be candidate associated loci for blood pressure.</p>
+<p>Functional GWAS is not a novel conception, and has been proposed and carried out by Das <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. One of the key differences between their model and our proposed ones is that we divided the time-varied mean values for SNP genotypes into two parts, time-dependent population mean and SNP effects, instead of fitting them directly. In this way, our models can be easily implemented by the popular ASReml software. The more important difference is that time-varied polygenetic effects are fitted in our models to control the FPRs. We applied the fGWAS software by Das <italic>et al</italic>. to our simulated data. The resulted FPRs at tabulated thresholds of <italic>p</italic> value = 0.01 and 0.05 were 0.046 and 0.125, respectively. As indicated by Xu<sup><xref ref-type="bibr" rid="CR44">44</xref></sup> in GWAS of non-longitudinal traits, the model ignoring polygenic covariance structure merely performed well for the simple experiment with one QTN. However, the signals became very noisy for complex experiment with multiple QTNs. In practical situation, quantitative traits of interest are controlled by more than one QTN<sup><xref ref-type="bibr" rid="CR45">45</xref></sup>. Therefore, it should be beneficial to include polygenic effect in the model.</p>
+<p>The emerging next-generation sequencing technology impels us to find the “miss heritability” of complex traits. Along with the technological evolution, the availability of public data, such as the 1000 Genomes Project and 1000 Bull Genomes Project, provides opportunities to maximize the value of our existing data though genotype imputation. The number of variants can be increased and true QTNs may be located in this way. The genotype dosages (a continuous random variable between 0 and 2) can gain more powers than “best-guess” imputed genotype (genotypes with the highest probability) in GWAS<sup><xref ref-type="bibr" rid="CR46">46</xref></sup>. Luckily, our fGWAS-C model can also be applied to genotype dosages. This cannot be achieved by the fGWAS software by Das <italic>et al</italic>.</p>
+<p>As expected, our proposed fGWAS-C and fGWAS-F models showed obvious computational inefficiency as the dimension of the mixed model equation was larger than other models. When the relationship matrix is established based on pedigree, the computational burden is less challenging as the numerator relationship matrix is relatively sparse. The marker-based kinship matrix can reflect the relationship between individuals more precisely. For example, the relationship among full siblings will be the same based on pedigree, but can be distinguishable with genetic markers<sup><xref ref-type="bibr" rid="CR47">47</xref></sup>. However, a dense marker-based kinship matrix will increase the computational burden heavily. Zhang <italic>et al</italic>. suggested that a compression approach, which was called compressed mixed linear model, would decrease the effective sample size by clustering individuals into groups<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. Meanwhile, for population with unknown degree of genetic relationship, Kang <italic>et al</italic>. developed a procedure for estimating the contribution of the polygenetic effects to the phenotypes and the polygenetic effects were not needed to fit in the GWAS model if they were tested non-significant<sup><xref ref-type="bibr" rid="CR2">2</xref></sup>. Both approaches can be incorporated to improve our proposed models in our future endeavors.</p>
+<p>In conclusion, we proposed two models fGWAS-C and fGWAS-F using random regression for functional GWAS of longitudinal traits on a genome-wide scale. According to our simulation study results, the proposed models fitted longitudinal traits successfully and outperformed the models using EBVs, DRPs or estimated residuals as response variables. Using our proposed models, we have successfully found two novel regions which were significantly related with milking production traits for the Chinese Holstein data and some SNPs related with blood pressure for the GWA18 workshop dataset. Generally, functional GWAS models using random regression were useful and appealing in the GWAS for longitudinal traits.</p>
+</sec>
+<sec id="Sec10" sec-type="materials|methods">
+<title>Materials and Methods</title>
+<sec id="Sec11">
+<title>General expression of the random regression model</title>
+<p>The general expression of random regression model can be formulated as the time-dependent function:<disp-formula id="Equ1"><label>1</label><alternatives><tex-math id="M15">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${y}_{i}(t)=\mu (t)+{a}_{i}(t)+{p}_{i}(t)+{e}_{i}(t),$$\end{document}</tex-math><mml:math display="block" id="M16"><mml:msub><mml:mrow><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi>μ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ1.gif"></graphic></alternatives></disp-formula>where <italic>y</italic>
+<sub><italic>i</italic></sub>(<italic>t</italic>) is the phenotypic value of individual <italic>i</italic> at time <italic>t</italic>; <italic>μ</italic>(<italic>t</italic>) is the overall mean at time <italic>t</italic>; <italic>a</italic>
+<sub><italic>i</italic></sub>(<italic>t</italic>) and <italic>p</italic>
+<sub><italic>i</italic></sub>(<italic>t</italic>) are the time-varied additive genetic effect and permanent environmental effect respectively for individual <italic>i</italic>; <italic>e</italic>
+<sub><italic>i</italic></sub>(<italic>t</italic>) is the time-independent random residual for each measurement of individual <italic>i</italic> at time <italic>t</italic>. Here, <italic>μ</italic>(<italic>t</italic>), <italic>a</italic>
+<sub><italic>i</italic></sub>(<italic>t</italic>) and <italic>p</italic>
+<sub><italic>i</italic></sub>(<italic>t</italic>) can be denoted as the linear regression for a set of basis functions, <italic>i.e</italic>., splines or polynomials, below:<disp-formula id="Equ2"><label>2</label><alternatives><tex-math id="M17">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mu (t)=\sum _{k={\rm{0}}}^{nf}{\beta }_{k}{\phi }_{k}(t),\,a{}_{i}(t)=\sum _{k={\rm{0}}}^{n{r}_{1}}{a}_{ik}{\phi }_{k}(t),\,p{}_{i}(t)=\sum _{k={\rm{0}}}^{n{r}_{2}}{p}_{ik}{\phi }_{k}(t),$$\end{document}</tex-math><mml:math display="block" id="M18"><mml:mi>μ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="normal">0</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:mi>f</mml:mi></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>β</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="normal">0</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:msub><mml:mrow><mml:mi>r</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:msub><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="normal">0</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:msub><mml:mrow><mml:mi>r</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>p</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ2.gif"></graphic></alternatives></disp-formula>where <italic>nf</italic>, <italic>nr</italic>
+<sub>1</sub>, and <italic>nr</italic>
+<sub>2</sub> are the orders of corresponding basis functions; <italic>φ</italic>
+<sub><italic>k</italic></sub>(<italic>t</italic>) is the value of the <italic>k</italic>th basis function at time <italic>t</italic>; <italic>β</italic>
+<sub><italic>k</italic></sub> is the <italic>k</italic>th fixed regression coefficient; <italic>a</italic>
+<sub><italic>ik</italic></sub> and <italic>p</italic>
+<sub><italic>ik</italic></sub> are the <italic>k</italic>th random regression coefficients for additive genetic effect and permanent environmental effect of the <italic>i</italic>th individual. The orders of different basis functions can be determined by model selection criteria (such as AIC and BIC) suggested by Das <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. The matrix form of (1) can be represented as:<disp-formula id="Equ3"><label>3</label><alternatives><tex-math id="M19">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\bf{y}}={\bf{X}}{\bf{b}}+{\bf{Q}}{\bf{a}}+{\bf{Z}}{\bf{p}}+{\bf{e}}.$$\end{document}</tex-math><mml:math display="block" id="M20"><mml:mi mathvariant="bold">y</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="bold">X</mml:mi><mml:mi mathvariant="bold">b</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">Q</mml:mi><mml:mi mathvariant="bold">a</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">Z</mml:mi><mml:mi mathvariant="bold">p</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">e</mml:mi><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ3.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>Here, we assume there are <italic>n</italic> individuals and the number of records for individual <italic>i</italic> is <italic>m</italic>
+<sub><italic>i</italic></sub> (<italic>m</italic>
+<sub><italic>i</italic></sub> can be different for each individual), then the total number of records for all individuals is <inline-formula id="IEq8"><alternatives><tex-math id="M21">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$m=\sum _{i=1}^{n}{m}_{i}$$\end{document}</tex-math><mml:math id="M22"><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:msubsup><mml:mrow><mml:mo> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msubsup><mml:msub><mml:mrow><mml:mi>m</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq8.gif"></inline-graphic></alternatives></inline-formula>. Thus, <bold>y</bold> is a <italic>m</italic> × 1 vector of phenotypic values of all individuals; <bold>b</bold> is a [<italic>n</italic>(<italic>nf</italic> + 1)] × 1 vector of fixed regression coefficients; <bold>a</bold> is the vector of random regression coefficients for additive genetic effects with <italic>nr</italic>
+<sub>1</sub> + 1 elements for each individual; <bold>p</bold> is the vector of random regression coefficients for permanent environmental effects with <italic>nr</italic>
+<sub>2</sub> + 1 elements for each individual; <bold>X</bold>, <bold>Q</bold> and <bold>Z</bold> are the corresponding design matrices; <bold>e</bold> is the vector of random residuals.</p>
+<p>For equation (<xref ref-type="" rid="Equ3">3</xref>), we have the (co) variance matrices of all random effects:<disp-formula id="Equ4"><alternatives><tex-math id="M23">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\rm{var}}({\bf{a}})={\bf{A}}\otimes {\bf{G}},\,{\rm{var}}({\bf{p}})={\bf{I}}\otimes {\bf{P}},\,{\rm{and}}\,{\rm{var}}({\bf{e}})={\bf{I}}{\sigma }_{e}^{2}={\bf{R}}.$$\end{document}</tex-math><mml:math display="block" id="M24"><mml:mi mathvariant="normal">var</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="bold">a</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi mathvariant="bold">A</mml:mi><mml:mo>⊗</mml:mo><mml:mi mathvariant="bold">G</mml:mi><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">var</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="bold">p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi mathvariant="bold">I</mml:mi><mml:mo>⊗</mml:mo><mml:mi mathvariant="bold">P</mml:mi><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">and</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">var</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="bold">e</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi mathvariant="bold">I</mml:mi><mml:msubsup><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:mi mathvariant="bold">R</mml:mi><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ4.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>Here, <bold>A</bold> is the numerator relationship matrix based on pedigree information; <bold>I</bold> is the identity matrix; <inline-formula id="IEq9"><alternatives><tex-math id="M25">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\otimes $$\end{document}</tex-math><mml:math id="M26"><mml:mo>⊗</mml:mo></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq9.gif"></inline-graphic></alternatives></inline-formula> is the Kronecker product; <bold>G</bold> is the variance–covariance matrix for random regression coefficients of additive polygenic effects with size of (<italic>nr</italic>
+<sub>1</sub> + 1) × (<italic>nr</italic>
+<sub>1</sub> + 1); <bold>P</bold> is the variance–covariance matrix of random regression coefficients for permanent environmental effects with size of (<italic>nr</italic>
+<sub>2</sub> + 1) × (<italic>nr</italic>
+<sub>2</sub> + 1); <inline-formula id="IEq10"><alternatives><tex-math id="M27">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\sigma }_{e}^{2}$$\end{document}</tex-math><mml:math id="M28"><mml:msubsup><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq10.gif"></inline-graphic></alternatives></inline-formula> is the residual variance. Therefore, the mixed model equations can be expressed as:<disp-formula id="Equ5"><label>4</label><alternatives><tex-math id="M29">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[\begin{array}{ccc}{{\bf{X}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{X}} &amp; {{\bf{X}}}^{{\rm{T}}}{{\bf{R}}}^{-1}{\bf{Q}} &amp; {{\bf{X}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{Z}}\\ {{\bf{Q}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{X}} &amp; {{\bf{Q}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{Q}}+{{\bf{A}}}^{-{\rm{1}}}\otimes {{\bf{G}}}^{-{\rm{1}}} &amp; {{\bf{Q}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{Z}}\\ {{\bf{Z}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{X}} &amp; {{\bf{Z}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{Q}} &amp; {{\bf{Z}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{Z}}+{\bf{I}}\otimes {{\bf{P}}}^{-1}\end{array}]\,[\begin{array}{c}\hat{{\bf{b}}}\\ \hat{{\bf{a}}}\\ \hat{{\bf{p}}}\end{array}]=[\begin{array}{c}{{\bf{X}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{y}}\\ {{\bf{Q}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{y}}\\ {{\bf{Z}}}^{{\rm{T}}}{{\bf{R}}}^{-{\rm{1}}}{\bf{y}}\end{array}].$$\end{document}</tex-math><mml:math display="block" id="M30"><mml:mrow><mml:mo>[</mml:mo><mml:mrow><mml:mtable align="axis" columnlines="none none" equalcolumns="false" equalrows="false" style=""><mml:mtr><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">X</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">X</mml:mi></mml:mtd><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">X</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup><mml:mi mathvariant="bold">Q</mml:mi></mml:mtd><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">X</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">Z</mml:mi></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">X</mml:mi></mml:mtd><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">Q</mml:mi><mml:mo>+</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="bold">A</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mo>⊗</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="bold">G</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup></mml:mtd><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">Z</mml:mi></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Z</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">X</mml:mi></mml:mtd><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Z</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">Q</mml:mi></mml:mtd><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Z</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">Z</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">I</mml:mi><mml:mo>⊗</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="bold">P</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:mtd></mml:mtr></mml:mtable></mml:mrow><mml:mo>]</mml:mo></mml:mrow><mml:mspace width="0.3em"></mml:mspace><mml:mrow><mml:mo>[</mml:mo><mml:mrow><mml:mtable align="axis" columnlines="" equalcolumns="false" equalrows="false" style=""><mml:mtr><mml:mtd columnalign="center"><mml:mover accent="true"><mml:mrow><mml:mi mathvariant="bold">b</mml:mi></mml:mrow><mml:mo>^</mml:mo></mml:mover></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:mover accent="true"><mml:mrow><mml:mi mathvariant="bold">a</mml:mi></mml:mrow><mml:mo> ^</mml:mo></mml:mover></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:mover accent="true"><mml:mrow><mml:mi mathvariant="bold">p</mml:mi></mml:mrow><mml:mo> ^</mml:mo></mml:mover></mml:mtd></mml:mtr></mml:mtable></mml:mrow><mml:mo>]</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mrow><mml:mo>[</mml:mo><mml:mrow><mml:mtable align="axis" columnlines="" equalcolumns="false" equalrows="false" style=""><mml:mtr><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">X</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">y</mml:mi></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">y</mml:mi></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:msup><mml:mrow><mml:mi mathvariant="bold">Z</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi mathvariant="bold">R</mml:mi></mml:mrow><mml:mrow><mml:mo>-</mml:mo><mml:mi mathvariant="normal">1</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">y</mml:mi></mml:mtd></mml:mtr></mml:mtable></mml:mrow><mml:mo>]</mml:mo></mml:mrow><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ5.gif"></graphic></alternatives></disp-formula>
+</p>
+</sec>
+<sec id="Sec12">
+<title>Statistical models for the GWAS of longitudinal data</title>
+<p>Under the framework of the random regression model, we proposed two detection methods for the association analysis of longitudinal traits, <italic>i.e</italic>., functional GWAS model treating each SNP as the covariate (fGWAS-C), and functional GWAS model treating each SNP as the factor (fGWAS-F). To exploit the property of these two novel methods, several alternative models/strategies which used the EBVs, DRPs, or estimated residuals as the response variables for GWAS of longitudinal traits were also applied for extensive comparisons. Details of each model were specified below as well as listed in Table <xref ref-type="table" rid="Tab2">2</xref>.<table-wrap id="Tab2"><label>Table 2</label><caption><p>The characters of fGWAS-C, fGWAS-F, GWAS-EBV-P, GWAS-EBV-NP, GWAS-DRP-P, GWAS-DRP-NP, and GWAS-Residual models.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Models</th><th>Response variable</th><th>SNP effect time dependence</th><th>SNP effect modeling</th><th>polygenetic effects (fit or not)</th></tr></thead><tbody><tr><td>fGWAS-C</td><td>longitudinal records</td><td>time-dependent</td><td>covariate</td><td>YES</td></tr><tr><td>fGWAS-F</td><td>longitudinal records</td><td>time-dependent</td><td>factor</td><td>YES</td></tr><tr><td>GWAS-EBV-P</td><td>EBVs</td><td>time-independent</td><td>covariate</td><td>YES</td></tr><tr><td>GWAS-EBV-NP</td><td>EBVs</td><td>time-independent</td><td>covariate</td><td>NO</td></tr><tr><td>GWAS-DRP-P</td><td>DRPs</td><td>time-independent</td><td>covariate</td><td>YES</td></tr><tr><td>GWAS-DRP-NP</td><td>DRPs</td><td>time-independent</td><td>covariate</td><td>NO</td></tr><tr><td>GWAS-Residual</td><td>estimated residuals</td><td>time-independent</td><td>covariate</td><td>NO</td></tr></tbody></table></table-wrap>
+</p>
+<sec id="Sec13">
+<title>fGWAS-C and fGWAS-F models</title>
+<p>In our proposed fGWAS-C model, an additional fixed regression term is incorporated into equation (<xref ref-type="" rid="Equ1">1</xref>) to explain effect of the SNP investigated:<disp-formula id="Equ6"><label>5</label><alternatives><tex-math id="M31">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${y}_{i}(t)=\mu (t)+{x}_{i}SNP(t)+{a}_{i}(t)+p{e}_{i}(t)+{e}_{i}(t).$$\end{document}</tex-math><mml:math display="block" id="M32"><mml:msub><mml:mrow><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi>μ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>x</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:mi>P</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:mi>p</mml:mi><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ6.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>Here, <italic>x</italic>
+<sub><italic>i</italic></sub> is a genotype indicator which is assigned 0, 1 and 2 for genotype <italic>aa</italic>, <italic>Aa</italic> and <italic>AA</italic>, respectively; <italic>SNP</italic>(<italic>t</italic>) represents the time-varied additive effect for each marker and can be expressed as linear regression for a set of basis functions as mentioned before:<disp-formula id="Equ7"><label>6</label><alternatives><tex-math id="M33">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$SNP(t)=\sum _{k=0}^{nf}{\eta }_{k}{\varphi }_{k}(t),$$\end{document}</tex-math><mml:math display="block" id="M34"><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:mi>P</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:mi>f</mml:mi></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>η</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>φ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ7.gif"></graphic></alternatives></disp-formula>where, <inline-formula id="IEq11"><alternatives><tex-math id="M35">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\varphi }_{k}(t)$$\end{document}</tex-math><mml:math id="M36"><mml:msub><mml:mrow><mml:mi>φ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq11.gif"></inline-graphic></alternatives></inline-formula> is the value of the <italic>k</italic>th basis function at time <italic>t</italic>; <inline-formula id="IEq12"><alternatives><tex-math id="M37">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\eta }_{k}$$\end{document}</tex-math><mml:math id="M38"><mml:msub><mml:mrow><mml:mi>η</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq12.gif"></inline-graphic></alternatives></inline-formula> is the <italic>k</italic>th fixed regression coefficient for additive SNP effect; <italic>nf</italic> is the order of basis functions for the time-varied SNP effect. For convenience, we define the same order of time-varied population mean and SNP effect in this model.</p>
+<p>Similarly, the fGWAS-F model is formulated as:<disp-formula id="Equ8"><label>7</label><alternatives><tex-math id="M39">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${y}_{il}(t)=\mu (t)+SN{P}_{l}(t)+{a}_{i}(t)+p{e}_{i}(t)+{e}_{il}(t),$$\end{document}</tex-math><mml:math display="block" id="M40"><mml:msub><mml:mrow><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi>μ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:msub><mml:mrow><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:mi>p</mml:mi><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ8.gif"></graphic></alternatives></disp-formula>where<disp-formula id="Equ9"><label>8</label><alternatives><tex-math id="M41">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$SN{P}_{l}(t)=\sum _{k=0}^{nf}{\lambda }_{lk}{\varphi }_{k}(t){\rm{.}}$$\end{document}</tex-math><mml:math display="block" id="M42"><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:msub><mml:mrow><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:mi>f</mml:mi></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>λ</mml:mi></mml:mrow><mml:mrow><mml:mi>l</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>φ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mi mathvariant="normal">.</mml:mi></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ9.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>Here, <italic>SNP</italic>
+<sub><italic>l</italic></sub>(<italic>t</italic>) means time-varied effect for genotype <italic>l</italic> (<italic>AA</italic>, <italic>Aa</italic> and <italic>aa</italic>) of each marker and <italic>λ</italic>
+<sub><italic>lk</italic></sub> is the <italic>k</italic>th fixed regression coefficient for genotype <italic>l</italic>. For fGWAS-F model, time-varied additive genetic effect, dominance genetic effect, and additive genetic variance of each SNP can be deduced as<sup><xref ref-type="bibr" rid="CR45">45</xref></sup>:<disp-formula id="Equ10"><label>9</label><alternatives><tex-math id="M43">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{array}{c}add(t)=\frac{SN{P}_{AA}(t)-SN{P}_{aa}(t)}{2},\,dom(t)=SN{P}_{Aa}(t)-add(t),\\ {\rm{and}}\,{\sigma }_{a,SNP}^{2}(t)=2pq{(add(t)+dom(t)(q-p))}^{2},\end{array}$$\end{document}</tex-math><mml:math display="block" id="M44"><mml:mtable align="axis" columnlines="" equalcolumns="false" equalrows="false" style=""><mml:mtr><mml:mtd columnalign="center"><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>d</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:msub><mml:mrow><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>A</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>-</mml:mo><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:msub><mml:mrow><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi><mml:mi>a</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:mfrac><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:mi>d</mml:mi><mml:mi>o</mml:mi><mml:mi>m</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:msub><mml:mrow><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>A</mml:mi><mml:mi>a</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>-</mml:mo><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>d</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="center"><mml:mi mathvariant="normal">and</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:msubsup><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi><mml:mo>,</mml:mo><mml:mi>S</mml:mi><mml:mi>N</mml:mi><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mn>2</mml:mn><mml:mi>p</mml:mi><mml:mi>q</mml:mi><mml:msup><mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>d</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>+</mml:mo><mml:mi>d</mml:mi><mml:mi>o</mml:mi><mml:mi>m</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>q</mml:mi><mml:mo>-</mml:mo><mml:mi>p</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msup><mml:mo>,</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ10.gif"></graphic></alternatives></disp-formula>where <italic>p</italic> and <italic>q</italic> are the allele frequencies for each locus.</p>
+</sec>
+<sec id="Sec14">
+<title>GWAS-EBV-P and GWAS-EBV-NP models</title>
+<p>Under such models, combined EBVs are firstly deduced through solving Equation (<xref ref-type="" rid="Equ5">4</xref>). Therefore, the estimated additive genetic curve for individual <italic>i</italic> can be formulated as <inline-formula id="IEq13"><alternatives><tex-math id="M45">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\hat{a}{}_{i}(t)=\sum _{k=0}^{n{r}_{1}}{\hat{a}}_{ik}{\phi }_{k}(t)$$\end{document}</tex-math><mml:math id="M46"><mml:msub><mml:mrow><mml:mi>â</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msubsup><mml:mrow><mml:mo> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:msub><mml:mrow><mml:mi>r</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:msubsup><mml:msub><mml:mrow><mml:mi>â</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq13.gif"></inline-graphic></alternatives></inline-formula>. If we write:<disp-formula id="Equ11"><label>10</label><alternatives><tex-math id="M47">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\hat{{\bf{a}}}}_{i}={(\hat{a}_{i0}\,{}_{i1}\hat{a}\cdots {\hat{a}}_{in{r}_{1}})}^{{\rm{T}}},\,{{\bf{Q}}}_{t}^{{\rm{T}}}=({\phi }_{0}(t)\,{\phi }_{1}(t)\,\mathrm{...}\,{\phi }_{n{r}_{1}}(t)),\,{\rm{and}}\,{{\bf{Q}}}_{c}^{{\rm{T}}}=\sum _{t={t}_{\min }}^{{t}_{\max }}{{\bf{Q}}}_{t}^{{\rm{T}}},$$\end{document}</tex-math><mml:math display="block" id="M48"><mml:msub><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi mathvariant="bold">a</mml:mi></mml:mrow><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msup><mml:mrow><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mrow><mml:mi>â</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mspace width="0.3em"></mml:mspace></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mi>â</mml:mi><mml:mo>⋯</mml:mo><mml:msub><mml:mrow><mml:mi>â</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:msub><mml:mrow><mml:mi>r</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:msub></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:msubsup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mspace width="0.3em"></mml:mspace><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">...</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:msub><mml:mrow><mml:mi>ϕ</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi><mml:msub><mml:mrow><mml:mi>r</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">and</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:msubsup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi>c</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msubsup><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mo>min</mml:mo></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mo>max</mml:mo></mml:mrow></mml:msub></mml:mrow></mml:munderover><mml:msubsup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msubsup><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ11.gif"></graphic></alternatives></disp-formula>where <italic>t</italic>
+<sub>min</sub> and <italic>t</italic>
+<sub>max</sub> are the first and last recording time of all individuals, then the accumulated EBV for each individual from <italic>t</italic>
+<sub>min</sub> to <italic>t</italic>
+<sub>max</sub> can be obtained as:<disp-formula id="Equ12"><label>11</label><alternatives><tex-math id="M49">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$EB{V}_{i}=\sum _{t={t}_{\min }}^{{t}_{\max }}{\hat{a}}_{i}(t)=\sum _{t={t}_{\min }}^{{t}_{\max }}{{\bf{Q}}}_{t}^{{\rm{T}}}{\hat{{\bf{a}}}}_{i}={{\bf{Q}}}_{c}^{{\rm{T}}}{\hat{{\bf{a}}}}_{i.}$$\end{document}</tex-math><mml:math display="block" id="M50"><mml:mi>E</mml:mi><mml:mi>B</mml:mi><mml:msub><mml:mrow><mml:mi>V</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mo>min</mml:mo></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mo>max</mml:mo></mml:mrow></mml:msub></mml:mrow></mml:munderover><mml:msub><mml:mrow><mml:mi>â</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover accent="false" accentunder="false"><mml:mrow><mml:mo mathsize="big"> ∑</mml:mo></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mo>min</mml:mo></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mo>max</mml:mo></mml:mrow></mml:msub></mml:mrow></mml:munderover><mml:msubsup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msubsup><mml:msub><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi mathvariant="bold">a</mml:mi></mml:mrow><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msubsup><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi></mml:mrow><mml:mrow><mml:mi>c</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msubsup><mml:msub><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi mathvariant="bold">a</mml:mi></mml:mrow><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>.</mml:mo></mml:mrow></mml:msub></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ12.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>The accumulated EBVs are then used as the latent response variable in the GWAS-EBV-P model.<disp-formula id="Equ13"><label>12</label><alternatives><tex-math id="M51">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\bf{y}}={\boldsymbol{\mu }}+{\bf{W}}a+{\bf{Zu}}+{\bf{e}},$$\end{document}</tex-math><mml:math display="block" id="M52"><mml:mi mathvariant="bold">y</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="bold-italic">μ</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">W</mml:mi><mml:mi>a</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">Zu</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">e</mml:mi><mml:mo>,</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ13.gif"></graphic></alternatives></disp-formula>and GWAS-EBV-NP model<disp-formula id="Equ14"><label>13</label><alternatives><tex-math id="M53">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\bf{y}}={\boldsymbol{\mu }}+{\bf{W}}a+{\bf{e}}.$$\end{document}</tex-math><mml:math display="block" id="M54"><mml:mi mathvariant="bold">y</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="bold-italic">μ</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">W</mml:mi><mml:mi>a</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="bold">e</mml:mi><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ14.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>Here, <bold>y</bold> is defined as the n × 1 vector of EBVs for all individuals; <bold>μ</bold> is the population mean; <bold>u</bold> is the vector of polygenetic effects with multivariate normal distribution <italic>MVN</italic>(<bold>0</bold>, <bold>A</bold>
+<inline-formula id="IEq14"><alternatives><tex-math id="M55">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\sigma }_{a}^{2}$$\end{document}</tex-math><mml:math id="M56"><mml:msubsup><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq14.gif"></inline-graphic></alternatives></inline-formula>), where <bold>A</bold> is the numerator relationship matrix and <inline-formula id="IEq15"><alternatives><tex-math id="M57">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\sigma }_{a}^{2}$$\end{document}</tex-math><mml:math id="M58"><mml:msubsup><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq15.gif"></inline-graphic></alternatives></inline-formula> is the additive genetic variance; <bold>e</bold> is the vector of random residuals with a multivariate normal distribution <italic>MVN</italic>(<bold>0</bold>, <bold>I</bold>
+<inline-formula id="IEq16"><alternatives><tex-math id="M59">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\sigma }_{e}^{2}$$\end{document}</tex-math><mml:math id="M60"><mml:msubsup><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq16.gif"></inline-graphic></alternatives></inline-formula>); <bold>Z</bold> is the incidence matrix for polygenetic effects; <italic>a</italic> is the regression coefficient of EBVs on SNP genotypes and <bold>W</bold> is the vector of SNP genotypes coded as 0, 1, and 2.</p>
+</sec>
+<sec id="Sec15">
+<title>GWAS-DRP-P and GWAS-DRP-NP models</title>
+<p>We used DRPs instead of deduced EBVs as potential response variable in Equations <xref ref-type="" rid="Equ13">12</xref> and <xref ref-type="" rid="Equ14">13</xref>, and the respective models were called GWAS-DRP-P and GWAS-DRP-NP. DRPs were derived from EBVs using the method proposed by Garrick <italic>et al</italic>. which allowed for the removal of the parental average information from EBVs<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>.</p>
+</sec>
+<sec id="Sec16">
+<title>GWAS-Residual model</title>
+<p>The GWAS-Residual model uses the adjusted estimated residuals as the response variable in the GWAS analysis. This model is similar to the genomewide rapid association using mixed model and regression (GRAMMAR) model<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>, which obtains residuals of all individuals adjusted for polygenetic effects and subsequently analyzes the association between these residuals and each SNP covariate using rapid least-squares methods.</p>
+<p>In our study, the estimated residuals for multiple records corresponding to each individual were obtained by solving equation (<xref ref-type="" rid="Equ5">4</xref>). Then, we averaged the estimated residuals of multiple records for each individual as the adjusted estimated residual, which was employed as the response variable for association analysis with the model similar to GWAS-EBV-NP or GWAS-DRP-NP.</p>
+</sec>
+</sec>
+<sec id="Sec17">
+<title>Hypothesis tests</title>
+<p>For each SNP, the incremental Wald statistic implemented by ASReml<sup><xref ref-type="bibr" rid="CR48">48</xref></sup> was used to examine whether the SNP is associated with the trait. The Wald chi-squared statistic with a degree of freedom of <italic>df</italic>
+<sub>w</sub> is given by:<disp-formula id="Equ15"><alternatives><tex-math id="M61">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W=\frac{R({\rm{full}}\,{\rm{model}})-R({\rm{reduced}}\,{\rm{model}})}{{\hat{\sigma }}_{e}^{2}}.$$\end{document}</tex-math><mml:math display="block" id="M62"><mml:mi>W</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>R</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="normal">full</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">model</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>-</mml:mo><mml:mi>R</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="normal">reduced</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">model</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:msubsup><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:mrow></mml:mfrac><mml:mo>.</mml:mo></mml:math><graphic position="anchor" xlink:href="41598_2017_638_Article_Equ15.gif"></graphic></alternatives></disp-formula>
+</p>
+<p>Here, <inline-formula id="IEq17"><alternatives><tex-math id="M63">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[R({\rm{full}}\,{\rm{model}})-R({\rm{reduced}}\,{\rm{model}})]$$\end{document}</tex-math><mml:math id="M64"><mml:mrow><mml:mo>[</mml:mo><mml:mrow><mml:mi>R</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="normal">full</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">model</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>-</mml:mo><mml:mi>R</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi mathvariant="normal">reduced</mml:mi><mml:mspace width="0.3em"></mml:mspace><mml:mi mathvariant="normal">model</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow><mml:mo>]</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq17.gif"></inline-graphic></alternatives></inline-formula> denotes the difference between the reduction in the sums of squares<sup><xref ref-type="bibr" rid="CR49">49</xref></sup> (RSS) or models with and without SNP effect. The symbol <italic>df</italic>
+<sub><italic>w</italic></sub> is degree of freedom for the SNP effect. For fGWAS-C model, <italic>df</italic>
+<sub><italic>w</italic></sub> = <italic>nf</italic> + 1, and for fGWAS-F model, <italic>df</italic>
+<sub><italic>w</italic></sub> = 2(<italic>nf</italic> + 1), where <italic>nf</italic> is the order of basis functions for the time-varied SNP effect as defined above. For other models defined above, <italic>df</italic>
+<sub><italic>w</italic></sub> = 1. The symbol <inline-formula id="IEq18"><alternatives><tex-math id="M65">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\hat{\sigma }}_{e}^{2}$$\end{document}</tex-math><mml:math id="M66"><mml:msubsup><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi>σ</mml:mi></mml:mrow><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq18.gif"></inline-graphic></alternatives></inline-formula> is residual variance estimated via residual maximum likelihood (REML) method.</p>
+</sec>
+<sec id="Sec18">
+<title>Simulations</title>
+<p>We performed extensive simulations to systematically compare the performance of two random regression-based GWAS models (fGWAS-C and fGWAS-F) proposed here and other multiple-step traditional linear mixed models (GWAS-EBV-P, GWAS-EBV-NP, GWAS-DRP-P, GWAS-DRP-NP and GWAS-Residual) aforementioned. We evaluated statistical power, type-I error rate as well as the accuracy of SNP effect estimated for each GWAS method through 1,000 replication.</p>
+<p>Population and genomic data were simulated with QMSim software<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>. The simulation started with a base population of 50 males and 50 females in generation −1,000, followed by 1,000 discrete historical generations (generation −1,000 to −1) with the same population size and an equal sex ratio. After 1,000 historical generations, the recent population was generated from generation −1 to generation 0 with population size expanded from 100 to 1,000 (500 males and 500 females). In the follow-up four recent generations (generation 1 to 4), 50 males were randomly selected from the last generation each mating with 500 females. Each female produced two offspring (one male and one female) at each recent generation. Finally, a total of 2,000 females from the last four recent generations were collected as the experimental population investigated. We determined 1,002 SNPs as the simulated genomic data, two of which were selected as independent target mutations. One contributed to the genetic variance (treated as the QTN) and the other had null effect on the longitudinal phenotype. These two SNPs were adopted to evaluate statistical powers and FPRs respectively across different models. The remaining 1000 SNPs were assigned the polygenic effects representing the genetic background of each individual, all genotypes of which were then removed in the final simulated data.</p>
+<p>The longitudinal phenotype observations were simulated using self-developed C program. The detailed description was given in Supplementary Methods. In the simulation, heritability of simulated trait <italic>h</italic>
+<sup>2</sup> was set to 0.3 and heritability of functional QTN <inline-formula id="IEq19"><alternatives><tex-math id="M67">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${h}_{{\rm{QTN}}}^{2}$$\end{document}</tex-math><mml:math id="M68"><mml:msubsup><mml:mrow><mml:mi>h</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">QTN</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msubsup></mml:math><inline-graphic xlink:href="41598_2017_638_Article_IEq19.gif"></inline-graphic></alternatives></inline-formula> (the proportion of phenotypic variance explained by the QTN) was set to different levels of 0.1%, 0.5%, 1% and 2%. The variances explained by the polygenetic and permanent environmental effect were scaled to achieve the preset heritability of the simulated trait.</p>
+<p>In the simulation, the power and type-I error rate for each scenario were determined as the proportion of significant detections for functional QTN and null-effect SNP respectively among 1,000 replicates for each scenario.</p>
+</sec>
+<sec id="Sec19">
+<title>Real data analysis</title>
+<p>Two real datasets, a Chinese Holstein cattle data and the Genetic Analysis Workshop 18 (GAW18) data, were used to further validate performance of our proposed models. The detailed illustrations of the real data was provided in Supplementary Methods. For simplicity and conciseness, we merely employed the fGWAS-F model in the real data of longitudinal traits. Legendre polynomials<sup><xref ref-type="bibr" rid="CR51">51</xref></sup> were used as the basis functions for the overall mean, additive genetic effect and permanent environmental effect. The orders of basis functions were evaluated based on the smallest AIC as well as BIC. As the effects contributed by most of SNPs were very small, we adopted the same variance components estimated by the reduced model of equation (<xref ref-type="" rid="Equ1">1</xref>), which was then applied to the full GWAS model for testing each marker. This was similar to the strategy of Kang <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR2">2</xref></sup> and Zhang <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. The Bonferroni correction was used to control false-positive rates for Chinese Holstein cattle data. Therefore, the threshold for genome-wide significance was 0.05/N, where N was the number of SNPs to be tested. For the GAW18 data, we estimated <italic>q</italic> values for false discovery rates<sup><xref ref-type="bibr" rid="CR52">52</xref></sup> and a false discovery rate with <italic>q</italic> value of 0.05 was used as the threshold of the significant associations.</p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Electronic supplementary material</title>
+<sec id="Sec20">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2017_638_MOESM1_ESM.docx"><caption><p>Supporting Info</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="41598_2017_638_MOESM2_ESM.xlsx"><caption><p>Supporting Info</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM3"><media xlink:href="41598_2017_638_MOESM3_ESM.xlsx"><caption><p>Supporting Info</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM4"><media xlink:href="41598_2017_638_MOESM4_ESM.xlsx"><caption><p>Supporting Info</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p>Chao Ning and Huimin Kang contributed equally to this work.</p>
+</fn>
+<fn>
+<p>
+<bold>Electronic supplementary material</bold>
+</p>
+<p>
+<bold>Supplementary information</bold> accompanies this paper at doi:10.1038/s41598-017-00638-2
+</p>
+</fn>
+<fn>
+<p>
+<bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<ack>
+<title>Acknowledgements</title>
+<p>We appreciate the financial support from the National Major Development Program of Transgenic Breeding (2014ZX0800953B), the National Natural Science Foundations of China (31272419), the Program for Changjiang Scholar and Innovation Research Team in University (IRT_15R62) and the China Agriculture Research System (CARS-36). The GAW18 whole genome sequence data were provided by the T2D-GENES Consortium, which is supported by NIH grants U01 DK085524, U01 DK085584, U01 DK085501, U01 DK085526, and U01 DK085545. The other genetic and phenotypic data for GAW18 were provided by the San Antonio Family Heart Study and San Antonio Family Diabetes/Gallbladder study, which are supported by NIH grants P01 HL045222, R01 DK047482, and R01 DK053889. Andrew R. Wood is supported by European Research Council grant SZ-245 50371-GLUCOSEGENES-FP7-IDEAS-ERC.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author Contributions</title>
+<p>C.N. performed the experiments, analyzed the data, and prepared the manuscript. H.M.K. wrote the simulationprogram. L.Z., D.W., H.F.W., A.G.W., J.L.F., and S.L.Z. participated in the result interpretation and paperrevision. J.-F.L. conceived and designed the experiments, and prepared the manuscript. All authors reviewed themanuscript.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar1">
+<title>Competing Interests</title>
+<p>The authors declare that they have no competing interests.</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kang</surname>
+<given-names>HM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Efficient control of population structure in model organism association mapping</article-title>
+<source/>Genetics
+          <year>2008</year>
+<volume>178</volume>
+<fpage>1709</fpage>
+<lpage>23</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.107.080101</pub-id>
+<pub-id pub-id-type="pmid">18385116</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kang</surname>
+<given-names>HM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Variance component model to account for sample structure in genome-wide association studies</article-title>
+<source/>Nat Genet
+          <year>2010</year>
+<volume>42</volume>
+<fpage>348</fpage>
+<lpage>54</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.548</pub-id>
+<pub-id pub-id-type="pmid">20208533</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Z</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Mixed linear model approach adapted for genome-wide association studies</article-title>
+<source/>Nat Genet
+          <year>2010</year>
+<volume>42</volume>
+<fpage>355</fpage>
+<lpage>60</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.546</pub-id>
+<pub-id pub-id-type="pmid">20208535</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lippert</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>FaST linear mixed models for genome-wide association studies</article-title>
+<source/>Nat Methods
+          <year>2011</year>
+<volume>8</volume>
+<fpage>833</fpage>
+<lpage>5</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.1681</pub-id>
+<pub-id pub-id-type="pmid">21892150</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Svishcheva</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Axenovich</surname>
+<given-names>TI</given-names>
+</name>
+<name>
+<surname>Belonogova</surname>
+<given-names>NM</given-names>
+</name>
+<name>
+<surname>van Duijn</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Aulchenko</surname>
+<given-names>YS</given-names>
+</name>
+</person-group>
+<article-title>Rapid variance components-based method for whole-genome association analysis</article-title>
+<source/>Nat Genet
+          <year>2012</year>
+<volume>44</volume>
+<fpage>1166</fpage>
+<lpage>70</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2410</pub-id>
+<pub-id pub-id-type="pmid">22983301</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Stephens</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Genome-wide efficient mixed-model analysis for association studies</article-title>
+<source/>Nat Genet
+          <year>2012</year>
+<volume>44</volume>
+<fpage>821</fpage>
+<lpage>4</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2310</pub-id>
+<pub-id pub-id-type="pmid">22706312</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kellogg</surname>
+<given-names>EC</given-names>
+</name>
+<name>
+<surname>Thrasher</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Yoshinaga-Itano</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Early predictors of autism in young children who are deaf or hard of hearing: three longitudinal case studies</article-title>
+<source/>Semin Speech Lang
+          <year>2014</year>
+<volume>35</volume>
+<fpage>276</fpage>
+<lpage>87</lpage>
+<pub-id pub-id-type="doi">10.1055/s-0034-1389100</pub-id>
+<pub-id pub-id-type="pmid">25321852</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McSweeney</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Predicting coronary heart disease events in women: a longitudinal cohort study</article-title>
+<source/>J Cardiovasc Nurs
+          <year>2014</year>
+<volume>29</volume>
+<fpage>482</fpage>
+<lpage>92</lpage>
+<pub-id pub-id-type="doi">10.1097/JCN.0b013e3182a409cc</pub-id>
+<pub-id pub-id-type="pmid">24231895</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Eaves</surname>
+<given-names>LJ</given-names>
+</name>
+<name>
+<surname>Neale</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Maes</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>Multivariate multipoint linkage analysis of quantitative trait loci</article-title>
+<source/>Behavior genetics
+          <year>1996</year>
+<volume>26</volume>
+<fpage>519</fpage>
+<lpage>525</lpage>
+<pub-id pub-id-type="doi">10.1007/BF02359757</pub-id>
+<pub-id pub-id-type="pmid">8917951</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>W-R</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>W-M</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>D-Z</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>H-R</given-names>
+</name>
+<name>
+<surname>Worland</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Time-related mapping of quantitative trait loci underlying tiller number in rice</article-title>
+<source/>Genetics
+          <year>1999</year>
+<volume>151</volume>
+<fpage>297</fpage>
+<lpage>303</lpage>
+<pub-id pub-id-type="pmid">9872968</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gee</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Morrison</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>DC</given-names>
+</name>
+<name>
+<surname>Gauderman</surname>
+<given-names>WJ</given-names>
+</name>
+</person-group>
+<article-title>Segregation and linkage analysis for longitudinal measurements of a quantitative trait</article-title>
+<source/>BMC genetics
+          <year>2003</year>
+<volume>4</volume>
+<fpage>1</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2156-4-S1-S21</pub-id>
+<pub-id pub-id-type="pmid">12515581</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lillehammer</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A genome scan for quantitative trait locus by environment interactions for production traits</article-title>
+<source/>J Dairy Sci
+          <year>2007</year>
+<volume>90</volume>
+<fpage>3482</fpage>
+<lpage>9</lpage>
+<pub-id pub-id-type="doi">10.3168/jds.2006-834</pub-id>
+<pub-id pub-id-type="pmid">17582132</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hurtado</surname>
+<given-names>PX</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Dynamics of senescence-related QTLs in potato</article-title>
+<source/>Euphytica
+          <year>2011</year>
+<volume>183</volume>
+<fpage>289</fpage>
+<lpage>302</lpage>
+<pub-id pub-id-type="doi">10.1007/s10681-011-0464-4</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>C-X</given-names>
+</name>
+<name>
+<surname>Casella</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Functional mapping of quantitative trait loci underlying the character process: a theoretical framework</article-title>
+<source/>Genetics
+          <year>2002</year>
+<volume>161</volume>
+<fpage>1751</fpage>
+<lpage>1762</lpage>
+<pub-id pub-id-type="pmid">12196415</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xiong</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A flexible estimating equations approach for mapping function-valued traits</article-title>
+<source/>Genetics
+          <year>2011</year>
+<volume>189</volume>
+<fpage>305</fpage>
+<lpage>16</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.111.129221</pub-id>
+<pub-id pub-id-type="pmid">21705752</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gong</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zou</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<article-title>Varying coefficient models for mapping quantitative trait loci using recombinant inbred intercrosses</article-title>
+<source/>Genetics
+          <year>2012</year>
+<volume>190</volume>
+<fpage>475</fpage>
+<lpage>486</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.111.132522</pub-id>
+<pub-id pub-id-type="pmid">22345613</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Sillanpää</surname>
+<given-names>MJ</given-names>
+</name>
+</person-group>
+<article-title>A Bayesian nonparametric approach for mapping dynamic quantitative traits</article-title>
+<source/>Genetics
+          <year>2013</year>
+<volume>194</volume>
+<fpage>997</fpage>
+<lpage>1016</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.113.152736</pub-id>
+<pub-id pub-id-type="pmid">23770698</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Macgregor</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Knott</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>White</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Visscher</surname>
+<given-names>PM</given-names>
+</name>
+</person-group>
+<article-title>Quantitative trait locus analysis of longitudinal quantitative trait data in complex pedigrees</article-title>
+<source/>Genetics
+          <year>2005</year>
+<volume>171</volume>
+<fpage>1365</fpage>
+<lpage>76</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.105.043828</pub-id>
+<pub-id pub-id-type="pmid">16020786</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Suchocki</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Szyda</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Q</given-names>
+</name>
+</person-group>
+<article-title>Modelling QTL effect on BTA06 using random regression test day models</article-title>
+<source/>J Appl Genet
+          <year>2013</year>
+<volume>54</volume>
+<fpage>49</fpage>
+<lpage>60</lpage>
+<pub-id pub-id-type="doi">10.1007/s13353-012-0114-0</pub-id>
+<pub-id pub-id-type="pmid">23055405</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jiang</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genome wide association studies for milk production traits in Chinese Holstein population</article-title>
+<source/>PloS one
+          <year>2010</year>
+<volume>5</volume>
+<fpage>e13661</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0013661</pub-id>
+<pub-id pub-id-type="pmid">21048968</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Maxa</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Neuditschko</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Russ</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Forster</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Medugorac</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<article-title>Genome-wide association mapping of milk production traits in Braunvieh cattle</article-title>
+<source/>J Dairy Sci
+          <year>2012</year>
+<volume>95</volume>
+<fpage>5357</fpage>
+<lpage>64</lpage>
+<pub-id pub-id-type="doi">10.3168/jds.2011-4673</pub-id>
+<pub-id pub-id-type="pmid">22916942</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<mixed-citation publication-type="other">Ekine, C. C., Rowe, S. J., Bishop, S. C. &amp; de Koning, D.-J. Why breeding values estimated using familial data should not be used for genome-wide association studies. <italic>G3: Genes</italic>|<italic>Genomes</italic>| <italic>Genetics</italic>, g3. 113.008706 (2013).</mixed-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Garrick</surname>
+<given-names>DJ</given-names>
+</name>
+<name>
+<surname>Taylor</surname>
+<given-names>JF</given-names>
+</name>
+<name>
+<surname>Fernando</surname>
+<given-names>RL</given-names>
+</name>
+</person-group>
+<article-title>Deregressing estimated breeding values and weighting information for genomic regression analyses</article-title>
+<source/>Genet Sel Evol
+          <year>2009</year>
+<volume>41</volume>
+<fpage>55</fpage>
+<pub-id pub-id-type="doi">10.1186/1297-9686-41-55</pub-id>
+<pub-id pub-id-type="pmid">20043827</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhu</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A genome-wide association analysis of Framingham Heart Study longitudinal data using multivariate adaptive splines</article-title>
+<source/>BMC Proceedings
+          <year>2009</year>
+<volume>3</volume>
+<fpage>S119</fpage>
+<pub-id pub-id-type="doi">10.1186/1753-6561-3-s7-s119</pub-id>
+<pub-id pub-id-type="pmid">20017984</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Smith</surname>
+<given-names>EN</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Longitudinal genome-wide association of cardiovascular disease risk factors in the Bogalusa heart study</article-title>
+<source/>PLoS Genet
+          <year>2010</year>
+<volume>6</volume>
+<fpage>e1001094</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1001094</pub-id>
+<pub-id pub-id-type="pmid">20838585</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chung</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Zou</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<article-title>Mixed-effects models for GAW18 longitudinal blood pressure data</article-title>
+<source/>BMC Proc
+          <year>2014</year>
+<volume>8</volume>
+<fpage>S87</fpage>
+<pub-id pub-id-type="doi">10.1186/1753-6561-8-S1-S87</pub-id>
+<pub-id pub-id-type="pmid">25519345</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Functional mapping—how to map and study the genetic architecture of dynamic complex traits</article-title>
+<source/>Nature Reviews Genetics
+          <year>2006</year>
+<volume>7</volume>
+<fpage>229</fpage>
+<lpage>237</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg1804</pub-id>
+<pub-id pub-id-type="pmid">16485021</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schaeffer</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Dekkers</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Random regressions in animal models for test-day production in dairy cattle</article-title>
+<source/>Proc. 5th World Congr. Genet. Appl. Livest. Prod
+          <year>1994</year>
+<volume>18</volume>
+<fpage>443</fpage>
+<lpage>446</lpage>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jamrozik</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Schaeffer</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Estimates of genetic parameters for a test day model with random regressions for yield traits of first lactation Holsteins</article-title>
+<source/>Journal of Dairy Science
+          <year>1997</year>
+<volume>80</volume>
+<fpage>762</fpage>
+<lpage>770</lpage>
+<pub-id pub-id-type="doi">10.3168/jds.S0022-0302(97)75996-4</pub-id>
+<pub-id pub-id-type="pmid">9149971</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schaeffer</surname>
+<given-names>LR</given-names>
+</name>
+</person-group>
+<article-title>Application of random regression models in animal breeding</article-title>
+<source/>Livestock Production Science
+          <year>2004</year>
+<volume>86</volume>
+<fpage>35</fpage>
+<lpage>45</lpage>
+<pub-id pub-id-type="doi">10.1016/S0301-6226(03)00151-9</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lillehammer</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Odegard</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Meuwissen</surname>
+<given-names>TH</given-names>
+</name>
+</person-group>
+<article-title>Random regression models for detection of gene by environment interaction</article-title>
+<source/>Genet Sel Evol
+          <year>2007</year>
+<volume>39</volume>
+<fpage>105</fpage>
+<lpage>21</lpage>
+<pub-id pub-id-type="doi">10.1186/1297-9686-39-2-105</pub-id>
+<pub-id pub-id-type="pmid">17306196</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<mixed-citation publication-type="other">Almasy, L. <italic>et al</italic>. Data for Genetic Analysis Workshop 18: human whole genome sequence, blood pressure, and simulated phenotypes in extended pedigrees. In <italic>BMC proceedings</italic> vol. 8 S2 (BioMed Central Ltd, 2014).</mixed-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Aulchenko</surname>
+<given-names>YS</given-names>
+</name>
+<name>
+<surname>de Koning</surname>
+<given-names>DJ</given-names>
+</name>
+<name>
+<surname>Haley</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Genomewide rapid association using mixed model and regression: a fast and simple method for genomewide pedigree-based quantitative trait loci association analysis</article-title>
+<source/>Genetics
+          <year>2007</year>
+<volume>177</volume>
+<fpage>577</fpage>
+<lpage>85</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.107.075614</pub-id>
+<pub-id pub-id-type="pmid">17660554</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Akaike</surname>
+<given-names>H</given-names>
+</name>
+</person-group>
+<article-title>A new look at the statistical model identification</article-title>
+<source/>IEEE transactions on automatic control
+          <year>1974</year>
+<volume>19</volume>
+<fpage>716</fpage>
+<lpage>723</lpage>
+<pub-id pub-id-type="doi">10.1109/TAC.1974.1100705</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schwarz</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Estimating the dimension of a model</article-title>
+<source/>The annals of statistics
+          <year>1978</year>
+<volume>6</volume>
+<fpage>461</fpage>
+<lpage>464</lpage>
+<pub-id pub-id-type="doi">10.1214/aos/1176344136</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grisart</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genetic and functional confirmation of the causality of the DGAT1 K232A quantitative trait nucleotide in affecting milk yield and composition</article-title>
+<source/>Proceedings of the National Academy of Sciences
+          <year>2004</year>
+<volume>101</volume>
+<fpage>2398</fpage>
+<lpage>2403</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0308518100</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene set analysis for longitudinal gene expression data</article-title>
+<source/>BMC Bioinformatics
+          <year>2011</year>
+<volume>12</volume>
+<fpage>273</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-12-273</pub-id>
+<pub-id pub-id-type="pmid">21722407</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hubbard</surname>
+<given-names>KS</given-names>
+</name>
+<name>
+<surname>Gut</surname>
+<given-names>IM</given-names>
+</name>
+<name>
+<surname>Lyman</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>McNutt</surname>
+<given-names>PM</given-names>
+</name>
+</person-group>
+<article-title>Longitudinal RNA sequencing of the deep transcriptome during neurogenesis of cortical glutamatergic neurons from murine ESCs</article-title>
+<source/>F1000Res
+          <year>2013</year>
+<volume>2</volume>
+<fpage>35</fpage>
+<pub-id pub-id-type="pmid">24358889</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hejblum</surname>
+<given-names>BP</given-names>
+</name>
+<name>
+<surname>Skinner</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Thiebaut</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Time-Course Gene Set Analysis for Longitudinal Gene Expression Data</article-title>
+<source/>PLoS Comput Biol
+          <year>2015</year>
+<volume>11</volume>
+<fpage>e1004310</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1004310</pub-id>
+<pub-id pub-id-type="pmid">26111374</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<mixed-citation publication-type="other">Salvian, M. Genome-wide association for somatic cell score in Holstein cows raised in tropical conditions. In <italic>10th World Congress on Genetics Applied to Livestock Production</italic> (Asas, 2014).</mixed-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gao</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Lund</surname>
+<given-names>MS</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Su</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Accuracy of genomic prediction using different models and response variables in the Nordic Red cattle population</article-title>
+<source/>Journal of Animal Breeding and Genetics
+          <year>2013</year>
+<volume>130</volume>
+<fpage>333</fpage>
+<lpage>340</lpage>
+<pub-id pub-id-type="pmid">24074170</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<mixed-citation publication-type="other">Chen, M. <italic>et al</italic>. Admixture mapping analysis in the context of GWAS with GAW18 data. In <italic>BMC proceedings</italic> Vol. 8 S3 (BioMed Central Ltd, 2014).</mixed-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Das</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A dynamic model for genome-wide association studies</article-title>
+<source/>Hum Genet
+          <year>2011</year>
+<volume>129</volume>
+<fpage>629</fpage>
+<lpage>39</lpage>
+<pub-id pub-id-type="doi">10.1007/s00439-011-0960-6</pub-id>
+<pub-id pub-id-type="pmid">21293879</pub-id>
+</element-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xu</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Mapping quantitative trait loci by controlling polygenic background effects</article-title>
+<source/>Genetics
+          <year>2013</year>
+<volume>195</volume>
+<fpage>1209</fpage>
+<lpage>1222</lpage>
+<pub-id pub-id-type="doi">10.1534/genetics.113.157032</pub-id>
+<pub-id pub-id-type="pmid">24077303</pub-id>
+</element-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<mixed-citation publication-type="other">Falconer, D. &amp; Mackay, T. Introduction to Q uantitative Genetics. Longman <bold>19</bold>, 1 (1995).</mixed-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zheng</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Abecasis</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Scheet</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>A comparison of approaches to account for uncertainty in analysis of imputed genotypes</article-title>
+<source/>Genetic epidemiology
+          <year>2011</year>
+<volume>35</volume>
+<fpage>102</fpage>
+<lpage>110</lpage>
+<pub-id pub-id-type="doi">10.1002/gepi.20552</pub-id>
+<pub-id pub-id-type="pmid">21254217</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Tian</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Buckler</surname>
+<given-names>ES</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Z</given-names>
+</name>
+</person-group>
+<article-title>A SUPER powerful method for genome wide association study</article-title>
+<source/>PloS one
+          <year>2014</year>
+<volume>9</volume>
+<fpage>e107684</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0107684</pub-id>
+<pub-id pub-id-type="pmid">25247812</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<mixed-citation publication-type="other">Gilmour, A. <italic>et al</italic>. ASReml user guide. Release 4.1 structural specification. <italic>VSN International Ltd, Hemel Hempstead, HP1 1ES, UK</italic><ext-link ext-link-type="uri" xlink:href="http://www.vsni.co.uk">www.vsni.co.uk</ext-link> (2014).</mixed-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<mixed-citation publication-type="other">Searle, S. R., Casella, G. &amp; McCulloch, C. E. <italic>Variance components</italic>, (John Wiley &amp; Sons, 2009).</mixed-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sargolzaei</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Schenkel</surname>
+<given-names>FS</given-names>
+</name>
+</person-group>
+<article-title>QMSim: a large-scale genome simulator for livestock</article-title>
+<source/>Bioinformatics
+          <year>2009</year>
+<volume>25</volume>
+<fpage>680</fpage>
+<lpage>681</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btp045</pub-id>
+<pub-id pub-id-type="pmid">19176551</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kirkpatrick</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Lofsvold</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Bulmer</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Analysis of the inheritance, selection and evolution of growth trajectories</article-title>
+<source/>Genetics
+          <year>1990</year>
+<volume>124</volume>
+<fpage>979</fpage>
+<lpage>993</lpage>
+<pub-id pub-id-type="pmid">2323560</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<mixed-citation publication-type="other">Benjamini, Y. &amp; Hochberg, Y. Controlling the false discovery rate: a practical and powerful approach to multiple testing. <italic>Journal of the Royal Statistical Society</italic>. <italic>Series B</italic> (<italic>Methodological</italic>), 289–300 (1995).</mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

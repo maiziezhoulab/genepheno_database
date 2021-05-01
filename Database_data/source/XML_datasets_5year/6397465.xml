@@ -1,0 +1,1626 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Genome Biol</journal-id>
+<journal-id journal-id-type="iso-abbrev">Genome Biol</journal-id>
+<journal-title-group>
+<journal-title>Genome Biology</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1474-7596</issn>
+<issn pub-type="epub">1474-760X</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">30823893</article-id>
+<article-id pub-id-type="pmc">6397465</article-id>
+<article-id pub-id-type="publisher-id">1661</article-id>
+<article-id pub-id-type="doi">10.1186/s13059-019-1661-z</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Method</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Genome-scale network model of metabolism and histone acetylation reveals metabolic dependencies of histone deacetylase inhibitors</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Shen</surname>
+<given-names>Fangzhou</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Boccuto</surname>
+<given-names>Luigi</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Pauly</surname>
+<given-names>Rini</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Srikanth</surname>
+<given-names>Sujata</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-8405-5708</contrib-id>
+<name>
+<surname>Chandrasekaran</surname>
+<given-names>Sriram</given-names>
+</name>
+<address>
+<email>csriram@umich.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000000086837370</institution-id><institution-id institution-id-type="GRID">grid.214458.e</institution-id><institution>Department of Biomedical Engineering, </institution><institution>University of Michigan, </institution></institution-wrap>Ann Arbor, MI 48109 USA </aff>
+<aff id="Aff2"><label>2</label>Greenwood Genetics Center, Greenwood, SC 29646 USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000000086837370</institution-id><institution-id institution-id-type="GRID">grid.214458.e</institution-id><institution>Center for Computational Medicine and Bioinformatics, </institution><institution>University of Michigan, </institution></institution-wrap>Ann Arbor, MI 48109 USA </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000000086837370</institution-id><institution-id institution-id-type="GRID">grid.214458.e</institution-id><institution>Rogel Cancer Center, </institution><institution>University of Michigan, </institution></institution-wrap>Ann Arbor, MI 48109 USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>1</day>
+<month>3</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>1</day>
+<month>3</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2019</year>
+</pub-date>
+<volume>20</volume>
+<elocation-id>49</elocation-id>
+<history>
+<date date-type="received">
+<day>8</day>
+<month>11</month>
+<year>2018</year>
+</date>
+<date date-type="accepted">
+<day>21</day>
+<month>2</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s). 2019</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">Histone acetylation plays a central role in gene regulation and is sensitive to the levels of metabolic intermediates. However, predicting the impact of metabolic alterations on acetylation in pathological conditions is a significant challenge. Here, we present a genome-scale network model that predicts the impact of nutritional environment and genetic alterations on histone acetylation. It identifies cell types that are sensitive to histone deacetylase inhibitors based on their metabolic state, and we validate metabolites that alter drug sensitivity. Our model provides a mechanistic framework for predicting how metabolic perturbations contribute to epigenetic changes and sensitivity to deacetylase inhibitors.</p>
+<sec>
+<title>Electronic supplementary material</title>
+<p>The online version of this article (10.1186/s13059-019-1661-z) contains supplementary material, which is available to authorized users.</p>
+</sec>
+</abstract>
+<kwd-group xml:lang="en">
+<title>Keywords</title>
+<kwd>Genome-scale metabolic modeling</kwd>
+<kwd>Metabolic network</kwd>
+<kwd>Protein acetylation</kwd>
+<kwd>Metabolic regulation</kwd>
+<kwd>Protein deacetylases (KDACs)</kwd>
+<kwd>KDAC inhibitors</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2019</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1">
+<title>Background</title>
+<p id="Par2">Protein acetylation is a highly conserved mechanism to regulate many cellular processes including transcription and metabolism. The substrate for acetylation, acetyl-CoA, is a central metabolic intermediate at the crossroads of anabolic and catabolic pathways [<xref ref-type="bibr" rid="CR1">1</xref>]. Protein acetylation is thus sensitive to the metabolic state of the cell [<xref ref-type="bibr" rid="CR2">2</xref>]. Biochemical assays in <italic>Saccharomyces cerevisiae</italic> and human cell lines have shown that levels of acetyl-CoA directly affect protein acetylation [<xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR5">5</xref>]. Hundreds of proteins, including metabolic enzymes, are regulated by acetylation [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR7">7</xref>]. Acetylation can also influence gene expression through post-translational modification of histones. Cells rely on histone acetylation to increase chromatin accessibility and influence gene expression [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR8">8</xref>].</p>
+<p id="Par3">Given its pervasive regulatory role, altered acetylation is believed to play a part in a variety of diseases including cancer and metabolic disorders such as diabetes, obesity, dyslipidemia, and hypertension [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR9">9</xref>–<xref ref-type="bibr" rid="CR11">11</xref>]. Since metabolic alterations and dysregulation of protein acetylation are important cancer hallmarks, understanding the interplay between these processes can reveal novel therapeutic targets against cancer. However, predicting the interplay between these two processes is challenging due to acetyl-CoA’s pervasive role in metabolism, and due to the highly interconnected nature of the metabolic network. No theoretical approach exists to predict the impact of the change in cellular metabolism on protein acetylation.</p>
+<p id="Par4">Creating a model of metabolism and protein acetylation can enable the prediction of the impact of nutrient shifts or mutations in metabolic enzymes on the epigenome. This can shed light on metabolic and chromatin dysregulation during tumorigenesis [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR13">13</xref>]. Compounds that disrupt acetylation machinery such as deacetylase inhibitors are increasingly used for treating cancers and metabolic and immune disorders [<xref ref-type="bibr" rid="CR10">10</xref>]. Predicting the interplay between metabolism and acetylation can identify cancer cells that are sensitive to deacetylase inhibitors based on their metabolic state.</p>
+<p id="Par5">To address this challenge, here we develop a computational model of metabolism and protein acetylation using constraint-based modeling (CBM). CBM makes use of metabolic network reconstructions that represent the mechanistic relationships between genes, proteins, and metabolites within a biological system. CBM has been successfully used to predict the metabolic state of various mammalian systems, including cancer cells and stem cells [<xref ref-type="bibr" rid="CR14">14</xref>–<xref ref-type="bibr" rid="CR17">17</xref>]. We hypothesized that protein acetylation dynamics can be inferred from the metabolic network topology and stoichiometry.</p>
+<p id="Par6">We demonstrate that our metabolic model can explain known acetylation changes associated with nutrient excess and starvation based on the availability of carbon units. We then apply our acetylation model to predict and validate the impact of cellular metabolic state on sensitivity to drugs that disrupt acetylation, specifically protein deacetylase inhibitors that are currently used in the clinic for anticancer therapy. Our approach allowed us to predict the variation in sensitivity between deacetylase inhibitors based on their unique impact on cellular metabolism.</p>
+</sec>
+<sec id="Sec2">
+<title>Results</title>
+<sec id="Sec3">
+<title>Simulating the effect of the metabolic state on acetylation</title>
+<p id="Par7">To simulate the influence of metabolism on acetylation, a nuclear protein acetylation reaction (protein + acetyl-CoA → acetyl-protein + CoA) was incorporated into the human metabolic network reconstruction by Duarte et al., which contains 3747 reactions, 1496 ORFs, 2004 proteins, and 2766 metabolites [<xref ref-type="bibr" rid="CR18">18</xref>]. A nuclear ATP citrate lyase reaction and nuclear transport of citrate and oxaloacetate were also included to enable synthesis of acetyl-CoA in the nucleus based on recent biochemical evidence [<xref ref-type="bibr" rid="CR19">19</xref>]. Since acetyl-CoA and substrates for acetyl-CoA synthesis can diffuse between the cytosol and nucleus through the nuclear pore, the flux through the protein acetylation reaction is representative of acetylation changes in both cytosol and nuclear proteins.</p>
+<p id="Par8">To predict the impact of the cellular metabolic state on acetylation, we subjected the metabolic model to different nutrient environments and simulated the impact on acetylation (Figs. <xref ref-type="fig" rid="Fig1">1</xref> and <xref ref-type="fig" rid="Fig2">2</xref>a). Specifically, the effect of addition or removal of glucose, glutamine, essential amino acids, and trace nutrients on acetylation was simulated using flux balance analysis (FBA) [<xref ref-type="bibr" rid="CR20">20</xref>]. FBA identifies an optimal flux through the metabolic network that maximizes an objective. In this case, we use the commonly used FBA objective, the maximization of biomass production. We also included the flux through the protein acetylation reaction as a secondary FBA objective, i.e., it has a relatively small optimization weight compared to biomass. The underlying assumption is that acetylation will consume a small fraction of the cellular resources compared to biomass synthesis (<xref ref-type="sec" rid="Sec11">Methods</xref>). To support this assumption, we used data from total potential acetylation sites in the human genome [<xref ref-type="bibr" rid="CR13">13</xref>] and experimental data on carbon flux tracing [<xref ref-type="bibr" rid="CR21">21</xref>]. We mathematically estimated that diverting a small fraction (&lt; 5%) of the cytoplasmic flux of acetyl-CoA would be sufficient to acetylate all the sites in a cell in 24 h (<xref ref-type="sec" rid="Sec11">Methods</xref>).<fig id="Fig1"><label>Fig. 1</label><caption><p>Overview of our systems approach to predict the impact of metabolism on acetylation. Using a genome-scale metabolic model, we first simulate the effect of different nutrient environments and gene deletions on protein acetylation. We then simulate the impact of the cellular metabolic state on vulnerability to compounds that disrupt acetylation (protein deacetylase inhibitors). We subsequently predict variation in susceptibility to these drugs between different cell types depending on their metabolic state. Abbreviations—A, B are metabolites and Enz1, Enz2, and Enz3 are metabolic enzymes</p></caption><graphic id="MO1" xlink:href="13059_2019_1661_Fig1_HTML"></graphic></fig><fig id="Fig2"><label>Fig. 2</label><caption><p>Predicting the effect of genetic deletion and nutrient changes on bulk acetylation using FBA. <bold>a</bold> The bar chart depicts the impact of reducing (purple bars) or increasing (orange bars) the level of metabolites in the culture media on acetylation flux (mmol/h per gram dry weight). <bold>b</bold> The plot shows the effect of gene deletions on bulk acetylation. The impact of gene deletion on the biomass production was used as a counter-screen to identify those genes that specifically impact protein acetylation. Gene deletions that exhibit at least 50% of the wild-type biomass production rate are shown. The top 20 genes that preferentially affect acetylation over growth are highlighted as red markers and displayed in the table. <bold>c</bold> Our model correctly predicted the impact of removing amino acids, pyruvate, glucose, acetate, fatty acids, vitamins, and minerals from the media on acetylation. The plus/minus sign indicates the presence or absence of specific nutrients in the media. Conditions predicted to have less than 5% of the wild-type acetylation flux by the model were assumed to be not supporting acetylation. Conditions experimentally observed to support (+) or not support (−) acetylation are also denoted by a plus or minus sign. The condition with incorrect prediction is shown in red. This incorrect prediction was resolved by accounting for trace nutrients in serum (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S1)</p></caption><graphic id="MO2" xlink:href="13059_2019_1661_Fig2_HTML"></graphic></fig></p>
+<p id="Par9">The metabolic model recapitulated known acetylation changes occurring due to a shift in the metabolic state. Switching to high or low glucose significantly affected acetylation levels, which are known to change with glucose flux [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR19">19</xref>] (Fig. <xref ref-type="fig" rid="Fig2">2</xref>a). Bulk histone acetylation in yeast cells has also been shown to be responsive to glucose availability [<xref ref-type="bibr" rid="CR3">3</xref>]. Addition of acetate, hypoxia, and starvation of amino acids also increased acetylation flux, consistent with experimental observations [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR22">22</xref>–<xref ref-type="bibr" rid="CR26">26</xref>]. To further validate the impact of media components on acetylation predicted by the model, we compared predictions with data from recent biochemical studies [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR27">27</xref>–<xref ref-type="bibr" rid="CR29">29</xref>] (Fig. <xref ref-type="fig" rid="Fig2">2</xref>c). Specifically, these studies measured the impact of addition or removal of amino acids, glucose, acetate, minerals, and vitamins on histone acetylation in cancer cell lines. Our model correctly predicted the impact of 19 out of the 20 nutrient changes. These results suggest that acetylation levels can be predicted based on the carbon flux and energetic state of the cell.</p>
+<p id="Par10">The ability of the model to reproduce these diverse observations provided new insights on the interaction between acetylation and metabolism. Our analysis suggests that bulk acetylation reflects excess carbon flux that is not used for biomass synthesis. Hence, the model predicted acetylation even in the absence of growth, which was observed experimentally in conditions with a carbon source but without a nitrogen source (i.e., depletion of amino acids). In contrast, growth conditions without excess carbon, such as those with amino acids alone, did not display histone acetylation (Fig. <xref ref-type="fig" rid="Fig2">2</xref>c).</p>
+<p id="Par11">The inconsistent observation between the model and experiment arose in a media condition lacking the carbon source—glucose. The model did not predict any acetylation, while it was observed experimentally. Acetylation in this condition was only possible in the model if there was an additional carbon source such as acetate or fatty acids. A recent study has found significant levels of acetate in DMEM media, which is usually not accounted for in biochemical studies [<xref ref-type="bibr" rid="CR30">30</xref>]. This acetate can replenish cellular acetyl-CoA pools [<xref ref-type="bibr" rid="CR30">30</xref>], and our modeling suggests that this can potentially support histone acetylation. We then re-evaluated the model predictions after including all nutrients that can be present in trace amounts in serum—amino acids from uptake or degradation of serum proteins, trace amounts of fatty acids, and acetate. These components are sufficient to support acetylation in this condition that contained all major nutrients except glucose. However, the trace nutrients were insufficient to promote acetylation if no major nutrients were present (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S1). Thus, this inconsistent prediction points to the potential role of additional components in culture media that can impact acetylation.</p>
+</sec>
+<sec id="Sec4">
+<title>Metabolic modeling predicts bulk histone acetylation levels in diverse cancer cell lines</title>
+<p id="Par12">Since FBA correctly identified the impact of distinct metabolic conditions on acetylation levels, we next tested if FBA can predict more nuanced differences in the basal metabolic state and acetylation levels between different cancer cell lines. We used bulk histone acetylation levels from LeRoy et al.’s study, which measured acetylation levels using quantitative proteomics across a panel of diverse cell lines representing lung, liver, colon, and brain tumors [<xref ref-type="bibr" rid="CR31">31</xref>].</p>
+<p id="Par13">To predict cell-type-specific changes in acetylation levels due to their underlying metabolism, we inferred their metabolic state from gene expression data [<xref ref-type="bibr" rid="CR32">32</xref>]. Metabolic network models have been applied successfully to predict metabolic behaviors of human tissues and cancer cells using transcriptomic data [<xref ref-type="bibr" rid="CR33">33</xref>–<xref ref-type="bibr" rid="CR36">36</xref>]. We obtained gene expression data for the cell lines in LeRoy et al. study from the Cancer Cell Line Encyclopedia (CCLE) project [<xref ref-type="bibr" rid="CR37">37</xref>] and integrated it with the human metabolic network model using the iMAT approach [<xref ref-type="bibr" rid="CR32">32</xref>] (<xref ref-type="sec" rid="Sec11">Methods</xref>).</p>
+<p id="Par14">The transcriptional state of each cell line resulted in distinct metabolic states and acetylation levels. The predicted acetylation flux of these 14 cell lines was compared to the net acetylation levels measured using proteomics in these cell lines. The acetylation levels predicted by the model correlated significantly across all the cell lines with bulk H3K9 acetylation levels, the major acetylation mark known to be sensitive to metabolism (Pearson’s correlation <italic>R</italic> = 0.6, <italic>p</italic> value = 0.022, FDR &lt; 0.05, Fig. <xref ref-type="fig" rid="Fig3">3</xref>). However, there was low non-significant correlation with other acetylation marks (H3K27, <italic>R</italic> = 0.25, and H3K23, <italic>R</italic> = 0.35). Given the small sample size of our dataset (14 cell lines), the predictive power on other acetylation marks might be discernable in a larger dataset in the future. Overall, our analysis suggests that genome-scale modeling can predict the impact of the cellular metabolic state on bulk histone H3K9 acetylation.<fig id="Fig3"><label>Fig. 3</label><caption><p>Predicting the effect of the basal metabolic state on histone acetylation levels using FBA. <bold>a</bold> Schematic of the approach to infer the basal metabolic state using transcriptomic data. The iMAT approach was used to integrate transcriptome data from a panel of cancer cell lines with the human metabolic network model to infer cell-line-specific metabolic state and acetylation flux. <bold>b</bold> The scatter plot shows the predicted acetylation flux (mmol/gDW cells/h) in each cell line and the bulk histone H3K9 acetylation levels from proteomics. The acetylation flux correlated significantly with the level of bulk histone H3K9 acetylation in these cell lines. The acetylation flux in the high flux group of cell lines is constrained by the availability of carbon units</p></caption><graphic id="MO3" xlink:href="13059_2019_1661_Fig3_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec5">
+<title>Predicting metabolic enzymes that affect protein acetylation</title>
+<p id="Par15">We next performed gene deletion analysis to discover metabolic genes that can impact acetylation. We systematically knocked out all 1487 metabolic genes in our model and quantified the effect on protein acetylation (Fig. <xref ref-type="fig" rid="Fig2">2</xref>b). This analysis identified 24 metabolic genes that reduced acetylation flux by 1% or more relative to wild type (hereafter referred to as acetylation-impacting genes). This includes those known to affect acetylation such as enzyme ATP citrate lyase (ACLY), TCA cycle genes such as IDH and SDH, and the mitochondrial citrate transporter SLC25A1 (Table <xref ref-type="table" rid="Tab1">1</xref>). Cells lacking the ACLY displayed severely reduced levels of bulk histone acetylation [<xref ref-type="bibr" rid="CR24">24</xref>]. In addition to the 24 acetylation-impacting genes, we also identified 39 genes that increased acetylation when deleted (hereafter referred to as acetylation-enhancing genes). This set of 39 genes is involved in reactions that consume acetyl-CoA. These include reactions in fatty acid synthesis, one-carbon metabolism, and amino acid synthesis that consume carbon units (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S1).<table-wrap id="Tab1"><label>Table 1</label><caption><p>Functional significance of the 24 metabolic genes predicted by the model to impact acetylation</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Gene</th><th>Gene description</th><th>1. Acetylated?</th><th>2. Interacts with acetylase?</th><th>3. Interacts with deacetylase?</th><th>4. Sirtuin target?</th></tr></thead><tbody><tr><td>AASS</td><td>Aminoadipate-semialdehyde synthase</td><td>X</td><td></td><td></td><td></td></tr><tr><td>ACLY</td><td>ATP citrate lyase</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>ACO2</td><td>Aconitase 2, mitochondrial</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>ALDH1L1</td><td>Aldehyde dehydrogenase 1 family, member L1</td><td>X</td><td></td><td></td><td></td></tr><tr><td>CS</td><td>Citrate synthase</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>FAH</td><td>Fumarylacetoacetate hydrolase (fumarylacetoacetase)</td><td>X</td><td></td><td></td><td></td></tr><tr><td>FH</td><td>Fumarate hydratase</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>GOT1</td><td>Glutamic-oxaloacetic transaminase 1, soluble (aspartate aminotransferase 1)</td><td>X</td><td></td><td></td><td></td></tr><tr><td>GSTZ1</td><td>Glutathione transferase zeta 1</td><td>X</td><td></td><td></td><td></td></tr><tr><td>HGD</td><td>Homogentisate 1,2-dioxygenase</td><td>X</td><td></td><td></td><td></td></tr><tr><td>HPD</td><td>4-Hydroxyphenylpyruvate dioxygenase</td><td></td><td></td><td></td><td></td></tr><tr><td>IDH2</td><td>Isocitrate dehydrogenase 2 (NADP+), mitochondrial</td><td>X</td><td></td><td>X</td><td>X</td></tr><tr><td>PC</td><td>Pyruvate carboxylase</td><td>X</td><td>X</td><td></td><td></td></tr><tr><td>OAT</td><td>Ornithine aminotransferase</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>RBKS</td><td>Ribokinase</td><td></td><td></td><td></td><td></td></tr><tr><td>RPE</td><td>Ribulose-5-phosphate-3-epimerase</td><td></td><td></td><td></td><td></td></tr><tr><td>SDHA</td><td>Succinate dehydrogenase complex, subunit A, flavoprotein</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>SDHB</td><td>Succinate dehydrogenase complex, subunit B, iron sulfur (Ip)</td><td></td><td>X</td><td>X</td><td>X</td></tr><tr><td>SDHC</td><td>Succinate dehydrogenase complex, subunit C</td><td></td><td></td><td></td><td>X</td></tr><tr><td>SDHD</td><td>Succinate dehydrogenase complex, subunit D</td><td></td><td></td><td></td><td>X</td></tr><tr><td>SHMT1</td><td>Serine hydroxymethyltransferase 1 (soluble)</td><td>X</td><td>X</td><td></td><td></td></tr><tr><td>SLC25A1</td><td>Solute carrier family 25 (mitochondrial carrier; citrate transporter)</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>SUOX</td><td>Sulfite oxidase</td><td>X</td><td></td><td></td><td></td></tr><tr><td>TALDO1</td><td>Transaldolase 1</td><td>X</td><td>X</td><td></td><td></td></tr></tbody></table><table-wrap-foot><p>Column 1 shows acetylation status based on protein acetylation database. Column 2 shows proteins that are found to physically interact with an acetylase. Column 3 shows proteins that are found to physically interact with a deacetylase enzyme. Column 4 shows predicted targets of sirtuins, a major class of deacetylases (X mark implies true)</p></table-wrap-foot></table-wrap></p>
+<p id="Par16">Our analysis uncovered several novel enzymes in addition to those that have been previously reported to impact acetylation. To assess the biological significance of this prediction, we compared the 24 acetylation-impacting metabolic genes with data from the protein acetylation database [<xref ref-type="bibr" rid="CR38">38</xref>], which catalogs all known acetylation targets in humans. Proteomic studies have identified several metabolic enzymes as targets of acetylation [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR39">39</xref>]. Proteins encoded by 18 of the 24 acetylation-impacting genes were themselves targets of protein acetylation. In addition, a significant fraction of the enzymes predicted to affect acetylation by the model were found to be direct targets of Sirtuins, a major class of deacetylases. The fraction of enzymes that were found to be acetylated and deacetylated among those predicted by the metabolic model were significantly higher than would be expected by chance (<italic>p</italic> value = 8 × 10<sup>− 15</sup> for acetylation and <italic>p</italic> value = 9 × 10<sup>− 6</sup> for deacetylation respectively; Table <xref ref-type="table" rid="Tab1">1</xref>). Intriguingly, none of the 39 acetylation-increasing genes were targets of Sirtuins, suggesting that Sirtuins regulate reactions involved in production but not the consumption of acetyl units.</p>
+<p id="Par17">To further corroborate our predictions of enzymes that impact acetylation, physical interaction data from literature were mined for associations between metabolic enzymes and acetylation machinery. Proteins involved in the same cellular process are more likely to physically interact [<xref ref-type="bibr" rid="CR40">40</xref>]. We hypothesized that the metabolic enzymes identified by our model to affect acetylation levels will have strong physical interactions with acetylation or deacetylated-related enzymes.</p>
+<p id="Par18">Using data from the Biogrid database [<xref ref-type="bibr" rid="CR41">41</xref>], which contains physical interaction data curated from literature, interactions between metabolic and acetylation-related enzymes in human cells were identified. Several metabolic enzymes predicted by our model to influence acetylation interacted physically with either a protein acetylase or deacetylase enzyme (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S2, Table S3). This overlap is significantly higher than expected by randomly choosing a metabolic enzyme (<italic>p</italic> value = 0.01 and 0.002 for acetylation-impacting and acetylation-enhancing enzymes respectively, hypergeometric test). Further, we compared the extent of overlap with acetylases and deacetylases separately. We observed a significant overlap between acetylation-enhancing genes with protein deacetylases but not with acetylases (<italic>p</italic> value = 0.0004 and 0.07 respectively). In contrast, acetylation-impacting genes have a significant number of interactions with both protein acetylases and deacetylases (<italic>p</italic> value = 0.003 and 0.005 respectively). Thus, acetylases predominantly interact with enzymes that lead to the synthesis of acetyl units. For example, the acetylation-impacting enzyme ACLY had physical interactions with several acetylases. ACLY is known to be transported to the nucleus to facilitate acetylation [<xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. The physical interaction suggests that the product of the ACLY metabolic reaction (acetyl-CoA) can be directly channeled as substrate for acetylases. We also found physical interactions between the TCA cycle enzymes citrate synthase (CS) and succinate dehydrogenase (SDH) with deacetylase enzymes HDAC5 and SIRT7 respectively. Overall, our results suggest that enzymes identified by our model to impact acetylation show strong functional association with protein acetylation pathways, thus corroborating our predictions.</p>
+</sec>
+<sec id="Sec6">
+<title>Altering sensitivity of cancer cells to protein deacetylase inhibitors by changing their metabolic state</title>
+<p id="Par19">Our analysis so far suggests that genome-scale modeling can predict the impact of the metabolic state on global protein acetylation. We next predicted the impact of the cellular metabolic state on susceptibility to drugs that disrupt cellular protein acetylation, specifically protein deacetylase inhibitors. The human genome encodes 18 different lysine deacetylases (KDACs) that regulate numerous biochemical pathways [<xref ref-type="bibr" rid="CR7">7</xref>]. KDACs are considered attractive therapeutic targets for treating not just cancers, but also viral infections, inflammation, neurodegenerative diseases, and metabolic disorders [<xref ref-type="bibr" rid="CR10">10</xref>]. Four deacetylase inhibitors (vorinostat, romidepsin, belinostat, panobinostat) are approved clinically for cancer treatment [<xref ref-type="bibr" rid="CR44">44</xref>]. However, identifying tumors that are sensitive to these drugs is a significant clinical challenge [<xref ref-type="bibr" rid="CR45">45</xref>, <xref ref-type="bibr" rid="CR46">46</xref>].</p>
+<p id="Par20">Deacetylase enzymes catalyze the removal of acetylation marks from histones and other proteins. They are sensitive to, and directly impact, the metabolic state of the cell [<xref ref-type="bibr" rid="CR47">47</xref>]. Deacetylase inhibitors block the deacetylation of proteins and are predicted to cause cell death by increasing histone acetylation and triggering apoptosis [<xref ref-type="bibr" rid="CR45">45</xref>, <xref ref-type="bibr" rid="CR46">46</xref>, <xref ref-type="bibr" rid="CR48">48</xref>]. Hence, we hypothesized that conditions that favor increased acetylation should enhance sensitivity to these drugs.</p>
+<p id="Par21">Since genome-scale modeling allowed us to predict metabolic conditions that increased protein acetylation, we next used it to predict conditions that enhance sensitivity to deacetylase inhibitors. Specifically, we explored the use of metabolic network modeling to identify cell types that are sensitive to KDAC inhibition based on their metabolic and acetylation state. This can enable in silico identification of tumors most sensitive to these drugs.</p>
+<p id="Par22">To validate our hypothesis, we experimentally measured the sensitivity of the ovarian cancer cell line (HeLa) to vorinostat (also known as suberoylanilide hydroxamic acid (SAHA)). Vorinostat was the first approved histone deacetylase inhibitor. HeLa cells were cultured in 92 different metabolic conditions using Biolog phenotype microarrays and exposed to vorinostat or control (DMSO). The culture conditions in the Biolog arrays included a wide range of carbon sources that result in distinct patterns of metabolic activity in the cell [<xref ref-type="bibr" rid="CR49">49</xref>]. This broad range of metabolic activity allowed us to assess the impact of the metabolic state of the cell on vorinostat sensitivity.</p>
+<p id="Par23">The growth inhibition by vorinostat, quantified by area under the growth curve (AUC) relative to control, changed significantly with different nutrient conditions (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S4). Some growth conditions such as succinate as a primary carbon source were protective of vorinostat treatment, while growth in fructose or mannose enhanced sensitivity (Fig. <xref ref-type="fig" rid="Fig4">4</xref>). We then predicted the growth rate and acetylation flux in these conditions using metabolic modeling and compared the model predictions with sensitivity to vorinostat. Among all the conditions tested, we compared those substrates that supported growth in Biolog arrays and were part of the metabolic model. The acetylation flux predicted in each condition strongly correlated with vorinostat sensitivity (<italic>R</italic> = − 0.66, <italic>p</italic> value = 0.0051, Fig. <xref ref-type="fig" rid="Fig4">4</xref>; Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S2). Conditions that supported higher acetylation flux had greater growth inhibition, consistent with our hypothesis. In contrast, the predicted growth rate correlated weakly with sensitivity (<italic>R</italic> = − 0.3, <italic>p</italic> value &gt; 0.05).<fig id="Fig4"><label>Fig. 4</label><caption><p>Changing the metabolic state predictably alters sensitivity to the deacetylase inhibitor—vorinostat. <bold>a</bold> Schematic of the phenotype microarray analysis. HeLa cells were cultured in different metabolic conditions and exposed to vorinostat or control (DMSO). The metabolic state and acetylation flux in each condition were determined using FBA. <bold>b</bold> The acetylation flux (mmol/gDW cells/h) correlated significantly with the extent of growth inhibition by vorinostat. The scatter plot shows the predicted acetylation flux in each metabolic condition and the ratio of the area under the growth curve (AUC) for vorinostat treatment relative to control. Conditions with lower ratio (&lt; 1) were more sensitive to vorinostat and showed higher acetylation flux. Average of four replicates shown</p></caption><graphic id="MO4" xlink:href="13059_2019_1661_Fig4_HTML"></graphic></fig></p>
+<p id="Par24">While the predicted sensitivity showed high concordance with experiments across most substrates, the model incorrectly over-predicted acetylation flux and corresponding sensitivity in conditions with maltose and galactose as carbon sources; galactose is metabolized differently despite similarity to glucose [<xref ref-type="bibr" rid="CR50">50</xref>]. Intriguingly, vorinostat enhanced the growth of cells under some conditions. KDAC inhibitors are known to reduce glucose metabolism and increase mitochondrial oxidative metabolism [<xref ref-type="bibr" rid="CR51">51</xref>]. This metabolic impact may be beneficial in conditions that lack glucose or other fermentable sugars. We observed a strong correlation between the extent of growth enhancement and acetylation flux predicted in those conditions (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S2). Hence, KDAC inhibitors may enhance growth in conditions with low acetylation while inhibiting growth in conditions with high acetylation flux. This dependence on the cellular metabolic state may explain the growth-promoting effect of KDAC inhibitor treatment on stem cells and neurons [<xref ref-type="bibr" rid="CR52">52</xref>, <xref ref-type="bibr" rid="CR53">53</xref>].</p>
+</sec>
+<sec id="Sec7">
+<title>Predicting cellular sensitivity to protein deacetylase inhibitors using the metabolic state</title>
+<p id="Par25">Since distinct metabolic conditions showed differences in sensitivity to vorinostat, we next tested if our model can predict more nuanced differences in metabolic activity between different cancer cell lines and their corresponding impact on sensitivity to KDAC inhibitors. Large-scale therapeutic screening data from Seashore-Ludlow et al. was used to identify variation in sensitivity to KDAC inhibitors among a panel of 860 cancer cell lines encompassing various tissue and tumor types [<xref ref-type="bibr" rid="CR54">54</xref>]. The transcriptomic state of these cell lines has been characterized using microarrays as part of the Cancer Cell Line Encyclopedia (CCLE) project [<xref ref-type="bibr" rid="CR37">37</xref>].</p>
+<p id="Par26">We integrated gene expression data for the CCLE cell lines along with their growth media composition with the genome-scale human metabolic network model to infer their metabolic state using the iMAT approach (<xref ref-type="sec" rid="Sec11">Methods</xref>). The sensitivity of these cell lines to vorinostat was compared to the net acetylation flux predicted by the model in each of these cell lines. Overall, the net acetylation flux in these cell lines was bimodal in nature with a very low and high flux group (Fig. <xref ref-type="fig" rid="Fig5">5</xref>b; Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S3). The high flux group showed higher expression levels of reactions associated with acetyl-CoA synthesis and fatty acid metabolism such as acetyl-CoA synthetase and propionyl-CoA carboxylase (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S5).<fig id="Fig5"><label>Fig. 5</label><caption><p>Predicting sensitivity to deacetylase inhibitors by inferring basal metabolic network state. <bold>a</bold> Schematic overview of the analysis comparing the sensitivity of cell lines from CCLE to deacetylase inhibitors and their corresponding metabolic state. <bold>b</bold> The histogram shows the distribution of predicted acetylation flux (mmol/gDW cells/h) among the CCLE cell lines. The data revealed two groups of cell lines—cell lines predicted to have no or very low acetylation flux (flux &lt; 0.05) and a high flux group (flux &gt; 0.05). <bold>c</bold> KDAC inhibitors, vorinostat, panobinostat, belinostat, and entinostat, were significantly more sensitive against the high flux group than the low flux group of cell lines (<italic>p</italic> value &lt; 10<sup>− 5</sup>, <italic>t</italic>-test; Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S3). The bar graphs depict the area under the growth curve (AUC) of CCLE cell lines after treatment with the drugs, with lower AUC implying greater growth inhibition. The results are robust to the cut-offs for high and low acetylation flux group (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S3)</p></caption><graphic id="MO5" xlink:href="13059_2019_1661_Fig5_HTML"></graphic></fig></p>
+<p id="Par27">We compared the sensitivity of the cell lines with high acetylation flux state with those with low acetylation flux. Cell lines with high acetylation flux were found to be significantly more sensitive to vorinostat treatment than those with low acetylation flux (Fig. <xref ref-type="fig" rid="Fig5">5</xref>c; <italic>p</italic> value = 4 × 10<sup>− 6</sup>, <italic>t</italic>-test). This is consistent with the observation across metabolic conditions using Biolog phenotype arrays. The low throughput Biolog assays revealed a strong quantitative relationship with the model predictions. However, these were observed with a single cell line. In contrast, the high-throughput drug-screening assays from Seashore-Ludlow et al. involve hundreds of cell lines. Our results across this large dataset suggest that this is a statistically robust phenomenon.</p>
+<p id="Par28">To assess the generality of this observation to other KDAC inhibitors, we compared the pattern of sensitivity between high and low acetylation flux cell lines using data from three other clinically used KDAC inhibitors that were part of the Seashore-Ludlow et al. dataset—panobinostat, entinostat, and belinostat. Entinostat is currently in phase III clinical trials, and the other two drugs are FDA approved. All these drugs were significantly more sensitive to high acetylation flux state cell lines (<italic>p</italic> value &lt; 10<sup>− 6</sup>, <italic>t</italic>-test; Fig. <xref ref-type="fig" rid="Fig5">5</xref>c, Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S3). Overall, these results suggest that the metabolic and acetylation state is predictive of sensitivity to KDAC inhibitors.</p>
+<p id="Par29">Finally, to assess the specificity of the acetylation flux metric in predicting sensitivity to KDAC inhibitors, we compared the differential sensitivity of all 481 compounds that were part of the Seashore-Ludlow et al. study between the high and low acetylation flux cell lines. KDAC inhibitors were significantly more strongly selective between the two groups than other drug classes (<italic>p</italic> value = 0.003, <italic>t</italic>-test; Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S4). This trend applies to both experimental and clinically used KDAC inhibitors (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S4). Thus, the observed trend is not due to an indirect correlation with other cellular processes such as the growth rate. Indeed, we observed a stronger trend using the Seashore-Ludlow et al. data after correcting for doubling time of each cell type (<italic>p</italic> value = 7 × 10<sup>− 9</sup>, Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S5).</p>
+</sec>
+<sec id="Sec8">
+<title>Predicting variability between protein deacetylase inhibitors</title>
+<p id="Par30">So far, we have predicted the impact of the cellular metabolic state on sensitivity to protein deacetylase inhibitors. We next incorporated the direct impact of these drugs on cellular metabolism. Vorinostat treatment has been previously shown to reduce glucose and fatty acid metabolism in myeloma cell lines [<xref ref-type="bibr" rid="CR51">51</xref>]. Incorporating the impact of these drugs on metabolism would allow us to predict differences in sensitivity resulting from both basal metabolic state and the unique impact of each KDAC inhibitor. KDAC inhibitors display variability in their sensitivity to different cell types [<xref ref-type="bibr" rid="CR53">53</xref>]. KDAC inhibitors block distinct histone deacetylases resulting in transcriptomic changes that influence the levels of metabolic enzymes [<xref ref-type="bibr" rid="CR48">48</xref>, <xref ref-type="bibr" rid="CR53">53</xref>].</p>
+<p id="Par31">To model the unique effect of each drug, we interpreted the pattern of differential gene expression from cells exposed to these drugs with metabolic network models. We used data measured in one representative cell line and used it to predict the metabolic impact of each KDAC inhibitor on all CCLE cell lines. We analyzed transcriptomic signatures of four different KDAC inhibitors (vorinostat, panobinostat, entinostat, and belinostat) before and after treatment from UKN1 cells [<xref ref-type="bibr" rid="CR55">55</xref>]. Several metabolic genes were uniquely differentially expressed in response to each KDAC inhibitor, which may lead to variation in sensitivity (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S6). This list of downregulated and upregulated genes was overlaid onto all the CCLE cell line metabolic models to predict variation in drug sensitivities among the CCLE cell lines. The net acetylation flux due to both basal transcriptomic state and drug-induced transcriptomic changes were determined for all cell lines for the four KDAC inhibitors using the iMAT approach.</p>
+<p id="Par32">We compared the extent of acetylation flux change caused by each drug in a cell line to the sensitivity of each of these drugs. Cell lines showing higher acetylation flux reduction for a drug relative to others displayed significantly greater growth inhibition to that drug, with an average of 25.3% difference in growth (equivalent to 2.6 AUC units, <italic>p</italic> value = 10<sup>− 62</sup>, <italic>t</italic>-test, Fig. <xref ref-type="fig" rid="Fig6">6</xref>). Overall, cell lines with high basal acetylation flux are more sensitive to all KDAC inhibitors; further, the extent of acetylation flux reduction after drug treatment correlates with sensitivity to the corresponding KDAC inhibitor. Thus, combining the impact of basal metabolic state and the impact of KDAC-induced differential enzyme expression can predict both sensitivity and variability between KDAC inhibitors. In sum, our study provides a framework for predicting the potency of KDAC inhibitors from baseline (pre-treatment) transcriptomic profiles. Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S6 summarizes the steps for applying our approach for a new cell line or tumor sample.<fig id="Fig6"><label>Fig. 6</label><caption><p>Metabolic rewiring by KDAC inhibitors predicts variation in sensitivity between these inhibitors among cancer cell lines. <bold>a</bold> Overview of the analysis comparing the sensitivity of CCLE cell lines to four KDAC inhibitors—vorinostat, panobinostat, belinostat, and entinostat. The acetylation flux in each cell line corresponding to each drug treatment was determined by FBA by accounting for both the basal transcriptomic profiles of each cell line and the metabolic impact of these drugs. Cell line-drug combinations were grouped into two classes—the first group of cell line-drug pairs did not show any significant difference in acetylation flux compared to the other drugs, while the second class showed large differences. <bold>b</bold> The histogram and box plots show the distribution of normalized sensitivity scores of the four drugs among the two cell line groups. The experimental sensitivity data was median normalized so that a score of 0 implies that there was no difference in sensitivity between the drugs while a negative score implies greater sensitivity for a drug relative to other three drugs. The normalized sensitivity scores were significantly lower for the group that showed large difference in acetylation flux between the drugs compared to the group that showed no acetylation flux difference (<italic>p</italic> value = 2 × 10<sup>− 62</sup>, <italic>t</italic>-test)</p></caption><graphic id="MO6" xlink:href="13059_2019_1661_Fig6_HTML"></graphic></fig></p>
+</sec>
+</sec>
+<sec id="Sec9">
+<title>Discussion</title>
+<p id="Par33">In this study, we built a genome-scale biochemical model to predict the impact of cellular metabolic state and availability of nutrients on acetylation. A key observation from our study is that histone acetylation dynamics reflects the flux of excess carbon that is not used for biomass synthesis (overflow metabolism). Overflow metabolism has also been proposed to drive acetylation in prokaryotes [<xref ref-type="bibr" rid="CR56">56</xref>, <xref ref-type="bibr" rid="CR57">57</xref>]. Conditions that lack amino acids or oxygen can increase acetylation as there is excess carbon available for acetylation from glucose. Strikingly, we observed acetylation even in certain nutrient starvation conditions that do not support growth, which is also observed experimentally (Fig. <xref ref-type="fig" rid="Fig2">2</xref>c).</p>
+<p id="Par34">Our analysis also identified known and novel metabolic enzymes that can impact acetylation. These predictions were supported by numerous physical interactions between the acetylation-impacting metabolic enzymes predicted by our model with proteins in the acetylation machinery. This suggests that the activity of these metabolic enzymes can impact protein acetylation and are in turn regulated by protein acetylation. This reciprocal regulation to maintain homeostasis has also been observed between metabolic pathways and signaling pathways [<xref ref-type="bibr" rid="CR58">58</xref>–<xref ref-type="bibr" rid="CR60">60</xref>] .</p>
+<p id="Par35">Since acetylation plays a central role in signaling and chromatin regulation, mutations in the acetylation-impacting metabolic genes can significantly affect cellular homeostasis. The acetylation-impacting genes, IDH2, SDHA/B/C, and FH, are annotated as being frequently mutated in cancers in the COSMIC database [<xref ref-type="bibr" rid="CR61">61</xref>]. Aberrant expression of these genes may also lead to altered acetylation in tumors. The genes ACLY, CS, RPE, and IDH2 were found to be among the top 10% of the genes that were frequently overexpressed across 19 cancer types from a meta-analysis study of 1981 tumors (FDR <italic>p</italic> value &lt; 0.05) [<xref ref-type="bibr" rid="CR62">62</xref>]. These genes predicted by our model are potential drug targets for disorders with dysregulated epigenome.</p>
+<p id="Par36">We then demonstrated that our model can predict the impact of the metabolic state on sensitivity to deacetylase inhibitors. We hypothesized that conditions that favor increased acetylation should enhance sensitivity to these drugs, which cause cell death by blocking deacetylation. Consistent with this hypothesis, we were able to predict and validate both metabolic conditions and cell types that show increased sensitivity to these drugs. Our experimental screen across diverse metabolic conditions revealed that sensitivity to vorinostat changed significantly with the metabolic state. Notably, our biochemical model accurately predicted the sensitivity to vorinostat by predicting the acetylation flux in diverse nutrient conditions. Nutrients that were modeled in this study such as glucose, acetate, amino acids, and lactate are also metabolized by tumors in vivo [<xref ref-type="bibr" rid="CR63">63</xref>, <xref ref-type="bibr" rid="CR64">64</xref>]. While glucose is the common carbon source, some tumors also use lactate [<xref ref-type="bibr" rid="CR64">64</xref>]. Our analysis suggests that while glucose condition increases sensitivity, growth in lactate may offer protection against vorinostat. Hence, this drug may be effective only against some tumor types. This is potentially relevant for targeting cancers with distinct metabolic states [<xref ref-type="bibr" rid="CR65">65</xref>]. While the tumor microenvironment is complex and dynamic, our ability to predict the impact of drug efficacy in simple defined environments is the first step towards addressing the in vivo complexity. Our study paves the way for dynamic models that can simulate the impact of changing the metabolic conditions.</p>
+<p id="Par37">Analysis of KDAC inhibitor sensitivity across 860 cancer cell lines revealed that differences in basal metabolic state among cells can lead to variation in sensitivity. Using metabolic modeling, we were able to group cell lines based on their acetylation state and predict those that show increased sensitivity to deacetylase inhibition. Identifying tumors that are sensitive to specific KDAC inhibitors is a significant clinical challenge [<xref ref-type="bibr" rid="CR46">46</xref>]. Our approach can help predict efficacy of deacetylase inhibitors against different cancer types using transcriptomic data. Transcriptomic profiling is increasingly done for tumors for treatment stratification and prognosis [<xref ref-type="bibr" rid="CR66">66</xref>]. A very small tissue sample is needed for transcriptomics compared to the requirements for cell culture and drug screening.</p>
+<p id="Par38">Furthermore, unique differences in the transcriptomic pattern induced by each KDAC inhibitor correlate with variation in sensitivity between these inhibitors. By analyzing sensitivity to four clinically used KDAC inhibitors across all CCLE cell lines, we found that cell lines that showed higher acetylation flux reduction after treatment with a KDAC inhibitor relative to others were more sensitive to the corresponding drug. Our approach complements machine-learning and high-throughput screening approaches [<xref ref-type="bibr" rid="CR67">67</xref>] by providing a rational mechanistic strategy to predict and tune sensitivity of KDAC inhibitors based on acetylation flux. Genome-scale modeling has been shown to accurately predict the metabolic state of cancer cells from transcriptomic data. Future analysis using proteomics and metabolomics data could lead to tumor stratification with greater accuracy.</p>
+<p id="Par39">While we have focused on the impact of metabolism and nutrition on acetylation in this study, the activity of acetylases and metabolic enzymes can also be regulated by signaling pathways which can subsequently impact bulk acetylation levels [<xref ref-type="bibr" rid="CR7">7</xref>]. Further, while our model predicts bulk acetylation levels, it does not provide insights on acetylation changes in specific protein sites. In future, knowledge of specific targets, binding affinity, and expression levels of acetylation and deacetylation enzymes can enable prediction of acetylation dynamics at specific sites in the proteome. Similarly, incorporating the role of redox factors, FADH and NADH, that can influence activity of deacetylases can potentially resolve inconsistencies observed in nutrient conditions such as galactose media that impact redox state [<xref ref-type="bibr" rid="CR68">68</xref>]. Similar to acetylation, which is sensitive to the flux of acetyl-CoA, recent studies have revealed that histone methylation is sensitive to the flux of the substrate S-Adenosyl Methionine (SAM) [<xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR69">69</xref>]. Our study can pave the way for modeling other histone modifications like acylation, succinylation, and methylation that also depend on metabolic intermediates.</p>
+</sec>
+<sec id="Sec10">
+<title>Conclusion</title>
+<p id="Par40">Histone acetylation links gene regulation with metabolism, and aberrant acetylation is associated with cancers and metabolic disorders. Here we developed a genome-scale biochemical network model to predict the impact of metabolism on acetylation. Our model revealed that histone acetylation levels change predictably depending on cellular carbon and nutrient availability. We identified several novel metabolic genes that can impact acetylation when deleted. Our approach provided two key insights related to cellular metabolism and sensitivity to deacetylase inhibition. Firstly, our experimental screen across diverse metabolic conditions and analysis across 860 cancer cell lines revealed that sensitivity to deacetylase inhibitors can be predicted from the cellular metabolic state. Secondly, unique rewiring of metabolic pathways induced by each KDAC inhibitor correlates with variability between these inhibitors. This is potentially relevant for tumor treatment stratification based on the metabolic state. Overall, our study demonstrates the strong and predictable interconnection between metabolism and acetylation.</p>
+</sec>
+<sec id="Sec11">
+<title>Methods</title>
+<sec id="Sec12">
+<title>Flux balance analysis (FBA)</title>
+<p id="Par41">In FBA, an optimal metabolic flux state is determined that maximizes an objective (usually the biomass). We used the biomass composition from Shlomi et al. [<xref ref-type="bibr" rid="CR70">70</xref>] for the growth objective function. The biomass objective function represents the steady-state consumption of 42 essential metabolites, such as nucleotides, amino acids, and lipids required for cellular proliferation. In addition to maximizing the objective, the following constraints are satisfied—(1) the system is at steady state with mass balanced for all species (i.e., no accumulation or depletion of any intracellular metabolites in the network) and (2) the specified upper and lower bounds for each reaction in the network are not violated. FBA was used for simulating the impact of gene deletions and metabolic environment on protein acetylation. A total of 50 nutrients commonly present in rich media culture were used as starting points for nutrient addition in excess and nutrient removal.</p>
+<p id="Par42">FBA was performed in different nutrient environments with the protein acetylation reaction as the secondary objective (Optimization objective: maximize Biomass_reaction + epsilon × acetylation_reaction). Acetylation flux is optimized after biomass synthesis is maximized. We used a parameter (“epsilon”) to incorporate the relative weights for optimizing biomass flux relative to acetylation. Changing the value of epsilon (i.e., relative weights) over a 10,000-fold range from 0.01 to 10<sup>− 6</sup> does not influence the value of acetylation flux and the accuracy of our approach (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S7, Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S7). The two objectives optimized here can be conflicting or potentially independent depending on nutrient availability. Since acetylation flux is a secondary objective for our optimization, any value of epsilon that is relatively small compared to biomass function would lead to the same value of acetylation flux. The mathematical approach used here with separate weights for different objectives is the most common way of solving such multi-objective problems [<xref ref-type="bibr" rid="CR71">71</xref>]. This approach is scalable to any number of objectives.</p>
+</sec>
+<sec id="Sec13">
+<title>Total carbon flux necessary for acetylation compared to other biosynthetic processes</title>
+<p id="Par43">Using data from total potential acetylation sites in the human genome [<xref ref-type="bibr" rid="CR13">13</xref>], we find that diverting a small fraction of the cytoplasmic flux of acetyl-CoA would be sufficient to acetylate all the sites in a cell. The observed flux through cytosolic acetyl-CoA synthesis reaction in human iBMK cells is 2 nmol/h/μlcells [<xref ref-type="bibr" rid="CR21">21</xref>], which is equivalent to 10<sup>9</sup> molecules per hour in each cell. Assuming a total of 10<sup>9</sup> acetylation sites in a mammalian cell [<xref ref-type="bibr" rid="CR13">13</xref>], redirecting 1/24th of the cytosolic acetyl-CoA production flux towards the nucleus in a period of 24 h can be sufficient to saturate all the histone acetylation sites, assuming a relatively low rate of deacetylation [<xref ref-type="bibr" rid="CR63">63</xref>]. The mitochondrial carbon flux towards acetyl-CoA is 10-fold higher than cytosolic flux [<xref ref-type="bibr" rid="CR21">21</xref>]. This suggests that redirection of carbon flux towards acetylation will not significantly impact biomass synthesis.</p>
+</sec>
+<sec id="Sec14">
+<title>Transcriptomic data integration</title>
+<p id="Par44">To integrate transcriptomic data with the metabolic network model, we used a linear version of the iMAT approach [<xref ref-type="bibr" rid="CR32">32</xref>] implemented in the PROM algorithm [<xref ref-type="bibr" rid="CR72">72</xref>]. In the iMAT approach, the number of active reactions associated with genes that are upregulated or highly expressed is maximized, while flux through reactions associated with downregulated reactions are minimized. The linear optimization version of the iMAT approach allows for continuous restriction of fluxes instead of setting reactions to be completely on or off [<xref ref-type="bibr" rid="CR72">72</xref>]. The constraints are flexible, i.e., they allow for violation of individual constraints in order to maximize the overall consistency with the data. These inconsistencies may represent sites of regulation by other regulatory mechanisms [<xref ref-type="bibr" rid="CR32">32</xref>]. We used this approach to infer a cell-type-specific metabolic state using transcriptomic data for CCLE cell lines and to incorporate transcriptomic evidence from KDAC inhibitor profiling data. The optimization problem was solved using the Gurobi mathematical programming solver. The entire series of steps for predicting acetylation flux from transcriptomic data is outlined in Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S8 and Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S9.</p>
+<p id="Par45">To assess the robustness of our results to the method of transcriptome integration, we repeated all our analyses with an alternative approach for transcriptomic data integration called GIMME [<xref ref-type="bibr" rid="CR73">73</xref>]. This approach differs from the iMAT approach in that it assumes a direct linear association between extent of downregulation of a gene’s expression and the downregulation of flux through the corresponding enzyme encoded by it. We found that our results from this approach are consistent with our results using iMAT (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S8).</p>
+</sec>
+<sec id="Sec15">
+<title>Small molecule therapeutic screening data</title>
+<p id="Par46">Area under the growth curve (AUC) values for the small molecule therapeutic screening data for 481 compounds against 860 cell lines were obtained from Seashore-Ludlow et al. along with media used for each of the 860 cell lines. The media composition and transcriptomic data for these cell lines from CCLE was used to infer the metabolic network state for these cell lines as described above. In order to estimate the impact of the cellular doubling rate on drug sensitivity, we also used data from Hafner et al. that controls for this effect [<xref ref-type="bibr" rid="CR74">74</xref>]. The growth-controlled efficacy metric was found to be superior to existing metrics for assessing the efficacy of drugs in dividing cells. Cell lines with missing growth inhibition values for the KDAC inhibitors were removed from the statistical analysis.</p>
+</sec>
+<sec id="Sec16">
+<title>Biolog phenotype microarray (PM) measurement</title>
+<p id="Par47">The phenotype microarray (PM) plates from Biolog Inc. (Hayward, CA, USA) contain diverse energy sources to profile the metabolic capabilities of a cell. Each well in a PM plate contains a single chemical as the sole energy source and production of NADH per well is monitored using a colorimetric redox dye chemistry. As the cells metabolize the energy source, tetrazolium dye in the media is reduced, producing a purple color according to the amount of NADH generated. The PM-M1 plate used in this study contains 92 different carbon energy sources along with negative control wells.</p>
+<p id="Par48">Biolog PM assays were performed as described in Boccuto et al. [<xref ref-type="bibr" rid="CR75">75</xref>]. Viable cells were counted utilizing a TC20™ Automated Cell Counter. PM-M1 plates were incubated with 20,000 viable cells per well in a volume of 50 μL. The cells were incubated at 37 °C in 5% CO<sub>2</sub>, using the modified Biolog IF-M1 medium [<xref ref-type="bibr" rid="CR75">75</xref>]. HeLa cells were exposed to vorinostat (2 μM) or DMSO (control) at the time they were added to the Biolog PM plates, for a 72-h exposure. The experiment was conducted in four replicates using the PM-M1 plate. During the final 24 h of exposure, the optical density of each well was measured every 15 min. The optical readings were normalized using quadruplicate readings from an empty plate (plates run with no cells, just media and dye). The normalized optical density readings were used for statistical analysis.</p>
+<p id="Par49">To control for the impact of slow or no growth, we used only those conditions that supported any growth above negative control (Background). Using various thresholds for growth did not impact the strong correlation between the predicted acetylation flux and growth inhibition (Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Figure S2).</p>
+</sec>
+<sec id="Sec17">
+<title>Statistical analysis</title>
+<p id="Par50">The significance of overlap between gene lists was estimated using the hypergeometric test in MATLAB. Biolog data analysis was performed in R.</p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Additional file</title>
+<sec id="Sec18">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="13059_2019_1661_MOESM1_ESM.pdf"><label>Additional file 1:</label><caption><p>File contains Supplementary figures 1-9 and Supplementary tables 1-8. (PDF 1.8 MB)</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgements</title>
+<p>We are grateful to members of the Chandrasekaran laboratory for feedback and suggestions.</p>
+<sec id="FPar1">
+<title>Funding</title>
+<p id="Par51">This work was supported by faculty start-up funds from the University of Michigan to SC. The funding body had no role in the design of the study and collection, analysis, and interpretation of data and in writing the manuscript.</p>
+</sec>
+<sec id="FPar2" sec-type="data-availability">
+<title>Availability of data and materials</title>
+<p id="Par52">The MATLAB implementation of the metabolism-histone acetylation model, the source code for simulating the model and associated data sets are publicly available at the Synapse software repository under the GNU General Public License (<ext-link ext-link-type="uri" xlink:href="http://synapse.org/MetabolismEpigenomeModel">http://synapse.org/MetabolismEpigenomeModel</ext-link>) (DOI: 10.7303/syn17114770) [<xref ref-type="bibr" rid="CR76">76</xref>]. Instructions for running the model and reproducing the data in the manuscript are also provided.</p>
+<p id="Par53">The Biolog phenotype microarray data generated in this study is provided in Additional file <xref ref-type="media" rid="MOESM1">1</xref>: Table S4. The small molecule therapeutic screening data is available as Supplementary material (Supplementary Table S3) from Seashore-Ludlow et al. [<xref ref-type="bibr" rid="CR54">54</xref>]. Bulk histone acetylation levels were obtained from the supplementary information of the LeRoy et al. study (Additional file <xref ref-type="media" rid="MOESM1">1</xref>) [<xref ref-type="bibr" rid="CR31">31</xref>]. Gene expression data for 14 of the 24 cell lines in LeRoy study and 860 cell lines from Seashore-Ludlow et al. were obtained from the Cancer Cell Line Encyclopedia project (CCLE) [<xref ref-type="bibr" rid="CR77">77</xref>]. Transcriptomics signatures before and after treatment of four different KDAC inhibitors in UKN1 cells were obtained from the Rempel et al. study (Supplementary material 2) [<xref ref-type="bibr" rid="CR55">55</xref>]. The Synapse website also contains these above-mentioned data sets that were used for building and testing the model.</p>
+</sec>
+</ack>
+<notes notes-type="author-contribution">
+<title>Authors’ contributions</title>
+<p>FZ performed the computational analysis. LB, SS, and RP performed the experimental analysis. SC conceived the study, designed research, supervised, and performed research. SC wrote the manuscript with inputs from other authors. All authors read and approved the final manuscript.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar3">
+<title>Ethics approval and consent to participate</title>
+<p>Not applicable</p>
+</sec>
+<sec id="FPar4">
+<title>Consent for publication</title>
+<p>Not applicable</p>
+</sec>
+<sec id="FPar5">
+<title>Competing interests</title>
+<p>The authors declare that they have no competing interests.</p>
+</sec>
+<sec id="FPar6">
+<title>Publisher’s Note</title>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pietrocola</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Galluzzi</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Bravo-San Pedro</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Madeo</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Kroemer</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Acetyl coenzyme A: a central metabolite and second messenger</article-title>
+<source/>Cell Metab
+          <year>2015</year>
+<volume>21</volume>
+<fpage>805</fpage>
+<lpage>821</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cmet.2015.05.014</pub-id>
+<pub-id pub-id-type="pmid">26039447</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kaelin</surname>
+<given-names>WG</given-names>
+</name>
+<name>
+<surname>McKnight</surname>
+<given-names>SL</given-names>
+</name>
+</person-group>
+<article-title>Influence of metabolism on epigenetics and disease</article-title>
+<source/>Cell.
+          <year>2013</year>
+<volume>153</volume>
+<fpage>56</fpage>
+<lpage>69</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2013.03.004</pub-id>
+<pub-id pub-id-type="pmid">23540690</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cai</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Sutter</surname>
+<given-names>BM</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Tu</surname>
+<given-names>BP</given-names>
+</name>
+</person-group>
+<article-title>Acetyl-CoA induces cell growth and proliferation by promoting the acetylation of histones at growth genes</article-title>
+<source/>Mol Cell
+          <year>2011</year>
+<volume>42</volume>
+<fpage>426</fpage>
+<lpage>437</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molcel.2011.05.004</pub-id>
+<pub-id pub-id-type="pmid">21596309</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<mixed-citation publication-type="other">Cluntun AA, Huang H, Dai L, Liu X, Zhao Y, Locasale JW. The rate of glycolysis quantitatively mediates specific histone acetylation sites. Cancer Metab [Internet]. 2015;3:10. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.cancerandmetabolism.com/content/3/1/10">http://www.cancerandmetabolism.com/content/3/1/10</ext-link></mixed-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>JV</given-names>
+</name>
+<name>
+<surname>Shah</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Wellen</surname>
+<given-names>KE</given-names>
+</name>
+</person-group>
+<article-title>Obesity, cancer and acetyl-CoA metabolism</article-title>
+<source/>Drug Discov Today Dis Mech
+          <year>2013</year>
+<volume>10</volume>
+<fpage>e55</fpage>
+<lpage>e61</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ddmec.2013.03.005</pub-id>
+<pub-id pub-id-type="pmid">23878588</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Choudhary</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Weinert</surname>
+<given-names>BT</given-names>
+</name>
+<name>
+<surname>Nishida</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Verdin</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Mann</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>The growing landscape of lysine acetylation links metabolism and cell signalling</article-title>
+<source/>Nat Rev Mol cell Biol
+          <year>2014</year>
+<volume>15</volume>
+<fpage>536</fpage>
+<lpage>550</lpage>
+<pub-id pub-id-type="doi">10.1038/nrm3841</pub-id>
+<pub-id pub-id-type="pmid">25053359</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<mixed-citation publication-type="other">Drazic A, Myklebust LM, Ree R, Arnesen T. The world of protein acetylation. Biochim Biophys Acta - Proteins Proteomics. 2016;1864(10):1372–401.</mixed-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lu</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Thompson</surname>
+<given-names>CB</given-names>
+</name>
+</person-group>
+<article-title>Metabolic regulation of epigenetics</article-title>
+<source/>Cell Metab
+          <year>2012</year>
+<volume>16</volume>
+<fpage>9</fpage>
+<lpage>17</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cmet.2012.06.001</pub-id>
+<pub-id pub-id-type="pmid">22768835</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kaypee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Sudarshan</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Shanmugam</surname>
+<given-names>MK</given-names>
+</name>
+<name>
+<surname>Mukherjee</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Sethi</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Kundu</surname>
+<given-names>TK</given-names>
+</name>
+</person-group>
+<article-title>Aberrant lysine acetylation in tumorigenesis: implications in the development of therapeutics</article-title>
+<source/>Pharmacol Ther
+          <year>2016</year>
+<volume>162</volume>
+<fpage>98</fpage>
+<lpage>119</lpage>
+<pub-id pub-id-type="doi">10.1016/j.pharmthera.2016.01.011</pub-id>
+<pub-id pub-id-type="pmid">26808162</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<mixed-citation publication-type="other">Kinnaird A, Zhao S, Wellen KE, Michelakis ED. Metabolic control of epigenetics in cancer. Nat Rev Cancer. 2016;16(11):694.</mixed-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<mixed-citation publication-type="other">Wagner GR, Payne RM. Mitochondrial acetylation and diseases of aging. J Aging Res. 2011;2011:13. Article ID 234875. 10.4061/2011/234875.</mixed-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<mixed-citation publication-type="other">Wong CC, Qian Y, Yu J. Interplay between epigenetics and metabolism in oncogenesis: mechanisms and therapeutic approaches. Oncogene. 2017;36(24):3359.</mixed-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Martinez-Pastor</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Cosentino</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Mostoslavsky</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>A tale of metabolites: the cross-talk between chromatin and energy metabolism</article-title>
+<source/>Cancer Discov.
+          <year>2013</year>
+<volume>3</volume>
+<fpage>497</fpage>
+<lpage>501</lpage>
+<pub-id pub-id-type="doi">10.1158/2159-8290.CD-13-0059</pub-id>
+<pub-id pub-id-type="pmid">23658298</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bordbar</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Monk</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>King</surname>
+<given-names>ZA</given-names>
+</name>
+<name>
+<surname>Palsson</surname>
+<given-names>BO</given-names>
+</name>
+</person-group>
+<article-title>Constraint-based models predict metabolic and associated cellular functions</article-title>
+<source/>Nat Rev Genet
+          <year>2014</year>
+<volume>15</volume>
+<fpage>107</fpage>
+<lpage>120</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg3643</pub-id>
+<pub-id pub-id-type="pmid">24430943</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<mixed-citation publication-type="other">Nilsson A, Nielsen J. Genome scale metabolic modeling of cancer. Metab Eng. 2017;43:103–12.</mixed-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yizhak</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Chaneton</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Gottlieb</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Ruppin</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>Modeling cancer metabolism on a genome scale</article-title>
+<source/>Mol Syst Biol
+          <year>2015</year>
+<volume>11</volume>
+<fpage>817</fpage>
+<pub-id pub-id-type="doi">10.15252/msb.20145307</pub-id>
+<pub-id pub-id-type="pmid">26130389</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<mixed-citation publication-type="other">Chandrasekaran S, Zhang J, Ross C, Huang Y-C, Asara J, Li H, et al. Comprehensive mapping of pluripotent stem cell metabolism using dynamic genome-scale network modeling. Cell Rep. 2017;21(10):2965–77.</mixed-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Duarte</surname>
+<given-names>NC</given-names>
+</name>
+<name>
+<surname>Becker</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Jamshidi</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Thiele</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Mo</surname>
+<given-names>ML</given-names>
+</name>
+<name>
+<surname>Vo</surname>
+<given-names>TD</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Global reconstruction of the human metabolic network based on genomic and bibliomic data</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2007</year>
+<volume>104</volume>
+<fpage>1777</fpage>
+<lpage>1782</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0610772104</pub-id>
+<pub-id pub-id-type="pmid">17267599</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wellen</surname>
+<given-names>KE</given-names>
+</name>
+<name>
+<surname>Hatzivassiliou</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Sachdeva</surname>
+<given-names>UM</given-names>
+</name>
+<name>
+<surname>Bui</surname>
+<given-names>TV</given-names>
+</name>
+<name>
+<surname>Cross</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Thompson</surname>
+<given-names>CB</given-names>
+</name>
+</person-group>
+<article-title>ATP-citrate lyase links cellular metabolism to histone acetylation</article-title>
+<source/>Science (80- )
+          <year>2009</year>
+<volume>324</volume>
+<fpage>1076</fpage>
+<lpage>1080</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1164097</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Orth</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Thiele</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Palsson</surname>
+<given-names>BØ</given-names>
+</name>
+</person-group>
+<article-title>What is flux balance analysis?</article-title>
+<source/>Nat Biotechnol Nature Research
+          <year>2010</year>
+<volume>28</volume>
+<fpage>245</fpage>
+<lpage>248</lpage>
+<pub-id pub-id-type="doi">10.1038/nbt.1614</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<mixed-citation publication-type="other">Fan J, Kamphorst JJ, Mathew R, Chung MK, White E, Shlomi T, et al. Glutamine-driven oxidative phosphorylation is a major ATP source in transformed mammalian cells in both normoxia and hypoxia. Mol Syst Biol. 2013;9(1):712.</mixed-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Galdieri</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Vancura</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Acetyl-CoA carboxylase regulates global histone acetylation</article-title>
+<source/>J Biol Chem
+          <year>2012</year>
+<volume>287</volume>
+<fpage>23865</fpage>
+<lpage>23876</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.M112.380519</pub-id>
+<pub-id pub-id-type="pmid">22580297</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Galdieri</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Rogerson</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Lleshi</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Vancura</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Protein acetylation and acetyl coenzyme a metabolism in budding yeast</article-title>
+<source/>Eukaryot Cell
+          <year>2014</year>
+<volume>13</volume>
+<fpage>1472</fpage>
+<lpage>1483</lpage>
+<pub-id pub-id-type="doi">10.1128/EC.00189-14</pub-id>
+<pub-id pub-id-type="pmid">25326522</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Takahashi</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>McCaffery</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Irizarry</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Boeke</surname>
+<given-names>JD</given-names>
+</name>
+</person-group>
+<article-title>Nucleocytosolic acetyl-coenzyme a synthetase is required for histone acetylation and global transcription</article-title>
+<source/>Mol Cell
+          <year>2006</year>
+<volume>23</volume>
+<fpage>207</fpage>
+<lpage>217</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molcel.2006.05.040</pub-id>
+<pub-id pub-id-type="pmid">16857587</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<mixed-citation publication-type="other">Bánréti Á, Sass M, Graba Y. The emerging role of acetylation in the regulation of autophagy. Autophagy. 2013;9(6):819–29.</mixed-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<mixed-citation publication-type="other">Chaveroux C, Jousse C, Cherasse Y, Maurin A, Parry L, Carraro V, et al. Identification of a novel amino acid response pathway triggering ATF2 phosphorylation in mammals. Mol Cell Biol. 2009;29(24 ):6515–26.</mixed-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<mixed-citation publication-type="other">McBrian MA, Behbahan IS, Ferrari R, Su T, Huang TW, Li K, et al. Histone acetylation regulates intracellular pH. Mol Cell. 2013;49(2):310–21.</mixed-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<mixed-citation publication-type="other">Gao X, Lin SH, Ren F, Li JT, Chen JJ, Yao CB, et al. Acetate functions as an epigenetic metabolite to promote lipid synthesis under hypoxia. Nat Commun. 2016;7:11960.</mixed-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<mixed-citation publication-type="other">McDonnell E, Crown SB, Fox DB, Kitir B, Ilkayeva OR, Olsen CA, et al. Lipids reprogram metabolism to become a major carbon source for histone acetylation. Cell Rep. 2016;17(6):1463–72.</mixed-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<mixed-citation publication-type="other">Kamphorst JJ, Chung MK, Fan J, Rabinowitz JD. Quantitative analysis of acetyl-CoA production in hypoxic cancer cells reveals substantial contribution from acetate. Cancer Metab. 2014;2(1):23.</mixed-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<mixed-citation publication-type="other">LeRoy G, DiMaggio PA, Chan EY, Zee BM, Blanco M, Bryant B, et al.. A quantitative atlas of histone modification signatures from human cancer cells. Epigenetics Chromatin [Internet]. 2013;6:20. Available from: <ext-link ext-link-type="uri" xlink:href="http://epigeneticsandchromatin.biomedcentral.com/articles/10.1186/1756-8935-6-20">http://epigeneticsandchromatin.biomedcentral.com/articles/10.1186/1756-8935-6-20</ext-link></mixed-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shlomi</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Cabili</surname>
+<given-names>MN</given-names>
+</name>
+<name>
+<surname>Herrgård</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Palsson</surname>
+<given-names>BØ</given-names>
+</name>
+<name>
+<surname>Ruppin</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>Network-based prediction of human tissue-specific metabolism</article-title>
+<source/>Nat Biotechnol
+          <year>2008</year>
+<volume>26</volume>
+<fpage>1003</fpage>
+<lpage>1010</lpage>
+<pub-id pub-id-type="doi">10.1038/nbt.1487</pub-id>
+<pub-id pub-id-type="pmid">18711341</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Frezza</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Folger</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Rajagopalan</surname>
+<given-names>KN</given-names>
+</name>
+<name>
+<surname>MacKenzie</surname>
+<given-names>ED</given-names>
+</name>
+<name>
+<surname>Jerby</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Haem oxygenase is synthetically lethal with the tumour suppressor fumarate hydratase</article-title>
+<source/>Nature
+          <year>2011</year>
+<volume>477</volume>
+<fpage>225</fpage>
+<lpage>228</lpage>
+<pub-id pub-id-type="doi">10.1038/nature10363</pub-id>
+<pub-id pub-id-type="pmid">21849978</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<mixed-citation publication-type="other">Folger O, Jerby L, Frezza C, Gottlieb E, Ruppin E, Shlomi T. Predicting selective drug targets in cancer through metabolic networks. Mol Syst Biol EMBO Press; 2014;7:501.</mixed-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>O’Brien</surname>
+<given-names>EJ</given-names>
+</name>
+<name>
+<surname>Monk</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Palsson</surname>
+<given-names>BO</given-names>
+</name>
+</person-group>
+<article-title>Using genome-scale models to predict biological capabilities</article-title>
+<source/>Cell Elsevier
+          <year>2015</year>
+<volume>161</volume>
+<fpage>971</fpage>
+<lpage>987</lpage>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Uhlén</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Fagerberg</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Hallström</surname>
+<given-names>BM</given-names>
+</name>
+<name>
+<surname>Lindskog</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Oksvold</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Mardinoglu</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Proteomics. Tissue-based map of the human proteome</article-title>
+<source/>Science
+          <year>2015</year>
+<volume>347</volume>
+<fpage>1260419</fpage>
+<pub-id pub-id-type="doi">10.1126/science.1260419</pub-id>
+<pub-id pub-id-type="pmid">25613900</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barretina</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Caponigro</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Stransky</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Venkatesan</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Margolin</surname>
+<given-names>AA</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The Cancer Cell Line Encyclopedia enables predictive modelling of anticancer drug sensitivity</article-title>
+<source/>Nature.
+          <year>2012</year>
+<volume>483</volume>
+<fpage>603</fpage>
+<lpage>607</lpage>
+<pub-id pub-id-type="doi">10.1038/nature11003</pub-id>
+<pub-id pub-id-type="pmid">22460905</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Gao</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Cheng</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>Q</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>CPLM: a database of protein lysine modifications</article-title>
+<source/>Nucleic Acids Res
+          <year>2014</year>
+<volume>42</volume>
+<fpage>D531</fpage>
+<lpage>D536</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkt1093</pub-id>
+<pub-id pub-id-type="pmid">24214993</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Choudhary</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kumar</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Gnad</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>ML</given-names>
+</name>
+<name>
+<surname>Rehman</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Walther</surname>
+<given-names>TC</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Lysine acetylation targets protein complexes and co-regulates major cellular functions</article-title>
+<source/>Science (80- )
+          <year>2009</year>
+<volume>325</volume>
+<fpage>834</fpage>
+<lpage>840</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1175371</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<mixed-citation publication-type="other">Rhodes DR, Tomlins SA, Varambally S, Mahavisno V, Barrette T, Kalyana-Sundaram S, et al. Probabilistic model of the human protein-protein interaction network. Nat Biotechnol. 2005;23(8):951.</mixed-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<mixed-citation publication-type="other">Chatr-Aryamontri A, Oughtred R, Boucher L, Rust J, Chang C, Kolas NK, et al. The BioGRID interaction database: 2017 update. Nucleic Acids Res. 2017;45(D1):D369–D379.</mixed-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<mixed-citation publication-type="other">Sivanand S, Viney I, Wellen KE. Spatiotemporal control of acetyl-CoA metabolism in chromatin regulation. Trends Biochem Sci. 2018;43(1):61–74.</mixed-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<mixed-citation publication-type="other">Sivanand S, Rhoades S, Jiang Q, Lee JV, Benci J, Zhang J, et al. Nuclear acetyl-CoA production by ACLY promotes homologous recombination. Mol Cell. 2017;67(2):252–65.</mixed-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<mixed-citation publication-type="other">Roche J, Bertrand P. Inside HDACs with more selective HDAC inhibitors. Eur J Med Chem. 2016;121:451–83.</mixed-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<mixed-citation publication-type="other">Guha M. HDAC inhibitors still need a home run, despite recent approval. Nat Rev Drug Discov [Internet]. Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.; 2015;14:225. Available from: 10.1038/nrd4583</mixed-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<mixed-citation publication-type="other">Li Y, Seto E. HDACs and HDAC inhibitors in cancer development and therapy. Cold Spring Harb Perspect Med. 2016;6(10):a026831.</mixed-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<mixed-citation publication-type="other">Su X, Wellen KE, Rabinowitz JD. Metabolic control of methylation and acetylation. Curr Opin Chem Biol. 2016;30:52–60.</mixed-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Van Lint</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Emiliani</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Verdin</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>The expression of a small fraction of cellular genes is changed in response to histone hyperacetylation</article-title>
+<source/>Gene Expr
+          <year>1996</year>
+<volume>5</volume>
+<fpage>245</fpage>
+<lpage>253</lpage>
+<pub-id pub-id-type="pmid">8723390</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<mixed-citation publication-type="other">Bochner BR, Siri M, Huang RH, Noble S, Lei XH, Clemons PA, et al. Assay of the multiple energy-producing pathways of mammalian cells. PLoS One. 2011;6(3):e18147.</mixed-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gohil</surname>
+<given-names>VM</given-names>
+</name>
+<name>
+<surname>Sheth</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Nilsson</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Wojtovich</surname>
+<given-names>AP</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Perocchi</surname>
+<given-names>F</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Nutrient-sensitized screening for drugs that shift energy metabolism from mitochondrial respiration to glycolysis</article-title>
+<source/>Nat Biotechnol
+          <year>2010</year>
+<volume>28</volume>
+<fpage>249</fpage>
+<lpage>255</lpage>
+<pub-id pub-id-type="doi">10.1038/nbt.1606</pub-id>
+<pub-id pub-id-type="pmid">20160716</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wardell</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Ilkayeva</surname>
+<given-names>OR</given-names>
+</name>
+<name>
+<surname>Wieman</surname>
+<given-names>HL</given-names>
+</name>
+<name>
+<surname>Frigo</surname>
+<given-names>DE</given-names>
+</name>
+<name>
+<surname>Rathmell</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Newgard</surname>
+<given-names>CB</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Glucose metabolism as a target of histone deacetylase inhibitors</article-title>
+<source/>Mol Endocrinol [Internet]
+          <year>2009</year>
+<volume>23</volume>
+<fpage>388</fpage>
+<lpage>401</lpage>
+<pub-id pub-id-type="doi">10.1210/me.2008-0179</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<mixed-citation publication-type="other">Bug G, Gül H, Schwarz K, Pfeifer H, Kampfmann M, Zheng X, et al. Valproic acid stimulates proliferation and self-renewal of hematopoietic stem cells. Cancer Res. 2005;65(7):2537–41.</mixed-citation>
+</ref>
+<ref id="CR53">
+<label>53.</label>
+<mixed-citation publication-type="other">Eckschlager T, Plch J, Stiborova M, Hrabeta J. Histone deacetylase inhibitors as anticancer drugs. Int J Mol Sci. 2017.</mixed-citation>
+</ref>
+<ref id="CR54">
+<label>54.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Seashore-Ludlow</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Rees</surname>
+<given-names>MG</given-names>
+</name>
+<name>
+<surname>Cheah</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Coko</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Price</surname>
+<given-names>EV</given-names>
+</name>
+<name>
+<surname>Coletti</surname>
+<given-names>ME</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Harnessing connectivity in a large-scale small-molecule sensitivity dataset</article-title>
+<source/>Cancer Discov
+          <year>2015</year>
+<volume>5</volume>
+<fpage>1210</fpage>
+<lpage>1223</lpage>
+<pub-id pub-id-type="doi">10.1158/2159-8290.CD-15-0235</pub-id>
+<pub-id pub-id-type="pmid">26482930</pub-id>
+</element-citation>
+</ref>
+<ref id="CR55">
+<label>55.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rempel</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Hoelting</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Waldmann</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Balmer</surname>
+<given-names>NV</given-names>
+</name>
+<name>
+<surname>Schildknecht</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Grinberg</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A transcriptome-based classifier to identify developmental toxicants by stem cell testing: design, validation and optimization for histone deacetylase inhibitors</article-title>
+<source/>Arch Toxicol
+          <year>2015</year>
+<volume>89</volume>
+<fpage>1599</fpage>
+<lpage>1618</lpage>
+<pub-id pub-id-type="doi">10.1007/s00204-015-1573-y</pub-id>
+<pub-id pub-id-type="pmid">26272509</pub-id>
+</element-citation>
+</ref>
+<ref id="CR56">
+<label>56.</label>
+<mixed-citation publication-type="other">Nakayasu ES, Burnet MC, Walukiewicz HE, Wilkins CS, Shukla AK, Brooks S, et al. Ancient regulatory role of lysine acetylation in central metabolism. MBio. 2017;8(6):e01894–17.</mixed-citation>
+</ref>
+<ref id="CR57">
+<label>57.</label>
+<mixed-citation publication-type="other">Schilling B, Christensen D, Davis R, Sahu AK, Hu LI, Walker-Peddakotla A, et al. Protein acetylation dynamics in response to carbon overflow in <italic>Escherichia coli</italic>. Mol Microbiol. 2015;98(5):847–63.</mixed-citation>
+</ref>
+<ref id="CR58">
+<label>58.</label>
+<mixed-citation publication-type="other">Wellen KE, Thompson CB. A two-way street: reciprocal regulation of metabolism and signalling. Nat Rev Mol Cell Biol. 2012.</mixed-citation>
+</ref>
+<ref id="CR59">
+<label>59.</label>
+<mixed-citation publication-type="other">Jiang P, Du W, Mancuso A, Wellen KE, Yang X. Reciprocal regulation of p53 and malic enzymes modulates metabolism and senescence. Nature. 2013.</mixed-citation>
+</ref>
+<ref id="CR60">
+<label>60.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Gut</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<source/>Verdin E
+          <year>2013</year>
+<publisher-loc>Nature</publisher-loc>
+<publisher-name>The nexus of chromatin regulation and intermediary metabolism</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR61">
+<label>61.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Forbes</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Beare</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Gunasekaran</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Leung</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Bindal</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Boutselakis</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>COSMIC: exploring the world’s knowledge of somatic mutations in human cancer</article-title>
+<source/>Nucleic Acids Res
+          <year>2015</year>
+<volume>43</volume>
+<fpage>D805</fpage>
+<lpage>D811</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku1075</pub-id>
+<pub-id pub-id-type="pmid">25355519</pub-id>
+</element-citation>
+</ref>
+<ref id="CR62">
+<label>62.</label>
+<mixed-citation publication-type="other">Nilsson R, Jain M, Madhusudhan N, Sheppard NG, Strittmatter L, Kampf C, et al. Metabolic enzyme expression highlights a key role for MTHFD2 and the mitochondrial folate pathway in cancer. Nat Commun. 2014;5:3128.</mixed-citation>
+</ref>
+<ref id="CR63">
+<label>63.</label>
+<mixed-citation publication-type="other">Liu X, Cooper DE, Cluntun AA, Warmoes MO, Zhao S, Reid MA, et al. Acetate production from glucose and coupling to mitochondrial metabolism in mammals. Cell. 2018;175(2):502–13.</mixed-citation>
+</ref>
+<ref id="CR64">
+<label>64.</label>
+<mixed-citation publication-type="other">Faubert B, Li KY, Cai L, Hensley CT, Kim J, Zacharias LG, et al. Lactate metabolism in human lung tumors. Cell. 2017;171(2):358–71.</mixed-citation>
+</ref>
+<ref id="CR65">
+<label>65.</label>
+<mixed-citation publication-type="other">Heiden MG Vander, Cantley LC, Thompson CB. Understanding the warburg effect: the metabolic requirements of cell proliferation. Science. 2009;324(5930):1029–33.</mixed-citation>
+</ref>
+<ref id="CR66">
+<label>66.</label>
+<mixed-citation publication-type="other">Roychowdhury S, Chinnaiyan AM. Translating cancer genomes and transcriptomes for precision oncology. CA Cancer J Clin. 2016;66(1):75–88.</mixed-citation>
+</ref>
+<ref id="CR67">
+<label>67.</label>
+<mixed-citation publication-type="other">Geeleher P, Loboda A, Lenkala D, Wang F, LaCroix B, Karovic S, et al. Predicting response to histone deacetylase inhibitors using high-throughput genomics. J Natl Cancer Inst. 2015;107(11):djv247.</mixed-citation>
+</ref>
+<ref id="CR68">
+<label>68.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marroquin</surname>
+<given-names>LD</given-names>
+</name>
+<name>
+<surname>Hynes</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Dykens</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Jamieson</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Will</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>Circumventing the Crabtree effect: replacing media glucose with galactose increases susceptibility of hepG2 cells to mitochondrial toxicants</article-title>
+<source/>Toxicol Sci
+          <year>2007</year>
+<volume>97</volume>
+<fpage>539</fpage>
+<lpage>547</lpage>
+<pub-id pub-id-type="doi">10.1093/toxsci/kfm052</pub-id>
+<pub-id pub-id-type="pmid">17361016</pub-id>
+</element-citation>
+</ref>
+<ref id="CR69">
+<label>69.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mentch</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Mehrmohamadi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Gupta</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Mattocks</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Histone methylation dynamics and gene regulation occur through the sensing of one-carbon metabolism</article-title>
+<source/>Cell Metab
+          <year>2015</year>
+<volume>22</volume>
+<fpage>861</fpage>
+<lpage>873</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cmet.2015.08.024</pub-id>
+<pub-id pub-id-type="pmid">26411344</pub-id>
+</element-citation>
+</ref>
+<ref id="CR70">
+<label>70.</label>
+<mixed-citation publication-type="other">Shlomi T, Benyamini T, Gottlieb E, Sharan R, Ruppin E. Genome-scale metabolic modeling elucidates the role of proliferative adaptation in causing the Warburg effect. PLoS Comput biol [internet]. 2011/03/23. 2011;7:e1002018. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21423717">http://www.ncbi.nlm.nih.gov/pubmed/21423717</ext-link>.</mixed-citation>
+</ref>
+<ref id="CR71">
+<label>71.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Deb</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<source/>Multi-objective optimization using evolutionary algorithms
+          <year>2001</year>
+<publisher-loc>Ser</publisher-loc>
+<publisher-name>Syst. Optim</publisher-name>
+</element-citation>
+</ref>
+<ref id="CR72">
+<label>72.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chandrasekaran</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Price</surname>
+<given-names>ND</given-names>
+</name>
+</person-group>
+<article-title>Probabilistic integrative modeling of genome-scale metabolic and regulatory networks in Escherichia coli and Mycobacterium tuberculosis</article-title>
+<source/>Proc Natl Acad Sci
+          <year>2010</year>
+<volume>107</volume>
+<fpage>17845</fpage>
+<lpage>17850</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1005139107</pub-id>
+<pub-id pub-id-type="pmid">20876091</pub-id>
+</element-citation>
+</ref>
+<ref id="CR73">
+<label>73.</label>
+<mixed-citation publication-type="other">Becker SA, Palsson BO. Context-specific metabolic networks are consistent with experiments. PLoS Comput Biol [Internet]. 2008/05/17. 2008;4:e1000082. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Citation&amp;list_uids=18483554">http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Citation&amp;list_uids=18483554</ext-link></mixed-citation>
+</ref>
+<ref id="CR74">
+<label>74.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hafner</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Niepel</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Chung</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sorger</surname>
+<given-names>PK</given-names>
+</name>
+</person-group>
+<article-title>Growth rate inhibition metrics correct for confounders in measuring sensitivity to cancer drugs</article-title>
+<source/>Nat Methods
+          <year>2016</year>
+<volume>13</volume>
+<fpage>521</fpage>
+<lpage>527</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.3853</pub-id>
+<pub-id pub-id-type="pmid">27135972</pub-id>
+</element-citation>
+</ref>
+<ref id="CR75">
+<label>75.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Boccuto</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>C-F</given-names>
+</name>
+<name>
+<surname>Pittman</surname>
+<given-names>AR</given-names>
+</name>
+<name>
+<surname>Skinner</surname>
+<given-names>CD</given-names>
+</name>
+<name>
+<surname>McCartney</surname>
+<given-names>HJ</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Decreased tryptophan metabolism in patients with autism spectrum disorders</article-title>
+<source/>Mol Autism [Internet]
+          <year>2013</year>
+<volume>4</volume>
+<fpage>16</fpage>
+<pub-id pub-id-type="doi">10.1186/2040-2392-4-16</pub-id>
+</element-citation>
+</ref>
+<ref id="CR76">
+<label>76.</label>
+<mixed-citation publication-type="other">Shen F, Chandrasekaran S. Genome-scale network model of metabolism and histone acetylation [internet]. Synapse. 2019. 10.7303/syn17114770 Available from: <ext-link ext-link-type="uri" xlink:href="http://synapse.org/MetabolismEpigenomeModel">http://synapse.org/MetabolismEpigenomeModel</ext-link>.</mixed-citation>
+</ref>
+<ref id="CR77">
+<label>77.</label>
+<mixed-citation publication-type="other">Broad Institute Cancer cell line encyclopaedia (CCLE) [Internet]. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.broadinstitute.org/ccle">www.broadinstitute.org/ccle</ext-link></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

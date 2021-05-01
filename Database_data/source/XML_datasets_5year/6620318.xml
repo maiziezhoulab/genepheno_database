@@ -1,0 +1,886 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Nat Commun</journal-id>
+<journal-id journal-id-type="iso-abbrev">Nat Commun</journal-id>
+<journal-title-group>
+<journal-title>Nature Communications</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2041-1723</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31292438</article-id>
+<article-id pub-id-type="pmc">6620318</article-id>
+<article-id pub-id-type="publisher-id">11069</article-id>
+<article-id pub-id-type="doi">10.1038/s41467-019-11069-0</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Integrating biomedical research and electronic health records to create knowledge-based biologically meaningful machine-readable embeddings</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-3687-1102</contrib-id>
+<name>
+<surname>Nelson</surname>
+<given-names>Charlotte A.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-7433-2740</contrib-id>
+<name>
+<surname>Butte</surname>
+<given-names>Atul J.</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-0067-194X</contrib-id>
+<name>
+<surname>Baranzini</surname>
+<given-names>Sergio E.</given-names>
+</name>
+<address>
+<email>Sergio.Baranzini@ucsf.edu</email>
+</address>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2297 6811</institution-id><institution-id institution-id-type="GRID">grid.266102.1</institution-id><institution>Integrated Program in Quantitative Biology, </institution><institution>University of California San Francisco, </institution></institution-wrap>San Francisco, CA USA </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2297 6811</institution-id><institution-id institution-id-type="GRID">grid.266102.1</institution-id><institution>Bakar Computational Health Sciences Institute, </institution><institution>University of California San Francisco, </institution></institution-wrap>San Francisco, CA USA </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2297 6811</institution-id><institution-id institution-id-type="GRID">grid.266102.1</institution-id><institution>Department of Pediatrics, </institution><institution>University of California San Francisco, </institution></institution-wrap>San Francisco, CA USA </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2297 6811</institution-id><institution-id institution-id-type="GRID">grid.266102.1</institution-id><institution>Weill Institute for Neuroscience. Department of Neurology, </institution><institution>University of California San Francisco, </institution></institution-wrap>San Francisco, CA USA </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>10</day>
+<month>7</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>10</day>
+<month>7</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2019</year>
+</pub-date>
+<volume>10</volume>
+<elocation-id>3045</elocation-id>
+<history>
+<date date-type="received">
+<day>15</day>
+<month>1</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>18</day>
+<month>6</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2019</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">In order to advance precision medicine, detailed clinical features ought to be described in a way that leverages current knowledge. Although data collected from biomedical research is expanding at an almost exponential rate, our ability to transform that information into patient care has not kept at pace. A major barrier preventing this transformation is that multi-dimensional data collection and analysis is usually carried out without much understanding of the underlying knowledge structure. Here, in an effort to bridge this gap, Electronic Health Records (EHRs) of individual patients are connected to a heterogeneous knowledge network called Scalable Precision Medicine Oriented Knowledge Engine (SPOKE). Then an unsupervised machine-learning algorithm creates Propagated SPOKE Entry Vectors (PSEVs) that encode the importance of each SPOKE node for any code in the EHRs. We argue that these results, alongside the natural integration of PSEVs into any EHR machine-learning platform, provide a key step toward precision medicine.</p>
+</abstract>
+<abstract abstract-type="web-summary" id="Abs2">
+<p id="Par2">The Scalable Precision Medicine Oriented Knowledge Engine (SPOKE) is a heterogeneous knowledge network that integrates information from 29 public databases. Here, Nelson et al. extend SPOKE to embed clinical data from electronic health records to create medically meaningful barcodes for each medical variable.</p>
+</abstract>
+<kwd-group kwd-group-type="npg-subject">
+<title>Subject terms</title>
+<kwd>Computational platforms and environments</kwd>
+<kwd>Data integration</kwd>
+<kwd>Machine learning</kwd>
+<kwd>Predictive medicine</kwd>
+</kwd-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2019</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par3">The rate at which the ever growing body of world data is being transformed into information and knowledge in some areas (e.g., banking, e-commerce, etc.) far exceeds the pace of such process in the medical sciences. This problem is widely recognized as one of the limiting steps in realizing the paradigm of precision medicine, the application of all available knowledge to solve a medical problem in a single individual<sup><xref ref-type="bibr" rid="CR1">1</xref>,<xref ref-type="bibr" rid="CR2">2</xref></sup>.</p>
+<p id="Par4">In order to address this issue, several efforts to integrate these data sources in a single platform are ongoing<sup><xref ref-type="bibr" rid="CR3">3</xref>,<xref ref-type="bibr" rid="CR4">4</xref></sup>. The basic premise of data integration is the discovery of new knowledge by virtue of facilitating the navigation from one concept to another, particularly if they do not belong to the same scientific discipline. One of the most promising approaches to this end makes use of heterogeneous networks. Heterogeneous networks are ensembles of connected entities with multiple types of nodes and edges; this particular disposition enables the merging of data from multiple sources, thus creating a continuous graph. The complex nature and interconnectedness of human diseases illustrates the importance of such networks<sup><xref ref-type="bibr" rid="CR5">5</xref></sup>. Even bipartite networks, with only two types of nodes, have furthered our understanding on disease–gene relationships, and provided insight into the pathophysiological relationship across multiple diseases<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>.</p>
+<p id="Par5">In an attempt to address one of the most critical challenges in precision medicine, a handful of recent studies has started to merge basic science-level data with phenotypic data encoded in electronic health records (EHRs) to get a deeper understanding of disease pathogenesis and their classification to enable rational and actionable medical decisions. One such project is the Electronic Medical Records and Genomics (eMERGE) Network. The eMERGE consortium collected both DNA and EHRs from patients at multiple sites. eMERGE and subsequent studies showed the advantages of using EHRs in genetic studies<sup><xref ref-type="bibr" rid="CR7">7</xref>–<xref ref-type="bibr" rid="CR9">9</xref></sup>. Another project-linked gene expression measurements and EHRs, an approach through which researchers were able to identify possible biomarkers for maturation and aging<sup><xref ref-type="bibr" rid="CR10">10</xref></sup>. While these studies illustrate the benefits of combining data from basic science with EHRs, no efforts connecting EHR to a comprehensive knowledge network have been yet reported. This study builds upon these concepts and utilizes a heterogeneous network called Scalable Precision Medicine Oriented Knowledge Engine (SPOKE) to interpret data stored in EHRs of more than 800,000 individuals at The University of California, San Francisco (UCSF). SPOKE integrates data from 29 publicly available databases, such as the GWAS catalog, STARGEO, ChEMBL, LINCS, and GeneOntology, and contains over 47,000 nodes of 11 types and 2.25 million edges of 24 types, including disease–gene, drug–target, drug–disease, protein–protein, and drug–side effect (Supplementary Tables <xref ref-type="media" rid="MOESM1">1</xref>, <xref ref-type="media" rid="MOESM1">2</xref>)<sup><xref ref-type="bibr" rid="CR11">11</xref>,<xref ref-type="bibr" rid="CR12">12</xref></sup>.</p>
+<p id="Par6">In this work, we describe a method for embedding clinical features from EHRs onto SPOKE. By connecting EHRs to SPOKE, we are providing real-world context to the network thus enabling the creation of biologically and medically meaningful “barcodes” (i.e., embeddings) for each medical variable that maps onto SPOKE. We show that these barcodes can be used to recover purposely hidden network relationships, such as <italic>Disease</italic>–<italic>Gene</italic>, <italic>Disease–Disease, Compound</italic>–<italic>Gene</italic>, and <italic>Compound</italic>–<italic>Compound</italic>. Furthermore, the correct inference of intentionally deleted edges connecting <italic>SideEffect</italic> to <italic>Anatomy</italic> nodes in SPOKE is also demonstrated.</p>
+</sec>
+<sec id="Sec2" sec-type="results">
+<title>Results</title>
+<sec id="Sec3">
+<title>Embedding EHR concepts in a knowledge network</title>
+<p id="Par7">The main strategy of this work is to embed EHRs onto the SPOKE knowledge network utilizing a modified version of PageRank, the well-established random walk algorithm<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. These embeddings, called Propagated SPOKE Entry Vectors (PSEVs), can be created for any group of subjects with a particular characteristic (i.e., patient cohort). Here, we describe the creation of PSEVs for patient cohorts selected using either discrete or continuous EHR variables. PSEVs are vectors in which each element corresponds to a node in SPOKE. Therefore, the length of each PSEV is equal to the number of nodes in SPOKE. Furthermore, the value of each element in a PSEV encodes the importance of its corresponding node in SPOKE for a given patient cohort.</p>
+<p id="Par8">De-identified structured EHR data from 816,504 patients were obtained from the UCSF Medical Center through UCSF Information Technology Services Academic Research Systems. These records were then filtered to only include patients that had been diagnosed with at least one of the 137 complex diseases currently represented in SPOKE, leaving 292,753 patients for further analysis. Select structured data tables from the EHR were used to identify EHR concepts that can be directly linked a node in SPOKE. These points of overlap between the EHRs and SPOKE are called SPOKE Entry Points (SEPs). The data tables were then used to create 3233 PSEVs, one for each identified SEP (see the Methods section). Each structured EHR table contains codes, referred to as EHR concepts, that can be linked to standardized medical terminology. EHR concepts can be diagnostic codes (ICD9CM or ICD10CM), medication order codes (translated to RxNorm), or lab codes (LOINC). Although 3233 represents a sizable proportion (7.5%) of all nodes in SPOKE, most nodes are not directly reachable, thus potentially diluting the power of the network’s internal connectivity. To address this challenge, a modified version of the random walk algorithm was used to propagate all 3233 SEPs through the entirety of the knowledge network, thus creating a unique PSEV (i.e., medical profile) for each of the selected clinical features in the EHRs.</p>
+<p id="Par9">In the original random walk algorithm, a walker is placed onto a given node in a network, and it can move from one node to another as long as there is an edge connecting them. The algorithm was adjusted in a way similar to topic-sensitive PageRank<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>, by weighing the restart parameter (1 - damping factor) of the random walker toward nodes that are important for a given patient population (cohort used for PSEV creation). Hence, the importance of a given SEP (SEP<sub>i</sub>) is equivalent to the proportion of patients in the cohort that had an EHR concept in their records that mapped to SEP<sub>i</sub>. This modified version of PageRank can be applied to any patient cohort.</p>
+</sec>
+<sec id="Sec4">
+<title>Benchmarking PSEVs with BMI</title>
+<p id="Par10">To demonstrate that these vectors capture biologically meaningful information, PSEVs were created using body mass index (BMI = weight × height<sup>−2</sup>) (an ubiquitous variable in the EHR) as the basis to define cohorts. BMI is typically used to classify patients into four standard classes (underweight, normal, overweight, and obese). Decades of research have provided deep insight into both the phenotypic and mechanistic manifestation of obesity. However, only the top-level (phenotypic) information (i.e., BMI class) is captured in the EHRs. We hypothesized that by using this method it would be possible to integrate mechanistic and biological level data, thus gaining additional insight into the characteristics of people classified into each obesity class.</p>
+<p id="Par11">When examining the distribution of BMIs across the UCSF patient population, four groups are clearly distinguishable. These natural subpopulations were used to separate patients into four cohorts that aligned well with the standard BMI classes (Fig. <xref ref-type="fig" rid="Fig1">1a</xref>). Since the BMI thresholds only differed from that of the standard classes by −0.5 BMI, the four cohorts will be reference using the names of the corresponding standard classes (underweight, normal, overweight, and obese).<fig id="Fig1"><label>Fig. 1</label><caption><p>Embedding EHR concepts in a knowledge network. <bold>a</bold> Distribution of patient BMIs at UCSF. Four BMI cohorts were created using the natural boundaries of the BMI distribution (boxes I–IV: &lt;18, 18–24.5, 24.6–29.5, and &gt;29.6). Arrows at the bottom correspond to the BMIs that separate the standardize weight classes. <bold>b</bold> Step 1: find the overlapping concepts between SPOKE and the patient data (EHRs). These are called SPOKE Entry Points (SEPs). Step 2: choose any code or concept in the EHR to make cohort. Here, we have chosen patients with a high BMI (Cohort IV). Then connect each patient in the cohort to all of the SEPs in their records. Step 3: perform PageRank such that the walker restarts in the patient cohort. Iterate until desired threshold is reached. Step 4: final node ranks are then used to create the weights in the Propagated SPOKE Entry Vector (PSEV)</p></caption><graphic id="d29e393" xlink:href="41467_2019_11069_Fig1_HTML"></graphic></fig></p>
+<p id="Par12">Figure <xref ref-type="fig" rid="Fig1">1b</xref> illustrates the modified PageRank algorithm using patients in the obese BMI cohort. First, the records from all 100,187 patients in the obese BMI cohort were extracted. Second, connections were created between each of those patients and all of their additional SEPs. By definition, this means connections to any medication, diagnosis, or laboratory result that was present in both that patient’s record and SPOKE. Third, a random walker was initialized and allowed to either move to a neighboring node (optimized damping factor = 0.9) or randomly jump to any SEP with probability <italic>β</italic> (optimized <italic>β</italic> = 0.1). However, <italic>β</italic> was not evenly distributed among the SEPs (as in the original algorithm), but was instead weighted based on how important each SEP was for the cohort (Supplementary Fig. <xref ref-type="media" rid="MOESM1">1</xref>). This weight is akin to having the random walker jumping to a random patient in the cohort and traversing to one of that patient’s SEPs (Supplementary Fig. <xref ref-type="media" rid="MOESM1">1A</xref>). Each iteration resulted in a rank vector that reflects the proportion of time the walker spent on each node in the network. In practice, for each iteration, this was calculated by taking the dot product of the transition probability matrix and the rank vector from the previous iteration (see the Methods section). Once the algorithm converged, the rank vector from the final iteration was returned (bottom vector). This final rank vector is called a PSEV.</p>
+<p id="Par13">We imagine SPOKE as a set of interconnected water pipes and the SEPs as input valves. Then, the percentage of obese patients that also have type 2 diabetes in their EHRs will determine how much water is allowed to flow through the type 2 diabetes SEP valve (a measure of its importance). Once all of the valves have been calibrated to fit the obese patient population, water can then flow to downstream nodes in SPOKE. Once the water reaches an almost steady state, differential water flow will highlight intersections of pipes (SPOKE nodes) that are significant for obese patients. It should be noted that separating patients using other unbiased methods for separating patients or simply treating BMI as a continuous variable would lead to the same results (Supplementary Fig. <xref ref-type="media" rid="MOESM1">2</xref>). Therefore, a priori knowledge about a cohort is not necessary to create a meaningful PSEV.</p>
+</sec>
+<sec id="Sec5">
+<title>Identifying phenotypic traits in PSEVs</title>
+<p id="Par14">The final PSEV is representative of how important each SPOKE node is for a given EHR concept based on both the connections in SPOKE and the patients with that concept in their EHR. Therefore, a PSEV was generated for each of the four BMI cohorts. Since each element in a PSEV corresponds to a single node in SPOKE, it is now possible to determine how important each SPOKE node is for each of the BMI cohorts. To examine the significance of this observations, values of the <italic>Disease</italic> elements in the PSEVs were compared for each of the four BMI cohorts. The top <italic>Diseases</italic> in the PSEV of the obese cohort were obesity, hypertension, type 2 diabetes mellitus, and metabolic syndrome X. While not unexpected, the identification of these diseases as the most important conditions for this group of patients, without any reference to the mechanisms underlying obesity present in the EHR, is noteworthy. These diseases also correlated well with average BMI (r = 0.75–0.95) and when their ranks were plotted against average BMI, they displayed some of the steepest slopes (slope = 5.4–6.7), suggesting they were causally related.</p>
+<p id="Par15">To learn more about the relationships between BMI and these potentially associated diseases, for each BMI class, we plotted the average BMI (mean BMI per cohort) against the rank of these <italic>Disease</italic> elements in the four respective PSEVs (Fig. <xref ref-type="fig" rid="Fig2">2a</xref>). The most noticeable differences in the rank were observed for the <italic>Disease</italic> element hypertension between the underweight and normal cohorts (rank increases from 136 to 17), and the <italic>Disease</italic> element obesity between overweight and obese (rank increases from 132 to 1). These makes sense given that hypertension was the most prevalent disease in UCSF cohort, and many of the factors that contribute to hypertension risk are also related to increasing BMI and the BMI classification of obesity is very similar to the threshold for our obese cohort. In addition, there was a major difference (111 positions) in the rank of the type 2 diabetes mellitus between the normal and overweight cohorts. This change suggests that type 2 diabetes mellitus became associated with BMI once patients have reached overweight status, and that an increased BMI was one phenotypic manifestation of this condition. Finally, metabolic syndrome X was highly ranked (position 4) only in the obese cohort. However, it differed from obesity in that the progression in rank between normal and overweight was gradual, suggesting increased BMI as a risk factor in metabolic syndrome X. In contrast, the rank of celiac and Crohn’s disease progressively diminishes 116 and 108 positions, respectively, between the underweight and obese cohorts. This trend could be explained by the fact that weight loss is symptomatic of both celiac and Crohn’s disease. Another <italic>Disease</italic> that progressively moves down in rank with increased BMI was attention-deficit hyperactivity disorder (ADHD). This negative correlation was due to the fact that most of the medications used to treat ADHD have side effects related to weight loss and loss of appetite. These results show that the algorithm correctly upweights phenotypes associated with high BMI in the PSEVs for the overweight and obese cohorts while also downweighting those phenotypes in the underweight and normal cohorts. Furthermore, these results were replicated treating BMI as a continuous variable instead of discrete classes (Supplementary Fig. <xref ref-type="media" rid="MOESM1">2</xref>). This replication shows the robustness of this approach, and is important given that most continuous variables in the EHRs are not associated with a fixed number of classes. It should be noted that up until this point, BMI has been treated as a continuous variable used to simply split patients into groups, and the algorithm has been blind to the standardized classes associated to those groups. BMI was chosen to illustrate the utility of PSEVs because the consequences/traits of an abnormal BMI are very well known. However, since a PSEV can be created for any variable in the EHRs, they can also be used to reveal phenotypic traits associated with less well-understood variables and phenotypes.<fig id="Fig2"><label>Fig. 2</label><caption><p>PSEVs contain phenotypic and genotypic information. <bold>a</bold> BMI cohort versus <italic>Disease</italic> rank. The top fourranked <italic>Diseases</italic> in the in cohort IV’s PSEV were obesity, hypertension, type 2 diabetes mellitus, and metabolic syndrome X. All four show a positive relationship with BMI. The opposite trend was observed for celiac disease, Crohn’s disease, and attention-deficit disorder which were highly ranked in cohort I’s PSEV. <bold>b</bold> FTO gene was positively correlated with BMI. <bold>c</bold> The number of overlapping genes between the GWAS catalog for increased BMI (<italic>n</italic> = 365) and the top 365 <italic>Genes</italic> in each BMI cohort PSEV</p></caption><graphic id="d29e482" xlink:href="41467_2019_11069_Fig2_HTML"></graphic></fig></p>
+</sec>
+<sec id="Sec6">
+<title>PSEVs reveal genotypic traits and biological mechanisms</title>
+<p id="Par16">To test whether the same trend was seen at the genotypic level, linear regressions were computed on the average BMI versus <italic>Gene</italic> rank. Again, the genes that positively correlated with average BMI (mean BMI of a cohort) were given the top prioritization in the high BMI (obese) PSEV. An example of a gene that was positively correlated with BMI is alpha-ketoglutarate-dependent dioxygenase (FTO), also known as fat mass and obesity-associated protein, is shown in Fig. <xref ref-type="fig" rid="Fig2">2b</xref>. To check if these genes were genetically related to BMI, genes associated with increased BMI (not necessarily obesity, just an average increase) were extracted from the GWAS catalog (<italic>n</italic> = 365 mapped genes) and compared them to the top 365 ranked genes in the PSEVs. Remarkably, the PSEV for the obese cohort was significantly enriched in known BMI-associated genes (<italic>p</italic> = 2.19E−10, binomial test; Fig. <xref ref-type="fig" rid="Fig2">2c</xref>). The PSEV for the overweight cohort was also significant, while the BMI cohorts corresponding to underweight and normal BMIs showed no significant enrichment. Therefore, <italic>Gene</italic> elements that were highly ranked in the overweight or obese BMI PSEVs had a higher probability of harboring a susceptibility variant. These results illustrate that PSEVs can learn new biologically meaningful relationships.</p>
+</sec>
+<sec id="Sec7">
+<title>PSEVs preserve original SPOKE edges</title>
+<p id="Par17">After identifying that the obese BMI PSEV was able to preserve the known gene expression edges in SPOKE, we decided to check this with other concepts in a high-throughput manner. To do this, we utilized the fact that SEPs are SPOKE nodes that can be directly mapped to EHR concept(s) to extract 3233 patient cohorts from the diagnosis, medication order, and lab tables in the EHRs. PSEVs were then generated for each of the cohorts. Then the top ranked nodes (ranked per type) in each PSEV were examined (Supplementary Fig. <xref ref-type="media" rid="MOESM1">1A–C</xref>). The majority of top ranked nodes in a given PSEV were also first neighbor relationships in SPOKE. For example, the multiple sclerosis (MS) <italic>Disease</italic> node is connected to 39 <italic>Anatomy</italic> nodes (such as <italic>MS</italic>-LOCALIZES_DlA-<italic>Central Nervous System</italic>) in SPOKE. Notably, there is 100% overlap between the top 39 ranked <italic>Anatomy</italic> elements in the MS PSEV and all actual MS <italic>Anatomy</italic> neighbors (<italic>n</italic> = 39). Similarly, for <italic>Symptom</italic> nodes connected to MS (such as <italic>MS</italic>-PRESENTS_DpS-<italic>Fatigue</italic>), 80% of first neighbor relationships are maintained in the top n-<italic>Symptom</italic> elements of the MS PSEV. This means that although most of the top nodes were the same, new relationships were prioritized based on the symptoms experienced by individual MS patients at UCSF. Next, the prioritizations of nodes that were not directly connected in SPOKE were considered (Supplementary Fig. <xref ref-type="media" rid="MOESM1">3C</xref>). For instance, multiple nodes related to the <italic>response to interleukin-7</italic> were ranked among the top ten <italic>BiologicalProcess</italic> nodes and the node for the <italic>structural constituent of myelin sheath</italic> in the top ten <italic>MolecularFunction</italic> nodes. Though there was an abundance of evidence supporting these relationships, there was neither direct relationship in SPOKE nor was this information stored in the EHRs, thus they must be learned during PSEV creation. These results illustrate the ability of PSEVs to preserve the original information from SPOKE while expanding its significance in a biologically meaningful manner by reaching out to more distant but biologically related nodes. Furthermore, this demonstrates that PSEVs describe each EHR concept in multiple dimensions and is true to the hierarchical organization of complex organisms.</p>
+<p id="Par18">After identifying and implementing a method to embed EHR onto the knowledge network, we sought to verify in a rigorous manner that the obtained vectors were biologically meaningful (i.e., that the expanded set of variables stemming from the EHRs result in a network of related medical concepts). Next, we demonstrate that the PSEV ability to learn genetic relationships can be applied in a high-throughput fashion. In addition, a series of benchmarks (Supplementary Note <xref ref-type="media" rid="MOESM1">1</xref>, Supplementary Figs <xref ref-type="media" rid="MOESM1">4</xref>–<xref ref-type="media" rid="MOESM1">7</xref>) show that PSEVs ability to learn connections can be applied to other edge types, such as <italic>Disease–Disease</italic> (edges from MEDLINE co-occurrence) and <italic>Compound–Compound</italic> similarity (edges DICE similarity), <italic>Compound</italic> to drug–protein (molecular targets; edges from DrugBank, DrugCentral, BindingDB), and <italic>SideEffect-Anatomy</italic> (edges from MEDLINE co-occurrence).</p>
+</sec>
+<sec id="Sec8">
+<title>PSEVs uncover specific <italic>Disease–Gene</italic> relationships</title>
+<p id="Par19">Because of the multitude of concepts present in SPOKE, multiple paths can connect any two nodes, thus providing redundancy. Thus, we hypothesized that unknown relationships, like the GWAS genes recovered in the high BMI PSEV, could still be inferred even if some of the information was missing because the random walker would traverse similar paths during PSEV computation. To address this point, all of the <italic>Disease–Disease</italic> (e.g., <italic>MS</italic>-RESEMBLES_DrD-<italic>Amyotrophic Lateral Sclerosis</italic>) and <italic>Disease–Gene</italic> edges (<italic>MS</italic>-ASSOCIATES_DaG-<italic>IL7R</italic> and <italic>MS</italic>-DOWNREGULATES-<italic>PALLD</italic>) in SPOKE were removed and the PSEVs were recomputed the <italic>Disease</italic> PSEVs (PSEV<sup>ΔDD, ΔDG</sup>).</p>
+<p id="Par20">The resulting <italic>Disease</italic> PSEVs (PSEV<sup>ΔDD, ΔDG</sup>) were visualized in a heatmap and clustered by <italic>Diseases</italic> and <italic>Genes</italic> (Fig. <xref ref-type="fig" rid="Fig3">3a</xref>). Clearly defined groups of diseases can be identified in the heatmap, many of which are known to share associated or influential genes. For example, disease Cluster 4 contains mainly neurological diseases, such as multiple sclerosis, Alzheimer’s disease, narcolepsy, autistic disorder, and attention-deficit hyperactivity disorder. The Gene cluster most characteristic of Disease Cluster 4 contains 197 genes (Fig. <xref ref-type="fig" rid="Fig3">3b</xref>). Within this gene cluster, 96 <italic>Genes</italic> were associated with at least one <italic>Disease</italic> in Disease Cluster 4 (enrichment fold change = 2.0), 33 <italic>Genes</italic> were associated with at least two diseases (enrichment fold change = 3.9), and 15 <italic>Genes</italic> were associated with at least three diseases (enrichment fold change = 5.4; Fig. <xref ref-type="fig" rid="Fig3">3c, d</xref>). These results support the hypothesis that PSEVs encode deep biological meaning.<fig id="Fig3"><label>Fig. 3</label><caption><p>Disease cluster by genetic similarity. <bold>a</bold> Heatmap generated with the <italic>Disease</italic> PSEV<sup>ΔDD, ΔDG</sup> (only using elements of <italic>Genes</italic> that associate with at least one disease). The heatmap shows the <italic>Gen</italic><italic>e</italic> ranks (columns) within each of the 137 <italic>Disease</italic> PSEVs (rows). Both <italic>Diseases</italic> and <italic>Genes</italic> were clustered. <italic>Disease</italic> cluster 4 (<italic>n</italic> = 18) was enriched in neurological diseases and shown in dark purple. <bold>b</bold> Magnification of the 197 <italic>Genes</italic> found in a top <italic>Gene</italic> Cluster (Cluster 6) for <italic>Disease</italic> Cluster 4. Asterisks above gene symbols indicate how many <italic>Diseases</italic> in <italic>Disease</italic> Cluster 4 were associated with that <italic>Gene</italic>. Color bar signifies how many <italic>Diseases</italic> were associated with a given <italic>Gene</italic>. <bold>c</bold> Expected distributions for the number of <italic>Genes</italic> that were associated with at least one, two, or three <italic>Diseases</italic> (1000 random permutations of 18 <italic>Diseases</italic> and 197 <italic>Genes</italic>). Arrows show the observed number over <italic>Genes</italic> within gene Cluster 6 that were associated with at least one, two, or three <italic>Disease</italic> in Disease Cluster 4 and greatly exceed the expected number of <italic>Genes</italic> (fold change = 2.0, 3.9, and 5.4 accordingly). <bold>d</bold> Fifteen<italic>Genes</italic> that were within Gene Cluster 6 were associated with three or more <italic>Diseases</italic> in Disease Cluster 4</p></caption><graphic id="d29e770" xlink:href="41467_2019_11069_Fig3_HTML"></graphic></fig></p>
+<p id="Par21">To validate that the recomputed PSEVs (generated without the critical edges) were able to uncover genetic relationships among the complex diseases in SPOKE, a <italic>Disease–Gene</italic> networks (DG) using the top K <italic>Gene</italic> nodes for each <italic>Disease</italic> in PSEV<sup>ΔDD, ΔDG</sup> was created, where K was equal to the number of known gene associations for a given disease. In SPOKE, the ASSOCIATES_DaG edges represent known associations between <italic>Diseases</italic> and <italic>Genes</italic> and were obtained from the GWAS Catalog<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>, DISEASES<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, DisGeNET<sup><xref ref-type="bibr" rid="CR17">17</xref>,<xref ref-type="bibr" rid="CR18">18</xref></sup>, and DOAF<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>. DG networks were generated using either the original PSEVs (DG<sup>PSEV</sup>, blue) or the incomplete, benchmarking PSEV<sup>ΔDD, ΔDG</sup> (DG <sup>PSEVΔDD, ΔDG</sup>, green Fig. <xref ref-type="fig" rid="Fig4">4a</xref>). These networks were compared against networks created using three random matrices as a way to generate a null distribution: PSEV<sup>RANDOM</sup> (DG<sup>RANDOM</sup>, pink distribution Fig. <xref ref-type="fig" rid="Fig4">4a</xref>), PSEV<sup>SPOKE SHUFFLED</sup> (DG<sup>SPOKE SHUFFLE</sup>, red), and PSEV<sup>SEP SHUFFLED</sup> (orange, DG<sup>SEP SHUFFLE</sup>). Next, the number of overlapping edges between each of the DG networks and the gold standard <italic>Disease</italic>-ASSOCIATES_DaG-<italic>Gene</italic> (DG<sup>SPOKE</sup>) edges (<italic>n</italic> = 12,623) in SPOKE were compared. When selecting the top K <italic>Genes</italic> using only <italic>Genes</italic> with at least one ASSOCIATES_DaG edge (<italic>n</italic> = 5392), both DG<sup>PSEV</sup> and DG<sup>PSEVΔDD, ΔDG</sup> shared significantly more edges with DG<sup>SPOKE</sup> than with any of the random networks (Fig. <xref ref-type="fig" rid="Fig4">4a</xref>; average fold change 15.2 and 2.4 accordingly). This suggests that redundancy in SPOKE paths can be used to infer genetic relationships even when the original (direct) associations are removed.<fig id="Fig4"><label>Fig. 4</label><caption><p>Recovering deleted <italic>Disease</italic>–<italic>Gene</italic> edges. Prior to PSEV<sup>ΔDD, ΔDG</sup> calculation, all of the <italic>Disease</italic>–<italic>Gene</italic> and <italic>Disease–Disease</italic> edges were deleted from SPOKE. <bold>a</bold> The gold standard <italic>Disease</italic>–<italic>Gene</italic> network was made from the deleted edges in SPOKE. Plots show the number of <italic>Disease</italic>–<italic>Gene</italic> relationships using each of the PSEV matrices that overlap with the gold standard networks. The pink distributions show the results from the permuted PSEV matrices (PSEV<sup>Random</sup>; 1000 iterations), while the arrows show the results from the original PSEV (blue), PSEV<sup>ΔDD, ΔDG</sup> (green), PSEV<sup>SPOKE SHUFFLED</sup> (red), and PSEV<sup>SEP SHUFFLED</sup> (orange). <bold>a</bold> The top K genes were selected from the set of genes in the gold standard network or (A inset) the entire set of gene nodes in SPOKE. <bold>b</bold> The breakdown of top disease–gene relationships as knowledge (edges) were added back to the network. <bold>c</bold> To uncover how the deleted <italic>Disease</italic>–<italic>Gene</italic> associations were recovered using the PSEVs, we retraced the shortest path between the most important SPOKE Entry points (SEPs) and the desired Gene. Patients with <italic>Disease</italic> X put pressure on the SEPs (top). The SEPs that receive the most significant amount of pressure are colored by node type. Information then flows through other nodes in SPOKE (middle) before reaching the <italic>Gene</italic> that was genetically associated to <italic>Disease</italic> X (bottom). <bold>d</bold> In the GWAS catalog, schizophrenia and CSMD1 are associated. As outlined in <bold>b</bold>, the information flows from the significant SEPs of patients with schizophrenia to CSMD1</p></caption><graphic id="d29e968" xlink:href="41467_2019_11069_Fig4_HTML"></graphic></fig></p>
+<p id="Par22">These results were even more striking when selecting the top K genes using all genes in SPOKE (Fig. <xref ref-type="fig" rid="Fig4">4a</xref> inset; <italic>n</italic> = 20,945; average fold change 40.6 and 4.5 accordingly). It should also be noted that, unlike PSEV<sup>ΔDD, ΔDG</sup>, both PSEV<sup>SEP SHUFFLED</sup> and PSEV<sup>SPOKE SHUFFLED</sup> were created without deleting the <italic>Disease–Disease</italic> and <italic>Disease–Gene</italic> edges from SPOKE, therefore the correct edges were present at least some of the time even in the permuted networks, thus providing a higher level of stringency.</p>
+</sec>
+<sec id="Sec9">
+<title>Learning rate differs between edge types</title>
+<p id="Par23">One of the main challenges with knowledge networks is that as long as our knowledge is incomplete, the networks will suffer from missing edges. The benchmark shown here illustrates the most severe scenario, in which 100% of our knowledge about the relationships among <italic>Diseases</italic> and between <italic>Diseases</italic> and <italic>Genes</italic> is removed. To evaluate performance of the algorithm as the network gains knowledge, edges were slowly added back to the network. We found that the PSEVs learned well-established (ASSOCIATES from the GWAS Catalog, DisGeNET, DISEASES, or DOAF) <italic>Disease–Gene</italic> edges before the noisier (UP(DOWN)REGULATES from StarGEO) edges (Fig. <xref ref-type="fig" rid="Fig4">4b</xref>). This is most likely due to the fact that well-established (associated) <italic>Genes</italic> are necessarily drivers of (not reacting to) a <italic>Disease</italic>. In practice, this would cause the random walker keep going back to <italic>BiologicalProcess, CellularComponent, MolecularFunction</italic>, and <italic>Pathway</italic> nodes that are important for a given <italic>Disease</italic> and thereby push information to <italic>Genes</italic> involved in those activities. Alternatively, the random walker could travel to <italic>Anatomy</italic> nodes that express <italic>Genes</italic> that are associated with a <italic>Disease</italic> or through <italic>Compounds</italic> that are used to treat (or even those that exacerbate) a <italic>Disease</italic>. This further demonstrates that the relationships inferred within PSEVs are biologically meaningful.</p>
+</sec>
+<sec id="Sec10">
+<title>Retracing the path between SEP and genes</title>
+<p id="Par24">Finally, to understand how the patient population at UCSF influenced the PSEVs to correctly rank <italic>Disease</italic>–<italic>Gene</italic> associations, the shortest paths were retraced between the significant SEPs of a given <italic>Disease</italic> and the associated <italic>Gene</italic> (Fig. <xref ref-type="fig" rid="Fig4">4c</xref>; Methods). For example, the locus containing <italic>CSMD1</italic> is associated with schizophrenia in the GWAS Catalog. Figure <xref ref-type="fig" rid="Fig4">4d</xref> shows why the gene <italic>CSMD1</italic> was one of the top ranked genes in the PSEV<sup>ΔDD, ΔDG</sup> for schizophrenia. The weight from the EHRs of schizophrenia patients at UCSF drives information toward <italic>Anatomy</italic><italic>,</italic> in which <italic>CSMD1</italic> is expressed or regulated and <italic>Compounds</italic> that bind or regulate <italic>Genes</italic> that interact or regulate with <italic>CSMD1</italic>. The combined weight highlights <italic>CSMD1</italic> as a gene that is associated with schizophrenia. This example highlights the fact that inferences made with this method are not black box predictions, but the information used to make the inference can be traced back to the exact concepts. We believe that knowledge-based clear-box algorithms, such as the one presented here, will be pivotal in the advancement of precision medicine.</p>
+</sec>
+</sec>
+<sec id="Sec11" sec-type="discussion">
+<title>Discussion</title>
+<p id="Par25">Uncovering how different biomedical entities are related to each other is essential for speeding up the transformation between basic research and patient care. When deciding the best therapeutic management strategy for a patient, physicians often need to think about the symptoms they present, their internal biochemistry, and potential molecular impact and adverse events of drugs simultaneously. A well-trained and experienced doctor will likely prescribe the best course of action for that patient. However, significant heterogeneity is seen even across the best hospitals on what best course of action means for a given patient, resulting in poor consistency, a labyrinth of solutions, and ultimately lack of evidence-based medicine. Since it is naturally impossible for a single person to retain and recall all the necessary and relevant information, an efficient manner to incorporate this knowledge into the health-care system is needed. We argue that since PSEVs can be created for any code or concept in the EHRs, it is possible they could provide such solution. Using PSEVs, we were able to integrate what we have learned from the last five decades of biomedical research into the codes used to describe patients in the EHRs. As a result, these embeddings serve as a first step to bridging the divide between basic science and patient data.</p>
+<p id="Par26">Our method for the integration of EHRs and a comprehensive biomedical knowledge network is based on random walk. Random walk has been applied to a wide variety of biological topics, such as protein–protein interaction networks<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>, gene enrichment analysis<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>, and ranking disease genes<sup><xref ref-type="bibr" rid="CR22">22</xref>–<xref ref-type="bibr" rid="CR24">24</xref></sup>. In addition, random walk has been used to infer missing relationships in large incomplete knowledge bases<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>. Our method includes the generation of PSEVs, as a way to embed medical concepts onto the network. The entire patient population at UCSF was used to determine how important each node in SPOKE is for a particular code. Therefore, each PSEV describes EHR codes in both a high-level phenotypic and deeper biological manner.</p>
+<p id="Par27">We demonstrated that not only do PSEVs carry the original relationships in SPOKE, but also were able to infer new connections. This was illustrated by ability of PSEVs to recover deleted <italic>Disease</italic>–<italic>Disease</italic>, <italic>Disease</italic>–<italic>Gene</italic>, <italic>Compound</italic>–<italic>Compound</italic>, and <italic>Compound</italic>–<italic>Gene</italic> edges as well as to infer new relationships between <italic>SideEffect</italic> and <italic>Anatomy</italic> nodes. Other than just showing that PSEVs can learn relationships between different types of nodes, these tests illustrated that PSEVs can learn relationships between nodes at a variety of lengths apart from one another. By correctly inferring the <italic>Disease</italic>–<italic>Gene</italic> and <italic>Compound</italic>–<italic>Gene</italic> edges, we demonstrated that PSEVs could uncover higher-order relationships, such as those between a cohort and SPOKE. At the same time, correctly inferring <italic>Disease</italic>–<italic>Disease</italic> and <italic>Compound</italic>–<italic>Compound</italic> edges demonstrated that PSEVs could uncover relationships among EHR concepts themselves. Finally, by inferring <italic>SideEffect</italic>-<italic>Anatomy</italic> edges, we proved PSEVs could find SPOKE-level relationships. These tests served as our proof of principle that PSEVs can learn multiple types of new relationships.</p>
+<p id="Par28">Furthermore, these results illustrate that, unlike black box methods, PSEVs are capable of embedding phenotypic traits, such as risks, co-morbidities, and symptoms. Other vectorization methods like word2vec are able to learn relationships, however, since the elements within the vector are unknown they cannot be traced back to a given trait in the EHRs. Similarly, though it is possible to identify these phenotypic traits using a statistical analysis of a single cohort, the benefit to using PSEVs is that these traits are identified in a high-throughput fashion for every concept in the EHRs and outputs them in a format that can be used in machine-learning platforms. PSEVs, and other clear-box algorithms, allow us to integrate knowledge into data, therefore generating deeper, informed characterizations that can be understood by both humans and machines.</p>
+<p id="Par29">The main limitations of this approach mostly stem from the potential inaccuracies in the EHRs and the incompleteness of the knowledge networks (SPOKE). First, while maintaining the trust and privacy of patients remains paramount, it has also made it difficult for institutions to share even de-identified records. Not being able to openly share data means that the patient population used may not be representative of the general population, especially in terms of race, ethnicity, education, and income. Second, many institutions do not use standardized medical terminology, thus making it challenging to accurately map EHR concepts to SPOKE. That being said, institutions that use EHR formats that utilize standard terminologies, like the Observational Medical Outcomes Partnership (OMOP) Common Data Model, can easily implement this in their own system. While we did not use OMOP in this work, efforts by our group and others are ongoing in this direction. Finally, we are limited by the fact that as long as our biomedical knowledge is incomplete, the same will be true for our knowledge networks. In this regard, SPOKE is continually under development and future versions will increase in complexity and completeness. However, our results show that adding context with the EHRs actually enabled us to learn new relationship in the network, thereby growing our biomedical knowledge. We believe that these limitations are inherent to this field of study and that the development of tools, such as the one presented here, can spur collaboration between institutions and help overcome these limitations.</p>
+<p id="Par30">The potential uses of PSEVs are vast. We recognize that several associations in EHRs can be uncovered using clinical features alone, and several machine-learning approaches are already being utilized to that end<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. However, since PSEVs describe clinical features on a deeper biological level, they can be used to explain why the association is occurring in terms of Genes, Pathways, or any other nodes in a large knowledge network, like SPOKE. Consequently, PSEVs can be paired with machine learning to discover new disease biomarkers, characterize patients, and drug repurposing. With implementation of some of these features, we anticipate that PSEVs or similar methods will constitute a critical tool in advancing precision medicine.</p>
+</sec>
+<sec id="Sec12">
+<title>Methods</title>
+<sec id="Sec13">
+<title>Electronic health records</title>
+<p id="Par31">UCSF supplied the EHRs in this paper through the Bakar Computational Health Sciences Institute. Almost one million people visited UCSF between 2011 and 2017. Out of 878,479 patients, 292,753 had at least one of the 137 complex diseases currently represented in SPOKE. The EHRs were de-identified to protect patients’ privacy. No IRB approval was required for this research. For this paper, we collected the information on the cohort of patients with complex diseases using de-identified LAB, MEDICATION_ORDERS, and DIAGNOSES tables. The LAB table contains the lab test orders and results, including the actual measurements and the judgment of whether the results were abnormal. The MEDICATION_ORDERS table contains prescriptions with dose, duration, and unit. The DIAGNOSES table contains diagnosis and symptoms with ICD9 and ICD10 codes. These tables are linked by Patient IDs (one unique ID for each patient) and Encounter IDs (one unique ID for each encounter a given patient has with our medical system).</p>
+</sec>
+<sec id="Sec14">
+<title>Scalable precision medicine oriented knowledge engine</title>
+<p id="Par32">SPOKE is a heterogeneous knowledge network that includes data from 29 publicly available databases, representing a significant proportion of information gathered over five decades of biomedical research<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. This paper was powered by the first version of SPOKE, which contains over 47,000 nodes of 11 types and 2.25 million edges of 24 types. The nodes (Anatomy, BiologicalProcess, CellularComponent, Compound, Disease, Gene, PharamacologicalClass, SideEffect, and Symptom) all use standardized terminologies and were derived from five different ontologies. The sources and counts of each node and edge type are detailed in Supplementary Tables <xref ref-type="media" rid="MOESM1">1</xref> and <xref ref-type="media" rid="MOESM1">2</xref>.</p>
+</sec>
+<sec id="Sec15">
+<title>Connecting EHRs To SPOKE</title>
+<p id="Par33">EHRs were connected to SPOKE <italic>Disease</italic>, <italic>Symptom</italic>, <italic>SideEffect</italic>, <italic>Compound</italic>, and <italic>Gene</italic> nodes. To connect to <italic>Disease</italic> nodes, ICD9/10<sup><xref ref-type="bibr" rid="CR27">27</xref></sup> codes in the EHRs were translated to <italic>Disease</italic> Ontology identifiers<sup><xref ref-type="bibr" rid="CR28">28</xref>,<xref ref-type="bibr" rid="CR29">29</xref></sup>. Since this relationship was used to select the patient cohort, we manually curated the mappings. The connection to <italic>Symptom</italic> and <italic>SideEffect</italic> nodes was also made from translating the ICD9/10 codes via MeSH identifiers and CUI, respectively. The relationship between <italic>Compound</italic> nodes and EHRs was derived by mapping RxNorm to the FDA-SRS UNIIs (unique ingredient identifiers) to DrugBank Identifiers. Lab tests were connected to multiple node types in SPOKE using the Unified Medical Language System (UMLS) Metathesaurus<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>. The LOINC<sup><xref ref-type="bibr" rid="CR31">31</xref></sup> codes in the EHRs were mapped to CUI and then mapped to a second CUI (CUI2) using UMLS relationships. A connection between LOINC and SPOKE would be made if CUI2 could be translated to a node in SPOKE. CUIs with nonspecific relationships were excluded. From the UCSF EHRs, 10,499 unique codes, found in the Diagnosis, Medication Orders, and Labs tables, were mapped to 3527 nodes in SPOKE. Of these, 3233 were seen in the complex disease cohort and were used as the SEPs.</p>
+</sec>
+<sec id="Sec16">
+<title>Generating PSEVs</title>
+<p id="Par34">First, we initialized a <italic>n</italic> x <italic>n</italic> SEP transition matrix (where <italic>n</italic> = the number of SEPs) and set every value to zero. Then for each patient in the complex disease cohort, we created a binary vector of the SEPs in their EHRs and divided it by the sum of the vector. This patient vector was then added to the rows of the SEP transition matrix that corresponded to the SEPs found in the patient’s EHRs. Once every patient was accounted for, the SEP transition matrix was transposed and divided by the sum of the columns.</p>
+<p id="Par35">Next, we made an adjacency matrix using the edges in SPOKE to create a SPOKE transition probability matrix (TPM), in which each column sums to 1. The SPOKE TPM was then multiplied by 1−<italic>β</italic> where <italic>β</italic> equals the probability of random jump. An extra row was then added to the SPOKE TPM and filled with <italic>β</italic>.</p>
+<p id="Par36">Last, the PSEVs were generated using a modified version of the PageRank algorithm<sup><xref ref-type="bibr" rid="CR13">13</xref>,<xref ref-type="bibr" rid="CR14">14</xref></sup>. In this version of PageRank, for each PSEV, the random walker traverses the edges of SPOKE until randomly jumping out of SPOKE (at probability <italic>β</italic>) to the given SEP. The walker will then enter back into SPOKE through any SEP using the probabilities found in the corresponding column of the SEP transition matrix. The walker will continue this cycle until the difference between the rank vector in the current cycle and the previous cycle is less than or equal to a threshold (α). The final rank vector is the PSEV and contains a value for every node in SPOKE that is equivalent to the amount of time the walker spent on each given node.</p>
+<p id="Par37">Genes were selected from the GWAS Catalog if they were associated with an increase in BMI and were genome wide significant.</p>
+</sec>
+<sec id="Sec17">
+<title>Generating <italic>Disease</italic> PSEV matrix for benchmark</title>
+<p id="Par38">We created <italic>Disease</italic> benchmark PSEV matrix (PSEV<sup>ΔDD, ΔDG</sup>) by removing the <italic>Disease</italic>–<italic>Disease</italic> and <italic>Disease</italic>–<italic>Gene</italic> relationships in SPOKE prior to PSEV creation. We then used z-scores to normalize the PSEV<sup>ΔDD, ΔDG</sup> and ranked the elements for each type of node.</p>
+</sec>
+<sec id="Sec18">
+<title>Random <italic>Disease</italic> matrix</title>
+<p id="Par39">In order to test the importance of the edges between SEPs and SPOKE as well as SPOKE’s internal edges, we generated three types of random PSEVs. First, we created a completely random PSEV matrix by using the Fisher–Yates method to permute the SPOKE nodes for each <italic>Disease</italic> PSEV (PSEV<sup>random</sup>). Second, for each edge type in SPOKE, we randomly shuffled the edges prior to PSEV creation (PSEV<sup>shuffled_SPOKE</sup>). Third, we shuffled the edges between the SEPs and SPOKE prior to PSEV creation (PSEV<sup>shuffled_SEP</sup>). It should be noted that when creating PSEV<sup>shuffled_SEP</sup>, all SPOKE relationships were maintained. In addition, SEP-SPOKE edges were only shuffled once and therefore any relationships coming directly from the merged EHRs to the SEPs would be conserved. Once random PSEVs were created, they were normalized using z-scores.</p>
+</sec>
+<sec id="Sec19">
+<title>Inferring <italic>Disease</italic>–<italic>Gene</italic> relationships from PSEVs</title>
+<p id="Par40">In addition to looking at <italic>Disease</italic>–<italic>Disease</italic> relationships, we examined the ability of PSEVs to rank the <italic>Disease</italic>-ASSOCIATES_DaG-<italic>Gene</italic> relationships from SPOKE. The Disease-ASSOCIATES_DaG-<italic>Gene</italic> edges (<italic>n</italic> = 12,623) in SPOKE come from four sources: the GWAS Catalog<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>, DISEASES<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, DisGeNET<sup><xref ref-type="bibr" rid="CR17">17</xref>,<xref ref-type="bibr" rid="CR18">18</xref></sup>, and DOAF<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>.</p>
+<p id="Par41">After z-score normalizing the PSEV matrix, within each Disease <italic>PSEV, Gene</italic>s were ranked 1 to 5392 or 20,945 when using only <italic>Genes</italic> that are associated with at least one <italic>Disease</italic> or the full set of <italic>Genes</italic> accordingly, such that a <italic>Gene</italic> ranked 1 would denote the most important <italic>Gene</italic> for a given <italic>Disease</italic> based on the PSEV matrix. Then for each <italic>Disease</italic> PSEV, K Genes were selected where K was equal to the number of <italic>Genes</italic> are associated with a given <italic>Disease</italic>. The <italic>p</italic>-values (binomial test) for ability of each <italic>Disease</italic> PSEV to correctly rank, the associated <italic>Genes</italic> were then combined using Fisher’s method<sup><xref ref-type="bibr" rid="CR32">32</xref></sup>. This evaluation was applied to the original PSEV, benchmark PSEV, and all three random networks (Fig. <xref ref-type="fig" rid="Fig4">4a, b</xref>).</p>
+</sec>
+<sec id="Sec20">
+<title>Creating Disease–Gene heatmap</title>
+<p id="Par42">The PSEV<sup>ΔDD, ΔDG</sup> matrix was filtered such that it only contained Disease PSEVs and the gene elements that are associated with at least one disease in SPOKE (m = 137, <italic>n</italic> = 5392). This was then used as input into the seaborn clustermap package in python with the settings method = “average” and metric = “euclidean”. Here, method refers to the method used to calculate the linkage and metric is the way in which we calculate the distance within the method.</p>
+</sec>
+<sec id="Sec21">
+<title>Shortest paths between SEP to target nodes</title>
+<p id="Par43">To understand how the PSEVs were able to recover deleted relationships, we traced from the target node back to the contributions of each SEP. To achieve this, we z-score normalized the original SEP transition matrix used to calculate the PSEVs. Then we created a SPOKE only PSEV matrix (PSEV<sup>SPOKE-only</sup>) that forces the random walker to randomly restart (B = 0.33) from a single SEP. The PSEV<sup>SPOKE-only</sup> matrix was created using SPOKE with deleted <italic>Disease–Disease</italic> and <italic>Disease–Gene</italic> edges or <italic>Compound–Compound</italic> and <italic>Compound–Gene</italic> edges when recovering the paths for PSEV<sup>ΔDD, ΔDG</sup> and PSEV<sup>ΔCC, ΔCG</sup> accordingly. The PSEV<sup>SPOKE-only</sup> matrix allows to identify the contribution of an individual SEP to any of the downstream nodes. We then took the product of a given <italic>Disease</italic> or <italic>Compound</italic> transposed vector from the SEP transition matrix with the PSEV<sup>SPOKE-only</sup> to generate contributions of each SEP to the target node. The most important SEP were selected if they were in the top 0.1 percentile of contributors. We then found the shortest paths between the important SEPs and the target node.</p>
+</sec>
+<sec id="Sec22">
+<title>Reporting summary</title>
+<p id="Par44">Further information on research design is available in the <xref ref-type="media" rid="MOESM2">Nature Research Reporting Summary</xref> linked to this article.</p>
+</sec>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec23">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41467_2019_11069_MOESM1_ESM.pdf"><caption><p>Supplementary Information New</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="41467_2019_11069_MOESM2_ESM.pdf"><caption><p>Reporting Summary</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM3"><media xlink:href="41467_2019_11069_MOESM3_ESM.pdf"><caption><p>Peer Review File</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p><bold>Peer review information:</bold>
+<italic>Nature Communications</italic> thanks Sui Huang and other anonymous reviewer(s) for their contribution to the peer review of this work. Peer reviewer reports are available.</p>
+</fn>
+<fn>
+<p><bold>Publisher’s note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p><bold>Supplementary Information</bold> accompanies this paper at 10.1038/s41467-019-11069-0.</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>Use of UCSF de-identified data was made possible by Dana Ludwig MD and the UCSF Information Technology Services Academic Research Systems team and the Clinical Data Research Consultations service. We thank Sourav Bandyopadhyay, Riley Bove, Jeffrey Gelfand, Sharat Israni, and Keith Yamamoto for helpful discussions. Partial support for this work was provided by grants from Genentech to A.J.B. and S.E.B (G-54860). The sponsor had no role in the design or implementation of this study. Research reported in this publication was supported by funding from the UCSF Bakar Computational Health Sciences Institute and the National Center for Advancing Translational Sciences of the National Institutes of Health under award number UL1 TR001872. In addition, we would like to thank Achievement Rewards for College Scientists (ARCS) Scholarship and the NHI BMI Training Grant (T32 GM067547/ 4T32GM067547–14). S.E.B. holds the Heidrich Family and Friends Endowed Chair and the Distinguished Professorship in Neurology I at UCSF.</p>
+</ack>
+<notes notes-type="author-contribution">
+<title>Author contributions</title>
+<p>C.N. and S.E.B. conceived the idea. C.N. wrote the code and performed all analyses. S.E.B. provided guidance and supervised the research. A.B. provided guidance on the project. C.N, A.B., and S.E.B. wrote the paper.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Data availability</title>
+<p>The version of SPOKE used in the research is available on <ext-link ext-link-type="uri" xlink:href="http://neo4j.het.io/browser">neo4j</ext-link> and <ext-link ext-link-type="uri" xlink:href="https://github.com/hetio/hetionet">github</ext-link>. The PSEVs are available on the <ext-link ext-link-type="uri" xlink:href="http://psevexplorer.ucsf.edu">PSEVexplorer</ext-link> and <ext-link ext-link-type="uri" xlink:href="http://github.com/baranzini-lab/PSEV">github</ext-link>.</p>
+</notes>
+<notes notes-type="data-availability">
+<title>Code availability</title>
+<p>The code used to create these PSEVs, as well as some example patient data, is available on <ext-link ext-link-type="uri" xlink:href="http://github.com/baranzini-lab/PSEV">github</ext-link>. The code is written in python. Please read the README for information on downloading and running the code.</p>
+</notes>
+<notes notes-type="COI-statement">
+<title>Competing interests</title>
+<p id="Par45">C.N. and S.E.B declare no competing interests. A.B. reports grants and nonfinancial support from Progenity, personal fees from NuMedii, personal fees from Personalis, grants and personal fees from NIH (multiple institutes), grants from L’Oreal, grants and personal fees from Genentech, personal fees from Merck, personal fees from Lilly, personal fees from Assay Depot, personal fees from Geisinger Health, personal fees from GNS Healthcare, personal fees from uBiome, personal fees from Roche, personal fees from Wilson Sonsini Goodrich &amp; Rosati, personal fees from Orrick, Herrington &amp; Sutcliffe, personal fees from Verinata, personal fees from 10x Genomics, personal fees from Pathway Genomics, personal fees from Guardant Health, personal fees from Gerson Lehrman Group, personal fees from Nuna Health, personal fees from Samsung, personal fees from Milken Institute, personal fees from Brown University, personal fees from Oregon Health Sciences University Knight Cancer Center, personal fees from Vermont Oxford Network, personal fees from University of Chicago, personal fees from Mount Sinai School of Medicine, personal fees from University of Pittsburgh School of Medicine, personal fees from Capital Royalty Group, personal fees from Champalimaud Foundation, personal fees from Scripps Translational Science Institute, personal fees from Washington University in St. Louis, personal fees from University of Maryland, personal fees from HIMSS, personal fees from Federation of Clinical Immunology Societies (FOCIS), personal fees from Kansas City Area Life Sciences Institute, personal fees from Association for Molecular Pathology, personal fees from TEDMED, personal fees from Physician’s Education Resource, personal fees from Optum Labs, personal fees from National Jewish Health, personal fees from Federation of the Israeli Societies for Experimental Biology (FISEB), personal fees from Pfizer, personal fees from Bayer, personal fees from Fusion Conferences, personal fees from Accelerating Biopharmaceutical Development (AccBio), personal fees from Three Lakes Partners, personal fees from Pediatric Academic Societies, personal fees from Korean Society for Biochemistry and Molecular Biology, personal fees from Human Proteomics Organization (HUPO), personal fees from HudsonAlpha, personal fees from Tensegrity, grants from Intervalien Foundation, personal fees from Association for Academic Health Sciences Libraries, personal fees from Westat, personal fees from FH Foundation, personal fees from University of Kentucky, personal fees from University of Pennsylvania, personal fees from The Transplantation Society, personal fees from California Office of Planning and Research, personal fees from WuXi, personal fees from University of Arkansas, personal fees from FlareCapital, personal fees from National Academies, personal fees from Helix, personal fees from American Urological Association, personal fees from Association for American Medical Colleges, personal fees from Roam Insights, personal fees from United Network for Organ Sharing, personal fees from American Association of Allergy Asthma and Immunology, personal fees from University of Michigan, personal fees from Autodesk, personal fees from Regenstrief Institute, personal fees from American Medical Association, personal fees from Precision Medicine World Conference, personal fees from University of Chicago, personal fees from Mars, and personal fees from Kneed Media. Stanford University pays royalties each year on licensed intellectual property. MIT Press pays royalties each year on book sales.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<mixed-citation publication-type="other">Council, N. R. <italic>Toward Precision Medicine: Building a Knowledge Network for Biomedical Research and a New Taxonomy of Disease</italic> (National Academies Press, Washington DC, 2011).</mixed-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Colijn</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Jones</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Johnston</surname>
+<given-names>IG</given-names>
+</name>
+<name>
+<surname>Yaliraki</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Barahona</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Toward precision healthcare: context and mathematical challenges</article-title>
+<source/>Front Physiol.
+          <year>2017</year>
+<volume>8</volume>
+<fpage>136</fpage>
+<pub-id pub-id-type="doi">10.3389/fphys.2017.00136</pub-id>
+<pub-id pub-id-type="pmid">28377724</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<mixed-citation publication-type="other">Sinha, A. et al. An overview of microsoft academic service (mas) and applications. In <italic>Proceedings of the 24th International Conference on World Wide Web, Florence, Italy</italic> 243–246 (ACM, NY, USA, 2015).</mixed-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Elenee Argentinis</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Weber</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>IBM Watson: how cognitive computing can be applied to big data challenges in life sciences research</article-title>
+<source/>Clin. Ther.
+          <year>2016</year>
+<volume>38</volume>
+<fpage>688</fpage>
+<lpage>701</lpage>
+<pub-id pub-id-type="doi">10.1016/j.clinthera.2015.12.001</pub-id>
+<pub-id pub-id-type="pmid">27130797</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barabasi</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Gulbahce</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Loscalzo</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<article-title>Network medicine: a network-based approach to human disease</article-title>
+<source/>Nat. Rev. Genet
+          <year>2011</year>
+<volume>12</volume>
+<fpage>56</fpage>
+<lpage>68</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2918</pub-id>
+<pub-id pub-id-type="pmid">21164525</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Goh</surname>
+<given-names>KI</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The human disease network</article-title>
+<source/>Proc. Natl Acad. Sci. USA
+          <year>2007</year>
+<volume>104</volume>
+<fpage>8685</fpage>
+<lpage>8690</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0701361104</pub-id>
+<pub-id pub-id-type="pmid">17502601</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>PheWAS: demonstrating the feasibility of a phenome-wide scan to discover gene-disease associations</article-title>
+<source/>Bioinformatics
+          <year>2010</year>
+<volume>26</volume>
+<fpage>1205</fpage>
+<lpage>1210</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btq126</pub-id>
+<pub-id pub-id-type="pmid">20335276</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Robust replication of genotype-phenotype associations across multiple diseases in an electronic medical record</article-title>
+<source/>Am. J. Hum. Genet
+          <year>2010</year>
+<volume>86</volume>
+<fpage>560</fpage>
+<lpage>572</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2010.03.003</pub-id>
+<pub-id pub-id-type="pmid">20362271</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kho</surname>
+<given-names>AN</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Electronic medical records for genetic research: results of the eMERGE consortium</article-title>
+<source/>Sci. Transl. Med.
+          <year>2011</year>
+<volume>3</volume>
+<fpage>79re1</fpage>
+<pub-id pub-id-type="doi">10.1126/scitranslmed.3001807</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<mixed-citation publication-type="other">Chen, D. P. et al. Novel integration of hospital electronic medical records and gene expression measurements to identify genetic markers of maturation. <italic>Pac. Symp. Biocomput</italic>., 243–254 (2008).</mixed-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Himmelstein</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Baranzini</surname>
+<given-names>SE</given-names>
+</name>
+</person-group>
+<article-title>Heterogeneous network edge prediction: a data integration approach to prioritize disease-associated genes</article-title>
+<source/>PLoS Comput Biol.
+          <year>2015</year>
+<volume>11</volume>
+<fpage>e1004259</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1004259</pub-id>
+<pub-id pub-id-type="pmid">26158728</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<mixed-citation publication-type="other">Himmelstein, D. S. et al. Systematic integration of biomedical knowledge prioritizes drugs for repurposing. <italic>Elife</italic><bold>6</bold>, e26726 (2017).</mixed-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<mixed-citation publication-type="other">Page, L., Brin, S., Motwani, R. &amp; Winograd, T. The PageRank citation ranking: Bringing order to the web. <italic>PLoS Comput. Biol. </italic><bold>11</bold>,  e1004259 (1999).</mixed-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<mixed-citation publication-type="other">Haveliwala, T. H. Topic-sensitive pagerank. In <italic>Proceedings of the 11th International Conference on World Wide Web</italic><italic>Honolulu, Hawaii, USA.</italic> 517–526 (ACM, 2002).</mixed-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>MacArthur</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The new NHGRI-EBI Catalog of published genome-wide association studies (GWAS Catalog)</article-title>
+<source/>Nucleic Acids Res.
+          <year>2017</year>
+<volume>45</volume>
+<fpage>D896</fpage>
+<lpage>D901</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkw1133</pub-id>
+<pub-id pub-id-type="pmid">27899670</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pletscher-Frankild</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Palleja</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Tsafou</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Binder</surname>
+<given-names>JX</given-names>
+</name>
+<name>
+<surname>Jensen</surname>
+<given-names>LJ</given-names>
+</name>
+</person-group>
+<article-title>DISEASES: text mining and data integration of disease-gene associations</article-title>
+<source/>Methods
+          <year>2015</year>
+<volume>74</volume>
+<fpage>83</fpage>
+<lpage>89</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ymeth.2014.11.020</pub-id>
+<pub-id pub-id-type="pmid">25484339</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pinero</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>DisGeNET: a discovery platform for the dynamical exploration of human diseases and their genes</article-title>
+<source/>Database (Oxf.)
+          <year>2015</year>
+<volume>2015</volume>
+<fpage>bav028</fpage>
+<pub-id pub-id-type="doi">10.1093/database/bav028</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pinero</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>DisGeNET: a comprehensive platform integrating information on human disease-associated genes and variants</article-title>
+<source/>Nucleic Acids Res.
+          <year>2017</year>
+<volume>45</volume>
+<fpage>D833</fpage>
+<lpage>D839</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkw943</pub-id>
+<pub-id pub-id-type="pmid">27924018</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xu</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A framework for annotating human genome in disease context</article-title>
+<source/>PLoS One
+          <year>2012</year>
+<volume>7</volume>
+<fpage>e49686</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0049686</pub-id>
+<pub-id pub-id-type="pmid">23251346</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Can</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Orhan</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Singh</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Analysis of protein-protein interaction networks using random walks</article-title>
+<source/>Proceedings of the 5th International Workshop on Bioinformatics
+          <year>2005</year>
+<publisher-loc>Illinois</publisher-loc>
+<publisher-name> (ACM, Chicago</publisher-name>
+<fpage> 61</fpage>
+<lpage>68</lpage>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Subramanian</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</article-title>
+<source/>Proc. Natl Acad. Sci. USA
+          <year>2005</year>
+<volume>102</volume>
+<fpage>15545</fpage>
+<lpage>15550</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0506580102</pub-id>
+<pub-id pub-id-type="pmid">16199517</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kohler</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Bauer</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Horn</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Robinson</surname>
+<given-names>PN</given-names>
+</name>
+</person-group>
+<article-title>Walking the interactome for prioritization of candidate disease genes</article-title>
+<source/>Am. J. Hum. Genet
+          <year>2008</year>
+<volume>82</volume>
+<fpage>949</fpage>
+<lpage>958</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2008.02.013</pub-id>
+<pub-id pub-id-type="pmid">18371930</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Valentini</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Paccanaro</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Caniza</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Romero</surname>
+<given-names>AE</given-names>
+</name>
+<name>
+<surname>Re</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>An extensive analysis of disease-gene associations using network integration and fast kernel-based gene prioritization methods</article-title>
+<source/>Artif. Intell. Med.
+          <year>2014</year>
+<volume>61</volume>
+<fpage>63</fpage>
+<lpage>78</lpage>
+<pub-id pub-id-type="doi">10.1016/j.artmed.2014.03.003</pub-id>
+<pub-id pub-id-type="pmid">24726035</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Matsushita</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Madireddy</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Mousavi</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Baranzini</surname>
+<given-names>SE</given-names>
+</name>
+</person-group>
+<article-title>PINBPA: cytoscape app for network analysis of GWAS data</article-title>
+<source/>Bioinformatics
+          <year>2015</year>
+<volume>31</volume>
+<fpage>262</fpage>
+<lpage>264</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu644</pub-id>
+<pub-id pub-id-type="pmid">25260698</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<mixed-citation publication-type="other">Lao, N., Mitchell, T. &amp; Cohen, W. W. Random walk inference and learning in a large scale knowledge base. In <italic>Proceedings of the Conference on Empirical Methods in Natural Language Processing, Edinburgh, UK.</italic> 529–539 (Association for Computational Linguistics, Stroudsburg, PA, USA, 2011).</mixed-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shickel</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Tighe</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Bihorac</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Rashidi</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Deep EHR: a survey of recent advances in deep learning techniques for electronic health record (EHR) analysis</article-title>
+<source/>IEEE J. Biomed. Health Inf.
+          <year>2018</year>
+<volume>22</volume>
+<fpage>1589</fpage>
+<lpage>1604</lpage>
+<pub-id pub-id-type="doi">10.1109/JBHI.2017.2767063</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Steindel</surname>
+<given-names>SJ</given-names>
+</name>
+</person-group>
+<article-title>International classification of diseases, 10th edition, clinical modification and procedure coding system: descriptive overview of the next generation HIPAA code sets</article-title>
+<source/>J. Am. Med. Inf. Assoc.
+          <year>2010</year>
+<volume>17</volume>
+<fpage>274</fpage>
+<lpage>282</lpage>
+<pub-id pub-id-type="doi">10.1136/jamia.2009.001230</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schriml</surname>
+<given-names>LM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Disease ontology: a backbone for disease semantic integration</article-title>
+<source/>Nucleic Acids Res.
+          <year>2012</year>
+<volume>40</volume>
+<fpage>D940</fpage>
+<lpage>D946</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkr972</pub-id>
+<pub-id pub-id-type="pmid">22080554</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kibbe</surname>
+<given-names>WA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Disease Ontology 2015 update: an expanded and updated database of human diseases for linking biomedical knowledge through disease data</article-title>
+<source/>Nucleic Acids Res.
+          <year>2014</year>
+<volume>43</volume>
+<fpage>D1071</fpage>
+<lpage>D1078</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku1011</pub-id>
+<pub-id pub-id-type="pmid">25348409</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bodenreider</surname>
+<given-names>O</given-names>
+</name>
+</person-group>
+<article-title>The unified medical language system (UMLS): integrating biomedical terminology</article-title>
+<source/>Nucleic Acids Res.
+          <year>2004</year>
+<volume>32</volume>
+<fpage>D267</fpage>
+<lpage>D270</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkh061</pub-id>
+<pub-id pub-id-type="pmid">14681409</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McDonald</surname>
+<given-names>CJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>LOINC, a universal standard for identifying laboratory observations: a 5-year update</article-title>
+<source/>Clin. Chem.
+          <year>2003</year>
+<volume>49</volume>
+<fpage>624</fpage>
+<lpage>633</lpage>
+<pub-id pub-id-type="doi">10.1373/49.4.624</pub-id>
+<pub-id pub-id-type="pmid">12651816</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<mixed-citation publication-type="other">Fisher, R. A. <italic>Statistical Methods for Research Workers</italic>, ix p., 1 l. (Oliver and Boyd, Edinburgh, London, 1925).</mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

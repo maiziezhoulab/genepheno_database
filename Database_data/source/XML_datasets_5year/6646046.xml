@@ -1,0 +1,1333 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<?properties manuscript?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-journal-id">9809671</journal-id>
+<journal-id journal-id-type="pubmed-jr-id">21092</journal-id>
+<journal-id journal-id-type="nlm-ta">Nat Neurosci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Nat. Neurosci.</journal-id>
+<journal-title-group>
+<journal-title>Nature neuroscience</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1097-6256</issn>
+<issn pub-type="epub">1546-1726</issn>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">30988527</article-id>
+<article-id pub-id-type="pmc">6646046</article-id>
+<article-id pub-id-type="doi">10.1038/s41593-019-0382-7</article-id>
+<article-id pub-id-type="manuscript">NIHMS1523940</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>A Bayesian framework that integrates multi-omics data and gene networks predicts risk genes from schizophrenia GWAS data</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>Quan</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+<xref ref-type="author-notes" rid="FN1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Rui</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+<xref ref-type="author-notes" rid="FN1">*</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Cheng</surname>
+<given-names>Feixiong</given-names>
+</name>
+<xref ref-type="aff" rid="A3">3</xref>
+<xref ref-type="aff" rid="A4">4</xref>
+<xref ref-type="aff" rid="A5">5</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>Qiang</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Ji</surname>
+<given-names>Ying</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>Hai</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhong</surname>
+<given-names>Xue</given-names>
+</name>
+<xref ref-type="aff" rid="A2">2</xref>
+<xref ref-type="aff" rid="A6">6</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Tao</surname>
+<given-names>Ran</given-names>
+</name>
+<xref ref-type="aff" rid="A2">2</xref>
+<xref ref-type="aff" rid="A7">7</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wen</surname>
+<given-names>Zhexing</given-names>
+</name>
+<xref ref-type="aff" rid="A8">8</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sutcliffe</surname>
+<given-names>James S.</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>Chunyu</given-names>
+</name>
+<xref ref-type="aff" rid="A9">9</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Cook</surname>
+<given-names>Edwin H.</given-names>
+</name>
+<xref ref-type="aff" rid="A10">10</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Cox</surname>
+<given-names>Nancy J.</given-names>
+</name>
+<xref ref-type="aff" rid="A2">2</xref>
+<xref ref-type="aff" rid="A6">6</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Bingshan</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="aff" rid="A2">2</xref>
+<xref ref-type="corresp" rid="CR1">#</xref>
+</contrib>
+</contrib-group>
+<aff id="A1"><label>1.</label> Department of Molecular Physiology &amp; Biophysics, Vanderbilt University, Nashville, Tennessee, United States of America</aff>
+<aff id="A2"><label>2.</label> Vanderbilt Genetics Institute, Vanderbilt University Medical Center, Nashville, Tennessee, United States of America</aff>
+<aff id="A3"><label>3.</label> Genomic Medicine Institute, Lerner Research Institute, Cleveland Clinic, Cleveland, Ohio, United States of America</aff>
+<aff id="A4"><label>4.</label> Department of Molecular Medicine, Cleveland Clinic Lerner College of Medicine, Case Western Reserve University, Cleveland, Ohio, United States of America</aff>
+<aff id="A5"><label>5.</label> Case Comprehensive Cancer Center, Case Western Reserve University School of Medicine, Cleveland, Ohio, United States of America</aff>
+<aff id="A6"><label>6.</label> Department of Medicine, Vanderbilt University Medical Center, Nashville, Tennessee, United States of America</aff>
+<aff id="A7"><label>7.</label> Department of Biostatistics, Vanderbilt University Medical Center, Nashville, Tennessee, United States of America</aff>
+<aff id="A8"><label>8.</label> Department of Psychiatry and Behavioral Sciences, Emory University, Atlanta, Georgia, United States of America</aff>
+<aff id="A9"><label>9.</label> Department of Psychiatry and Behavioral Sciences, Upstate Medical University, Syracuse, New York, United States of America</aff>
+<aff id="A10"><label>10.</label> Department of Psychiatry, University of Illinois at Chicago, Chicago, Illinois, United States of America</aff>
+<author-notes>
+<fn fn-type="equal" id="FN1">
+<label>*</label>
+<p id="P1">These authors contribute equally to this study.</p>
+</fn>
+<fn fn-type="con" id="FN2">
+<p id="P2">Author contributions</p>
+<p id="P3">B.L. conceived the overall design of the study, with input from Q.Wang and R.C.. Q.Wang and R.C. implemented the algorithm and performed the most of the analyses. F.C., Q.Wei, Y.J., H.Y, X.Z, and R.T. provided data integration and analysis. Z.W, J.S., C.L, E.C., and N.C. contributed to the interpretation of the results. Q.Wang, R.C., F.C., and B.L. wrote the manuscript, and all authors participated in the manuscript review and revision.</p>
+</fn>
+<corresp id="CR1"><label>#</label> Corresponding author: Bingshan Li (<email>bingshan.li@Vanderbilt.Edu</email>).</corresp>
+</author-notes>
+<pub-date pub-type="nihms-submitted">
+<day>23</day>
+<month>3</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>15</day>
+<month>4</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="ppub">
+<month>5</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>15</day>
+<month>10</month>
+<year>2019</year>
+</pub-date>
+<volume>22</volume>
+<issue>5</issue>
+<fpage>691</fpage>
+<lpage>699</lpage>
+<!--elocation-id from pubmed: 10.1038/s41593-019-0382-7-->
+<permissions>
+<license>
+<license-p>Users may view, print, copy, and download text and data-mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:<uri xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms" xlink:type="simple">http://www.nature.com/authors/editorial_policies/license.html#terms</uri></license-p>
+</license>
+</permissions>
+<abstract id="ABS1">
+<p id="P4">Genome-wide association studies (GWAS) have identified &gt;100 schizophrenia (SCZ)-associated loci, but using these findings to illuminate disease biology remains a challenge. Here, we present integrative RIsk Gene Selector (iRIGS), a Bayesian framework that integrates multi-omics data and gene networks to infer risk genes in GWAS loci. By applying iRIGS to SCZ GWAS data, we predicted a set of high-confidence risk genes (HRGs), most of which are not the nearest genes to the GWAS index variants. HRGs account for a significantly enriched heritability estimated by stratified LD-score regression. Moreover, HRGs are predominantly expressed in brain tissues, especially prenatally, and are enriched for targets of approved drugs, suggesting opportunities to reposition existing drugs for SCZ. Thus, iRIGS can leverage accumulating functional genomics and GWAS data to advance understanding of SCZ etiology and potential therapeutics.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<sec id="S1">
+<title>Introduction</title>
+<p id="P5">For most complex diseases, translating genome-wide association study (GWAS) findings to uncover their underlying biological mechanisms and, clinical applicability remains a great challenge<sup><xref ref-type="bibr" rid="R1">1</xref></sup>. While drug development guided by genetic evidence should have greater rates of success<sup><xref ref-type="bibr" rid="R2">2</xref></sup>, few effective drug targets have been identified through GWAS analysis thus far. Schizophrenia (SCZ), represents a paradigmatic example of this challenge. The Psychiatric Genomics Consortium (PGC) has assembled tens of thousands of samples worldwide and reported 108 genomic loci associated with SCZ in a milestone paper<sup><xref ref-type="bibr" rid="R3">3</xref></sup>. However, only one recognized drug target, the dopamine receptor D2 (<italic>DRD2</italic>), stood out from the results. The therapeutic impasse is largely a consequence of the paucity of novel, accurate drug targetable genes<sup><xref ref-type="bibr" rid="R4">4</xref></sup>. For most, if not all GWAS loci, it is non-trivial to pinpoint the corresponding risk genes, as the loci usually cover multiple candidate genes and the genuine risk gene(s) may be megabases away from the index single nucleotide polymorphisms (SNPs)<sup><xref ref-type="bibr" rid="R5">5</xref></sup>. Genes in the closest proximity to index SNPs were intuitively assigned as risk genes in previous studies<sup><xref ref-type="bibr" rid="R6">6</xref></sup>, however, increasing evidence suggests that risk genes may not be those in the closest proximity<sup><xref ref-type="bibr" rid="R7">7</xref></sup>.</p>
+<p id="P6">There has been tremendous effort in the past few years to dissect the machinery of gene regulation. Epigenomics data generated in large-scale projects such as Functional Annotation of the Mammalian Genome 5 (FANTOM5) provide critical links between regulatory elements and the genes they regulate<sup><xref ref-type="bibr" rid="R8">8</xref></sup>. Also, the recent advances of genome-scale chromosome conformation capture (Hi-C) technology provide global views of both short- and long-range interactions among genomic loci<sup><xref ref-type="bibr" rid="R9">9</xref>,<xref ref-type="bibr" rid="R10">10</xref></sup>. Hi-C data have been successfully used to infer the long-range interaction between distal regulatory elements (DREs) and target promoters<sup><xref ref-type="bibr" rid="R9">9</xref>,<xref ref-type="bibr" rid="R10">10</xref></sup>. These studies showed the promise of linking GWAS loci to disease risk genes, however, such data accumulated to date are far from satisfactory. On the other hand, individual omics data provide complementary support so that integrating multi-omics data is expected to strengthen the signal for pinpointing risk genes. At a different level, multi-omics data on individual risk genes are further amplified when multiple risk genes are considered together, given the polygenecity of diseases like SCZ and that disease risk genes often converge to related biological processes; intuitively, the increased precision in the joint modeling is achieved by borrowing the supporting evidence from risk genes across all GWAS loci.</p>
+<p id="P7">In this study, we developed a Bayesian framework, entitled <underline>i</underline>ntegrative <underline>RI</underline>sk <underline>G</underline>enes <underline>S</underline>elector (iRIGS), to probabilistically infer risk genes driving GWAS signals through integrating two layers of information: 1) the multiple lines of supporting evidence from multi-omics data for individual genes, and 2) the relationships of genes in the biological networks. In its simplest form, the framework can be viewed as a Bayesian model selection problem, i.e., to select genes from each of the GWAS loci such that the supporting evidence on the selected risk genes from all loci is collectively high. The proposed method is flexible to leverage data from different sources, e.g. transcriptomic and epigenomic data, and cumulatively orchestrate them to calculate the probability for risk gene prediction. The application of iRIGS to SCZ showed our predicted risk genes explain significantly enriched heritability, and are highly consistent with the leading pathophysiological hypotheses of SCZ and significantly enriched in targets of approved drugs as well. Taken together, these results confirmed and greatly expanded previous understanding of the disease biology of SCZ, supporting the ability of our framework in translating GWAS findings into biological mechanisms and clinical applicability.</p>
+</sec>
+<sec id="S2">
+<title>Results</title>
+<sec id="S3">
+<title>Overview of the iRIGS framework</title>
+<p id="P8"><xref ref-type="fig" rid="F1">Fig. 1</xref> is a schematic illustration of the framework. Let <italic>L</italic> denote the number of GWAS loci and for a specific locus we collected all the genes located within a 2 Mb region centered at the index SNP as its candidates. The goal of iRIGS is to probabilistically rank candidate genes at each GWAS locus based on their cumulative supporting evidence and closeness in a gene-gene network. Specifically, our goal is to find a set of <italic>L</italic> genes, each selected from one GWAS locus, such that the selected <italic>L</italic> genes achieve the highest score underlying a specified scoring scheme. Computationally, it is infeasible to enumerate all possible gene combinations, and we therefore adopted a Gibbs sampling algorithm to address the challenge, transitioning the problem into a conditional single-dimensional sampling procedure. For example, when sampling the risk gene from candidates at the <italic>L</italic>-th locus, we assume that the risk genes at all other <italic>L</italic>-1 loci have been selected, and the sampling probability for a gene at the <italic>L</italic>-th locus is computed conditional on the <italic>L-1</italic> risk genes, based on the combined support from this gene’s multi-omics support as well as its closeness to the other <italic>L-1</italic> risk genes in network. The sampled gene at the <italic>L</italic>-th locus is then put back to the set of selected genes, and the sampling for the <italic>(L-1)</italic>-th locus is iterated, until all the loci are visited. This process is repeated until risk genes converge to stationary distribution. The posterior probability (PP) of each candidate being a risk gene can be assessed based on the sampling frequency. For each GWAS locus, one or potentially more risk genes can be selected according to PP. In this study, we only selected one risk gene with the highest PP for each locus. Details of iRIGS can be found in <xref ref-type="sec" rid="S15">Methods</xref> and <xref ref-type="supplementary-material" rid="SD3">Supplementary Note</xref>.</p>
+</sec>
+<sec id="S4">
+<title>Applying iRIGS to identify disease risk genes of SCZ</title>
+<p id="P9">In a milestone paper of SCZ GWAS, PCG reported 108 independent, genome wide-significant loci<sup><xref ref-type="bibr" rid="R3">3</xref></sup>. We performed iRIGS on these loci to identify risk genes of SCZ (<xref ref-type="supplementary-material" rid="SD3">Supplementary Table 1</xref>). One key component in iRIGS is a collection of genomic features that can be used to characterize SCZ risk genes. Given our limited knowledge of the disease genes of SCZ, genuine characterization of genomic features of SCZ risk genes has not been clearly established. Here, we adapted iRIGS in a special form to infer preliminary SCZ risk genes to carry out <italic>ab initio</italic> discovery of associated genomic features. Specifically, we used a generic gene-gene network constructed from Gene Ontology (GO) to run iRIGS without genomics data (<xref ref-type="sec" rid="S15">Methods</xref>), and denoted the identified risk genes as network-derived risk genes (NRGs). In total, we predicted 104 NRGs after merging the overlapping genes across loci.</p>
+<p id="P10">To show that these 104 NRGs harbor genuine SCZ genes, we assessed the enrichment of NRGs with 18 gene sets that have been widely and repeatedly implicated in SCZ (<xref ref-type="sec" rid="S15">Methods</xref>). For the enrichment analysis, we selected the 842 genes with PPs less than the median PP of all candidate genes as the background and termed them local background genes (LBGs). We observed significant enrichments in 5 gene sets after Bonferroni correction (<xref ref-type="table" rid="T1">Table 1</xref>), including postsynaptic density (PSD) proteins (<italic>P</italic><sub>corrected</sub> = 4.03 × 10<sup>−5</sup>, OR = 4.52) and miR-137 targets (<italic>P</italic><sub>corrected</sub> = 4.24 × 10<sup>−5</sup>, OR = 9.79). We also tried other thresholds to define LBGs, and the enrichment patterns are similar (<xref ref-type="supplementary-material" rid="SD3">Supplementary Table 2</xref>). Thus in the following analyses, we used the median PP as the LBG threshold. To further determine the enrichment is not biased due to GO annotations, we applied iRIGS to two other traits (Age-Related Macular Degeneration (AMD) and obesity) using the same GO network, and no enrichments were observed in any of the gene sets (<italic>P</italic><sub>corrected</sub> &gt; 0.05).</p>
+<p id="P11">We also evaluated whether NRGs carry more <italic>de novo</italic> mutations (DNMs) identified in SCZ compared to LBGs. We collected DNM data of parent-proband trios as well as unaffected siblings from previous studies<sup><xref ref-type="bibr" rid="R11">11</xref></sup> (<xref ref-type="sec" rid="S15">Methods</xref>). We focused only on the predicted deleterious DNMs (pdDNMs) defined as loss of function (nonsense, splicing, and frame shift) DNMs or missense DNMs with a deleterious score (DScore) &gt; 3, in which DScore is defined as the number of deleteriousness predictions among 7 algorithms reported by ANNOVAR <sup><xref ref-type="bibr" rid="R12">12</xref></sup> (<xref ref-type="sec" rid="S15">Methods</xref>). We observed significant enrichment of proband pdDNMs with NRGs (<italic>P</italic> = 2.53 × 10<sup>−3</sup>, OR = 3.88), while no enrichment was observed for synonymous DNMs (sDNMs) (<italic>P</italic> = 1). As contrast, no significant enrichments were observed for either pdDNMs (<italic>P</italic> = 1) or sDNMs (<italic>P</italic> = 1) identified in unaffected siblings.</p>
+</sec>
+<sec id="S5">
+<title>Discovery of characteristic genomic features of SCZ risk genes</title>
+<p id="P12">The preliminary explorations above showed that the predicted NRGs capture the genetic risks of SCZ. We thus used the 104 NRGs to explore genomics data to learn genomic features that are characteristics of SCZ risk genes. We first found that NRGs are more likely to be differentially expressed (DE) compared to LBGs (<italic>P</italic> = 8.55 × 10<sup>−3</sup>) (<xref ref-type="fig" rid="F2">Fig. 2a</xref>) in CommondMind data<sup><xref ref-type="bibr" rid="R13">13</xref></sup> (<xref ref-type="sec" rid="S15">Methods</xref>). We next explored DRE-promoter links of NRGs by testing the hypothesis that risk genes have more incoming regulatory links compared to background. We found that NRGs are indeed connected to more DREs in Hi-C and FANTOM5 data (<xref ref-type="fig" rid="F2">Fig. 2b</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 1</xref>, <xref ref-type="sec" rid="S15">Methods</xref>, and <xref ref-type="supplementary-material" rid="SD3">Supplementary Note</xref>). We also investigated the distance between NRGs and index SNPs. Although GWAS identified variants do not necessarily implicate the nearest genes<sup><xref ref-type="bibr" rid="R7">7</xref></sup>, this will nevertheless be the case for a number of risk loci. Among the 104 NRGs we predicted, twenty-three genes (22%) are the nearest ones to the corresponding index SNPs, significantly higher than expected (<italic>P</italic> = 0.04, permutation test).</p>
+</sec>
+<sec id="S6">
+<title>Integrating the learned genomic features to identify high-confidence risk genes (HRG) for SCZ</title>
+<p id="P13">As shown above, different genomic features (DNMs, DE, DRE-promoter links, and distance to index SNP (DTS)) consistently exhibited supportive evidence on NRGs. We therefore integrated them into iRIGS (<xref ref-type="sec" rid="S15">Methods</xref>) and predicted 104 high-confident risk genes (HRGs) in total (<xref ref-type="supplementary-material" rid="SD3">Supplementary Table 1</xref>). We next evaluated whether and how the integrated multi-dimensional genomic features can improve our prediction.</p>
+<sec id="S7">
+<label>a)</label>
+<title>Genomic features show aggregated effects on HRGs</title>
+<p id="P14">For each GWAS locus, we calculated the ratio of maximum and median of PPs of local candidate genes, and found that HRGs carry significantly higher sampling probabilities than NRGs (<italic>P</italic> = 1.02 × 10<sup>−18</sup>, <xref ref-type="fig" rid="F3">Fig. 3a</xref>), demonstrating the strong and aggregated influence of multi-dimensional genomic features on nominating risk genes.</p>
+</sec>
+<sec id="S8">
+<label>b)</label>
+<title>Genomic positions of HRGs relative to GWAS index SNPs</title>
+<p id="P15">Among the 104 HRGs, 39 genes (38%) are nearest to the corresponding GWAS index SNPs (16 more genes than NRGs), significantly higher than expected (<italic>P</italic> &lt; 1×10<sup>−6</sup>, permutation test). The extreme significance strongly supports the effectiveness of incorporating genomic features in selecting genuine risk genes, and in particular HRGs that are also nearest genes provide high-confidence candidates for follow-up studies.</p>
+<p id="P16">Of particular interest are the remaining 65 HRGs that are not the nearest genes to the index SNPs. For each of these 65 HRGs, denoted as non-nearest HRGs, we picked the nearest gene from the corresponding locus as control. We also performed the gene set enrichment analysis to compare the 65 nearest non-HRG genes with the 65 non-nearest HRGs. The gene sets used here are the same ones used in <xref ref-type="table" rid="T1">Table 1</xref>. We found that non-nearest HRGs are more significantly enriched in the gene sets compared to nearest non-HRG genes (<xref ref-type="supplementary-material" rid="SD3">Supplementary Table 3</xref>), suggesting that the 65 non-nearest HRGs identified by iRIGS are more likely to be true risk genes than their nearest counterparts.</p>
+<p id="P17">In the 2Mbp window of GWAS index SNPs most candidate genes are out of the linkage disequilibrium (LD) blocks of the index SNPs, and we investigated to what extent the identified HRGs are in GWAS loci LD blocks, which were defined as regions with <italic>r</italic><sup>2</sup> &gt; 0.2 with the index SNPs. Among the 104 identified HRGs, 34 (33%) genes are in LD blocks. For 39 HRGs that are also nearest to the index SNPs, around half (19) are in LD blocks, while for the 65 non-nearest HRGs only 15 are in LD blocks.</p>
+</sec>
+<sec id="S9">
+<label>c)</label>
+<title>HRGs explain high disease heritability</title>
+<p id="P18">We then utilized stratified linkage disequilibrium score regression (LDSC) to evaluate the SCZ heritability explained by HRGs<sup><xref ref-type="bibr" rid="R14">14</xref></sup>. We included the SNPs located within a 20 kb window centered at the transcription start site (TSS) of each gene for LDSC analysis. We observed that HRGs explain significantly enriched disease heritability (Enrichment = 39.36, <italic>P</italic> = 5.56 × 10<sup>−7</sup>) than LBG (Enrichment = 10.06, <italic>P</italic> = 6.31 × 10<sup>−14</sup>) (<xref ref-type="fig" rid="F3">Fig. 3b</xref>). When focusing only on the 65 non-nearest HRGs, we also observed a significant enrichment in heritability (Enrichment = 19.72, <italic>P</italic> = 2.53 × 10<sup>−4</sup>), although the majority of which are not in strong LD with the index SNPs (<xref ref-type="fig" rid="F3">Fig. 3b</xref>). As expected, the enrichment of nearest HRGs is the highest since they are close to index SNPs. We also tried different window sizes around TSS (from 20 kb to 200 kb) for LDSC and observed the same trend of enrichments. Note that DTS is a confounding effect for LDSC since genes close to index SNPs are more likely to have a high LDSC score, and HRGs used here for LDSC analysis were obtained without the use of DTS in iRIGS..</p>
+<p id="P19">The above evaluations demonstrate the effectiveness of incorporating multi-dimensional genomic features and strongly suggest that iRIGS is capable of nominating SCZ disease risk genes. In the remaining sections of Results, we used the 104 predicted HRGs to comprehensively characterize various properties of identified (putative) SCZ risk genes to gain more biological insights of SCZ.</p>
+</sec>
+</sec>
+<sec id="S10">
+<title>Tissue- and developmental stage-specific expression of HRGs</title>
+<p id="P20">We collected the expression data from Genotype-Tissue Expression (GTEx) project (<xref ref-type="sec" rid="S15">Methods</xref>) and observed that HRGs have more pronounced tissue-specificity in brain than LBGs (<xref ref-type="fig" rid="F3">Fig. 3c</xref>). We also observed a higher expression level of HRGs in prenatal than postnatal stages (<italic>P</italic> = 6.99 × 10<sup>−3</sup>, <xref ref-type="fig" rid="F3">Fig. 3d</xref>) in BrainSpan data<sup><xref ref-type="bibr" rid="R15">15</xref></sup> (<xref ref-type="sec" rid="S15">Methods</xref>), while this pattern is absent for LBGs (<italic>P</italic> = 0.15, <xref ref-type="fig" rid="F3">Fig. 3d</xref>). In addition to LBGs, we also generated a set of whole-genome background genes (WBGs) by including all the human genes minus HRGs for comparison. As expected, no difference was observed for WBGs between prenatal and postnatal stages (<italic>P</italic> = 0.27, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 2</xref>).</p>
+<p id="P21">We also compared the spatiotemporal expression pattern between the 65 non-nearest HRGs and the corresponding 65 nearest non-HRG genes. We found that non-nearest HRGs are highly expressed in prenatal stages too (<italic>P</italic> = 5.83 × 10<sup>−4</sup>, <xref ref-type="fig" rid="F3">Fig. 3d</xref>) while there is no significant difference for nearest non-HRG genes (<italic>P</italic> = 0.53, <xref ref-type="fig" rid="F3">Fig. 3d</xref>). Interestingly, in GTEx data, we observed that nearest non-HRG genes are highly expressed in a majority of brain tissues while non-nearest HRGs are not (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 3</xref>).</p>
+</sec>
+<sec id="S11">
+<title>Involvement of HRGs in biological functions implicated in SCZ</title>
+<p id="P22">We repeated the enrichment analysis of HRGs with the same 18 gene sets previously used. We observed dramatic improvement in the enrichments of SCZ-relevant gene sets compared to NRGs. Under criteria <italic>P</italic><sub>corrected</sub> &lt; 0.05, NRGs are enriched in 5 gene sets, while HRGs are enriched in 10 sets, the majority of which showed remarkably enhanced ORs (<xref ref-type="table" rid="T1">Table 1</xref>). Among the 10 significantly enriched gene sets, fragile X mental retardation protein (FMRP) targets, PSD, and genes related to the presynaptic active zone (PRAZ) have been extensively implicated in SCZ due to their in-depth involvement in synaptic networks. Calcium channel and signaling (CCS) is involved in multiple functions including synaptic plasticity modulation and has pleiotropic effects on psychiatric diseases<sup><xref ref-type="bibr" rid="R5">5</xref></sup>. Targets of miRNA miR-137 have been discussed in detail for the potential etiologic mechanism of SCZ<sup><xref ref-type="bibr" rid="R16">16</xref></sup>. Note that some of the enriched gene sets have also been previously implicated in DNM or rare coding mutation analyses, such as FMRP targets<sup><xref ref-type="bibr" rid="R11">11</xref></sup> and PSD<sup><xref ref-type="bibr" rid="R17">17</xref></sup>, confirming the convergence between non-coding variants and coding mutations at the gene set level.</p>
+<p id="P23"><xref ref-type="table" rid="T2">Table 2</xref> lists some well-established SCZ genes involved in the SCZ primary functional categories derived from the aforementioned gene sets<sup><xref ref-type="bibr" rid="R3">3</xref>,<xref ref-type="bibr" rid="R9">9</xref>,<xref ref-type="bibr" rid="R18">18</xref>–<xref ref-type="bibr" rid="R35">35</xref></sup>. Specifically, <italic>CACNA1C</italic> and <italic>CACNB2,</italic> both encoding voltage-gated calcium channel subunits, are involved in CCS and contribute to risk for SCZ<sup><xref ref-type="bibr" rid="R3">3</xref></sup>. <italic>CACNA1C</italic> is differentially expressed in SCZ patients (<italic>P</italic> = 0.03), and both <italic>CACNA1C</italic> and <italic>CACNB2</italic> capture multiple Hi-C links in brain Hi-C data (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4</xref>), contributing to the high PP of both genes in iRIGS. We also predicted two DNA binding proteins, SOX2<sup><xref ref-type="bibr" rid="R9">9</xref></sup> and SATB2<sup><xref ref-type="bibr" rid="R20">20</xref>,<xref ref-type="bibr" rid="R21">21</xref></sup> (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4</xref>), which have important roles in neurogenesis and have been widely implicated in SCZ. Several of our predicted HRGs are miR-137 target genes, including the aforementioned <italic>CACNA1C</italic>, and three other genes, <italic>GRIN2A, TCF4</italic> and <italic>ZNF804A</italic>. <italic>GRIN2A</italic>, a glutamate-gated ion channel protein and a key mediator of synaptic plasticity<sup><xref ref-type="bibr" rid="R23">23</xref>,<xref ref-type="bibr" rid="R24">24</xref></sup>, has a pdDNM and multiple regulatory connections (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4</xref>). <italic>TCF4</italic>, encoding Transcription Factor 4, participates in the initiation of neuronal differentiation by regulating the intrinsic excitability of prefrontal cortical neurons<sup><xref ref-type="bibr" rid="R29">29</xref>,<xref ref-type="bibr" rid="R30">30</xref></sup>, and knockdown of <italic>TCF4</italic> alters the expression of genes important for developing prefrontal neocortex<sup><xref ref-type="bibr" rid="R29">29</xref>,<xref ref-type="bibr" rid="R31">31</xref></sup>. <italic>TCF4</italic> is also linked with numerous DREs (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4</xref>) in iRIGS. The reduced expression of <italic>ZNF804A</italic> in human neurons, especially in fetal brain, has been widely observed and hypothesized to contribute to SCZ etiology by affecting neurite growth and loss of dendritic spine density<sup><xref ref-type="bibr" rid="R32">32</xref></sup>.</p>
+<p id="P24">We emphasize that, in addition to these well-established SCZ genes, iRIGS also nominated novel or non-canonical genes, especially those genes that are distal to the index SNPs. One particular example is the rs2514218 locus, in which <italic>DRD2,</italic> the target of all effective antipsychotic drugs, is the nearest to the index SNP. At that locus, the top predicted gene is neural cell adhesion molecule 1 (<italic>NCAM1</italic>), which is distal to the index SNP, while the nearest <italic>DRD2</italic> is ranked the 3<sup>rd</sup> among all 16 candidate genes. We took a closer look at this region to gain more insights. <italic>NCAM1</italic> captures 55 Hi-C links in brain Hi-C data (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 5</xref>), while there is only one for <italic>DRD2</italic>. In addition, <italic>NCAM1</italic> has 207 capture Hi-C links, much higher than <italic>DRD2</italic> (111 links). We also observed 4 links for <italic>NCAM1</italic> but none for <italic>DRD2</italic> in FANTOM5 data. We further explored the expression patterns of <italic>NCAM1</italic> and <italic>DRD2</italic>. In GTEx data, <italic>DRD2</italic> is highly expressed in basal ganglia caudate, hypothalamus, basal ganglia nucleus accumbens, basal ganglia putamen and substantia nigra, but the expression in cortex and frontal cortex is rather low (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 6</xref>). <italic>NCAM1</italic> is uniformly and highly expressed in all brain tissues (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 6</xref>). In BrainSpan data, <italic>NCAM1</italic> shows constitutively high expression across all stages, and particularly higher expression at prenatal stages with a trajectory that peaks at the early-mid fetal stage, while <italic>DRD2</italic> shows lower expression across all developmental stages and no obvious pattern of transition between prenatal and postnatal stages (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 7</xref>). The temporal and spatial expression pattern of <italic>NCAM1</italic> is consistent with the current understanding of SCZ<sup><xref ref-type="bibr" rid="R36">36</xref></sup>, and all these lines of evidence highlight that <italic>NCAM1</italic> is a promising SCZ risk gene in addition to <italic>DRD2</italic>. Note that GTEx and BrainSpan data were not used in iRIGS, and therefore the spatiotemporal analysis of gene expression provides independent and unbiased support.</p>
+<p id="P25">Another example is <italic>PTK2B,</italic> which is distal to the index SNP rs73229090 (the nearest gene is <italic>CLU</italic>)<italic>. PTK2B</italic> encodes a kinase involved in calcium-induced regulation of ion channels and plays an important role in regulating neuronal activity. More interestingly, <italic>PTK2B</italic> has been consistently found to interact with <italic>DAO</italic>, a potential SCZ gene implicated from non-GWAS signals<sup><xref ref-type="bibr" rid="R18">18</xref>,<xref ref-type="bibr" rid="R19">19</xref></sup>. One pdDNM and a high number of regulatory links were observed for <italic>PTK2B</italic> (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 8</xref>), promoting it as the top gene predicted by iRIGS. Collectively, these findings strongly indicate that <italic>PTK2B</italic> is a potential risk gene for SCZ.</p>
+<p id="P26">We have manually checked the remaining genes extensively, and for most HRGs we found support to varying degrees for these genes to be involved in SCZ pathophysiology. We highlighted these genes with extended supporting evidence and description in <xref ref-type="supplementary-material" rid="SD3">Supplementary Table 1</xref>.</p>
+</sec>
+<sec id="S12">
+<title>Enrichment of HRGs in gene sets leading to altered neuronal phenotypes in mouse models</title>
+<p id="P27">As it is increasingly clear that SCZ reflects perturbation of neurodevelopmental processes<sup><xref ref-type="bibr" rid="R9">9</xref>,<xref ref-type="bibr" rid="R36">36</xref></sup>, we were interested in assessing direct phenotypic manifestations of gene knockout in mouse models to see whether mutants in mouse genes orthologous to HRGs exhibit phenotypes highly related to central nervous system (CNS)<sup><xref ref-type="bibr" rid="R37">37</xref></sup>. Specifically, we collected 278 gene sets relevant to CNS and behavior/neurological phenotypes from Mouse Genome Informatics (MGI) Mammalian Phenotype Ontology (MPO) database (<xref ref-type="sec" rid="S15">Methods</xref>) and observed significant enrichment of HRGs in 33 gene sets after Bonferroni correction (<xref ref-type="supplementary-material" rid="SD2">Supplementary Table 4</xref>). The enriched sets span from low-level molecular functions to broad behavioral phenotypes and brain morphologies, including “abnormal nervous system physiology” (<italic>P</italic> = 3.96 × 10<sup>−7</sup>, OR = 6.25), “abnormal nervous system morphology” (<italic>P</italic> = 1.04 × 10<sup>−6</sup>, OR = 5.23), “abnormal brain morphology” (<italic>P</italic> = 9.19 × 10<sup>−7</sup>, OR = 6.86), and “abnormal behavior” (<italic>P</italic> = 3.80 × 10<sup>−6</sup>, OR = 4.34).</p>
+<p id="P28">In addition, we also observed that the 65 non-nearest HRGs are significantly enriched in 19 MPO gene sets (<xref ref-type="supplementary-material" rid="SD2">Supplementary Table 5</xref>), while no significantly enriched gene sets were observed for the 65 nearest non-HRG genes (<xref ref-type="supplementary-material" rid="SD2">Supplementary Table 6</xref>), providing strong and orthogonal support for iRIGS identified risk genes that are beyond the proximity to the GWAS index SNPs.</p>
+</sec>
+<sec id="S13">
+<title>HRGs are likely to be potential drug targets</title>
+<p id="P29">We were interested in whether the predicted HRGs have the potential of repositioning existing drugs for SCZ treatment. We curated a list of 2263 confirmed druggable targets from multiple sources (<xref ref-type="sec" rid="S15">Methods</xref>), and found that 28 (27%) HRGs are targets of 198 FDA-approved, clinically investigational, or preclinical drugs (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 9</xref> and <xref ref-type="supplementary-material" rid="SD2">Supplementary Table 7</xref>). The overlap is a significant enrichment compared to LBGs (<italic>P</italic> = 3.83 × 10<sup>−7</sup>, OR = 3.93). We observed that the 65 non-nearest HRGs are significantly enriched in drug targets too (<italic>P</italic> = 6.30 × 10<sup>−5</sup>, OR = 3.78), while the degree of enrichment of 65 nearest non-HRG genes decreases dramatically (<italic>P</italic> = 0.03, OR = 2.13). In particular, we found that 5 HRGs (<italic>GRIA1, GRM3, KCNQ5, CACNA1C,</italic> and <italic>GRIN2A</italic>) are targets of nervous system drugs (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 9</xref>), corresponding to a statistically significant enrichment (<italic>P</italic> = 0.01, OR = 3.78).</p>
+<p id="P30">One HRG, <italic>GRM3,</italic> which encodes the protein mGlu<sub>3</sub>, is of particular interest as it belongs to the G protein-coupled receptor (GPCR) family; these receptors are the targets of the majority of clinically used drugs<sup><xref ref-type="bibr" rid="R38">38</xref></sup>. While there has been support in the literature for linkage of <italic>GRM3</italic> with SCZ<sup><xref ref-type="bibr" rid="R25">25</xref>,<xref ref-type="bibr" rid="R39">39</xref>,<xref ref-type="bibr" rid="R40">40</xref></sup>, there have also been contrasting reports<sup><xref ref-type="bibr" rid="R41">41</xref>,<xref ref-type="bibr" rid="R42">42</xref></sup>; the results presented here provide additional evidence to support the hypothesis that <italic>GRM3</italic> is a SCZ risk gene. Additionally, polymorphisms in <italic>GRM3</italic> have been shown to correlate with cognitive performance in healthy individuals<sup><xref ref-type="bibr" rid="R43">43</xref>,<xref ref-type="bibr" rid="R44">44</xref></sup>, and cognitive impairments are an area of unmet medical need in SCZ. This suggests that our results may place mGlu<sub>3</sub> in a particularly attractive position for therapeutics development for SCZ.</p>
+<p id="P31">In addition to genes like <italic>GRM3</italic>, which has been previously indicated to be genetically associated with SCZ, we would propose that novel genes in our list may represent new candidates for involvement or potential treatment of SCZ. For example, TMEFF1 and TMEFF2 are family members with differential expression in the brain that are comprised of transmembrane proteins which include an epidermal growth factor (EGF)-like domain along with two follistatin-like domains<sup><xref ref-type="bibr" rid="R45">45</xref>–<xref ref-type="bibr" rid="R47">47</xref></sup>. The extracellular domains of these proteins can be cleaved and released from the cell surface, potentially functioning as neurotrophic factors. It has been suggested that TMEFF2 may be trophic for dopamine neurons and the protein has been reported to increase dendrite length in these cells<sup><xref ref-type="bibr" rid="R47">47</xref>,<xref ref-type="bibr" rid="R48">48</xref></sup>. Cleavage of the extracellular domain of TMEFF2 is stimulated by cytokines that induce inflammation, such as interleukin-1β (IL-1β) and tumor necrosis factor-α (TNF-α)<sup><xref ref-type="bibr" rid="R49">49</xref></sup>. The fact that this protein is expressed on the cell surface suggests that it may be a candidate for drug targeting, potentially providing a completely new therapeutic strategy for SCZ and other neurological disorders.</p>
+</sec>
+</sec>
+<sec id="S14">
+<title>Discussion</title>
+<p id="P32">SCZ is a severe psychiatric disorder that is notoriously difficult to treat, particularly due to the poor understanding of disease etiology. Identifying risk genes at the associated loci, in our vision, is a crucial step to bridge GWAS findings and the biology of SCZ for novel therapeutics development. A direct benefit is drug-repositioning, as risk genes shared across different diseases provide a natural lever to repurpose drugs approved for other diseases for SCZ treatment. To bridge this gap, we developed an integrative framework, iRIGS, to pinpoint risk genes from a massive pool of candidates around SCZ associated loci, by jointly modeling high-dimensional genomic features across all GWAS loci for enhanced accuracy. As a result, we provided a gene-centric view of the genetic etiology of SCZ with strong support from multiple lines of evidence. Moreover, as a proof-of-concept, the predicted risk genes are strongly enriched in existing drug targets, demonstrating the promise of the identified risk genes for drug-repositioning for SCZ.</p>
+<p id="P33">Our framework has a few key strengths that are worth further in-depth discussion. iRIGS jointly integrates genomic features of a set of risk genes rather than individual genes such that the weak evidence for individual risk genes is amplified by joining forces with other ones, boosting the inference accuracy. A challenge for joint modeling across GWAS loci is the correlation among risk genes. In iRIGS, instead of explicitly specifying correlations among all genes, which is impractical, the correlation is derived from gene network. The derived correlation can be viewed as a prior in a Bayesian framework for the gene-gene covariance matrix (<xref ref-type="sec" rid="S15">Methods</xref>). In the algorithm implementation, we designed a Gibbs sampling strategy to achieve two goals: making an astronomically challenging computational problem feasible as well as providing a probabilistic assessment of the selected risk genes, both of which are critical. By adopting a Gibbs sampling algorithm, we transformed the high-dimensional joint modeling into a much simpler one-dimensional problem, not only solving the computational challenge but also providing a set of risk genes with probabilistic interpretations. It is of note that although the algorithm samples one gene from each of the loci at each iteration, when zero or more than one risk gene exist at a locus the framework is still able to rank the genes by PPs without awareness of the exact number of risk genes at each locus. For loci that do not harbor risk genes for whatever reasons, this does not pose much challenge to the robustness of the algorithm either, and the sampling is distributed evenly to the candidate genes such that none of them have pronounced PPs. Considering that it is almost impossible to specify <italic>a prior</italic> number of risk genes at each locus (being either zero or larger than one), which is also very likely to vary widely across loci, the current implementation is robust even in the presence of these challenges.</p>
+<p id="P34">Our framework is designed to take advantages of the high-dimensional genomics data, and the more relevant genomic features are included the more accurate the prediction is. The PsychENCODE project<sup><xref ref-type="bibr" rid="R50">50</xref></sup>, for example, is actively generating various epigenomics data for psychiatric disorders, and the accuracy of risk gene prediction for SCZ will be markedly enhanced when these data are incorporated into our framework. In addition, since the genomic features of genes at individual loci are jointly modeled across all loci, the accuracy of the prediction will also be remarkably improved as more loci are identified, e.g., by meta-analyses of international consortia such as PGC. Moreover, the investigated genomic loci can also be expanded by including the sub-GWAS variants whose p-values are less than a relatively loose threshold compared with the GWAS threshold. It is our expectation that with the expansion of both genomics data and discovered GWAS loci the identification of risk genes will be greatly improved, advancing our understanding of the biology of SCZ for the ultimate goal of guiding effective therapeutics development. Note that the framework is equally applicable to other complex diseases, and especially suitable for the diseases with large volumes of omics data, such as transcriptomics, functional genomics, epigenomics, and others. For example, data from single cell sequencing from various immune cell types can be used for autoimmune diseases. It is our hope that this framework is able to catalyze translation of GWAS to biology and therapeutics for a variety of complex diseases.</p>
+</sec>
+<sec id="S15">
+<title>Methods</title>
+<sec id="S16">
+<title>Model description of iRIGS</title>
+<p id="P35">We collected genes in the 2Mb region centered at a GWAS index SNP as the candidates for that particular locus. Let <italic>L</italic> be the number of GWAS loci, and we denote a vector of genes with length <italic>L</italic>, each being from one of the <italic>L</italic> GWAS loci, as (<italic>X</italic><sub><italic>1</italic></sub>, …, <italic>X</italic><sub><italic>L</italic></sub>), and term it a candidate risk gene set (CRGS). We denote the corresponding genomic features for this CRGS as (<italic>D</italic><sub><italic>1</italic></sub>, …, <italic>D</italic><sub><italic>L</italic></sub>), in which <italic>D</italic><sub><italic>l</italic></sub> is a vector of genomic features collected for gene <italic>X</italic><sub><italic>l</italic></sub>, and let <italic>D</italic> be the genomic data for all candidates across all GWAS loci. We use <italic>N</italic> to denote the gene-gene network. Now the goal is to calculate <italic>P(X</italic><sub><italic>1</italic></sub>, <italic>…</italic>, <italic>X</italic><sub><italic>L</italic></sub><italic>|D</italic>,<italic>N)</italic>, and select a CRGS with maximum posterior probability, conditional on the genomic features collectively on all genes in the <italic>L</italic> loci, as well as the network topology. Assuming that genomics data of a gene depend only on the underlying gene, we have
+<disp-formula id="FD1"><mml:math display="block" id="M1" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∝</mml:mo><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>D</mml:mi><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>L</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:msubsup><mml:mo>∏</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>L</mml:mi></mml:msubsup><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>L</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math></disp-formula></p>
+<p id="P36">The first term represents the evidence embedded in genomics data, and the second term encodes the complex correlation of risk genes in network. Since it is impossible to explicitly specify the correlation among the genes, we derived the complex correlation from the network implicitly with the rationale that, the functional convergence of risk genes, reflected in the perspective of networks, is that disease genes are more densely connected, and therefore are more highly correlated. Specifically, we approximate it with one-dimensional conditional likelihoods, that is <inline-formula><mml:math display="inline" id="M2" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>L</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>≈</mml:mo><mml:msubsup><mml:mo>∏</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>L</mml:mi></mml:msubsup><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math></inline-formula>, where <italic>X</italic><sub><italic>-l</italic></sub> is a vector of genes with the <italic>l</italic>-th gene removed. We can see that the joint posterior probability can be approximated by one-dimensional pseudo-likelihoods:
+<disp-formula id="FD2"><mml:math display="block" id="M3" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo>|</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>∝</mml:mo><mml:msubsup><mml:mo>∏</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>L</mml:mi></mml:msubsup><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo>|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msubsup><mml:mo>∏</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>L</mml:mi></mml:msubsup><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo>|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo>|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math></disp-formula></p>
+<p id="P37">Now the calculation is decomposed into a one-dimensional problem, evaluating one GWAS locus at a time. For each of the genes in locus <italic>l</italic>, the evidence comes from two sources: the support from the genomics data, i.e., <inline-formula><mml:math display="inline" id="M4" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>, and the support from risk genes in other loci through networks, i.e., <inline-formula><mml:math display="inline" id="M5" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>. Suppose all of the <italic>X</italic><sub><italic>-l</italic></sub> genes are risk genes, then based on network topology a gene at locus <italic>l</italic> that is closer to <italic>X</italic><sub><italic>-l</italic></sub> is more likely to be the risk gene compared to other candidates at the same locus. We do not know, however, which genes in other loci are risk genes, and therefore are not able to pre-specify risk genes <italic>X</italic><sub><italic>-l</italic></sub>. Conceptually, we employed a Gibbs sampling strategy to first sample a candidate risk gene from a given locus <italic>l</italic> based on the one-dimensional posterior, and then repeat the sampling across the remaining loci. We iterated the sampling process until posterior distribution converges. Specially, in each round of Gibbs sampling, we calculated the sampling frequency for each candidate gene. The frequency was compared with last round, and if the sum of squares of frequency differences across all selected genes was smaller than a predefined threshold (1 × 10<sup>−4</sup> was used in this study), the sampling procedure stopped. Based on the sampling we are able to assess the confidence of candidates being risk genes. Theoretically, we cast iRIGS as a Bayesian model selection problem, with each candidate in a locus being a risk gene as a model. We also defined a null (background) model <italic>X</italic><sub><italic>0</italic></sub> to represent that the candidate is a non-risk gene. The Bayesian model selection method calculates posterior odds of <italic>X</italic><sub><italic>l</italic></sub> over <italic>X</italic><sub><italic>0</italic></sub>, i.e., <inline-formula><mml:math display="inline" id="M6" overflow="scroll"><mml:mrow><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula>, where <inline-formula><mml:math display="inline" id="M7" overflow="scroll"><mml:mrow><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>D</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula> is a Bayesian Factor (BF) derived from multi-omics data and <inline-formula><mml:math display="inline" id="M8" overflow="scroll"><mml:mrow><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math></inline-formula> is a prior odds derived from the network. The prior odds reflects the network evidence supporting <italic>X</italic><sub><italic>l</italic></sub> with the rationale that the prior odds is high when <italic>X</italic><sub><italic>l</italic></sub> is closer to <italic>X</italic><sub><italic>-l</italic></sub> in network comparing to <italic>X</italic><sub><italic>0</italic></sub>. The distance of <italic>X</italic><sub><italic>l</italic></sub> or <italic>X</italic><sub><italic>0</italic></sub> to <italic>X</italic><sub><italic>-l</italic></sub> in the network is calculated using the random walk with restart (RWR) algorithm (<xref ref-type="supplementary-material" rid="SD3">Supplemental Note</xref>). We collected 7 genomic features to compute the BF, including <italic>de novo</italic> mutation (DNM), differential expression (DE), distance to the index SNP (DTS), and 4 sets of regulatory connections determined by distal regulatory elements (DRE)-promoter links from Hi-C, capture Hi-C, and FANTOM5 data. We employed the Mahalanobis transformation<sup><xref ref-type="bibr" rid="R51">51</xref></sup> to de-correlate the integrated multi-dimensional data so that any supportive genomic features can be properly incorporated (<xref ref-type="supplementary-material" rid="SD3">Supplementary Note</xref>). In implementation, we assumed that the posterior probability of null model <inline-formula><mml:math display="inline" id="M9" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula> is invariant for all candidate genes and thus only calculated <inline-formula><mml:math display="inline" id="M10" overflow="scroll"><mml:mrow><mml:mi>P</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math></inline-formula>. The application of iRIGS to 108 SCZ loci with 7 different genomic features took ~2 hours on an Intel Xeon E5 CPU with 2.40 GHz.</p>
+</sec>
+<sec id="S17">
+<title>Gene set enrichment analysis</title>
+<p id="P38">We collected gene sets with strong evidence of involvement in SCZ for gene set enrichment analysis (<xref ref-type="table" rid="T1">Table 1</xref>) from various sources. These gene sets include the fragile X mental retardation protein (FMRP) targets extracted from two previous studies<sup><xref ref-type="bibr" rid="R52">52</xref>,<xref ref-type="bibr" rid="R53">53</xref></sup>; Postsynaptic density (PSD) genes<sup><xref ref-type="bibr" rid="R17">17</xref>,<xref ref-type="bibr" rid="R54">54</xref></sup>; genes related to presynaptic proteins (PRP), presynaptic active zone (PRAZ), and synaptic vesicles (SYV)<sup><xref ref-type="bibr" rid="R55">55</xref></sup>; the GABA<sub>A</sub> receptor complex<sup><xref ref-type="bibr" rid="R37">37</xref></sup>; calcium channel and signaling (CCS) genes<sup><xref ref-type="bibr" rid="R56">56</xref></sup>; targets of microRNA miR-137<sup><xref ref-type="bibr" rid="R16">16</xref></sup>. In addition to the primary SCZ functional categories, we also collected a few autism spectrum disorder (ASD) gene sets for enrichment analysis due to the pathophysiology shared between psychiatric disorders, including genes from database AutDB<sup><xref ref-type="bibr" rid="R57">57</xref></sup>, evolutionarily constrained genes (ECG)<sup><xref ref-type="bibr" rid="R58">58</xref></sup>, essential genes<sup><xref ref-type="bibr" rid="R59">59</xref></sup>, genes from transmission and <italic>de novo</italic> association test (TADA)<sup><xref ref-type="bibr" rid="R60">60</xref></sup>, and targets of RBFOX1 (RNA Binding Protein, Fox-1 Homolog 1), a brain- and muscle-specific splicing factor<sup><xref ref-type="bibr" rid="R61">61</xref></sup>.</p>
+<p id="P39">We also compiled gene sets relevant to central nervous system (CNS) phenotypes in mouse models<sup><xref ref-type="bibr" rid="R37">37</xref></sup>. We leveraged the phenotypic terms in Mammalian Phenotype Ontology (MPO), a well-constructed vocabulary that unambiguously describes phenotypic observations<sup><xref ref-type="bibr" rid="R62">62</xref></sup>, and gene-phenotype relationships in Mouse Genome Informatics (MGI)<sup><xref ref-type="bibr" rid="R63">63</xref></sup>, to extract CNS gene sets. First, we identified 2066 descendant terms of the two relevant terms of the highest level: nervous system phenotype and behavior/neurological phenotype. We next downloaded all gene mutants of the mouse and their MPO annotations from MGI. Since the MPO was constructed in a hierarchical structure, we assigned genes annotated to a specific term to all its ancestry terms. We then mapped the mouse genes to human genes using Human and Mouse Homology Classes generated in MGI. We only kept the homology classes which contain unambiguously orthology relationships, i.e. the classes consist of only a single mouse-human gene homolog pair. At last, we obtained 278 terms that each contains at least 50 human genes.</p>
+</sec>
+<sec id="S18">
+<title>DNM enrichment analysis</title>
+<p id="P40">We collected the SCZ DNM data from multiple previous studies<sup><xref ref-type="bibr" rid="R11">11</xref>,<xref ref-type="bibr" rid="R36">36</xref>,<xref ref-type="bibr" rid="R64">64</xref>,<xref ref-type="bibr" rid="R65">65</xref></sup>, in which exome sequencing was performed on parent-proband trios, and in some cases, with an unaffected sibling. In total, the sequenced cohort consisted of 973 trios and 84 unaffected siblings. We annotated the DNMs by ANNOVAR<sup><xref ref-type="bibr" rid="R12">12</xref></sup> and extracted two classes of DNMs: i) loss of function (LoF) mutations including nonsense, splicing, and frame shift, and ii) missense (Mis) mutations. Twelve bioinformatics tools were utilized to determine the deleteriousness of LoF and Mis DNMs in ANNOVAR, and we assigned a deleterious score (DScore) for each Mis mutation, defined as the number of deleteriousness predictions out of 12 prediction algorithms from ANNOVAR. We focused only on the predicted deleterious DNMs (pdDNMs) defined as LoF and Mis DNMs with a DScore &gt; 3. Accordingly, the control set we used includes pdDNMs identified in all the control samples collected by denovo-db.</p>
+</sec>
+<sec id="S19">
+<title>Gene expression analysis</title>
+<p id="P41">For DE analysis we downloaded the data from CommondMind Consortium (<ext-link ext-link-type="uri" xlink:href="https://www.synapse.org/#!Synapse:syn5609493">https://www.synapse.org/#!Synapse:syn5609493</ext-link>)<sup><xref ref-type="bibr" rid="R13">13</xref></sup>, in which RNA sequencing was performed on post-mortem dorsolateral prefrontal cortex (DLPFC) region for 258 subjects with SCZ and 279 controls, and employed the Wilcoxon rank-sum test to see whether the iRIGS predicted risk genes carry lower p-values compared to background.</p>
+<p id="P42">For tissue-specificity investigation, we used gene expression data from the Genotype-Tissue Expression (GTEx) release V6<sup><xref ref-type="bibr" rid="R66">66</xref></sup>. We downloaded gene RPKM (reads per kilobase of transcript per million mapped reads) dataset from GTEx portal (<ext-link ext-link-type="uri" xlink:href="https://www.gtexportal.org/home/datasets">https://www.gtexportal.org/home/datasets</ext-link>), covering ~50 tissues. We adopted the Jensen-Shannon divergence<sup><xref ref-type="bibr" rid="R67">67</xref></sup> to measure the tissue-specificity of each gene in each tissue (<xref ref-type="supplementary-material" rid="SD3">Supplementary Note</xref>).</p>
+<p id="P43">For brain developmental stage-specificity investigation, we downloaded the RNA sequencing data of the developing human brains from BrainSpan<sup><xref ref-type="bibr" rid="R15">15</xref></sup>, and calculated the average expression of HRGs in all brain regions at each of the developmental stages (<ext-link ext-link-type="uri" xlink:href="http://help.brain-map.org/display/devhumanbrain/Documentation">http://help.brain-map.org/display/devhumanbrain/Documentation</ext-link>). We used the log<sub>2</sub>(RPKM) as the expression level of genes.</p>
+</sec>
+<sec id="S20">
+<title>DRE-promoter link collection</title>
+<p id="P44">We collected DRE-promoter links from multiple sources. One recent study<sup><xref ref-type="bibr" rid="R9">9</xref></sup> inferred chromosome contact by constructing Hi-C libraries for two major regions, cortical and subcortical plate (CP) and germinal zone (GZ), of human cerebral cortex. The predicted DRE-promoter links listed in [table 22 and 23] were downloaded and in total we obtained 221,069 and 228,323 links for CP and GZ, respectively. We also collected the DRE-promoter links inferred from two more studies. One is the capture Hi-C study of cell line GM12878<sup><xref ref-type="bibr" rid="R10">10</xref></sup>. We obtained 1,618,000 DRE-promoter links predicted for GM12878 from <ext-link ext-link-type="uri" xlink:href="http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-2323/">http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-2323/</ext-link>. The other dataset we used is from FANTOM5 project<sup><xref ref-type="bibr" rid="R8">8</xref></sup> in which the cap analysis of gene expression (CAGE) technology was employed to infer the enhancer-promoter links across multiple human tissues. We downloaded the FANTOM5 data from <ext-link ext-link-type="uri" xlink:href="http://enhancer.binf.ku.dk/presets/">http://enhancer.binf.ku.dk/presets/</ext-link> and obtained 66,899 enhancer-promoter links.</p>
+</sec>
+<sec id="S21">
+<title>Construction of drug-target network</title>
+<p id="P45">We collected drug information from the DrugBank database (version 4.3)<sup><xref ref-type="bibr" rid="R68">68</xref></sup> and Therapeutic Target Database (accessed on December, 2016)<sup><xref ref-type="bibr" rid="R69">69</xref></sup>. All chemical structures from these databases were prepared by the Open Babel toolkit (version 2.3.2)<sup><xref ref-type="bibr" rid="R70">70</xref></sup>. We assembled bioactivity data for drug-protein interactions collected from three publicly available databases, including ChEMBL (version 21)<sup><xref ref-type="bibr" rid="R71">71</xref></sup>, BindingDB (data accessed on December, 2016)<sup><xref ref-type="bibr" rid="R72">72</xref></sup>, IUPHAR/BPS Guide to PHARMACOLOGY (data accessed on December, 2016)<sup><xref ref-type="bibr" rid="R73">73</xref></sup>. To improve the data quality, we only pooled the biophysical drug-protein interactions with the numeric bioactivity value using 4 criteria: (i) K<sub>i</sub>, K<sub>d</sub>, IC<sub>50</sub> or EC<sub>50</sub> ≤ 10 μM; (ii) the target protein can be represented by a unique UniProt accession number; (iii) the target protein was marked as “reviewed” in the UniProt database<sup><xref ref-type="bibr" rid="R74">74</xref></sup>; and (iv) the target protein is from <italic>Homo sapiens</italic>. A fixed length (25 hash characters) generated from chemical SMILES by OpenBabel<sup><xref ref-type="bibr" rid="R70">70</xref></sup> was used to encode each drug. All duplicated drugs were removed according to their 25 hash characters. Drugs were grouped using anatomical therapeutic chemical (ATC) classification system codes collected from DrugBank<sup><xref ref-type="bibr" rid="R68">68</xref></sup>. We defined antineoplastic drugs based on the first-class of ATC code, such as [N] for “nervous system” drugs.</p>
+</sec>
+<sec id="S22">
+<title>Statistical analyses</title>
+<p id="P46">For gene set enrichment, DNM enrichment, and drug target enrichment analysis, we adopted the one-sided Fisher’s exact test. For PP comparison, spatiotemporal expression analyses, and DRE-promoter link comparisons, we adopted the one-sided Wilcoxon rank sum test.</p>
+</sec>
+<sec id="S23">
+<title>Reporting Summary</title>
+<p id="P47">Further information on research design is available in the Nature Research Reporting Summary linked to this article.</p>
+</sec>
+<sec id="S24" sec-type="data-availability">
+<title>Data availability</title>
+<p id="P48">All the data used in this study are from public resources that were specified in <xref ref-type="sec" rid="S15">Methods</xref> and <xref ref-type="supplementary-material" rid="SD3">Supplementary Note</xref>.</p>
+</sec>
+<sec id="S25">
+<title>Code availability</title>
+<p id="P49">The source code and the companying genomics datasets used in this study are available at <ext-link ext-link-type="uri" xlink:href="https://www.vumc.org/cgg">https://www.vumc.org/cgg</ext-link>.</p>
+</sec>
+</sec>
+<sec id="SM1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="SD1">
+<label>1</label>
+<media id="d36e2326" orientation="portrait" position="anchor" xlink:href="NIHMS1523940-supplement-1.doc" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD2">
+<label>2</label>
+<media id="d36e2330" orientation="portrait" position="anchor" xlink:href="NIHMS1523940-supplement-2.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD3">
+<label>3</label>
+<media id="d36e2334" orientation="portrait" position="anchor" xlink:href="NIHMS1523940-supplement-3.pdf" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD4">
+<label>4</label>
+<media id="d36e2338" orientation="portrait" position="anchor" xlink:href="NIHMS1523940-supplement-4.pdf" xlink:type="simple"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack id="S26">
+<title>Acknowledgements</title>
+<p id="P50">We are grateful to Drs. Colleen Niswender, Branden Stansley, Jeff Conn at Vanderbilt University for critical input on portions of this manuscript. This study is supported by US NIH/NHGRI grants U01HG009086 (Q.Wang, R.C., Q.Wei, Y.J., H.Y., X.Z., R.T., N.C., and B.L.), U24HG008956, and R01MH113362 (J.S., N.C., and B.L.). U01HG009086 is to support the Vanderbilt Analysis Center for the Genome Sequencing Project (GSP) and U24 HG008956 is to support the GSP Coordinating Center. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.</p>
+</ack>
+<fn-group>
+<fn fn-type="COI-statement" id="FN3">
+<p id="P51">Competing interests statement</p>
+<p id="P52">The authors declare no competing interests.</p>
+</fn>
+</fn-group>
+<ref-list>
+<title>References</title>
+<ref id="R1">
+<label>1.</label>
+<mixed-citation publication-type="journal"><name><surname>Visscher</surname><given-names>PM</given-names></name>
+<etal></etal>
+<article-title>10 Years of GWAS Discovery: Biology, Function, and Translation</article-title>. <source/>Am J Hum Genet
+<volume>101</volume>, <fpage>5</fpage>–<lpage>22</lpage> (<year>2017</year>).<pub-id pub-id-type="pmid">28686856</pub-id></mixed-citation>
+</ref>
+<ref id="R2">
+<label>2.</label>
+<mixed-citation publication-type="journal"><name><surname>Nelson</surname><given-names>MR</given-names></name>
+<etal></etal>
+<article-title>The support of human genetic evidence for approved drug indications</article-title>. <source/>Nat Genet
+<volume>47</volume>, <fpage>856</fpage>–<lpage>60</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26121088</pub-id></mixed-citation>
+</ref>
+<ref id="R3">
+<label>3.</label>
+<mixed-citation publication-type="journal"><collab>Schizophrenia Working Group of the Psychiatric Genomics, C</collab>. <article-title>Biological insights from 108 schizophrenia-associated genetic loci</article-title>. <source/>Nature
+<volume>511</volume>, <fpage>421</fpage>–<lpage>7</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25056061</pub-id></mixed-citation>
+</ref>
+<ref id="R4">
+<label>4.</label>
+<mixed-citation publication-type="journal"><name><surname>Breen</surname><given-names>G</given-names></name>
+<etal></etal>
+<article-title>Translating genome-wide association findings into new therapeutics for psychiatry</article-title>. <source/>Nature Neuroscience
+<volume>19</volume>, <fpage>1392</fpage>–<lpage>1396</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">27786187</pub-id></mixed-citation>
+</ref>
+<ref id="R5">
+<label>5.</label>
+<mixed-citation publication-type="journal"><name><surname>Harrison</surname><given-names>PJ</given-names></name>
+<article-title>Recent genetic findings in schizophrenia and their therapeutic relevance</article-title>. <source/>Journal of Psychopharmacology
+<volume>29</volume>, <fpage>85</fpage>–<lpage>96</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25315827</pub-id></mixed-citation>
+</ref>
+<ref id="R6">
+<label>6.</label>
+<mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>K</given-names></name>, <name><surname>Li</surname><given-names>M</given-names></name> &amp; <name><surname>Bucan</surname><given-names>M</given-names></name>
+<article-title>Pathway-based approaches for analysis of genomewide association studies</article-title>. <source/>Am J Hum Genet
+<volume>81</volume>, <fpage>1278</fpage>–<lpage>83</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17966091</pub-id></mixed-citation>
+</ref>
+<ref id="R7">
+<label>7.</label>
+<mixed-citation publication-type="journal"><name><surname>Smemo</surname><given-names>S</given-names></name>
+<etal></etal>
+<article-title>Obesity-associated variants within FTO form long-range functional connections with IRX3</article-title>. <source/>Nature
+<volume>507</volume>, <fpage>371</fpage>–<lpage>5</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24646999</pub-id></mixed-citation>
+</ref>
+<ref id="R8">
+<label>8.</label>
+<mixed-citation publication-type="journal"><name><surname>Andersson</surname><given-names>R</given-names></name>
+<etal></etal>
+<article-title>An atlas of active enhancers across human cell types and tissues</article-title>. <source/>Nature
+<volume>507</volume>, <fpage>455</fpage>–<lpage>61</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24670763</pub-id></mixed-citation>
+</ref>
+<ref id="R9">
+<label>9.</label>
+<mixed-citation publication-type="journal"><name><surname>Won</surname><given-names>H</given-names></name>
+<etal></etal>
+<article-title>Chromosome conformation elucidates regulatory relationships in developing human brain</article-title>. <source/>Nature
+<volume>538</volume>, <fpage>523</fpage>–<lpage>527</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">27760116</pub-id></mixed-citation>
+</ref>
+<ref id="R10">
+<label>10.</label>
+<mixed-citation publication-type="journal"><name><surname>Mifsud</surname><given-names>B</given-names></name>
+<etal></etal>
+<article-title>Mapping long-range promoter contacts in human cells with high-resolution capture Hi-C</article-title>. <source/>Nat Genet
+<volume>47</volume>, <fpage>598</fpage>–<lpage>606</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25938943</pub-id></mixed-citation>
+</ref>
+<ref id="R11">
+<label>11.</label>
+<mixed-citation publication-type="journal"><name><surname>Fromer</surname><given-names>M</given-names></name>
+<etal></etal>
+<article-title>De novo mutations in schizophrenia implicate synaptic networks</article-title>. <source/>Nature
+<volume>506</volume>, <fpage>179</fpage>–<lpage>84</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24463507</pub-id></mixed-citation>
+</ref>
+<ref id="R12">
+<label>12.</label>
+<mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>K</given-names></name>, <name><surname>Li</surname><given-names>M</given-names></name> &amp; <name><surname>Hakonarson</surname><given-names>H</given-names></name>
+<article-title>ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data</article-title>. <source/>Nucleic Acids Res
+<volume>38</volume>, <fpage>e164</fpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20601685</pub-id></mixed-citation>
+</ref>
+<ref id="R13">
+<label>13.</label>
+<mixed-citation publication-type="journal"><name><surname>Fromer</surname><given-names>M</given-names></name>
+<etal></etal>
+<article-title>Gene expression elucidates functional impact of polygenic risk for schizophrenia</article-title>. <source/>Nat Neurosci
+<volume>19</volume>, <fpage>1442</fpage>–<lpage>1453</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">27668389</pub-id></mixed-citation>
+</ref>
+<ref id="R14">
+<label>14.</label>
+<mixed-citation publication-type="journal"><name><surname>Bulik-Sullivan</surname><given-names>BK</given-names></name>
+<etal></etal>
+<article-title>LD Score regression distinguishes confounding from polygenicity in genome-wide association studies</article-title>. <source/>Nat Genet
+<volume>47</volume>, <fpage>291</fpage>–<lpage>5</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25642630</pub-id></mixed-citation>
+</ref>
+<ref id="R15">
+<label>15.</label>
+<mixed-citation publication-type="journal"><name><surname>Miller</surname><given-names>JA</given-names></name>
+<etal></etal>
+<article-title>Transcriptional landscape of the prenatal human brain</article-title>. <source/>Nature
+<volume>508</volume>, <fpage>199</fpage>–<lpage>206</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24695229</pub-id></mixed-citation>
+</ref>
+<ref id="R16">
+<label>16.</label>
+<mixed-citation publication-type="journal"><collab>Schizophrenia Psychiatric Genome-Wide Association Study, C</collab>. <article-title>Genome-wide association study identifies five new schizophrenia loci</article-title>. <source/>Nat Genet
+<volume>43</volume>, <fpage>969</fpage>–<lpage>76</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21926974</pub-id></mixed-citation>
+</ref>
+<ref id="R17">
+<label>17.</label>
+<mixed-citation publication-type="journal"><name><surname>Kirov</surname><given-names>G</given-names></name>
+<etal></etal>
+<article-title>De novo CNV analysis implicates specific abnormalities of postsynaptic signalling complexes in the pathogenesis of schizophrenia</article-title>. <source/>Mol Psychiatry
+<volume>17</volume>, <fpage>142</fpage>–<lpage>53</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22083728</pub-id></mixed-citation>
+</ref>
+<ref id="R18">
+<label>18.</label>
+<mixed-citation publication-type="journal"><name><surname>Verrall</surname><given-names>L</given-names></name>, <name><surname>Burnet</surname><given-names>PW</given-names></name>, <name><surname>Betts</surname><given-names>JF</given-names></name> &amp; <name><surname>Harrison</surname><given-names>PJ</given-names></name>
+<article-title>The neurobiology of D-amino acid oxidase and its involvement in schizophrenia</article-title>. <source/>Mol Psychiatry
+<volume>15</volume>, <fpage>122</fpage>–<lpage>37</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">19786963</pub-id></mixed-citation>
+</ref>
+<ref id="R19">
+<label>19.</label>
+<mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>HC</given-names></name>
+<etal></etal>
+<article-title>The DAO Gene Is Associated with Schizophrenia and Interacts with Other Genes in the Taiwan Han Chinese Population</article-title>. <source/>Plos One
+<volume>8</volume>(<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="R20">
+<label>20.</label>
+<mixed-citation publication-type="journal"><name><surname>Jaitner</surname><given-names>C</given-names></name>
+<etal></etal>
+<article-title>Satb2 determines miRNA expression and long-term memory in the adult central nervous system</article-title>. <source/>Elife
+<volume>5</volume>(<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="R21">
+<label>21.</label>
+<mixed-citation publication-type="journal"><name><surname>Whitton</surname><given-names>L</given-names></name>
+<etal></etal>
+<article-title>Cognitive Analysis of Schizophrenia Risk Genes That Function as Epigenetic Regulators of Gene Expression</article-title>. <source/>American Journal of Medical Genetics Part B-Neuropsychiatric Genetics
+<volume>171</volume>, <fpage>1170</fpage>–<lpage>1179</lpage> (<year>2016</year>).</mixed-citation>
+</ref>
+<ref id="R22">
+<label>22.</label>
+<mixed-citation publication-type="journal"><name><surname>Barkus</surname><given-names>C</given-names></name>
+<etal></etal>
+<article-title>What causes aberrant salience in schizophrenia? A role for impaired short-term habituation and the GRIA1 (GluA1) AMPA receptor subunit</article-title>. <source/>Mol Psychiatry
+<volume>19</volume>, <fpage>1060</fpage>–<lpage>70</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25224260</pub-id></mixed-citation>
+</ref>
+<ref id="R23">
+<label>23.</label>
+<mixed-citation publication-type="journal"><name><surname>Thomas</surname><given-names>KT</given-names></name>
+<etal></etal>
+<article-title>Inhibition of the Schizophrenia-Associated MicroRNA miR-137 Disrupts Nrg1alpha Neurodevelopmental Signal Transduction</article-title>. <source/>Cell Rep
+<volume>20</volume>, <fpage>1</fpage>–<lpage>12</lpage> (<year>2017</year>).<pub-id pub-id-type="pmid">28683304</pub-id></mixed-citation>
+</ref>
+<ref id="R24">
+<label>24.</label>
+<mixed-citation publication-type="journal"><name><surname>Weickert</surname><given-names>CS</given-names></name>
+<etal></etal>
+<article-title>Molecular evidence of N-methyl-D-aspartate receptor hypofunction in schizophrenia</article-title>. <source/>Mol Psychiatry
+<volume>18</volume>, <fpage>1185</fpage>–<lpage>92</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23070074</pub-id></mixed-citation>
+</ref>
+<ref id="R25">
+<label>25.</label>
+<mixed-citation publication-type="journal"><name><surname>Egan</surname><given-names>MF</given-names></name>
+<etal></etal>
+<article-title>Variation in GRM3 affects cognition, prefrontal glutamate, and risk for schizophrenia</article-title>. <source/>Proc Natl Acad Sci U S A
+<volume>101</volume>, <fpage>12604</fpage>–<lpage>9</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15310849</pub-id></mixed-citation>
+</ref>
+<ref id="R26">
+<label>26.</label>
+<mixed-citation publication-type="journal"><name><surname>Boks</surname><given-names>MP</given-names></name>
+<etal></etal>
+<article-title>Do mood symptoms subdivide the schizophrenia phenotype? Association of the GMP6A gene with a depression subgroup</article-title>. <source/>Am J Med Genet B Neuropsychiatr Genet
+<volume>147B</volume>, <fpage>707</fpage>–<lpage>11</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18163405</pub-id></mixed-citation>
+</ref>
+<ref id="R27">
+<label>27.</label>
+<mixed-citation publication-type="journal"><name><surname>Yan</surname><given-names>J</given-names></name>
+<etal></etal>
+<article-title>Analysis of the neuroligin 3 and 4 genes in autism and other neuropsychiatric patients</article-title>. <source/>Mol Psychiatry
+<volume>10</volume>, <fpage>329</fpage>–<lpage>32</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15622415</pub-id></mixed-citation>
+</ref>
+<ref id="R28">
+<label>28.</label>
+<mixed-citation publication-type="journal"><name><surname>Shi</surname><given-names>L</given-names></name>
+<etal></etal>
+<article-title>The functional genetic link of NLGN4X knockdown and neurodevelopment in neural stem cells</article-title>. <source/>Hum Mol Genet
+<volume>22</volume>, <fpage>3749</fpage>–<lpage>60</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23710042</pub-id></mixed-citation>
+</ref>
+<ref id="R29">
+<label>29.</label>
+<mixed-citation publication-type="journal"><name><surname>Rannals</surname><given-names>MD</given-names></name>
+<etal></etal>
+<article-title>Psychiatric Risk Gene Transcription Factor 4 Regulates Intrinsic Excitability of Prefrontal Neurons via Repression of SCN10a and KCNQ1</article-title>. <source/>Neuron
+<volume>90</volume>, <fpage>43</fpage>–<lpage>55</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">26971948</pub-id></mixed-citation>
+</ref>
+<ref id="R30">
+<label>30.</label>
+<mixed-citation publication-type="journal"><name><surname>Quednow</surname><given-names>BB</given-names></name>, <name><surname>Brzozka</surname><given-names>MM</given-names></name> &amp; <name><surname>Rossner</surname><given-names>MJ</given-names></name>
+<article-title>Transcription factor 4 (TCF4) and schizophrenia: integrating the animal and the human perspective</article-title>. <source/>Cell Mol Life Sci
+<volume>71</volume>, <fpage>2815</fpage>–<lpage>35</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24413739</pub-id></mixed-citation>
+</ref>
+<ref id="R31">
+<label>31.</label>
+<mixed-citation publication-type="journal"><name><surname>Hill</surname><given-names>MJ</given-names></name>
+<etal></etal>
+<article-title>Knockdown of the schizophrenia susceptibility gene TCF4 alters gene expression and proliferation of progenitor cells from the developing human neocortex</article-title>. <source/>J Psychiatry Neurosci
+<volume>42</volume>, <fpage>181</fpage>–<lpage>188</lpage> (<year>2017</year>).<pub-id pub-id-type="pmid">27689884</pub-id></mixed-citation>
+</ref>
+<ref id="R32">
+<label>32.</label>
+<mixed-citation publication-type="journal"><name><surname>Chang</surname><given-names>H</given-names></name>, <name><surname>Xiao</surname><given-names>X</given-names></name> &amp; <name><surname>Li</surname><given-names>M</given-names></name>
+<article-title>The schizophrenia risk gene ZNF804A: clinical associations, biological mechanisms and neuronal functions</article-title>. <source/>Mol Psychiatry (<year>2017</year>).</mixed-citation>
+</ref>
+<ref id="R33">
+<label>33.</label>
+<mixed-citation publication-type="journal"><name><surname>Devanna</surname><given-names>P</given-names></name> &amp; <name><surname>Vernes</surname><given-names>SC</given-names></name>
+<article-title>A direct molecular link between the autism candidate gene RORa and the schizophrenia candidate MIR137</article-title>. <source/>Scientific Reports
+<volume>4</volume>(<year>2014</year>).</mixed-citation>
+</ref>
+<ref id="R34">
+<label>34.</label>
+<mixed-citation publication-type="journal"><name><surname>Hu</surname><given-names>VW</given-names></name>, <name><surname>Sarachana</surname><given-names>T</given-names></name>, <name><surname>Sherrard</surname><given-names>RM</given-names></name> &amp; <name><surname>Kocher</surname><given-names>KM</given-names></name>
+<article-title>Investigation of sex differences in the expression of RORA and its transcriptional targets in the brain as a potential contributor to the sex bias in autism</article-title>. <source/>Mol Autism
+<volume>6</volume>, <fpage>7</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26056561</pub-id></mixed-citation>
+</ref>
+<ref id="R35">
+<label>35.</label>
+<mixed-citation publication-type="journal"><name><surname>Kwon</surname><given-names>E</given-names></name>, <name><surname>Wang</surname><given-names>W</given-names></name> &amp; <name><surname>Tsai</surname><given-names>LH</given-names></name>
+<article-title>Validation of schizophrenia-associated genes CSMD1, C10orf26, CACNA1C and TCF4 as miR-137 targets</article-title>. <source/>Mol Psychiatry
+<volume>18</volume>, <fpage>11</fpage>–<lpage>2</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">22182936</pub-id></mixed-citation>
+</ref>
+<ref id="R36">
+<label>36.</label>
+<mixed-citation publication-type="journal"><name><surname>Gulsuner</surname><given-names>S</given-names></name>
+<etal></etal>
+<article-title>Spatial and temporal mapping of de novo mutations in schizophrenia to a fetal prefrontal cortical network</article-title>. <source/>Cell
+<volume>154</volume>, <fpage>518</fpage>–<lpage>29</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23911319</pub-id></mixed-citation>
+</ref>
+<ref id="R37">
+<label>37.</label>
+<mixed-citation publication-type="journal"><name><surname>Pocklington</surname><given-names>AJ</given-names></name>
+<etal></etal>
+<article-title>Novel Findings from CNVs Implicate Inhibitory and Excitatory Signaling Complexes in Schizophrenia</article-title>. <source/>Neuron
+<volume>86</volume>, <fpage>1203</fpage>–<lpage>14</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26050040</pub-id></mixed-citation>
+</ref>
+<ref id="R38">
+<label>38.</label>
+<mixed-citation publication-type="journal"><name><surname>Overington</surname><given-names>JP</given-names></name>, <name><surname>Al-Lazikani</surname><given-names>B</given-names></name> &amp; <name><surname>Hopkins</surname><given-names>AL</given-names></name>
+<article-title>How many drug targets are there?</article-title>
+<source/>Nat Rev Drug Discov
+<volume>5</volume>, <fpage>993</fpage>–<lpage>6</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">17139284</pub-id></mixed-citation>
+</ref>
+<ref id="R39">
+<label>39.</label>
+<mixed-citation publication-type="journal"><name><surname>Harrison</surname><given-names>PJ</given-names></name>, <name><surname>Lyon</surname><given-names>L</given-names></name>, <name><surname>Sartorius</surname><given-names>LJ</given-names></name>, <name><surname>Burnet</surname><given-names>PW</given-names></name> &amp; <name><surname>Lane</surname><given-names>TA</given-names></name>
+<article-title>The group II metabotropic glutamate receptor 3 (mGluR3, mGlu3, GRM3): expression, function and involvement in schizophrenia</article-title>. <source/>J Psychopharmacol
+<volume>22</volume>, <fpage>308</fpage>–<lpage>22</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18541626</pub-id></mixed-citation>
+</ref>
+<ref id="R40">
+<label>40.</label>
+<mixed-citation publication-type="journal"><name><surname>Saini</surname><given-names>SM</given-names></name>
+<etal></etal>
+<article-title>Meta-analysis supports GWAS-implicated link between GRM3 and schizophrenia risk</article-title>. <source/>Transl Psychiatry
+<volume>7</volume>, <fpage>e1196</fpage> (<year>2017</year>).<pub-id pub-id-type="pmid">28786982</pub-id></mixed-citation>
+</ref>
+<ref id="R41">
+<label>41.</label>
+<mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>X</given-names></name>, <name><surname>Wang</surname><given-names>G</given-names></name>, <name><surname>Wang</surname><given-names>Y</given-names></name> &amp; <name><surname>Yue</surname><given-names>X</given-names></name>
+<article-title>Association of metabotropic glutamate receptor 3 gene polymorphisms with schizophrenia risk: evidence from a meta-analysis</article-title>. <source/>Neuropsychiatr Dis Treat
+<volume>11</volume>, <fpage>823</fpage>–<lpage>33</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25848280</pub-id></mixed-citation>
+</ref>
+<ref id="R42">
+<label>42.</label>
+<mixed-citation publication-type="journal"><name><surname>Jia</surname><given-names>W</given-names></name>
+<etal></etal>
+<article-title>Metabotropic glutamate receptor 3 is associated with heroin dependence but not depression or schizophrenia in a Chinese population</article-title>. <source/>PLoS One
+<volume>9</volume>, <fpage>e87247</fpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24498053</pub-id></mixed-citation>
+</ref>
+<ref id="R43">
+<label>43.</label>
+<mixed-citation publication-type="journal"><name><surname>Jablensky</surname><given-names>A</given-names></name>
+<etal></etal>
+<article-title>Polymorphisms associated with normal memory variation also affect memory impairment in schizophrenia</article-title>. <source/>Genes Brain Behav
+<volume>10</volume>, <fpage>410</fpage>–<lpage>7</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21281445</pub-id></mixed-citation>
+</ref>
+<ref id="R44">
+<label>44.</label>
+<mixed-citation publication-type="journal"><name><surname>Baune</surname><given-names>BT</given-names></name>
+<etal></etal>
+<article-title>Association between genetic variants of the metabotropic glutamate receptor 3 (GRM3) and cognitive set shifting in healthy individuals</article-title>. <source/>Genes Brain Behav
+<volume>9</volume>, <fpage>459</fpage>–<lpage>66</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20132315</pub-id></mixed-citation>
+</ref>
+<ref id="R45">
+<label>45.</label>
+<mixed-citation publication-type="journal"><name><surname>Uchida</surname><given-names>T</given-names></name>
+<etal></etal>
+<article-title>A novel epidermal growth factor-like molecule containing two follistatin modules stimulates tyrosine phosphorylation of erbB-4 in MKN28 gastric cancer cells</article-title>. <source/>Biochem Biophys Res Commun
+<volume>266</volume>, <fpage>593</fpage>–<lpage>602</lpage> (<year>1999</year>).<pub-id pub-id-type="pmid">10600548</pub-id></mixed-citation>
+</ref>
+<ref id="R46">
+<label>46.</label>
+<mixed-citation publication-type="journal"><name><surname>Kanemoto</surname><given-names>N</given-names></name>
+<etal></etal>
+<article-title>Expression of TMEFF1 mRNA in the mouse central nervous system: precise examination and comparative studies of TMEFF1 and TMEFF2</article-title>. <source/>Brain Res Mol Brain Res
+<volume>86</volume>, <fpage>48</fpage>–<lpage>55</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11165370</pub-id></mixed-citation>
+</ref>
+<ref id="R47">
+<label>47.</label>
+<mixed-citation publication-type="journal"><name><surname>Horie</surname><given-names>M</given-names></name>
+<etal></etal>
+<article-title>Identification and characterization of TMEFF2, a novel survival factor for hippocampal and mesencephalic neurons</article-title>. <source/>Genomics
+<volume>67</volume>, <fpage>146</fpage>–<lpage>52</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">10903839</pub-id></mixed-citation>
+</ref>
+<ref id="R48">
+<label>48.</label>
+<mixed-citation publication-type="journal"><name><surname>Siegel</surname><given-names>DA</given-names></name>, <name><surname>Davies</surname><given-names>P</given-names></name>, <name><surname>Dobrenis</surname><given-names>K</given-names></name> &amp; <name><surname>Huang</surname><given-names>M</given-names></name>
+<article-title>Tomoregulin-2 is found extensively in plaques in Alzheimer’s disease brain</article-title>. <source/>J Neurochem
+<volume>98</volume>, <fpage>34</fpage>–<lpage>44</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16805794</pub-id></mixed-citation>
+</ref>
+<ref id="R49">
+<label>49.</label>
+<mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>H</given-names></name>
+<etal></etal>
+<article-title>Tomoregulin ectodomain shedding by proinflammatory cytokines</article-title>. <source/>Life Sci
+<volume>73</volume>, <fpage>1617</fpage>–<lpage>27</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12875894</pub-id></mixed-citation>
+</ref>
+<ref id="R50">
+<label>50.</label>
+<mixed-citation publication-type="journal"><name><surname>Psych</surname><given-names>EC</given-names></name>
+<etal></etal>
+<article-title>The PsychENCODE project</article-title>. <source/>Nat Neurosci
+<volume>18</volume>, <fpage>1707</fpage>–<lpage>12</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26605881</pub-id></mixed-citation>
+</ref>
+<ref id="R51">
+<label>51.</label>
+<mixed-citation publication-type="book"><name><surname>Härdle</surname><given-names>W</given-names></name> &amp; <name><surname>Simar</surname><given-names>L</given-names></name>
+<source/>Applied multivariate statistical analysis, (<publisher-name>Springer</publisher-name>, <year>2007</year>).</mixed-citation>
+</ref>
+<ref id="R52">
+<label>52.</label>
+<mixed-citation publication-type="journal"><name><surname>Ascano</surname><given-names>M</given-names><suffix>Jr.</suffix></name>
+<etal></etal>
+<article-title>FMRP targets distinct mRNA sequence elements to regulate protein expression</article-title>. <source/>Nature
+<volume>492</volume>, <fpage>382</fpage>–<lpage>6</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">23235829</pub-id></mixed-citation>
+</ref>
+<ref id="R53">
+<label>53.</label>
+<mixed-citation publication-type="journal"><name><surname>Darnell</surname><given-names>JC</given-names></name>
+<etal></etal>
+<article-title>FMRP stalls ribosomal translocation on mRNAs linked to synaptic function and autism</article-title>. <source/>Cell
+<volume>146</volume>, <fpage>247</fpage>–<lpage>61</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21784246</pub-id></mixed-citation>
+</ref>
+<ref id="R54">
+<label>54.</label>
+<mixed-citation publication-type="journal"><name><surname>Bayes</surname><given-names>A</given-names></name>
+<etal></etal>
+<article-title>Characterization of the proteome, diseases and evolution of the human postsynaptic density</article-title>. <source/>Nat Neurosci
+<volume>14</volume>, <fpage>19</fpage>–<lpage>21</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21170055</pub-id></mixed-citation>
+</ref>
+<ref id="R55">
+<label>55.</label>
+<mixed-citation publication-type="journal"><name><surname>Pirooznia</surname><given-names>M</given-names></name>
+<etal></etal>
+<article-title>SynaptomeDB: an ontology-based knowledgebase for synaptic genes</article-title>. <source/>Bioinformatics
+<volume>28</volume>, <fpage>897</fpage>–<lpage>9</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22285564</pub-id></mixed-citation>
+</ref>
+<ref id="R56">
+<label>56.</label>
+<mixed-citation publication-type="journal"><collab>Cross-Disorder Group of the Psychiatric Genomics, C</collab>. <article-title>Identification of risk loci with shared effects on five major psychiatric disorders: a genome-wide analysis</article-title>. <source/>Lancet
+<volume>381</volume>, <fpage>1371</fpage>–<lpage>9</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23453885</pub-id></mixed-citation>
+</ref>
+<ref id="R57">
+<label>57.</label>
+<mixed-citation publication-type="journal"><name><surname>Basu</surname><given-names>SN</given-names></name>, <name><surname>Kollu</surname><given-names>R</given-names></name> &amp; <name><surname>Banerjee-Basu</surname><given-names>S</given-names></name>
+<article-title>AutDB: a gene reference resource for autism research</article-title>. <source/>Nucleic Acids Res
+<volume>37</volume>, <fpage>D832</fpage>–<lpage>6</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19015121</pub-id></mixed-citation>
+</ref>
+<ref id="R58">
+<label>58.</label>
+<mixed-citation publication-type="journal"><name><surname>Samocha</surname><given-names>KE</given-names></name>
+<etal></etal>
+<article-title>A framework for the interpretation of de novo mutation in human disease</article-title>. <source/>Nat Genet
+<volume>46</volume>, <fpage>944</fpage>–<lpage>50</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25086666</pub-id></mixed-citation>
+</ref>
+<ref id="R59">
+<label>59.</label>
+<mixed-citation publication-type="journal"><name><surname>Ji</surname><given-names>X</given-names></name>, <name><surname>Kember</surname><given-names>RL</given-names></name>, <name><surname>Brown</surname><given-names>CD</given-names></name> &amp; <name><surname>Bucan</surname><given-names>M</given-names></name>
+<article-title>Increased burden of deleterious variants in essential genes in autism spectrum disorder</article-title>. <source/>Proc Natl Acad Sci U S A
+<volume>113</volume>, <fpage>15054</fpage>–<lpage>15059</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">27956632</pub-id></mixed-citation>
+</ref>
+<ref id="R60">
+<label>60.</label>
+<mixed-citation publication-type="journal"><name><surname>Sanders</surname><given-names>SJ</given-names></name>
+<etal></etal>
+<article-title>Insights into Autism Spectrum Disorder Genomic Architecture and Biology from 71 Risk Loci</article-title>. <source/>Neuron
+<volume>87</volume>, <fpage>1215</fpage>–<lpage>1233</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26402605</pub-id></mixed-citation>
+</ref>
+<ref id="R61">
+<label>61.</label>
+<mixed-citation publication-type="journal"><name><surname>Weyn-Vanhentenryck</surname><given-names>SM</given-names></name>
+<etal></etal>
+<article-title>HITS-CLIP and integrative modeling define the Rbfox splicing-regulatory network linked to brain development and autism</article-title>. <source/>Cell Rep
+<volume>6</volume>, <fpage>1139</fpage>–<lpage>52</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24613350</pub-id></mixed-citation>
+</ref>
+<ref id="R62">
+<label>62.</label>
+<mixed-citation publication-type="journal"><name><surname>Smith</surname><given-names>CL</given-names></name>, <name><surname>Goldsmith</surname><given-names>CAW</given-names></name> &amp; <name><surname>Eppig</surname><given-names>JT</given-names></name>
+<article-title>The Mammalian Phenotype Ontology as a tool for annotating, analyzing and comparing phenotypic information</article-title>. <source/>Genome Biology
+<volume>6</volume>(<year>2005</year>).</mixed-citation>
+</ref>
+<ref id="R63">
+<label>63.</label>
+<mixed-citation publication-type="journal"><name><surname>Blake</surname><given-names>JA</given-names></name>
+<etal></etal>
+<article-title>Mouse Genome Database (MGD)-2017: community knowledge resource for the laboratory mouse</article-title>. <source/>Nucleic Acids Research
+<volume>45</volume>, <fpage>D723</fpage>–<lpage>D729</lpage> (<year>2017</year>).<pub-id pub-id-type="pmid">27899570</pub-id></mixed-citation>
+</ref>
+<ref id="R64">
+<label>64.</label>
+<mixed-citation publication-type="journal"><name><surname>Girard</surname><given-names>SL</given-names></name>
+<etal></etal>
+<article-title>Increased exonic de novo mutation rate in individuals with schizophrenia</article-title>. <source/>Nat Genet
+<volume>43</volume>, <fpage>860</fpage>–<lpage>3</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21743468</pub-id></mixed-citation>
+</ref>
+<ref id="R65">
+<label>65.</label>
+<mixed-citation publication-type="journal"><name><surname>Xu</surname><given-names>B</given-names></name>
+<etal></etal>
+<article-title>De novo gene mutations highlight patterns of genetic and neural complexity in schizophrenia</article-title>. <source/>Nat Genet
+<volume>44</volume>, <fpage>1365</fpage>–<lpage>9</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">23042115</pub-id></mixed-citation>
+</ref>
+<ref id="R66">
+<label>66.</label>
+<mixed-citation publication-type="journal"><name><surname>Consortium</surname><given-names>GT</given-names></name>
+<article-title>Human genomics. The Genotype-Tissue Expression (GTEx) pilot analysis: multitissue gene regulation in humans</article-title>. <source/>Science
+<volume>348</volume>, <fpage>648</fpage>–<lpage>60</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25954001</pub-id></mixed-citation>
+</ref>
+<ref id="R67">
+<label>67.</label>
+<mixed-citation publication-type="journal"><name><surname>Cabili</surname><given-names>MN</given-names></name>
+<etal></etal>
+<article-title>Integrative annotation of human large intergenic noncoding RNAs reveals global properties and specific subclasses</article-title>. <source/>Genes Dev
+<volume>25</volume>, <fpage>1915</fpage>–<lpage>27</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21890647</pub-id></mixed-citation>
+</ref>
+<ref id="R68">
+<label>68.</label>
+<mixed-citation publication-type="journal"><name><surname>Law</surname><given-names>V</given-names></name>
+<etal></etal>
+<article-title>DrugBank 4.0: shedding new light on drug metabolism</article-title>. <source/>Nucleic Acids Res
+<volume>42</volume>, <fpage>D1091</fpage>–<lpage>7</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24203711</pub-id></mixed-citation>
+</ref>
+<ref id="R69">
+<label>69.</label>
+<mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>H</given-names></name>
+<etal></etal>
+<article-title>Therapeutic target database update 2016: enriched resource for bench to clinical drug target and targeted pathway information</article-title>. <source/>Nucleic Acids Res
+<volume>44</volume>, <fpage>D1069</fpage>–<lpage>74</lpage> (<year>2016</year>).<pub-id pub-id-type="pmid">26578601</pub-id></mixed-citation>
+</ref>
+<ref id="R70">
+<label>70.</label>
+<mixed-citation publication-type="journal"><name><surname>O’Boyle</surname><given-names>NM</given-names></name>
+<etal></etal>
+<article-title>Open Babel: An open chemical toolbox</article-title>. <source/>J Cheminform
+<volume>3</volume>, <fpage>33</fpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21982300</pub-id></mixed-citation>
+</ref>
+<ref id="R71">
+<label>71.</label>
+<mixed-citation publication-type="journal"><name><surname>Gaulton</surname><given-names>A</given-names></name>
+<etal></etal>
+<article-title>ChEMBL: a large-scale bioactivity database for drug discovery</article-title>. <source/>Nucleic Acids Res
+<volume>40</volume>, <fpage>D1100</fpage>–<lpage>7</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">21948594</pub-id></mixed-citation>
+</ref>
+<ref id="R72">
+<label>72.</label>
+<mixed-citation publication-type="journal"><name><surname>Liu</surname><given-names>T</given-names></name>, <name><surname>Lin</surname><given-names>Y</given-names></name>, <name><surname>Wen</surname><given-names>X</given-names></name>, <name><surname>Jorissen</surname><given-names>RN</given-names></name> &amp; <name><surname>Gilson</surname><given-names>MK</given-names></name>
+<article-title>BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities</article-title>. <source/>Nucleic Acids Res
+<volume>35</volume>, <fpage>D198</fpage>–<lpage>201</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17145705</pub-id></mixed-citation>
+</ref>
+<ref id="R73">
+<label>73.</label>
+<mixed-citation publication-type="journal"><name><surname>Pawson</surname><given-names>AJ</given-names></name>
+<etal></etal>
+<article-title>The IUPHAR/BPS Guide to PHARMACOLOGY: an expert-driven knowledgebase of drug targets and their ligands</article-title>. <source/>Nucleic Acids Research
+<volume>42</volume>, <fpage>D1098</fpage>–<lpage>D1106</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24234439</pub-id></mixed-citation>
+</ref>
+<ref id="R74">
+<label>74.</label>
+<mixed-citation publication-type="journal"><collab>The UniProt, C</collab>. <article-title>UniProt: the universal protein knowledgebase</article-title>. <source/>Nucleic Acids Res
+<volume>45</volume>, <fpage>D158</fpage>–<lpage>D169</lpage> (<year>2017</year>).<pub-id pub-id-type="pmid">27899622</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="F1" orientation="portrait" position="float">
+<label>Figure 1.</label>
+<caption>
+<title>A schematic illustration of the iRIGS framework.</title>
+<p id="P53">Each circle represents a candidate gene, and candidate genes from a GWAS locus are arranged horizontally. Candidate genes from different GWAS loci are piled up vertically. In the middle of the figure the <italic>L</italic>-1 loci have already been sampled, and for the <italic>L</italic>-th locus the colors of the genes represent the strength of the support from genomic features as well as the closeness to the <italic>L</italic>-1 sampled risk genes in the network space. After the sampling converges, the candidate gene with the highest PP at each locus is denoted as the inferred risk gene.</p>
+</caption>
+<graphic xlink:href="nihms-1523940-f0001"></graphic>
+</fig>
+<fig id="F2" orientation="portrait" position="float">
+<label>Figure 2.</label>
+<caption>
+<title>Discovery of genomic features characteristic of SCZ risk genes.</title>
+<p id="P54">Panel a) shows that network-derived risk genes (NRGs) are more likely to be differentially expressed (DE) compared to local background genes (LBGs). We directly used the <italic>P</italic> values of DE from the CommondMind Consortium to perform the comparison (one-sided Wilcoxon rank sum test, n = 99 and 562 for NRGs and LBGs respectively). Panel b) shows that NRGs capture more distal regulatory element (DRE)-promoter links based on the data from capture Hi-C, FANTOM5, and brain specific Hi-C (one-sided Wilcoxon rank sum test; for capture Hi-C and FANTOM5, n = 104 and 842 for NRGs and LBGs respectively; for brain specific Hi-C, n = 104 and 831 for NRGs and LBGs respectively). See main text and <xref ref-type="supplementary-material" rid="SD3">Supplementary Note</xref> for details. The box plots show median and the 25<sup>th</sup> and 75<sup>th</sup> percentiles. The whiskers extend from the box to the largest and smallest values no further than 1.5 * IQR from the box (where IQR is the inter-quartile range, or distance between the 25<sup>th</sup> and 75<sup>th</sup> percentiles).</p>
+</caption>
+<graphic xlink:href="nihms-1523940-f0002"></graphic>
+</fig>
+<fig id="F3" orientation="portrait" position="float">
+<label>Figure 3.</label>
+<caption>
+<title>Characteristics of predicted risk genes.</title>
+<p id="P55">a) The distributions of the PPs of high-confidence risk genes (HRGs) and network-derived risk genes (NRGs) showed that HRGs carry significantly higher sampling posterior probabilities (PPs) than NRGs (one-sided Wilcoxon rank sum test, n = 107 for both HRGs and NRGs). The x-axis represents the ratio of maximum and median of PPs of candidate genes for each GWAS loci. b) Stratified LDSC to evaluate the enrichment of SCZ heritability explained by different groups of genes. The center values represent the enrichment and the error bars indicate the standard errors. c) The tissue-specificity of HRGs across tissues in GTEx showed that HRGs are highly expressed in brain-related tissues (one-sided Wilcoxon rank sum test and Bonferroni correction, n = 104 and 830 for NRGs and LBGs respectively). d) The expression of HRGs, the 65 non-nearest HRGs, the corresponding 65 nearest non-HRG genes and LBGs across developmental stages based on the BrainSpan data showed that HRGs and non-nearest HRGs are highly expressed at prenatal stages compared to postnatal stages, while the 65 corresponding nearest non-HRG genes and LBGs are not differentially expressed across developmental stages (one-sided Wilcoxon rank sum test using medians of expression at prenatal (n = 3) and postnatal (n = 4) stages). It also showed that HRGs have higher expression in brains than LBGs, consistent with the observation in c) that were based on GTEx data. The error bar plot shows the median and the 25<sup>th</sup> and 75<sup>th</sup> percentiles.</p>
+</caption>
+<graphic xlink:href="nihms-1523940-f0003"></graphic>
+</fig>
+<table-wrap id="T1" orientation="portrait" position="float">
+<label>Table 1.</label>
+<caption>
+<p id="P56">Enrichment of network-derived risk genes (NRGs) and high-confidence risk genes (HRGs) in gene sets implicated in SCZ.</p>
+</caption>
+<table frame="box" rules="all">
+<colgroup span="1">
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top">Gene set<sup><xref ref-type="table-fn" rid="TFN1">a</xref></sup></th>
+<th align="left" colspan="2" rowspan="1" valign="top">NRG vs LBG</th>
+<th align="left" colspan="2" rowspan="1" valign="top">HRG vs WBG</th>
+<th align="left" colspan="2" rowspan="1" valign="top">HRG vs LBG</th>
+</tr>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top"></th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<italic>P</italic>
+<sub>corrected</sub>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">OR</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<italic>P</italic>
+<sub>corrected</sub>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">OR</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<italic>P</italic>
+<sub>corrected</sub>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">OR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">AutDB (781)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.23×10<sup>−8</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">10.75 (18)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.87×10<sup>−14</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">9.04 (27)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.20×10<sup>−16</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">18.22</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">ECG (998)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.60×10<sup>−4</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.63 (17)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.21×10<sup>−16</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.85 (32)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9.69×10<sup>−15</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">10.65</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">Essential genes (3910)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.19×10<sup>−11</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.91 (48)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">9.23×10<sup>−8</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.35 (46)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.00×10<sup>−9</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.25</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FMRP-Darnell (832)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.85 (9)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.28×10<sup>−9</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">6.42 (22)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5.95×10<sup>−8</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">6.86</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">RBFOX1 (556)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.11</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.60 (8)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.98×10<sup>−4</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.71 (12)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.36×10<sup>−5</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">9.10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">miR-137 targets (281)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.24×10<sup>−5</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">9.79 (11)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.29 ×10<sup>−5</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">7.82 (10)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5.69×10<sup>−5</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">11.18</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PSD (1444)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.03×10<sup>−5</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.52 (20)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.21×10<sup>−3</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.94 (19)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.74×10<sup>−5</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.42</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FMRP-Ascano (939)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.41</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.38 (10)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.55×10<sup>−3</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.51 (15)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.30×10<sup>−3</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.61</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CCS (73)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.03 (1)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6.57×10<sup>−4</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">14.94 (5)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.38×10<sup>−3</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">21.34</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PRAZ (209)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.04 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.82×10<sup>−3</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">7.14 (7)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.78×10<sup>−3</sup></td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.69</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">mGluR5 (37)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0 (0)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.02</td>
+<td align="left" colspan="1" rowspan="1" valign="top">17.60 (3)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.08</td>
+<td align="left" colspan="1" rowspan="1" valign="top">25.13</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PRP (336)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.76 (4)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.52</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.03 (5)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.48</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">TADA (179)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.10 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.22 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.32</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">ARC (25)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Inf (1)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.16 (1)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Inf</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PSD-95 (107)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.20 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.75 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.31</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">NMDAR (59)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.60</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16.39 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.37 (1)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.24</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">SYV(107)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.73 (2)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.84 (1)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.06</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">GABA<sub>A</sub> (18)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0 (0)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0 (0)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="TFN1">
+<label>a</label>
+<p id="P57">In brackets are the numbers of genes in the corresponding gene sets. One-sided Fisher’s exact test and Bonferroni correction were used for enrichment analyses. Please refer to <xref ref-type="sec" rid="S15">Methods</xref> for details of gene set abbreviations. Abbreviations: AutDB (autism genes from database AutDB), ECG (evolutionarily constrained genes), FMRP-Darnell (the fragile X mental retardation protein targets from), PSD (postsynaptic density genes), FMRP-Ascano (the fragile X mental retardation protein targets from), RBFOX1 (targets of RNA Binding Protein, Fox-1 Homolog 1), miR-137 targets (microRNA 137 targets), PRAZ (genes related to presynaptic active zone), CCS (calcium channel and signaling genes), mGluR5 (metabotropic glutamate receptor 5 complex), PRP (genes related to presynaptic proteins), ARC (neuronal activity-regulated cytoskeleton-associated proteins), PSD-95 (postsynaptic density protein 95 complex), TADA (genes from transmission and <italic>de novo</italic> association tests), NMDAR (N-methyl-D-aspartate receptor network genes), SYV (genes related to synaptic vesicles), GABA<sub>A</sub> (neurotransmitter gamma-aminobutyric acid receptors), NRG (network-derived risk gene), HRG (high-confident risk gene), LBG (local background gene), WBG (whole-genome background gene), OR (odds ratio).</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="T2" orientation="portrait" position="float">
+<label>Table 2.</label>
+<caption>
+<p id="P58">Selected high-confidence risk genes (HRGs) involved in biological functions implicated in SCZ.</p>
+</caption>
+<table frame="box" rules="all">
+<colgroup span="1">
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+<col align="left" span="1" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top">Gene</th>
+<th align="left" colspan="1" rowspan="1" valign="top">Descriptions</th>
+<th align="left" colspan="1" rowspan="1" valign="top">Nearest<sup><xref ref-type="table-fn" rid="TFN4">c</xref></sup></th>
+<th align="left" colspan="1" rowspan="1" valign="top">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top">
+<bold>Calcium channel and signaling</bold>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>CACNA1C</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Encodes an alpha-1 subunit of a voltage-dependent calcium channel and a target of miR-137</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R3">3</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>CACNB2</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">A member of the voltage-gated calcium channel superfamily</td>
+<td align="left" colspan="1" rowspan="1" valign="top">No</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R3">3</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>PTK2B</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN3">b</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Involved in calcium-induced regulation of ion channels; interacts with <italic>DAO</italic>, a potential SCZ gene implicated from non-GWAS signal</td>
+<td align="left" colspan="1" rowspan="1" valign="top">No</td>
+<td align="left" colspan="1" rowspan="1" valign="top"><xref ref-type="bibr" rid="R18">18</xref>, <xref ref-type="bibr" rid="R19">19</xref></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top">
+<bold>Neurogenesis</bold>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>SOX2</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">An transcriptional factor essential for neurogenesis</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R9">9</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>SATB2</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Essential for cognitive development and is involved in long-term plasticity processes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top"><xref ref-type="bibr" rid="R20">20</xref>, <xref ref-type="bibr" rid="R21">21</xref></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top">
+<bold>Glutamatergic neurotransmission and synaptic plasticity</bold>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GRIA1</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">An ionotropic glutamate receptor that mediates fast synaptic transmission</td>
+<td align="left" colspan="1" rowspan="1" valign="top">No</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R22">22</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GRIN2A</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">A glutamate-gated ion channel protein and a key mediator of synaptic plasticity; also a target of miR-137</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top"><xref ref-type="bibr" rid="R23">23</xref>, <xref ref-type="bibr" rid="R24">24</xref></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GRM3</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Encodes glutamate metabotropic receptor 3, one of the major excitatory neurotransmitters in central nervous system (CNS); has been extensively explored as a potential drug target in SCZ</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R25">25</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>GPM6A</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN3">b</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Involved in neuronal plasticity and probably synapse formation; has been previously shown associating with the severity of depression in SCZ patients</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R26">26</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>NLGN4X</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN3">b</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Involved in the formation and remodeling of CNS synapses; knockdown of it directly impacts neurodevelopment process indicating a role in the molecular pathophysiology of psychiatric diseases, including ASD and SCZ</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top"><xref ref-type="bibr" rid="R27">27</xref>, <xref ref-type="bibr" rid="R28">28</xref></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top"></td>
+</tr>
+<tr>
+<td align="left" colspan="4" rowspan="1" valign="top">
+<bold>Targets of miR-137</bold>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>TCF4</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Encodes transcription factor 4 and involved in the initiation of neuronal differentiation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top"><xref ref-type="bibr" rid="R29">29</xref>–<xref ref-type="bibr" rid="R31">31</xref></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>ZNF804A</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN2">a</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">A zinc finger binding protein implicated in SCZ previously</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R32">32</xref>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>RORA</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN3">b</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Encodes a ligand-dependent transcriptional regulator; a potential ASD gene</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top"><xref ref-type="bibr" rid="R33">33</xref>, <xref ref-type="bibr" rid="R34">34</xref></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<italic>CSMD1</italic>
+<sup>
+<xref ref-type="table-fn" rid="TFN3">b</xref>
+</sup>
+</td>
+<td align="left" colspan="1" rowspan="1" valign="top">A target of miR-137 and a potential SCZ gene</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Yes</td>
+<td align="left" colspan="1" rowspan="1" valign="top">
+<xref ref-type="bibr" rid="R35">35</xref>
+</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="TFN2">
+<label>a</label>
+<p id="P59">Well-established SCZ genes.</p>
+</fn>
+<fn id="TFN3">
+<label>b</label>
+<p id="P60">Pontential SCZ genes of great interest predicted by iRIGS.</p>
+</fn>
+<fn id="TFN4">
+<label>c</label>
+<p id="P61">Nearest to the index SNPs or not.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,1563 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Transl Psychiatry</journal-id>
+<journal-id journal-id-type="iso-abbrev">Transl Psychiatry</journal-id>
+<journal-title-group>
+<journal-title>Translational Psychiatry</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2158-3188</issn>
+<publisher>
+<publisher-name>Nature Publishing Group UK</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31712550</article-id>
+<article-id pub-id-type="pmc">6848135</article-id>
+<article-id pub-id-type="publisher-id">615</article-id>
+<article-id pub-id-type="doi">10.1038/s41398-019-0615-2</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Predicting rehospitalization within 2 years of initial patient admission for a major depressive episode: a multimodal machine learning approach</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-3353-8566</contrib-id>
+<name>
+<surname>Cearns</surname>
+<given-names>Micah</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes">
+<name>
+<surname>Opel</surname>
+<given-names>Nils</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Clark</surname>
+<given-names>Scott</given-names>
+</name>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Kaehler</surname>
+<given-names>Claas</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Thalamuthu</surname>
+<given-names>Anbupalam</given-names>
+</name>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Heindel</surname>
+<given-names>Walter</given-names>
+</name>
+<xref ref-type="aff" rid="Aff5">5</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Winter</surname>
+<given-names>Theresa</given-names>
+</name>
+<xref ref-type="aff" rid="Aff6">6</xref>
+<xref ref-type="aff" rid="Aff7">7</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Teismann</surname>
+<given-names>Henning</given-names>
+</name>
+<xref ref-type="aff" rid="Aff8">8</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Minnerup</surname>
+<given-names>Heike</given-names>
+</name>
+<xref ref-type="aff" rid="Aff8">8</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Dannlowski</surname>
+<given-names>Udo</given-names>
+</name>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Berger</surname>
+<given-names>Klaus</given-names>
+</name>
+<xref ref-type="aff" rid="Aff8">8</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Baune</surname>
+<given-names>Bernhard T.</given-names>
+</name>
+<address>
+<email>bbaune@unimelb.edu.au</email>
+</address>
+<xref ref-type="aff" rid="Aff2">2</xref>
+<xref ref-type="aff" rid="Aff9">9</xref>
+<xref ref-type="aff" rid="Aff10">10</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 7304</institution-id><institution-id institution-id-type="GRID">grid.1010.0</institution-id><institution>Discipline of Psychiatry, School of Medicine, </institution><institution>University of Adelaide, </institution></institution-wrap>Adelaide, Australia </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2172 9288</institution-id><institution-id institution-id-type="GRID">grid.5949.1</institution-id><institution>Department of Psychiatry, </institution><institution>University of Münster, </institution></institution-wrap>Münster, Germany </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2172 9288</institution-id><institution-id institution-id-type="GRID">grid.5949.1</institution-id><institution>Interdisciplinary Centre for Clinical Research (IZKF), </institution><institution>University of Münster, </institution></institution-wrap>Münster, Germany </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 4902 0432</institution-id><institution-id institution-id-type="GRID">grid.1005.4</institution-id><institution>Centre for Healthy Brain Ageing, UNSW, </institution></institution-wrap>Sydney, Australia </aff>
+<aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2172 9288</institution-id><institution-id institution-id-type="GRID">grid.5949.1</institution-id><institution>Institute of Clinical Radiology, </institution><institution>University of Münster, </institution></institution-wrap>Münster, Germany </aff>
+<aff id="Aff6"><label>6</label><institution-wrap><institution-id institution-id-type="GRID">grid.5603.0</institution-id><institution>Institute of Clinical Chemistry and Laboratory Medicine, </institution><institution>University Medicine Greifswald, </institution></institution-wrap>Greifswald, Germany </aff>
+<aff id="Aff7"><label>7</label><institution-wrap><institution-id institution-id-type="GRID">grid.5603.0</institution-id><institution>Integrated Research Biobank, </institution><institution>University Medicine Greifswald, </institution></institution-wrap>Greifswald, Germany </aff>
+<aff id="Aff8"><label>8</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2172 9288</institution-id><institution-id institution-id-type="GRID">grid.5949.1</institution-id><institution>Institute of Epidemiology and Social Medicine, </institution><institution>University of Münster, </institution></institution-wrap>Münster, Germany </aff>
+<aff id="Aff9"><label>9</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2179 088X</institution-id><institution-id institution-id-type="GRID">grid.1008.9</institution-id><institution>Department of Psychiatry, Melbourne Medical School, </institution><institution>The University of Melbourne, </institution></institution-wrap>Melbourne, Australia </aff>
+<aff id="Aff10"><label>10</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2179 088X</institution-id><institution-id institution-id-type="GRID">grid.1008.9</institution-id><institution>The Florey Institute of Neuroscience and Mental Health, </institution><institution>The University of Melbourne, </institution></institution-wrap>Melbourne, Australia </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>11</day>
+<month>11</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>11</day>
+<month>11</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2019</year>
+</pub-date>
+<volume>9</volume>
+<elocation-id>285</elocation-id>
+<history>
+<date date-type="received">
+<day>30</day>
+<month>4</month>
+<year>2019</year>
+</date>
+<date date-type="rev-recd">
+<day>8</day>
+<month>10</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>20</day>
+<month>10</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s) 2019</copyright-statement>
+<license license-type="OpenAccess">
+<license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<p id="Par1">Machine learning methods show promise to translate univariate biomarker findings into clinically useful multivariate decision support systems. At current, works in major depressive disorder have predominantly focused on neuroimaging and clinical predictor modalities, with genetic, blood-biomarker, and cardiovascular modalities lacking. In addition, the prediction of rehospitalization after an initial inpatient major depressive episode is yet to be explored, despite its clinical importance. To address this gap in the literature, we have used baseline clinical, structural imaging, blood-biomarker, genetic (polygenic risk scores), bioelectrical impedance and electrocardiography predictors to predict rehospitalization within 2 years of an initial inpatient episode of major depression. Three hundred and eighty patients from the ongoing 12-year Bidirect study were included in the analysis (rehospitalized: yes = 102, no = 278). Inclusion criteria was age ≥35 and &lt;66 years, a current or recent hospitalisation for a major depressive episode and complete structural imaging and genetic data. Optimal performance was achieved with a multimodal panel containing structural imaging, blood-biomarker, clinical, medication type, and sleep quality predictors, attaining a test AUC of 67.74 (<italic>p</italic> = 9.99<sup>−05</sup>). This multimodal solution outperformed models based on clinical variables alone, combined biomarkers, and individual data modality prognostication for rehospitalization prediction. This finding points to the potential of predictive models that combine multimodal clinical and biomarker data in the development of clinical decision support systems.</p>
+</abstract>
+<kwd-group kwd-group-type="npg-subject">
+<title>Subject terms</title>
+<kwd>Human behaviour</kwd>
+<kwd>Prognostic markers</kwd>
+</kwd-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">https://doi.org/10.13039/501100001659</institution-id>
+<institution>Deutsche Forschungsgemeinschaft (German Research Foundation)</institution>
+</institution-wrap>
+</funding-source>
+<award-id>DA1151/5-1</award-id>
+<award-id>DA1151/5-2</award-id>
+<award-id>FOR2107</award-id>
+<principal-award-recipient>
+<name>
+<surname>Dannlowski</surname>
+<given-names>Udo</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+</funding-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution>BMBF - German Federal Ministry of Education and Research</institution>
+</funding-source>
+</award-group>
+</funding-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2019</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1" sec-type="introduction">
+<title>Introduction</title>
+<p id="Par2">Relapse rates in specialized mental healthcare settings are high in patients with major depressive disorder (MDD) (60% after 5 years, 67% after 10, and 85% after 15)<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. To better predict relapse, previous research has predominantly focused on the presence and magnitude of clinical symptoms, including residual depressive symptoms<sup><xref ref-type="bibr" rid="CR2">2</xref></sup>, illness severity<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>, number of prior episodes<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>, age of onset<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>, and comorbid personality disorders<sup><xref ref-type="bibr" rid="CR5">5</xref></sup>. Other studies have explored group level associations between biomarkers and relapse, observing smaller hippocampal volumes<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>, higher levels of post-treatment glucocorticoids<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>, high cortisol response on the combined dexamethasone-CRH test<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>, as well as catecholamine and tryptophan depletion<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>. Such findings have been beneficial in constructing modality specific aetiological hypotheses as well as sign posts for relapse in clinical practice. However, the elucidation of clinically meaningful predictors of relapse is contingent on the construct validity of the prediction outcome and the size of the analysed sample. Some of these studies identifying biomarkers as predictors of relapse have used self-reported relapse into a new depressive episode and samples of less than 50 patients<sup><xref ref-type="bibr" rid="CR7">7</xref>,<xref ref-type="bibr" rid="CR10">10</xref></sup>. Whether patients have truly relapsed into a new depressive episode or merely have a treatment refractory illness is unknown. These observations may help to explain the lack of empirically validated relapse prediction tools and subsequent intervention strategies for relapse prevention<sup><xref ref-type="bibr" rid="CR10">10</xref></sup>.</p>
+<p id="Par3">To overcome this blind spot in patient care, studies of increased size that focus on a well-defined outcome such as rehospitalization are needed to identify clinically robust predictors of this illness trajectory. To facilitate this, a longitudinal, multimodal sample of clinically diagnosed inpatients is required. The BiDirect depression cohort provides such a sample<sup><xref ref-type="bibr" rid="CR11">11</xref></sup>. In addition, multimodal, multivariate modelling techniques that prognosticate individually, rather than at the group level are needed given the heterogeneous nature of MDD and its illness trajectories<sup><xref ref-type="bibr" rid="CR12">12</xref>,<xref ref-type="bibr" rid="CR13">13</xref></sup>.</p>
+<p id="Par4">Recent work has shown that machine learning (ML) models are well suited to problems of this nature, demonstrating their efficacy in drug response and functional outcome prediction in MDD<sup><xref ref-type="bibr" rid="CR14">14</xref>,<xref ref-type="bibr" rid="CR15">15</xref></sup>, while other studies using neuroimaging modalities have shown similar success for ML-based MDD diagnostics<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Interestingly, no studies have applied ML models to relapse prediction; thus, the utility of differing data modalities for relapse prediction remains poorly understood. Regarding illness trajectory modelling, one previous work from Schmaal et al.<sup><xref ref-type="bibr" rid="CR17">17</xref></sup> combined neuroimaging and clinical data to predict MDD remission trajectories with moderate success (accuracy = 69–73%). Further, Koutsouleris et al.<sup><xref ref-type="bibr" rid="CR15">15</xref></sup> used both neuroimaging and clinical data to predict functional outcomes in recent onset MDD (balanced accuracy = 70.3%). However, studies employing a combination of neuroimaging markers with biomarkers from different modalities as well as clinical data are lacking up until now.</p>
+<p id="Par5">Given the apparent gap in multimodal studies of outcome prediction in MDD, we have combined a range of clinical and biomarker predictors that have shown significant associations to MDD in previous works but are yet to be used for ML-based rehospitalization trajectory modelling. Modalities used included clinical<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>, blood biomarker<sup><xref ref-type="bibr" rid="CR19">19</xref>–<xref ref-type="bibr" rid="CR21">21</xref></sup>, structural imaging<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, electrocardiography<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>, genetic<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>, cognitive<sup><xref ref-type="bibr" rid="CR24">24</xref></sup>, nutritional<sup><xref ref-type="bibr" rid="CR25">25</xref></sup>, sleep<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>, and exercise<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>. Using these modalities, we predicted rehospitalization in a cohort of patients within 2 years of initial hospitalization for an acute episode of MDD.</p>
+</sec>
+<sec id="Sec2" sec-type="materials|methods">
+<title>Materials and methods</title>
+<sec id="Sec3">
+<title>Dataset description</title>
+<p id="Par6">The BiDirect study is an ongoing study of (a) patients, hospitalized for an acute episode of major depression at time of recruitment, (b) population controls randomly drawn from the register of the city of Münster<sup><xref ref-type="bibr" rid="CR11">11</xref></sup>, and (c) patients 3 months after an acute coronary event or myocardial infarction. Examination of all participants included a computer-assisted face-to-face interview of socio-demographic characteristics and medical history as well as an extensive psychiatric assessment (Supplementary Information <xref ref-type="media" rid="MOESM1">1.1</xref>). Only patients in the depression cohort were used in this analysis.</p>
+<p id="Par7">At baseline, 999 MDD patients were recruited and 684 completed their 2-year follow-up and provided their rehospitalization status. Specifically, patients were asked, have you had at least one or more re-admissions to hospital for an acute depressive episode since the initial examination? Patient response was recorded by study assistants. As our aim was to assess both multi and unimodal prediction models of reported rehospitalization, a requirement for inclusion was complete imaging and genetic data. Twenty-nine patients had incomplete genetic data while 294 had incomplete imaging data. In addition, 14 participants were excluded due to poor MRI quality, leaving a final sample of 380 participants (rehospitalized: yes = 102, no = 278). See Table <xref ref-type="table" rid="Tab1">1</xref> for sociodemographic characteristics. In this final sample, 87.9% (334/380) of patients were taking some form of antidepressant medication at their baseline assessment, 40.3% (153/380) were taking an antipsychotic, while 92.6% (352/380) were taking some form of psychotropic medication (see Table <xref ref-type="table" rid="Tab2">2</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption><p>Summary statistics for the final study sample</p></caption><table frame="hsides" rules="groups"><thead><tr><th></th><th>Mean</th><th>SD</th><th>Min</th><th>Max</th><th></th><th>Mean</th><th>SD</th><th>Min</th><th>Max</th><th><italic>P</italic></th></tr></thead><tbody><tr><td>Rehospitalized? Yes (<italic>n</italic> = 102)</td><td></td><td></td><td></td><td></td><td>Rehospitalized? No (<italic>n</italic> = 278)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Sex (m/f)</td><td></td><td></td><td></td><td></td><td>Sex (m/f)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(<italic>n</italic> = 43/59)</td><td></td><td></td><td></td><td></td><td>(<italic>n</italic> = 108/170)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Age</td><td></td><td></td><td></td><td></td><td>Age</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(<italic>n</italic> = 102)</td><td>49.03</td><td>7.32</td><td>34.96</td><td>63.96</td><td>(<italic>n</italic> = 278)</td><td>49.91</td><td>7.38</td><td>35.15</td><td>65.37</td><td>0.3</td></tr><tr><td>HAM-D total</td><td></td><td></td><td></td><td></td><td>HAM-D total</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(<italic>n</italic> = 101)</td><td>15.33</td><td>6.59</td><td>0.00</td><td>27.00</td><td>(<italic>n</italic> = 278)</td><td>12.71</td><td>6.33</td><td>0.00</td><td>33.00</td><td>&lt;0.01</td></tr><tr><td>CES-D total</td><td></td><td></td><td></td><td></td><td>CES-D total</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(<italic>n</italic> = 102)</td><td>31.30</td><td>12.97</td><td>1.00</td><td>56.00</td><td>(<italic>n</italic> = 276)</td><td>25.40</td><td>11.50</td><td>0.00</td><td>48.00</td><td>&lt;0.01</td></tr><tr><td>Total inpatient episodes</td><td></td><td></td><td></td><td></td><td>Total inpatient episodes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(<italic>n</italic> = 101)</td><td>2.06</td><td>2.00</td><td>0.00</td><td>10.00</td><td>(<italic>n</italic> = 274)</td><td>1.42</td><td>0.90</td><td>0.00</td><td>6.00</td><td>&lt;0.01</td></tr></tbody></table><table-wrap-foot><p>Means, standard deviations (SD), minimal (Min), and maximal (Max) values are presented. Significance testing between groups was conducted with independent samples <italic>t</italic>-tests. “Total inpatient episodes” includes the baseline assessment inpatient episode as well as all previous inpatient episodes. <italic>HAM-D total</italic> total score for the first 17 items of the HAM scale; <italic>CES-D total</italic> total score with the inversion of positive items 4, 8, 12, and 16 taken into account</p></table-wrap-foot></table-wrap><table-wrap id="Tab2"><label>Table 2</label><caption><p>Percentage proportions and total counts for psychotropic medication use in each rehospitalization outcome group</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Medication</th><th>Rehospitalized? Yes (<italic>N</italic> = 278)</th><th>Rehospitalized? No (<italic>N</italic> = 102)</th><th><italic>P</italic></th></tr></thead><tbody><tr><td>Selective serotonin reuptake inhibitors</td><td>29.50% (<italic>N</italic> = 82)</td><td>22.55% (<italic>N</italic> = 23)</td><td>0.18</td></tr><tr><td>Beta blocking agents</td><td>18.71% (<italic>N</italic> = 52)</td><td>10.78% (<italic>N</italic> = 11)</td><td>0.07</td></tr><tr><td>Non-selective monoamine reuptake inhibitors</td><td>10.43% (<italic>N</italic> = 29)</td><td>13.73% (<italic>N</italic> = 14)</td><td>0.37</td></tr><tr><td>Other antidepressants</td><td>57.91% (<italic>N</italic> = 161)</td><td>71.57% (<italic>N</italic> = 73)</td><td>0.06</td></tr><tr><td>Benzodiazepines</td><td>30.58% (<italic>N</italic> = 85)</td><td>53.92% (<italic>N</italic> = 55)</td><td>&lt;0.01</td></tr><tr><td>Butyrophenone derivates</td><td>3.96% (<italic>N</italic> = 11)</td><td>8.82% (<italic>N</italic> = 9)</td><td>0.06</td></tr><tr><td>Diazepines, oxazepines, thiazepines, oxepines</td><td>24.10% (<italic>N</italic> = 67)</td><td>41.18% (<italic>N</italic> = 42)</td><td>&lt;0.01</td></tr><tr><td>Lithium</td><td>2.52% (<italic>N</italic> = 7)</td><td>3.92% (<italic>N</italic> = 4)</td><td>0.47</td></tr><tr><td>Other antipsychotics</td><td>6.47% (<italic>N</italic> = 18)</td><td>17.65% (<italic>N</italic> = 18)</td><td>0.01</td></tr></tbody></table><table-wrap-foot><p>Significant differences between groups were assessed using chi-square tests</p></table-wrap-foot></table-wrap></p>
+</sec>
+<sec id="Sec4">
+<title>Predictor modalities</title>
+<sec id="Sec5">
+<title>Clinical</title>
+<p id="Par8">Detailed information regarding socio-demographic and socio-economic status, lifetime medical diagnoses, current medication use, healthcare utilization, insurance status, lifestyle and risk behaviour (e.g., diet, physical activity, alcohol consumption, smoking status), and perceived health state was collected via a computer-assisted interview. A combination of individual items as well as total scores were included from the Hamilton Depression Rating Scale (HAM-D), the Hamilton Anxiety Rating Scale (HAM-A), the Center for Epidemiologic Studies Depression Scale (CES-D), the Inventory of Depressive Symptomatology (IDS), the International Physical Activity questionnaire (IPAQ), and the Food Frequency Questionnaire (FFQ) (Supplementary Information <xref ref-type="media" rid="MOESM1">1.1</xref> and <xref ref-type="media" rid="MOESM1">1.2</xref>). In addition, we included measures from a cognitive functioning module and several self-report measures (Supplementary Information <xref ref-type="media" rid="MOESM1">1.3</xref>). In total, 208 clinical and demographic predictors were included.</p>
+</sec>
+<sec id="Sec6">
+<title>Structural imaging</title>
+<p id="Par9">We included imaging data derived from structural magnetic imaging sequences (3D-T1). To reduce the size of the predictor space, we a priori selected 15 regions that have been shown to be significantly associated with MDD in previous ENIGMA meta-analyses<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR28">28</xref></sup>. Selected regions included right and left mean hippocampal volume, cortical thickness of the bilateral medial orbitofrontal cortex (OFC), fusiform gyrus, insula, rostral anterior and posterior cingulate cortex and unilaterally in the left middle temporal gyrus, right inferior temporal gyrus and the right caudal anterior cingulate cortex (Supplementary Information <xref ref-type="media" rid="MOESM1">1.4</xref>).</p>
+</sec>
+<sec id="Sec7">
+<title>Serum and genetic markers</title>
+<p id="Par10">Our serum biomarker panel consisted of 10 measures of high sensitive C-reactive protein<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>, free triiodothyronine, thyroxine, thyroid-stimulating hormone<sup><xref ref-type="bibr" rid="CR29">29</xref>–<xref ref-type="bibr" rid="CR31">31</xref></sup>, 17 beta-estradiol<sup><xref ref-type="bibr" rid="CR32">32</xref>,<xref ref-type="bibr" rid="CR33">33</xref></sup>, sex hormone-binding globulin, testosterone, the free androgen index<sup><xref ref-type="bibr" rid="CR34">34</xref>–<xref ref-type="bibr" rid="CR36">36</xref></sup>, total cholesterol<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>, and high-density lipoprotein cholesterol<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>. Due to the correlations between genetic variants shared across psychiatric traits and common comorbidities between psychiatric disorders<sup><xref ref-type="bibr" rid="CR39">39</xref>,<xref ref-type="bibr" rid="CR40">40</xref></sup>, we also included seven polygenic risk scores (PGRS) with a <italic>p</italic> value threshold of 0.5, for MDD, anxiety, Alzheimer’s, anorexia, autism spectrum disorder, bipolar, and schizophrenia (Supplementary Information <xref ref-type="media" rid="MOESM1">1.5</xref>–<xref ref-type="media" rid="MOESM1">1.6</xref> and Supplementary Information <xref ref-type="media" rid="MOESM1">2.1–2.6</xref>). In addition, we also assessed PGRS with <italic>p</italic> value thresholds of 0.05 and 0.01 (Supplementary Information <xref ref-type="media" rid="MOESM1">3.2</xref>).</p>
+</sec>
+<sec id="Sec8">
+<title>Cardiovascular</title>
+<p id="Par11">We determined cardiovascular and general health status through the assessment of different cardiovascular markers. First, we measured weight (without shoes and heavier clothes), height, and waist circumference. Following, we used bioelectrical impedance measurements (Body Impedance Analyzer BIA 2000-S, Data Input GmbH) including the determination of body fat and water, extracellular mass, body cell mass, and basic metabolic rate to assess general markers of body composition. In addition, a measurement of a standard three-channel electrocardiogram (ECG) was performed (Supplementary Information <xref ref-type="media" rid="MOESM1">1.7</xref>). From these assessments we included the following seven predictors: heart rate (beats per minute), body mass index (BMI), extracellular mass to body cell mass (ECM/BCM ratio), basic metabolic rate, corrected body fat (kg), total body water (kg), and lean body mass (kg). In total, 247 predictors were included in the analysis (see Supplementary Table <xref ref-type="media" rid="MOESM1">1</xref> for all predictors).</p>
+</sec>
+</sec>
+<sec id="Sec9">
+<title>ML pipeline</title>
+<p id="Par12">For our first set of models we entered all predictor modalities into our pipeline for consideration. To ensure the unbiased approximation of the model’s generalizability to new patients, we trained and tested all models using repeated nested cross-validation in a pipeline to prevent information leaking between patients used for training and validation. In the inner cross validation loop, we conducted imputation, standardization, feature selection, hyperparameter optimization, and the fitting of a linear support vector machine (SVM).</p>
+<p id="Par13">To begin, we imputed predictors using multivariate imputation of chained equations with the 10 nearest predictors used in the imputation process. No predictors entered into the pipeline had more than 20% missing data. Following, all variables were scaled to have a mean of zero and a standard deviation of one. Next, we used the elastic net, a form of penalized logistic regression to select a final subset of variables for prediction. This approach shrinks the coefficients of highly correlated predictors towards each other while removing irrelevant predictors from the model<sup><xref ref-type="bibr" rid="CR41">41</xref>,<xref ref-type="bibr" rid="CR42">42</xref></sup>. This process was completed simultaneously with an exhaustive grid search to tune model hyperparameters. For the elastic net, the parameters alpha (the amount of penalization) and the l1 ratio (mixing parameter between the l1 and l2 norms) were tuned for predictor selection. For the l1 ratio parameter we searched the values <italic>λ</italic>∈{0.1, 0.5, 0.7, 0.9, 0.95, 0.99}, with values closer to 1 representing the l1 norm. For alpha, we searched <italic>a</italic>∈{0.1, 0.2…,1.0}. For the SVM, we tuned four values of the regularization parameter <italic>C</italic>∈{0.001, 0.01, 0.1, 1.0}. To accommodate for the class imbalance in the outcome, each <italic>C</italic> value was weighted by the inverse percentage proportion of each class label (rehospitalized: yes = 102, no = 278). This approach increases the penalty for misclassifying the minority class (rehospitalized) given its relative scarcity. Finally, we used Platt scaling to calibrate the probability estimates for the SVMs binary predictions<sup><xref ref-type="bibr" rid="CR43">43</xref>,<xref ref-type="bibr" rid="CR44">44</xref></sup>. The set of predictors and hyperparameters that maximized area under the curve on the receiver operator characteristic (AUC) were selected in the pipeline. See Supplementary Information <xref ref-type="media" rid="MOESM1">1.8</xref>–<xref ref-type="media" rid="MOESM1">1.8.7</xref> for further details on the pipeline and Supplementary Information <xref ref-type="media" rid="MOESM1">1.8.5</xref> for the selected hyperparameter values for the elastic net and SVM classifier.</p>
+<p id="Par14">All steps were completed in an inner cross-validation loop with five repeats of 10-fold cross-validation. This method divides the sample into 10 separate subsets, uses nine for training, and then makes predictions on the final set. To avoid favourable splits in the data, this process is repeated five times, initializing splits uniquely for each repeat. For the testing of our final models, we used 10-fold cross validation in the outer cross validation loop, averaging model performance metrics across test folds. To assess the statistical significance of our final best performing model, we used a permutation test <italic>(m</italic> <italic>=</italic> 10,000) (see Fig. <xref ref-type="fig" rid="Fig1">1</xref>).<fig id="Fig1"><label>Fig. 1</label><caption><title>Left: Area under the receiver operator characteristic for all classifiers.</title><p>Right: Null distribution (blue gaussian distribution) and classifier performance (green dashed line) for our multimodal model after permutation testing <italic>(m</italic> = 10,000)</p></caption><graphic id="d29e1302" xlink:href="41398_2019_615_Fig1_HTML"></graphic></fig></p>
+<p id="Par15">To assess the predictive capacity of each modality, we trained, clinical, sMRI, cardiovascular, and PGRS only models using the same pipeline as above, as well as a biomarker only model that aggregated together all biomarker modalities. To assess for a significant omnibus effect between models, we used a Kruskal–Wallis <italic>H</italic>-test. Following, we used Mann–Whitney rank tests to assess for post hoc differences between our multi and unimodal models. All <italic>p</italic> values were FDR corrected using the Benjamini and Hochberg method. All ML models were developed using Scikit-learn in Python 3.6.5. All code for analysis is available on request.</p>
+</sec>
+<sec id="Sec10">
+<title>Open sourcing of model</title>
+<p id="Par16">To provide transparency, the use of our model to other research groups, and encourage further external validation of our multimodal model, we uploaded our trained model to the Photon AI online model repository (<ext-link ext-link-type="uri" xlink:href="https://www.photon-ai.com/repo">https://www.photon-ai.com/repo</ext-link>). This repository allows our multimodal model to be downloaded and tested by other research groups.</p>
+</sec>
+<sec id="Sec11">
+<title>Analyses of multimodal predictors</title>
+<p id="Par17">To analyse the direction, magnitude, and significance of the models selected predictors after controlling for covariates, we used a non-penalized implementation of logistic regression in Python’s statsmodels package. In addition, we included the average SVM weight values from the outer 10-fold cross-validation loop from our ML pipeline (Supplementary Information <xref ref-type="media" rid="MOESM1">3.1</xref> and Supplementary Table <xref ref-type="media" rid="MOESM1">2</xref>). Further, we conducted ordinary least-squares regression sub-analyses of variables including age, gender, BMI, overall psychotropic medication load, and individual psychotropic medication use on the biomarkers that were selected in the final multimodal model. This was done to elucidate an understanding of variables that may be associated with these biomarkers and help explain their inclusion in the multimodal model. In addition, we conducted an exploratory analysis of patient characteristics for those taking a specific type of medication selected in the multimodal model. This was done to determine: (a) whether this medication proxied for the treatment or prevention of a specific comorbid illness, (b) was taken as a polytheraputic treatment strategy for MDD, or (c) was acting as a proxy for the presence of unmedicated patients that were relapsing at higher rates than the rest of the sample. For these additional analyses and results, see Supplementary Information <xref ref-type="media" rid="MOESM1">3.3</xref>–<xref ref-type="media" rid="MOESM1">3.5</xref>.</p>
+</sec>
+</sec>
+<sec id="Sec12" sec-type="results">
+<title>Results</title>
+<sec id="Sec13">
+<title>Multimodal model</title>
+<p id="Par18">Within 2 years of hospitalization for an acute episode of MDD 102 patients (26.8%) were rehospitalized for a depressive episode, while 278 (73.2%) were not. Our best performing model was our multimodal model (test AUC = 67.74). For our multimodal solution, 10 predictors were selected for optimal predictions by the elastic net. Those with a positive association with rehospitalization included the number of previous inpatient depressive episodes, individual CES-D items 5 (Last week I had trouble concentrating) and 3 (In the last week I could not get rid of my mood, although my friends/family tried to cheer me up), Pittsburgh Sleep Quality Index (PSQI) item 7 (During the past month, how often have you had trouble staying awake while driving, eating meals, or engaging in social activity?), the PSQI sleep quality index (global score), taking diazepines, oxazepines, thiazepines and oxepines, and right hippocampal volume. Predictors with a negative association included cholesterol (mmol/l), taking thyroid medications: yes/no, and how often do you drink alcohol? (At most once a week/more than once a week). See Supplementary Figs. <xref ref-type="media" rid="MOESM1">1–3</xref>.</p>
+<p id="Par19">Our final multimodal model provided an increase in prognostic certainty of 23.21% (prognostic summary index = (PPV+NPV)–100). Further, a patient classified as being re-hospitalized by our model was 83% more likely to be rehospitalized than a patient who was not (<inline-formula id="IEq1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathrm{positive}}\;{\mathrm{likelihood}}\;{\mathrm{ratio}} = \frac{{\mathrm {sensitivity}}}{{1 - \mathrm {specificity}}}$$\end{document}</tex-math><mml:math id="M2"><mml:mrow><mml:mi mathvariant="normal">positive</mml:mi><mml:mspace width="0.16em"></mml:mspace><mml:mi mathvariant="normal">likelihood</mml:mi><mml:mspace width="0.16em"></mml:mspace><mml:mi mathvariant="normal">ratio</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">sensitivity</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:mi mathvariant="normal">specificity</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:math><inline-graphic xlink:href="41398_2019_615_Article_IEq1.gif"></inline-graphic></alternatives></inline-formula>). Finally, our multimodal classifier was statistically significant after permutation testing (<italic>p</italic> <italic>=</italic> 9.99<sup>−e05</sup>) (Fig. <xref ref-type="fig" rid="Fig1">1</xref>, Table <xref ref-type="table" rid="Tab3">3</xref>). For individual modality models, see Supplementary Information <xref ref-type="media" rid="MOESM1">3.2</xref>.<table-wrap id="Tab3"><label>Table 3</label><caption><p>Performance metrics for all classifiers</p></caption><table frame="hsides" rules="groups"><thead><tr><th rowspan="2"></th><th>Train</th><th>Test</th><th colspan="11">SVM results</th></tr><tr><th>AUC</th><th>AUC</th><th>F1</th><th>BAC</th><th>Acc</th><th>Sens</th><th>Spec</th><th>PPV</th><th>NPV</th><th>PSI</th><th>PLR</th><th>NLR</th><th>DOR</th></tr></thead><tbody><tr><td>Multi</td><td>78.86 (2.81)</td><td>67.74 (13.86)</td><td>67.15</td><td>63.05</td><td>65.72</td><td>57.45</td><td>68.65</td><td>41.64</td><td>81.57</td><td>23.21</td><td>1.83</td><td>0.62</td><td>2.96</td></tr><tr><td>Clinical</td><td>73.59 (1.64)</td><td>62.81 (11.14)</td><td>64.30</td><td>60.10</td><td>62.62</td><td>54.73</td><td>65.44</td><td>37.04</td><td>79.79</td><td>16.83</td><td>1.58</td><td>0.69</td><td>2.29</td></tr><tr><td>Bio</td><td>63.12 (1.04)</td><td>57.09 (11.47)</td><td>55.80</td><td>51.47</td><td>53.64</td><td>46.90</td><td>56.03</td><td>27.44</td><td>74.78</td><td>2.22</td><td>1.07</td><td>0.95</td><td>1.13</td></tr><tr><td>sMRI</td><td>64.53 (1.74)</td><td>56.75 (10.46)</td><td>56.94</td><td>52.03</td><td>55.31</td><td>45.00</td><td>59.06</td><td>29.16</td><td>74.96</td><td>4.12</td><td>1.10</td><td>0.93</td><td>1.18</td></tr><tr><td>Cardio</td><td>61.44 (1.48)</td><td>56.03 (13.12)</td><td>56.15</td><td>54.22</td><td>53.65</td><td>55.55</td><td>52.90</td><td>29.62</td><td>77.18</td><td>6.80</td><td>1.18</td><td>0.84</td><td>1.40</td></tr><tr><td>Serum</td><td>60.70 (0.75)</td><td>54.43 (8.31)</td><td>51.81</td><td>50.00</td><td>63.97</td><td>20.00</td><td>80.00</td><td>5.41</td><td>58.57</td><td>−36.02</td><td>1.00</td><td>1.00</td><td>1.00</td></tr><tr><td>PGRS</td><td>59.72 (1.26)</td><td>50.52 (13.62)</td><td>53.32</td><td>50.55</td><td>50.85</td><td>49.91</td><td>51.18</td><td>27.88</td><td>73.30</td><td>1.18</td><td>1.02</td><td>0.98</td><td>1.04</td></tr></tbody></table><table-wrap-foot><p>All classifiers used a Linear Support Vector Machine with Platt scaling, only predictor modalities varied across models. Mean (SD) scores from the outer 10-fold cross-validation loops are presented. Model abbreviations: <italic>Multi</italic> our multimodal model (all biomarker modalities, clinical, and demographic variables), <italic>Clinical</italic> clinical and demographic predictors only, <italic>Bio</italic> model with all biomarker modalities (no clinical or demographic data), <italic>sMRI</italic> structural imaging predictor model only, <italic>Cardio</italic> electrocardiography and bioelectrical impedance analysis predictor model only, <italic>Serum</italic> blood biomarkers only, <italic>PGRS</italic> PGRS model only. Metric abbreviations: <italic>AUC</italic> area-under-the-curve, <italic>F1</italic> Harmonic mean of Sens + Spec, <italic>BAC</italic> balanced accuracy, <italic>Acc</italic> accuracy, <italic>Sens</italic> sensitivity, <italic>Spec</italic> specificity, <italic>PPV</italic> positive predicted value, <italic>NPV</italic> negative predicted value, <italic>PSI</italic> prognostic summary index, <italic>PLR</italic> positive likelihood ratio, <italic>NLR</italic> negative likelihood ratio, <italic>DOR</italic> diagnostic odds ratio</p></table-wrap-foot></table-wrap></p>
+</sec>
+</sec>
+<sec id="Sec14" sec-type="discussion">
+<title>Discussion</title>
+<p id="Par20">The current study is the first of its kind to investigate the role of multiple predictor modalities for MDD rehospitalization trajectory modelling. Overall, our multimodal model provided a 23.21% increase in prognostic certainty for patient rehospitalization classification while providing an isolated subset of multimodal predictors for analysis. Furthermore, our multimodal model was statistically significant after permutation testing.</p>
+<p id="Par21">Of clinical importance is the positive (PPV) and negative predicted values (NPV) of our multimodal model and how they can be used to inform clinical decision making. As PPV was low (PPV = 41.64), using this model to confirm clinician suspicion of rehospitalization is not supported. On the contrary, NPV was modestly high (NPV = 81.57). Suggesting that the model could be used to confirm a clinician’s suspicion of low rehospitalization risk, potentially identifying the patient as suitable for less assertive follow-up.</p>
+<p id="Par22">As few studies are yet to consider a diverse range of biomarker modalities for rehospitalization trajectory modelling, the discriminative ability of the included modalities, as well as their interaction with clinical markers is of interest. First, our best performing model was multimodal, including a range of clinical, blood-biomarker, and structural imaging predictors. A recent work by Koutsouleris et al.<sup><xref ref-type="bibr" rid="CR45">45</xref></sup> also demonstrated the superiority of multimodal models, finding that a combination of clinical and neuroimaging markers was most predictive of functional outcomes in a cohort of patients at risk for psychosis with recent onset depression. Our findings build on this work as well as provide preliminary evidence for the discriminative ability of blood biomarkers on a well-defined and clinically meaningful dichotomous endpoint.</p>
+<p id="Par23">Given that clinical predictors have consistently demonstrated their discriminative ability in multivariate pattern recognition studies<sup><xref ref-type="bibr" rid="CR12">12</xref>,<xref ref-type="bibr" rid="CR14">14</xref>,<xref ref-type="bibr" rid="CR46">46</xref></sup>, it is unsurprising that 8 of 10 predictors in our multimodal solution were clinical. On the contrary, PGRS scores were of no use for rehospitalization classification (test AUC = 50.5) showing the least discriminative ability of all the modelled modalities. Even with lower <italic>p</italic> value thresholds (<italic>p</italic> = 0.05 and 0.01), no changes were seen in our multimodal model. In addition, unimodal PGRS discrimination was still low at these thresholds (AUC = 54.83 and 54.17 respectively, Supplementary Information <xref ref-type="media" rid="MOESM1">3.2</xref>). PGRS scores have received strong interest in psychiatric research, hoping that the aggregation of multiple single-nucleotide polymorphisms may illuminate genetic differences in psychiatric traits as well as parse the heterogeneity of outcomes such as medication response<sup><xref ref-type="bibr" rid="CR47">47</xref>,<xref ref-type="bibr" rid="CR48">48</xref></sup>. Significant associations with outcomes of interest have been consistently demonstrated, however, commonly explain less than 1–2% of variance, limiting their current clinical use. Given that PGRS scores could not classify rehospitalization any better than chance in the current work, the discovery of more variants as well as non-linear modelling techniques may improve their clinical utility in future works<sup><xref ref-type="bibr" rid="CR49">49</xref></sup>. All other biological modalities performed better, yet still lacked clinically meaningful discriminative ability when modelled without clinical predictors. Given these findings and those of Koutsouleris et al.<sup><xref ref-type="bibr" rid="CR45">45</xref></sup>, it appears that biomarkers may be of prognostic use but likely perform best when modelled with clinical predictors also.</p>
+<p id="Par24">Regarding the selection of diazepines, oxazepines, thiazepines, and oxepines and their positive association with rehospitalization, it is possible that patients on this class of drugs at baseline had a more severe form of illness requiring augmentation with antipsychotic medications, placing them at a greater risk of rehospitalization. In addition, thyroid medication use was negatively associated with rehospitalization. Besides a small handful of patients, those with a past diagnosis of hyper/hypothyroidism who were not currently taking thyroid medications had t3, t4, and TSH levels within healthy reference ranges (Supplementary Information <xref ref-type="media" rid="MOESM1">3.3</xref>), suggesting that it was not the presence of unmedicated patients with thyroid disorders relapsing at high rates that were responsible for thyroid medication use and its negative association with rehospitalization. Considering that nearly all patients were taking antidepressant medications at their baseline assessment, it is possible that a synergistic prophylactic relationship between thyroid and antidepressant medication use may exist. Such a polytheraputic relationship has been robustly demonstrated in the multisite sequenced alternatives to relieve depression trial (STAR*D)<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. However, prophylactic effects against rehospitalization should be explored in future works.</p>
+<p id="Par25">Of interest, right hippocampal volume showed a positive association with rehospitalization. This was surprising, given the well-established effect of smaller hippocampal volumes in MDD patients compared to healthy controls<sup><xref ref-type="bibr" rid="CR6">6</xref></sup>. To better understand this observation, we conducted a range of sub-analysis (Supplementary Information <xref ref-type="media" rid="MOESM1">3.4</xref>). In accordance with previous works<sup><xref ref-type="bibr" rid="CR50">50</xref>,<xref ref-type="bibr" rid="CR51">51</xref></sup>, we showed that those taking any form of antipsychotic at baseline had larger right hippocampal volumes than those who were not, albeit, this effect was not significant after controlling for covariates. In addition, we showed that there was a significant gender/diazepine, oxazepine, thiazepine, and oxepine use interaction effect on right hippocampal volumes, with women currently taking medications from this class having significantly larger right hippocampal volumes than those who were not. Forty-four percent of these women ended up being rehospitalized between baseline and their 2-year follow-up assessment, compared to only 22% of women who were not. While we had binary usage data for medication, dosage data were not available. Dosage effects were likely prevalent, but not quantifiable in the current work. Overall, it is plausible that changes in right hippocampal volume proxied for a complex gender/medication/dosage-specific aetiology not fully represented in our clinical data.</p>
+<p id="Par26">The first limitation of the current work is the models’ scope. As our model was trained on a middle-aged European cohort, it is plausible that some of the selected predictors in our pipeline were unique to this demographic. Predictors such as the number of previous inpatient episodes will likely be larger on an older cohort, offering more discriminative ability. Therefore, the clinical utility of the model needs to be considered within this scope. To overcome this limitation, we have provided our trained model online through the Photon AI model repository.</p>
+<p id="Par27">Further limitations include the reporting of nominal significance in our logistic regression model (Supplementary Information <xref ref-type="media" rid="MOESM1">3.1</xref>). It is important to consider that the nominally significant effects that were found in our non-penalized logistic regression model did not survive FDR corrections (Supplementary Table <xref ref-type="media" rid="MOESM1">2</xref>). However, our primary interest was the emergent multivariate pattern that demonstrated statistically significant class separation between cases and controls at <italic>p</italic> <italic>=</italic> 9.99<sup>−e05</sup>. Given the importance and statistical significance of this aggregated multivariate pattern, we deemed it necessary to conduct an exploratory analysis to illuminate the contribution of each individual predictor after rigorously controlling for known covariates age, gender, smoker status, BMI, and intracranial volume. Given this, we believe the nominal significance of predictors in our logistic regression model to be of use for hypothesis generation in future works.</p>
+<p id="Par28">Regarding clinical use, while our multimodal model was statistically significant after permutation testing, its balanced accuracy was relatively low (BA = 63.05). Whether this level of performance is sufficient for clinical use is unknown; however, this BA is similar to that attained in a previous work that is now deployed clinically (BA = 59.60–64.6)<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. Further, we argue that it is not the absolute accuracy of a model that should dictate whether it is of clinical use, but whether or not it outperforms current clinical best practice. For example, as rehospitalization risk is not formally and routinely quantified by clinicians to inform their clinical decision making, we would not expect clinician prognostication of rehospitalization to be any better than chance. Therefore, even a modestly performing model would theoretically confer clinical advantage when deployed at scale. In addition, such a model would be free of well-documented decision-making biases that are known to affect clinician prognostication<sup><xref ref-type="bibr" rid="CR52">52</xref></sup> (e.g., anchoring effects), potentially providing further clinical benefit under high workloads commonly seen in inpatient care. Nonetheless, for these questions to be answered, future works that benchmark clinicians’ prognostic abilities are needed before such incremental utility can be quantified.</p>
+<p id="Par29">Finally, it is important to note that while our multimodal model provided the highest degree of class separation, after testing for post hoc differences between all models and FDR correcting <italic>p</italic> values, our multimodal model did not significantly outperform our model containing only clinical predictors (<italic>p</italic> <italic>=</italic> 0.15) (Supplementary Information <xref ref-type="media" rid="MOESM1">3.2</xref>). Future works of increased size may be required to elucidate a statistically significant difference given the small predictive discrepancy between the multimodal and clinical model. On the contrary, clinical data of sufficient depth (for example, that captures the previously discussed gender/medication/dosage effects and their association with right hippocampal volumes) may even mitigate the contribution of biomarkers in future works. If so, these models will bestow both ease of use and economic advantage, rendering the inclusion of costly and harder to attain biomarkers ineffectual. To answer these questions a greater dearth of clinical data, discovery samples of increased size, as well as validation samples that are phenotypically and geographically diverse will be required.</p>
+<p id="Par30">In conclusion, the presented findings suggest that the combination of ML techniques with multimodal clinical and biomarker data may lead to an increase in prognostic certainty compared to chance level. Continued research is required, but ML may be of use to derive models for clinicians to make personalized predictions regarding rehospitalization risk as well as better inform prophylactic treatment strategies.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary information</title>
+<sec id="Sec15">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41398_2019_615_MOESM1_ESM.docx"><caption><p>Supplementary Information</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<fn-group>
+<fn>
+<p><bold>Publisher’s note</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</fn>
+<fn>
+<p>These authors contributed equally: Micah Cearns, Nils Opel</p>
+</fn>
+</fn-group>
+<sec>
+<title>Supplementary information</title>
+<p><bold>Supplementary Information</bold> accompanies this paper at (10.1038/s41398-019-0615-2).</p>
+</sec>
+<ack>
+<title>Acknowledgements</title>
+<p>The BiDirect Study is funded by the German Federal Ministry of Education and Research (BMBF (01ER0816 and 01ER1506, and 01ER1205)). Additional funding for the analysis was provided by the German Research Foundation (DFG, grant FOR2107 DA1151/5-1 and DA1151/5-2 to U.D.; SB-TRR58, Projects C09 and Z02), the Interdisciplinary Center for Clinical Research (IZKF) of the medical faculty of Münster (grant Dan3/012/17 to U.D., SEED 11/18 to NO) and the Deanery of the Medical Faculty of the University of Münster. In addition, this work was supported with supercomputing resources provided by the Phoenix HPC service at the University of Adelaide. The funding sources had no role in study design, collection, analysis, or interpretation of the data, in the writing of the report, or in the decision to submit the article for publication.</p>
+</ack>
+<notes notes-type="COI-statement">
+<title>Conflict of interest</title>
+<p id="Par31">The authors declare that they have no conflict of interest.</p>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hardeveld</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Spijker</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>De Graaf</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Nolen</surname>
+<given-names>WA</given-names>
+</name>
+<name>
+<surname>Beekman</surname>
+<given-names>AT</given-names>
+</name>
+</person-group>
+<article-title>Prevalence and predictors of recurrence of major depressive disorder in the adult population</article-title>
+<source/>Acta Psychiatr. Scand.
+          <year>2010</year>
+<volume>122</volume>
+<fpage>184</fpage>
+<lpage>191</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1600-0447.2009.01519.x</pub-id>
+<pub-id pub-id-type="pmid">20003092</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Paykel</surname>
+<given-names>ES</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Residual symptoms after partial remission: an important outcome in depression</article-title>
+<source/>Psychol. Med.
+          <year>1995</year>
+<volume>25</volume>
+<fpage>1171</fpage>
+<lpage>1180</lpage>
+<pub-id pub-id-type="doi">10.1017/S0033291700033146</pub-id>
+<pub-id pub-id-type="pmid">8637947</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ramana</surname>
+<given-names>R</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Remission and relapse in major depression: a two-year prospective follow-up study</article-title>
+<source/>Psychol. Med.
+          <year>1995</year>
+<volume>25</volume>
+<fpage>1161</fpage>
+<lpage>1170</lpage>
+<pub-id pub-id-type="doi">10.1017/S0033291700033134</pub-id>
+<pub-id pub-id-type="pmid">8637946</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Keller</surname>
+<given-names>MB</given-names>
+</name>
+<name>
+<surname>Lavori</surname>
+<given-names>PW</given-names>
+</name>
+<name>
+<surname>Lewis</surname>
+<given-names>CE</given-names>
+</name>
+<name>
+<surname>Klerman</surname>
+<given-names>GL</given-names>
+</name>
+</person-group>
+<article-title>Predictors of relapse in major depressive disorder</article-title>
+<source/>JAMA
+          <year>1983</year>
+<volume>250</volume>
+<fpage>3299</fpage>
+<lpage>3304</lpage>
+<pub-id pub-id-type="doi">10.1001/jama.1983.03340240025024</pub-id>
+<pub-id pub-id-type="pmid">6645026</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Grilo</surname>
+<given-names>CM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Personality disorders predict relapse after remission from an episode of major depressive disorder: a 6-year prospective study</article-title>
+<source/>J. Clin. Psychiatry
+          <year>2010</year>
+<volume>71</volume>
+<fpage>1629</fpage>
+<lpage>1635</lpage>
+<pub-id pub-id-type="doi">10.4088/JCP.08m04200gre</pub-id>
+<pub-id pub-id-type="pmid">20584514</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schmaal</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Subcortical brain alterations in major depressive disorder: findings from the ENIGMA Major Depressive Disorder working group</article-title>
+<source/>Mol. Psychiatry
+          <year>2016</year>
+<volume>21</volume>
+<fpage>806</fpage>
+<lpage>812</lpage>
+<pub-id pub-id-type="doi">10.1038/mp.2015.69</pub-id>
+<pub-id pub-id-type="pmid">26122586</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Appelhof</surname>
+<given-names>BC</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Glucocorticoids and relapse of major depression (dexamethasone/corticotropin-releasing hormone test in relation to relapse of major depression)</article-title>
+<source/>Biol. Psychiatry
+          <year>2006</year>
+<volume>59</volume>
+<fpage>696</fpage>
+<lpage>701</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2005.09.008</pub-id>
+<pub-id pub-id-type="pmid">16368077</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zobel</surname>
+<given-names>AW</given-names>
+</name>
+<name>
+<surname>Yassouridis</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Frieboes</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Holsboer</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<article-title>Prediction of medium-term outcome by cortisol response to the combined dexamethasone-CRH test in patients with remitted depression</article-title>
+<source/>Am. J. Psychiatry
+          <year>1999</year>
+<volume>156</volume>
+<fpage>949</fpage>
+<lpage>951</lpage>
+<pub-id pub-id-type="doi">10.1176/ajp.156.6.949</pub-id>
+<pub-id pub-id-type="pmid">10360139</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Berman</surname>
+<given-names>RM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Transient depressive relapse induced by catecholamine depletion: potential phenotypic vulnerability marker?</article-title>
+<source/>Arch. Gen. Psychiatry
+          <year>1999</year>
+<volume>56</volume>
+<fpage>395</fpage>
+<lpage>403</lpage>
+<pub-id pub-id-type="doi">10.1001/archpsyc.56.5.395</pub-id>
+<pub-id pub-id-type="pmid">10232292</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gili</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Vicens</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Roca</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Andersen</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>McMillan</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Interventions for preventing relapse or recurrence of depression in primary health care settings: a systematic review</article-title>
+<source/>Prev. Med.
+          <year>2015</year>
+<volume>76</volume>
+<fpage>S16</fpage>
+<lpage>S21</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ypmed.2014.07.035</pub-id>
+<pub-id pub-id-type="pmid">25192769</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<mixed-citation publication-type="other">Teismann, H., et al. Establishing the bidirectional relationship between depression and subclinical arteriosclerosis—rationale, design, and characteristics of the BiDirect Study. <italic>BMC Psychiatry</italic><bold>14</bold>, 3–4. 10.1186/1471-244x-14-174 (2014).</mixed-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chekroud</surname>
+<given-names>AM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Reevaluating the efficacy and predictability of antidepressant treatments: a symptom clustering approach</article-title>
+<source/>JAMA Psychiatry
+          <year>2017</year>
+<volume>74</volume>
+<fpage>370</fpage>
+<lpage>378</lpage>
+<pub-id pub-id-type="doi">10.1001/jamapsychiatry.2017.0025</pub-id>
+<pub-id pub-id-type="pmid">28241180</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Drysdale</surname>
+<given-names>AT</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Resting-state connectivity biomarkers define neurophysiological subtypes of depression</article-title>
+<source/>Nat. Med.
+          <year>2017</year>
+<volume>23</volume>
+<fpage>28</fpage>
+<lpage>38</lpage>
+<pub-id pub-id-type="doi">10.1038/nm.4246</pub-id>
+<pub-id pub-id-type="pmid">27918562</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chekroud</surname>
+<given-names>AM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cross-trial prediction of treatment outcome in depression: a machine learning approach</article-title>
+<source/>Lancet Psychiatry
+          <year>2016</year>
+<volume>3</volume>
+<fpage>243</fpage>
+<lpage>250</lpage>
+<pub-id pub-id-type="doi">10.1016/S2215-0366(15)00471-X</pub-id>
+<pub-id pub-id-type="pmid">26803397</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Koutsouleris</surname>
+<given-names>Nikolaos</given-names>
+</name>
+<name>
+<surname>Kambeitz-Ilankovic</surname>
+<given-names>Lana</given-names>
+</name>
+<name>
+<surname>Ruhrmann</surname>
+<given-names>Stephan</given-names>
+</name>
+<name>
+<surname>Rosen</surname>
+<given-names>Marlene</given-names>
+</name>
+<name>
+<surname>Ruef</surname>
+<given-names>Anne</given-names>
+</name>
+<name>
+<surname>Dwyer</surname>
+<given-names>Dominic B.</given-names>
+</name>
+<name>
+<surname>Paolini</surname>
+<given-names>Marco</given-names>
+</name>
+<name>
+<surname>Chisholm</surname>
+<given-names>Katharine</given-names>
+</name>
+<name>
+<surname>Kambeitz</surname>
+<given-names>Joseph</given-names>
+</name>
+<name>
+<surname>Haidl</surname>
+<given-names>Theresa</given-names>
+</name>
+<name>
+<surname>Schmidt</surname>
+<given-names>André</given-names>
+</name>
+<name>
+<surname>Gillam</surname>
+<given-names>John</given-names>
+</name>
+<name>
+<surname>Schultze-Lutter</surname>
+<given-names>Frauke</given-names>
+</name>
+<name>
+<surname>Falkai</surname>
+<given-names>Peter</given-names>
+</name>
+<name>
+<surname>Reiser</surname>
+<given-names>Maximilian</given-names>
+</name>
+<name>
+<surname>Riecher-Rössler</surname>
+<given-names>Anita</given-names>
+</name>
+<name>
+<surname>Upthegrove</surname>
+<given-names>Rachel</given-names>
+</name>
+<name>
+<surname>Hietala</surname>
+<given-names>Jarmo</given-names>
+</name>
+<name>
+<surname>Salokangas</surname>
+<given-names>Raimo K. R.</given-names>
+</name>
+<name>
+<surname>Pantelis</surname>
+<given-names>Christos</given-names>
+</name>
+<name>
+<surname>Meisenzahl</surname>
+<given-names>Eva</given-names>
+</name>
+<name>
+<surname>Wood</surname>
+<given-names>Stephen J.</given-names>
+</name>
+<name>
+<surname>Beque</surname>
+<given-names>Dirk</given-names>
+</name>
+<name>
+<surname>Brambilla</surname>
+<given-names>Paolo</given-names>
+</name>
+<name>
+<surname>Borgwardt</surname>
+<given-names>Stefan</given-names>
+</name>
+</person-group>
+<article-title>Prediction Models of Functional Outcomes for Individuals in the Clinical High-Risk State for Psychosis or With Recent-Onset Depression</article-title>
+<source/>JAMA Psychiatry
+          <year>2018</year>
+<volume>75</volume>
+<issue>11</issue>
+<fpage>1156</fpage>
+<pub-id pub-id-type="doi">10.1001/jamapsychiatry.2018.2165</pub-id>
+<pub-id pub-id-type="pmid">30267047</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kambeitz</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Detecting neuroimaging biomarkers for depression: a meta-analysis of multivariate pattern recognition studies</article-title>
+<source/>Biol. Psychiatry
+          <year>2017</year>
+<volume>82</volume>
+<fpage>330</fpage>
+<lpage>338</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2016.10.028</pub-id>
+<pub-id pub-id-type="pmid">28110823</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schmaal</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Predicting the naturalistic course of major depressive disorder using clinical and multimodal neuroimaging information: a multivariate pattern recognition study</article-title>
+<source/>Biol. Psychiatry
+          <year>2015</year>
+<volume>78</volume>
+<fpage>278</fpage>
+<lpage>286</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2014.11.018</pub-id>
+<pub-id pub-id-type="pmid">25702259</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moayedoddin</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Prevalence and clinical characteristics of the DSM IV major depression among general internal medicine patients</article-title>
+<source/>Eur. J. Intern. Med.
+          <year>2013</year>
+<volume>24</volume>
+<fpage>763</fpage>
+<lpage>766</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ejim.2013.05.016</pub-id>
+<pub-id pub-id-type="pmid">23816277</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lopresti</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Maker</surname>
+<given-names>GL</given-names>
+</name>
+<name>
+<surname>Hood</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Drummond</surname>
+<given-names>PD</given-names>
+</name>
+</person-group>
+<article-title>A review of peripheral biomarkers in major depression: the potential of inflammatory and oxidative stress biomarkers</article-title>
+<source/>Prog. Neuropsychopharmacol. Biol. Psychiatry
+          <year>2014</year>
+<volume>48</volume>
+<fpage>102</fpage>
+<lpage>111</lpage>
+<pub-id pub-id-type="doi">10.1016/j.pnpbp.2013.09.017</pub-id>
+<pub-id pub-id-type="pmid">24104186</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Weber</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Lewicka</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Deuschle</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Colla</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Heuser</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<article-title>Testosterone, androstenedione and dihydrotestosterone concentrations are elevated in female patients with major depression</article-title>
+<source/>Psychoneuroendocrinology
+          <year>2000</year>
+<volume>25</volume>
+<fpage>765</fpage>
+<lpage>771</lpage>
+<pub-id pub-id-type="doi">10.1016/S0306-4530(00)00023-8</pub-id>
+<pub-id pub-id-type="pmid">10996472</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schweiger</surname>
+<given-names>U</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Testosterone, gonadotropin, and cortisol secretion in male patients with major depression</article-title>
+<source/>Psychosom. Med.
+          <year>1999</year>
+<volume>61</volume>
+<fpage>292</fpage>
+<lpage>296</lpage>
+<pub-id pub-id-type="doi">10.1097/00006842-199905000-00007</pub-id>
+<pub-id pub-id-type="pmid">10367608</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Musselman</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Evans</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Nemeroff</surname>
+<given-names>CB</given-names>
+</name>
+</person-group>
+<article-title>The relationship of depression to cardiovascular disease: epidemiology, biology, and treatment</article-title>
+<source/>Arch. Gen. Psychiatry
+          <year>1998</year>
+<volume>55</volume>
+<fpage>580</fpage>
+<lpage>592</lpage>
+<pub-id pub-id-type="doi">10.1001/archpsyc.55.7.580</pub-id>
+<pub-id pub-id-type="pmid">9672048</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wray</surname>
+<given-names>NR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genome-wide association analyses identify 44 risk variants and refine the genetic architecture of major depression</article-title>
+<source/>Nat. Genet.
+          <year>2018</year>
+<volume>50</volume>
+<fpage>668</fpage>
+<lpage>681</lpage>
+<pub-id pub-id-type="doi">10.1038/s41588-018-0090-3</pub-id>
+<pub-id pub-id-type="pmid">29700475</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Knight</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Baune</surname>
+<given-names>BT</given-names>
+</name>
+</person-group>
+<article-title>Cognitive dysfunction in major depressive disorder</article-title>
+<source/>Curr. Opin. Psychiatry
+          <year>2018</year>
+<volume>31</volume>
+<fpage>26</fpage>
+<lpage>31</lpage>
+<pub-id pub-id-type="doi">10.1097/YCO.0000000000000378</pub-id>
+<pub-id pub-id-type="pmid">29076892</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lopresti</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Hood</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Drummond</surname>
+<given-names>PD</given-names>
+</name>
+</person-group>
+<article-title>A review of lifestyle factors that contribute to important pathways associated with major depression: diet, sleep and exercise</article-title>
+<source/>J. Affect. Disord.
+          <year>2013</year>
+<volume>148</volume>
+<fpage>12</fpage>
+<lpage>27</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jad.2013.01.014</pub-id>
+<pub-id pub-id-type="pmid">23415826</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Murphy</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Peterson</surname>
+<given-names>MJ</given-names>
+</name>
+</person-group>
+<article-title>Sleep disturbances in depression</article-title>
+<source/>Sleep Med. Clin.
+          <year>2015</year>
+<volume>10</volume>
+<fpage>17</fpage>
+<lpage>23</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jsmc.2014.11.009</pub-id>
+<pub-id pub-id-type="pmid">26055669</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chekroud</surname>
+<given-names>SR</given-names>
+</name>
+<name>
+<surname>Chekroud</surname>
+<given-names>AM</given-names>
+</name>
+</person-group>
+<article-title>Efficacy of resistance exercise training with depressive symptoms</article-title>
+<source/>JAMA Psychiatry
+          <year>2018</year>
+<volume>75</volume>
+<fpage>1091</fpage>
+<lpage>1092</lpage>
+<pub-id pub-id-type="doi">10.1001/jamapsychiatry.2018.2084</pub-id>
+<pub-id pub-id-type="pmid">30140903</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schmaal</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cortical abnormalities in adults and adolescents with major depression based on brain scans from 20 cohorts worldwide in the ENIGMA Major Depressive Disorder Working Group</article-title>
+<source/>Mol. Psychiatry
+          <year>2017</year>
+<volume>22</volume>
+<fpage>900</fpage>
+<lpage>909</lpage>
+<pub-id pub-id-type="doi">10.1038/mp.2016.60</pub-id>
+<pub-id pub-id-type="pmid">27137745</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nierenberg</surname>
+<given-names>AA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A comparison of lithium and T(3) augmentation following two failed medication treatments for depression: a STAR*D report</article-title>
+<source/>Am. J. Psychiatry
+          <year>2006</year>
+<volume>163</volume>
+<fpage>1519</fpage>
+<lpage>1530</lpage>
+<pub-id pub-id-type="doi">10.1176/ajp.2006.163.9.1519</pub-id>
+<pub-id pub-id-type="pmid">16946176</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Joffe</surname>
+<given-names>RT</given-names>
+</name>
+<name>
+<surname>Marriott</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Thyroid hormone levels and recurrence of major depression</article-title>
+<source/>Am. J. Psychiatry
+          <year>2000</year>
+<volume>157</volume>
+<fpage>1689</fpage>
+<lpage>1691</lpage>
+<pub-id pub-id-type="doi">10.1176/appi.ajp.157.10.1689</pub-id>
+<pub-id pub-id-type="pmid">11007728</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Joffe</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Segal</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Singer</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>Change in thyroid hormone levels following response to cognitive therapy for major depression</article-title>
+<source/>Am. J. Psychiatry
+          <year>1996</year>
+<volume>153</volume>
+<fpage>411</fpage>
+<lpage>413</lpage>
+<pub-id pub-id-type="doi">10.1176/ajp.153.3.411</pub-id>
+<pub-id pub-id-type="pmid">8610831</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sassarini</surname>
+<given-names>Dr Jenifer</given-names>
+</name>
+</person-group>
+<article-title>Depression in midlife women</article-title>
+<source/>Maturitas
+          <year>2016</year>
+<volume>94</volume>
+<fpage>149</fpage>
+<lpage>154</lpage>
+<pub-id pub-id-type="doi">10.1016/j.maturitas.2016.09.004</pub-id>
+<pub-id pub-id-type="pmid">27823736</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schiller</surname>
+<given-names>CE</given-names>
+</name>
+<name>
+<surname>Meltzer-Brody</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Rubinow</surname>
+<given-names>DR</given-names>
+</name>
+</person-group>
+<article-title>The role of reproductive hormones in postpartum depression</article-title>
+<source/>CNS Spectr.
+          <year>2015</year>
+<volume>20</volume>
+<fpage>48</fpage>
+<lpage>59</lpage>
+<pub-id pub-id-type="doi">10.1017/S1092852914000480</pub-id>
+<pub-id pub-id-type="pmid">25263255</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rodgers</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Serum testosterone levels and symptom-based depression subtypes in men</article-title>
+<source/>Front. Psychiatry
+          <year>2015</year>
+<volume>6</volume>
+<fpage>61</fpage>
+<pub-id pub-id-type="doi">10.3389/fpsyt.2015.00061</pub-id>
+<pub-id pub-id-type="pmid">25999864</pub-id>
+</element-citation>
+</ref>
+<ref id="CR35">
+<label>35.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Almeida</surname>
+<given-names>OP</given-names>
+</name>
+<name>
+<surname>Yeap</surname>
+<given-names>BB</given-names>
+</name>
+<name>
+<surname>Hankey</surname>
+<given-names>GJ</given-names>
+</name>
+<name>
+<surname>Jamrozik</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Flicker</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Low free testosterone concentration as a potentially treatable cause of depressive symptoms in older men</article-title>
+<source/>Arch. Gen. Psychiatry
+          <year>2008</year>
+<volume>65</volume>
+<fpage>283</fpage>
+<lpage>289</lpage>
+<pub-id pub-id-type="doi">10.1001/archgenpsychiatry.2007.33</pub-id>
+<pub-id pub-id-type="pmid">18316674</pub-id>
+</element-citation>
+</ref>
+<ref id="CR36">
+<label>36.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kische</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Associations of androgens with depressive symptoms and cognitive status in the general population</article-title>
+<source/>PLoS One
+          <year>2017</year>
+<volume>12</volume>
+<fpage>e0177272</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0177272</pub-id>
+<pub-id pub-id-type="pmid">28498873</pub-id>
+</element-citation>
+</ref>
+<ref id="CR37">
+<label>37.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Parekh</surname>
+<given-names>Amy</given-names>
+</name>
+<name>
+<surname>Smeeth</surname>
+<given-names>Demelza</given-names>
+</name>
+<name>
+<surname>Milner</surname>
+<given-names>Yasmin</given-names>
+</name>
+<name>
+<surname>Thuret</surname>
+<given-names>Sandrine</given-names>
+</name>
+</person-group>
+<article-title>The Role of Lipid Biomarkers in Major Depression</article-title>
+<source/>Healthcare
+          <year>2017</year>
+<volume>5</volume>
+<issue>1</issue>
+<fpage>5</fpage>
+<pub-id pub-id-type="doi">10.3390/healthcare5010005</pub-id>
+<pub-id pub-id-type="pmid">5371911</pub-id>
+</element-citation>
+</ref>
+<ref id="CR38">
+<label>38.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Maes</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Lower serum high-density lipoprotein cholesterol (HDL-C) in major depression and in depressed men with serious suicidal attempts: relationship with immune-inflammatory markers</article-title>
+<source/>Acta Psychiatr. Scand.
+          <year>1997</year>
+<volume>95</volume>
+<fpage>212</fpage>
+<lpage>221</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1600-0447.1997.tb09622.x</pub-id>
+<pub-id pub-id-type="pmid">9111854</pub-id>
+</element-citation>
+</ref>
+<ref id="CR39">
+<label>39.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>SH</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genetic relationship between five psychiatric disorders estimated from genome-wide SNPs</article-title>
+<source/>Nat. Genet.
+          <year>2013</year>
+<volume>45</volume>
+<fpage>984</fpage>
+<lpage>994</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2805</pub-id>
+<pub-id pub-id-type="pmid">23933821</pub-id>
+</element-citation>
+</ref>
+<ref id="CR40">
+<label>40.</label>
+<mixed-citation publication-type="other">Brainstorm C. et al. Analysis of shared heritability in common disorders of the brain. <italic>Science</italic> 360, 10.1126/science.aap8757 (2018).</mixed-citation>
+</ref>
+<ref id="CR41">
+<label>41.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zou</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Hastie</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Regularization and variable selection via the elastic net</article-title>
+<source/>J. R. Stat. Soc. Ser. B (Stat. Methodol.)
+          <year>2005</year>
+<volume>67</volume>
+<fpage>301</fpage>
+<lpage>320</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1467-9868.2005.00503.x</pub-id>
+</element-citation>
+</ref>
+<ref id="CR42">
+<label>42.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Friedman</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hastie</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Tibshirani</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Regularization paths for generalized linear models via coordinate descent</article-title>
+<source/>J. Stat. Softw.
+          <year>2010</year>
+<volume>33</volume>
+<fpage>1</fpage>
+<pub-id pub-id-type="doi">10.18637/jss.v033.i01</pub-id>
+<pub-id pub-id-type="pmid">20808728</pub-id>
+</element-citation>
+</ref>
+<ref id="CR43">
+<label>43.</label>
+<mixed-citation publication-type="other">Platt, J. Probabilistic outputs for support vector machines and comparisons to regularized likelihood methods. In: Smola, A. J., Barlett, P. L., Scholkopf, B. &amp; Schuurmans, D. (eds.) <italic>Advances in Large Margin Classifiers</italic>. Vol. 10, 61–74 (The MIT press, Cambridge, Massacheussets, London, England, 1999).</mixed-citation>
+</ref>
+<ref id="CR44">
+<label>44.</label>
+<mixed-citation publication-type="other">Niculescu-Mizil A., Caruana R. Predicting good probabilities with supervised learning. In: <italic>Proceedings of the 22nd International Conference on Machine Learning</italic>. 625–632 (ACM, 2005).</mixed-citation>
+</ref>
+<ref id="CR45">
+<label>45.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Koutsouleris</surname>
+<given-names>N</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Prediction models of functional outcomes for individuals in the clinical high-risk state for psychosis or with recent-onset depression: a multimodal, multisite machine learning analysis</article-title>
+<source/>JAMA Psychiatry
+          <year>2018</year>
+<volume>75</volume>
+<fpage>1156</fpage>
+<lpage>1172</lpage>
+<pub-id pub-id-type="doi">10.1001/jamapsychiatry.2018.2165</pub-id>
+<pub-id pub-id-type="pmid">30267047</pub-id>
+</element-citation>
+</ref>
+<ref id="CR46">
+<label>46.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Koutsouleris</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kahn</surname>
+<given-names>RS</given-names>
+</name>
+<name>
+<surname>Chekroud</surname>
+<given-names>AM</given-names>
+</name>
+</person-group>
+<article-title>Multisite prediction of 4-week and 52-week treatment outcomes in patients with first-episode psychosis: a machine learning approach (vol 3, pg 935, 2016)</article-title>
+<source/>Lancet Psychiatry
+          <year>2017</year>
+<volume>4</volume>
+<fpage>95</fpage>
+<pub-id pub-id-type="doi">10.1016/S2215-0366(17)30009-3</pub-id>
+</element-citation>
+</ref>
+<ref id="CR47">
+<label>47.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Amare</surname>
+<given-names>AT</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association of polygenic score for schizophrenia and HLA antigen and inflammation genes with response to lithium in bipolar affective disorder: a genome-wide association study</article-title>
+<source/>JAMA Psychiatry
+          <year>2018</year>
+<volume>75</volume>
+<fpage>65</fpage>
+<lpage>74</lpage>
+<pub-id pub-id-type="pmid">29121268</pub-id>
+</element-citation>
+</ref>
+<ref id="CR48">
+<label>48.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Amare</surname>
+<given-names>AT</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association of the polygenic scores for personality traits and response to selective serotonin reuptake inhibitors in patients with major depressive disorder</article-title>
+<source/>Front. Psychiatry
+          <year>2018</year>
+<volume>9</volume>
+<fpage>65</fpage>
+<pub-id pub-id-type="doi">10.3389/fpsyt.2018.00065</pub-id>
+<pub-id pub-id-type="pmid">29559929</pub-id>
+</element-citation>
+</ref>
+<ref id="CR49">
+<label>49.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zheutlin</surname>
+<given-names>AB</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Multivariate pattern analysis of genotype–phenotype relationships in schizophrenia</article-title>
+<source/>Schizophrenia Bull.
+          <year>2018</year>
+<volume>44</volume>
+<fpage>1045</fpage>
+<lpage>1052</lpage>
+<pub-id pub-id-type="doi">10.1093/schbul/sby005</pub-id>
+</element-citation>
+</ref>
+<ref id="CR50">
+<label>50.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bodnar</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The effect of second-generation antipsychotics on hippocampal volume in first episode of psychosis: longitudinal study</article-title>
+<source/>BJPsych Open.
+          <year>2016</year>
+<volume>2</volume>
+<fpage>139</fpage>
+<lpage>146</lpage>
+<pub-id pub-id-type="doi">10.1192/bjpo.bp.115.002444</pub-id>
+<pub-id pub-id-type="pmid">27703766</pub-id>
+</element-citation>
+</ref>
+<ref id="CR51">
+<label>51.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chakos</surname>
+<given-names>MH</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Duration of illness and treatment effects on hippocampal volume in male patients with schizophrenia</article-title>
+<source/>Br. J. Psychiatry
+          <year>2005</year>
+<volume>186</volume>
+<fpage>26</fpage>
+<lpage>31</lpage>
+<pub-id pub-id-type="doi">10.1192/bjp.186.1.26</pub-id>
+<pub-id pub-id-type="pmid">15630120</pub-id>
+</element-citation>
+</ref>
+<ref id="CR52">
+<label>52.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Saposnik</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Redelmeier</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Ruff</surname>
+<given-names>CC</given-names>
+</name>
+<name>
+<surname>Tobler</surname>
+<given-names>PN</given-names>
+</name>
+</person-group>
+<article-title>Cognitive biases associated with medical decisions: a systematic review</article-title>
+<source/>BMC Med Inf. Decis. Mak.
+          <year>2016</year>
+<volume>16</volume>
+<fpage>138</fpage>
+<pub-id pub-id-type="doi">10.1186/s12911-016-0377-1</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

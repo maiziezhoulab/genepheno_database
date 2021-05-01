@@ -1,0 +1,2286 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Biomed Res Int</journal-id>
+<journal-id journal-id-type="iso-abbrev">Biomed Res Int</journal-id>
+<journal-id journal-id-type="publisher-id">BMRI</journal-id>
+<journal-title-group>
+<journal-title>BioMed Research International</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">2314-6133</issn>
+<issn pub-type="epub">2314-6141</issn>
+<publisher>
+<publisher-name>Hindawi</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">28698868</article-id>
+<article-id pub-id-type="pmc">5494096</article-id>
+<article-id pub-id-type="doi">10.1155/2017/2563085</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Diagnostic MicroRNA Biomarker Discovery for Non-Small-Cell Lung Cancer Adenocarcinoma by Integrative Bioinformatics Analysis</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0002-8491-3610</contrib-id>
+<name>
+<surname>Shao</surname>
+<given-names>Yang</given-names>
+</name>
+<xref ref-type="aff" rid="I1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Liang</surname>
+<given-names>Bin</given-names>
+</name>
+<xref ref-type="aff" rid="I1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Long</surname>
+<given-names>Fei</given-names>
+</name>
+<xref ref-type="aff" rid="I1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0003-3073-1931</contrib-id>
+<name>
+<surname>Jiang</surname>
+<given-names>Shu-Juan</given-names>
+</name>
+<xref ref-type="aff" rid="I1"></xref>
+<xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+</contrib>
+</contrib-group>
+<aff id="I1">Department of Respiratory Medicine, Shandong Provincial Hospital Affiliated to Shandong University, Jinan, Shandong 250021, China</aff>
+<author-notes>
+<corresp id="cor1">*Shu-Juan Jiang: <email>shujuan-jiang@163.com</email></corresp>
+<fn fn-type="other">
+<p>Academic Editor: Xingming Zhao</p>
+</fn>
+</author-notes>
+<pub-date pub-type="ppub">
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>15</day>
+<month>6</month>
+<year>2017</year>
+</pub-date>
+<volume>2017</volume>
+<elocation-id>2563085</elocation-id>
+<history>
+<date date-type="received">
+<day>3</day>
+<month>3</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>10</day>
+<month>4</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2017 Yang Shao et al.</copyright-statement>
+<copyright-year>2017</copyright-year>
+<license xlink:href="https://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Lung cancer is the leading cause of cancer death and its incidence is ranked high in men and women worldwide. Non-small-cell lung cancer (NSCLC) adenocarcinoma is one of the most frequent histological subtypes of lung cancer. The aberration profile and the molecular mechanism driving its progression are the key for precision therapy of lung cancer, while the screening of biomarkers is essential to the precision early diagnosis and treatment of the cancer. In this work, we applied a bioinformatics method to analyze the dysregulated interaction network of microRNA-mRNA in NSCLC, based on both the gene expression data and the microRNA-gene regulation network. Considering the properties of the substructure and their biological functions, we identified the putative diagnostic biomarker microRNAs, some of which have been reported on the PubMed citations while the rest, that is, miR-204-5p, miR-567, miR-454-3p, miR-338-3p, and miR-139-5p, were predicted as the putative novel microRNA biomarker for the diagnosis of NSCLC adenocarcinoma. They were further validated by functional enrichment analysis of their target genes. These findings deserve further experimental validations for future clinical application.</p>
+</abstract>
+<funding-group>
+<award-group>
+<funding-source>National Natural Science Foundation of China</funding-source>
+<award-id>81370138</award-id>
+</award-group>
+</funding-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1">
+<title>1. Introduction</title>
+<p>Lung cancer is the most death causing cancer for both men and women in the United States, and it is also the most death causing cancer in men and second in women worldwide. The incidence rate is high and ranked second for both men and women in the United States [<xref ref-type="bibr" rid="B1">1</xref>, <xref ref-type="bibr" rid="B2">2</xref>]. Non-small-cell lung cancer (NSCLC) adenocarcinoma is one of the most common histological subtypes of lung cancer [<xref ref-type="bibr" rid="B3">3</xref>] and it is reported that nearly 40% of the lung cancer are adenocarcinoma, and the other two subtypes of NSCLS are squamous-cell carcinoma and large-cell carcinoma [<xref ref-type="bibr" rid="B4">4</xref>]. The NSCLS adenocarcinoma is reported associated with the aberrations like the epidermal growth factor receptor (EGFR) mutations and anaplastic lymphoma kinase (ALK) fusion or rearrangement [<xref ref-type="bibr" rid="B3">3</xref>, <xref ref-type="bibr" rid="B5">5</xref>], and several drugs such as gefitinib, erlotinib, and afatinib were developed for the targeting the aberrant gene products, but only few patients are ideal for the targeted treatments [<xref ref-type="bibr" rid="B6">6</xref>]. In addition, the patients treated with these target drugs may acquire resistance and make the treatment invalid [<xref ref-type="bibr" rid="B7">7</xref>]. There are also other aberrations reported associated with the NSCLC adenocarcinoma, such as mutations or fusions happen in HER2, BRAF, NF1, MEK1, RET, ROS1, and other genes. The risk factors for NSCLS adenocarcinoma may also include air pollution, gender, age, smoking, occupation, and eating habits [<xref ref-type="bibr" rid="B8">8</xref>–<xref ref-type="bibr" rid="B10">10</xref>]. For personalized diagnosis and treatment of cancer, the expression profile characterization and the key player screening [<xref ref-type="bibr" rid="B11">11</xref>] are the necessary steps. With the coming of aging era and the air pollution in the developing countries, the incidence of lung cancer will keep high, and the early diagnosis of lung cancer becomes very necessary. However, we still lack sensitive and precision biomarkers for the early diagnosis or the personalized therapy of the lung cancer [<xref ref-type="bibr" rid="B7">7</xref>, <xref ref-type="bibr" rid="B12">12</xref>, <xref ref-type="bibr" rid="B13">13</xref>].</p>
+<p>MicroRNAs are endogenous small noncoding RNAs which regulate many important biological roles and theirs aberrations may have significant effects on the cancer genesis and progression, such as cell proliferation, cell cycle, apoptosis, and tumorigenesis, and therefore are good candidates for cancer diagnosis and therapy biomarkers [<xref ref-type="bibr" rid="B14">14</xref>–<xref ref-type="bibr" rid="B16">16</xref>]. Biomarker microRNA discovery could be implemented both experimentally and computationally. The former is a routine but time-consuming and costing method, since the biological systems are complex and the mechanisms are diverse. The computational methods based on integrative analysis of different omics data have more advantages, such that it could integrate diverse omics data sets and model the biological process by network construction and then understand the aberrations at the systems level [<xref ref-type="bibr" rid="B17">17</xref>, <xref ref-type="bibr" rid="B18">18</xref>]. Furthermore, the computational methods are also cheap, less time-consuming and could be easily validated by literature mining, association analysis, and bioinformatics functional enrichment confirmation. With more and more biomedical data available and accumulated, the computational methods will be more and more powerful for the future precision medicine strategies.</p>
+<p>At present, more and more computational and bioinformatics models are developing for biomarker discovery; some of them are machine learning based [<xref ref-type="bibr" rid="B19">19</xref>, <xref ref-type="bibr" rid="B20">20</xref>], while others are mechanism-based [<xref ref-type="bibr" rid="B14">14</xref>–<xref ref-type="bibr" rid="B16">16</xref>, <xref ref-type="bibr" rid="B21">21</xref>]. The machine learning based methods need more data to train the model and the mechanism-based models are more knowledge based, and the two types of methods complement each other and promote biomarker discovery. We here applied the previous reported mechanism-based method, which is successful in microRNA biomarker discovery, to screen novel diagnostic biomarker for NSCLC adenocarcinoma.</p>
+</sec>
+<sec id="sec2">
+<title>2. Materials and Methods</title>
+<p>The data used in our integrative analysis include the gene expression data of NSCLC adenocarcinoma from both microRNA and messenger RNA(mRNA) and the human reference microRNA-mRNA network. We need to first collect the data and reconstruct the NSCLC adenocarcinoma specific network and then to identify putative microRNA biomarkers based on the network structure and their biological functions. The screened microRNAs need to be validated by literature mining, confirmation, and bioinformatics exploration of their associations with NSCLC adenocarcinoma. The pipeline of the whole process of this work could be seen in <xref ref-type="fig" rid="fig1">Figure 1</xref>.</p>
+<sec id="sec2.1">
+<title>2.1. The NSCLC Adenocarcinoma Gene Expression Data Collection and the Human Reference MicroRNA-mRNA Interactions</title>
+<p>The gene expression and microRNA expression data for the NSCLC adenocarcinoma were extracted from the public GEO database [<xref ref-type="bibr" rid="B22">22</xref>]. The details of data sets are listed in <xref ref-type="table" rid="tab1">Table 1</xref>. The data sets we used for the construction of NSCLC adenocarcinoma specific microRNA-mRNA network are GSE63459 and GSE36681, where the GSE63459 data set is the mRNA expression data which includes 33 NSCLC adenocarcinoma samples and 32 samples as control, and the other data set is the microRNA expression data with 47 NSCLC adenocarcinoma samples and 47 control samples. The data were first normalized and the differentially expressed mRNAs were then selected with the linear models in limma R package [<xref ref-type="bibr" rid="B23">23</xref>, <xref ref-type="bibr" rid="B24">24</xref>]. The empirical Bayes (eBayes) method was applied to calculate the <italic>p</italic> value and other parameters. The Benjamini-Hochberg correction was used to adjust the <italic>p</italic> values. The adjusted <italic>p</italic> values less than 0.05 were regarded as significant. The human reference microRNA-mRNA interaction network was constructed based mainly on experimentally validated and the consensus predicted microRNA-mRNA interaction pairs as reported in previous studies [<xref ref-type="bibr" rid="B16">16</xref>, <xref ref-type="bibr" rid="B25">25</xref>, <xref ref-type="bibr" rid="B26">26</xref>].</p>
+</sec>
+<sec id="sec2.2">
+<title>2.2. Model Construction, Validation, and Identification of NSCLC Adenocarcinoma MicroRNA Biomarkers</title>
+<p>The basic idea and the methods we used here are based on the models which were developed previously [<xref ref-type="bibr" rid="B26">26</xref>, <xref ref-type="bibr" rid="B27">40</xref>–<xref ref-type="bibr" rid="B29">42</xref>], where two parameters are used to measure the importance of microRNAs as the potential biomarkers for a specific disease. The first is the number of genes (NOG) uniquely targeted by a certain microRNA [<xref ref-type="bibr" rid="B27">40</xref>, <xref ref-type="bibr" rid="B28">41</xref>], and this index is reasonable to quantify the tendency to be a biomarker since the alteration of the unique interaction cannot be substituted or compensated by other microRNA-mRNA interaction pairs. The other index was proposed to quantify the transcription factor percentage (TFP) and was defined as the percentage of transcription factor (TF) genes of all the microRNA targets [<xref ref-type="bibr" rid="B26">26</xref>]. With these two indexes, the NSCLC adenocarcinoma specific microRNA-mRNA interaction network was constructed by mapping the detected differentially expressed microRNAs in NSCLC adenocarcinoma onto the reference human microRNA-mRNA interaction network. With the reconstructed conditional network, the abovementioned measurements, that is, the NOG and TFP, were calculated for each microRNA in the NSCLC adenocarcinoma network. MicroRNAs with significant large NOG and TFP values (Wilcoxon signed-rank test, <italic>p</italic> value &lt; 0.05) were detected as our putative biomarkers for diagnosis of NSCLC adenocarcinoma.</p>
+<p>To validate the bioinformatics model first, we also collected reported NSCLC adenocarcinoma associated microRNAs from PubMed citations with the searching criteria “(lung adenocarcinoma OR NSCLC adenocarcinoma) AND (miRNA OR microRNA) AND (biomarker<sup><italic>∗</italic></sup>  OR marker<sup><italic>∗</italic></sup>)”. The related PMIDs, NOGs, and TFPs of these microRNAs were also calculated.</p>
+</sec>
+<sec id="sec2.3">
+<title>2.3. The Literature Confirmation and Functional Validation of the Putative NSCLC Adenocarcinoma Diagnostic MicroRNA Biomarkers</title>
+<p>For validation of the bioinformatics method and the screened microRNA biomarkers, we checked the PubMed citations and extracted the reported microRNA biomarkers for both diagnosis and prognosis of NSCLC adenocarcinoma. The identified novel microRNA biomarkers were then validated with functional enrichment analysis of the targeted genes of the microRNAs. The enrichment analysis were performed with Gene Ontology Annotations, KEGG pathway analysis, which were done by the DAVID (Database for Annotation, Visualization, and Integrated Discovery) online tool [<xref ref-type="bibr" rid="B30">43</xref>]. The <italic>p</italic> value threshold was set to 0.05 and the FDR adjustment was used for multiple test correction. Then we calculated the enrichment based on the hypergeometric test.</p>
+</sec>
+</sec>
+<sec id="sec3">
+<title>3. Results and Discussion</title>
+<sec id="sec3.1">
+<title>3.1. The Validation of Bioinformatics Methods for the MicroRNA Biomarker Discovery in NSCLC Adenocarcinoma</title>
+<p>The microRNA biomarkers for diagnosis and prognosis of NSCLC adenocarcinoma reported in PubMed citations were collected and listed in <xref ref-type="table" rid="tab2">Table 2</xref>. According to the NOGs and TFPs listed in <xref ref-type="table" rid="tab2">Table 2</xref>, all the microRNAs except miR-650 are characterized with high NOGs and TFPs, and therefore the performance of the microRNA biomarker discovery method based on the two measurements is reasonable and can be extended and applied to the biomarker discovery in NSCLC adenocarcinoma.</p>
+<p>Among the reported microRNA biomarkers for NSCLC adenocarcinoma, many of them played essential roles in lung carcinogenesis and their abnormal expression patterns were highly associated with the occurrence and development of NSCLC adenocarcinoma. For example, serum miR-155 was a sensitive indicator for predicting the initiation of lung adenocarcinoma, especially combining with the index of carbohydrate antigen 125. It altered the expression of downstream proteins and activated the lung carcinogenic signal [<xref ref-type="bibr" rid="B31">27</xref>]. Two miRNAs, that is, miR-196a-5p and miR-218-5p, were validated to be up- and downregulated from normal to adenocarcinoma tumor tissues, respectively. Their target genes were functional in lung cancer related processes by activating or inhibiting biological activities in pathways in cancer, cell cycle, transcriptional misregulation in cancer, and small-cell lung cancer [<xref ref-type="bibr" rid="B32">28</xref>]. The prognostic value of miRNAs for NSCLC adenocarcinoma was also comprehensively investigated. For instance, Huang et al. [<xref ref-type="bibr" rid="B35">31</xref>] showed that miR-650 was able to regulate the expression of Bcl-2/Bax, which would thereby contribute to the docetaxel chemoresistance of lung adenocarcinoma cells. This miRNA was a powerful indicator for predicting the chemosensitivity of lung adenocarcinoma patients to docetaxel-based chemotherapy regimen. Zhang et al. [<xref ref-type="bibr" rid="B36">32</xref>] analyzed the clinical potential of miR-141 and found that this miRNAs was positively correlated with the tumor size, lymph NOGe metastasis, and TNM stage of lung adenocarcinomas. Meanwhile, Liu et al. [<xref ref-type="bibr" rid="B38">34</xref>] screened that the upregulation of plasma exosomal miRNAs miR-23b-3p, miR-10b-5p and miR-21-5p was strongly connected with the poor overall survival of lung adenocarcinoma patients. In order to evaluate the efficacy of maintenance treatment on lung adenocarcinoma patients with negativity for epidermal growth factor receptor (EGFR) mutations or anaplastic lymphoma kinase (ALK) translocations, Shi et al. [<xref ref-type="bibr" rid="B40">36</xref>] designed the experiment in which patients were divided into a pemetrexed group and a control group, respectively. As a result, the expression levels of miR-25, miR-145, and miR-210 were associated with the progression-free survival time of patients in the treatment group, which highlighted the prognostic potential of these miRNAs to the pemetrexed therapy in specific lung adenocarcinoma individuals.</p>
+</sec>
+<sec id="sec3.2">
+<title>3.2. The Predicted MicroRNA Biomarker for Diagnosis of NSCLC Adenocarcinoma</title>
+<p>We performed the predictions according to the pipeline shown in <xref ref-type="fig" rid="fig1">Figure 1</xref>. At first, 93 differentially expressed microRNAs and 331 differentially expressed genes in NSCLC adenocarcinoma were detected, respectively. Nine microRNAs were screened by Wilcoxon signed-rank test with <italic>p</italic> value &lt; 0.05. These nine microRNAs were predicted to be biomarkers for the diagnosis of NSCLC adenocarcinoma as listed in <xref ref-type="table" rid="tab3">Table 3</xref>. Their network structural features in the microRNA-mRNA interaction network were shown, which are the whole set of targeted genes, NOGs and TFPs. Four of the nine predicted microRNAs (bolded and underlined in <xref ref-type="table" rid="tab3">Table 3</xref>), that is, miR-145-5p, miR-182-5p, miR-141-3p, and miR-590-3p, have been reported as biomarkers previously, the remaining five, that is, miR-204-5p, miR-567, miR-454-3p, miR-338-3p, and miR-139-5p, were recommended as novel diagnosis biomarker for NSCLC adenocarcinoma.</p>
+</sec>
+<sec id="sec3.3">
+<title>3.3. Functional Enrichment Validation of the Predicted MicroRNA Biomarkers</title>
+<p>We further performed the functional enrichment analysis to investigate the roles of genes regulated by identified microRNA biomarkers through Database for Annotation, Visualization and Integrated Discovery (DAVID) online tools. This analysis was conducted in two ways: Gene Ontology (GO) analysis and KEGG pathway analysis.</p>
+<p>In GO analysis, we did this analysis at three levels: biological process (BP), cellular component (CC), and molecular function (MF). The top 10 most significantly enriched items were shown in <xref ref-type="fig" rid="fig2">Figure 2</xref>. Through further literature validation, we found that most of the items have a strong relationship with lung adenocarcinoma. For example, in molecular function level, relevant research has shown that FGFR2's function could be regulated by two proteins: Grb2 and Plc<italic>γ</italic>1 under the situation of growth factor absence. These two proteins will compete for the same protein binding site [<xref ref-type="bibr" rid="B44">44</xref>]. FGFR2 expression could be repressed by miR-338-3p, one of the identified miRNA biomarkers. Other items, such as cytoplasm [<xref ref-type="bibr" rid="B45">45</xref>], membrane-bounded organelle [<xref ref-type="bibr" rid="B46">46</xref>], positive regulation of metabolic process, and transcription factor binding [<xref ref-type="bibr" rid="B47">47</xref>, <xref ref-type="bibr" rid="B48">48</xref>] have already been validated through biological and clinical experiments to have an impact on the occurrence and metastasis of lung adenocarcinoma.</p>
+<p>In KEGG pathway analysis, we totally found 72 significantly enriched pathways. Here we still selected top 10 most significantly enriched pathways for further investigation. These 10 pathways were listed in <xref ref-type="table" rid="tab4">Table 4</xref> and shown in <xref ref-type="fig" rid="fig3">Figure 3</xref>.</p>
+<p>Here, we investigate the relationship between these 10 pathways and lung adenocarcinoma through literature validation and we found that most of these pathways have been demonstrated to be associated with lung adenocarcinoma. Besides common pathways in lung cancer like cell cycle and MAPK signaling pathways [<xref ref-type="bibr" rid="B49">49</xref>, <xref ref-type="bibr" rid="B50">50</xref>], there are still other pathways such as Hippo signaling pathway [<xref ref-type="bibr" rid="B51">51</xref>] and TGF-beta signaling pathway and proteoglycans in cancer are all supported by relevant research [<xref ref-type="bibr" rid="B52">52</xref>, <xref ref-type="bibr" rid="B53">53</xref>]. The relevant pipeline of cell cycle and MAPK signaling pathways can be referred to in <xref ref-type="fig" rid="fig4">Figure 4</xref>.</p>
+</sec>
+</sec>
+<sec id="sec4">
+<title>4. Conclusions</title>
+<p>In this research, an integrative bioinformatics model considering the network structure and biological functions of the microRNA targets was used to predict novel biomarker microRNAs for the diagnosis of NSCLC adenocarcinoma. The method was first tested with the reported microRNA biomarkers of NSCLC adenocarcinoma; then we extended the model and applied it to the microRNA and gene expression data. We detected five novel biomarker microRNAs for the diagnosis of NSCLC adenocarcinoma, including miR-204-5p, miR-567, miR-454-3p, miR-338-3p, and miR-139-5p. The novel bioinformatics microRNAs were validated with bioinformatics exploring their functions associated with NSCLC adenocarcinoma.</p>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>The authors would like to acknowledge the financial support of the National Natural Science Foundation of China (81370138).</p>
+</ack>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item>
+<term>NSCLC:</term>
+<def>
+<p>Non-small-cell lung cancer</p>
+</def>
+</def-item>
+<def-item>
+<term>DE:</term>
+<def>
+<p>Differentially expressed</p>
+</def>
+</def-item>
+<def-item>
+<term>TF:</term>
+<def>
+<p>Transcription factor</p>
+</def>
+</def-item>
+<def-item>
+<term>NOG:</term>
+<def>
+<p>Novel out degree</p>
+</def>
+</def-item>
+<def-item>
+<term>TFP:</term>
+<def>
+<p>Transcription factor gene percentage</p>
+</def>
+</def-item>
+<def-item>
+<term>KEGG:</term>
+<def>
+<p>Kyoto encyclopedia of genes and genomes</p>
+</def>
+</def-item>
+<def-item>
+<term>DAVID:</term>
+<def>
+<p>Database for Annotation, Visualization, and Integrated Discovery.</p>
+</def>
+</def-item>
+</def-list>
+</glossary>
+<sec>
+<title>Conflicts of Interest</title>
+<p>The authors declare that there are no conflicts of interest regarding the publication of this paper.</p>
+</sec>
+<ref-list>
+<ref id="B1">
+<label>1</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Siegel</surname>
+<given-names>R. L.</given-names>
+</name>
+<name>
+<surname>Miller</surname>
+<given-names>K. D.</given-names>
+</name>
+<name>
+<surname>Jemal</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Cancer statistics, 2017</article-title>
+<source/>
+<italic>CA: A Cancer Journal for Clinicians</italic>
+<year>2017</year>
+<volume>67</volume>
+<issue>1</issue>
+<fpage>7</fpage>
+<lpage>30</lpage>
+<pub-id pub-id-type="doi">10.3322/caac.21387</pub-id>
+<pub-id pub-id-type="pmid">28055103</pub-id>
+</element-citation>
+</ref>
+<ref id="B2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Torre</surname>
+<given-names>L. A.</given-names>
+</name>
+<name>
+<surname>Siegel</surname>
+<given-names>R. L.</given-names>
+</name>
+<name>
+<surname>Jemal</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Lung cancer statistics</article-title>
+<source/>
+<italic>Advances in Experimental Medicine and Biology</italic>
+<year>2016</year>
+<volume>893</volume>
+<fpage>1</fpage>
+<lpage>19</lpage>
+<pub-id pub-id-type="other">2-s2.0-84950132486</pub-id>
+<pub-id pub-id-type="doi">10.1007/978-3-319-24223-1_1</pub-id>
+<pub-id pub-id-type="pmid">26667336</pub-id>
+</element-citation>
+</ref>
+<ref id="B3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Saito</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Shiraishi</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Kunitoh</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Takenoshita</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Yokota</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Kohno</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>Gene aberrations for precision medicine against lung adenocarcinoma</article-title>
+<source/>
+<italic>Cancer Science</italic>
+<year>2016</year>
+<volume>107</volume>
+<issue>6</issue>
+<fpage>713</fpage>
+<lpage>720</lpage>
+<pub-id pub-id-type="other">2-s2.0-84979021179</pub-id>
+<pub-id pub-id-type="doi">10.1111/cas.12941</pub-id>
+<pub-id pub-id-type="pmid">27027665</pub-id>
+</element-citation>
+</ref>
+<ref id="B4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Global analysis of chromosome 1 genes among patients with lung adenocarcinoma, squamous carcinoma, large-cell carcinoma, small-cell carcinoma, or non-cancer</article-title>
+<source/>
+<italic>Cancer and Metastasis Reviews</italic>
+<year>2015</year>
+<volume>34</volume>
+<issue>2</issue>
+<fpage>249</fpage>
+<lpage>264</lpage>
+<pub-id pub-id-type="other">2-s2.0-84938418105</pub-id>
+<pub-id pub-id-type="doi">10.1007/s10555-015-9558-0</pub-id>
+<pub-id pub-id-type="pmid">25937073</pub-id>
+</element-citation>
+</ref>
+<ref id="B5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xu</surname>
+<given-names>C.-W.</given-names>
+</name>
+<name>
+<surname>Cai</surname>
+<given-names>X.-Y.</given-names>
+</name>
+<name>
+<surname>Shao</surname>
+<given-names>Y.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A case of lung adenocarcinoma with a concurrent EGFR mutation and ALK rearrangement: a case report and literature review</article-title>
+<source/>
+<italic>Molecular Medicine Reports</italic>
+<year>2015</year>
+<volume>12</volume>
+<issue>3</issue>
+<fpage>4370</fpage>
+<lpage>4375</lpage>
+<pub-id pub-id-type="doi">10.3892/mmr.2015.4001</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84935481990</pub-id>
+<pub-id pub-id-type="pmid">26130140</pub-id>
+</element-citation>
+</ref>
+<ref id="B6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Roviello</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>The distinctive nature of adenocarcinoma of the lung</article-title>
+<source/>
+<italic>OncoTargets and Therapy</italic>
+<year>2015</year>
+<volume>8</volume>
+<fpage>2399</fpage>
+<lpage>2406</lpage>
+<pub-id pub-id-type="other">2-s2.0-84940941338</pub-id>
+<pub-id pub-id-type="doi">10.2147/OTT.S89225</pub-id>
+<pub-id pub-id-type="pmid">26366094</pub-id>
+</element-citation>
+</ref>
+<ref id="B7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cagle</surname>
+<given-names>P. T.</given-names>
+</name>
+<name>
+<surname>Raparia</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Portier</surname>
+<given-names>B. P.</given-names>
+</name>
+</person-group>
+<article-title>Emerging biomarkers in personalized therapy of lung cancer</article-title>
+<source/>
+<italic>Advances in Experimental Medicine and Biology</italic>
+<year>2016</year>
+<volume>890</volume>
+<fpage>25</fpage>
+<lpage>36</lpage>
+<pub-id pub-id-type="other">2-s2.0-84951876621</pub-id>
+<pub-id pub-id-type="doi">10.1007/978-3-319-24932-2_2</pub-id>
+<pub-id pub-id-type="pmid">26703797</pub-id>
+</element-citation>
+</ref>
+<ref id="B8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>F. L.</given-names>
+</name>
+</person-group>
+<article-title>Analysis of risk factors for female lung adenocarcinoma in haerbin: indoor air pollution</article-title>
+<source/>
+<italic>Zhonghua Yu Fang Yi Xue Za Zhi</italic>
+<year>1989</year>
+<volume>23</volume>
+<issue>5</issue>
+<fpage>270</fpage>
+<lpage>273</lpage>
+<pub-id pub-id-type="other">2-s2.0-0024724062</pub-id>
+<pub-id pub-id-type="pmid">2625060</pub-id>
+</element-citation>
+</ref>
+<ref id="B9">
+<label>9</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Butler</surname>
+<given-names>L. M.</given-names>
+</name>
+<name>
+<surname>Montague</surname>
+<given-names>J. A.</given-names>
+</name>
+<name>
+<surname>Koh</surname>
+<given-names>W.-P.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>M. C.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>J.-M.</given-names>
+</name>
+</person-group>
+<article-title>Fried meat intake is a risk factor for lung adenocarcinoma in a prospective cohort of Chinese men and women in Singapore</article-title>
+<source/>
+<italic>Carcinogenesis</italic>
+<year>2013</year>
+<volume>34</volume>
+<issue>8</issue>
+<fpage>1794</fpage>
+<lpage>1799</lpage>
+<pub-id pub-id-type="other">2-s2.0-84881529545</pub-id>
+<pub-id pub-id-type="doi">10.1093/carcin/bgt113</pub-id>
+<pub-id pub-id-type="pmid">23568952</pub-id>
+</element-citation>
+</ref>
+<ref id="B10">
+<label>10</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Paris</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Clement-Duchene</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Vignaud</surname>
+<given-names>J. M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Relationships between lung adenocarcinoma and gender, age, smoking and occupational risk factors: a case-case study</article-title>
+<source/>
+<italic>Lung Cancer</italic>
+<year>2010</year>
+<volume>68</volume>
+<issue>2</issue>
+<fpage>146</fpage>
+<lpage>153</lpage>
+<pub-id pub-id-type="doi">10.1016/j.lungcan.2009.06.007</pub-id>
+<pub-id pub-id-type="other">2-s2.0-77950459931</pub-id>
+<pub-id pub-id-type="pmid">19586681</pub-id>
+</element-citation>
+</ref>
+<ref id="B11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jiang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Jia</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Key regulators in prostate cancer identified by co-expression module analysis</article-title>
+<source/>
+<italic>BMC Genomics</italic>
+<year>2014</year>
+<volume>15</volume>
+<issue>1, article 1015</issue>
+<pub-id pub-id-type="doi">10.1186/1471-2164-15-1015</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84924337574</pub-id>
+</element-citation>
+</ref>
+<ref id="B12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jeong</surname>
+<given-names>H. C.</given-names>
+</name>
+</person-group>
+<article-title>Clinical aspect of MicroRNA in lung cancer</article-title>
+<source/>
+<italic>Tuberculosis and Respiratory Diseases</italic>
+<year>2014</year>
+<volume>77</volume>
+<issue>2</issue>
+<fpage>60</fpage>
+<lpage>64</lpage>
+<pub-id pub-id-type="other">2-s2.0-84907934031</pub-id>
+<pub-id pub-id-type="doi">10.4046/trd.2014.77.2.60</pub-id>
+<pub-id pub-id-type="pmid">25237376</pub-id>
+</element-citation>
+</ref>
+<ref id="B13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>M. K.</given-names>
+</name>
+<name>
+<surname>Jung</surname>
+<given-names>S. B.</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>J.-S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Expression of microRNA miR-126 and miR-200c is associated with prognosis in patients with non-small cell lung cancer</article-title>
+<source/>
+<italic>Virchows Archiv</italic>
+<year>2014</year>
+<volume>465</volume>
+<issue>4</issue>
+<fpage>463</fpage>
+<lpage>471</lpage>
+<pub-id pub-id-type="doi">10.1007/s00428-014-1640-4</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84919462341</pub-id>
+<pub-id pub-id-type="pmid">25124149</pub-id>
+</element-citation>
+</ref>
+<ref id="B14">
+<label>14</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shen</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>X.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Biomarker microRNAs for Diagnosis, prognosis and treatment of hepatocellular carcinoma: a functional survey and comparison</article-title>
+<source/>
+<italic>Scientific Reports</italic>
+<year>2016</year>
+<volume>6, article 38311</volume>
+<pub-id pub-id-type="doi">10.1038/srep38311</pub-id>
+</element-citation>
+</ref>
+<ref id="B15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shen</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>B.</given-names>
+</name>
+</person-group>
+<article-title>Knowledge-guided bioinformatics model for identifying autism spectrum disorder diagnostic microrna biomarkers</article-title>
+<source/>
+<italic>Scientific Reports</italic>
+<year>2016</year>
+<volume>6, article 39663</volume>
+<pub-id pub-id-type="doi">10.1038/srep39663</pub-id>
+</element-citation>
+</ref>
+<ref id="B16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Novel biomarker micrornas for subtyping of acute coronary syndrome: a bioinformatics approach</article-title>
+<source/>
+<italic>BioMed Research International</italic>
+<year>2016</year>
+<volume>2016</volume>
+<fpage>11</fpage>
+<pub-id pub-id-type="publisher-id">4618323</pub-id>
+<pub-id pub-id-type="doi">10.1155/2016/4618323</pub-id>
+</element-citation>
+</ref>
+<ref id="B17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identifying novel glioma associated pathways based on systems biology level meta-analysis</article-title>
+<source/>
+<italic>BMC Systems Biology</italic>
+<year>2013</year>
+<volume>7, supplement 2</volume>
+<fpage>p. S9</fpage>
+<pub-id pub-id-type="doi">10.1186/1752-0509-7-s2-s9</pub-id>
+</element-citation>
+</ref>
+<ref id="B18">
+<label>18</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shen</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Shen H. -B.</surname>
+</name>
+<name>
+<surname>Tian T.</surname>
+</name>
+<name>
+<surname>Lü Q.</surname>
+</name>
+<name>
+<surname>Hu G.</surname>
+</name>
+</person-group>
+<article-title>Translational bioinformatics and computational systems medicine</article-title>
+<source/>
+<italic>Computational and Mathematical Methods in Medicine</italic>
+<year>2013</year>
+<volume>2013</volume>
+<fpage>2</fpage>
+<pub-id pub-id-type="publisher-id">375641</pub-id>
+<pub-id pub-id-type="doi">10.1155/2013/375641</pub-id>
+</element-citation>
+</ref>
+<ref id="B19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mattison</surname>
+<given-names>H. A.</given-names>
+</name>
+<name>
+<surname>Stewart</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>J.</given-names>
+</name>
+</person-group>
+<article-title>Applying bioinformatics to proteomics: is machine learning the answer to biomarker discovery for PD and MSA?</article-title>
+<source/>
+<italic>Movement Disorders</italic>
+<year>2012</year>
+<volume>27</volume>
+<issue>13</issue>
+<fpage>1595</fpage>
+<lpage>1597</lpage>
+<pub-id pub-id-type="doi">10.1002/mds.25189</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84870348120</pub-id>
+<pub-id pub-id-type="pmid">23115026</pub-id>
+</element-citation>
+</ref>
+<ref id="B20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huynh-Thu</surname>
+<given-names>V. A.</given-names>
+</name>
+<name>
+<surname>Saeys</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Wehenkel</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Geurts</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>Statistical interpretation of machine learning-based feature importance scores for biomarker discovery</article-title>
+<source/>
+<italic>Bioinformatics</italic>
+<year>2012</year>
+<volume>28</volume>
+<issue>13</issue>
+<fpage>1766</fpage>
+<lpage>1774</lpage>
+<pub-id pub-id-type="other">2-s2.0-84864008355</pub-id>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/bts238</pub-id>
+<pub-id pub-id-type="publisher-id">bts238</pub-id>
+<pub-id pub-id-type="pmid">22539669</pub-id>
+</element-citation>
+</ref>
+<ref id="B21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>X. M.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>K. Q.</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>G.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identifying cancer-related microRNAs based on gene expression data</article-title>
+<source/>
+<italic>Bioinformatics</italic>
+<year>2015</year>
+<volume>31</volume>
+<issue>8</issue>
+<fpage>1226</fpage>
+<lpage>1234</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu811</pub-id>
+<pub-id pub-id-type="pmid">25505085</pub-id>
+</element-citation>
+</ref>
+<ref id="B22">
+<label>22</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barrett</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Suzek</surname>
+<given-names>T. O.</given-names>
+</name>
+<name>
+<surname>Troup</surname>
+<given-names>D. B.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>NCBI GEO: mining millions of expression profiles—database and tools</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2007</year>
+<volume>35</volume>
+<fpage>D760</fpage>
+<lpage>D765</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gki022</pub-id>
+<pub-id pub-id-type="other">2-s2.0-13444304325</pub-id>
+<pub-id pub-id-type="pmid">17099226</pub-id>
+</element-citation>
+</ref>
+<ref id="B23">
+<label>23</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Smyth</surname>
+<given-names>G. K.</given-names>
+</name>
+</person-group>
+<article-title>Linear models and empirical Bayes methods for assessing differential expression in microarray experiments</article-title>
+<source/>
+<italic>Statistical Applications in Genetics and Molecular Biology</italic>
+<year>2004</year>
+<volume>3</volume>
+<issue>1, article 3</issue>
+<pub-id pub-id-type="doi">10.2202/1544-6115.1027</pub-id>
+<pub-id pub-id-type="other">MR2101454</pub-id>
+</element-citation>
+</ref>
+<ref id="B24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ritchie</surname>
+<given-names>M. E.</given-names>
+</name>
+<name>
+<surname>Phipson</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>D.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>
+<italic>limma</italic> powers differential expression analyses for RNA-sequencing and microarray studies</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2015</year>
+<volume>43</volume>
+<issue>7</issue>
+<pub-id pub-id-type="doi">10.1093/nar/gkv007</pub-id>
+</element-citation>
+</ref>
+<ref id="B25">
+<label>25</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification of MicroRNA as sepsis biomarker based on miRNAs regulatory network analysis</article-title>
+<source/>
+<italic>BioMed Research International</italic>
+<year>2014</year>
+<volume>2014</volume>
+<fpage>12</fpage>
+<pub-id pub-id-type="doi">10.1155/2014/594350</pub-id>
+<pub-id pub-id-type="publisher-id">594350</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84900007132</pub-id>
+</element-citation>
+</ref>
+<ref id="B26">
+<label>26</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yan</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Sun</surname>
+<given-names>Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>MicroRNA biomarker identification for pediatric acute myeloid leukemia based on a novel bioinformatics model</article-title>
+<source/>
+<italic>Oncotarget</italic>
+<year>2015</year>
+<volume>6</volume>
+<issue>28</issue>
+<fpage>26424</fpage>
+<lpage>26436</lpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.4459</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84944463427</pub-id>
+<pub-id pub-id-type="pmid">26317787</pub-id>
+</element-citation>
+</ref>
+<ref id="B31">
+<label>27</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gao</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Chang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Potential diagnostic value of miR-155 in serum from lung adenocarcinoma patients</article-title>
+<source/>
+<italic>Oncology Reports</italic>
+<year>2014</year>
+<volume>31</volume>
+<issue>1</issue>
+<fpage>351</fpage>
+<lpage>357</lpage>
+<pub-id pub-id-type="other">2-s2.0-84892174853</pub-id>
+<pub-id pub-id-type="doi">10.3892/or.2013.2830</pub-id>
+<pub-id pub-id-type="pmid">24190459</pub-id>
+</element-citation>
+</ref>
+<ref id="B32">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tian</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Differentially expressed miRNAs in tumor, adjacent, and normal tissues of lung adenocarcinoma</article-title>
+<source/>
+<italic>BioMed Research International</italic>
+<year>2016</year>
+<volume>2016</volume>
+<pub-id pub-id-type="other">2-s2.0-84973349381</pub-id>
+<pub-id pub-id-type="doi">10.1155/2016/1428271</pub-id>
+<pub-id pub-id-type="publisher-id">1428271</pub-id>
+</element-citation>
+</ref>
+<ref id="B33">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zeng</surname>
+<given-names>X. L.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>S. Y.</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>J. F.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y.</given-names>
+</name>
+</person-group>
+<article-title>Altered miR-143 and miR-150 expressions in peripheral blood mononuclear cells for diagnosis of non-small cell lung cancer</article-title>
+<source/>
+<italic>Chinese Medical Journal</italic>
+<year>2013</year>
+<volume>126</volume>
+<issue>23</issue>
+<fpage>4510</fpage>
+<lpage>6</lpage>
+<pub-id pub-id-type="pmid">24286416</pub-id>
+</element-citation>
+</ref>
+<ref id="B34">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cho</surname>
+<given-names>W. C.</given-names>
+</name>
+<name>
+<surname>Chow</surname>
+<given-names>A. S.</given-names>
+</name>
+<name>
+<surname>Au</surname>
+<given-names>J. S.</given-names>
+</name>
+</person-group>
+<article-title>Restoration of tumour suppressor hsa-miR-145 inhibits cancer cell growth in lung adenocarcinoma patients with epidermal growth factor receptor mutation</article-title>
+<source/>
+<italic>European Journal of Cancer</italic>
+<year>2009</year>
+<volume>45</volume>
+<issue>12</issue>
+<fpage>2197</fpage>
+<lpage>2206</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ejca.2009.04.039</pub-id>
+<pub-id pub-id-type="other">2-s2.0-67650365554</pub-id>
+<pub-id pub-id-type="pmid">19493678</pub-id>
+</element-citation>
+</ref>
+<ref id="B35">
+<label>31</label>
+<element-citation publication-type="journal">
+<collab>Huang J. Y.</collab>
+<article-title>MicroRNA-650 was a prognostic factor in human lung adenocarcinoma and confers the docetaxel chemoresistance of lung adenocarcinoma cells via regulating Bcl-2/Bax expression</article-title>
+<source/>
+<italic>PLoS ONE</italic>
+<year>2013</year>
+<volume>8</volume>
+<issue>8</issue>
+<pub-id pub-id-type="publisher-id">e72615</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0072615</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84882602688</pub-id>
+</element-citation>
+</ref>
+<ref id="B36">
+<label>32</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Rong</surname>
+<given-names>M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>MicroRNA-141 is a biomarker for progression of squamous cell carcinoma and adenocarcinoma of the lung: clinical analysis of 125 patients</article-title>
+<source/>
+<italic>The Tohoku Journal of Experimental Medicine</italic>
+<year>2015</year>
+<volume>235</volume>
+<issue>3</issue>
+<fpage>161</fpage>
+<lpage>169</lpage>
+<pub-id pub-id-type="doi">10.1620/tjem.235.161</pub-id>
+<pub-id pub-id-type="pmid">25746592</pub-id>
+</element-citation>
+</ref>
+<ref id="B37">
+<label>33</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Bi</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>L.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>MicroRNA-29c functions as a tumor suppressor by targeting VEGFA in lung adenocarcinoma</article-title>
+<source/>
+<italic>Molecular Cancer</italic>
+<year>2017</year>
+<volume>16, article 50</volume>
+<issue>1</issue>
+<pub-id pub-id-type="doi">10.1186/s12943-017-0620-0</pub-id>
+</element-citation>
+</ref>
+<ref id="B38">
+<label>34</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Yuan</surname>
+<given-names>S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Circulating exosomal microRNAs as prognostic biomarkers for non-small-cell lung cancer</article-title>
+<source/>
+<italic>Oncotarget</italic>
+<year>2017</year>
+<volume>8</volume>
+<issue>8</issue>
+<fpage>13048</fpage>
+<lpage>13058</lpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.14369</pub-id>
+<pub-id pub-id-type="pmid">28055956</pub-id>
+</element-citation>
+</ref>
+<ref id="B39">
+<label>35</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Jiao</surname>
+<given-names>D.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>miR-126-3p and miR-451a correlate with clinicopathological features of lung adenocarcinoma: The underlying molecular mechanisms</article-title>
+<source/>
+<italic>Oncology Reports</italic>
+<year>2016</year>
+<volume>36</volume>
+<issue>2</issue>
+<fpage>209</fpage>
+<lpage>917</lpage>
+</element-citation>
+</ref>
+<ref id="B40">
+<label>36</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shi</surname>
+<given-names>S.-B.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Tian</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Chang</surname>
+<given-names>C.-X.</given-names>
+</name>
+<name>
+<surname>Qi</surname>
+<given-names>J.-L.</given-names>
+</name>
+</person-group>
+<article-title>MicroRNA 25, microRNA 145, and microRNA 210 as biomarkers for predicting the efficacy of maintenance treatment with pemetrexed in lung adenocarcinoma patients who are negative for epidermal growth factor receptor mutations or anaplastic lymphoma kinase translocations</article-title>
+<source/>
+<italic>Translational Research</italic>
+<year>2016</year>
+<volume>170</volume>
+<fpage>1</fpage>
+<lpage>7</lpage>
+<pub-id pub-id-type="other">2-s2.0-84960798969</pub-id>
+<pub-id pub-id-type="doi">10.1016/j.trsl.2015.11.006</pub-id>
+<pub-id pub-id-type="pmid">26687391</pub-id>
+</element-citation>
+</ref>
+<ref id="B41">
+<label>37</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kaduthanam</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Gade</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Meister</surname>
+<given-names>M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Serum miR-142-3p is associated with early relapse in operable lung adenocarcinoma patients</article-title>
+<source/>
+<italic>Lung Cancer</italic>
+<year>2013</year>
+<volume>80</volume>
+<issue>2</issue>
+<fpage>223</fpage>
+<lpage>227</lpage>
+<pub-id pub-id-type="pmid">23410826</pub-id>
+</element-citation>
+</ref>
+<ref id="B42">
+<label>38</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rothschild</surname>
+<given-names>S. I.</given-names>
+</name>
+<name>
+<surname>Tschan</surname>
+<given-names>M. P.</given-names>
+</name>
+<name>
+<surname>Federzoni</surname>
+<given-names>E. A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>MicroRNA-29b is involved in the Src-ID1 signaling pathway and is dysregulated in human lung adenocarcinoma</article-title>
+<source/>
+<italic>Oncogene</italic>
+<year>2012</year>
+<volume>31</volume>
+<issue>38</issue>
+<fpage>4221</fpage>
+<lpage>4232</lpage>
+<pub-id pub-id-type="other">2-s2.0-84866541922</pub-id>
+<pub-id pub-id-type="doi">10.1038/onc.2011.578</pub-id>
+<pub-id pub-id-type="pmid">22249264</pub-id>
+</element-citation>
+</ref>
+<ref id="B43">
+<label>39</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>P.</given-names>
+</name>
+</person-group>
+<article-title>miR-590 accelerates lung adenocarcinoma migration and invasion through directly suppressing functional target OLFM4</article-title>
+<source/>
+<italic>Biomedicine &amp; Pharmacotherapy</italic>
+<year>2017</year>
+<volume>86</volume>
+<fpage>466</fpage>
+<lpage>474</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopha.2016.12.003</pub-id>
+<pub-id pub-id-type="pmid">28012926</pub-id>
+</element-citation>
+</ref>
+<ref id="B27">
+<label>40</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Screening key microRNAs for castration-resistant prostate cancer based on miRNA/mRNA functional synergistic network</article-title>
+<source/>
+<italic>Oncotarget</italic>
+<year>2015</year>
+<volume>6</volume>
+<issue>41</issue>
+<fpage>43819</fpage>
+<lpage>43830</lpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.6102</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84952888882</pub-id>
+<pub-id pub-id-type="pmid">26540468</pub-id>
+</element-citation>
+</ref>
+<ref id="B28">
+<label>41</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Zang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Jing</surname>
+<given-names>X.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Identification of candidate miRNA biomarkers from miRNA regulatory network with application to prostate cancer</article-title>
+<source/>
+<italic>Journal of Translational Medicine</italic>
+<year>2014</year>
+<volume>12</volume>
+<fpage>p. 12</fpage>
+<pub-id pub-id-type="doi">10.1186/1479-5876-12-66</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84897486492</pub-id>
+</element-citation>
+</ref>
+<ref id="B29">
+<label>42</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Clear cell renal cell carcinoma associated microRNA expression signatures identified by an integrated bioinformatics analysis</article-title>
+<source/>
+<italic>Journal of Translational Medicine</italic>
+<year>2013</year>
+<volume>11, article 169</volume>
+<pub-id pub-id-type="doi">10.1186/1479-5876-11-169</pub-id>
+</element-citation>
+</ref>
+<ref id="B30">
+<label>43</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dennis</surname>
+<given-names>G.</given-names>
+<suffix>Jr.</suffix>
+</name>
+<name>
+<surname>Sherman</surname>
+<given-names>B. T.</given-names>
+</name>
+<name>
+<surname>Hosack</surname>
+<given-names>D. A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>DAVID: database for annotation, visualization, and integrated discovery</article-title>
+<source/>
+<italic>Genome Biology</italic>
+<year>2003</year>
+<volume>4</volume>
+<issue>5</issue>
+<fpage>p. P3</fpage>
+<pub-id pub-id-type="pmid">12734009</pub-id>
+</element-citation>
+</ref>
+<ref id="B44">
+<label>44</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Timsah</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Ahmed</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>C.-C.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Competition between Grb2 and Plc<italic>γ</italic>1 for FGFR2 regulates basal phospholipase activity and invasion</article-title>
+<source/>
+<italic>Nature Structural and Molecular Biology</italic>
+<year>2014</year>
+<volume>21</volume>
+<issue>2</issue>
+<fpage>180</fpage>
+<lpage>188</lpage>
+<pub-id pub-id-type="other">2-s2.0-84893769451</pub-id>
+<pub-id pub-id-type="doi">10.1038/nsmb.2752</pub-id>
+</element-citation>
+</ref>
+<ref id="B45">
+<label>45</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Prise</surname>
+<given-names>K. M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Akt/mTOR mediated induction of bystander effect signaling in a nucleus independent manner in irradiated human lung adenocarcinoma epithelial cells</article-title>
+<source/>
+<italic>Oncotarget</italic>
+<year>2017</year>
+<pub-id pub-id-type="doi">10.18632/oncotarget.14931</pub-id>
+</element-citation>
+</ref>
+<ref id="B46">
+<label>46</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Su</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Overexpression of RBM5 induces autophagy in human lung adenocarcinoma cells</article-title>
+<source/>
+<italic>World Journal of Surgical Oncology</italic>
+<year>2016</year>
+<volume>14</volume>
+<issue>1, article 57</issue>
+<pub-id pub-id-type="doi">10.1186/s12957-016-0815-7</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84959207548</pub-id>
+</element-citation>
+</ref>
+<ref id="B47">
+<label>47</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>E. Y. P.</given-names>
+</name>
+<name>
+<surname>Khong</surname>
+<given-names>P.-L.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>V. H. F.</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Wong</surname>
+<given-names>M. P.</given-names>
+</name>
+</person-group>
+<article-title>Metabolic phenotype of stage IV lung adenocarcinoma: relationship with epidermal growth factor receptor mutation</article-title>
+<source/>
+<italic>Clinical Nuclear Medicine</italic>
+<year>2015</year>
+<volume>40</volume>
+<issue>3</issue>
+<fpage>e190</fpage>
+<lpage>e195</lpage>
+<pub-id pub-id-type="doi">10.1097/RLU.0000000000000684</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84922634845</pub-id>
+<pub-id pub-id-type="pmid">25608155</pub-id>
+</element-citation>
+</ref>
+<ref id="B48">
+<label>48</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Becker-Santos</surname>
+<given-names>D. D.</given-names>
+</name>
+<name>
+<surname>Thu</surname>
+<given-names>K. L.</given-names>
+</name>
+<name>
+<surname>English</surname>
+<given-names>J. C.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Developmental transcription factor NFIB is a putative target of oncofetal miRNAs and is associated with tumour aggressiveness in lung adenocarcinoma</article-title>
+<source/>
+<italic>The Journal of Pathology</italic>
+<year>2016</year>
+<volume>240</volume>
+<issue>2</issue>
+<fpage>161</fpage>
+<lpage>172</lpage>
+<pub-id pub-id-type="pmid">27357447</pub-id>
+</element-citation>
+</ref>
+<ref id="B49">
+<label>49</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Long</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>K.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Chemotherapy agents-induced immunoresistance in lung cancer cells could be reversed by trop-2 inhibition in vitro and in vivo by interaction with MAPK signaling pathway</article-title>
+<source/>
+<italic>Cancer Biology &amp; Therapy</italic>
+<year>2013</year>
+<volume>14</volume>
+<issue>12</issue>
+<fpage>1123</fpage>
+<lpage>1132</lpage>
+<pub-id pub-id-type="doi">10.4161/cbt.26341</pub-id>
+<pub-id pub-id-type="pmid">24025415</pub-id>
+</element-citation>
+</ref>
+<ref id="B50">
+<label>50</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dancik</surname>
+<given-names>G. M.</given-names>
+</name>
+<name>
+<surname>Theodorescu</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>Robust prognostic gene expression signatures in bladder cancer and lung adenocarcinoma depend on cell cycle related genes</article-title>
+<source/>
+<italic>PLoS ONE</italic>
+<year>2014</year>
+<volume>9</volume>
+<issue>1</issue>
+<pub-id pub-id-type="other">2-s2.0-84899889175</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0085249</pub-id>
+<pub-id pub-id-type="publisher-id">e85249</pub-id>
+</element-citation>
+</ref>
+<ref id="B51">
+<label>51</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kim</surname>
+<given-names>J. M.</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>D. W.</given-names>
+</name>
+<name>
+<surname>Long</surname>
+<given-names>L. Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Differential expression of Yes-associated protein is correlated with expression of cell cycle markers and pathologic TNM staging in non-small-cell lung carcinoma</article-title>
+<source/>
+<italic>Human Pathology</italic>
+<year>2011</year>
+<volume>42</volume>
+<issue>3</issue>
+<fpage>315</fpage>
+<lpage>323</lpage>
+<pub-id pub-id-type="doi">10.1016/j.humpath.2010.08.003</pub-id>
+<pub-id pub-id-type="pmid">21190720</pub-id>
+</element-citation>
+</ref>
+<ref id="B52">
+<label>52</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Toonkel</surname>
+<given-names>R. L.</given-names>
+</name>
+<name>
+<surname>Borczuk</surname>
+<given-names>A. C.</given-names>
+</name>
+<name>
+<surname>Powell</surname>
+<given-names>C. A.</given-names>
+</name>
+</person-group>
+<article-title>TGF-<italic>β</italic> signaling pathway in lung adenocarcinoma invasion</article-title>
+<source/>
+<italic>Journal of Thoracic Oncology</italic>
+<year>2010</year>
+<volume>5</volume>
+<issue>2</issue>
+<fpage>153</fpage>
+<lpage>157</lpage>
+<pub-id pub-id-type="other">2-s2.0-77649167803</pub-id>
+<pub-id pub-id-type="doi">10.1097/JTO.0b013e3181c8cc0c</pub-id>
+<pub-id pub-id-type="pmid">20101143</pub-id>
+</element-citation>
+</ref>
+<ref id="B53">
+<label>53</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kusano</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Yoshitomi</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Munesue</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Okayama</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Oguri</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>Cooperation of syndecan-2 and syndecan-4 among cell surface heparan sulfate proteoglycans in the actin cytoskeletal organization of Lewis lung carcinoma cells</article-title>
+<source/>
+<italic>Journal of Biochemistry</italic>
+<year>2004</year>
+<volume>135</volume>
+<issue>1</issue>
+<fpage>129</fpage>
+<lpage>137</lpage>
+<pub-id pub-id-type="doi">10.1093/jb/mvh015</pub-id>
+<pub-id pub-id-type="other">2-s2.0-1642544756</pub-id>
+<pub-id pub-id-type="pmid">14999018</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="fig1" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>The procedure of data collection, identification of microRNA biomarkers with integrative analysis, and the validation of the miRNA biomarkers.</p>
+</caption>
+<graphic xlink:href="BMRI2017-2563085.001"></graphic>
+</fig>
+<fig id="fig2" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Gene ontology (GO) analysis for genes targeted by 9 identified microRNA biomarkers. The statistical significance value (<italic>p</italic> value) has been negative 10-based log transformed. Top 10 significantly enriched items are listed for each level.</p>
+</caption>
+<graphic xlink:href="BMRI2017-2563085.002"></graphic>
+</fig>
+<fig id="fig3" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>KEGG pathway enrichment analysis for genes targeted by 9 candidate microRNA biomarkers. The statistical significance value (<italic>p</italic> value) has been negative 10-based log transformed. The top 10 significantly enriched pathways are listed, respectively, in this figure.</p>
+</caption>
+<graphic xlink:href="BMRI2017-2563085.003"></graphic>
+</fig>
+<fig id="fig4" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>The pipeline of cell cycle and MAPK signaling pathway. The stars in these pipelines represent the action sites of the genes regulated by 9 candidate miRNA biomarkers.</p>
+</caption>
+<graphic xlink:href="BMRI2017-2563085.004"></graphic>
+</fig>
+<table-wrap id="tab1" orientation="portrait" position="float">
+<label>Table 1</label>
+<caption>
+<p>NSCLC adenocarcinoma gene expression data collected from GEO data sets.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Accession/ID</th>
+<th align="center" colspan="1" rowspan="1">PMID</th>
+<th align="center" colspan="1" rowspan="1">Platform</th>
+<th align="center" colspan="1" rowspan="1">Treatment</th>
+<th align="center" colspan="1" rowspan="1">Control</th>
+<th align="center" colspan="1" rowspan="1">Materials</th>
+<th align="center" colspan="1" rowspan="1">Year</th>
+<th align="center" colspan="1" rowspan="1">mRNA/miRNA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">GSE36681</td>
+<td align="center" colspan="1" rowspan="1">22573352</td>
+<td align="center" colspan="1" rowspan="1">GPL8179</td>
+<td align="center" colspan="1" rowspan="1">
+<italic>n</italic> = 47</td>
+<td align="center" colspan="1" rowspan="1">
+<italic>n</italic> = 47</td>
+<td align="center" colspan="1" rowspan="1">tissue</td>
+<td align="center" colspan="1" rowspan="1">2012</td>
+<td align="center" colspan="1" rowspan="1">miRNA</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">GSE63459</td>
+<td align="center" colspan="1" rowspan="1">26134223</td>
+<td align="center" colspan="1" rowspan="1">GPL6883</td>
+<td align="center" colspan="1" rowspan="1">
+<italic>n</italic> = 33</td>
+<td align="center" colspan="1" rowspan="1">
+<italic>n</italic> = 32</td>
+<td align="center" colspan="1" rowspan="1">tissue</td>
+<td align="center" colspan="1" rowspan="1">2015</td>
+<td align="center" colspan="1" rowspan="1">mRNA</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="tab2" orientation="portrait" position="float">
+<label>Table 2</label>
+<caption>
+<p>Literature reported lung adenocarcinoma miRNA biomarkers.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Reported miRNA</th>
+<th align="center" colspan="1" rowspan="1">Official ID</th>
+<th align="center" colspan="1" rowspan="1">PMID</th>
+<th align="center" colspan="1" rowspan="1">Biomarker type</th>
+<th align="center" colspan="1" rowspan="1">Samples</th>
+<th align="center" colspan="1" rowspan="1">Expression level</th>
+<th align="center" colspan="1" rowspan="1">NOG</th>
+<th align="center" colspan="1" rowspan="1">TFP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-155</td>
+<td align="center" colspan="1" rowspan="1">miR-155-5p</td>
+<td align="center" colspan="1" rowspan="1">24190459 [<xref ref-type="bibr" rid="B31">27</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Diagnosis</td>
+<td align="center" colspan="1" rowspan="1">Serum</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">71</td>
+<td align="center" colspan="1" rowspan="1">0.21</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-196a-5p</td>
+<td align="center" colspan="1" rowspan="1">miR-196a-5p</td>
+<td align="center" colspan="1" rowspan="1">27247934 [<xref ref-type="bibr" rid="B32">28</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Diagnosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">7</td>
+<td align="center" colspan="1" rowspan="1">0.19</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-218-5p</td>
+<td align="center" colspan="1" rowspan="1">miR-218-5p</td>
+<td align="center" colspan="1" rowspan="1">27247934 [<xref ref-type="bibr" rid="B32">28</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Diagnosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">10</td>
+<td align="center" colspan="1" rowspan="1">0.12</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-143</td>
+<td align="center" colspan="1" rowspan="1">miR-143-3p</td>
+<td align="center" colspan="1" rowspan="1">24286416 [<xref ref-type="bibr" rid="B33">29</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Diagnosis</td>
+<td align="center" colspan="1" rowspan="1">Blood</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">15</td>
+<td align="center" colspan="1" rowspan="1">0.03</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-182</td>
+<td align="center" colspan="1" rowspan="1">miR-182-5p</td>
+<td align="center" colspan="1" rowspan="1">19493678 [<xref ref-type="bibr" rid="B34">30</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Diagnosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">9</td>
+<td align="center" colspan="1" rowspan="1">0.19</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-650</td>
+<td align="center" colspan="1" rowspan="1">miR-650</td>
+<td align="center" colspan="1" rowspan="1">23991130 [<xref ref-type="bibr" rid="B35">31</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-141</td>
+<td align="center" colspan="1" rowspan="1">miR-141-3p</td>
+<td align="center" colspan="1" rowspan="1">25746592 [<xref ref-type="bibr" rid="B36">32</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">22</td>
+<td align="center" colspan="1" rowspan="1">0.17</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-29c</td>
+<td align="center" colspan="1" rowspan="1">miR-29c-3p</td>
+<td align="center" colspan="1" rowspan="1">28241836 [<xref ref-type="bibr" rid="B37">33</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">5</td>
+<td align="center" colspan="1" rowspan="1">0.15</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-23b-3p</td>
+<td align="center" colspan="1" rowspan="1">miR-23b-3p</td>
+<td align="center" colspan="1" rowspan="1">28055956 [<xref ref-type="bibr" rid="B38">34</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Plasma</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">23</td>
+<td align="center" colspan="1" rowspan="1">0.15</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-10b-5p</td>
+<td align="center" colspan="1" rowspan="1">miR-10b-5p</td>
+<td align="center" colspan="1" rowspan="1">28055956 [<xref ref-type="bibr" rid="B38">34</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Plasma</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">9</td>
+<td align="center" colspan="1" rowspan="1">0.15</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-21-5p</td>
+<td align="center" colspan="1" rowspan="1">miR-21-5p</td>
+<td align="center" colspan="1" rowspan="1">28055956 [<xref ref-type="bibr" rid="B38">34</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Plasma</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">38</td>
+<td align="center" colspan="1" rowspan="1">0.13</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-126-3p</td>
+<td align="center" colspan="1" rowspan="1">miR-126-3p</td>
+<td align="center" colspan="1" rowspan="1">27277197 [<xref ref-type="bibr" rid="B39">35</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">6</td>
+<td align="center" colspan="1" rowspan="1">0.12</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-451a</td>
+<td align="center" colspan="1" rowspan="1">miR-451a</td>
+<td align="center" colspan="1" rowspan="1">27277197 [<xref ref-type="bibr" rid="B39">35</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">4</td>
+<td align="center" colspan="1" rowspan="1">0.17</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-25</td>
+<td align="center" colspan="1" rowspan="1">miR-25-3p</td>
+<td align="center" colspan="1" rowspan="1">26687391 [<xref ref-type="bibr" rid="B40">36</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Blood</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">9</td>
+<td align="center" colspan="1" rowspan="1">0.17</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-145</td>
+<td align="center" colspan="1" rowspan="1">miR-145-5p</td>
+<td align="center" colspan="1" rowspan="1">26687391 [<xref ref-type="bibr" rid="B40">36</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Blood</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">36</td>
+<td align="center" colspan="1" rowspan="1">0.11</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-210</td>
+<td align="center" colspan="1" rowspan="1">miR-210</td>
+<td align="center" colspan="1" rowspan="1">26687391 [<xref ref-type="bibr" rid="B40">36</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Blood</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">1</td>
+<td align="center" colspan="1" rowspan="1">0.18</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-142-3p</td>
+<td align="center" colspan="1" rowspan="1">miR-142-3p</td>
+<td align="center" colspan="1" rowspan="1">23410826 [<xref ref-type="bibr" rid="B41">37</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Serum</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">12</td>
+<td align="center" colspan="1" rowspan="1">0.14</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-29b</td>
+<td align="center" colspan="1" rowspan="1">miR-29b-3p</td>
+<td align="center" colspan="1" rowspan="1">22249264 [<xref ref-type="bibr" rid="B42">38</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Down</td>
+<td align="center" colspan="1" rowspan="1">9</td>
+<td align="center" colspan="1" rowspan="1">0.14</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-590</td>
+<td align="center" colspan="1" rowspan="1">miR-590-5p</td>
+<td align="center" colspan="1" rowspan="1">28012926 [<xref ref-type="bibr" rid="B43">39</xref>]</td>
+<td align="center" colspan="1" rowspan="1">Prognosis</td>
+<td align="center" colspan="1" rowspan="1">Tissue</td>
+<td align="center" colspan="1" rowspan="1">Up</td>
+<td align="center" colspan="1" rowspan="1">14</td>
+<td align="center" colspan="1" rowspan="1">0.16</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="tab3" orientation="portrait" position="float">
+<label>Table 3</label>
+<caption>
+<p>Predicted putative lung adenocarcinoma microRNA biomarkers.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">miRNA ID</th>
+<th align="center" colspan="1" rowspan="1">NOG</th>
+<th align="center" colspan="1" rowspan="1">
+<italic>p</italic> value</th>
+<th align="center" colspan="1" rowspan="1">TFP</th>
+<th align="center" colspan="1" rowspan="1">
+<italic>p</italic> value</th>
+<th align="left" colspan="1" rowspan="1">Whole target genes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<bold><underline>miR-145-5p</underline></bold>
+</td>
+<td align="center" colspan="1" rowspan="1">1</td>
+<td align="center" colspan="1" rowspan="1">1.66<italic>E</italic> − 02</td>
+<td align="center" colspan="1" rowspan="1">0.67</td>
+<td align="center" colspan="1" rowspan="1">2.98<italic>E</italic> − 08</td>
+<td align="left" colspan="1" rowspan="1">MMP12; ZFP36; KLF4</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-204-5p</td>
+<td align="center" colspan="1" rowspan="1">5</td>
+<td align="center" colspan="1" rowspan="1">1.78<italic>E</italic> − 15</td>
+<td align="center" colspan="1" rowspan="1">0.13</td>
+<td align="center" colspan="1" rowspan="1">1.05<italic>E</italic> − 02</td>
+<td align="left" colspan="1" rowspan="1">DPYSL2; EMP1; SPDEF; LMO7; SLC1A1; ALPL; MMP9; FRAS1</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<bold><underline>miR-182-5p</underline></bold>
+</td>
+<td align="center" colspan="1" rowspan="1">2</td>
+<td align="center" colspan="1" rowspan="1">1.80<italic>E</italic> − 08</td>
+<td align="center" colspan="1" rowspan="1">0.20</td>
+<td align="center" colspan="1" rowspan="1">4.34<italic>E</italic> − 04</td>
+<td align="left" colspan="1" rowspan="1">CAMK2N1; ZFP36; UBE2T; LPHN2; RGS17.</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-567</td>
+<td align="center" colspan="1" rowspan="1">1</td>
+<td align="center" colspan="1" rowspan="1">1.66<italic>E</italic> − 02</td>
+<td align="center" colspan="1" rowspan="1">0.25</td>
+<td align="center" colspan="1" rowspan="1">4.61<italic>E</italic> − 04</td>
+<td align="left" colspan="1" rowspan="1">SPTBN1; DUSP1; BCHE; LPHN2</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<bold><underline>miR-141-3p</underline></bold>
+</td>
+<td align="center" colspan="1" rowspan="1">2</td>
+<td align="center" colspan="1" rowspan="1">1.80<italic>E</italic> − 08</td>
+<td align="center" colspan="1" rowspan="1">0.14</td>
+<td align="center" colspan="1" rowspan="1">2.05<italic>E</italic> − 03</td>
+<td align="left" colspan="1" rowspan="1">H3F3B; TCEAL2; MYH10; LHFP; LPHN2; CCL2; KLF9</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-454-3p</td>
+<td align="center" colspan="1" rowspan="1">2</td>
+<td align="center" colspan="1" rowspan="1">1.80<italic>E</italic> − 08</td>
+<td align="center" colspan="1" rowspan="1">0.11</td>
+<td align="center" colspan="1" rowspan="1">4.64<italic>E</italic> − 02</td>
+<td align="left" colspan="1" rowspan="1">DPYSL2; HOXA5; FKBP11; SRPX; EDN1; LDLR; CAV2; BMPR2; SLC2A1</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<bold><underline>miR-590-3p</underline></bold>
+</td>
+<td align="center" colspan="1" rowspan="1">5</td>
+<td align="center" colspan="1" rowspan="1">1.78<italic>E</italic> − 15</td>
+<td align="center" colspan="1" rowspan="1">0.13</td>
+<td align="center" colspan="1" rowspan="1">2.33<italic>E</italic> − 03</td>
+<td align="left" colspan="1" rowspan="1">SERPINE2; PLEKHC1; SPTBN1; H3F3B; TMEM47; TIMP3; COL3A1; CXCL13; ETS2; CELSR3; LPL; SMAD6; BMPR2; LPHN2; SASH1.</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-338-3p</td>
+<td align="center" colspan="1" rowspan="1">2</td>
+<td align="center" colspan="1" rowspan="1">1.80<italic>E</italic> − 08</td>
+<td align="center" colspan="1" rowspan="1">0.25</td>
+<td align="center" colspan="1" rowspan="1">4.61<italic>E</italic> − 04</td>
+<td align="left" colspan="1" rowspan="1">COL1A1; FOSB; ADAMTS1; MMP9</td>
+</tr>
+<tr>
+<td colspan="6" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">miR-139-5p</td>
+<td align="center" colspan="1" rowspan="1">1</td>
+<td align="center" colspan="1" rowspan="1">1.66<italic>E</italic> − 02</td>
+<td align="center" colspan="1" rowspan="1">1.00</td>
+<td align="center" colspan="1" rowspan="1">1.49<italic>E</italic> − 08</td>
+<td align="left" colspan="1" rowspan="1">FOS</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="tab4" orientation="portrait" position="float">
+<label>Table 4</label>
+<caption>
+<p>Top 10 significantly enriched pathways in KEGG pathway analysis.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Term</th>
+<th align="center" colspan="1" rowspan="1">Adj. <italic>p</italic> value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Adherens junction</td>
+<td align="center" colspan="1" rowspan="1">3.05<italic>E</italic> − 10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Pathways in cancer</td>
+<td align="center" colspan="1" rowspan="1">8.91<italic>E</italic> − 10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Hippo signaling pathway</td>
+<td align="center" colspan="1" rowspan="1">3.43<italic>E</italic> − 09</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">TGF-beta signaling pathway</td>
+<td align="center" colspan="1" rowspan="1">6.13<italic>E</italic> − 09</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Proteoglycans in cancer</td>
+<td align="center" colspan="1" rowspan="1">1.72<italic>E</italic> − 08</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Cell cycle</td>
+<td align="center" colspan="1" rowspan="1">6.44<italic>E</italic> − 07</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Prostate cancer</td>
+<td align="center" colspan="1" rowspan="1">1.22<italic>E</italic> − 06</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Hepatitis B</td>
+<td align="center" colspan="1" rowspan="1">2.98<italic>E</italic> − 06</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MAPK signaling pathway</td>
+<td align="center" colspan="1" rowspan="1">3.29<italic>E</italic> − 06</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">FoxO signaling pathway</td>
+<td align="center" colspan="1" rowspan="1">4.74<italic>E</italic> − 06</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,2617 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Int J Genomics</journal-id>
+<journal-id journal-id-type="iso-abbrev">Int J Genomics</journal-id>
+<journal-id journal-id-type="publisher-id">IJG</journal-id>
+<journal-title-group>
+<journal-title>International Journal of Genomics</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">2314-436X</issn>
+<issn pub-type="epub">2314-4378</issn>
+<publisher>
+<publisher-name>Hindawi</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29119102</article-id>
+<article-id pub-id-type="pmc">5651161</article-id>
+<article-id pub-id-type="doi">10.1155/2017/4858173</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>The Transcriptional Network Structure of a Myeloid Cell: A Computational Approach</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Espinal-Enríquez</surname>
+<given-names>Jesús</given-names>
+</name>
+<xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>González-Terán</surname>
+<given-names>Daniel</given-names>
+</name>
+<xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0002-1872-1397</contrib-id>
+<name>
+<surname>Hernández-Lemus</surname>
+<given-names>Enrique</given-names>
+</name>
+<email>ehernandez@inmegen.gob.mx</email>
+<xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+</contrib>
+</contrib-group>
+<aff id="I1">
+<sup>1</sup>Computational Genomics Division, National Institute of Genomic Medicine, 14610 México City, Mexico</aff>
+<aff id="I2">
+<sup>2</sup>Centro de Ciencias de la Complejidad, Universidad Nacional Autónoma de México, 04510 México City, Mexico</aff>
+<author-notes>
+<fn fn-type="other">
+<p>Academic Editor: Graziano Pesole</p>
+</fn>
+</author-notes>
+<pub-date pub-type="ppub">
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>30</day>
+<month>9</month>
+<year>2017</year>
+</pub-date>
+<volume>2017</volume>
+<elocation-id>4858173</elocation-id>
+<history>
+<date date-type="received">
+<day>2</day>
+<month>2</month>
+<year>2017</year>
+</date>
+<date date-type="rev-recd">
+<day>28</day>
+<month>7</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>9</day>
+<month>8</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2017 Jesús Espinal-Enríquez et al.</copyright-statement>
+<copyright-year>2017</copyright-year>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Understanding the general principles underlying genetic regulation in eukaryotes is an incomplete and challenging endeavor. The lack of experimental information regarding the regulation of the whole set of transcription factors and their targets in different cell types is one of the main reasons to this incompleteness. So far, there is a small set of curated known interactions between transcription factors and their downstream genes. Here, we built a transcription factor network for human monocytic THP-1 myeloid cells based on the experimentally curated <italic>FANTOM4</italic> database where nodes are genes and the experimental interactions correspond to links. We present the topological parameters which define the network as well as some global structural features and introduce a relative inuence parameter to quantify the relevance of a transcription factor in the context of induction of a phenotype. Genes like ZHX2, ADNP, or SMAD6 seem to be highly regulated to avoid an avalanche transcription event. We compare these results with those of <italic>RegulonDB</italic>, a highly curated transcriptional network for the prokaryotic organism <italic>E. coli</italic>, finding similarities between general hallmarks on both transcriptional programs. We believe that an approach, such as the one shown here, could help to understand the one regulation of transcription in eukaryotic cells.</p>
+</abstract>
+<funding-group>
+<award-group>
+<funding-source>2016 Marcos Moshinsky Research Chair in the Physical Sciences</funding-source>
+</award-group>
+<award-group>
+<funding-source>National Institute of Genomic Medicine</funding-source>
+</award-group>
+<award-group>
+<funding-source>Consejo Nacional de Ciencia y Tecnología</funding-source>
+<award-id>179431/2012</award-id>
+</award-group>
+</funding-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec1">
+<title>1. Introduction</title>
+<p>Gene regulation is a key player in the development of living systems. Interactions amongst genes are critical to direct tissue-specific gene expression [<xref ref-type="bibr" rid="B1">1</xref>]. A dysfunctional process results in altered physiology, giving rise to malformations and diseases such as cancer. The gene regulatory networks that control gene expression are usually composed by several thousands of genes which are transcribed and translated to produce proteins that have a function in the cell. On the other hand, a reduced set of genes, called <italic>transcription factors</italic> (TFs), has the role of regulating the transcriptional program of the cells. These TFs enhance or repress the expression of other genes, which may be also TFs, or else <italic>target genes</italic>.</p>
+<p>By looking at the number of genes that a particular TF could regulate, a hierarchical structure can be observed. In this sense, genes like MEF2C, mTOR, MYB, FOXM1, GATA3, FOXP3, BCL6, MNDA, POU2AF1, MEF2C, or SMAD3 have been reported to potentially regulate more than one thousand genes, which are transcriptional master regulators (TMRs) [<xref ref-type="bibr" rid="B2">2</xref>, <xref ref-type="bibr" rid="B3">3</xref>]. The hierarchical character, observed in TF-driven regulatory networks, is likely due to the number of target genes that a TF may have. Another issue related to the relevance of such TFs is whether a given TF is regulated or not by another TF, in which case, a shadow effect could appear, indicating the primacy of a given TF above others [<xref ref-type="bibr" rid="B4">4</xref>, <xref ref-type="bibr" rid="B5">5</xref>]. Deregulation of these TFs has been related to the development of cancer and other diseases [<xref ref-type="bibr" rid="B2">2</xref>].</p>
+<p>Comprehensive studies regarding the extent of influence of TFs and the targets of the TFs have been made [<xref ref-type="bibr" rid="B6">6</xref>]. In such studies, phenomena like feedback, feed-forward loops, and other biological motifs [<xref ref-type="bibr" rid="B7">7</xref>] have been found. The said phenomena are indicative of a sophisticated machinery involved in the regulation of gene transcription: highly connected TFs are also regulated by others, which may (or may not) be highly connected. Hence, the importance of TFs in the whole regulatory program lies not only in the out-degree (the number of genes regulated by the TF) but also in the in-degree (how many genes regulate the TF) (<xref ref-type="fig" rid="fig1">Figure 1</xref>). It is precisely the interplay of in- and out-degree distributions which shapes ultimately the delicate mechanisms of gene expression control, encoded in the topological structure of the transcriptional regulatory network.</p>
+<p>The discovery of general patterns of cooperativity and coregulation for the transcriptional regulation program of eukaryotic cells will help to understand the control of genome-wide expression and how it influences the establishment of phenotypes. To this end, here, we develop a systematic strategy for the data mining curation of the whole set of interactions in <italic>FANTOM4 Edge Express</italic>: a comprehensive and authoritative catalog of transcriptional regulatory interactions in THP1 myeloid cells [<xref ref-type="bibr" rid="B1">1</xref>, <xref ref-type="bibr" rid="B8">8</xref>].</p>
+<p>We constructed a gene regulatory network for the whole set of genes and their interactions by developing a mining tool for the FANTOM4 database, adding each gene present in the said database as a node to a network, where the strength of connections between nodes corresponds to the intensity, or confidence, of the experimental interaction between any pair of genes. We obtained a network consisting in 9090 genes and 234,913 links. This transcriptional regulatory network contains a number of genes influencing many downstream genes, that is, a few genes are able to control the majority of the genes. As previously mentioned, those TFs are also regulated by other TFs. Taking this into account, we constructed a TF subnetwork, which contains 295 TF genes and 8483 links.</p>
+<p>Acknowledging the relevance that in-degree and out-degree of TFs acquire in the context of gene regulation, we devise a <italic>relative influence</italic> parameter (see the corresponding subsection in Materials &amp; Methods), related with the ratio of out-degree/in-degree of all TFs present in the network, thus indicating the relative influence of the gene (and its regulators) in terms of how many targets the said gene is regulating and the number of genes which directly regulate it.</p>
+<p>We finally present a network visualization highlighting the importance of those genes. Genes like NRF1, SPIB, GABPA, or TFAP2A present a high RI since they do not have regulators within the database. This could be indicative of a basal and transcription-independent level of regulation, being these genes a kind of default transcriptional regulators. On the other hand, genes like ZHX2, ADNP, or SMAD6 present a very high in-degree, while their out-degree is relatively low. Considering this, we argue that these genes are also relevant, acting as locks avoiding a <italic>transcriptional avalanche</italic>, that is, they can allow the transcription of genes related to rapid cell division or give place to differentiation of the cell. The lack of regulation of them could lead to diseases such as cancer or malformation during development.</p>
+<p>As mentioned before, the network also contains experimentally obtained weighted values (<italic>S</italic><sub><italic>i</italic>,<italic>j</italic></sub>) of the interactions between any pair of genes which indicates whether the effect of a gene over any other connected to it is positive (activator) or negative (repressor), that is, there are transcription factors whose “preferential” activity is either of an activating or repressing nature. This fact may follow from the very physicochemical structure of the related protein, its interactions with other proteins and with certain regions in the genome that include, but are not restricted to, the promoter regions on their target genes. Of course, these functions are phenotype dependent and may be even context dependent.</p>
+<p>In terms of transcriptional regulation, a positive interaction represents that the source gene (TF) promotes the transcription of the target gene (effector gene). Analogously, a negative interaction will represent that the TF inhibits the transcription of the target gene. The algebraic sum of all interactions of each gene allows us to observe that some TFs are mostly activators and others are mostly repressors.</p>
+<p>In the first case, we have for instance NFYA, NFYB, and NFYC; whereas in the latter case, we have TFAP2A, TFAP2C, and MAZ. Arguably, regulation of those genes is fundamental to initiate or terminate a transcriptional cascade, likely related to events of differentiation or cell division. Experiments along this way are necessary. We argue that this framework may help to understand the importance of TFs in terms of the ratio between in- and out-degree, which could give new insights regarding the gene regulation.</p>
+</sec>
+<sec id="sec2">
+<title>2. Materials and Methods</title>
+<p>Reproducibility of results and methodological clarity are fundamental in all scientific endeavors, but in the case of computational biology approaches, they gain even more relevance. In the present section, we will present detailed accounts of the methods used here, and in some cases (most notably, when we introduce novel concepts), we will even write down detailed calculations. Further details and custom-made computer code for this project are available at the following link: <ext-link ext-link-type="uri" xlink:href="https://github.com/CSB-IG/fantomine">https://github.com/CSB-IG/fantomine</ext-link>.</p>
+<sec id="sec2.1">
+<title>2.1. Network Construction</title>
+<p>We mined the FANTOM4 database [<xref ref-type="bibr" rid="B8">8</xref>] to construct a gene regulatory network. This database is based on genome-wide dynamics of transcription start site usage in the PMA-stimulated human monocytic cell line THP-1. To this end, we made a systematic approach to search all genes present in the database. We also tracked the genes which regulate the first one as well as the genes regulated by the searched gene. If a gene has no regulators, its in-degree is zero. Analogously, if the searched gene does not have target genes, its out-degree would be zero.</p>
+<p>An important source of information about this network is the strength of the interaction between any pair of genes. This interaction is quantified by both experiments and sequence-based transcription factor binding site (TFBS) predictions. The range of intensities <italic>S<sub>i,j</sub></italic> is a <italic>Z</italic>-score whose dynamic range goes from −10 to 12. With this experimentally obtained interaction value, we constructed a weighted and directed network of the FANTOM4-based gene regulatory network.</p>
+<p>The network was built by using a specially devised crawler, following a breadth-first search strategy to find the connections between all genes (promoters and targets). The algorithm begins with a random gene and began to <italic>walk</italic> in the FANTOM EDGE-DB; for each promoter and target of that gene, it adds them to a queue of genes to explore and to a dictionary of the genes explored. If the current gene is new in the dictionary, it adds it to the database and the interaction (if it is a promoter or target); otherwise, it only verifies if the interaction is new or updates the weight (it only takes the biggest value). Since some of the predicted TFBS have different values for the same target depending on the promoter region, we decided to use the highest value for all interactions (for further details regarding the interaction values, please see [<xref ref-type="bibr" rid="B8">8</xref>] and the FANTOM4 website: <ext-link ext-link-type="uri" xlink:href="http://fantom.gsc.riken.jp/4/">http://fantom.gsc.riken.jp/4/</ext-link>).</p>
+<p>As an example of the last sentence, the SRF gene is regulated by SOX2, but this regulation have three different values in the FANTOM database, depending on the promoter region: 4.857, 0.834, and 0.845. We decided to establish a link with the highest value assuming that that interaction is the most plausible in an ideal context.</p>
+<p>We also calculated different node centrality measures of the resulting network, such as their in-degree and out-degree distributions. The whole network depicted in <xref ref-type="fig" rid="fig2">Figure 2</xref> is visualized by using Cytoscape v.3.2.2.</p>
+</sec>
+<sec id="sec2.2">
+<title>2.2. Relative Inuence</title>
+<p>To have a useful measure to retrieve information regarding the regulatory balance of each gene in the context of transcriptional process, we establish a parameter of <italic>relative influence</italic> RI<italic><sub>n</sub></italic> for each gene <italic>n</italic> in the network. This parameter reflects the fact that there are some gene regulators that control the transcription of many targets but are in turn regulated by many genes, while other regulators may possess a smaller number of targets but are also regulated by fewer genes and thus may be of similar relative influence on the general transcriptional regulatory program. The RI<italic><sub>n</sub></italic> is then obtained as follows:
+<disp-formula id="eq1"><label>(1)</label><mml:math id="M1"><mml:mtable><mml:mtr><mml:mtd><mml:msub><mml:mrow><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">I</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mrow><mml:mi mathvariant="normal">o</mml:mi><mml:mi mathvariant="normal">u</mml:mi><mml:mi mathvariant="normal">t</mml:mi><mml:mi mathvariant="normal">D</mml:mi><mml:mi mathvariant="normal">e</mml:mi><mml:mi mathvariant="normal">g</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi mathvariant="normal">i</mml:mi><mml:mi mathvariant="normal">n</mml:mi><mml:mi mathvariant="normal">D</mml:mi><mml:mi mathvariant="normal">e</mml:mi><mml:mi mathvariant="normal">g</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">o</mml:mi><mml:mi mathvariant="normal">u</mml:mi><mml:mi mathvariant="normal">t</mml:mi><mml:mi mathvariant="normal">D</mml:mi><mml:mi mathvariant="normal">e</mml:mi><mml:mi mathvariant="normal">g</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac><mml:mo>−</mml:mo><mml:mfrac><mml:mrow><mml:mo>∈</mml:mo><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">i</mml:mi><mml:mi mathvariant="normal">n</mml:mi><mml:mi mathvariant="normal">D</mml:mi><mml:mi mathvariant="normal">e</mml:mi><mml:mi mathvariant="normal">g</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mo>∈</mml:mo><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">o</mml:mi><mml:mi mathvariant="normal">u</mml:mi><mml:mi mathvariant="normal">t</mml:mi><mml:mi mathvariant="normal">D</mml:mi><mml:mi mathvariant="normal">e</mml:mi><mml:mi mathvariant="normal">g</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac><mml:mo>,</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>where outDeg<italic><sub>n</sub></italic> and inDeg<italic><sub>n</sub></italic> are the out-degree and in-degree of the gene <italic>n</italic>, respectively. ∈ is a small variable (10<sup>−3</sup>) to avoid division by zero. We define all negative RI<italic><sub>n</sub></italic> values to be set equal to 0.</p>
+<p>For the sake of clarity and result reproducibility, we will outline an explicit calculation as follows: For instance, the gene GABPB2 has 232 regulators (in-degree, inDeg) but 2829 targets (out-degree, outDeg) in the database. Hence, RI<sub>GABPB2</sub> is calculated as follows:
+<disp-formula id="eq2"><label>(2)</label><mml:math id="M2"><mml:mtable><mml:mtr><mml:mtd><mml:msub><mml:mrow><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">I</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">G</mml:mi><mml:mi mathvariant="normal">A</mml:mi><mml:mi mathvariant="normal">B</mml:mi><mml:mi mathvariant="normal">P</mml:mi><mml:mi mathvariant="normal">B</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mn>2829</mml:mn></mml:mrow><mml:mrow><mml:mn>232</mml:mn><mml:mo>+</mml:mo><mml:mn>2829</mml:mn></mml:mrow></mml:mfrac><mml:mo>−</mml:mo><mml:mfrac><mml:mrow><mml:mn>0.001</mml:mn><mml:mo>+</mml:mo><mml:mn>232</mml:mn></mml:mrow><mml:mrow><mml:mn>0.001</mml:mn><mml:mo>+</mml:mo><mml:mn>2829</mml:mn></mml:mrow></mml:mfrac><mml:mo>=</mml:mo><mml:mn>0.842196754</mml:mn><mml:mo>.</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula></p>
+<p>Since most genes have zero out-degree, that is, they have no target genes, we constructed a subnetwork which contains only TFs; those are, in general terms, the genes which define the way in which the network is regulated.</p>
+</sec>
+<sec id="sec2.3">
+<title>2.3. The Algebraic Sum of Interactions</title>
+<p>Arguably, the interaction strength (<italic>S<sub>i,j</sub></italic>) of the links in a transcriptional network is an abstract and important parameter to quantify the activity of a TFBS recognition motif on a given TF against all its potential targets, providing information about TF interactions at a gene-by-gene basis. This fact may mask the importance of certain TFs in the transcriptional regulatory programs of the cell.</p>
+<p>In order to categorize the importance of different TFs in this network, this value (<italic>S<sub>i,j</sub></italic>) can be used. A TF may be a transcriptional activator or repressor or a combination of both (for different targets and/or under different circumstances). To clarify this idea, we classify the TFs in terms of the total value of their interaction strength, that is, we sum all <italic>S<sub>i,j</sub></italic> for each TF<italic><sub>i</sub></italic> and observe if the value was positive or negative, under the assumption of an additive linear model. A positive value means the majority of their interactions are positive; thus, TF<italic><sub>i</sub></italic> is an <italic>overall activator</italic>. On the other hand, a negative value indicates that the majority of their interactions are for repression; TF<italic><sub>i</sub></italic> is acting then mostly as an <italic>overall repressor</italic>. As we have already stated, such terms are context and phenotype dependent, so that a TF whose main function is that of an activator in the context of myeloid cells, it well may be a repressor on a different cell type or cellular context.</p>
+<p>Again, as an example, we will outline the explicit calculation for one instance of algebraic sum: TFAP2B has 687 negatively regulated targets and 965 positively regulated ones. The algebraic sum of all their targets is as follows:</p>
+<p>∑<sub><italic>j</italic></sub><italic>S</italic><sub>TFAP2B,<italic>j</italic></sub> = 965 − 687 = 278, which converts TFAP2B in a strong <italic>overall activator</italic>.</p>
+</sec>
+</sec>
+<sec id="sec3">
+<title>3. Results</title>
+<sec id="sec3.1">
+<title>3.1. Transcription Factor Network</title>
+<p>The TF network is shown in <xref ref-type="fig" rid="fig2">Figure 2</xref>. 9090 genes with 234,970 interactions are depicted. From that network, we can observe several facts: The network is depicted ranking genes according to the <italic>relative influence</italic>. Upper part genes have a higher RI, meanwhile the lowest RIs are on the lower part. The black circle at the upper part of the network represents those genes with zero out-degree, that is, effector genes. Those genes have RI = 0 by definition. The interactions between genes are weighted according to their respective interaction strength and colored accordingly with a continuous scale, based on the <italic>Z</italic>-scores (<italic>S<sub>i,j</sub></italic>) for activity expression correlation: this way, the blue and green lines indicate inhibition from the source gene to the target, whereas yellow and red lines represent activation from the source gene to the target (see color scale inset in <xref ref-type="fig" rid="fig2">Figure 2</xref>).</p>
+<p>We can see, for instance, how a somewhat small set of molecules is responsible for the concerted regulation of the whole transcriptional activity of the cells. The also important fact is that these molecules carry on their regulatory function by jointly regulating themselves. In this network, genes with the highest out-degree are SP1, MAZ, ELF4, ELF1, ELF2, SPI1, ELK1, ELK4, GABPA, and GABPB2. The subnetwork containing only the targets of those genes has 140,318 interactions with 7913 out of the total of genes.</p>
+<p>Regarding the RI, the top10 out-degree genes (which are in fact TFs) have high values; however, they do not have the highest ones, since they are also regulated by other TFs. <xref ref-type="table" rid="tab1"> Table 1</xref> shows those nodes with the highest RI, as well as their experimentally observed expression values at the starting of the experiments. The expression values for the whole time series are provided as a Supplementary material available online at <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1155/2017/4858173">https://doi.org/10.1155/2017/4858173</ext-link>.</p>
+<p>As revealed by the RI parameter, TFs with the lowest values have a high out-degree, but at the same time, they present a high in-degree, such is the case of ZHX2, ADNP, SMAD6, POU3F1, GTF2A1, ZIC2, POU6F1, TFAP4, ARID5B, or RUNX1. In all cases, they have (at least) twice more targets than regulators. <xref ref-type="table" rid="tab2"> Table 2</xref> shows the lowest RI genes.</p>
+<p>The <italic>relative influence</italic> is a simple metric which provides relevant information about the regulatory activity of a transcription factor. Interestingly, even when a single instance of RI is not enough to give insight on coregulation and gene expression patterns, the full, genome-wide distribution of RI values does it so. A closer look at the top RI molecules as presented in Tables <xref ref-type="table" rid="tab1">1</xref> and <xref ref-type="table" rid="tab2">2</xref> unveiled interesting patterns. For instance, amongst the TF genes that are not under regulation (at this level of description, of course, see <xref ref-type="table" rid="tab1">Table 1</xref>), we can find thousands of gene targets.</p>
+<p>If we recall that the total number of genes in this study is about 9000, then having TFs regulating around 2000 of these is indeed a powerful indicator of strong coregulation. On the other hand, it is also noticeable that the TF with the lowest RI (ZHX2) although being tightly regulated (with a total of 151 regulators) is able to participate in the regulation of 292 genes, evidencing the cooperative effect in TF regulation.</p>
+</sec>
+<sec id="sec3.2">
+<title>3.2. Transcription Factor Subnetwork</title>
+<p>After eliminating all the effector genes (those genes with zero out-degree), the network is drastically reduced (295 genes and 8483 links between them). From this network, it can be observed that some genes are mainly activators meanwhile other TFs are inhibitors. This global activating/inhibiting nature of TFs will be discussed below. Regarding the structure of the subnetwork, it is interesting that several genes are highly regulated, even though they are transcription factors.</p>
+<p>We can also see that by considering only the network formed by coregulated transcription factors, it is possible to unveil the presence of modules conformed by groups of TFs that not only regulate other target genes (absent in this network visualization) but also regulate each other. This phenomenon of regulatory modularization is an example of a phenomenon that cannot be seen from the FANTOM4 database consulted on a gene-by-gene basis but provides new biological insight on the whole genome regulatory patterns in this cell lineage.</p>
+</sec>
+<sec id="sec3.3">
+<title>3.3. Some TFs Are Overall Repressors Meanwhile Others Are Activators</title>
+<p>Taking into account the overall activating or inhibiting nature of TFs (in the context of the cell type and phenotype under consideration), we search in the network those genes with extreme positive and negative values of the sum of interaction strengths (<italic>S<sub>i,j</sub></italic>) for each TF: They are the most important activators as well as the most important repressors of the transcriptional program. In <xref ref-type="fig" rid="fig3">Figure 3</xref>, we show the top 3 activators and also the top 3 repressors along with their targets. Those genes are NFYB, NFYC, and NFYA for activators and MAZ, TFAP2C, and TFAP2A for repressors. The interplay between them may be of importance in shaping the phenotype. Regarding the MAZ gene, it has also a high RI (0.984): This means that it regulates thousands of genes but it is regulated by just a few. It mainly represses the genes that it regulates.</p>
+</sec>
+<sec id="sec3.4">
+<title>3.4. The Transcriptional Network Structure of a Prokaryotic Cell: A Comparison</title>
+<p>The topological and functional features, revealed in the transcriptional network of the myeloid cell with the approach performed here, were compared with a prokaryotic model, in order to provide a deeper understanding of the transcriptional regulatory program at the genome-wide level. The prokaryotic network architecture was obtained with the same methodology that we used for the eukaryotic model, but we obtained information about the genetic interactions from RegulonDB [<xref ref-type="bibr" rid="B9">9</xref>], a rigorously curated database of a genome-wide transcriptional regulation in the bacteria <italic>Escherichia coli</italic>. This database contains information regarding the type of interaction between genes, positive, negative, or dual, as well as the direction of the said interactions. We decided to analyze the whole transcriptional network, observe the number of transcription factors, calculate the RI for each gene, and obtain the overall activators and repressors.</p>
+<p>This directed network contains 1988 genes and 4414 interactions. 202 of those genes correspond to transcription factors. In <xref ref-type="fig" rid="fig4">Figure 4</xref>, we show the transcriptional network of <italic>E. coli</italic>, depicting the links according to its type: blue for inhibition and red for activation. The top 3 overall activators and repressors are separated to illustrate that the general effect that these transcription factors exert on their targets is analogous to <xref ref-type="fig" rid="fig5">Figure 5</xref>. Crp, Fnr, and Fis genes are the top 3 repressors, meanwhile Narl, Phob, and Lrp correspond to the top 3 overall activators. <xref ref-type="table" rid="tab3"> Table 3</xref> shows the top 5 and bottom 5 RI genes of the transcriptional network.</p>
+<p>We also constructed the TF-only network for <italic>E. coli</italic>. This network is depicted in <xref ref-type="fig" rid="fig6">Figure 6</xref>. As it can be observed, coregulation of those TFs is evident.</p>
+</sec>
+</sec>
+<sec id="sec4">
+<title>4. Discussion</title>
+<p>In this work, we developed a systematic search of the FANTOM4 database, which took into account several experimentally proven interactions between genes and transcription factors. We constructed a network where the genes are nodes and their interactions correspond to links. The network is directed because it takes into account transcription factor binding sites to establish a relationship in which the TF is regulating to another gene (which could actually be another transcription factor). We found several nodes which do not regulate other genes, but they are highly regulated. On the other hand, there is a small group of TFs which are regulating several other genes, but they are not regulated by any gene. This could allow us to hypothesize that those genes are master regulators because they could be inducers of particular phenotypes, as is the case for NRF1, SPIB, or TFAP2A.</p>
+<sec id="sec4.1">
+<title>4.1. The Highest RI Genes May Have Crucial Roles in Cell Specificity</title>
+<p>Nuclear respiratory factor 1 (NRF1) [<xref ref-type="bibr" rid="B10">10</xref>, <xref ref-type="bibr" rid="B11">11</xref>] activates the expression of crucial metabolic genes related to responses to oxidative stress, endoplasmic reticulum stress, xenobiotic stress, and inflammation [<xref ref-type="bibr" rid="B12">12</xref>–<xref ref-type="bibr" rid="B14">14</xref>]. NRF1 has also been found misregulated in different carcinomas [<xref ref-type="bibr" rid="B15">15</xref>–<xref ref-type="bibr" rid="B18">18</xref>]. Despite NRF1 being a key player in the induction of several functions in the cell, there are no reports of transcriptional regulators of NRF1. It is regulated at the translational [<xref ref-type="bibr" rid="B19">19</xref>] and posttranslational [<xref ref-type="bibr" rid="B19">19</xref>–<xref ref-type="bibr" rid="B21">21</xref>] levels. This information reinforces our findings regarding the transcriptional independence of NRF1 as well as the relevance that it acquires in the context of the regulatory network.</p>
+<p>The second highest RI belongs to the SPiB gene. The spleen focus-forming virus integration site [<xref ref-type="bibr" rid="B22">22</xref>] gene is part of the ETS transcription factor family. It is involved in differentiation [<xref ref-type="bibr" rid="B23">23</xref>], immune response [<xref ref-type="bibr" rid="B22">22</xref>, <xref ref-type="bibr" rid="B24">24</xref>], apoptosis [<xref ref-type="bibr" rid="B25">25</xref>], and activation of early viral expression [<xref ref-type="bibr" rid="B26">26</xref>], amongst others. Finally, the third highest RI gene is TFAP2A. This transcription factor is known as a tumor suppressor gene. Decreased expression of this gene has been related to many neoplasms [<xref ref-type="bibr" rid="B27">27</xref>–<xref ref-type="bibr" rid="B29">29</xref>], as well as other diseases, such as the brachio-oculo-facial syndrome [<xref ref-type="bibr" rid="B30">30</xref>, <xref ref-type="bibr" rid="B31">31</xref>].</p>
+<p>By observing the relevance of these three genes in the maintenance of correct cell behavior, it is interesting to observe that there are no regulators in our network for those genes. It could be due to the fact that the experimentally curated network is not complete or the available information regarding the regulators is still under construction. However, it is remarkable that the high number of targets contrasting with the number of regulators of them is in instances such as this, where hierarchy acquires relevance. It is worth mentioning that this is a transcriptional network. We are not looking at posttranslational modifications, where these genes could be regulated. However, the transcriptional relevance of them is evidenced by this approach.</p>
+</sec>
+<sec id="sec4.2">
+<title>4.2. Misregulation of the Lowest RI Genes Is Associated with Several Malformations</title>
+<p>On the other hand, the three lowest RI genes, ZHX2, ADNP, and SMAD6 are highly regulated; regulation of them is probably more critical in order to avoid transcriptional avalanches. Let us recall that these genes, even though they are highly regulated (higher in-degree counts), are still active transcription factors (see <xref ref-type="table" rid="tab2">Table 2</xref>). In the same sense, mutations of these genes could be involved in the development of several and important diseases. For instance, ZHX2 is considered as a transcriptional repressor [<xref ref-type="bibr" rid="B32">32</xref>], which binds the promoter regions, thus regulating transcription of their target genes. This TF also suppresses glypican 3 (GPC3) transcription [<xref ref-type="bibr" rid="B33">33</xref>]. Furthermore, ZHX2 has been found as a tumor suppressor [<xref ref-type="bibr" rid="B34">34</xref>]. This gene is transcriptionally suppressed by MSX1 and XBP1 [<xref ref-type="bibr" rid="B35">35</xref>]. This downregulation is crucial for progression of Hodgkin lymphoma. Concomitantly, there are at least 40 transcription factor binding sites downstream ZHX2 gene [<xref ref-type="bibr" rid="B35">35</xref>] which regulate its expression.</p>
+<p>The second lowest RI belongs to the ADNP gene, which is essential for brain formation and correct neural development [<xref ref-type="bibr" rid="B36">36</xref>]. Mutations in this gene have been related to neuronal disorders such as autism [<xref ref-type="bibr" rid="B37">37</xref>, <xref ref-type="bibr" rid="B38">38</xref>], Alzheimer's disease [<xref ref-type="bibr" rid="B39">39</xref>], or schizophrenia [<xref ref-type="bibr" rid="B40">40</xref>]. Moreover, ADNP interacts with HP1 regulating chromatin remodeling during embryogenesis [<xref ref-type="bibr" rid="B41">41</xref>]. Total absence of ADNP is lethal, thus indicating its crucial role in the regulation of transcriptional programs.</p>
+<p>Finally, SMAD6 is a signal transducer that modulates multiple signaling pathways, such as the BMP and TGF-beta/activin signaling [<xref ref-type="bibr" rid="B42">42</xref>], erythropoiesis [<xref ref-type="bibr" rid="B43">43</xref>], or cell cycle [<xref ref-type="bibr" rid="B44">44</xref>]. Incorrect regulation of this gene is related to lung adenocarcinoma [<xref ref-type="bibr" rid="B42">42</xref>, <xref ref-type="bibr" rid="B45">45</xref>], oral squamous cell carcinoma [<xref ref-type="bibr" rid="B46">46</xref>], ovarian cancer [<xref ref-type="bibr" rid="B47">47</xref>], or cardiovascular malformation [<xref ref-type="bibr" rid="B48">48</xref>].</p>
+<p>The RI, introduced here to study the network, remarks the relevance of TFs with the highest values in terms of its master role as transcription factors (since they have no upstream transcriptional regulators); furthermore, this value unveils the importance of the lowest scored genes: those genes need to be highly regulated in order to maintain its correct transcriptional behavior. As it has been observed experimentally, misregulation of the lowest RI genes may result in lethal phenotypes or cancer.</p>
+<p>The approach developed here may help to understand genomic regulation. The RI parameter introduced provides insight regarding the influence and importance of the genes in the context of maintenance of a particular phenotype.</p>
+</sec>
+<sec id="sec4.3">
+<title>4.3. Overall Activators and Repressors May Define Transcriptional Programs</title>
+<p>Finally, the activation or inhibitory nature of TFs is an important field of investigation. With an approach such as the one presented here, research can be guided to unveil the overall nature of certain TFs, by observing whether its overall effect is activation or inhibition. A TF, which positively regulates hundreds of downstream targets, could induce a particular phenotype by activating the said targets. On the contrary, if the majority of the targets is inhibited by the TF, this gene could prevent or stop a particular transcriptional program.</p>
+<p>The following TFs are the top 3 overall activators. Interestingly, this set corresponds precisely with the so-called NF-Y complex: NFYA, NFYB, and NFYC, whose role is to bind a sequence in DNA to start the transcription process. They are involved in several basal activities, such as expression of human proteasome genes [<xref ref-type="bibr" rid="B49">49</xref>], transcriptional cascade via CDCA8 gene [<xref ref-type="bibr" rid="B50">50</xref>], and remodeling of chromatin [<xref ref-type="bibr" rid="B51">51</xref>]. Furthermore, the NFY complex has been associated with the coexpression of other TFs to start transcriptional cascades [<xref ref-type="bibr" rid="B52">52</xref>]. However, the separated subunit NFYB also can be an inhibitor of DNA topoisomerase II-<italic>α</italic> [<xref ref-type="bibr" rid="B53">53</xref>], indicating that the role of this complex is not restricted to be an activator, revealing thus another aspect of the complexity of the transcriptional program in eukaryotic cells.</p>
+<p>As mentioned above, the lowest RI gene in the network is ZHX2. This TF interacts with the A subunit of nuclear factor-Y (NFYA). For instance, ZHX2 represses activation of MDR1 transcription mediated by NFYA [<xref ref-type="bibr" rid="B54">54</xref>]. Interestingly enough is the fact that during liver carcinoma, the normal transcriptional program of ZHX2 is highly altered. ZHX2 represses NFYA during liver carcinoma [<xref ref-type="bibr" rid="B54">54</xref>]. Taking into account the fact that NFYA is the most important overall activator in the network, we can argue that under a repression of NFYA via ZHX2, the consequence will be a general inhibition of the transcriptional program, which may result for instance, in the progression of liver carcinoma. This example highlights how crucial is the correct control of interconnections in this transcriptional network.</p>
+<p>The following are the top 3 overall inhibitor genes and might be involved in the control of transcription by avoiding anomalous events: MAZ, TFAP2A, and TFAP2B. The Myc-associated zinc-finger protein (MAZ) was identified as participating in breast cancer cells by interacting with SAF-1 and inducing transcription of Ras [<xref ref-type="bibr" rid="B55">55</xref>]. MAZ also has a role in prostate cancer [<xref ref-type="bibr" rid="B56">56</xref>] by interacting with the androgen receptor. On the other hand, TFAP2A, B genes, known tumor suppressor genes, participate in the reduction of glioma progression, by downregulation of Bcl-xl, Bcl-2, c-IAP2, and survivin [<xref ref-type="bibr" rid="B27">27</xref>]. These genes have been encountered decreased in several types of cancer, glioma [<xref ref-type="bibr" rid="B57">57</xref>], prostate cancer [<xref ref-type="bibr" rid="B56">56</xref>], breast cancer [<xref ref-type="bibr" rid="B58">58</xref>], or testicular cancer [<xref ref-type="bibr" rid="B59">59</xref>]. This is a clear example that the absence of its transcriptional inhibition generates dramatic changes in phenotype.</p>
+</sec>
+<sec id="sec4.4">
+<title>4.4. Similarities with the Prokaryotic Cell Transcriptional Program</title>
+<p>Regarding the RI in the <italic>E. coli</italic> network, the higher one, Ihf (integration host factor), plays a crucial role in the survival of the cell, induction of acid resistance, and expression of several other factors [<xref ref-type="bibr" rid="B60">60</xref>–<xref ref-type="bibr" rid="B62">62</xref>]. H-ns acts on DNA binding of RNA polymerase [<xref ref-type="bibr" rid="B63">63</xref>]. The NSrR gene is a major transcriptional repressor in response to iron and also a negative regulator of motility [<xref ref-type="bibr" rid="B64">64</xref>–<xref ref-type="bibr" rid="B66">66</xref>]. On the other hand, the lowest RI gene is gutM, a crucial transcription factor involved in the phosphotransferase system [<xref ref-type="bibr" rid="B67">67</xref>]. Mutations on those genes have a direct impact on the resulting phenotype.</p>
+<p>To highlight the importance of the implications that the concepts of RI and the overall activator/repressor may have in the regulatory program, we provide a functional comparison of these measures in the prokaryotic transcriptional network; for this purpose, we can observe (for instance) the Fis gene in <italic>E. coli</italic>. This gene is the second most important overall repressor. Fis acts repressing the Crp gene, which is the most connected gene in the <italic>E. coli</italic> genome. Fis in turn is regulated positively by Ihf, the gene with the highest RI of <italic>E. coli</italic>. With this example, we highlight that the transcriptional regulation of the most influential genes could determine the phenotype of a cell via the transcriptional cascades generated by activation or repression of those influential genes.</p>
+</sec>
+<sec id="sec4.5">
+<title>4.5. Final Considerations</title>
+<p>With this approach, we present a hierarchical transcription network built from a highly curated database, containing the values of the interactions between TFs and their targets. We observed that the large majority of genes is controlled by just a few TFs. Those few TFs are strongly coregulated between them, which is translated into a fine tuning in the transcription process. A way to quantify this is by the relative influence parameter (RI), in which the lesser regulated genes and highly regulated ones are relevant for global transcriptional control.</p>
+<p>Finally, the extent to which genes are regulated is also important, whether regulation is positive or negative. The negative interaction means that the TF is a repressor of the target, meanwhile a positive interaction represents an activation given by the TF. A global value of each TF in terms of their regulatory values is presented. We observe that NFY subunits are overall activators, meanwhile MAZ and TFAP2A and B are overall repressors. Those genes must be important in the context of transcription. Arguably, regulation of those genes presented in this discussion is fundamental to initiate or terminate a transcriptional cascade, likely related to events of differentiation or cell division. Experiments along this way are necessary. We argue that this framework may help to understand the importance of TFs in terms of the ratio between in- and out-degree as well as their overall effect on targets, which could in turn give new insights regarding the gene regulation.</p>
+</sec>
+</sec>
+<sec id="supplementary-material-sec" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="f1">
+<caption>
+<p>Supplementary material 1. Expression time series of the Top10 (upper) and Bottom10 (lower) FANTOM4 genes.</p>
+</caption>
+<media id="d35e937" mime-subtype="pdf" mimetype="application" orientation="portrait" position="anchor" xlink:href="4858173.f1.pdf"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<title>Acknowledgments</title>
+<p>The research leading to these results has received funding from Grant no. 179431/2012 from the Consejo Nacional de Ciencia y Tecnología (CONA-CyT), as well as a federal funding from the National Institute of Genomic Medicine (INMEGEN). One of the authors (Enrique Hernández-Lemus) also acknowledges support from the 2016 Marcos Moshinsky Research Chair in the Physical Sciences.</p>
+</ack>
+<sec>
+<title>Additional Points</title>
+<p>
+<italic>Network Data Availability</italic>. Cytoscape .cys files for the networks presented here are available upon request.</p>
+</sec>
+<sec>
+<title>Conflicts of Interest</title>
+<p>The authors declare that they have no conflicts of interest.</p>
+</sec>
+<ref-list>
+<ref id="B1">
+<label>1</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ravasi</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Suzuki</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Cannistraci</surname>
+<given-names>C. V.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An atlas of combinatorial transcriptional regulation in mouse and man</article-title>
+<source/>
+<italic>Cell</italic>
+<year>2010</year>
+<volume>140</volume>
+<issue>5</issue>
+<fpage>744</fpage>
+<lpage>752</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2010.01.044</pub-id>
+<pub-id pub-id-type="other">2-s2.0-77649299348</pub-id>
+<pub-id pub-id-type="pmid">20211142</pub-id>
+</element-citation>
+</ref>
+<ref id="B2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Baca-López</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Mayorga</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Hidalgo-Miranda</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Gutiérrez-Nájera</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Hernández-Lemus</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>The role of master regulators in the metabolic/transcriptional coupling in breast carcinomas</article-title>
+<source/>
+<italic>PLoS One</italic>
+<year>2012</year>
+<volume>7</volume>
+<issue>8, article e42678</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0042678</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84865414319</pub-id>
+<pub-id pub-id-type="pmid">22952604</pub-id>
+</element-citation>
+</ref>
+<ref id="B3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Woo</surname>
+<given-names>J. H.</given-names>
+</name>
+<name>
+<surname>Shimoni</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>W. S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Elucidating compound mechanism of action by network perturbation analysis</article-title>
+<source/>
+<italic>Cell</italic>
+<year>2015</year>
+<volume>162</volume>
+<issue>2</issue>
+<fpage>441</fpage>
+<lpage>451</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2015.05.056</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84937232647</pub-id>
+<pub-id pub-id-type="pmid">26186195</pub-id>
+</element-citation>
+</ref>
+<ref id="B4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tovar</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>García-Herrera</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Espinal-Enríquez</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Hernández-Lemus</surname>
+<given-names>E.</given-names>
+</name>
+</person-group>
+<article-title>Transcriptional master regulator analysis in breast cancer genetic networks</article-title>
+<source/>
+<italic>Computational Biology and Chemistry</italic>
+<year>2015</year>
+<volume>59</volume>
+<issue>Part B</issue>
+<fpage>67</fpage>
+<lpage>77</lpage>
+<pub-id pub-id-type="doi">10.1016/j.compbiolchem.2015.08.007</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84940976288</pub-id>
+<pub-id pub-id-type="pmid">26362298</pub-id>
+</element-citation>
+</ref>
+<ref id="B5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Margolin</surname>
+<given-names>A. A.</given-names>
+</name>
+<name>
+<surname>Nemenman</surname>
+<given-names>I.</given-names>
+</name>
+<name>
+<surname>Basso</surname>
+<given-names>K.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>ARACNE: an algorithm for the reconstruction of gene regulatory networks in a mammalian cellular context</article-title>
+<source/>
+<italic>BMC Bioinformatics</italic>
+<year>2006</year>
+<volume>7</volume>
+<issue>Supplement 1</issue>
+<fpage>p. S7</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-7-S1-S7</pub-id>
+<pub-id pub-id-type="other">2-s2.0-33947305781</pub-id>
+<pub-id pub-id-type="pmid">16723010</pub-id>
+</element-citation>
+</ref>
+<ref id="B6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vaquerizas</surname>
+<given-names>J. M.</given-names>
+</name>
+<name>
+<surname>Kummerfeld</surname>
+<given-names>S. K.</given-names>
+</name>
+<name>
+<surname>Teichmann</surname>
+<given-names>S. A.</given-names>
+</name>
+<name>
+<surname>Luscombe</surname>
+<given-names>N. M.</given-names>
+</name>
+</person-group>
+<article-title>A census of human transcription factors: function, expression and evolution</article-title>
+<source/>
+<italic>Nature Reviews Genetics</italic>
+<year>2009</year>
+<volume>10</volume>
+<issue>4</issue>
+<fpage>252</fpage>
+<lpage>263</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2538</pub-id>
+<pub-id pub-id-type="other">2-s2.0-62549128139</pub-id>
+<pub-id pub-id-type="pmid">19274049</pub-id>
+</element-citation>
+</ref>
+<ref id="B7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Alon</surname>
+<given-names>U.</given-names>
+</name>
+</person-group>
+<article-title>Network motifs: theory and experimental approaches</article-title>
+<source/>
+<italic>Nature Reviews Genetics</italic>
+<year>2007</year>
+<volume>8</volume>
+<issue>6</issue>
+<fpage>450</fpage>
+<lpage>461</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg2102</pub-id>
+<pub-id pub-id-type="other">2-s2.0-34249079154</pub-id>
+<pub-id pub-id-type="pmid">17510665</pub-id>
+</element-citation>
+</ref>
+<ref id="B8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>FANTOM Consortium</surname>
+</name>
+<name>
+<surname>Suzuki</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Forrest</surname>
+<given-names>A. R.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The transcriptional network that controls growth arrest and differentiation in a human myeloid leukemia cell line</article-title>
+<source/>
+<italic>Nature Genetics</italic>
+<year>2009</year>
+<volume>41</volume>
+<issue>5</issue>
+<fpage>553</fpage>
+<lpage>562</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.375</pub-id>
+<pub-id pub-id-type="other">2-s2.0-65149083962</pub-id>
+<pub-id pub-id-type="pmid">19377474</pub-id>
+</element-citation>
+</ref>
+<ref id="B9">
+<label>9</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gama-Castro</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Salgado</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Santos-Zavaleta</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>RegulonDB version 9.0: high-level integration of gene regulation, coexpression, motif clustering and beyond</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2015</year>
+<volume>44</volume>
+<issue>D1</issue>
+<fpage>D133</fpage>
+<lpage>D143</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkv1156</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84976874666</pub-id>
+<pub-id pub-id-type="pmid">26527724</pub-id>
+</element-citation>
+</ref>
+<ref id="B10">
+<label>10</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chan</surname>
+<given-names>J. Y.</given-names>
+</name>
+<name>
+<surname>Han</surname>
+<given-names>X. L.</given-names>
+</name>
+<name>
+<surname>Kan</surname>
+<given-names>Y. W.</given-names>
+</name>
+</person-group>
+<article-title>Cloning of Nrf1, an NF-E2-related transcription factor, by genetic selection in yeast</article-title>
+<source/>
+<italic>Proceedings of the National Academy of Sciences</italic>
+<year>1993</year>
+<volume>90</volume>
+<issue>23</issue>
+<fpage>11371</fpage>
+<lpage>11375</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.90.23.11371</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0027360226</pub-id>
+<pub-id pub-id-type="pmid">8248256</pub-id>
+</element-citation>
+</ref>
+<ref id="B11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Andrews</surname>
+<given-names>N. C.</given-names>
+</name>
+<name>
+<surname>Erdjument-Bromage</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Davidson</surname>
+<given-names>M. B.</given-names>
+</name>
+<name>
+<surname>Tempst</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Orkin</surname>
+<given-names>S. H.</given-names>
+</name>
+</person-group>
+<article-title>Erythroid transcription factor NF-E2 is a haematopoietic-specific basic-leucine zipper protein</article-title>
+<source/>
+<italic>Nature</italic>
+<year>1993</year>
+<volume>362</volume>
+<issue>6422</issue>
+<fpage>722</fpage>
+<lpage>728</lpage>
+<pub-id pub-id-type="doi">10.1038/362722a0</pub-id>
+<pub-id pub-id-type="pmid">8469283</pub-id>
+</element-citation>
+</ref>
+<ref id="B12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bugno</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Daniel</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Chepelev</surname>
+<given-names>N. L.</given-names>
+</name>
+<name>
+<surname>Willmore</surname>
+<given-names>W. G.</given-names>
+</name>
+</person-group>
+<article-title>Changing gears in Nrf1 research, from mechanisms of regulation to its role in disease and prevention</article-title>
+<source/>
+<italic>Biochimica et Biophysica Acta (BBA)-Gene Regulatory Mechanisms</italic>
+<year>2015</year>
+<volume>1849</volume>
+<issue>10</issue>
+<fpage>1260</fpage>
+<lpage>1276</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbagrm.2015.08.001</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84940118739</pub-id>
+<pub-id pub-id-type="pmid">26254094</pub-id>
+</element-citation>
+</ref>
+<ref id="B13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mohrin</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>Y.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A mitochondrial UPR-mediated metabolic checkpoint regulates hematopoietic stem cell aging</article-title>
+<source/>
+<italic>Science</italic>
+<year>2015</year>
+<volume>347</volume>
+<issue>6228</issue>
+<fpage>1374</fpage>
+<lpage>1377</lpage>
+<pub-id pub-id-type="doi">10.1126/science.aaa2361</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84925265469</pub-id>
+<pub-id pub-id-type="pmid">25792330</pub-id>
+</element-citation>
+</ref>
+<ref id="B14">
+<label>14</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ho</surname>
+<given-names>D. V.</given-names>
+</name>
+<name>
+<surname>Chan</surname>
+<given-names>J. Y.</given-names>
+</name>
+</person-group>
+<article-title>Induction of herpud1 expression by ER stress is regulated by Nrf1</article-title>
+<source/>
+<italic>FEBS Letters</italic>
+<year>2015</year>
+<volume>589</volume>
+<issue>5</issue>
+<fpage>615</fpage>
+<lpage>620</lpage>
+<pub-id pub-id-type="doi">10.1016/j.febslet.2015.01.026</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84922730667</pub-id>
+<pub-id pub-id-type="pmid">25637874</pub-id>
+</element-citation>
+</ref>
+<ref id="B15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Okoh</surname>
+<given-names>V. O.</given-names>
+</name>
+<name>
+<surname>Garba</surname>
+<given-names>N. A.</given-names>
+</name>
+<name>
+<surname>Penney</surname>
+<given-names>R. B.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Redox signalling to nuclear regulatory proteins by reactive oxygen species contributes to oestrogen-induced growth of breast cancer cells</article-title>
+<source/>
+<italic>British Journal of Cancer</italic>
+<year>2015</year>
+<volume>112</volume>
+<issue>10</issue>
+<fpage>1687</fpage>
+<lpage>1702</lpage>
+<pub-id pub-id-type="doi">10.1038/bjc.2014.586</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84929234378</pub-id>
+<pub-id pub-id-type="pmid">25965299</pub-id>
+</element-citation>
+</ref>
+<ref id="B16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Biswas</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Phan</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Watanabe</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Chan</surname>
+<given-names>J. Y.</given-names>
+</name>
+</person-group>
+<article-title>The Fbw7 tumor suppressor regulates nuclear factor E2-related factor 1 transcription factor turnover through proteasome-mediated proteolysis</article-title>
+<source/>
+<italic>Journal of Biological Chemistry</italic>
+<year>2011</year>
+<volume>286</volume>
+<issue>45</issue>
+<fpage>39282</fpage>
+<lpage>39289</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.M111.253807</pub-id>
+<pub-id pub-id-type="other">2-s2.0-80655128139</pub-id>
+<pub-id pub-id-type="pmid">21953459</pub-id>
+</element-citation>
+</ref>
+<ref id="B17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Q.</given-names>
+</name>
+</person-group>
+<article-title>Egln2 positively regulates mitochondrial function in breast cancer</article-title>
+<source/>
+<italic>Molecular &amp; Cellular Oncology</italic>
+<year>2015</year>
+<volume>3</volume>
+<issue>2, article e1120845</issue>
+<pub-id pub-id-type="doi">10.1080/23723556.2015.1120845</pub-id>
+<pub-id pub-id-type="pmid">27308620</pub-id>
+</element-citation>
+</ref>
+<ref id="B18">
+<label>18</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>mir-504 mediated down-regulation of nuclear respiratory factor 1 leads to radio-resistance in nasopharyngeal carcinoma</article-title>
+<source/>
+<italic>Oncotarget</italic>
+<year>2015</year>
+<volume>6</volume>
+<issue>18</issue>
+<fpage>15995</fpage>
+<lpage>16018</lpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.4138</pub-id>
+<pub-id pub-id-type="pmid">26201446</pub-id>
+</element-citation>
+</ref>
+<ref id="B19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Hayes</surname>
+<given-names>J. D.</given-names>
+</name>
+</person-group>
+<article-title>The membrane-topogenic vectorial behaviour of Nrf1 controls its post-translational modification and transactivation activity</article-title>
+<source/>
+<italic>Scientific Reports</italic>
+<year>2013</year>
+<volume>3</volume>
+<issue>1, article 2006</issue>
+<pub-id pub-id-type="doi">10.1038/srep02006</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84879628924</pub-id>
+<pub-id pub-id-type="pmid">23774320</pub-id>
+</element-citation>
+</ref>
+<ref id="B20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Lucocq</surname>
+<given-names>J. M.</given-names>
+</name>
+<name>
+<surname>Hayes</surname>
+<given-names>J. D.</given-names>
+</name>
+</person-group>
+<article-title>The Nrf1 CNC/bZIP protein is a nuclear envelope-bound transcription factor that is activated by t-butyl hydroquinone but not by endoplasmic reticulum stressors</article-title>
+<source/>
+<italic>Biochemical Journal</italic>
+<year>2009</year>
+<volume>418</volume>
+<issue>2</issue>
+<fpage>293</fpage>
+<lpage>310</lpage>
+<pub-id pub-id-type="doi">10.1042/BJ20081575</pub-id>
+<pub-id pub-id-type="other">2-s2.0-61449180332</pub-id>
+<pub-id pub-id-type="pmid">18990090</pub-id>
+</element-citation>
+</ref>
+<ref id="B21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Ren</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Hayes</surname>
+<given-names>J. D.</given-names>
+</name>
+</person-group>
+<article-title>Transcription factor Nrf1 is topologically repartitioned across membranes to enable target gene transactivation through its acidic glucose-responsive domains</article-title>
+<source/>
+<italic>PLoS One</italic>
+<year>2014</year>
+<volume>9</volume>
+<issue>4, article e93458</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0093458</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84898850319</pub-id>
+<pub-id pub-id-type="pmid">24695487</pub-id>
+</element-citation>
+</ref>
+<ref id="B22">
+<label>22</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gallant</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Gilkeson</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>ETS transcription factors and regulation of immunity</article-title>
+<source/>
+<italic>Archivum Immunologiae et Therapiae Experimentalis</italic>
+<year>2006</year>
+<volume>54</volume>
+<issue>3</issue>
+<fpage>149</fpage>
+<lpage>163</lpage>
+<pub-id pub-id-type="doi">10.1007/s00005-006-0017-z</pub-id>
+<pub-id pub-id-type="other">2-s2.0-33747497812</pub-id>
+<pub-id pub-id-type="pmid">16652219</pub-id>
+</element-citation>
+</ref>
+<ref id="B23">
+<label>23</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>L.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Transcriptional repression of plasma cell differentiation is orchestrated by aberrant overexpression of the ETS factor SPIB in Waldenström macroglobulinaemia</article-title>
+<source/>
+<italic>British Journal of Haematology</italic>
+<year>2014</year>
+<volume>166</volume>
+<issue>5</issue>
+<fpage>677</fpage>
+<lpage>689</lpage>
+<pub-id pub-id-type="doi">10.1111/bjh.12936</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84905995241</pub-id>
+<pub-id pub-id-type="pmid">24801987</pub-id>
+</element-citation>
+</ref>
+<ref id="B24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Shaffer</surname>
+<given-names>A. L.</given-names>
+<suffix>3rd</suffix>
+</name>
+<name>
+<surname>Emre</surname>
+<given-names>N. C.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Exploiting synthetic lethality for the therapy of ABC diffuse large B cell lymphoma</article-title>
+<source/>
+<italic>Cancer Cell</italic>
+<year>2012</year>
+<volume>21</volume>
+<issue>6</issue>
+<fpage>723</fpage>
+<lpage>737</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ccr.2012.05.024</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84862152044</pub-id>
+<pub-id pub-id-type="pmid">22698399</pub-id>
+</element-citation>
+</ref>
+<ref id="B25">
+<label>25</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Karrich</surname>
+<given-names>J. J.</given-names>
+</name>
+<name>
+<surname>Balzarolo</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Schmidlin</surname>
+<given-names>H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The transcription factor Spi-B regulates human plasmacytoid dendritic cell survival through direct induction of the antiapoptotic gene BCL2-A1</article-title>
+<source/>
+<italic>Blood</italic>
+<year>2012</year>
+<volume>119</volume>
+<issue>22</issue>
+<fpage>5191</fpage>
+<lpage>5200</lpage>
+<pub-id pub-id-type="doi">10.1182/blood-2011-07-370239</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84861845069</pub-id>
+<pub-id pub-id-type="pmid">22510878</pub-id>
+</element-citation>
+</ref>
+<ref id="B26">
+<label>26</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marshall</surname>
+<given-names>L. J.</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>L. D.</given-names>
+</name>
+<name>
+<surname>Mirsky</surname>
+<given-names>M. M.</given-names>
+</name>
+<name>
+<surname>Major</surname>
+<given-names>E. O.</given-names>
+</name>
+</person-group>
+<article-title>JC virus promoter/enhancers contain TATA box-associated Spi-B-binding sites that support early viral gene expression in primary astrocytes</article-title>
+<source/>
+<italic>Journal of General Virology</italic>
+<year>2012</year>
+<volume>93</volume>
+<issue>Part 3</issue>
+<fpage>651</fpage>
+<lpage>661</lpage>
+<pub-id pub-id-type="doi">10.1099/vir.0.035832-0</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84857071705</pub-id>
+<pub-id pub-id-type="pmid">22071512</pub-id>
+</element-citation>
+</ref>
+<ref id="B27">
+<label>27</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Su</surname>
+<given-names>W.</given-names>
+</name>
+<name>
+<surname>Xia</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>X.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Ectopic expression of AP-2α transcription factor suppresses glioma progression</article-title>
+<source/>
+<italic>International Journal of Clinical and Experimental Pathology</italic>
+<year>2014</year>
+<volume>7</volume>
+<issue>12</issue>
+<fpage>8666</fpage>
+<lpage>8674</lpage>
+<pub-id pub-id-type="pmid">25674231</pub-id>
+</element-citation>
+</ref>
+<ref id="B28">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hallberg</surname>
+<given-names>A. R.</given-names>
+</name>
+<name>
+<surname>Vorrink</surname>
+<given-names>S. U.</given-names>
+</name>
+<name>
+<surname>Hudachek</surname>
+<given-names>D. R.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Aberrant CpG methylation of the TFAP2A gene constitutes a mechanism for loss of TFAP2A expression in human metastatic melanoma</article-title>
+<source/>
+<italic>Epigenetics</italic>
+<year>2014</year>
+<volume>9</volume>
+<issue>12</issue>
+<fpage>1641</fpage>
+<lpage>1647</lpage>
+<pub-id pub-id-type="doi">10.4161/15592294.2014.988062</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84922022544</pub-id>
+<pub-id pub-id-type="pmid">25625848</pub-id>
+</element-citation>
+</ref>
+<ref id="B29">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shi</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Xie</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>TFAP2A regulates nasopharyngeal carcinoma growth and survival by targeting HIF-1α signaling pathway</article-title>
+<source/>
+<italic>Cancer Prevention Research</italic>
+<year>2014</year>
+<volume>7</volume>
+<issue>2</issue>
+<fpage>266</fpage>
+<lpage>277</lpage>
+<pub-id pub-id-type="doi">10.1158/1940-6207.CAPR-13-0271</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84893832243</pub-id>
+<pub-id pub-id-type="pmid">24335623</pub-id>
+</element-citation>
+</ref>
+<ref id="B30">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Sheridan</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>Analysis of TFAP2A mutations in branchio-oculo-facial syndrome indicates functional complexity within the AP-2<italic>α</italic> DNA-binding domain</article-title>
+<source/>
+<italic>Human Molecular Genetics</italic>
+<year>2013</year>
+<volume>22</volume>
+<issue>16</issue>
+<fpage>3195</fpage>
+<lpage>3206</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/ddt173</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84881227470</pub-id>
+<pub-id pub-id-type="pmid">23578821</pub-id>
+</element-citation>
+</ref>
+<ref id="B31">
+<label>31</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Meshcheryakova</surname>
+<given-names>T. I.</given-names>
+</name>
+<name>
+<surname>Zinchenko</surname>
+<given-names>R. A.</given-names>
+</name>
+<name>
+<surname>Vasilyeva</surname>
+<given-names>T. A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A clinical and molecular analysis of branchio-oculo-facial syndrome patients in Russia revealed new mutations in TFAP2A</article-title>
+<source/>
+<italic>Annals of Human Genetics</italic>
+<year>2015</year>
+<volume>79</volume>
+<issue>2</issue>
+<fpage>148</fpage>
+<lpage>152</lpage>
+<pub-id pub-id-type="doi">10.1111/ahg.12098</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84923262977</pub-id>
+<pub-id pub-id-type="pmid">25590586</pub-id>
+</element-citation>
+</ref>
+<ref id="B32">
+<label>32</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kawata</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Yamada</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Shou</surname>
+<given-names>Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Zinc-fingers and homeoboxes (ZHX) 2, a novel member of the ZHX family, functions as a transcriptional repressor</article-title>
+<source/>
+<italic>Biochemical Journal</italic>
+<year>2003</year>
+<volume>373</volume>
+<issue>Part 3</issue>
+<fpage>747</fpage>
+<lpage>757</lpage>
+<pub-id pub-id-type="doi">10.1042/BJ20030171</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0041352873</pub-id>
+<pub-id pub-id-type="pmid">12741956</pub-id>
+</element-citation>
+</ref>
+<ref id="B33">
+<label>33</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Luan</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Ma</surname>
+<given-names>H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Reduced nucleic ZHX2 involves in oncogenic activation of glypican 3 in human hepatocellular carcinoma</article-title>
+<source/>
+<italic>The International Journal of Biochemistry &amp; Cell Biology</italic>
+<year>2014</year>
+<volume>55</volume>
+<fpage>129</fpage>
+<lpage>135</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biocel.2014.08.021</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84907470285</pub-id>
+<pub-id pub-id-type="pmid">25195714</pub-id>
+</element-citation>
+</ref>
+<ref id="B34">
+<label>34</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nagel</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Schneider</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Rosenwald</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>t(4;8)(q27;q24) in Hodgkin lymphoma cells targets phosphodiesterase PDE5A and homeobox gene ZHX2</article-title>
+<source/>
+<italic>Genes, Chromosomes and Cancer</italic>
+<year>2011</year>
+<volume>50</volume>
+<issue>12</issue>
+<fpage>996</fpage>
+<lpage>1009</lpage>
+<pub-id pub-id-type="doi">10.1002/gcc.20920</pub-id>
+<pub-id pub-id-type="other">2-s2.0-80053633257</pub-id>
+<pub-id pub-id-type="pmid">21987443</pub-id>
+</element-citation>
+</ref>
+<ref id="B35">
+<label>35</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nagel</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Schneider</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Meyer</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Kaufmann</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Drexler</surname>
+<given-names>H. G.</given-names>
+</name>
+<name>
+<surname>Macleod</surname>
+<given-names>R. A.</given-names>
+</name>
+</person-group>
+<article-title>Transcriptional deregulation of homeobox gene ZHX2 in Hodgkin lymphoma</article-title>
+<source/>
+<italic>Leukemia research</italic>
+<year>2012</year>
+<volume>36</volume>
+<issue>5</issue>
+<fpage>646</fpage>
+<lpage>655</lpage>
+<pub-id pub-id-type="doi">10.1016/j.leukres.2011.10.019</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84858746247</pub-id>
+<pub-id pub-id-type="pmid">22078940</pub-id>
+</element-citation>
+</ref>
+<ref id="B36">
+<label>36</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gozes</surname>
+<given-names>I.</given-names>
+</name>
+</person-group>
+<article-title>Activity-dependent neuroprotective protein: from gene to drug candidate</article-title>
+<source/>
+<italic>Pharmacology &amp; Therapeutics</italic>
+<year>2007</year>
+<volume>114</volume>
+<issue>2</issue>
+<fpage>146</fpage>
+<lpage>154</lpage>
+<pub-id pub-id-type="doi">10.1016/j.pharmthera.2007.01.004</pub-id>
+<pub-id pub-id-type="other">2-s2.0-34147210784</pub-id>
+<pub-id pub-id-type="pmid">17363064</pub-id>
+</element-citation>
+</ref>
+<ref id="B37">
+<label>37</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vandeweyer</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Helsmoortel</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Van Dijck</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The transcriptional regulator ADNP links the BAF (SWI/SNF) complexes with autism</article-title>
+<source/>
+<italic>American Journal of Medical Genetics Part C: Seminars in Medical Genetics</italic>
+<year>2014</year>
+<volume>166</volume>
+<issue>3</issue>
+<fpage>315</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="doi">10.1002/ajmg.c.31413</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84908641727</pub-id>
+<pub-id pub-id-type="pmid">25169753</pub-id>
+</element-citation>
+</ref>
+<ref id="B38">
+<label>38</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Helsmoortel</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Vulto-van Silfhout</surname>
+<given-names>A. T.</given-names>
+</name>
+<name>
+<surname>Coe</surname>
+<given-names>B. P.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A SWI/SNF-related autism syndrome caused by de novo mutations in ADNP</article-title>
+<source/>
+<italic>Nature Genetics</italic>
+<year>2014</year>
+<volume>46</volume>
+<issue>4</issue>
+<fpage>380</fpage>
+<lpage>384</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.2899</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84898058158</pub-id>
+<pub-id pub-id-type="pmid">24531329</pub-id>
+</element-citation>
+</ref>
+<ref id="B39">
+<label>39</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yang</surname>
+<given-names>M. H.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>Y. H.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>C. Y.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Activity-dependent neuroprotector homeobox protein: a candidate protein identified in serum as diagnostic biomarker for Alzheimer’s disease</article-title>
+<source/>
+<italic>Journal of Proteomics</italic>
+<year>2012</year>
+<volume>75</volume>
+<issue>12</issue>
+<fpage>3617</fpage>
+<lpage>3629</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jprot.2012.04.017</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84862209675</pub-id>
+<pub-id pub-id-type="pmid">22554909</pub-id>
+</element-citation>
+</ref>
+<ref id="B40">
+<label>40</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Merenlender-Wagner</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Malishkevich</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Shemer</surname>
+<given-names>Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Autophagy has a key role in the pathophysiology of schizophrenia</article-title>
+<source/>
+<italic>Molecular Psychiatry</italic>
+<year>2015</year>
+<volume>20</volume>
+<issue>1</issue>
+<fpage>126</fpage>
+<lpage>132</lpage>
+<pub-id pub-id-type="doi">10.1038/mp.2013.174</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84922219094</pub-id>
+<pub-id pub-id-type="pmid">24365867</pub-id>
+</element-citation>
+</ref>
+<ref id="B41">
+<label>41</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mandel</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Rechavi</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Gozes</surname>
+<given-names>I.</given-names>
+</name>
+</person-group>
+<article-title>Activity-dependent neuroprotective protein (ADNP) differentially interacts with chromatin to regulate genes essential for embryogenesis</article-title>
+<source/>
+<italic>Developmental Biology</italic>
+<year>2007</year>
+<volume>303</volume>
+<issue>2</issue>
+<fpage>814</fpage>
+<lpage>824</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ydbio.2006.11.039</pub-id>
+<pub-id pub-id-type="other">2-s2.0-33847364781</pub-id>
+<pub-id pub-id-type="pmid">17222401</pub-id>
+</element-citation>
+</ref>
+<ref id="B42">
+<label>42</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jeon</surname>
+<given-names>H. S.</given-names>
+</name>
+<name>
+<surname>Dracheva</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Yang</surname>
+<given-names>S. H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>SMAD6 contributes to patient survival in non-small cell lung cancer and its knockdown reestablishes TGF-β homeostasis in lung cancer cells</article-title>
+<source/>
+<italic>Cancer Research</italic>
+<year>2008</year>
+<volume>68</volume>
+<issue>23</issue>
+<fpage>9686</fpage>
+<lpage>9692</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-08-1083</pub-id>
+<pub-id pub-id-type="other">2-s2.0-57149119271</pub-id>
+<pub-id pub-id-type="pmid">19047146</pub-id>
+</element-citation>
+</ref>
+<ref id="B43">
+<label>43</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kang</surname>
+<given-names>Y. J.</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>J. W.</given-names>
+</name>
+<name>
+<surname>Yoon</surname>
+<given-names>J. H.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Inhibition of erythropoiesis by Smad6 in human cord blood hematopoietic stem cells</article-title>
+<source/>
+<italic>Biochemical and Biophysical Research Communications</italic>
+<year>2012</year>
+<volume>423</volume>
+<issue>4</issue>
+<fpage>750</fpage>
+<lpage>756</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbrc.2012.06.031</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84863829184</pub-id>
+<pub-id pub-id-type="pmid">22705548</pub-id>
+</element-citation>
+</ref>
+<ref id="B44">
+<label>44</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pardali</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Kowanetz</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Heldin</surname>
+<given-names>C. H.</given-names>
+</name>
+<name>
+<surname>Moustakas</surname>
+<given-names>A.</given-names>
+</name>
+</person-group>
+<article-title>Smad pathway-specific transcriptional regulation of the cell cycle inhibitor p21WAF1/Cip1</article-title>
+<source/>
+<italic>Journal of Cellular Physiology</italic>
+<year>2005</year>
+<volume>204</volume>
+<issue>1</issue>
+<fpage>260</fpage>
+<lpage>272</lpage>
+<pub-id pub-id-type="doi">10.1002/jcp.20304</pub-id>
+<pub-id pub-id-type="other">2-s2.0-20144379460</pub-id>
+<pub-id pub-id-type="pmid">15690394</pub-id>
+</element-citation>
+</ref>
+<ref id="B45">
+<label>45</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Frullanti</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Colombo</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Falvella</surname>
+<given-names>F. S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Association of lung adenocarcinoma clinical stage with gene expression pattern in noninvolved lung tissue</article-title>
+<source/>
+<italic>International Journal of Cancer</italic>
+<year>2012</year>
+<volume>131</volume>
+<issue>5</issue>
+<fpage>E643</fpage>
+<lpage>E648</lpage>
+<pub-id pub-id-type="doi">10.1002/ijc.27426</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84863223162</pub-id>
+<pub-id pub-id-type="pmid">22223368</pub-id>
+</element-citation>
+</ref>
+<ref id="B46">
+<label>46</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mangone</surname>
+<given-names>F. R.</given-names>
+</name>
+<name>
+<surname>Walder</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Maistro</surname>
+<given-names>S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Smad2 and Smad6 as predictors of overall survival in oral squamous cell carcinoma patients</article-title>
+<source/>
+<italic>Molecular Cancer</italic>
+<year>2010</year>
+<volume>9</volume>
+<issue>1</issue>
+<fpage>p. 1</fpage>
+<pub-id pub-id-type="doi">10.1186/1476-4598-9-106</pub-id>
+<pub-id pub-id-type="other">2-s2.0-77951989582</pub-id>
+<pub-id pub-id-type="pmid">20462450</pub-id>
+</element-citation>
+</ref>
+<ref id="B47">
+<label>47</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yin</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>K.</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>J.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genetic variants in TGF-β pathway are associated with ovarian cancer risk</article-title>
+<source/>
+<italic>PLoS One</italic>
+<year>2011</year>
+<volume>6</volume>
+<issue>9, article e25559</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0025559</pub-id>
+<pub-id pub-id-type="other">2-s2.0-80053591338</pub-id>
+<pub-id pub-id-type="pmid">21984931</pub-id>
+</element-citation>
+</ref>
+<ref id="B48">
+<label>48</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tan</surname>
+<given-names>H. L.</given-names>
+</name>
+<name>
+<surname>Glen</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Töpf</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Nonsynonymous variants in the SMAD6 gene predispose to congenital cardiovascular malformation</article-title>
+<source/>
+<italic>Human Mutation</italic>
+<year>2012</year>
+<volume>33</volume>
+<issue>4</issue>
+<fpage>720</fpage>
+<lpage>727</lpage>
+<pub-id pub-id-type="doi">10.1002/humu.22030</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84858296684</pub-id>
+<pub-id pub-id-type="pmid">22275001</pub-id>
+</element-citation>
+</ref>
+<ref id="B49">
+<label>49</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xu</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Fu</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Ha</surname>
+<given-names>S. W.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The CCAAT box-binding transcription factor NF-Y regulates basal expression of human proteasome genes</article-title>
+<source/>
+<italic>Biochimica et Biophysica Acta (BBA)-Molecular Cell Research</italic>
+<year>2012</year>
+<volume>1823</volume>
+<issue>4</issue>
+<fpage>818</fpage>
+<lpage>825</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbamcr.2012.01.002</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84862813490</pub-id>
+<pub-id pub-id-type="pmid">22285817</pub-id>
+</element-citation>
+</ref>
+<ref id="B50">
+<label>50</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dai</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Miao</surname>
+<given-names>C. X.</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>X. M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Transcriptional activation of human CDCA8 gene regulated by transcription factor NF-Y in embryonic stem cells and cancer cells</article-title>
+<source/>
+<italic>Journal of Biological Chemistry</italic>
+<year>2015</year>
+<volume>290</volume>
+<issue>37</issue>
+<fpage>22423</fpage>
+<lpage>22434</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.M115.642710</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84941578537</pub-id>
+<pub-id pub-id-type="pmid">26170459</pub-id>
+</element-citation>
+</ref>
+<ref id="B51">
+<label>51</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Romier</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Cocchiarella</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Mantovani</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Moras</surname>
+<given-names>D.</given-names>
+</name>
+</person-group>
+<article-title>The NF-YB/NF-YC structure gives insight into DNA binding and transcription regulation by CCAAT factor NF-Y</article-title>
+<source/>
+<italic>Journal of Biological Chemistry</italic>
+<year>2003</year>
+<volume>278</volume>
+<issue>2</issue>
+<fpage>1336</fpage>
+<lpage>1345</lpage>
+<pub-id pub-id-type="doi">10.1074/jbc.M209635200</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0037428397</pub-id>
+<pub-id pub-id-type="pmid">12401788</pub-id>
+</element-citation>
+</ref>
+<ref id="B52">
+<label>52</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fleming</surname>
+<given-names>J. D.</given-names>
+</name>
+<name>
+<surname>Pavesi</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Benatti</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Imbriano</surname>
+<given-names>C.</given-names>
+</name>
+<name>
+<surname>Mantovani</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Struhl</surname>
+<given-names>K.</given-names>
+</name>
+</person-group>
+<article-title>NF-Y coassociates with FOS at promoters, enhancers, repetitive elements, and inactive chromatin regions, and is stereo-positioned with growth-controlling transcription factors</article-title>
+<source/>
+<italic>Genome Research</italic>
+<year>2013</year>
+<volume>23</volume>
+<issue>8</issue>
+<fpage>1195</fpage>
+<lpage>1209</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.148080.112</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84881168849</pub-id>
+<pub-id pub-id-type="pmid">23595228</pub-id>
+</element-citation>
+</ref>
+<ref id="B53">
+<label>53</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>C. F.</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Arslan</surname>
+<given-names>A. D.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Novel regulation of nuclear factor-YB by miR-485-3p affects the expression of DNA topoisomerase IIα and drug responsiveness</article-title>
+<source/>
+<italic>Molecular Pharmacology</italic>
+<year>2011</year>
+<volume>79</volume>
+<issue>4</issue>
+<fpage>735</fpage>
+<lpage>741</lpage>
+<pub-id pub-id-type="doi">10.1124/mol.110.069633</pub-id>
+<pub-id pub-id-type="other">2-s2.0-79953021596</pub-id>
+<pub-id pub-id-type="pmid">21252292</pub-id>
+</element-citation>
+</ref>
+<ref id="B54">
+<label>54</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ma</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Yue</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Gao</surname>
+<given-names>L.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>ZHX2 enhances the cytotoxicity of chemotherapeutic drugs in liver tumor cells by repressing MDR1 via interfering with NF-YA</article-title>
+<source/>
+<italic>Oncotarget</italic>
+<year>2015</year>
+<volume>6</volume>
+<issue>2</issue>
+<fpage>p. 1049</fpage>
+<pub-id pub-id-type="doi">10.18632/oncotarget.2832</pub-id>
+<pub-id pub-id-type="pmid">25473899</pub-id>
+</element-citation>
+</ref>
+<ref id="B55">
+<label>55</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ray</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Ray</surname>
+<given-names>B. K.</given-names>
+</name>
+</person-group>
+<article-title>Induction of Ras by SAF-1/MAZ through a feed-forward loop promotes angiogenesis in breast cancer</article-title>
+<source/>
+<italic>Cancer Medicine</italic>
+<year>2015</year>
+<volume>4</volume>
+<issue>2</issue>
+<fpage>224</fpage>
+<lpage>234</lpage>
+<pub-id pub-id-type="doi">10.1002/cam4.362</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84964694180</pub-id>
+<pub-id pub-id-type="pmid">25449683</pub-id>
+</element-citation>
+</ref>
+<ref id="B56">
+<label>56</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jiao</surname>
+<given-names>L.</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>D.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The prostate cancer-up-regulated myc-associated zinc-finger protein (MAZ) modulates proliferation and metastasis through reciprocal regulation of androgen receptor</article-title>
+<source/>
+<italic>Medical Oncology</italic>
+<year>2013</year>
+<volume>30</volume>
+<issue>2</issue>
+<fpage>1</fpage>
+<lpage>8</lpage>
+<pub-id pub-id-type="doi">10.1007/s12032-013-0570-3</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84876284566</pub-id>
+<pub-id pub-id-type="pmid">23609189</pub-id>
+</element-citation>
+</ref>
+<ref id="B57">
+<label>57</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Britto</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Umesh</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Hegde</surname>
+<given-names>A. S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Shift in AP-2α localization characterizes astrocytoma progression</article-title>
+<source/>
+<italic>Cancer Biology &amp; Therapy</italic>
+<year>2007</year>
+<volume>6</volume>
+<issue>3</issue>
+<fpage>413</fpage>
+<lpage>418</lpage>
+<pub-id pub-id-type="doi">10.4161/cbt.6.3.3756</pub-id>
+<pub-id pub-id-type="pmid">17471019</pub-id>
+</element-citation>
+</ref>
+<ref id="B58">
+<label>58</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Turner</surname>
+<given-names>B. C.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Gumbs</surname>
+<given-names>A. A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Expression of AP-2 transcription factors in human breast cancer correlates with the regulation of multiple growth factor signalling pathways</article-title>
+<source/>
+<italic>Cancer Research</italic>
+<year>1998</year>
+<volume>58</volume>
+<issue>23</issue>
+<fpage>5466</fpage>
+<lpage>5472</lpage>
+<pub-id pub-id-type="pmid">9850080</pub-id>
+</element-citation>
+</ref>
+<ref id="B59">
+<label>59</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hoei-Hansen</surname>
+<given-names>C. E.</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>J. E.</given-names>
+</name>
+<name>
+<surname>Almstrup</surname>
+<given-names>K.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Transcription factor AP-2 is a developmentally regulated marker of testicular carcinoma in situ and germ cell tumors</article-title>
+<source/>
+<italic>Clinical Cancer Research</italic>
+<year>2004</year>
+<volume>10</volume>
+<issue>24</issue>
+<fpage>8521</fpage>
+<lpage>8530</lpage>
+<pub-id pub-id-type="doi">10.1158/1078-0432.CCR-04-1285</pub-id>
+<pub-id pub-id-type="other">2-s2.0-11144230906</pub-id>
+<pub-id pub-id-type="pmid">15623634</pub-id>
+</element-citation>
+</ref>
+<ref id="B60">
+<label>60</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nystorm</surname>
+<given-names>T.</given-names>
+</name>
+</person-group>
+<article-title>Glucose starvation stimulon of <italic>Escherichia coli</italic>: role of integration host factor in starvation survival and growth phase-dependent protein synthesis</article-title>
+<source/>
+<italic>Journal of Bacteriology</italic>
+<year>1995</year>
+<volume>177</volume>
+<issue>19</issue>
+<fpage>5707</fpage>
+<lpage>5710</lpage>
+<pub-id pub-id-type="doi">10.1128/jb.177.19.5707-5710.1995</pub-id>
+<pub-id pub-id-type="pmid">7559363</pub-id>
+</element-citation>
+</ref>
+<ref id="B61">
+<label>61</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bi</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Integration host factor is required for the induction of acid resistance in <italic>Escherichia coli</italic></article-title>
+<source/>
+<italic>Current Microbiology</italic>
+<year>2014</year>
+<volume>69</volume>
+<issue>2</issue>
+<fpage>218</fpage>
+<lpage>224</lpage>
+<pub-id pub-id-type="doi">10.1007/s00284-014-0595-7</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84904019713</pub-id>
+<pub-id pub-id-type="pmid">24816374</pub-id>
+</element-citation>
+</ref>
+<ref id="B62">
+<label>62</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Charlier</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Roovers</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Gigot</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Huysveld</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Piérard</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Glansdorff</surname>
+<given-names>N.</given-names>
+</name>
+</person-group>
+<article-title>Integration host factor (IHF) modulates the expression of the pyrimidine-specific promoter of the carAB operons of Escherichia coli K<sub>12</sub> and <italic>Salmonella typhimurium</italic> LT<sub>2</sub></article-title>
+<source/>
+<italic>Molecular and General Genetics MGG</italic>
+<year>1993</year>
+<volume>237</volume>
+<issue>1-2</issue>
+<fpage>273</fpage>
+<lpage>286</lpage>
+<pub-id pub-id-type="doi">10.1007/bf00282809</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0027464788</pub-id>
+<pub-id pub-id-type="pmid">8455562</pub-id>
+</element-citation>
+</ref>
+<ref id="B63">
+<label>63</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Singh</surname>
+<given-names>S. S.</given-names>
+</name>
+<name>
+<surname>Grainger</surname>
+<given-names>D. C.</given-names>
+</name>
+</person-group>
+<article-title>H-NS can facilitate specific DNA-binding by RNA polymerase in AT-rich gene regulatory regions</article-title>
+<source/>
+<italic>PLoS Genetics</italic>
+<year>2013</year>
+<volume>9</volume>
+<issue>6, article e1003589</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1003589</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84879659239</pub-id>
+<pub-id pub-id-type="pmid">23818873</pub-id>
+</element-citation>
+</ref>
+<ref id="B64">
+<label>64</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tucker</surname>
+<given-names>N. P.</given-names>
+</name>
+<name>
+<surname>Hicks</surname>
+<given-names>M. G.</given-names>
+</name>
+<name>
+<surname>Clarke</surname>
+<given-names>T. A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The transcriptional repressor protein NsrR senses nitric oxide directly via a [2Fe-2S] cluster</article-title>
+<source/>
+<italic>PLoS One</italic>
+<year>2008</year>
+<volume>3</volume>
+<issue>11, article e3623</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0003623</pub-id>
+<pub-id pub-id-type="other">2-s2.0-56649095726</pub-id>
+<pub-id pub-id-type="pmid">18989365</pub-id>
+</element-citation>
+</ref>
+<ref id="B65">
+<label>65</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Browning</surname>
+<given-names>D. F.</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>D. J.</given-names>
+</name>
+<name>
+<surname>Spiro</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Busby</surname>
+<given-names>S. J.</given-names>
+</name>
+</person-group>
+<article-title>Down-regulation of the <italic>Escherichia coli</italic> K-12 nrf promoter by binding of the NsrR nitric oxide-sensing transcription repressor to an upstream site</article-title>
+<source/>
+<italic>Journal of Bacteriology</italic>
+<year>2010</year>
+<volume>192</volume>
+<issue>14</issue>
+<fpage>3824</fpage>
+<lpage>3828</lpage>
+<pub-id pub-id-type="doi">10.1128/JB.00218-10</pub-id>
+<pub-id pub-id-type="other">2-s2.0-77954402786</pub-id>
+<pub-id pub-id-type="pmid">20472787</pub-id>
+</element-citation>
+</ref>
+<ref id="B66">
+<label>66</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Partridge</surname>
+<given-names>J. D.</given-names>
+</name>
+<name>
+<surname>Bodenmiller</surname>
+<given-names>D. M.</given-names>
+</name>
+<name>
+<surname>Humphrys</surname>
+<given-names>M. S.</given-names>
+</name>
+<name>
+<surname>Spiro</surname>
+<given-names>S.</given-names>
+</name>
+</person-group>
+<article-title>NsrR targets in the <italic>Escherichia coli</italic> genome: new insights into DNA sequence requirements for binding and a role for NsrR in the regulation of motility</article-title>
+<source/>
+<italic>Molecular Microbiology</italic>
+<year>2009</year>
+<volume>73</volume>
+<issue>4</issue>
+<fpage>680</fpage>
+<lpage>694</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1365-2958.2009.06799.x</pub-id>
+<pub-id pub-id-type="other">2-s2.0-70350144292</pub-id>
+<pub-id pub-id-type="pmid">19656291</pub-id>
+</element-citation>
+</ref>
+<ref id="B67">
+<label>67</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yamada</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Saier</surname>
+<given-names>M. H.</given-names>
+<suffix>Jr.</suffix>
+</name>
+</person-group>
+<article-title>Physical and genetic characterization of the glucitol operon in <italic>Escherichia coli</italic></article-title>
+<source/>
+<italic>Journal of Bacteriology</italic>
+<year>1987</year>
+<volume>169</volume>
+<issue>7</issue>
+<fpage>2990</fpage>
+<lpage>2994</lpage>
+<pub-id pub-id-type="doi">10.1128/jb.169.7.2990-2994.1987</pub-id>
+<pub-id pub-id-type="pmid">3036766</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="fig1" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Representative schemes of TFs with high out-degree. (a) The TF1 is regulating its 8 target genes and it is not regulated by others. (b) The TF1 is regulating 8 targets, but at the same time, it is being regulated by TF2, which in turn is also regulating other target genes (G8).</p>
+</caption>
+<graphic xlink:href="IJG2017-4858173.001"></graphic>
+</fig>
+<fig id="fig2" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Transcription factor network constructed from the <italic>FANTOM4 Edge Express</italic> database. In this representation, nodes are represented by black dots. The color of the links depends on the value of the interaction: blue and green are repressions; yellow, orange, and red are for activations. The circle on top of the figure corresponds to target genes, that is, their out-degree = 0.</p>
+</caption>
+<graphic xlink:href="IJG2017-4858173.002"></graphic>
+</fig>
+<fig id="fig3" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Top 3 overall activating TFs and top 3 overall repressing TFs. On the left side, the three genes which have more inhibiting links—TFAP2C, TFAP2A, and MAZ—are depicted. At the right side, the top 3 activating genes are shown: NFYA, NFYB, and NFYC. It can be observed that the predominance of the green and blue links at the left, meanwhile on the right side, the orange and red links, are more frequent. In the center of this network, we can see the first neighbors of those 6 genes. Links are colored as in Figures <xref ref-type="fig" rid="fig2">2</xref> and <xref ref-type="fig" rid="fig5">5</xref>.</p>
+</caption>
+<graphic xlink:href="IJG2017-4858173.003"></graphic>
+</fig>
+<fig id="fig4" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>Top 3 overall activating TFs and top 3 overall repressing TFs in the <italic>E. coli</italic> network. On the left side, the three genes which have more inhibiting links—Crp, Fnr, and Fis—are depicted. At the right side, the top 3 activating genes are shown: Narl, Phob, and Lrp. It can be observed (analogous to the human transcriptional network of <xref ref-type="fig" rid="fig5">Figure 5</xref>) that the predominance of the blue links at the left, meanwhile on the right side the red links, are more frequent. In the center of this network, the first neighbors of those 6 genes are shown. It is also possible to observe some small disconnected components at the upper part of the figure.</p>
+</caption>
+<graphic xlink:href="IJG2017-4858173.004"></graphic>
+</fig>
+<fig id="fig5" orientation="portrait" position="float">
+<label>Figure 5</label>
+<caption>
+<p>Transcription factor subnetwork. In this graph, the 298 TFs of the FANTOM4 network are depicted. Genes are sorted according to the gene out-degree (top left-to-bottom right); set of nodes describing a circle has the same out-degree. The color code of links is the same as in <xref ref-type="fig" rid="fig2">Figure 2</xref>.</p>
+</caption>
+<graphic xlink:href="IJG2017-4858173.005"></graphic>
+</fig>
+<fig id="fig6" orientation="portrait" position="float">
+<label>Figure 6</label>
+<caption>
+<p>Transcription factor subnetwork. In this graph, the 203 TFs of the <italic>E. coli</italic> RegulonDB network are depicted. The color code of links is the same as that in <xref ref-type="fig" rid="fig4">Figure 4</xref>. As it was observed in the whole network, in this TF subnetwork, some disconnected components appear.</p>
+</caption>
+<graphic xlink:href="IJG2017-4858173.006"></graphic>
+</fig>
+<table-wrap id="tab1" orientation="portrait" position="float">
+<label>Table 1</label>
+<caption>
+<p>The top 10 highest RI values of TFs in the FANTOM network. The last column shows the average gene expression as given by the number of transcript counts (copy number) at <italic>t</italic> = 0, for each gene.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Gene</th>
+<th align="center" colspan="1" rowspan="1">In-degree</th>
+<th align="center" colspan="1" rowspan="1">Out-degree</th>
+<th align="center" colspan="1" rowspan="1">RI</th>
+<th align="center" colspan="1" rowspan="1">Avg. transcript count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">NRF1</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">2175</td>
+<td align="center" colspan="1" rowspan="1">0.99999954</td>
+<td align="center" colspan="1" rowspan="1">1628.215</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SPIB</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1778</td>
+<td align="center" colspan="1" rowspan="1">0.999999438</td>
+<td align="center" colspan="1" rowspan="1">316.215</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">TFAP2A</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1721</td>
+<td align="center" colspan="1" rowspan="1">0.999999419</td>
+<td align="center" colspan="1" rowspan="1">293.865</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MYOD1</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1713</td>
+<td align="center" colspan="1" rowspan="1">0.999999416</td>
+<td align="center" colspan="1" rowspan="1">0.02</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">TFAP2B</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1652</td>
+<td align="center" colspan="1" rowspan="1">0.999999395</td>
+<td align="center" colspan="1" rowspan="1">0.03</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ARNT2</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1627</td>
+<td align="center" colspan="1" rowspan="1">0.999999385</td>
+<td align="center" colspan="1" rowspan="1">0.01</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SNAI2</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1543</td>
+<td align="center" colspan="1" rowspan="1">0.999999352</td>
+<td align="center" colspan="1" rowspan="1">7.485</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MYOG</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1435</td>
+<td align="center" colspan="1" rowspan="1">0.999999303</td>
+<td align="center" colspan="1" rowspan="1">203.985</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MYF5</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1435</td>
+<td align="center" colspan="1" rowspan="1">0.999999303</td>
+<td align="center" colspan="1" rowspan="1">0.985</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MYF6</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">1435</td>
+<td align="center" colspan="1" rowspan="1">0.999999303</td>
+<td align="center" colspan="1" rowspan="1">0.265</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="tab2" orientation="portrait" position="float">
+<label>Table 2</label>
+<caption>
+<p>The bottom 10 lowest RI values of TFs in the FANTOM network. The last column shows the average gene expression as given by the number of transcript counts (copy number) at <italic>t</italic> = 0, for each gene.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Gene</th>
+<th align="center" colspan="1" rowspan="1">In-degree</th>
+<th align="center" colspan="1" rowspan="1">Out-degree</th>
+<th align="center" colspan="1" rowspan="1">RI</th>
+<th align="center" colspan="1" rowspan="1">Avg. transcript count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">RUNX1</td>
+<td align="center" colspan="1" rowspan="1">155</td>
+<td align="center" colspan="1" rowspan="1">556</td>
+<td align="center" colspan="1" rowspan="1">0.517749925</td>
+<td align="center" colspan="1" rowspan="1">9382.91</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ARID5B</td>
+<td align="center" colspan="1" rowspan="1">114</td>
+<td align="center" colspan="1" rowspan="1">392</td>
+<td align="center" colspan="1" rowspan="1">0.49206167</td>
+<td align="center" colspan="1" rowspan="1">12.885</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">TFAP4</td>
+<td align="center" colspan="1" rowspan="1">190</td>
+<td align="center" colspan="1" rowspan="1">632</td>
+<td align="center" colspan="1" rowspan="1">0.483369442</td>
+<td align="center" colspan="1" rowspan="1">642.65</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">POU6F1</td>
+<td align="center" colspan="1" rowspan="1">87</td>
+<td align="center" colspan="1" rowspan="1">268</td>
+<td align="center" colspan="1" rowspan="1">0.442040072</td>
+<td align="center" colspan="1" rowspan="1">229.68</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ZIC2</td>
+<td align="center" colspan="1" rowspan="1">135</td>
+<td align="center" colspan="1" rowspan="1">407</td>
+<td align="center" colspan="1" rowspan="1">0.438502347</td>
+<td align="center" colspan="1" rowspan="1">10132.46</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">GTF2A1</td>
+<td align="center" colspan="1" rowspan="1">100</td>
+<td align="center" colspan="1" rowspan="1">253</td>
+<td align="center" colspan="1" rowspan="1">0.357562642</td>
+<td align="center" colspan="1" rowspan="1">1219.94</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">POU3F1</td>
+<td align="center" colspan="1" rowspan="1">80</td>
+<td align="center" colspan="1" rowspan="1">198</td>
+<td align="center" colspan="1" rowspan="1">0.331108025</td>
+<td align="center" colspan="1" rowspan="1">4.585</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SMAD6</td>
+<td align="center" colspan="1" rowspan="1">175</td>
+<td align="center" colspan="1" rowspan="1">408</td>
+<td align="center" colspan="1" rowspan="1">0.289214257</td>
+<td align="center" colspan="1" rowspan="1">2936.75</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ADNP</td>
+<td align="center" colspan="1" rowspan="1">132</td>
+<td align="center" colspan="1" rowspan="1">292</td>
+<td align="center" colspan="1" rowspan="1">0.256880007</td>
+<td align="center" colspan="1" rowspan="1">651.685</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="tab3" orientation="portrait" position="float">
+<label>Table 3</label>
+<caption>
+<p>The top 5 highest and lowest values of TFs in the RegulonDB <italic>E. coli</italic> network.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Gene</th>
+<th align="center" colspan="1" rowspan="1">In-degree</th>
+<th align="center" colspan="1" rowspan="1">Out-degree</th>
+<th align="center" colspan="1" rowspan="1">RI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Ihf</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">249</td>
+<td align="center" colspan="1" rowspan="1">0.999999598</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">H-ns</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">186</td>
+<td align="center" colspan="1" rowspan="1">0.999999462</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">NsrR</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">83</td>
+<td align="center" colspan="1" rowspan="1">0.999998795</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Flhdc</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">80</td>
+<td align="center" colspan="1" rowspan="1">0.99999875</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Narp</td>
+<td align="center" colspan="1" rowspan="1">0</td>
+<td align="center" colspan="1" rowspan="1">65</td>
+<td align="center" colspan="1" rowspan="1">0.999998462</td>
+</tr>
+<tr>
+<td colspan="4" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Uvry</td>
+<td align="center" colspan="1" rowspan="1">1</td>
+<td align="center" colspan="1" rowspan="1">2</td>
+<td align="center" colspan="1" rowspan="1">0.166641668</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Gadx</td>
+<td align="center" colspan="1" rowspan="1">15</td>
+<td align="center" colspan="1" rowspan="1">29</td>
+<td align="center" colspan="1" rowspan="1">0.141847865</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Dpia</td>
+<td align="center" colspan="1" rowspan="1">6</td>
+<td align="center" colspan="1" rowspan="1">11</td>
+<td align="center" colspan="1" rowspan="1">0.101600146</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Glcc</td>
+<td align="center" colspan="1" rowspan="1">4</td>
+<td align="center" colspan="1" rowspan="1">7</td>
+<td align="center" colspan="1" rowspan="1">0.064928943</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Gutm</td>
+<td align="center" colspan="1" rowspan="1">4</td>
+<td align="center" colspan="1" rowspan="1">7</td>
+<td align="center" colspan="1" rowspan="1">0.064928943</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

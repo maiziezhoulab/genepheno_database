@@ -1,0 +1,1794 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<?properties manuscript?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-journal-id">9711271</journal-id>
+<journal-id journal-id-type="pubmed-jr-id">20660</journal-id>
+<journal-id journal-id-type="nlm-ta">Pac Symp Biocomput</journal-id>
+<journal-id journal-id-type="iso-abbrev">Pac Symp Biocomput</journal-id>
+<journal-title-group>
+<journal-title>Pacific Symposium on Biocomputing. Pacific Symposium on Biocomputing</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">2335-6936</issn>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29218913</article-id>
+<article-id pub-id-type="pmc">5728670</article-id>
+<article-id pub-id-type="manuscript">NIHMS921879</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Leveraging putative enhancer-promoter interactions to investigate two-way epistasis in Type 2 Diabetes GWAS</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Manduchi</surname>
+<given-names>Elisabetta</given-names>
+</name>
+<aff id="A1">Department of Biostatistics, Epidemiology, and Informatics, University of Pennsylvania, 3700 Hamilton Walk, Philadelphia, PA, 19104, USA and Division of Human Genetics and Endocrinology, The Children’s Hospital of Philadelphia, 3615 Civic Center Boulevard, Philadelphia, PA 19104, USA</aff>
+<!--<email>manduchi@pennmedicine.upenn.edu</email>-->
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Chesi</surname>
+<given-names>Alessandra</given-names>
+</name>
+<aff id="A2">Division of Human Genetics and Endocrinology, The Children’s Hospital of Philadelphia, 3615 Civic Center Boulevard, Philadelphia, PA 19104, USA</aff>
+<!--<email>chesia@email.chop.edu</email>-->
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hall</surname>
+<given-names>Molly A.</given-names>
+</name>
+<aff id="A3">Department of Biostatistics, Epidemiology, and Informatics, University of Pennsylvania, 3700 Hamilton Walk, Philadelphia, PA, 19104, USA</aff>
+<!--<email>hallma@mail.med.upenn.edu</email>-->
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Grant</surname>
+<given-names>Struan F.A.</given-names>
+</name>
+<aff id="A4">Division of Human Genetics and Endocrinology, The Children’s Hospital of Philadelphia, 3615 Civic Center Boulevard, Philadelphia, PA 19104, USA</aff>
+<!--<email>grants@email.chop.edu</email>-->
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Moore</surname>
+<given-names>Jason H.</given-names>
+</name>
+<aff id="A5">Department of Biostatistics, Epidemiology, and Informatics, University of Pennsylvania, 3700 Hamilton Walk, Philadelphia, PA, 19104, USA</aff>
+<!--<email>jhmoore@exchange.upenn.edu</email>-->
+</contrib>
+</contrib-group>
+<pub-date pub-type="nihms-submitted">
+<day>2</day>
+<month>12</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="ppub">
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>01</day>
+<month>1</month>
+<year>2018</year>
+</pub-date>
+<volume>23</volume>
+<fpage>548</fpage>
+<lpage>558</lpage>
+<permissions>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">
+<license-p>Open Access chapter published by World Scientific Publishing Company and distributed under the terms of the Creative Commons Attribution Non-Commercial (CC BY-NC) 4.0 License.</license-p>
+</license>
+</permissions>
+<abstract>
+<p id="P1">We utilized evidence for enhancer-promoter interactions from functional genomics data in order to build biological filters to narrow down the search space for two-way Single Nucleotide Polymorphism (SNP) interactions in Type 2 Diabetes (T2D) Genome Wide Association Studies (GWAS). This has led us to the identification of a reproducible statistically significant SNP pair associated with T2D. As more functional genomics data are being generated that can help identify potentially interacting enhancer-promoter pairs in larger collection of tissues/cells, this approach has implications for investigation of epistasis from GWAS in general.</p>
+</abstract>
+<kwd-group>
+<kwd>epistasis</kwd>
+<kwd>GWAS</kwd>
+<kwd>type 2 diabetes</kwd>
+<kwd>enhancers</kwd>
+<kwd>genetic encoding</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="S1">
+<title>1. Introduction</title>
+<p id="P2">In the context of GWAS, epistasis refers to SNP interactions associated with a particular complex trait. There are different schools of thought regarding the role of epistasis in human genetics. The majority of human GWAS to date have focused on detecting main effects, i.e. single SNP associations. This is naturally the first aspect to explore, and many would argue that this is the most relevant since the vast majority of SNP contributions to a given trait are largely additive.<sup><xref ref-type="bibr" rid="R1">1</xref></sup> However, a different opinion is that epistasis is a non-negligible component of human genetic architecture, possibly accounting for the predicted ‘missing heritability’,<sup><xref ref-type="bibr" rid="R2">2</xref>–<xref ref-type="bibr" rid="R3">3</xref></sup> based on the observations that biological systems are regulated by complex biomolecular networks and epistasis plays an important role in model organisms.<sup><xref ref-type="bibr" rid="R4">4</xref></sup></p>
+<p id="P3">Exploring epistasis in a typical GWAS is complicated by several factors. One major challenge arises from the large search space and subsequent limited computational and statistical power. Genes and regulatory elements typically form complex networks, thus epistatic interactions could well involve several SNPs. But, even if one wanted to focus on two-way interactions on genotyped SNPs, a typical GWAS involves at least half a million such markers, so the number of possible pairs is greater than 10<sup><xref ref-type="bibr" rid="R11">11</xref></sup>. Another difficulty is that different SNPs relevant to a complex trait may have different mechanisms of action so the choice of genetic encoding affects interaction detection (Hall <italic>et al.</italic>, in preparation). Given all of this, it is therefore uncommon to find statistically significant epistatic interactions in a GWAS data set. Moreover, it is even less common for such observations to be reproduced in a replication data set.</p>
+<p id="P4">In this work we illustrate an example where the combination of suitable biological filters and a data-driven weighted encoding approach has led us to a statistically significant pairwise interaction in a T2D discovery data set which we were able to go on to replicate in an independent data set. Statistical epistasis is different from biological epistasis<sup><xref ref-type="bibr" rid="R5">5</xref>–<xref ref-type="bibr" rid="R7">7</xref></sup> so establishing whether or not this pair corresponds to an actual biological mechanism associated with T2D will require additional experimentation. However we are using this example to highlight a possible avenue of epistasis investigation which exploits the increasing availability of functional genomics data sets aimed at exploring regulatory and physical interactions among genomic features, such as ChIP-Seq or high-throughput chromatin capture data sets. Our approach is illustrated in the next section.</p>
+</sec>
+<sec id="S2">
+<title>2. Filters and Encodings</title>
+<p id="P5"><xref ref-type="fig" rid="F1">Figure 1</xref> outlines our workflow, which involves two main components:</p>
+<sec id="S3" sec-type="methods">
+<title>2.1. Defining biological filters based on functional genomics data</title>
+<p id="P6">Due to the large search space, the first step in an epistasis analysis is to reduce the number of models (i.e. candidate interacting SNP sets) to analyze. To this end, both computational and biological filter approaches have been previously proposed in the literature.</p>
+<p id="P7">Computational approaches include methods such as ReliefF and its derivatives,<sup><xref ref-type="bibr" rid="R8">8</xref>–<xref ref-type="bibr" rid="R10">10</xref></sup> MDR,<sup><xref ref-type="bibr" rid="R11">11</xref></sup> and “greedy” approaches which first identify SNPs with main effects (significant or marginally significant) in a GWAS and then use models involving only these SNPs.<sup><xref ref-type="bibr" rid="R12">12</xref>–<xref ref-type="bibr" rid="R13">13</xref></sup> The latter is certainly a reasonable approach; however it will miss potential interactions which involve SNPs with no main effects (i.e. it will miss what is referred to as ‘pure and strict epistasis’<sup><xref ref-type="bibr" rid="R14">14</xref></sup>).</p>
+<p id="P8">Biological filters may exploit biological annotations (derived from curation of low or high-throughput experiments) or analyses of functional genomics data sets to reduce the search space. For example, knowledge about the biological relevance of the Ras/MAPK pathway to Autism Spectrum Disorders has been used to limit the search space of SNP pairs analyzed for interactions to those where one of the SNPs is in a Ras/MAPK pathway gene.<sup><xref ref-type="bibr" rid="R15">15</xref></sup> In this work we too use biological filters, but of a different type as described below.</p>
+<p id="P9">We sought to exploit the increasing availability of functional genomics data sets elucidating genomic features with likely regulatory functions in different tissues and cell lines. This was motivated by the recognized importance of regulatory networks in genomic studies.<sup><xref ref-type="bibr" rid="R16">16</xref>–<xref ref-type="bibr" rid="R17">17</xref></sup> The regulation of gene expression is complex, but a fundamental component lies in enhancers, i.e. non-coding regions in the genome which may affect the expression of distal genes through chromatin looping. We reasoned that natural candidates for two-way interactions are SNP pairs from interacting enhancer-promoter regions in tissues or cell lines relevant to the trait being studied. Based on this, we have selected appropriate interacting regions from the EnhancerAtlas.<sup><xref ref-type="bibr" rid="R18">18</xref></sup> This resource provides collections of enhancer-gene interactions for several tissues and cell lines, derived from the integration of almost 4000 high throughput experimental data sets from resources including the UCSC genome browser,<sup><xref ref-type="bibr" rid="R19">19</xref></sup> NCBI GEO,<sup><xref ref-type="bibr" rid="R20">20</xref></sup> Cistrome database,<sup><xref ref-type="bibr" rid="R21">21</xref></sup> ENCODE project data portal,<sup><xref ref-type="bibr" rid="R22">22</xref></sup> Epigenome Roadmap data portal<sup><xref ref-type="bibr" rid="R23">23</xref></sup> and eRNA.<sup><xref ref-type="bibr" rid="R24">24</xref></sup></p>
+</sec>
+<sec id="S4">
+<title>2.2. Using weighted encoding</title>
+<p id="P10">When we consider a single SNP, we want to encode the biological action in the way that it likely functions, so if a genotype has no alternate alleles, the risk would be 0 and if it has two such alleles the risk would be 1. For a heterozygous genotype, coding it as recessive assumes it has no risk (equal to homozygous referent), coding it as dominant assumes it yields full risk (the same as two alternate alleles), and coding it as additive is right in between. Yet in biology, a heterozygous genotype may act anywhere in this range from recessive to dominant. This has been heavily discussed in the literature for single SNP associations and the consensus has been that additive encoding will capture the largest amount of genetic effects.<sup><xref ref-type="bibr" rid="R25">25</xref></sup></p>
+<p id="P11">PLATO software<sup><xref ref-type="bibr" rid="R26">26</xref></sup> (<ext-link ext-link-type="uri" xlink:href="https://ritchielab.psu.edu/files/RL_software/plato-manual-2.1.pdf">https://ritchielab.psu.edu/files/RL_software/plato-manual-2.1.pdf</ext-link>) allows for different choices of encoding. One of them is a data-driven approach to compute an appropriate SNP-specific encoding weight for the heterozygous genotype. In order to describe the latter, we first need to define what is meant by ‘codominant’ encoding. As described in the PLATO software manual, in this encoding each marker uses two variables as a dummy encoding; the “Het” variable is 1 only when the marker is heterozygous, and the “Hom” variable is 1 only when the marker is homozygous alternate. In weighted encoding, for each marker, the result from a univariate model (with appropriate covariates) is used to determine an encoding from marker state to the set {0, x, 1}, where x is chosen such that the model with the encoded allele is identical to the codominant model. Data-driven weighted encoding was tested on simulated data sets spanning a comprehensive array of underlying interactions of genetic models, concluding that it had a better performance than the other encodings based on a combination of power and type I error (Hall <italic>et al.</italic>, in preparation).</p>
+</sec>
+</sec>
+<sec id="S5">
+<title>3. Methods</title>
+<sec id="S6">
+<title>3.1. GWAS data sets</title>
+<p id="P12">In this work we utilized three T2D GWAS data sets. As discovery data set, we used GWAS data generated by the Welcome Trust Case Control Consortium (WTCCC),<sup><xref ref-type="bibr" rid="R27">27</xref></sup> precisely derived from the data sets EGAD00000000009 and EGAD00000000021.</p>
+<p id="P13">As replication data sets we used two GWAS studies from the database of Genotypes and Phenotypes (dbGaP).<sup><xref ref-type="bibr" rid="R28">28</xref></sup></p>
+<list id="L1" list-type="order">
+<list-item>
+<p id="P14">The GENEVA Genes and Environment Initiatives in Type 2 Diabetes (Nurses’ Health Study (NHS)/Health Professionals Follow-up Study (HPFS)). Data were downloaded from the dbGaP web site, under phs000091.v2.p1 (<ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000091.v2.p1">https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000091.v2.p1</ext-link>).</p>
+</list-item>
+<list-item>
+<p id="P15">The Finland-United States Investigation of NIDDM Genetics (FUSION) Study. Data were downloaded from the dbGaP web site, under phs000867.v1.p1 (<ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000867.v1.p1">https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000867.v1.p1</ext-link>).</p>
+</list-item>
+</list>
+</sec>
+<sec id="S7">
+<title>3.2. Data pre-processing</title>
+<sec id="S8">
+<title>3.2.1. WTCCC data set</title>
+<p id="P16">Quality Control (QC) followed standard recommendations.<sup><xref ref-type="bibr" rid="R29">29</xref></sup> PLINK 1.9 (<ext-link ext-link-type="uri" xlink:href="https://www.cog-genomics.org/plink2/">https://www.cog-genomics.org/plink2/</ext-link>) was used to filter subjects based on ambiguous gender assignment and missing call rate (threshold=95%) and duplicated individuals where removed using a PI_HAT threshold of 0.8. Then SNPs were filtered based on missing call rate (threshold=95%), Hardy-Weinberg Equilibrium tests (HWE, p=0.00001) and Minor Allele Frequency (MAF, threshold=0.01). Ambiguous SNPs (A/T or G/C) were removed. After QC we had data for 4916 subjects (1960 cases and 2956 controls) over 341,531 SNPs. These data were used to compute the first 10 Principal Components (PC) using PLINK v1.9, after Linkage Disequilibrium (LD) pruning.</p>
+<p id="P17">Phasing was performed with SHAPEIT<sup><xref ref-type="bibr" rid="R30">30</xref></sup> and imputation with IMPUTE2<sup><xref ref-type="bibr" rid="R31">31</xref></sup> using 1000 Genomes phase 1 version 3 (<ext-link ext-link-type="uri" xlink:href="http://www.internationalgenome.org">http://www.internationalgenome.org</ext-link>) as reference panel. For imputed SNPs with information score &gt;0.70, genotype was assigned according to the best probability if this was &gt;0.90.</p>
+</sec>
+<sec id="S9">
+<title>3.2.2. GENEVA data set</title>
+<p id="P18">QC was first separately applied to each of the two panels (NHS and HPFS) and followed standard recommendations.<sup><xref ref-type="bibr" rid="R29">29</xref></sup> In each case PLINK 1.9 was used to filter subjects based on ambiguous gender assignment and missing call rate (threshold=95%). Then SNPs were filtered based on missing call rate (threshold=95%), differential missing call rates between cases and controls (p=0.00001) and MAF (threshold=0.05). The resulting data from the two panels were then merged and SNP filtering was applied again as above, finally subjects were filtered again based on missing call rate. This resulted in a QC-ed data set for 5485 subjects (2524 cases and 2961 controls) over 656,226 SNPs. The first 10 PCs were computed as for WTCCC, after LD pruning, with PLINK v1.9.</p>
+<p id="P19">We did not impute this data set as it was only used to verify two SNP pairs resulting from the analyses in the discovery data set. If a SNP in a pair was not genotyped we used a proxy obtained from HaploReg,<sup><xref ref-type="bibr" rid="R32">32</xref></sup> selecting the proxy as a genotyped SNP having the highest r<sup>2</sup> with the SNP in our pair. For each pair to verify, we extracted the data corresponding to that pair and filtered individuals with missing genotypes on those two SNPs.</p>
+</sec>
+<sec id="S10">
+<title>3.2.3. FUSION data set</title>
+<p id="P20">QC was performed similarly to the GENEVA data set, yielding a data set of 1706 subjects (919 cases and 787 controls), with over 301,195 SNPs. PCs were also computed as above.</p>
+</sec>
+</sec>
+<sec id="S11">
+<title>3.3. Candidate pairs selection</title>
+<p id="P21">Among the cell lines and tissues for which enhancer-gene interactions were available in EnhancerAtlas at the time of these analyses, HCT116 and pancreas were the most relevant to T2D. For each of these two biological sources we proceeded as follows to identify candidate SNP pairs for interaction analyses.</p>
+<p id="P22">The files from EnhancerAtlas link enhancers to ENSEMBL (ensemblgenomes.org) transcripts. We identified the regions spanning from 1000bp upstream to 500bp downstream of the Transcription Start Site (TSS) of each transcript as its promoter region. We extracted all SNPs in the enhancer and resulting promoter regions using Biofilter<sup><xref ref-type="bibr" rid="R33">33</xref>–<xref ref-type="bibr" rid="R34">34</xref></sup> (<ext-link ext-link-type="uri" xlink:href="https://ritchielab.psu.edu/software/biofilter-download-1">https://ritchielab.psu.edu/software/biofilter-download-1</ext-link>). Of these SNPs, we retained those which were either genotyped or imputed with an information score &gt;0.70 and a probability &gt;0.90 in the discovery data set.</p>
+<p id="P23">We then performed LD pruning separately within each enhancer and within each promoter using a 0.8 threshold for r<sup>2</sup>. For each enhancer-gene interaction from EnhancerAtlas we then paired up each resulting SNP in the enhancer with each resulting SNP in the corresponding promoter and removed all pairs where the two SNPs had an r<sup>2</sup>&gt;0.6. After this processing we had 11,395 pairs for HCT116 and 1,220 for pancreas.</p>
+</sec>
+<sec id="S12">
+<title>3.4. Two-way interaction analyses</title>
+<p id="P24">We analyzed separately the HCT116 and the pancreas pair collections for interactions using our discovery data set. To this end we utilized the PLATO software mentioned above, with data-driven weighted encoding and logistic regression, adjusting for gender and the first 10 PCs. This adjustment was applied after assessing the association between these covariates and the phenotype in the discovery data set. PLATO computes p-values for interactions based on the Likelihood Ratio Test (LRT) between the full model (logit(π) = β<sub>0</sub> + β<sub>1</sub>X<sub>1</sub> + β<sub>2</sub>X<sub>2</sub> + β<sub>3</sub>X<sub>1</sub>×X<sub>2</sub> + covariates) and the reduced model (logit(π) = β<sub>0</sub> + β<sub>1</sub>X<sub>1</sub> + β<sub>2</sub>X<sub>2 +</sub> covariates), where π is the probability of Y=1 for a binary outcome Y and X<italic><sub>i</sub></italic> is the encoded genotype at SNP<italic><sub>i</sub> i</italic>= 1,2. PLATO outputs unadjusted p-values, as well as Bonferroni and FDR multiple-testing adjusted p-values.</p>
+<p id="P25">For the GENEVA replication analyses we only tested the pairs detected as significant in the discovery data set. Again we used PLATO to run the interaction analyses and we adjusted for the 10 PCs, but needed not to adjust for gender. This was determined after assessing the association between gender and the first 10 PCs with the phenotype in this data set.</p>
+<p id="P26">For the FUSION replication analyses we tested the pair that was detected as significant in the discovery data set and the GENEVA data set, proceeding as above but adjusting for gender and the first 3 PCs. This was again determined after assessing the association between gender and the first 10 PCs with the phenotype in this data set.</p>
+</sec>
+</sec>
+<sec id="S13">
+<title>4. Results</title>
+<p id="P27">The PLATO analysis on the SNP pairs derived from the pancreas regulation data did not yield any significant pair. The PLATO analysis on the pairs derived from HCT116 yielded two pairs with FDR &lt;10%: the pair (rs1474445, rs78495961) on chr7 (p-value=1.00394e-05; FDR adjusted p-value= 0 .082295) and the pair (rs8008440, rs12882535) on chr14 (p-value= 1.44441e-05; FDR adjusted p-value=0 .082295).</p>
+<p id="P28">We followed up only these two pairs in the GENEVA replication data set. We used rs7777433 as a proxy for rs78495961 (r<sup>2</sup>=0.92) and rs8007341 as a proxy for rs12882535 (r<sup>2</sup>=0.99), since we did not have genotypes for these two SNPs in GENEVA. The first pair (rs1474445, rs7777433) did not have a significant p-value in GENEVA (p=0.682361), whereas the second pair (rs8008440, rs8007341) was significant (p-value= 0.0181457; Bonferroni adjusted p-value &lt;0.04).</p>
+<p id="P29">Finally we followed up in the FUSION data set the pair (rs8008440, rs12882535) replicated in the GENEVA data set. The FUSION p-value was higher in this case, but remained borderline significant (p=0.155562). The combined p-value across the three data sets using the ‘sumz’ method in the ‘metap’ R package (<ext-link ext-link-type="uri" xlink:href="https://cran.r-project.org/web/packages/metap/">https://cran.r-project.org/web/packages/metap/</ext-link>), with weights proportional to the square root of the sample sizes was 4.199818e-06, which is significant at the 0.05 level after Bonferroni correction by the number of HCT116 SNP pairs (11,395). The regression coefficients of the full model for each data set are reported in <xref ref-type="table" rid="T1">Table 1</xref>.</p>
+<p id="P30">The two SNPs forming the pair are not in LD (r<sup>2</sup>&lt;0.01). One SNP (rs12882535) is in the promoter of the <italic>OR6S1</italic> gene while the other (rs8008440) is in a predicted EnhancerAtlas HCT116 enhancer (for <italic>OR6S1</italic>) located within an intron of <italic>ANG</italic>.</p>
+</sec>
+<sec id="S14">
+<title>5. Discussion</title>
+<p id="P31">In this work we have utilized functional genomics-based filters to identify candidate SNP pairs to be analyzed for epistatic interactions associated with T2D, based on GWAS data. This led to the two significant pairs (FDR&lt;0.1) in our discovery data set. We followed up these two pairs in a replication data set and one of them (rs8008440, rs12882535) remained significant. It is typically difficult to replicate epistasis results at the SNP level, so this was encouraging. We also looked at this pair in a third data set. Here the pair did not quite reach significance, but its p-value remained relatively low. This third data set had half the number of subjects as the other two and the MAFs of the two SNPs were somewhat different (0.47 and 0.08 in this data set versus 0.45 and 0.12 in the previous two). This may explain the increase in p-value, especially considering that detection of statistical epistasis is very sensitive to MAF.<sup><xref ref-type="bibr" rid="R35">35</xref></sup> Overall, the meta-analysis adjusted combined p-value across the three data sets is significant. In both the GENEVA and FUSION data sets the regression coefficients of the full model correspond to an antagonistic type of interaction. However, considering that we used data-driven weighted encodings, comparisons of these coefficients across models are hard to interpret, especially when interaction terms are involved.</p>
+<p id="P32">The pair we identified consists of a SNP in the promoter of <italic>OR6S1</italic> and a SNP in a putative enhancer for this gene based on HCT116 data. <italic>OR6S1</italic> belongs to the family of G-Protein-Coupled Receptors (GPCRs). Besides the EnhancerAtlas evidence supporting its expression in HCT116, expression of <italic>OR6S1</italic> was detected both in colon and pancreas in various microarray and RNAseq surveys reported by GeneCards (<ext-link ext-link-type="uri" xlink:href="www.genecards.org">www.genecards.org</ext-link>). The presence and role of taste and olfactory receptors in the gut has been discussed in recent papers,<sup><xref ref-type="bibr" rid="R36">36</xref>–<xref ref-type="bibr" rid="R38">38</xref></sup> which indicate the importance of these chemosensors in detecting luminal contents and inducing the modulation of systemic metabolism, including glucose homeostasis. Indeed some GPCRs have recently received attention as new therapeutic targets for type 2 diabetes.<sup><xref ref-type="bibr" rid="R39">39</xref></sup></p>
+<p id="P33">HCT116 is a human cell line derived from colonic carcinoma, which has been used in other studies on T2D<sup><xref ref-type="bibr" rid="R40">40</xref></sup> and, together with pancreas, was the most relevant for T2D among the sources for which EnhancerAtlas provided enhancer-gene interaction data at the time of our download. We did not detect significant interactions among SNP pairs derived from the pancreas data.</p>
+<p id="P34">The T2D statistical epistasis association that we found is consistent with the recent literature support for the relevance of GPCRs to T2D. Nevertheless, ascertaining whether or not this pair represents actual biological epistasis requires follow-up experiments. This work should be taken as a proof of concept. One of the limitations of our study was that albeit whole pancreas and HCT116 are relevant tissues/cells for T2D, they are not ideal. Having enhancer-promoter data from biosources such as the pancreatic beta-cell and the enteroendocrine L cell would improve the chance to detect epistatic pairs associated with T2D. As more data become available for these particular biosources, both in the public domain and in our labs, we can generate richer and more specific sets of candidate pairs to explore. The types of relevant data include epigenetic information (e.g. open chromatin, enhancer and promoter histone marks) and gene expression data. We are working on a generalization of our workflow which incorporates relevant epigenomics data as well as high-throughput chromatin conformation capture data (contactomics) to identify additional tissue-specific active and interacting genomic regions from which to select SNP pairs (Manduchi E., Grant S., Moore J., in preparation).</p>
+<p id="P35">Our intent is to exploit the availability of different types of omics data sets and to incorporate state of the art analysis methods into a reasonable workflow to explore a typically difficult-to-detect phenomenon such epistasis. Based on our results we believe that this type of workflow is promising and besides significantly reducing the search space it could yield results that are much easier to interpret. Since it is applicable to any GWAS, as we build on data sets which are more extensive in terms of type of functional genomics data and trait-specific tissues, it has the potential to unveil interactions associated to many traits, with a higher likelihood of being reproducible and biologically meaningful.</p>
+<p id="P36">In this work we were interested in assessing reproducibility and hence utilized a Discovery/Replication data set paradigm. An alternative way to take advantage of independent GWAS for a trait is to combine them in a meta-analysis framework, which can help increase power. We are investigating this approach also in the context of exploring results at different resolutions, besides SNP-pair level (Manduchi E., Grant S., Moore J., in preparation).</p>
+</sec>
+</body>
+<back>
+<ack id="S15">
+<p>
+<bold>7. Funding</bold>
+</p>
+<p>Funding for this work was provided by NIH grants LM010098, DK112217, ES013508, the CHOP’s Spatial and Functional Genomics Initiative, and the Daniel B. Burke Endowed Chair for Diabetes Research.</p>
+<p>This study makes use of data generated by the Wellcome Trust Case-Control Consortium. A full list of the investigators who contributed to the generation of the data is available from <ext-link ext-link-type="uri" xlink:href="www.wtccc.org.uk">www.wtccc.org.uk</ext-link>. Funding for the project was provided by the Wellcome Trust under award 076113, 085475 and 090355. The Consortium and/or Individual Investigators bear no responsibility for the further analysis or interpretation of these data, over and above that published by the Consortium.</p>
+<p>The authors thank P. Schmitt, S. Dudek and C. Calafut for their assistance with the Biofilter and PLATO software installation and administration.</p>
+</ack>
+<fn-group>
+<fn id="FN1">
+<p>
+<bold>6. Availability of Data and Materials</bold>
+</p>
+<p>The GWAS data sets analyzed in study are available, upon application, at: <ext-link ext-link-type="uri" xlink:href="https://www.wtccc.org.uk/">https://www.wtccc.org.uk/</ext-link> (WTCCC, use the data set IDs provided in the main text), <ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000091.v2.p1">https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000091.v2.p1</ext-link> (GENEVA), and <ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000867.v1.p1">https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000867.v1.p1</ext-link> (FUSION).</p>
+</fn>
+<fn fn-type="con" id="FN2">
+<p>
+<bold>8. Authors’ Contributions</bold>
+</p>
+<p>EM, JHM, and SFAG conceived the study, identified appropriate data sets, and obtained the necessary access. EM designed the workflow, performed the analyses, and prepared the initial manuscript draft. AC performed QC and imputation on the WTCCC GWAS data set. MAH helped with PLATO settings and weighted encoding. All authors contributed to and approved the final version of the manuscript. SFAG and JHM supervised this work.</p>
+</fn>
+</fn-group>
+<ref-list>
+<ref id="R1">
+<label>1</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hill</surname>
+<given-names>WG</given-names>
+</name>
+<name>
+<surname>Goddard</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Visscher</surname>
+<given-names>PM</given-names>
+</name>
+</person-group>
+<source/>PLoS Genet
+          <volume>4</volume>
+<issue>2</issue>
+<fpage>e1000008</fpage>
+<year>2008</year>
+<pub-id pub-id-type="pmid">18454194</pub-id>
+</element-citation>
+</ref>
+<ref id="R2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Eichler</surname>
+<given-names>EE</given-names>
+</name>
+<name>
+<surname>Flint</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Gibson</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Kong</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Leal</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Nadeau</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<source/>Nat Rev Genet
+          <volume>11</volume>
+<fpage>446</fpage>
+<year>2010</year>
+<pub-id pub-id-type="pmid">20479774</pub-id>
+</element-citation>
+</ref>
+<ref id="R3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zuk</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Hechter</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Sunyaev</surname>
+<given-names>SR</given-names>
+</name>
+<name>
+<surname>Lander</surname>
+<given-names>ES</given-names>
+</name>
+</person-group>
+<source/>PNAS USA
+          <volume>109</volume>
+<fpage>1193</fpage>
+<year>2012</year>
+<pub-id pub-id-type="pmid">22223662</pub-id>
+</element-citation>
+</ref>
+<ref id="R4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mackay</surname>
+<given-names>TFC</given-names>
+</name>
+</person-group>
+<source/>Nat Rev Genet
+          <volume>15</volume>
+<issue>1</issue>
+<fpage>22</fpage>
+<year>2014</year>
+<pub-id pub-id-type="pmid">24296533</pub-id>
+</element-citation>
+</ref>
+<ref id="R5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>SM</given-names>
+</name>
+</person-group>
+<source/>Bioessays
+          <volume>27</volume>
+<issue>6</issue>
+<fpage>637</fpage>
+<year>2005</year>
+<pub-id pub-id-type="pmid">15892116</pub-id>
+</element-citation>
+</ref>
+<ref id="R6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>SM</given-names>
+</name>
+</person-group>
+<source/>The American Journal of Human Genetics
+          <volume>85</volume>
+<fpage>309</fpage>
+<year>2009</year>
+<pub-id pub-id-type="pmid">19733727</pub-id>
+</element-citation>
+</ref>
+<ref id="R7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Phillips</surname>
+<given-names>PC</given-names>
+</name>
+</person-group>
+<source/>Nat Rev Genet
+          <volume>9</volume>
+<issue>11</issue>
+<fpage>855</fpage>
+<year>2008</year>
+<pub-id pub-id-type="pmid">18852697</pub-id>
+</element-citation>
+</ref>
+<ref id="R8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Robnik-Šikonja</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kononenko</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<source/>Mach Learn
+          <volume>53</volume>
+<fpage>23</fpage>
+<year>2003</year>
+</element-citation>
+</ref>
+<ref id="R9">
+<label>9</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>White</surname>
+<given-names>BC</given-names>
+</name>
+</person-group>
+<person-group person-group-type="editor">
+<name>
+<surname>Marchiori</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Rajapakse</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<source/>Evolutionary computation, machine learning and data mining in bioinformatics
+          <publisher-name>Springer</publisher-name>
+<publisher-loc>Berlin</publisher-loc>
+<fpage>166</fpage>
+<year>2007</year>
+</element-citation>
+</ref>
+<ref id="R10">
+<label>10</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<source/>Methods Mol Biol
+          <volume>1253</volume>
+<fpage>315</fpage>
+<year>2015</year>
+<pub-id pub-id-type="pmid">25403540</pub-id>
+</element-citation>
+</ref>
+<ref id="R11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Hahn</surname>
+<given-names>LW</given-names>
+</name>
+<name>
+<surname>Roodi</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Bailey</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Dupont</surname>
+<given-names>WD</given-names>
+</name>
+<name>
+<surname>Parl</surname>
+<given-names>FF</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<source/>Am J Hum Genet
+          <volume>69</volume>
+<fpage>138</fpage>
+<year>2001</year>
+<pub-id pub-id-type="pmid">11404819</pub-id>
+</element-citation>
+</ref>
+<ref id="R12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Qi</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>van Dam</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Asselbergs</surname>
+<given-names>FW</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>FB</given-names>
+</name>
+</person-group>
+<source/>Diabetic Medicine
+          <volume>24</volume>
+<fpage>1187</fpage>
+<year>2007</year>
+<pub-id pub-id-type="pmid">17894829</pub-id>
+</element-citation>
+</ref>
+<ref id="R13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Verma</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>Cooke Bailey</surname>
+<given-names>JN</given-names>
+</name>
+<name>
+<surname>Lucas</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bradford</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Linnemann</surname>
+<given-names>JG</given-names>
+</name>
+<name>
+<surname>Hauser</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Pasquale</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Peissig</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Brilliant</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>McCarty</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Haines</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Wiggs</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Vrabec</surname>
+<given-names>TR</given-names>
+</name>
+<name>
+<surname>Tromp</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<collab>eMERGE Network, NEIGHBOR Consortium</collab>
+<source/>PLOS Genetics
+          <volume>12</volume>
+<issue>9</issue>
+<fpage>e1006186</fpage>
+<year>2016</year>
+<pub-id pub-id-type="pmid">27623284</pub-id>
+</element-citation>
+</ref>
+<ref id="R14">
+<label>14</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Urbanowicz</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Granizo-Mackenzie</surname>
+<given-names>ALS</given-names>
+</name>
+<name>
+<surname>Kiralis</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<source/>BioData Min
+          <volume>7</volume>
+<fpage>8</fpage>
+<year>2014</year>
+<pub-id pub-id-type="pmid">25057293</pub-id>
+</element-citation>
+</ref>
+<ref id="R15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mitra</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Lavillareuix</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Yeh</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Traglia</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Tsang</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Bearden</surname>
+<given-names>CE</given-names>
+</name>
+<name>
+<surname>Rauen</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Weiss</surname>
+<given-names>LA</given-names>
+</name>
+</person-group>
+<source/>PLOS Genetics
+          <volume>13</volume>
+<issue>1</issue>
+<fpage>e1006516</fpage>
+<year>2017</year>
+<pub-id pub-id-type="pmid">28076348</pub-id>
+</element-citation>
+</ref>
+<ref id="R16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cowper-Sal Iari</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Cole</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Karagas</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Lupien</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<source/>Wiley Interdiscip Rev Syst Biol Med
+          <volume>3</volume>
+<issue>5</issue>
+<fpage>513</fpage>
+<year>2011</year>
+<pub-id pub-id-type="pmid">21197657</pub-id>
+</element-citation>
+</ref>
+<ref id="R17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Boyle</surname>
+<given-names>EA</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>YI</given-names>
+</name>
+<name>
+<surname>Pritchard</surname>
+<given-names>JK</given-names>
+</name>
+</person-group>
+<source/>Cell
+          <volume>169</volume>
+<issue>7</issue>
+<fpage>1177</fpage>
+<year>2017</year>
+<pub-id pub-id-type="pmid">28622505</pub-id>
+</element-citation>
+</ref>
+<ref id="R18">
+<label>18</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gao</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Tan</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<source/>Bioinformatics
+          <volume>32</volume>
+<issue>23</issue>
+<fpage>3543</fpage>
+<year>2016</year>
+<pub-id pub-id-type="pmid">27515742</pub-id>
+</element-citation>
+</ref>
+<ref id="R19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kent</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Sugnet</surname>
+<given-names>CW</given-names>
+</name>
+<name>
+<surname>Furey</surname>
+<given-names>TS</given-names>
+</name>
+<name>
+<surname>Roskin</surname>
+<given-names>KM</given-names>
+</name>
+<name>
+<surname>Pringle</surname>
+<given-names>TH</given-names>
+</name>
+<name>
+<surname>Zahler</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Haussler</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<source/>Genome Res
+          <volume>12</volume>
+<issue>6</issue>
+<fpage>996</fpage>
+<year>2002</year>
+<pub-id pub-id-type="pmid">12045153</pub-id>
+</element-citation>
+</ref>
+<ref id="R20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barrett</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Wilhite</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Ledoux</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Evangelista</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>IF</given-names>
+</name>
+<name>
+<surname>Tomashevsky</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Marshall</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Phillippy</surname>
+<given-names>KH</given-names>
+</name>
+<name>
+<surname>Sherman</surname>
+<given-names>PM</given-names>
+</name>
+<name>
+<surname>Holko</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Yefanov</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Robertson</surname>
+<given-names>CL</given-names>
+</name>
+<name>
+<surname>Serova</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Davis</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Soboleva</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<source/>Nucleic Acids Res
+          <volume>41</volume>
+<issue>Database issue</issue>
+<fpage>D991</fpage>
+<year>2013</year>
+<pub-id pub-id-type="pmid">23193258</pub-id>
+</element-citation>
+</ref>
+<ref id="R21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Qin</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ge</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Taing</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Duan</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Long</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>XS</given-names>
+</name>
+</person-group>
+<source/>Bioinformatics
+          <volume>28</volume>
+<issue>10</issue>
+<fpage>1411</fpage>
+<year>2012</year>
+<pub-id pub-id-type="pmid">22495751</pub-id>
+</element-citation>
+</ref>
+<ref id="R22">
+<label>22</label>
+<element-citation publication-type="journal">
+<collab>ENCODE Project Consortium</collab>
+<source/>Nature
+          <volume>489</volume>
+<issue>7414</issue>
+<fpage>57</fpage>
+<year>2012</year>
+<pub-id pub-id-type="pmid">22955616</pub-id>
+</element-citation>
+</ref>
+<ref id="R23">
+<label>23</label>
+<element-citation publication-type="journal">
+<collab>Roadmap Epigenomics Consortium, et al</collab>
+<source/>Nature
+          <volume>518</volume>
+<issue>7539</issue>
+<fpage>317</fpage>
+<year>2015</year>
+<pub-id pub-id-type="pmid">25693563</pub-id>
+</element-citation>
+</ref>
+<ref id="R24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Andersson</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gebhard</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Miguel-Escalada</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Hoof</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Bornholdt</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Boyd</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Schmidl</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Suzuki</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Ntini</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Arner</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Valen</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Schwarzfischer</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Glatz</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Raithel</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lilje</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Rapin</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Bagger</surname>
+<given-names>FO</given-names>
+</name>
+<name>
+<surname>Jorgensen</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Andersen</surname>
+<given-names>PR</given-names>
+</name>
+<name>
+<surname>Bertin</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Rackham</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Burroughs</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Baillie</surname>
+<given-names>JK</given-names>
+</name>
+<name>
+<surname>Ishizu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Shimizu</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Furuhata</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Maeda</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Negishi</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Mungall</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Meehan</surname>
+<given-names>TF</given-names>
+</name>
+<name>
+<surname>Lassmann</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Itoh</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kawaji</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kondo</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kawai</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lennartsson</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Daub</surname>
+<given-names>CO</given-names>
+</name>
+<name>
+<surname>Heutink</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Hume</surname>
+<given-names>DA</given-names>
+</name>
+<name>
+<surname>Jensen</surname>
+<given-names>TH</given-names>
+</name>
+<name>
+<surname>Suzuki</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Hayashizaki</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Müller</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Forrest</surname>
+<given-names>AR</given-names>
+</name>
+<name>
+<surname>Carninci</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Rehli</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sandelin</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<collab>FANTOM Consortium</collab>
+<source/>Nature
+          <volume>507</volume>
+<issue>7493</issue>
+<fpage>455</fpage>
+<year>2014</year>
+<pub-id pub-id-type="pmid">24670763</pub-id>
+</element-citation>
+</ref>
+<ref id="R25">
+<label>25</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Clarke</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Anderson</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Pettersson</surname>
+<given-names>FH</given-names>
+</name>
+<name>
+<surname>Cardon</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Morris</surname>
+<given-names>AP</given-names>
+</name>
+<name>
+<surname>Zondervan</surname>
+<given-names>KT</given-names>
+</name>
+</person-group>
+<source/>Nat Protoc
+          <volume>6</volume>
+<issue>2</issue>
+<fpage>121</fpage>
+<year>2011</year>
+<pub-id pub-id-type="pmid">21293453</pub-id>
+</element-citation>
+</ref>
+<ref id="R26">
+<label>26</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hall</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Wallace</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lucas</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Kim</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Basile</surname>
+<given-names>AO</given-names>
+</name>
+<name>
+<surname>Verma</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>McCarty</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Brilliant</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>Peissig</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Kitchner</surname>
+<given-names>TE</given-names>
+</name>
+<name>
+<surname>Verma</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Pendergrass</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Dudek</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<source/>Nature Communications
+          <comment>in press</comment>
+<year>2017</year>
+</element-citation>
+</ref>
+<ref id="R27">
+<label>27</label>
+<element-citation publication-type="journal">
+<collab>Welcome Trust Case Control Consortium</collab>
+<source/>Nature
+          <volume>447</volume>
+<issue>7145</issue>
+<fpage>661</fpage>
+<year>2007</year>
+<pub-id pub-id-type="pmid">17554300</pub-id>
+</element-citation>
+</ref>
+<ref id="R28">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tryka</surname>
+<given-names>KA</given-names>
+</name>
+<name>
+<surname>Hao</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Sturcke</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Jin</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>ZY</given-names>
+</name>
+<name>
+<surname>Ziyabari</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Popova</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Sharopova</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kimura</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Feolo</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<source/>Nucleic Acids Res
+          <volume>42</volume>
+<issue>Database issue</issue>
+<fpage>D975</fpage>
+<year>2014</year>
+<pub-id pub-id-type="pmid">24297256</pub-id>
+</element-citation>
+</ref>
+<ref id="R29">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Anderson</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Pettersson</surname>
+<given-names>FH</given-names>
+</name>
+<name>
+<surname>Clarke</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Cardon</surname>
+<given-names>LR</given-names>
+</name>
+<name>
+<surname>Morris</surname>
+<given-names>AP</given-names>
+</name>
+<name>
+<surname>Zondervan</surname>
+<given-names>KT</given-names>
+</name>
+</person-group>
+<source/>Nat Protoc
+          <volume>5</volume>
+<issue>9</issue>
+<fpage>1564</fpage>
+<year>2010</year>
+<pub-id pub-id-type="pmid">21085122</pub-id>
+</element-citation>
+</ref>
+<ref id="R30">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Delaneau</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Marchini</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Zagury</surname>
+<given-names>JF</given-names>
+</name>
+</person-group>
+<source/>Nat Methods
+          <volume>9</volume>
+<issue>2</issue>
+<fpage>179</fpage>
+<year>2012</year>
+</element-citation>
+</ref>
+<ref id="R31">
+<label>31</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Marchini</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Howie</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Myers</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>McVean</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Donnelly</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<source/>Nature Genetics
+          <volume>39</volume>
+<fpage>906</fpage>
+<year>2007</year>
+<pub-id pub-id-type="pmid">17572673</pub-id>
+</element-citation>
+</ref>
+<ref id="R32">
+<label>32</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ward</surname>
+<given-names>LD</given-names>
+</name>
+<name>
+<surname>Kellis</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<source/>Nucleic Acids Res
+          <volume>40</volume>
+<issue>D1</issue>
+<fpage>D930</fpage>
+<year>2011</year>
+<pub-id pub-id-type="pmid">22064851</pub-id>
+</element-citation>
+</ref>
+<ref id="R33">
+<label>33</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bush</surname>
+<given-names>WS</given-names>
+</name>
+<name>
+<surname>Dudek</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<source/>Pac Symp Biocomput
+          <fpage>368</fpage>
+<year>2009</year>
+<pub-id pub-id-type="pmid">19209715</pub-id>
+</element-citation>
+</ref>
+<ref id="R34">
+<label>34</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pendergrass</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Frase</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Wallace</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Wolfe</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Katiyar</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+</person-group>
+<source/>BioData Min
+          <volume>6</volume>
+<issue>1</issue>
+<fpage>25</fpage>
+<year>2013</year>
+<pub-id pub-id-type="pmid">24378202</pub-id>
+</element-citation>
+</ref>
+<ref id="R35">
+<label>35</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Greene</surname>
+<given-names>CS</given-names>
+</name>
+<name>
+<surname>Penrod</surname>
+<given-names>NM</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>JH</given-names>
+</name>
+</person-group>
+<source/>PLoS One 2009
+          <volume>4</volume>
+<issue>6</issue>
+<fpage>e5639</fpage>
+<year>2009</year>
+</element-citation>
+</ref>
+<ref id="R36">
+<label>36</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Reiman</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Tolhurst</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Gribble</surname>
+<given-names>FM</given-names>
+</name>
+</person-group>
+<source/>Cell Metabolism
+          <volume>15</volume>
+<issue>4</issue>
+<fpage>421</fpage>
+<year>2012</year>
+<pub-id pub-id-type="pmid">22482725</pub-id>
+</element-citation>
+</ref>
+<ref id="R37">
+<label>37</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sternini</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Anselmi</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Rozengurt</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<source/>Curr Opin Endocrinol Diabetes Obes
+          <volume>15</volume>
+<issue>1</issue>
+<fpage>73</fpage>
+<year>2008</year>
+<pub-id pub-id-type="pmid">18185066</pub-id>
+</element-citation>
+</ref>
+<ref id="R38">
+<label>38</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kaji</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Karaki</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Kuwahara</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<source/>Curr Pharm Des
+          <volume>20</volume>
+<issue>16</issue>
+<fpage>2766</fpage>
+<year>2014</year>
+<pub-id pub-id-type="pmid">23886384</pub-id>
+</element-citation>
+</ref>
+<ref id="R39">
+<label>39</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Reimann</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Gribble</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<source/>Diabetologia
+          <volume>59</volume>
+<fpage>229</fpage>
+<year>2016</year>
+<pub-id pub-id-type="pmid">26661410</pub-id>
+</element-citation>
+</ref>
+<ref id="R40">
+<label>40</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xia</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Chesi</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Manduchi</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Johnston</surname>
+<given-names>BT</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Leonard</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Parlin</surname>
+<given-names>UW</given-names>
+</name>
+<name>
+<surname>Rappaport</surname>
+<given-names>EF</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Wells</surname>
+<given-names>AD</given-names>
+</name>
+<name>
+<surname>Blobel</surname>
+<given-names>GA</given-names>
+</name>
+<name>
+<surname>Johnson</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Grant</surname>
+<given-names>SF</given-names>
+</name>
+</person-group>
+<source/>Diabetologia
+          <volume>59</volume>
+<issue>11</issue>
+<fpage>2360</fpage>
+<year>2016</year>
+<pub-id pub-id-type="pmid">27539148</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="F1" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Functional genomics data sets of different kinds, for tissues or cells relevant to the trait of interest, are used to identify putative active and interacting enhancer-promoter pairs. Pairs of SNPs harbored in these interacting regions are extracted and analyzed for epistasis in a discovery GWAS. Significant pairs from this analysis are then examined in one or more replication GWAS to identify candidates for subsequent follow-up work.</p>
+</caption>
+<graphic xlink:href="nihms921879f1"></graphic>
+</fig>
+<table-wrap id="T1" orientation="landscape" position="float">
+<label>Table 1</label>
+<caption>
+<p>Regression coefficients in the full model for each of the three data sets. The unadjusted LRT p value (full model versus reduced model) and sumz combined p value are also reported. For the GENEVA data set rs8007341 was used as a proxy for SNP1.</p>
+</caption>
+<table frame="box" rules="all">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="bottom"></th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">SNP1</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">SNP2</th>
+<th align="right" colspan="1" rowspan="1" valign="top">β_SNP1</th>
+<th align="right" colspan="1" rowspan="1" valign="top">β_SNP2</th>
+<th align="right" colspan="1" rowspan="1" valign="top">β_SNP1×SNP2</th>
+<th align="right" colspan="1" rowspan="1" valign="top">LRT p</th>
+<th align="left" colspan="1" rowspan="1" valign="top">comb p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">WTCCC</td>
+<td align="left" colspan="1" rowspan="3" valign="middle">rs12882535</td>
+<td align="left" colspan="1" rowspan="3" valign="middle">rs8008440</td>
+<td align="right" colspan="1" rowspan="1" valign="top">0.053</td>
+<td align="right" colspan="1" rowspan="1" valign="top">−0.923</td>
+<td align="right" colspan="1" rowspan="1" valign="top">−7.672</td>
+<td align="right" colspan="1" rowspan="1" valign="top">1.44E-05</td>
+<td align="left" colspan="1" rowspan="3" valign="middle">4.20E-06</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">GENEVA</td>
+<td align="right" colspan="1" rowspan="1" valign="top">0.001</td>
+<td align="right" colspan="1" rowspan="1" valign="top">0.465</td>
+<td align="right" colspan="1" rowspan="1" valign="top">−1.152</td>
+<td align="right" colspan="1" rowspan="1" valign="top">0.018</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FUSION</td>
+<td align="right" colspan="1" rowspan="1" valign="top">0.131</td>
+<td align="right" colspan="1" rowspan="1" valign="top">100.158</td>
+<td align="right" colspan="1" rowspan="1" valign="top">−199.465</td>
+<td align="right" colspan="1" rowspan="1" valign="top">0.156</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,2539 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<?properties manuscript?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-journal-id">9809671</journal-id>
+<journal-id journal-id-type="nlm-ta">Nat Neurosci</journal-id>
+<journal-id journal-id-type="iso-abbrev">Nat. Neurosci.</journal-id>
+<journal-title-group>
+<journal-title>Nature neuroscience</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1097-6256</issn>
+<issn pub-type="epub">1546-1726</issn>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31451803</article-id>
+<article-id pub-id-type="pmc">6763336</article-id>
+<article-id pub-id-type="doi">10.1038/s41593-019-0465-5</article-id>
+<article-id pub-id-type="manuscript">EMS83678</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Landscape of ribosome-engaged transcript isoforms reveals extensive
+neuronal cell class-specific alternative splicing programs</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes">
+<name>
+<surname>Furlanis</surname>
+<given-names>Elisabetta</given-names>
+</name>
+<xref ref-type="aff" rid="A1">2</xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes">
+<name>
+<surname>Traunmüller</surname>
+<given-names>Lisa</given-names>
+</name>
+<xref ref-type="aff" rid="A1">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Fucile</surname>
+<given-names>Geoffrey</given-names>
+</name>
+<xref ref-type="aff" rid="A2">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Scheiffele</surname>
+<given-names>Peter</given-names>
+</name>
+<xref ref-type="aff" rid="A1">2</xref>
+<xref ref-type="corresp" rid="CR1">*</xref>
+</contrib>
+</contrib-group>
+<aff id="A1">
+<label>2</label>Biozentrum, University of Basel, 4056 Basel, Switzerland</aff>
+<aff id="A2">
+<label>3</label>Center for Scientific Computing (sciCORE), University of Basel, 4056
+Basel, Switzerland</aff>
+<author-notes>
+<corresp id="CR1"><label>*</label>Corresponding author:
+<email>peter.scheiffele@unibas.ch</email></corresp>
+</author-notes>
+<pub-date pub-type="nihms-submitted">
+<day>10</day>
+<month>7</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="ppub">
+<day>10</day>
+<month>7</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>26</day>
+<month>8</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>26</day>
+<month>2</month>
+<year>2020</year>
+</pub-date>
+<volume>22</volume>
+<issue>10</issue>
+<fpage>1709</fpage>
+<lpage>1717</lpage>
+<!--elocation-id from pubmed: 10.1038/s41593-019-0465-5-->
+<permissions>
+<license xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">
+<license-p>Users may view, print, copy, and download text and data-mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:<ext-link ext-link-type="uri" xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">http://www.nature.com/authors/editorial_policies/license.html#terms</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p id="P1">Nervous system function relies on complex assemblies of distinct neuronal
+cell types with unique anatomical and functional properties instructed by
+molecular programs. Alternative splicing is a key mechanism for the expansion of
+molecular repertoires and protein splice isoforms shape neuronal cell surface
+recognition and function. However, the logic of how alternative splicing
+programs are arrayed across neuronal cells types is poorly understood. We
+systematically mapped ribosome-associated transcript isoforms in
+genetically-defined neuron types of the mouse forebrain. Our dataset provides an
+extensive resource of transcript diversity across major neuron classes. We find
+that neuronal transcript isoform profiles reliably distinguish even
+closely-related classes of pyramidal cells and inhibitory interneurons in the
+mouse hippocampus and neocortex. These highly specific alternative splicing
+programs selectively control synaptic proteins and intrinsic neuronal
+properties. Thus, transcript diversification by alternative splicing is a
+central mechanism for the functional specification of neuronal cell types and
+circuits.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<sec id="S1" sec-type="intro">
+<title>Introduction</title>
+<p id="P2">The mammalian brain contains hundreds of cell types with unique anatomical
+and functional properties. Cell type characteristics are fundamental underpinnings
+of neuronal circuit function and – ultimately – the control of
+behaviors. Many of the distinctive neuronal morphologies were recognized one hundred
+years ago <sup><xref ref-type="bibr" rid="R1">1</xref></sup>. More recent studies
+uncovered electrophysiological properties and characteristic gene expression
+profiles that are associated with specific neuron types <sup><xref ref-type="bibr" rid="R2">2</xref>,<xref ref-type="bibr" rid="R3">3</xref></sup>. Yet, we
+still lack comprehensive knowledge of how the multitude of neuronal properties is
+encoded by a limited number of genes. Evolutionary comparisons revealed a
+significant increase in alternative splicing heterogeneity in more complex
+organisms. Within those, the nervous system exhibits the most extensive usage of
+alternative transcript isoforms <sup><xref ref-type="bibr" rid="R4">4</xref>,<xref ref-type="bibr" rid="R5">5</xref></sup>. Single gene studies provided
+evidence that individual protein variants generated through alternative splicing can
+exhibit unique isoform-specific functions <sup><xref ref-type="bibr" rid="R6">6</xref>–<xref ref-type="bibr" rid="R10">10</xref></sup>. However,
+in many molecular studies on neuronal connectivity and function the identity of
+splice isoforms endogenous to the cell type of interest are unknown. This is a
+significant bottleneck for interpretation of gain and loss-of-function studies.
+While loss of RNA binding proteins that regulate alternative splicing and cell
+type-specific knock-outs exhibit severe impacts on neuronal function and synaptic
+transmission <sup><xref ref-type="bibr" rid="R11">11</xref>–<xref ref-type="bibr" rid="R16">16</xref></sup>, most of these proteins are
+commonly expressed in all neuronal cell types <sup><xref ref-type="bibr" rid="R17">17</xref>–<xref ref-type="bibr" rid="R20">20</xref></sup>. Thus, the
+general logic of how alternative splicing programs relate to brain complexity is
+poorly understood.</p>
+<p id="P3">Previous bulk-sequencing analyses contrasted neuronal and non-neuronal
+splicing regulation <sup><xref ref-type="bibr" rid="R21">21</xref></sup>.
+Developmental analysis of mouse neocortex uncovered a series of temporally
+controlled coordinated splicing switches in brain tissues. These developmental
+switches were pan-neuronal and occurred across all neuronal populations <sup><xref ref-type="bibr" rid="R21">21</xref>–<xref ref-type="bibr" rid="R24">24</xref></sup>. Only very recent studies are beginning to probe whether
+well-defined neuronal cell types rely on alternative splicing for the regulation of
+specific biological functions <sup><xref ref-type="bibr" rid="R16">16</xref>,<xref ref-type="bibr" rid="R20">20</xref></sup>. However, it remains debated to
+what extent transcript isoforms detected by RNA-sequencing are indeed recruited for
+translation to produce protein isoforms <sup><xref ref-type="bibr" rid="R25">25</xref>,<xref ref-type="bibr" rid="R26">26</xref></sup>. To address these
+questions, we generated genome-wide maps of transcript isoforms that are recruited
+for translation in genetically-defined neuronal cell populations. Our analysis
+identified hundreds of differentially regulated splicing events across distinct
+neuron types. Moreover, we demonstrate that cell type-specific splice isoforms
+define neuronal cell populations and shape intrinsic properties and synaptic protein
+complexes. The dataset provides a rich resource for selecting endogenously expressed
+splice isoforms to be used in functional studies, for interpreting impact of gene
+mutations in disease states, and for the dissection of enhancers and promoters that
+drive cell type-specific transcripts from alternative transcription start sites.</p>
+</sec>
+<sec id="S2" sec-type="results">
+<title>Results</title>
+<sec id="S3">
+<title>Deep mapping of actively translated transcript isoforms in cortical and
+hippocampal neuron populations</title>
+<p id="P4">In order to obtain a comprehensive mapping of transcript isoforms in the
+mouse forebrain we conducted large-scale tagged-ribosomal affinity purification
+(RiboTRAP) of ribosome-associated mRNAs from genetically-defined neurons (<xref ref-type="fig" rid="F1">Fig. 1a</xref>). The endogenous ribosomal protein
+Rpl22 was conditionally HA-tagged in glutamatergic neurons (using CamK2-cre for
+most neocortical pyramidal cells and Scnn1a-cre for spiny stellate and star
+pyramid layer 4 cells), and GABAergic interneurons [with somatostatin-cre (SST),
+parvalbumin-cre (PV) and vasointestinal peptide-cre (VIP)]. Within the
+hippocampus, we further targeted <italic>Cornu ammonis 1 (CA1)</italic> neurons
+(CamK2-cre), CA3 neurons (Grik4-cre), and SST-positive interneurons (SST-cre)
+(<xref ref-type="fig" rid="F1">Fig. 1b</xref>, <xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 1</xref>).
+Using an optimized affinity-isolation protocol and strict quality control
+measures followed by deep RNA-sequencing (paired-end, read length 100bp,
+&gt;100 Million reads per biological replicate) we detected &gt;
+12’000 genes per sample with full-length coverage across transcripts
+(<xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 2,
+3a</xref>) and low variance between biological replicates (<xref ref-type="fig" rid="F1">Fig. 1c</xref>). Transcriptome analysis confirmed
+appropriate enrichment and de-enrichment of known and newly discovered markers.
+Widely expressed non-neuronal genes such as astrocyte markers were either not
+detected or showed low level background in some of these isolates (<xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 1b, 3b-d,
+4</xref>, <xref ref-type="supplementary-material" rid="SD7">Supplementary
+Table 1</xref>). Thus, this deep dataset enables reliable dissection of
+transcript isoforms translated in specific cell types.</p>
+</sec>
+<sec id="S4">
+<title>Alternative transcript repertoires define neuronal populations</title>
+<p id="P5">To map transcript repertoires across neuronal cell types we quantified
+alternative isoforms using two complementary computational methods. First, we
+analyzed differential exon usage by quantifying reads mapping onto individual
+exons relative to the number of reads on constitutive exons derived from the
+same gene (constitutive exons are defined in the annotated transcript database
+FAST DB<sup><xref ref-type="bibr" rid="R27">27</xref></sup>, EXON analysis,
+<xref ref-type="supplementary-material" rid="SD8">Supplementary
+Fig.5</xref>, see <xref ref-type="sec" rid="S10">methods</xref> for details).
+Second, the differential usage of splicing patterns was assessed using exonic
+and junctional reads mapping to transcript isoforms annotated in FAST DB
+(PATTERN analysis, <xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 5</xref>, see <xref ref-type="sec" rid="S10">methods</xref> for details). This quantitative mapping of alternative
+transcript isoforms uncovered hundreds of highly differentially regulated
+transcript isoforms in neocortical and hippocampal cell populations [log2
+fold-change (log2FC) in splicing index (SI) ≥ 1 or ≤ -1, p-value
+≤ 0.01]. Independent experimental validations with semi-quantitative
+RT-PCR confirmed the accuracy of the computational pipeline (validation rate
+&gt; 90%, <xref ref-type="supplementary-material" rid="SD8">Supplementary
+Fig. 6</xref>). Therefore, this validated dataset represents a comprehensive
+resource for alternative transcripts in the major forebrain neuron populations
+(<xref ref-type="supplementary-material" rid="SD6">Supplementary Table
+2</xref>, <xref ref-type="supplementary-material" rid="SD5">3</xref> and
+<ext-link ext-link-type="uri" xlink:href="https://scheiffele-splice.scicore.unibas.ch">https://scheiffele-splice.scicore.unibas.ch</ext-link> for a web-based
+look-up tool to query isoforms for individual genes). Divergent transcript
+isoforms may arise from alternative splicing but also alternative transcription
+start sites (TSS) <sup><xref ref-type="bibr" rid="R28">28</xref>,<xref ref-type="bibr" rid="R29">29</xref></sup>. The PATTERN analysis enabled
+us to separate transcript isoforms arising from these mechanistically different
+forms of transcript diversification. Remarkably, the exons differentially
+regulated by alternative splicing reliably segregated neuronal cell classes
+(<xref ref-type="fig" rid="F1">Fig. 1d</xref>). Thus, Scnn1a-defined layer 4
+cells are characterized by 310 exons included in 214 different genes. Similarly,
+the two medial ganglionic eminence (MGE)-derived interneuron classes (PV and SST
+populations) are distinguished by 628 and 719 exons from 407 and 486 genes,
+respectively. Moreover, alternative transcript isoforms in the CGE (Caudal
+Ganglionic Eminence)-derived VIP interneurons were distinct from PV and
+SST-populations, with 609 exons differentially included in 407 genes. Overall,
+we did not observe a correlation of changes in splicing indices and gene
+expression level, indicating that our analysis captures differentially regulated
+exons across a broad spectrum of transcript expression levels (<xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 7</xref>). In
+previous studies, microexons (defined as exons 3-27 nucleotides long) were shown
+to preferentially contribute to transcript diversification in the nervous
+system<sup><xref ref-type="bibr" rid="R30">30</xref></sup>. Amongst all
+exons differentially regulated (DR) across neuronal cell classes, we find
+3.8-5.3% to be microexons. These percentages are slightly higher compared to the
+percentage of total microexons detected in the neocortex (2.8%, see <xref ref-type="sec" rid="S10">methods</xref> for details). Thus, differential
+alternative splicing across cell types is substantial for microexons but also
+other types of splicing events. In summary, this analysis demonstrates that
+extensive alternative splicing regulation distinguishes major neuronal cell
+classes in the mouse neocortex.</p>
+</sec>
+<sec id="S5">
+<title>Wide use of alternative transcription start sites across cortical neuron
+sub-classes</title>
+<p id="P6">We quantified the frequency of distinct patterns underlying the
+differentially regulated splicing events in neocortical cell populations and
+found that they distributed over multiple categories (<xref ref-type="fig" rid="F2">Figure 2a</xref>, <xref ref-type="supplementary-material" rid="SD6">Supplementary Table 2</xref>). Usage of cassette exons was the most
+frequent differentially regulated alternative splicing event across cell
+populations (<xref ref-type="fig" rid="F2">Fig. 2a, 2b</xref> for
+<italic>Dlgap2</italic> as example). Interestingly, alternative last exons
+(ALE), which result in a modification of the 3’UTR of transcripts,
+represented about 20% of events (<xref ref-type="fig" rid="F2">Fig 2a, 2b</xref>
+<italic>Ncam1</italic> as example). This is notable considering that alternative
+last exons can impose cell type-specific protein expression as well as
+subcellular localization of mRNAs <sup><xref ref-type="bibr" rid="R10">10</xref>,<xref ref-type="bibr" rid="R31">31</xref></sup>. In addition
+to transcript diversification by alternative splicing we found that across all
+neocortical cell classes, ~30-60% of differentially regulated transcript
+isoforms arose from alternative TSS (<xref ref-type="fig" rid="F2">Fig.
+2c</xref>, <xref ref-type="supplementary-material" rid="SD6">Supplementary
+Table 2</xref>). This implies a frequent action of cell type-specific
+enhancers and promoters. An example for alternative TSS regulation is
+<italic>Dlgap1,</italic> which encodes a major glutamatergic scaffolding
+protein. In neocortical PV-positive cells, we identified an alternative TSS in
+exon3 of <italic>Dlgap1</italic> which switches to exon 5 in the Scnn1a-positive
+layer 4 cells (<xref ref-type="fig" rid="F2">Fig. 2d</xref>). This differential
+regulation results in transcripts that differ in the 5’UTR and the
+N-terminal amino acids (see <xref ref-type="fig" rid="F2">Fig. 2d</xref>
+<italic>Rapgef5</italic> for an additional example). When comparing the
+segregation of differential TSSs and ALEs we find that either of these types of
+events efficiently segregated neocortical excitatory and inhibitory cell
+classes, including MGE- and CGE-derived interneurons (<xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. S8 a and
+b</xref>, respectively. Exon numbers involved are indicated in the figure
+legend). Thus, our analysis demonstrates that not only alternative splicing but
+also alternative TSS are major drivers of neuronal cell type-specific transcript
+isoform expression in the mouse forebrain.</p>
+</sec>
+<sec id="S6">
+<title>Divergent alternative splicing programs across closely related cells in
+different anatomical positions</title>
+<p id="P7">Hippocampal CA1 and CA3 pyramidal neurons exhibit certain unique
+functional properties and overall similar transcriptomes <sup><xref ref-type="bibr" rid="R32">32</xref></sup>. Thus, we explored whether
+there are differential splicing programs specific for these closely-related
+glutamatergic cell classes. We identified hundreds of differentially expressed
+transcript isoforms arising from different patterns of alternative splicing, as
+well as alternative TSS between CA1 and CA3 cell preparations (253 DR exons,
+log2FC ≥ 1 or ≤ -1, p-value ≤ 0.01, <xref ref-type="fig" rid="F3">Fig. 3a</xref>, <xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 9</xref>, <xref ref-type="supplementary-material" rid="SD5">Supplementary Table 3</xref>). These include key isoforms with
+well-characterized functional properties such as the mutually exclusive exons
+which regulate flip/flop variants of the <italic>Gria1</italic> AMPAR subunit
+<sup><xref ref-type="bibr" rid="R33">33</xref></sup>, or alternative
+last exons in <italic>Brevican</italic>, which control expression of a secreted
+Brevican isoform implicated in neuronal adhesion <sup><xref ref-type="bibr" rid="R34">34</xref></sup> (<xref ref-type="fig" rid="F3">Fig.
+3b</xref>). Similarly, cortical L4 excitatory neurons and hippocampal CA1
+pyramidal neurons exhibited 276 differentially regulated exons (<xref ref-type="fig" rid="F3">Figure 3a</xref>) and transcript isoforms derived
+from multiple patterns of alternative splicing (<xref ref-type="fig" rid="F3">Figure 3c</xref>
+<italic>Nrxn3</italic> as example, <xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 9</xref>, <xref ref-type="supplementary-material" rid="SD4">Supplementary Table 4</xref>).
+These comparisons highlight vastly divergent transcript isoform content between
+different classes of glutamatergic neurons, including closely related pyramidal
+cells from hippocampal sub-fields. By comparison, splicing programs were much
+more similar between hippocampal <italic>versus</italic> neocortical
+SST-positive interneurons (only 151 highly differentially regulated exons <xref ref-type="fig" rid="F3">Fig. 3a, 3c</xref> cassette exon regulation in
+<italic>Fat1</italic> as example, <xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 9</xref>, <xref ref-type="supplementary-material" rid="SD4">Supplementary Table 4</xref>,
+<xref ref-type="supplementary-material" rid="SD3">Supplementary Table
+5</xref> for an overview of differentially expressed genes and alternatively
+regulated splicing events). In sum, we conclude that alternative splicing plays
+a major role in diversifying molecular repertoires at the level of neuronal
+sub-classes and cell types within and across anatomical positions.</p>
+</sec>
+<sec id="S7">
+<title>Identification of neuronal subclass-specific splicing factors in neocortical
+and hippocampal cells</title>
+<p id="P8">Most neuronal RNA binding proteins (RBPs) studied thus far are
+pan-neuronally expressed. Given the extensive differential alternative
+transcript regulation in neuronal sub-classes, we sought to identify RBPs that
+might regulate alternative splicing in a cell type-specific manner. We generated
+a hand-curated list of 57 <italic>bona fide</italic> splicing regulators based
+on databases and previous publications and evaluated their expression across
+neuronal populations (<xref ref-type="supplementary-material" rid="SD2">Supplementary Table 6</xref>). As expected, several splicing factor
+transcripts exhibited broad expression with little difference across neocortical
+and hippocampal cell classes (e.g., <italic>Hnrnpa2b1, Hnrnpl, Srrm1,</italic>
+<xref ref-type="fig" rid="F4">Fig. 4a</xref>, <xref ref-type="supplementary-material" rid="SD2">Supplementary Table 6</xref>).
+By contrast, other splicing factors showed highly selective expression with some
+segregating between glutamatergic and GABAergic neuron groups and others highly
+enriched in certain neuron classes (<xref ref-type="fig" rid="F4">Fig.
+4a</xref>). For example, the Rbm20 transcript is preferentially expressed in
+PV-interneurons, <italic>Ptbp1</italic> in VIP-interneurons, and
+<italic>Rbfox3</italic> – also called NeuN – is preferentially
+expressed in glutamatergic cells (<xref ref-type="fig" rid="F4">Fig. 4a</xref>,
+<xref ref-type="supplementary-material" rid="SD2">Supplementary Table
+6</xref>). Fluorescent <italic>in situ</italic> hybridizations for select
+RBPs confirmed the differential expression patterns extracted from RiboTRAP
+sequencing data (<xref ref-type="supplementary-material" rid="SD8">Supplementary
+Fig. S10</xref>, <xref ref-type="supplementary-material" rid="SD2">Supplementary Table 6</xref> for statistical analysis). To investigate
+whether some of the differentially expressed splicing factors represent
+candidates that drive cell type-specific alternative splicing choices, we
+employed splice reporter assays in Neuroblastoma 2A (N2A) cells (see <xref ref-type="sec" rid="S10">Methods</xref> for details). We generated reporter
+constructs for exons that we found to be differentially regulated across
+neocortical neurons (alternative cassette exons in neurotransmitter receptors
+Gabrg2 and Grin1, and the voltage-gated potassium channel Kcnq2, <xref ref-type="fig" rid="F4">Fig. 4b</xref>). Co-expression in N2A cells of
+several RBPs (e.g., hnRNP A1, hnRNP H1, Ptbp3) did not shift splicing patterns
+<italic>in vitro</italic>. On the other hand, co-expression of Ptbp1 (which
+is preferentially expressed in VIP-interneurons <xref ref-type="fig" rid="F4">Fig. 4a,d</xref>) shifted splicing of Gabrg2 and Kcnq2 reporters to the
+pattern observed for endogenous mRNAs in VIP-interneurons (<xref ref-type="fig" rid="F4">Fig 4c</xref>). Similarly, Rbfox3 shifted the Grin1 reporter
+splicing to the pattern enriched in Scnn1a cells (which express high levels of
+Rbfox3) (<xref ref-type="fig" rid="F4">Fig. 4c,d</xref>). Thus, these
+differentially expressed splicing regulators represent possible candidates for
+the regulation of the respective splicing events <italic>in vivo</italic>. In
+summary, this analysis identifies candidate neuronal cell class-specific
+splicing regulators for the differential regulation of transcripts.</p>
+</sec>
+<sec id="S8">
+<title>Alternative splicing programs are highly dedicated to controlling synaptic
+interactions and neuronal architecture</title>
+<p id="P9">To probe which cellular properties are regulated by alternative splicing,
+we assessed the enrichment of Gene Ontology (GO) terms for transcripts regulated
+across all neocortical cell classes, hippocampal comparisons, and across brain
+regions. Given that alternative first exons result from transcriptional
+regulation, we excluded them from this analysis. Remarkably, the differential
+alternative splicing regulation almost exclusively targets transcripts encoding
+for synaptic proteins and intrinsic neuronal properties. Enrichment of the top
+GO terms significant for genes differentially regulated by splicing was 2 - 4
+fold higher as compared to genes differentially expressed (<xref ref-type="fig" rid="F5">Fig. 5a</xref>, <xref ref-type="supplementary-material" rid="SD8">Supplementary Fig. 11a,b</xref> for enriched categories of differentially
+expressed genes, <xref ref-type="supplementary-material" rid="SD1">Supplementary
+Table 7</xref> for all GO terms). Note that the enrichment of genes encoding
+synaptic proteins was not simply a consequence of such genes containing larger
+numbers of exons (<xref ref-type="supplementary-material" rid="SD8">Supplementary Figure 11c</xref>). Specifically, the enriched GO terms map
+onto five key categories, which fundamentally shape synapse function and
+intrinsic neuronal properties: Adhesion complexes (e.g. <italic>Cntn4, Cntnap2,
+Ncam1, Nlgn1, Nrxn3, Nfasc, Ptprs, Robo2</italic>) implicated in formation
+and specification of neuronal synapses <sup><xref ref-type="bibr" rid="R35">35</xref>–<xref ref-type="bibr" rid="R37">37</xref></sup>,
+voltage-gated calcium channels (e.g. <italic>Cacnb2, Cacnab4, Cacna1g,
+Cacna1d</italic>), presynaptic release machinery (e.g. <italic>Rims, Synj1,
+Stxbp1, Syt17, Unc13b</italic>), postsynaptic neurotransmitter receptor
+complexes (e.g. <italic>Grm1, Grm5, Gria1, Gria2, Shisa9</italic>) and
+associated scaffolding proteins (e.g. <italic>Camk2, Dlgap1, Rapgef4, Shank3,
+Tiam1</italic>) (<xref ref-type="fig" rid="F5">Fig. 5b</xref>). All of these
+genes encode key regulators of synaptic function and plasticity. Three further
+categories highly targeted by cell type-specific alternative splicing are
+potassium channels, motor proteins, and regulators of cytoskeletal
+rearrangements – elements central for the control of intrinsic neuronal
+properties (<xref ref-type="fig" rid="F5">Fig. 5c</xref>). In particular,
+potassium channels are key determinants of neuronal excitability at the level of
+after-hyperpolarization upon action potential firing (<italic>Kcnn2</italic>),
+at the level of M-currents (<italic>Kcnq2</italic>), or through
+calcium-dependent regulation of A-currents (<italic>Kcnip1,4</italic>)
+<sup><xref ref-type="bibr" rid="R38">38</xref></sup>. Thus, neuronal
+cell type-specific alternative splicing programs specifically encode intrinsic
+neuronal properties and synapse specification.</p>
+</sec>
+</sec>
+<sec id="S9" sec-type="discussion">
+<title>Discussion</title>
+<p id="P10">Previous studies highlighted an expansion of splicing complexity across
+vertebrate species with a particular increase in alternative exon usage in the brain
+<sup><xref ref-type="bibr" rid="R4">4</xref></sup>. This increase in
+alternative splicing may relate to neuronal cell types and functions in multiple
+ways. Single gene studies illustrated stochastic splice isoform choices at the
+single cell level <sup><xref ref-type="bibr" rid="R39">39</xref>,<xref ref-type="bibr" rid="R40">40</xref></sup> but also reproducible splicing
+patterns linked to cell types <sup><xref ref-type="bibr" rid="R16">16</xref>,<xref ref-type="bibr" rid="R20">20</xref>,<xref ref-type="bibr" rid="R41">41</xref>–<xref ref-type="bibr" rid="R44">44</xref></sup>. Here, we
+demonstrate that complex alternative splicing programs define sub-classes of
+cortical and hippocampal neuron types. Thus, the selection of cell type-specific
+transcript variants is not an exceptional feature for individual protein families
+but a fundamental program of highly differentiated cell types in a complex organism.
+During embryonic development, the lineage decisions for interneuron and pyramidal
+cell differentiation are mainly driven by transcription factor codes <sup><xref ref-type="bibr" rid="R45">45</xref>,<xref ref-type="bibr" rid="R46">46</xref></sup>. We propose that cell type-specific expression of
+RNA-binding proteins imposes splicing-dependent regulation for terminal
+differentiation of these neuron classes. Consistent with this notion, several of the
+candidate splicing specificity factors that we mapped here are already detected in
+interneurons at embryonic stages of development <sup><xref ref-type="bibr" rid="R46">46</xref>,<xref ref-type="bibr" rid="R47">47</xref></sup>.</p>
+<p id="P11">The RiboTrap approach used in our study facilitates interrogation of splice
+isoforms with excellent coverage across the entire transcript. Low level background
+contamination for some cell classes may influence detected splicing differences,
+particularly for widely expressed non-neuronal genes. However, the RiboTrap approach
+benefits from deep coverage of splice junctions and rare transcript isoforms that go
+undetected or cannot reliably be quantified from single cell sequencing data.
+Moreover, mapping ribosome-associated mRNAs focuses the analysis on transcript
+isoforms that are recruited by the translational machinery.</p>
+<p id="P12">An unexpected finding in our study was the highly divergent usage of
+alternative transcription start sites across neuronal populations. This suggests
+prominent roles for cell type-specific enhancers and promoters in generating
+transcript isoforms. We propose that this complex transcript regulation evolved not
+only to modify protein isoforms but also to afford unique spatio-temporal modulation
+of neuronal gene expression. Complex alternative splicing programs control diverse
+biological processes from chromatin and RNA regulators, to ion homeostasis and
+mitochondrial function. Considering this broad range of splicing-regulated
+processes, it is remarkable that the neuronal cell type-specific splicing programs
+are selectively geared to the control of synaptic and intrinsic neuronal properties.
+Splice isoforms of neuronal receptors, ion channels, synaptic adhesion and
+scaffolding proteins exhibit fundamentally divergent functions <sup><xref ref-type="bibr" rid="R19">19</xref>,<xref ref-type="bibr" rid="R48">48</xref></sup> and significant splicing disruptions have been linked to
+neurodevelopmental disorders <sup><xref ref-type="bibr" rid="R30">30</xref></sup>.
+In humans, more than 90% of gene products are modified by alternative splicing. A
+major impediment for exploring the functional relevance of transcript isoforms in
+neuronal wiring has been the lack of knowledge of how splice isoforms are arrayed
+over neuronal cell types. Our comprehensive genome-wide analysis uncovers hundreds
+of cell class-specific transcript isoforms encoding key regulators of synaptic
+function and intrinsic neuronal properties. To maximize the accessibility of this
+large dataset and to simplify the identification of differentially expressed
+transcript isoforms, we established a web-based “splicecode database”
+where users can retrieve differential isoform expression data for any gene of
+interest (<ext-link ext-link-type="uri" xlink:href="https://scheiffele-splice.scicore.unibas.ch">https://scheiffele-splice.scicore.unibas.ch</ext-link>). In the future,
+targeted manipulation of cell type-specific splicing events may open the door for a
+new class of therapeutic interventions in disease states.</p>
+</sec>
+<sec id="S10" sec-type="methods" specific-use="web-only">
+<title>Methods</title>
+<sec id="S11">
+<title>Mice</title>
+<p id="P13">All procedures involving animals were approved by and performed in
+accordance with the guidelines of the Kantonales Veterinäramt
+Basel-Stadt. Male and female mice were used in this study.</p>
+<p id="P14"><italic>Rpl22-HA</italic> (RiboTag) mice <sup><xref ref-type="bibr" rid="R49">49</xref></sup>, <italic>Pvalb-cre</italic> mice <sup><xref ref-type="bibr" rid="R50">50</xref></sup>, <italic>SST-cre</italic> mice
+<sup><xref ref-type="bibr" rid="R51">51</xref></sup>,
+<italic>CamK2-cre</italic> mice <sup><xref ref-type="bibr" rid="R52">52</xref></sup>, <italic>Grik4-cre</italic> mice <sup><xref ref-type="bibr" rid="R53">53</xref></sup>, <italic>VIP-cre</italic> mice
+<sup><xref ref-type="bibr" rid="R51">51</xref></sup> and
+<italic>Scnn1a-cre</italic> mice <sup><xref ref-type="bibr" rid="R54">54</xref></sup> were obtained from Jackson Laboratories (Jax stock no:
+011029, 017320, 013044, 005359, 006474, 031628, 009613, respectively). All lines
+were maintained on a C57Bl6/J background. The specificity of cre-lines for
+recombination of the Rpl22-allele was confirmed by immunohistochemistry and
+matched previous reports in the literature.</p>
+</sec>
+<sec id="S12">
+<title>Immunohistochemistry and imaging</title>
+<p id="P15">Animals (males and females) from postnatal day 25 to 42 were
+transcardially perfused with fixative (4% paraformaldehyde in 100mM phosphate
+buffer, pH 7.4). The brains were post-fixed overnight in same fixative at
+4°C. Coronal brain slices were cut between Bregma -1.43 and -2.15
+(including somatosensory cortex and dorsal hippocampus) at 50 µm with a
+vibratome (Leica Microsystems VT1000). For immunohistochemistry, brain sections
+were kept in PBS before incubation for 1 hour with blocking solution containing
+0.05% Triton X-100 and 10% normal donkey serum. Slices were incubated with
+primary antibodies in blocking solution at 4°C overnight and washed three
+times in PBS containing 0.05% Triton X-100, followed by incubation for 2 hours
+at room temperature with a secondary antibody. Sections were washed three times
+in PBS before mounting onto microscope slides with Fluoromount-G
+(SouthernBiotech, 0100-01). The following primary antibody was used in this
+study: rat anti-HA (Roche, 11867431001, 1:1000); Secondary antibody was: donkey
+anti-rat IgG-Cy3 (Jackson ImmunoResearch, 712-165-153, 1:1000). Hoechst dye was
+co-applied with primary antibody at a final concentration of 0.5 µg/ml.
+Images for assessing the Rpl22-HA expression were acquired at room temperature
+on a Slidescanner AxioScan.Z1 (Zeiss) using 10X objective. Stacks of 24
+µm width (4 µm interval) were acquired and were then processed by
+doing maximum projection. Images were assembled using Fiji and Illustrator
+Software.</p>
+</sec>
+<sec id="S13">
+<title>RNA isolation by RiboTRAP pulldowns</title>
+<p id="P16">For Ribotag purifications, the procedure of Heiman and colleagues for
+affinity-purification of polysomes <sup><xref ref-type="bibr" rid="R55">55</xref></sup> was modified as follows: Neoortices and hippocampi from
+mice between postnatal day 25 and 28 (males and females) were dissected in
+ice-cold PBS. For <italic>CamK2-cre</italic> and <italic>Grik4-cre</italic>
+mice, given the later onset of cre-recombinase expression, hippocampi between
+postnatal day 39 and 42 were used. Moreover, control samples from animals
+negative for either Rpl22 or cre-recombinase were used to ensure for specificity
+of the pulldown. For interneuron pulldowns, four hippocampi or cortical
+hemispheres (2 animals per condition) were lysed in respectively 1 mL or 14 mL
+(1:20 weight per volume) of homogenization buffer containing 100mM KCl, 50mM
+Tris-HCl pH 7.4, 12mM MgCl<sub>2</sub>, 100µg/mL cycloheximide
+(Sigma-Aldrich), 1mg/mL heparin (Sigma-Aldrich), 1x complete mini,
+EDTA-<italic>free</italic> protease inhibitor cocktail (Roche), 200 units/mL
+RNasin© plus inhibitor (Promega) and 1mM DTT (Sigma-Aldrich). Excitatory
+neuron pulldowns were performed on single animals and hippocampi or neocortices
+were homogenized in 0.5mL or 7mL of homogenization buffer, respectively. The
+lysate was centrifuged at 2’000 x g for 10 minutes. Igepal-CA630
+(Sigma-Aldrich) was then added to the supernatant to a final concentration of
+1%. After 5 minutes incubation on ice, the lysate was centrifuged at
+12’000 x g for 10 minutes. Before incubation with beads, 1% of the
+supernatant was taken (Input) and resuspended in 350 µL of RLT plus
+buffer from RNeasy Plus Micro Kit (Qiagen, 74034) supplemented with
+2-Mercaptoethanol (Sigma-Aldrich) as suggested by manufacturer’s
+instructions. Anti-HA coupled magnetic beads (Pierce, 88837) were added to the
+supernatant: 140 µL of beads for all neocortical samples, 20 µL
+for CamK2-cre and Grik4-cre hippocampal samples and 15 µL for SST-cre
+hippocampal samples. Incubation was performed under gentle rotation at
+4°C for 3-4 hours. After incubation, beads were quickly washed 3-4 times
+in washing buffer containing 300mM KCl, 1% Igepal-CA630 (Sigma-Aldrich), 50mM
+Tris-HCl, pH7,4, 12mM MgCl<sub>2</sub>, 100 µg/mL Cycloheximide
+(Sigma-Aldrich) and 1mM DTT (Sigma-Aldrich). Beads were than eluted in 350
+µL of RLT plus buffer from RNeasy Plus Micro Kit (Qiagen) supplemented
+with 2-Mercaptoethanol (Sigma-Aldrich).</p>
+</sec>
+<sec id="S14">
+<title>RNA purification, quantification, quality check and RT-qPCRs</title>
+<p id="P17">RNA purification (for both input and immunoprecipitated RNA) was
+performed using RNeasy Plus Micro Kit (Qiagen), following the
+manufacturers’ instructions. RNA was quality-checked on the Bioanalyzer
+instrument (Agilent Technologies) using the RNA 6000 Pico Chip (Agilent,
+5067-1513). Only RNA samples with RNA integrity number (RIN) higher than 7.5
+were used for the following steps. RNA concentration was quantified by
+Fluorometry using the QuantiFluor RNA System (Promega, E3310). 90 ng and 20 ng
+of RNA was reverse transcribed from neocortical and hippocampal samples,
+respectively, using random hexamers (Promega) and Superscript III Reverse
+Transcriptase (Invitrogen,18080093).</p>
+<p id="P18">To determine the fold-enrichment of respective marker genes in
+immunoprecipitated RNA compared to input purifications, DNA oligonucleotides
+were used with FastStart Universal SYBR Green Master (Roche, 4913914001) and
+comparative C<sub>T</sub> method. Samples were considered to be specific if
+immunoprecipitated RNA exhibited correct de- or enrichments of respective marker
+genes and if RNA of control samples did not show any selectivity for marker
+genes. For each assay, two technical replicates were performed and the mean was
+calculated. The mRNA levels were normalized to <italic>gapdh</italic> mRNA.
+RT-qPCR assays were analyzed with the StepOne software.</p>
+<p id="P19">The assessment of fold-enrichments for RNA obtained from VIP-cre was
+performed using commercial Taqman probes from Applied Biosystems: Vip
+(Mm00660234_m1), vGat (Mm00494138_m1), vGlut1 (Mm00812886_m1), Gfap
+(Mm01253033_m1).</p>
+<p id="P20">DNA Oligonucleotides used with SYBR Green-based real-time PCR (name and
+sequence 5’-&gt;3’ are indicated): <table-wrap id="T1" orientation="portrait" position="anchor"><table frame="void" rules="none"><tbody><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>CamK2-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGAAGTTCAATGCCAGGAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>CamK2-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CAGAAGATTCCTTCACACCA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gad67-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GTACTTCCCAGAAGTGAAGAC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gad67-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GAATAGTGACTGTGTTCTGAGG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gapdh-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GCTTGTCATCAACGGGAAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gapdh-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TTGTCATATTTCTCGTGGTTCA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gfap-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CTCGTGTGGATTTGGAGAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gfap-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGTTCTCGAACTTCCTCCT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Pvalb-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CATTGAGGAGGATGAGCTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Pvalb-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGTGGAGAATTCTTCAACCC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Pvrl3-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TGACTGTGTTAGTTGAACCCA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Pvrl3-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CTGCTACTGTCTCATTCCCT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Rgs14-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ATGGATTTGGAGAATCCAGTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Rgs14-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TTCACTCATCTTTGCATCCG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Scnn1a-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AAAGAGAAGCGGGAGTCAGC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Scnn1a-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CGGTGAGTTGGAGACGTCAA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>SST-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CGTCAGTTTCTGCAGAAGTC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>SST-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGTACTTGGCCAGTTCCTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Tdo2-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ATGAGTGGGTGCCCGTTTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Tdo2-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GGCTCTGTTTACACCAGTTTGAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Vgat-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CGTGACAAATGCCATTCAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Vgat-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AAGATGATGAGGAACAACCC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Vglut1-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACCCTGTTACGAAGTTTAACAC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Vglut1-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CAGGTAGAAGGTCCAGCTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Wsf1-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CATCATTCCCACCAACCTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Wsf1-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TACTTCACCACCTTCTGGC</italic></td></tr></tbody></table></table-wrap>
+</p>
+</sec>
+<sec id="S15">
+<title>Library preparation and Illumina sequencing</title>
+<p id="P21">For all five neocortical and three hippocampal neuronal populations, 4
+biological replicates with RIN &gt; 7.5 were analyzed, resulting in a total
+of 32 individual samples. Library preparation for all samples was performed with
+50 ng of RNA using the TruSeq PolyA+ Stranded mRNA Library Prep Kit High
+Throughput (Illumina, RS-122-2103). Libraries were quality-checked on a Fragment
+Analyzer (Advanced Analytical) using the Standard Sensitivity NGS Fragment
+Analysis Kit (Advanced Analytica, DNF-473), revealing excellent quality of
+libraries (average concentration was 49±14 nmol/L and average library
+size was 329±8 base pairs). The 32 samples were pooled to equal molarity
+and the pool was quantified by PicoGreen Fluorometric measurement. The pool was
+adjusted to 10pM for clustering on C-Bot (Illumina) and then sequenced
+Paired-End 101 bases using the HiSeq SBS Kit v4 (Illumina, FC-401-4003) on a
+HiSeq 2500 system. Primary data analysis was performed with the Illumina RTA
+version 1.18.66.3 and bcl2fastq-v2.20.0.422.</p>
+</sec>
+<sec id="S16">
+<title>QC and RNA-seq pre-processing</title>
+<p id="P22">The splicing analysis of RNA-Seq data were performed by GenoSplice
+technology (<ext-link ext-link-type="uri" xlink:href="http://www.genosplice.com/">www.genosplice.com</ext-link>). Data
+quality, reads repartition (e.g., for potential ribosomal contamination), and
+insert size estimation were performed using FastQC, Picard-Tools, Samtools and
+rseqc. Reads were mapped using STARv2.4.0 <sup><xref ref-type="bibr" rid="R56">56</xref></sup> against the exons defined in the proprietary Mouse FAST
+DB v2016_1 database<sup><xref ref-type="bibr" rid="R27">27</xref></sup>, using a
+mismatch cutoff of 2 and discarding reads with 10 or more alignments. The
+minimum chimeric segment length was 15. Read counts were summarized using
+featureCounts <sup><xref ref-type="bibr" rid="R57">57</xref></sup> in two
+stages. First, unique reads per exon were counted. In the second stage,
+multimapping reads were fractionally allocated to exons based on the
+distribution of unique counts of exons within a gene. Total counts were then
+calculated based on three constitutivity classes defined in FAST DB: class 2
+includes exons present in more than 75% of annotated transcripts for a gene
+(“constitutive”), class 1 includes exons present in 50-75% of
+transcripts (“semi-constitutive”), and class 0 includes exons
+present in less than 50% of transcripts (“alternative”). Total
+counts per gene were summed from constitutivity class 2 exons if their FPKM
+values exceed 96% of the background FPKM based on intergenic regions. If counts
+from class 2 exons were insufficient to exceed the detection threshold, class 1
+and eventually class 0 exon counts were included to reach the detection
+threshold.</p>
+</sec>
+<sec id="S17">
+<title>Differential gene expression analysis</title>
+<p id="P23">The analysis of differential expression was conducted using DESeq2
+v1.22.2 <sup><xref ref-type="bibr" rid="R58">58</xref></sup>. The input read
+count matrix was the same as used for the splicing analysis. Neocortical samples
+were modeled as a group with a shared base mean, and each sample set was
+contrasted against all neocortical samples. The hippocampal samples were
+contrasted in all pairwise combinations. A series of additional pairwise
+contrasts were conducted for comparisons across anatomical brain regions.
+Results for these contrasts using the Ward test and Benjamini Hochberg for
+p-value adjustment as implemented in DESeq2 are compiled in an Excel workbook
+(<xref ref-type="supplementary-material" rid="SD7">Supplementary
+Table1</xref>). For the principal component analysis, counts were normalized
+using the variance stabilizing transform (vst) as implemented in DESeq2. For
+heatmaps and the web app plots, the internal normalization factors of DESeq2
+were used to normalize the counts.</p>
+</sec>
+<sec id="S18">
+<title>Alternative splicing analysis</title>
+<p id="P24">Analysis at the splicing level is first performed taking into account
+reads mapping to exonic regions and to exon-exon junctions (<bold>EXON
+analysis</bold>) in order to potentially detect new alternative events that
+could be differentially regulated (i.e., without taking into account known
+alternative events). When mapping to exon-exon junctions, reads were assigned to
+both exons, therefore counted twice (the minimum number of nucleotides for a
+read to be considered mapped to an exon is 7).</p>
+<p id="P25">In order to consider an exon expressed, FPKM values for exons must be
+greater than 96% of the background FPKM value based on intergenic regions. Only
+exons expressed in at least 3 of the 4 biological replicates of each condition
+and in at least one of the compared experimental conditions were further
+analyzed.</p>
+<p id="P26">For EXON analysis illustrative cartoon, refer to <xref ref-type="supplementary-material" rid="SD8">Supplementary Figure S5</xref>.
+Briefly, for every expressed exon from expressed genes, a Splicing Index [SI,
+defined as the ratio between read density on the exon of interest (= row number
+of reads on the exon/exon length in nucleotides) and read density on
+constitutive exons of the gene; “class 2”] are generated, as well
+as fold-change (log2(FC), calculated by comparing the SI value in one condition
+to the mean SI value in all conditions considered) and p-value (unpaired
+Student’s t-test). Results are considered statistically significant for
+p-values ≤ 0.01 and log2(FC) ≥ 1 or ≤ -1.</p>
+<p id="P27">Analysis at the splicing level is also performed by taking into account
+known splicing patterns (<bold>PATTERN analysis</bold>) annotated in the FAST DB
+database <sup><xref ref-type="bibr" rid="R27">27</xref></sup> (i.e., for each
+gene, all annotated splicing patterns are defined, and a Splicing Index (SI) is
+generated from the comparison of normalized read density on the alternative
+annotated patterns. For PATTERN analysis illustrative cartoon refer to <xref ref-type="supplementary-material" rid="SD8">Supplementary Figure S5</xref>).
+All types of alternative events can be analyzed: Alternative transcription start
+site, alternative last exons, cassette exon, mutually exclusive exons,
+alternative 5’ donor splice site, alternative 3’ acceptor splice
+site, intron retention, internal exon deletion and complex events (corresponding
+to mix of several alternative event categories). In <xref ref-type="fig" rid="F2">Figure 2</xref> and <xref ref-type="supplementary-material" rid="SD8">S8</xref> we have merged intron retention and internal exon
+deletion events to one single category (“intron retention”).</p>
+<p id="P28">Pattern analysis is performed for every condition; log2(fold-change) of
+SI against all conditions considered and p-value (unpaired Student’s
+t-test) are generated. Results are considered statistically significant for
+p-values ≤ 0.01 and log2(FC) ≥ 1.</p>
+<p id="P29">FAST DB database includes annotations of 4965 microexons (defined as
+exons 3-27 nucleotides long), out of the 268827 total exons annotated (1.8%). In
+the neuronal populations analyzed, we identified 4140 (in the neocortex) and
+3889 (in the hippocampus) microexons reaching the cutoff for detection (2.8% and
+2.7% of the total exons detected in these forebrain regions, respectively).
+Specifically, amongst the total DR exons within a neuronal class we find 5.1% of
+microexons in Camk2, 3.8% in Scnn1a, 5.3% in SST, 4.7% in both PV and VIP.</p>
+</sec>
+<sec id="S19">
+<title>Validation of regulated alternative splicing events</title>
+<p id="P30">We used RT-PCR for experimental validation of differentially regulated
+splicing events detected by RNA-Seq. The cDNA amounts and PCR cycle numbers were
+carefully titrated to ensure linear amplification range and avoid signal
+saturation that would interfere with quantification. Standard PCR reactions were
+performed using 5X Firepol Master mix (Solis BioDyne, 04-11-00125) and designed
+exon-flanking DNA oligonucleotides. PCR products were resolved by gel
+electrophoresis and images acquired on a Biorad analyzer and processed in Fiji.
+<xref ref-type="supplementary-material" rid="SD8">Supplementary Figure
+12</xref> shows uncropped gel images. DNA Oligonucleotides used for RT-PCR
+are listed below (name and sequence 5’-&gt;3’ are indicated).
+<table-wrap id="T2" orientation="portrait" position="anchor"><table frame="void" rules="none"><tbody><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Anks1b-exon21-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GCGATGCAAGGAGGAGAAGA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Anks1b-exon23-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GAGGTCGCAAGGTGATGGAA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cadps-exon18-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CACGCCTATCTGAGTATGCCA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cadps-exon21-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GTCTTCGAGCTTTTTGGCGG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Ctnna2-exon17-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CAAAGTGAAGGCCGAGGTTC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Ctnna2-exon19-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TTTTGGCTGCCTGGATGAGT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon32-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GAACATGGTCTTCACAGGGGT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon33-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CTGCCGATTACGATGAGGGA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon32-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACATGGTCTTCACAGGGGTC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon34-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CAACGACGCTACCAACAACA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Nlgn1-exon4-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACCATGGCACTTCCCAGATG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Nlgn1-exon6-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACCTTCCATGTAAGAGCCGC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Stxbp1-exon19-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGATGCGCTGTGCTTACGAA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Stxbp1-exon21-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACCCTAAGCCTCCCCCATAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Kcnq2-exon9-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CTAACCTCTCACGCACCGAC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Kcnq2-exon11-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CTCCAGCTGGTTCAGAGGTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon8-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TGCGTTCTCAGGGAATGGAC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon9-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TGACAAAATACACCCAGGGCA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon8-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TGGCACGGAATGTAGGAGTG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Cacna1d-exon10-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ATACACCCATGGCCATTCCC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gria1-exon15-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACCGTCTGTGTTTGTTCGGA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gria1-exon16-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TTTGTCCAAAAGCCCCTGCT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gria1-exon15-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ACCGTCTGTGTTTGTTCGGA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gria1-exon17-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TCCTTGCTTCCACATTCCCC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Shisa9-exon5-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGCTCAACAAGTACGCCTCC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Shisa9-exon7-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TTGGTGCGAGACTTCTGTCC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Kcnq2-exon12-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CAGCCAGAGCCATCACCAAG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Kcnq2-exon14-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TCGGGCTGTCATCAAGACTC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Dlgap4-exon10-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CCTCCACGAACCACATCGAA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Dlgap4-exon11-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TGGGAACCGCTCCTTCTAGT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Dlgap4-exon12-F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CCAGTCCATCGGGATTCAGG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Dlgap4-exon13-R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AGGAACCAGTAGCCATCCCT</italic></td></tr></tbody></table></table-wrap>
+</p>
+</sec>
+<sec id="S20">
+<title>Fluorescent <italic>in situ</italic> hybridization</title>
+<p id="P31">Fluorescent <italic>in situ</italic> hybridization was performed
+adapting the ViewRNA ISH Cell Assay kit (Invitrogen, QVC0001) for tissue
+sections. P25 wild-type mouse brains (C57BL/6j background) were snap frozen in
+liquid nitrogen and 18 μm coronal sections were cut between Bregma -1.43
+and -2.15 (including somatosensory cortex and dorsal hippocampus) on a cryostat.
+Sections were fixed at 4°C overnight with 4% paraformaldehyde in 100mM
+phosphate buffered saline, pH 7.4. The procedure followed the
+manufacturers’ instructions, except for protease treatment, which was
+performed at a dilution of 1:100.</p>
+<p id="P32">Transcripts for splicing factors and cell type-specific markers were
+detected with the following commercial probes (Invitrogen): Celf4 (VB1-3044679),
+Elavl2 (VB1-3030263), Ptpb3 (VB1-3047128), Rbfox3 (VB1-13443), Camk2a
+(VB4-3112005), Pvalb (VB4-19638), Rorb (VB4-3131885), Sst (VB4-3112424) and Vip
+(VB4-3112423).</p>
+<p id="P33">Images were acquired at room temperature with an upright LSM700 confocal
+microscope (Zeiss) using 40X Apochromat objectives. Stacks of 10-13 µm
+width (0.6 µm interval between stacks) were acquired from layer 2-3
+(L2-3) of primary somatosensory area (S1) for <italic>CamK2-, SST-, PV-</italic>
+and <italic>VIP</italic>-positive neocortical cells and from layer4 (L4) of S1
+for <italic>Rorb</italic>-positive cells. For CA1- or CA3-specific pyramidal
+cells, images were acquired from CamK2-positive cells in <italic>cornu
+ammonis</italic> 1 and 3 regions of hippocampus, while for hippocampal
+SST-positive interneurons images were taken from cells residing in
+<italic>stratum oriens</italic>. Cell types were identified based on the
+presence of the corresponding marker transcript. A region of interest (ROI) was
+drawn to define the area of the cell and dots in the ROI were manually counted
+throughout the stacks. The number of dots in the ROI were then normalized to 100
+μm<sup>2</sup> area. Images were assembled using Fiji and Illustrator
+Software.</p>
+</sec>
+<sec id="S21">
+<title>Heatmaps and sashimi plots</title>
+<p id="P34">For clustering analysis of gene expression, Normalized Feature Counts
+values were used and data were scaled by row. For clustering analysis of
+Splicing Index (SI) values obtained from EXON analysis, data were scaled by row
+and by column. Exons with NA values (not assigned, when no reads are mapping to
+constitutive parts of the gene) or Inf values (infinite, when no reads are
+mapping to the exon) were excluded, in order to not be biased by very lowly
+expressed genes or exons. In all cases, distance was calculated by Pearson
+correlation and the resulting distance matrix was clustered using Ward.D2.
+Heatmaps were generated in R using the heatmap.2 function of gplots package.
+Sashimi plots were generated using the MISO software package <sup><xref ref-type="bibr" rid="R59">59</xref></sup>.</p>
+</sec>
+<sec id="S22">
+<title>Plasmids</title>
+<p id="P35">Splicing reporters for <italic>Gabrg2</italic>, <italic>Grin1</italic>
+and <italic>Kcnq2</italic> were assembled from synthetic DNA fragments ordered
+as gBlocks (Integrated DNA Technologies); for <italic>Grin1</italic>, an AT-rich
+intronic region that could not be synthesized was amplified from genomic mouse
+DNA using the following primers (name and sequence 5’-&gt;3’ are
+indicated): <table-wrap id="T3" orientation="portrait" position="anchor"><table frame="void" rules="none"><tbody><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Grin1_i4_F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>GTATATATGCATGGACGTGCACGC</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Grin1_i4_R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>CTGTGGTATGAGCAGGAGCGTTAGC</italic></td></tr></tbody></table></table-wrap>
+</p>
+<p id="P36">Reporters are composed of two flanking constitutive exons, the
+alternative exon (exon 9, 4 or 13 for <italic>Gabrg2</italic>,
+<italic>Grin1</italic> and <italic>Kcnq2</italic>, respectively) and the
+first and last 500 or 300 nucleotides of intronic regions (which contains
+regulatory elements for splicing reaction). A translational stop codon was
+included at the end of the last constitutive exons of <italic>Grin1</italic> and
+<italic>Kcnq2</italic> reporters. In the case of <italic>Gabrg2</italic>,
+exon 10 represents the last exon.</p>
+<p id="P37">Chromosomal coordinates of splicing reporters are: <table-wrap id="T4" orientation="portrait" position="anchor"><table frame="void" rules="none"><tbody><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gabrg2:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>41915784 –
+41916489, 41913470 – 41914493, 41912319 -
+41913091</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Grin1:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>25312928 –
+25313604, 25310375 - 25311905</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Kcnq2:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>181096650 –
+181096979, 181091939 – 181092592, 181088347
+– 181088870</italic></td></tr></tbody></table></table-wrap>
+</p>
+<p id="P38">Splicing reporters were then cloned into pmRFP-c1 vector cutting with
+SacI and SalI. All reporter plasmids are available on request.</p>
+<p id="P39">The plasmids encoding splicing factors used are: pCMV-Ptbp1-His,
+pCMV-Ptbp2-His, pCMV-Ptbp3-His, pCMV-hnRNPA1-YFP, pCMV-hnRNPH1-YFP,
+pCS3-myc6-Rbfox1 (A016), pCS3-myc6-Rbfox2 (F011), pCS3-myc6-Rbfox3 (S).</p>
+</sec>
+<sec id="S23">
+<title>Cell cultures and transfection</title>
+<p id="P40">Cortical neuron cultures were prepared from E16.5 mouse embryos.
+Neocortices were dissociated by addition of papain (Worthington Biochemical,
+LK003176) for 30 min at 37 °C. 250,000 cells/wells were plated in 12-well
+plates and they were maintained in Neurobasal Medium (Gibco, 21103-049)
+containing 2% B27 supplement (Gibco, 17504-044), 1% GlutaMAX supplement (Gibco,
+35050-038), and 1% penicillin/streptomycin (Sigma, P4333). At DIV7, cortical
+cultures were transfected with 400 ng/well of splicing reporters and
+Lipofectamine 3000 reagent (ThermoFisher Scientific, L3000008) diluted in
+opti-MEM medium (Gibco, 31985-062) using a 1:1.5 DNA-Lipofectamine ratio.</p>
+<p id="P41">20,000 Neuroblastoma 2a (Neuro2a) or HEK293T cells (obtained from ATCC)
+were plated in 96 well plates and were kept in DMEM (Sigma, D5796) supplemented
+with 10% FBS (Gibco, 10270106) and 1% penicillin/streptomycin at 37°C.
+After 24h, cells were transfected using FuGENE HD Transfection reagent (Promega,
+E2691) with 50 ng of splicing reporter DNA alone or in combination with 50 ng of
+splicing factor DNA.</p>
+</sec>
+<sec id="S24">
+<title>RNA isolation, Reverse transcription and RT-PCR</title>
+<p id="P42">24 h (for Neuro2a and HEK293T cells) or 48h (for cortical neurons)
+post-transfection, cells were lysed with 100 or 600 μl, respectively, of
+RLT buffer from RNeasy Plus Micro Kit (Qiagen, 74034) supplemented with
+2-Mercaptoethanol (Sigma-Aldrich) and RNA was purified according to the
+manufacturer’s instructions. 400 ng of RNA was reverse transcribed from
+all samples using random primers (Promega, C118A) and ImProm-II™ Reverse
+Transcriptase (Promega, A3802).</p>
+<p id="P43">For evaluation of differential reporter processing in different cells
+and conditions, cDNA amounts and PCR cycle numbers were carefully titrated to
+ensure linear amplification range. Standard PCR reactions were performed using
+5X Firepol Master mix (Solis BioDyne, 04-11-00125) and DNA oligonucleotides
+targeting the <italic>RFP</italic> sequence (to avoid detection of endogenous
+transcripts) and the last flanking exons.</p>
+<p id="P44">DNA Oligonucleotides used for standard PCR (name and sequence
+5’-&gt;3’ are indicated): <table-wrap id="T5" orientation="portrait" position="anchor"><table frame="void" rules="none"><tbody><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>RFP_F:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>AAGCTGGACATCACCTCCCA</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Gabrg2_e10_R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ATGGTTGCTGATCTGGGACG</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Grin1_e5_R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>ATCAGCAGAGCCGTCACATT</italic></td></tr><tr><td align="left" colspan="1" rowspan="1" valign="top"><italic>Kcnq2_e14_R:</italic></td><td align="left" colspan="1" rowspan="1" valign="top"><italic>TCGGGCTGTCATCAAGACTC</italic></td></tr></tbody></table></table-wrap>
+</p>
+</sec>
+<sec id="S25">
+<title>Gene ontology</title>
+<p id="P45">Analysis of GO terms both for neocortical and hippocampal samples was
+performed using the statistical overrepresentation test <sup><xref ref-type="bibr" rid="R60">60</xref></sup> of the PANTHER classification
+system (PANTHER14.1, released 2019-03-08 and 2019-04-17), available on <ext-link ext-link-type="uri" xlink:href="http://pantherdb.org/">http://pantherdb.org</ext-link>. Genes showing significant differential
+expression (log2(FC) ≥ 0.6 and ≤ -0.6, p-value ≤ 0.05; base
+mean for neocortex: all neocortical samples) and genes with significant
+alternative splicing events (log2(FC) ≥ 1 &amp; ≤ -1; p-value
+≤ 0.01 from either EXON or PATTERN analysis) were analyzed using the GO
+cellular component annotation data set and Fisher's Exact test with
+Benjamini-Hochberg false discovery rate correction for multiple testing.
+Alternative first exon events were excluded to analyze the functional role of
+alternative splicing programs only. In order to be considered significant, GO
+terms must have a minimum number of 10 genes, fold-enrichment ≥ 2 and
+False Discovery Rate (FDR) ≤ 0.05. As background reference list, all
+genes expressed (see <xref ref-type="sec" rid="S10">methods</xref> for details
+of gene expression) in the neocortex for neocortical comparisons, or in either
+cell class of the pairwise comparisons were used. Panther output list GO terms
+in a hierarchical organization, enabling identification of super-categories
+which were further analyzed. Moreover, only terms significant in at least one
+neocortical population, hippocampal comparison or across anatomical region were
+used for heatmap visualization. In <xref ref-type="fig" rid="F5">Fig. 5a</xref>,
+corresponding fold changes of the gene expression analysis were incorporated.
+Redundant term categories were excluded.</p>
+</sec>
+<sec id="S26">
+<title>General statistical methods</title>
+<p id="P46">Sample sizes were chosen based on previous experiments and literature
+surveys. No statistical methods were used to pre-determine sample sizes.
+Exclusion criteria used throughout this manuscript were pre-defined. There are
+detailed descriptions in the respective sections of the methods. Group
+assignment was defined by genotype, thus, no randomization was necessary.
+Knowledge of experimental conditions was needed for proper execution of
+experiments. Therefore, investigators were not blinded during data collection
+and/or analysis. Appropriate statistical tests were chosen based on sample size.
+Due to “n” in the analysis normal distribution and equal variances
+of measures were not formally tested. Thus, individual data points or measures
+are presented in the manuscript and data distribution was assumed to be normal.
+Sequencing analysis was performed on four animals per genotype exhibiting
+similar variances. N-numbers for <italic>in situ</italic> hybridizations and
+RT-PCRs are indicated in the figures. P-value calculations have been performed
+using the student t-test, Ward test, or one way ANOVA with Tukey’s
+multiple comparison test. FDR calculations were performed with the Benjamini
+Hochberg correction.</p>
+</sec>
+</sec>
+<sec id="SM" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="SD1">
+<label>Table S7</label>
+<media id="d36e1420" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S7.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD2">
+<label>Table S6</label>
+<media id="d36e1424" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S6.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD3">
+<label>Table S5</label>
+<media id="d36e1428" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S5.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD4">
+<label>Table S4</label>
+<media id="d36e1432" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S4.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD5">
+<label>Table S3</label>
+<media id="d36e1436" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S3.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD6">
+<label>Table S2</label>
+<media id="d36e1440" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S2.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD7">
+<label>Table S1</label>
+<media id="d36e1444" mime-subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Table_S1.xlsx" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD8">
+<label>Supplementary Info</label>
+<media id="d36e1448" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document" mimetype="application" orientation="portrait" position="anchor" xlink:href="EMS83678-supplement-Supplementary_Info.docx" xlink:type="simple"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack id="S27">
+<title>Acknowledgements</title>
+<p>We are grateful to F. Doetsch, O. Mauger and L. Xiao for constructive comments on the
+manuscript and to members of the Scheiffele Lab for discussions, in particular to
+T.M. Nguyen for setting up the protocol for RiboTRAP purifications and C. Bornmann
+for expert help with fluorescent in situ hybridizations. We are grateful to S.
+Hrvatin and M. E. Greenberg for sharing detailed data from single cell sequencing
+studies for comparison to our dataset and to B.Rico for sharing data at an early
+stage of this project. We thank P. de la Grange, N. Robil and A. Jolly at Genosplice
+for help with analysis, F. Ambrosetti for occasional support with coding. Part of
+calculations were performed at sciCORE (<ext-link ext-link-type="uri" xlink:href="http://scicore.unibas.ch/">http://scicore.unibas.ch/</ext-link>)
+scientific computing center at the University of Basel, with support by the SIB -
+Swiss Institute of Bioinformatics. Sequencing and library preparations were
+performed with support from the Life Science Training Facility and the Quantitative
+Genomics Facility Basel. L.T. was supported by a Fellowship from the Boehringer
+Ingelheim PhD Fonds and the Doris Dietschy Stiftung. This work was supported by
+funds to P.S. from the Swiss National Science Foundation, a European Research
+Council Advanced Grant (SPLICECODE), and the Kanton Basel-Stadt.</p>
+</ack>
+<fn-group>
+<fn id="FN1">
+<p id="P47">
+<bold>Data availability</bold>
+</p>
+<p id="P48">Detailed analyzed data is included as supplementary material. Raw
+sequencing data was deposited at GEO (GSE133291). Differential gene expression
+and splicing data for individual genes is provided on the freely available
+SpliceCode web-site (<ext-link ext-link-type="uri" xlink:href="https://scheiffele-splice.scicore.unibas.ch">https://scheiffele-splice.scicore.unibas.ch</ext-link>). All renewable
+reagents and detailed protocols will be made available on request.</p>
+</fn>
+<fn id="FN2">
+<p id="P49">
+<bold>Accession codes</bold>
+</p>
+<p id="P50">GSE133291</p>
+</fn>
+<fn id="FN3">
+<p id="P51">
+<bold>Code availability</bold>
+</p>
+<p id="P52">Data analysis used standard software packages cited in the <xref ref-type="sec" rid="S10">methods</xref> section. The FastDB database for
+quantitative splicing analysis is a proprietary database accessible through
+Genosplice Technology (<ext-link ext-link-type="uri" xlink:href="http://www.genosplice.com/">http://www.genosplice.com/</ext-link>).</p>
+</fn>
+<fn fn-type="con" id="FN4">
+<p id="P53">
+<bold>Author contributions</bold>
+</p>
+<p id="P54">This work was jointly conceived by E.F., L.T. and P.S., all wet lab
+procedures were performed by E.F. and L.T., data analysis was conducted by E.F.,
+L.T. and G.F., website design was performed by G.F., and the manuscript was
+jointly written by E.F., L.T. and P.S., with editing provided by G.F.</p>
+</fn>
+<fn fn-type="COI-statement" id="FN5">
+<p id="P55">
+<bold>Competing interests</bold>
+</p>
+<p id="P56">The authors have no competing interests.</p>
+</fn>
+</fn-group>
+<ref-list>
+<ref id="R1">
+<label>1</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Ramón y Cajal</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<source/>Histology of the nervous system of man and vertebrates
+          <publisher-name>Oxford University Press</publisher-name>
+<year>1995</year>
+</element-citation>
+</ref>
+<ref id="R2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kepecs</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Fishell</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>Interneuron cell types are fit to function</article-title>
+<source/>Nature
+          <year>2014</year>
+<volume>505</volume>
+<fpage>318</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="doi">10.1038/nature12983</pub-id>
+<pub-id pub-id-type="pmid">24429630</pub-id>
+</element-citation>
+</ref>
+<ref id="R3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zeng</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Sanes</surname>
+<given-names>JR</given-names>
+</name>
+</person-group>
+<article-title>Neuronal cell-type classification: challenges, opportunities and
+the path forward</article-title>
+<source/>Nat Rev Neurosci
+          <year>2017</year>
+<volume>18</volume>
+<fpage>530</fpage>
+<lpage>546</lpage>
+<pub-id pub-id-type="doi">10.1038/nrn.2017.85</pub-id>
+<pub-id pub-id-type="pmid">28775344</pub-id>
+</element-citation>
+</ref>
+<ref id="R4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Barbosa-Morais</surname>
+<given-names>NL</given-names>
+</name>
+<name>
+<surname>Irimia</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>Q</given-names>
+</name>
+<etal></etal>
+<name>
+<surname>Blencowe</surname>
+<given-names>BJ</given-names>
+</name>
+</person-group>
+<article-title>The evolutionary landscape of alternative splicing in vertebrate
+species</article-title>
+<source/>Science (New York, N.Y
+          <year>2012</year>
+<volume>338</volume>
+<fpage>1587</fpage>
+<lpage>1594</lpage>
+<pub-id pub-id-type="doi">10.1111/aman.12147</pub-id>
+</element-citation>
+</ref>
+<ref id="R5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tapial</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An atlas of alternative splicing profiles and functional
+associations reveals new regulatory programs and genes that simultaneously
+express multiple major isoforms</article-title>
+<source/>Genome research
+          <year>2017</year>
+<volume>27</volume>
+<fpage>1759</fpage>
+<lpage>1768</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.220962.117</pub-id>
+<pub-id pub-id-type="pmid">28855263</pub-id>
+</element-citation>
+</ref>
+<ref id="R6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Aoto</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Martinelli</surname>
+<given-names>DC</given-names>
+</name>
+<name>
+<surname>Malenka</surname>
+<given-names>RC</given-names>
+</name>
+<name>
+<surname>Tabuchi</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Südhof</surname>
+<given-names>TC</given-names>
+</name>
+</person-group>
+<article-title>Presynaptic neurexin-3 alternative splicing trans-synaptically
+controls postsynaptic AMPA receptor trafficking</article-title>
+<source/>Cell
+          <year>2013</year>
+<volume>154</volume>
+<fpage>75</fpage>
+<lpage>88</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2013.05.060</pub-id>
+<pub-id pub-id-type="pmid">23827676</pub-id>
+</element-citation>
+</ref>
+<ref id="R7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Traunmüller</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Gomez</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Nguyen</surname>
+<given-names>T-M</given-names>
+</name>
+<name>
+<surname>Scheiffele</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Control of neuronal synapse specification by highly dedicated
+alternative splicing program</article-title>
+<source/>Science (New York, N.Y
+          <year>2016</year>
+<volume>352</volume>
+<fpage>982</fpage>
+<lpage>986</lpage>
+</element-citation>
+</ref>
+<ref id="R8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Beffert</surname>
+<given-names>U</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Modulation of synaptic plasticity and memory by Reelin involves
+differential splicing of the lipoprotein receptor Apoer2</article-title>
+<source/>Neuron
+          <year>2005</year>
+<volume>47</volume>
+<fpage>567</fpage>
+<lpage>579</lpage>
+<pub-id pub-id-type="pmid">16102539</pub-id>
+</element-citation>
+</ref>
+<ref id="R9">
+<label>9</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yap</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Xiao</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Friedman</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Je</surname>
+<given-names>HS</given-names>
+</name>
+<name>
+<surname>Makeyev</surname>
+<given-names>EV</given-names>
+</name>
+</person-group>
+<article-title>Polarizing the Neuron through Sustained Co-expression of
+Alternatively Spliced Isoforms</article-title>
+<source/>Cell reports
+          <year>2016</year>
+<volume>15</volume>
+<fpage>1316</fpage>
+<lpage>1328</lpage>
+<pub-id pub-id-type="doi">10.1016/j.celrep.2016.04.012</pub-id>
+<pub-id pub-id-type="pmid">27134173</pub-id>
+</element-citation>
+</ref>
+<ref id="R10">
+<label>10</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Taliaferro</surname>
+<given-names>JM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Distal Alternative Last Exons Localize mRNAs to Neural
+Projections</article-title>
+<source/>Mol Cell
+          <year>2016</year>
+<volume>61</volume>
+<fpage>821</fpage>
+<lpage>833</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molcel.2016.01.020</pub-id>
+<pub-id pub-id-type="pmid">26907613</pub-id>
+</element-citation>
+</ref>
+<ref id="R11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Calarco</surname>
+<given-names>JA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Regulation of vertebrate nervous system alternative splicing and
+development by an SR-related protein</article-title>
+<source/>Cell
+          <year>2009</year>
+<volume>138</volume>
+<fpage>898</fpage>
+<lpage>910</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2009.06.012</pub-id>
+<pub-id pub-id-type="pmid">19737518</pub-id>
+</element-citation>
+</ref>
+<ref id="R12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wang</surname>
+<given-names>ET</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Transcriptome-wide regulation of pre-mRNA splicing and mRNA
+localization by muscleblind proteins</article-title>
+<source/>Cell
+          <year>2012</year>
+<volume>150</volume>
+<fpage>710</fpage>
+<lpage>724</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2012.06.041</pub-id>
+<pub-id pub-id-type="pmid">22901804</pub-id>
+</element-citation>
+</ref>
+<ref id="R13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Quesnel-Vallieres</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Misregulation of an Activity-Dependent Splicing Network as a
+Common Mechanism Underlying Autism Spectrum Disorders</article-title>
+<source/>Mol Cell
+          <year>2016</year>
+<volume>64</volume>
+<fpage>1023</fpage>
+<lpage>1034</lpage>
+<pub-id pub-id-type="doi">10.1016/j.molcel.2016.11.033</pub-id>
+<pub-id pub-id-type="pmid">27984743</pub-id>
+</element-citation>
+</ref>
+<ref id="R14">
+<label>14</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vuong</surname>
+<given-names>CK</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Rbfox1 Regulates Synaptic Transmission through the Inhibitory
+Neuron-Specific vSNARE Vamp1</article-title>
+<source/>Neuron
+          <year>2018</year>
+<volume>98</volume>
+<fpage>127</fpage>
+<lpage>141</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2018.03.008</pub-id>
+<pub-id pub-id-type="pmid">29621484</pub-id>
+</element-citation>
+</ref>
+<ref id="R15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lee</surname>
+<given-names>JA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cytoplasmic Rbfox1 Regulates the Expression of Synaptic and
+Autism-Related Genes</article-title>
+<source/>Neuron
+          <year>2016</year>
+<volume>89</volume>
+<fpage>113</fpage>
+<lpage>128</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2015.11.025</pub-id>
+<pub-id pub-id-type="pmid">26687839</pub-id>
+</element-citation>
+</ref>
+<ref id="R16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wamsley</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Rbfox1 Mediates Cell-type-Specific Splicing in Cortical
+Interneurons</article-title>
+<source/>Neuron
+          <year>2018</year>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2018.09.026</pub-id>
+</element-citation>
+</ref>
+<ref id="R17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zheng</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Black</surname>
+<given-names>DL</given-names>
+</name>
+</person-group>
+<article-title>Alternative pre-mRNA splicing in neurons: growing up and
+extending its reach</article-title>
+<source/>Trends Genet
+          <year>2013</year>
+<volume>29</volume>
+<fpage>442</fpage>
+<lpage>448</lpage>
+<pub-id pub-id-type="doi">10.1016/j.tig.2013.04.003</pub-id>
+<pub-id pub-id-type="pmid">23648015</pub-id>
+</element-citation>
+</ref>
+<ref id="R18">
+<label>18</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Darnell</surname>
+<given-names>RB</given-names>
+</name>
+</person-group>
+<article-title>RNA protein interaction in neurons</article-title>
+<source/>Annu Rev Neurosci
+          <year>2013</year>
+<volume>36</volume>
+<fpage>243</fpage>
+<lpage>270</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev-neuro-062912-114322</pub-id>
+<pub-id pub-id-type="pmid">23701460</pub-id>
+</element-citation>
+</ref>
+<ref id="R19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Furlanis</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Scheiffele</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Regulation of neuronal differentiation, function, and plasticity
+by alternative splicing</article-title>
+<source/>Annual Review of Cell and Developmental Biology
+          <year>2018</year>
+<volume>34</volume>
+<fpage>451</fpage>
+<lpage>469</lpage>
+</element-citation>
+</ref>
+<ref id="R20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Saito</surname>
+<given-names>Y</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Differential NOVA2-Mediated Splicing in Excitatory and Inhibitory
+Neurons Regulates Cortical Development and Cerebellar
+Function</article-title>
+<source/>Neuron
+          <year>2019</year>
+<volume>101</volume>
+<fpage>707</fpage>
+<lpage>720 e705</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2018.12.019</pub-id>
+<pub-id pub-id-type="pmid">30638744</pub-id>
+</element-citation>
+</ref>
+<ref id="R21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An RNA-sequencing transcriptome and splicing database of glia,
+neurons, and vascular cells of the cerebral cortex</article-title>
+<source/>J Neurosci
+          <year>2014</year>
+<volume>34</volume>
+<fpage>11929</fpage>
+<lpage>11947</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1860-14.2014</pub-id>
+<pub-id pub-id-type="pmid">25186741</pub-id>
+</element-citation>
+</ref>
+<ref id="R22">
+<label>22</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Weyn-Vanhentenryck</surname>
+<given-names>SM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Precise temporal regulation of alternative splicing during neural
+development</article-title>
+<source/>Nat Commun
+          <year>2018</year>
+<volume>9</volume>
+<fpage>2189</fpage>
+<pub-id pub-id-type="doi">10.1038/s41467-018-04559-0</pub-id>
+<pub-id pub-id-type="pmid">29875359</pub-id>
+</element-citation>
+</ref>
+<ref id="R23">
+<label>23</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cell-Type-Specific Alternative Splicing Governs Cell Fate in the
+Developing Cerebral Cortex</article-title>
+<source/>Cell
+          <year>2016</year>
+<volume>166</volume>
+<fpage>1147</fpage>
+<lpage>1162 e1115</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2016.07.025</pub-id>
+<pub-id pub-id-type="pmid">27565344</pub-id>
+</element-citation>
+</ref>
+<ref id="R24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Axonogenesis Is Coordinated by Neuron-Specific Alternative
+Splicing Programming and Splicing Regulator PTBP2</article-title>
+<source/>Neuron
+          <year>2019</year>
+<volume>101</volume>
+<fpage>690</fpage>
+<lpage>706 e610</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2019.01.022</pub-id>
+<pub-id pub-id-type="pmid">30733148</pub-id>
+</element-citation>
+</ref>
+<ref id="R25">
+<label>25</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tress</surname>
+<given-names>ML</given-names>
+</name>
+<name>
+<surname>Abascal</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Valencia</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Alternative Splicing May Not Be the Key to Proteome
+Complexity</article-title>
+<source/>Trends in biochemical sciences
+          <year>2017</year>
+<volume>42</volume>
+<fpage>98</fpage>
+<lpage>110</lpage>
+<pub-id pub-id-type="doi">10.1016/j.tibs.2016.08.008</pub-id>
+<pub-id pub-id-type="pmid">27712956</pub-id>
+</element-citation>
+</ref>
+<ref id="R26">
+<label>26</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Weatheritt</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Sterne-Weiler</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Blencowe</surname>
+<given-names>BJ</given-names>
+</name>
+</person-group>
+<article-title>The ribosome-engaged landscape of alternative
+splicing</article-title>
+<source/>Nat Struct Mol Biol
+          <year>2016</year>
+<volume>23</volume>
+<fpage>1117</fpage>
+<lpage>1123</lpage>
+<pub-id pub-id-type="doi">10.1038/nsmb.3317</pub-id>
+<pub-id pub-id-type="pmid">27820807</pub-id>
+</element-citation>
+</ref>
+<ref id="R27">
+<label>27</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>de la Grange</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Dutertre</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Correa</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Auboeuf</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>A new advance in alternative splicing databases: from catalogue
+to detailed analysis of regulation of expression and function of human
+alternative splicing variants</article-title>
+<source/>BMC bioinformatics
+          <year>2007</year>
+<volume>8</volume>
+<fpage>180</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-8-180</pub-id>
+<pub-id pub-id-type="pmid">17547750</pub-id>
+</element-citation>
+</ref>
+<ref id="R28">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Pal</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Alternative transcription exceeds alternative splicing in
+generating the transcriptome diversity of cerebellar
+development</article-title>
+<source/>Genome research
+          <year>2011</year>
+<volume>21</volume>
+<fpage>1260</fpage>
+<lpage>1272</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.120535.111</pub-id>
+<pub-id pub-id-type="pmid">21712398</pub-id>
+</element-citation>
+</ref>
+<ref id="R29">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Reyes</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Huber</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>Alternative start and termination sites of transcription drive
+most transcript isoform differences across human tissues</article-title>
+<source/>Nucleic acids research
+          <year>2018</year>
+<volume>46</volume>
+<fpage>582</fpage>
+<lpage>592</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkx1165</pub-id>
+<pub-id pub-id-type="pmid">29202200</pub-id>
+</element-citation>
+</ref>
+<ref id="R30">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Irimia</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A highly conserved program of neuronal microexons is misregulated
+in autistic brains</article-title>
+<source/>Cell
+          <year>2014</year>
+<volume>159</volume>
+<fpage>1511</fpage>
+<lpage>1523</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2014.11.035</pub-id>
+<pub-id pub-id-type="pmid">25525873</pub-id>
+</element-citation>
+</ref>
+<ref id="R31">
+<label>31</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tushev</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Alternative 3' UTRs Modify the Localization, Regulatory
+Potential, Stability, and Plasticity of mRNAs in Neuronal
+Compartments</article-title>
+<source/>Neuron
+          <year>2018</year>
+<volume>98</volume>
+<fpage>495</fpage>
+<lpage>511 e496</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2018.03.030</pub-id>
+<pub-id pub-id-type="pmid">29656876</pub-id>
+</element-citation>
+</ref>
+<ref id="R32">
+<label>32</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cembrowski</surname>
+<given-names>MS</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Spatial Gene-Expression Gradients Underlie Prominent
+Heterogeneity of CA1 Pyramidal Neurons</article-title>
+<source/>Neuron
+          <year>2016</year>
+<volume>89</volume>
+<fpage>351</fpage>
+<lpage>368</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2015.12.013</pub-id>
+<pub-id pub-id-type="pmid">26777276</pub-id>
+</element-citation>
+</ref>
+<ref id="R33">
+<label>33</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sommer</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Flip and flop: a cell-specific functional switch in
+glutamate-operated channels of the CNS</article-title>
+<source/>Science (New York, N.Y
+          <year>1990</year>
+<volume>249</volume>
+<fpage>1580</fpage>
+<lpage>1585</lpage>
+</element-citation>
+</ref>
+<ref id="R34">
+<label>34</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Brakebusch</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Brevican-deficient mice display impaired hippocampal CA1
+long-term potentiation but show no obvious deficits in learning and
+memory</article-title>
+<source/>Mol Cell Biol
+          <year>2002</year>
+<volume>22</volume>
+<fpage>7417</fpage>
+<lpage>7427</lpage>
+<pub-id pub-id-type="pmid">12370289</pub-id>
+</element-citation>
+</ref>
+<ref id="R35">
+<label>35</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shen</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Scheiffele</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Genetics and cell biology of building specific synaptic
+connectivity</article-title>
+<source/>Annu Rev Neurosci
+          <year>2010</year>
+<volume>33</volume>
+<fpage>473</fpage>
+<lpage>507</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev.neuro.051508.135302</pub-id>
+<pub-id pub-id-type="pmid">20367446</pub-id>
+</element-citation>
+</ref>
+<ref id="R36">
+<label>36</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Takahashi</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Craig</surname>
+<given-names>AM</given-names>
+</name>
+</person-group>
+<article-title>Protein tyrosine phosphatases PTPdelta, PTPsigma, and LAR:
+presynaptic hubs for synapse organization</article-title>
+<source/>Trends in neurosciences
+          <year>2013</year>
+<volume>36</volume>
+<fpage>522</fpage>
+<lpage>534</lpage>
+<pub-id pub-id-type="doi">10.1016/j.tins.2013.06.002</pub-id>
+<pub-id pub-id-type="pmid">23835198</pub-id>
+</element-citation>
+</ref>
+<ref id="R37">
+<label>37</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>de Wit</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Ghosh</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<article-title>Specification of synaptic connectivity by cell surface
+interactions</article-title>
+<source/>Nat Rev Neurosci
+          <year>2016</year>
+<volume>17</volume>
+<fpage>22</fpage>
+<lpage>35</lpage>
+<pub-id pub-id-type="doi">10.1038/nrn.2015.3</pub-id>
+<pub-id pub-id-type="pmid">26656254</pub-id>
+</element-citation>
+</ref>
+<ref id="R38">
+<label>38</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Coetzee</surname>
+<given-names>WA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Molecular diversity of K+ channels</article-title>
+<source/>Annals of the New York Academy of Sciences
+          <year>1999</year>
+<volume>868</volume>
+<fpage>233</fpage>
+<lpage>285</lpage>
+<pub-id pub-id-type="pmid">10414301</pub-id>
+</element-citation>
+</ref>
+<ref id="R39">
+<label>39</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Miura</surname>
+<given-names>SK</given-names>
+</name>
+<name>
+<surname>Martins</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>KX</given-names>
+</name>
+<name>
+<surname>Graveley</surname>
+<given-names>BR</given-names>
+</name>
+<name>
+<surname>Zipursky</surname>
+<given-names>SL</given-names>
+</name>
+</person-group>
+<article-title>Probabilistic splicing of Dscam1 establishes identity at the
+level of single neurons</article-title>
+<source/>Cell
+          <year>2013</year>
+<volume>155</volume>
+<fpage>1166</fpage>
+<lpage>1177</lpage>
+<pub-id pub-id-type="doi">10.1016/j.cell.2013.10.018</pub-id>
+<pub-id pub-id-type="pmid">24267895</pub-id>
+</element-citation>
+</ref>
+<ref id="R40">
+<label>40</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kise</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Schmucker</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<article-title>Role of self-avoidance in neuronal wiring</article-title>
+<source/>Curr Opin Neurobiol
+          <year>2013</year>
+<volume>23</volume>
+<fpage>983</fpage>
+<lpage>989</lpage>
+<pub-id pub-id-type="doi">10.1016/j.conb.2013.09.011</pub-id>
+<pub-id pub-id-type="pmid">24161734</pub-id>
+</element-citation>
+</ref>
+<ref id="R41">
+<label>41</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Iijima</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Iijima</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Witte</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Scheiffele</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Neuronal cell type-specific alternative splicing is regulated by
+the KH domain protein SLM1</article-title>
+<source/>The Journal of cell biology
+          <year>2014</year>
+<volume>204</volume>
+<fpage>331</fpage>
+<lpage>342</lpage>
+<pub-id pub-id-type="doi">10.1083/jcb.201310136</pub-id>
+<pub-id pub-id-type="pmid">24469635</pub-id>
+</element-citation>
+</ref>
+<ref id="R42">
+<label>42</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nguyen</surname>
+<given-names>TM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An alternative splicing switch shapes neurexin repertoires in
+principal neurons versus interneurons in the mouse
+hippocampus</article-title>
+<source/>eLife
+          <year>2016</year>
+<volume>5</volume>
+<pub-id pub-id-type="doi">10.7554/eLife.22757</pub-id>
+</element-citation>
+</ref>
+<ref id="R43">
+<label>43</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schreiner</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Targeted Combinatorial Alternative Splicing Generates Brain
+Region-Specific Repertoires of Neurexins</article-title>
+<source/>Neuron
+          <year>2014</year>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2014.09.011</pub-id>
+</element-citation>
+</ref>
+<ref id="R44">
+<label>44</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fuccillo</surname>
+<given-names>MV</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Single-Cell mRNA Profiling Reveals Cell-Type-Specific Expression
+of Neurexin Isoforms</article-title>
+<source/>Neuron
+          <year>2015</year>
+<volume>87</volume>
+<fpage>326</fpage>
+<lpage>340</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2015.06.028</pub-id>
+<pub-id pub-id-type="pmid">26182417</pub-id>
+</element-citation>
+</ref>
+<ref id="R45">
+<label>45</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mayer</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Developmental diversification of cortical inhibitory
+interneurons</article-title>
+<source/>Nature
+          <year>2018</year>
+<volume>555</volume>
+<fpage>457</fpage>
+<lpage>462</lpage>
+<pub-id pub-id-type="doi">10.1038/nature25999</pub-id>
+<pub-id pub-id-type="pmid">29513653</pub-id>
+</element-citation>
+</ref>
+<ref id="R46">
+<label>46</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mi</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Early emergence of cortical interneuron diversity in the mouse
+embryo</article-title>
+<source/>Science (New York, N.Y
+          <year>2018</year>
+<pub-id pub-id-type="doi">10.1126/science.aar6821</pub-id>
+</element-citation>
+</ref>
+<ref id="R47">
+<label>47</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lim</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Optimization of interneuron function by direct coupling of cell
+migration and axonal targeting</article-title>
+<source/>Nature neuroscience
+          <year>2018</year>
+<volume>21</volume>
+<fpage>920</fpage>
+<lpage>931</lpage>
+<pub-id pub-id-type="doi">10.1038/s41593-018-016-29</pub-id>
+<pub-id pub-id-type="pmid">29915195</pub-id>
+</element-citation>
+</ref>
+<ref id="R48">
+<label>48</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vuong</surname>
+<given-names>CK</given-names>
+</name>
+<name>
+<surname>Black</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>The neurogenetics of alternative splicing</article-title>
+<source/>Nature reviews. Neuroscience
+          <year>2016</year>
+<volume>17</volume>
+<fpage>265</fpage>
+<lpage>281</lpage>
+<pub-id pub-id-type="doi">10.1038/nrn.2016.27</pub-id>
+<pub-id pub-id-type="pmid">27094079</pub-id>
+</element-citation>
+</ref>
+<ref id="R49">
+<label>49</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sanz</surname>
+<given-names>E</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cell-type-specific isolation of ribosome-associated mRNA from
+complex tissues</article-title>
+<source/>Proc Natl Acad Sci U S A
+          <year>2009</year>
+<volume>106</volume>
+<fpage>13939</fpage>
+<lpage>13944</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0907143106</pub-id>
+<pub-id pub-id-type="pmid">19666516</pub-id>
+</element-citation>
+</ref>
+<ref id="R50">
+<label>50</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hippenmeyer</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A developmental switch in the response of DRG neurons to ETS
+transcription factor signaling</article-title>
+<source/>PLoS Biol
+          <year>2005</year>
+<volume>3</volume>
+<fpage>e159</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pbio.0030159</pub-id>
+<pub-id pub-id-type="pmid">15836427</pub-id>
+</element-citation>
+</ref>
+<ref id="R51">
+<label>51</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Taniguchi</surname>
+<given-names>H</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A resource of Cre driver lines for genetic targeting of GABAergic
+neurons in cerebral cortex</article-title>
+<source/>Neuron
+          <year>2011</year>
+<volume>71</volume>
+<fpage>995</fpage>
+<lpage>1013</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2011.07.026</pub-id>
+<pub-id pub-id-type="pmid">21943598</pub-id>
+</element-citation>
+</ref>
+<ref id="R52">
+<label>52</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tsien</surname>
+<given-names>JZ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Subregion- and cell type-restricted gene knockout in mouse
+brain</article-title>
+<source/>Cell
+          <year>1996</year>
+<volume>87</volume>
+<fpage>1317</fpage>
+<lpage>1326</lpage>
+<pub-id pub-id-type="pmid">8980237</pub-id>
+</element-citation>
+</ref>
+<ref id="R53">
+<label>53</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nakazawa</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Hippocampal CA3 NMDA receptors are crucial for memory acquisition
+of one-time experience</article-title>
+<source/>Neuron
+          <year>2003</year>
+<volume>38</volume>
+<fpage>305</fpage>
+<lpage>315</lpage>
+<pub-id pub-id-type="pmid">12718863</pub-id>
+</element-citation>
+</ref>
+<ref id="R54">
+<label>54</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Madisen</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>A robust and high-throughput Cre reporting and characterization
+system for the whole mouse brain</article-title>
+<source/>Nature neuroscience
+          <year>2010</year>
+<volume>13</volume>
+<fpage>133</fpage>
+<lpage>140</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.2467</pub-id>
+<pub-id pub-id-type="pmid">20023653</pub-id>
+</element-citation>
+</ref>
+<ref id="R55">
+<label>55</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Heiman</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kulicke</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Fenster</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Greengard</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Heintz</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<article-title>Cell type-specific mRNA purification by translating ribosome
+affinity purification (TRAP)</article-title>
+<source/>Nature protocols
+          <year>2014</year>
+<volume>9</volume>
+<fpage>1282</fpage>
+<lpage>1291</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2014.085</pub-id>
+<pub-id pub-id-type="pmid">24810037</pub-id>
+</element-citation>
+</ref>
+<ref id="R56">
+<label>56</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dobin</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>STAR: ultrafast universal RNA-seq aligner</article-title>
+<source/>Bioinformatics
+          <year>2013</year>
+<volume>29</volume>
+<fpage>15</fpage>
+<lpage>21</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/bts635</pub-id>
+<pub-id pub-id-type="pmid">23104886</pub-id>
+</element-citation>
+</ref>
+<ref id="R57">
+<label>57</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liao</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Smyth</surname>
+<given-names>GK</given-names>
+</name>
+<name>
+<surname>Shi</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>featureCounts: an efficient general purpose program for assigning
+sequence reads to genomic features</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<volume>30</volume>
+<fpage>923</fpage>
+<lpage>930</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btt656</pub-id>
+<pub-id pub-id-type="pmid">24227677</pub-id>
+</element-citation>
+</ref>
+<ref id="R58">
+<label>58</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Love</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Huber</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Anders</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Moderated estimation of fold change and dispersion for RNA-seq
+data with DESeq2</article-title>
+<source/>Genome biology
+          <year>2014</year>
+<volume>15</volume>
+<fpage>550</fpage>
+<pub-id pub-id-type="doi">10.1186/s13059-014-0550-8</pub-id>
+<pub-id pub-id-type="pmid">25516281</pub-id>
+</element-citation>
+</ref>
+<ref id="R59">
+<label>59</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Katz</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>ET</given-names>
+</name>
+<name>
+<surname>Airoldi</surname>
+<given-names>EM</given-names>
+</name>
+<name>
+<surname>Burge</surname>
+<given-names>CB</given-names>
+</name>
+</person-group>
+<article-title>Analysis and design of RNA sequencing experiments for identifying
+isoform regulation</article-title>
+<source/>Nat Methods
+          <year>2010</year>
+<volume>7</volume>
+<fpage>1009</fpage>
+<lpage>1015</lpage>
+<pub-id pub-id-type="doi">10.1038/nmeth.1528</pub-id>
+<pub-id pub-id-type="pmid">21057496</pub-id>
+</element-citation>
+</ref>
+<ref id="R60">
+<label>60</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mi</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Muruganujan</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Casagrande</surname>
+<given-names>JT</given-names>
+</name>
+<name>
+<surname>Thomas</surname>
+<given-names>PD</given-names>
+</name>
+</person-group>
+<article-title>Large-scale gene function analysis with the PANTHER
+classification system</article-title>
+<source/>Nature protocols
+          <year>2013</year>
+<volume>8</volume>
+<fpage>1551</fpage>
+<lpage>1566</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2013.092</pub-id>
+<pub-id pub-id-type="pmid">23868073</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="F1" orientation="portrait" position="float">
+<label>Fig. 1</label>
+<caption>
+<title>Extensive alternative exon usage defines classes of forebrain
+neurons.</title>
+<p><bold>a</bold>, Schematic representation of RiboTRAP pulldowns. HA-tagged
+ribosomes in the cytoplasm of genetically defined cell populations load fully
+mature mRNAs. Following whole tissue lysis, ribosome-associated mRNAs are
+immuno-isolated using anti-HA beads and subsequently purified. <bold>b</bold>,
+Cartoons representing neuronal cell populations isolated from mouse neocortex
+(<italic>left panel</italic>) and hippocampus (<italic>right
+panel</italic>). <bold>c</bold>, Principal component analysis of genes expressed
+in each neocortical and hippocampal sample (n=4 biologically independent
+samples). Variance explained by the principal components 1 and 2 (PC1 and PC2)
+is indicated. Gene expression values were normalized by Variance Stabilizing
+Transformation (VST) <bold>d</bold>, Heatmap of SI values obtained from EXON
+analysis for each neocortical cell class (see <xref ref-type="sec" rid="S10">methods</xref> for details) of all 2898 differentially regulated exons
+involved in alternative splicing events (log2(FC) ≥ 1 and ≤ -1,
+p-value ≤ 0.01, unpaired Student’s t-test. Base mean includes all
+neocortical samples). Alternative exon inclusion identifies sub-groups of exons
+that define distinct neocortical populations.</p>
+</caption>
+<graphic xlink:href="EMS83678-f001"></graphic>
+</fig>
+<fig id="F2" orientation="portrait" position="float">
+<label>Fig. 2</label>
+<caption>
+<title>Alternative splicing and alternative transcription start site usage drive
+transcript diversification in neocortical neurons</title>
+<p><bold>a</bold>, Histogram representing the relative percentage of differentially
+regulated (DR) alternative splicing event types (log2(FC) ≥ 1, p-value
+≤ 0.01. Base mean includes all neocortical samples). The distinct pattern
+categories (mutually exclusive exon, cassette exon, intron retention,
+alternative 5’ and 3’ donor and acceptor site, alternative last
+exon, complex) are indicated. Total number of DR alternative splicing events
+are: 261 for CamK2, 165 for Scnn1a, 85 for SST, 316 for PV and 373 for VIP. Note
+that VIP interneurons show higher number of intron retention events. Otherwise,
+overall all neocortical populations show similar rates of splicing pattern types
+usage. <bold>b</bold>, Sashimi plots illustrating read distribution and splice
+junctions of <italic>Dlgap2</italic> (<italic>upper panel</italic>) and
+<italic>Ncam1</italic> (<italic>lower panel</italic>). One representative
+replicate for each cell population is shown. Genomic coordinates, chromosome
+number, strand and exon number are indicated below. Coding regions are indicated
+as thicker boxes, non-coding regions as thinner boxes). The alternative cassette
+exon 15 of <italic>Dlgap2</italic> is preferentially included in CamK2-positive
+neurons, <italic>vice versa</italic> excluded in PV-positive interneurons. On
+the other hand, <italic>Ncam1</italic> shows differential usage of exon 19 or
+exon 23 as alternative last exon, even between two GABAergic populations, with
+SST-positive cells preferentially using e23 compared to PV-positive neurons.
+<bold>c,</bold> Pie charts indicating the relative percentage of alternative
+transcription start sites (TSS) and alternative splicing of differentially
+regulated events (log2(FC) ≥ 1, p-value ≤ 0.01. Base mean includes
+all neocortical samples) identified by the PATTERN analysis (see <xref ref-type="sec" rid="S10">methods</xref> for details) in neocortical
+populations. Total number of DR events are: 402 for CamK2, 349 for Scnn1a, 199
+for SST, 557 for PV and 540 for VIP. <bold>d</bold>, Example sashimi plots for
+alternative TSS usage in <italic>Dlgap1</italic> (<italic>upper panel</italic>)
+or <italic>Rapgef5</italic> (<italic>lower panel</italic>). For
+<italic>Dlgap1</italic>, transcripts preferentially start with exon 5 in
+Scnn1a-positive cells and with exon 3 in PV-positive interneurons (note that
+coding region starts in exon 4). For <italic>Rapgef5</italic>, SST- and
+CamK2-positive cells show differential usage of exon 11 or exon 13 as first
+exon, with SST preferentially including exon 13.</p>
+</caption>
+<graphic xlink:href="EMS83678-f002"></graphic>
+</fig>
+<fig id="F3" orientation="portrait" position="float">
+<label>Fig. 3</label>
+<caption>
+<title>Alternative splicing programs distinguish closely related neuronal
+populations within the hippocampus and across brain regions</title>
+<p><bold>a</bold>, Cartoon illustrating the schematic representation of neuronal
+classes in the neocortex and hippocampus. The numbers shown indicate
+differentially regulated (DR) exons (log2(FC) ≥ 1 and ≤ -1,
+p-value ≤ 0.01) in pairwise comparisons between CamK2-positive CA1 and
+Grik4-positive CA3 pyramidal neurons (253 exons from 177 genes), between CA1 or
+CA3 neurons vs SST-positive hippocampal neurons and between neocortical (856
+exons from 551 genes and 851 exons from 517 genes) and hippocampal SST-positive
+interneurons (151 exons from 103 genes) or layer 4 vs CA1 pyramidal neurons (276
+exons from 209 genes). Note that only exons involved in AS events are indicated.
+Hippocampal SST-positive neurons show high diversity of alternative isoform
+expression compared to pyramidal cells. Also closely related glutamatergic
+populations (CA1 vs CA3 and CA1 vs Scnn1a) exhibit highly differential exon
+usage. On the other hand, SST-positive neurons isolated from distinct anatomical
+brain regions (hippocampus vs neocortex) present fewer but still significant
+differences in alternative isoform expression. s.o.=<italic>stratum
+oriens</italic>, s.r.=<italic>stratum radiatum</italic>, DG=<italic>dentate
+gyrus</italic>, CA=<italic>cornu ammonis</italic>. Note that this panel only
+displays select pairwise comparisons. Analysis for hippocampal SST interneurons
+considered all SST neurons without sub-regional distinction. <bold>b-c</bold>,
+Sashimi plots illustrating read distribution and splice junctions of transcripts
+differentially spliced between CA1 and CA3 pyramidal neurons (<italic>panel
+<bold>b</bold></italic>) or between related cell classes across distinct
+brain regions (SSTHc vs SSTCx, CA1 vs Scnn1a glutamatergic neurons,
+<italic>panel <bold>c</bold></italic>). Genomic coordinates, chromosome
+number, strand and exon number are indicated below. Coding regions are indicated
+as thicker boxes, non-coding as thinner boxes.In <bold>b</bold>, CamK2- and
+Grik4-positive glutamatergic neurons show differential usage of the mutually
+exclusive exons 16 and 17 in <italic>Gria1</italic> (<italic>upper
+panel</italic>) and the alternative last exons 8 and 14 in <italic>Bcan
+(lower panel)</italic>. In <bold>c</bold>, <italic>Nrxn3</italic> shows
+differential rate of inclusion of cassette exon 22 in the hippocampal CA1 vs
+cortical Scnn1a-positive pyramidal neurons (<italic>upper panel</italic>).
+Neocortical SST-positive interneurons show preferential inclusion of cassette
+exons 26, 27 and 28 in <italic>Fat1</italic>, while hippocampal SST-positive
+cells exclude them (the <italic>lower pane</italic>l).</p>
+</caption>
+<graphic xlink:href="EMS83678-f003"></graphic>
+</fig>
+<fig id="F4" orientation="portrait" position="float">
+<label>Fig. 4</label>
+<caption>
+<title>Differential splicing factors expression for cell class-specific splicing
+programs in mature neurons</title>
+<p><bold>a</bold>, Gene expression heatmap of a hand curated list of splicing
+factors in neocortical and hippocampal neuron classes. Sub-groups of splicing
+factors with highly significant or modest changes in gene expression across cell
+populations can be identified. Overall, expression rates of splicing factors
+across forebrain neurons populations can segregate cells according to their
+neurotransmitter phenotype and their developmental origin (glutamatergic vs
+GABAergic, Medial Ganglionic Eminence (MGE)-derived vs Caudal Ganglionic
+Eminence (CGE)-derived). For the complete list of enrichments and significance
+values for splicing factors across neocortical and hippocampal neurons, see
+<xref ref-type="supplementary-material" rid="SD2">Supplementary table
+6</xref>. <bold>b</bold>, Cartoon illustrating the design of splicing
+reporters for <italic>Gabrg2</italic>, <italic>Grin1</italic> and
+<italic>Kcnq2</italic> (see <xref ref-type="sec" rid="S10">methods</xref>
+for details). <bold>c</bold>, RT-PCR for splicing reporters overexpressed in
+HEK293T cells, Neuro2A (N2A) cells and cultured cortical neurons, or in
+combination with overexpression of several splicing factors (indicated
+<italic>above</italic>) in N2A cells. <italic>On the right</italic>,
+schematic representation of reporter exons amplified and cell types in which a
+given splicing pattern is enriched are indicated. For each sample, three PCR
+reactions were performed and band intensity was quantified. Representative
+images are shown. <italic>Below</italic>, histograms represent the percentage of
+inclusion (<italic>in brown)</italic> or exclusion (<italic>in light and dark
+gray</italic>) band intensity relative to the sum intensity of all bands.
+n=2-3 RT-PCRs, single data points and SEM are indicated. Circles represent
+quantification of exclusion values for all reporters, triangles, only for
+<italic>Kcnq2</italic>, the quantification of the alternative acceptor e14.
+<italic>Top PCR panel</italic>: Expression of the splicing reporter for exon
+9 of <italic>Gabrg2</italic> leads to differential exon inclusion in
+non-neuronal (HEK293T, excl. e9) versus neuronal (N2A or cortical neurons, 50%
+excl. e9) cells. Co-expression of Ptbp1 and, to lower extents, Ptbp2 and Slm1
+(enriched in VIP) lead to higher exclusion rates, a pattern significantly
+enriched in VIP neurons. Co-expression of Rbfox1/2/3 slightly reduces exon
+exclusion rates, consistent with the splicing pattern observed in purifications
+of Scnn1a. <italic>Middle PCR panel</italic>: Similar effects of the same
+splicing factors can be observed for the splicing pattern of exon 4 of
+<italic>Grin1</italic>. Note that the amplification of
+<italic>Grin1</italic> isoform including e4 generates a doublet band.
+<italic>Lower PCR panel</italic>: Exon 13 of <italic>Kcnq2</italic> splice
+reporter is preferentially included in N2A cells. Addition of Ptbp1 and Ptbp2
+induces the additional alternative acceptor site usage found in VIP neurons.
+Overall, these experiments indicate a correlation between splicing factor
+expression and alternative isoform usage. <bold>d,</bold> Highest or lowest
+expression levels in different cortical populations for Ptbp1, Rbofox1, Rbfox3
+and Slm1 (<italic>Khdrbs2</italic>) are indicated by arrows.</p>
+</caption>
+<graphic xlink:href="EMS83678-f004"></graphic>
+</fig>
+<fig id="F5" orientation="portrait" position="float">
+<label>Fig. 5</label>
+<caption>
+<title>Alternative splicing programs are highly dedicated to the control of synaptic
+interactions and neuronal architecture</title>
+<p><bold>a</bold>, Heatmap representing the fold enrichment of Gene Ontology (GO)
+terms for transcripts differentially regulated at gene expression level or by
+alternative splicing identified by the Panther Classification System (see <xref ref-type="sec" rid="S10">methods</xref> for details). Terms listed were
+selected based on the splicing analysis and had to be significant in at least
+one neocortical population (<italic>left panel),</italic> hippocampal comparison
+(<italic>middle panel)</italic> or comparison across brain regions
+(<italic>right panel</italic>). Corresponding values from analysis of
+differentially expressed genes were included on the left. Fields for the
+statistically significant enrichments (Fisher’s exact test with
+Benjamini-Hochberg false discovery rate correction, p-value ≤ 0.05) are
+highlighted by a dashed outline. Overall, transcripts undergoing differential
+alternative splicing show higher fold enrichments compared to differentially
+expressed genes. Splicing-dependent transcript isoforms in VIP interneurons
+present lower, whereas Scnn1a and PV exhibit higher fold enrichment of GO
+categories. See <xref ref-type="supplementary-material" rid="SD1">Supplementary
+Table 7</xref> for the raw output from the GO analysis. <bold>b</bold>,
+Cartoon illustrating the main categories of genes whose alternative splicing is
+differentially regulated between cell populations (log2(FC) ≥ 1 and
+≤ -1, p-value ≤ 0.01). Among the most enriched categories, we find
+genes encoding presynaptic proteins modulating calcium influx or vesicle fusion,
+pre- and postsynaptic adhesion molecules and postsynaptic scaffolding molecules.
+<bold>c</bold>, Cartoon illustrating examples of differentially expressed
+transcript isoforms encoding for proteins which modulate intrinsic properties of
+neurons (e.g., potassium channels, proteins involved in cytoskeletal remodeling
+and cellular transport along neurites).</p>
+</caption>
+<graphic xlink:href="EMS83678-f005"></graphic>
+</fig>
+</floats-group>
+</article>
+</pmc-articleset>

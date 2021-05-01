@@ -1,0 +1,1123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Front Neuroinform</journal-id>
+<journal-id journal-id-type="iso-abbrev">Front Neuroinform</journal-id>
+<journal-id journal-id-type="publisher-id">Front. Neuroinform.</journal-id>
+<journal-title-group>
+<journal-title>Frontiers in Neuroinformatics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1662-5196</issn>
+<publisher>
+<publisher-name>Frontiers Media S.A.</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27092072</article-id>
+<article-id pub-id-type="pmc">4823264</article-id>
+<article-id pub-id-type="doi">10.3389/fninf.2016.00014</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Neuroscience</subject>
+<subj-group>
+<subject>Original Research</subject>
+</subj-group>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Gene Prioritization for Imaging Genetics Studies Using Gene Ontology and a Stratified False Discovery Rate Approach</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Patel</surname>
+<given-names>Sejal</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="author-notes" rid="fn001">
+<sup>*</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/210643/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Park</surname>
+<given-names>Min Tae M.</given-names>
+</name>
+<xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+<xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/171457/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<collab>The Alzheimer's Disease Neuroimaging Initiative</collab>
+<xref ref-type="author-notes" rid="fn003">
+<sup>‡</sup>
+</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Chakravarty</surname>
+<given-names>M. Mallar</given-names>
+</name>
+<xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+<xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+<xref ref-type="author-notes" rid="fn002">
+<sup>†</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/34099/overview" xlink:type="simple"></uri>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Knight</surname>
+<given-names>Jo</given-names>
+</name>
+<xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+<xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+<xref ref-type="aff" rid="aff6">
+<sup>6</sup>
+</xref>
+<xref ref-type="aff" rid="aff7">
+<sup>7</sup>
+</xref>
+<xref ref-type="aff" rid="aff8">
+<sup>8</sup>
+</xref>
+<xref ref-type="author-notes" rid="fn002">
+<sup>†</sup>
+</xref>
+<uri xlink:href="http://loop.frontiersin.org/people/107857/overview" xlink:type="simple"></uri>
+</contrib>
+</contrib-group>
+<aff id="aff1">
+<sup>1</sup>
+<institution>Campbell Family Mental Health Research Institute, Centre for Addiction and Mental Health</institution>
+<country>Toronto, ON, Canada</country>
+</aff>
+<aff id="aff2">
+<sup>2</sup>
+<institution>Institute of Medical Science, Faculty of Medicine, University of Toronto</institution>
+<country>Toronto, ON, Canada</country>
+</aff>
+<aff id="aff3">
+<sup>3</sup>
+<institution>Cerebral Imaging Centre, Douglas Mental Health University Institute, McGill University</institution>
+<country>Verdun, QC, Canada</country>
+</aff>
+<aff id="aff4">
+<sup>4</sup>
+<institution>Schulich School of Medicine and Dentistry, Western University</institution>
+<country>London, ON, Canada</country>
+</aff>
+<aff id="aff5">
+<sup>5</sup>
+<institution>Department of Psychiatry, McGill University</institution>
+<country>Montreal, QC, Canada</country>
+</aff>
+<aff id="aff6">
+<sup>6</sup>
+<institution>Department of Psychiatry, University of Toronto</institution>
+<country>Toronto, ON, Canada</country>
+</aff>
+<aff id="aff7">
+<sup>7</sup>
+<institution>Biostatistics Division, Dalla Lana School of Public Health, University of Toronto</institution>
+<country>Toronto, ON, Canada</country>
+</aff>
+<aff id="aff8">
+<sup>8</sup>
+<institution>Lancaster Medical School and Data Science Institute, Lancaster University</institution>
+<country>Lancaster, UK</country>
+</aff>
+<author-notes>
+<fn fn-type="edited-by">
+<p>Edited by: Richard A. Baldock, Medical Research Council Human Genetics Unit, UK</p>
+</fn>
+<fn fn-type="edited-by">
+<p>Reviewed by: Adam R. Ferguson, University of California San Francisco, USA; Jessica A. Turner, Georgia State University, USA; William M. Brown, University of Bedfordshire, Luton, UK</p>
+</fn>
+<corresp id="fn001">*Correspondence: Sejal Patel <email xlink:type="simple">Sejalpatel.r@gmail.com</email></corresp>
+<fn fn-type="other" id="fn002">
+<p>†M. Mallar Chakravarty and Jo Knight are co-senior authors.</p>
+</fn>
+<fn fn-type="other" id="fn003">
+<p>‡Data used in preparation of this article were obtained from the Alzheimer's Disease Neuroimaging Initiative (ADNI) database (adni.loni.usc.edu). As such, the investigators within the ADNI contributed to the design and implementation of ADNI and/or provided data but did not participate in analysis or writing of this report. A complete listing of ADNI investigators can be found at: <ext-link ext-link-type="uri" xlink:href="http://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_Acknowledgement_List.pdf">http://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_Acknowledgement_List.pdf</ext-link>.</p>
+</fn>
+</author-notes>
+<pub-date pub-type="epub">
+<day>07</day>
+<month>4</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>10</volume>
+<elocation-id>14</elocation-id>
+<history>
+<date date-type="received">
+<day>06</day>
+<month>2</month>
+<year>2015</year>
+</date>
+<date date-type="accepted">
+<day>21</day>
+<month>3</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016 Patel, Park, The Alzheimer's Disease Neuroimaging Initiative, Chakravarty and Knight.</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>Patel, Park, The Alzheimer's Disease Neuroimaging Initiative, Chakravarty and Knight.</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) or licensor are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Imaging genetics is an emerging field in which the association between genes and neuroimaging-based quantitative phenotypes are used to explore the functional role of genes in neuroanatomy and neurophysiology in the context of healthy function and neuropsychiatric disorders. The main obstacle for researchers in the field is the high dimensionality of the data in both the imaging phenotypes and the genetic variants commonly typed. In this article, we develop a novel method that utilizes Gene Ontology, an online database, to select and prioritize certain genes, employing a stratified false discovery rate (sFDR) approach to investigate their associations with imaging phenotypes. sFDR has the potential to increase power in genome wide association studies (GWAS), and is quickly gaining traction as a method for multiple testing correction. Our novel approach addresses both the pressing need in genetic research to move beyond candidate gene studies, while not being overburdened with a loss of power due to multiple testing. As an example of our methodology, we perform a GWAS of hippocampal volume using both the Enhancing NeuroImaging Genetics through Meta-Analysis (ENIGMA2) and the Alzheimer's Disease Neuroimaging Initiative datasets. The analysis of ENIGMA2 data yielded a set of SNPs with sFDR values between 10 and 20%. Our approach demonstrates a potential method to prioritize genes based on biological systems impaired in a disease.</p>
+</abstract>
+<kwd-group>
+<kwd>magnetic resonance imaging (MRI)</kwd>
+<kwd>genome wide association study (GWAS)</kwd>
+<kwd>gene ontology network</kwd>
+<kwd>Alzheimer's disease (AD)</kwd>
+<kwd>stratified false discovery rate (sFDR)</kwd>
+<kwd>imaging genetics</kwd>
+</kwd-group>
+<counts>
+<fig-count count="4"></fig-count>
+<table-count count="3"></table-count>
+<equation-count count="0"></equation-count>
+<ref-count count="41"></ref-count>
+<page-count count="13"></page-count>
+<word-count count="9202"></word-count>
+</counts>
+</article-meta>
+</front>
+<body>
+<sec id="s1" sec-type="intro">
+<title>Introduction</title>
+<p>Imaging genetics is a burgeoning field that seeks to understand the association of neuroimaging-based phenotypes, such as structural, functional (Thompson et al., <xref ref-type="bibr" rid="B38">2010</xref>), and diffusion imaging-based metrics, (Patel et al., <xref ref-type="bibr" rid="B29">2010</xref>) with genetic variations. Candidate gene studies were initially the method of choice for understanding gene function in humans, and successfully identified genes involved in Mendelian diseases; however, such studies have had less success for complex genetic disorders, with many novel findings failing to replicate in further studies (Hirschhorn et al., <xref ref-type="bibr" rid="B16">2002</xref>). Reasons for such failures include a lack of power to identify the small effect sizes typically involved in complex traits, as well as a lack of knowledge about which genes are appropriate to study (Tabor et al., <xref ref-type="bibr" rid="B37">2002</xref>; Ioannidis, <xref ref-type="bibr" rid="B19">2005</xref>). Around 2007, genome-wide association studies (GWAS) began to make inroads as an efficient method for identifying variants associated with complex disease.In this approach, approximately one million single nucleotide polymorphisms (SNPs) across the whole genome are interrogated simultaneously, hypothesis-free (Wellcome_Trust_Case_Control_Consortium, <xref ref-type="bibr" rid="B40">2007</xref>). However, due to the large burden of multiple testing correction in a GWAS, a <italic>p</italic>-value of 5 × 10<sup>−8</sup> or less, roughly equivalent to a <italic>p</italic> = 0.05 after Bonferroni correction for half a million independent variants, is generally required for a SNP to be recognized as significantly associated with a trait (Dudbridge and Gusnanto, <xref ref-type="bibr" rid="B12">2008</xref>). Given the polygenic nature of complex traits and low effect sizes associated with these traits, large sample sizes are required to achieve adequate statistical power. Recently, a large imaging genetics study named ENIGMA (Enhancing NeuroImaging Genetics through Meta-Analysis) was undertaken, in which 21,000 subjects were included in a GWAS in order to identify genetic variants with association to hippocampal volume (Stein et al., <xref ref-type="bibr" rid="B34">2012</xref>). While this study was a landmark demonstration for the use of imaging genetics techniques to investigate brain structures, it is not plausible for individual investigators to obtain such large sample sizes for their studies.</p>
+<p>Various approaches have been described to reduce the multiple testing burden for large scale GWAS. One such approach is to control for the false discovery rate (FDR), rather than the family-wise error rate (FWER) (Benjamini and Hochberg, <xref ref-type="bibr" rid="B5">1995</xref>). Where the family-wise error rate identifies the probability of one type 1 error from the total tested hypotheses, FDR calculates the proportion of expected type 1 errors. The use of FWER is more stringent compared to the use of FDR leading to less type 1 errors however the power associated with this method is lower, limiting the chance of detecting potential new discoveries. The differences are highlighted by an example from Benjamini and Yekutieli (<xref ref-type="bibr" rid="B6">2005</xref>) based on an QTL (quantitative trait locus) linkage analysis demonstrating a FDR threshold set at 0.05, corresponded to a FWER threshold of 0.64. However the utilization of FDR is more relevant in an exploration analysis on a dataset where there are likely to be multiple true positives (Sun et al., <xref ref-type="bibr" rid="B35">2006</xref>). Furthermore FDR is useful as a screening method in GWAS with multiple phenotypes and covariates (Sun et al., <xref ref-type="bibr" rid="B35">2006</xref>). Another suggested use of FDR is for types of studies where there is less concern on making type 1 errors. In our study our goal is to identifying loci which we would attempt to replicate rather than making strong claims of causality in the first instance, hence an exploratory approach.</p>
+<p>Stratified false discovery rate (sFDR) is an extension of the FDR control approach, where the false discovery rate is controlled in distinct subsets (strata) of the data, one or more of which are believed to have a higher prior probability of being associated with the trait of interest. Strata are defined based on prior information such as linkage analysis, candidate gene studies, or biological pathways (Sun et al., <xref ref-type="bibr" rid="B35">2006</xref>, <xref ref-type="bibr" rid="B36">2012</xref>). An example of this approach by Sun et al. (<xref ref-type="bibr" rid="B36">2012</xref>) investigates the susceptibility to meconium ileus (severe intestinal obstruction) in individuals with cystic fibrosis by prioritizing a set of genes involved in the apical plasma membrane. In this article, Sun et al. (<xref ref-type="bibr" rid="B36">2012</xref>) selected strata defined by Gene Ontology (GO) terms. GO is a biomedical ontology database, which contains structured vocabulary terms known as GO terms designed to describe protein function (Ashburner et al., <xref ref-type="bibr" rid="B2">2000</xref>). In more complex traits, this approach may not be refined enough for the proper stratification of data in sFDR. There are different approaches that can be used to prioritize genes depending on how well the phenotype is characterized. Sun et al. (<xref ref-type="bibr" rid="B36">2012</xref>) prioritized genes for stratification based on the single GO term “apical plasma membrane” to investigate targeted genetic modifiers of Cystic Fibrosis. However, applying that similar approach to complex genetic diseases such as AD may not be as effective. Utilizing a biological domain gene prioritization approach via GO will allow us to capture a wider group of potential genetics variants within biological systems associated with AD.</p>
+<p>There have been other approaches designed to create lists of candidate genes based on previous findings. One example is the work by Linghu et al. (<xref ref-type="bibr" rid="B24">2009</xref>) which focuses on multiple diseases and the use of genomic features from a variety of databases. Similarly, Chen et al. (<xref ref-type="bibr" rid="B9">2007</xref>) uses GO with a combination of genomic databases to prioritize human disease candidate genes by utilizing information from mouse phenotype ontology and extracting mouse ortholog of human genes. Based on current utilization of GO in gene prioritization, our approach is novel in a number of aspects; (1) The gene seed list is based on GWAS meta-analysis results. (2) The use of GO allows us to take a biological system approach to investigate a disease of interest. By taking advantage of the biological process ontology we can feed in our gene list from previous GWAS results and identify common biological process domains which have not been seen in current gene prioritization methods using standard GO terms. Instead of investigating the disease as one system, our prioritization technique allows us to explore candidate genes within different biological systems implicated within the disease phenotype. (3) The use of sFDR allows us to stratify SNPs within each biological process group and implement it to GWAS data to identify if the set of SNPs within a biological process group is associated with the disease phenotype.</p>
+<p>Another common use for GO terms is to use a list of significant genes from association analysis and identify enrichment of GO terms annotated to those genes. Commonly used tools for GWAS approach include WebGestalt, INRICH and Aligator. WebGestalt (WEB-based GEne SeT AnaLysis Toolkit) is a functional enrichment tool that utilizes different publically available resources, not only GO, but other genomic databases such as phenotype ontologies and protein-protein interaction datasets. Therefore a set of genes from an association analysis can be uploaded to WebGestalt, and the gene list is compared to genes in pre-defined functional categories. Similarly, INRICH (Interval-based Enrichment Analysis Tool for Genome Wide Association Studies) and Aligator (Association LIst Go AnnoTatOR) assess enrichment for GO terms based on a list of either candidate genes or SNPs (Holmans et al., <xref ref-type="bibr" rid="B17">2009</xref>; Lee et al., <xref ref-type="bibr" rid="B23">2012</xref>). Both INRICH and Aligator differ from WebGesalt by determining if linkage disequilibrium (LD) independent associated regions show an enrichment of specified characteristics, primarily pathways defined by GO terms. An example of an application is the paper by Lotan et al. (<xref ref-type="bibr" rid="B26">2014</xref>) which uses an array of neuroinformatics tools to analyze common and distinct genetic components associated in six neuropsychiatric disorders. GO was used to identify which biological domains were enriched within the gene list that was common among the neuropsychiatric disorders (Lotan et al., <xref ref-type="bibr" rid="B26">2014</xref>). Studies similar to Lotan et al. (<xref ref-type="bibr" rid="B26">2014</xref>) has utilized GO for enrichment of genes once results of genetic variants have been obtained in association with a phenotype (Miyazaki et al., <xref ref-type="bibr" rid="B27">2009</xref>; Jones et al., <xref ref-type="bibr" rid="B20">2010</xref>; Anney et al., <xref ref-type="bibr" rid="B1">2011</xref>). We have taken a reverse approach where we are using GO to build a biological system network based on genes which have already been associated with previous GWAS studies. The identification of the biological network allows us to explore other genes within a common biological process in association with the phenotype.</p>
+<p>We demonstrate our method's efficacy by investigating the association between genetic variants and hippocampal volume in both the ENIGMA2 and Alzheimer's Disease Neuroimaging Initiative (ADNI1) dataset. The dominant symptom of Alzheimer's Disease (AD) is dementia, where memory, reasoning, and thinking are all impaired. The hippocampus plays a key role in cognitive functioning, influencing processes such as learning and the ability to make new memories (Braskie et al., <xref ref-type="bibr" rid="B8">2013</xref>). Further, in considering the neurodegeneration of medial temporal lobe structures, the changes in hippocampal structure are considered to be one of the strongest quantitative phenotypes associated with AD and can often be used to predict cognitive decline in AD patients (Braskie et al., <xref ref-type="bibr" rid="B8">2013</xref>). A particular biological system of interest that we used to prioritize our genes is the transport system which plays a key role in AD. For example the PICALM (Phosphatidylinositol-binding clathrin assembly protein) gene has been hypothesized to be involved in the transport of Aβ (amyloid beta plaque) in the blood stream (Baig et al., <xref ref-type="bibr" rid="B3">2010</xref>) and Aβ clearance (Schjeide et al., <xref ref-type="bibr" rid="B31">2011</xref>). Schjeide et al. (<xref ref-type="bibr" rid="B31">2011</xref>) demonstrated risk alleles for PICALM to be associated with reduced levels of Aβ in the cerebrospinal fluid of AD patients compared to controls.</p>
+<p>This article presents a novel, systematic method to determine the optimal stratification of SNPs for sFDR analysis. We employed GO alongside previous GWAS findings, and applied our method to the ENIGMA2 and ADNI1 (Supplementary Section 2) data, both dataset containing AD individuals. Our method reduces the multiple testing correction burden with the potential to discover novel biomarkers in imaging genetics. Useful not only for new genetic studies, our tool is highly applicable to mining already existing GWAS data and improving the integration of publically available bioinformatics resources such as GO with imaging genetics studies.</p>
+</sec>
+<sec id="s2" sec-type="materials and methods">
+<title>Materials and methods</title>
+<p>Our methodological approach (Figure <xref ref-type="fig" rid="F1">1</xref> highlights the overall steps) was applied to two different datasets, ENIGMA2 summary statistics and the ADNI1 dataset. In this paper, we focus on applying our method on the ENIGMA2 dataset. Further details of using our method with the ADNI1 dataset is documented in the Supplementary Section 2.1 and Figure <xref ref-type="supplementary-material" rid="SM7">S1</xref>.</p>
+<fig id="F1" position="float">
+<label>Figure 1</label>
+<caption>
+<p><bold>Method overview of both the selection of priority SNPs and association testing analysis between ENIGMA2 GWAS summary statistics</bold>. <bold>(A)</bold> Steps taken to select for priority SNPs. Gene hits from a meta-analysis by Lambert et al. (<xref ref-type="bibr" rid="B21">2013</xref>) were used as a starting point (Step 1) and GO was then used to identify common biological processes within the gene hits (Step 2). Cytoscape was used to build and visualize common biological process networks – in this case the “transport system” network was selected (Step 3 and Step 4). All genes from the selected GO terms in the network were extracted to form the priority list of SNPs. sFDR was then implemented with the priority SNPs. <bold>(B)</bold> Shows the utilization of ENIGMA2 summary statistics of GWAS meta-analysis on hippocampal volume.</p>
+</caption>
+<graphic xlink:href="fninf-10-00014-g0001"></graphic>
+</fig>
+<sec>
+<title>Alzheimer's disease (AD) model: selecting priority list of genes</title>
+<p>Below, we detail how we assembled a list of priority genes, derived comprehensive gene networks based on these so-called “seed” genes, and pruned these networks appropriately. Our priority SNPs were selected from genes involved in biological systems associated with AD. Figure <xref ref-type="fig" rid="F1">1</xref> outlines the entire process followed, including SNP selection (Figure <xref ref-type="fig" rid="F1">1A</xref>) and the utilization of ENIGMA2 summary statistics on GWAS meta-analysis of hippocampal volume (Figure <xref ref-type="fig" rid="F1">1B</xref>).</p>
+<list list-type="simple">
+<list-item>
+<p><bold>Step 1:</bold> Twenty-one hits from a previous meta-analysis of AD GWAS signals were used as a starting point to identify top gene hits (Lambert et al., <xref ref-type="bibr" rid="B21">2013</xref>). In addition we added amyloid precursor protein (<italic>APP</italic>) (Goate et al., <xref ref-type="bibr" rid="B14">1991</xref>), Presenilin-1 (<italic>PSEN1</italic>) and Presenilin-2 (<italic>PSEN2</italic>) (Cruts et al., <xref ref-type="bibr" rid="B11">1998</xref>) to our gene list based on association with familial form of AD. Furthermore rare variants within these gene regions also increase the risk of late onset AD (Cruchaga et al., <xref ref-type="bibr" rid="B10">2012</xref>).</p>
+</list-item>
+<list-item>
+<p><bold>Step 2:</bold> Gene Ontology (GO) (refer to Box <xref ref-type="boxed-text" rid="Box1">1</xref>, data release July 1, 2015) was used to group genes, and subsequently to derive common biological process networks using a three step process detailed below.</p>
+</list-item>
+<list-item>
+<p>Firstly, the biological process (BP) ontology dataset within GO was examined using Quick GO (refer to Box <xref ref-type="boxed-text" rid="Box1">1</xref>) in order to identify all BP terms associated with the genes under investigation, hereafter called originally selected GO terms (OGO terms). No restrictions were given on the type of evidence codes used for the annotation of the OGO terms. Secondly, a web based tool called Generic Gene Ontology (GO) Term Mapper (<ext-link ext-link-type="uri" xlink:href="http://go.princeton.edu/cgi-bin/GOTermMapper">http://go.princeton.edu/cgi-bin/GOTermMapper</ext-link>) was used to identify common biological processes among our gene list. Protein IDs of genes (<bold>Table 2</bold>) were used as input data and the biological process ontology was selected. The set of GO Slim terms used to obtain common BP terms was the Generic GO Slim for human GO annotations. GO Slim terms are GO terms that are very broad and therefore parent terms of OGO terms. Thirdly, common biological processes were identified based on having three or more genes associated within a domain from the 21 genes found in <bold>Table 2</bold>, resulting in a frequency of occurrence of about 14% or more. Identifying domains with a minimum of three genes aids in forming an in-depth GO network. This is because with three genes there is sufficient amount of associated GO terms to represent a meaningful network. Only OGO terms associated with these common processes are carried forward to the next step. Lastly, biological domains selected should be a child term which is three or more child term away from its parent GO term “Biological Process.” GO terms higher up (closer to the GO term “Biological Process”) in the hierarchy of the ontology, are very broad encompassing many genes resulting a biological domain that are not well-defined, therefore potentially introducing noise.</p>
+</list-item>
+<list-item>
+<p>Based on the outcome of the three steps outlined above, we grouped all child terms that derived from parent terms in the domains of vesicle-mediated transport, organic substance transport and ion transport. These three parent terms were found to be under the common network of “transport system,” which was identified as a common biological process. GO terms that fell under the network “transport system” were the fifth level child terms from the Biological Process parent GO term. Refer to Box <xref ref-type="boxed-text" rid="Box1">1</xref> under Gene Ontology section for child and parent terminology. In order to benchmark our approach in the selection of common biological processes, INRICH (Lee et al., <xref ref-type="bibr" rid="B23">2012</xref>) was used as an alternative, objective, method to derive the common biological process domains. However, no significant results were identified to take forward to sFDR. The INRICH process is defined in the Supplementary Section 1.</p>
+</list-item>
+<list-item>
+<p><bold>Step 3:</bold> Cytoscape 3.2.0 (refer to Box <xref ref-type="boxed-text" rid="Box1">1</xref>) was used to visualize the biological process network “transport system,” and parent GO terms from the OGO terms were extracted to contextualize this network. As expected, the networks were overly complex and contained much extraneous information. To remedy this, an algorithm was developed to effectively reduce redundant data in order to create an effectively “pruned” network. This is accomplished by using building and pruning techniques based on the relationships of OGO terms. Figures <xref ref-type="fig" rid="F2">2</xref>–<bold>4</bold> demonstrate different stages of this algorithm with the OGO terms in green boxes. Figure <xref ref-type="fig" rid="F2">2</xref> shows a subsection of GO terms in the complete “transport system” network before pruning of the data. Figures <xref ref-type="fig" rid="F3">3A</xref>–<bold>D</bold> display how specific criteria were used to remove non-targeted GO terms. Figure <xref ref-type="fig" rid="F4">4</xref> shows the final pruned data of the transport system.</p>
+</list-item>
+</list>
+<boxed-text id="Box1" position="float">
+<label>Box 1</label>
+<caption>
+<title>Gene ontology</title>
+</caption>
+<p>Gene Ontology (<ext-link ext-link-type="uri" xlink:href="http://geneontology.org/">http://geneontology.org/</ext-link>) is a publically available, free, ontology database that describes protein function (Ashburner et al., <xref ref-type="bibr" rid="B2">2000</xref>). Gene products—proteins—are classified and grouped in three main ontologies: cellular components (CC) where the protein is located within subcellular compartments, molecular functions (MF) indicates the specific function of the gene is carried out in normal conditions and biological processes (BP) which describes the processes a protein is involved in (e.g.,: neurogenesis). The ontology follows a hierarchical order and there are defined relationships between the GO terms. In the ontology structure, terms at the top represent general or broad concepts, whereas terms near the bottom represent more detailed processes. Therefore, if a term has terms subordinate to it, it is referred to as a “parent” term. Similarly, if a term has other terms superior to it, then it is referred to as a “child” term. Both manual and automatic annotations of proteins are available in the GO database. Automatic annotations are inferred from electronic annotations and are not manually reviewed by a curator. In manual annotations, a curator reviews primary articles to generate annotations, and each annotation is based on experimental data referenced to a PubMed ID. The documentation for manual curation can be found at <ext-link ext-link-type="uri" xlink:href="http://geneontology.org/page/annotation">http://geneontology.org/page/annotation</ext-link>, and an example of annotations created by the authors can be found in the Alzheimer's University of Toronto dataset at <ext-link ext-link-type="uri" xlink:href="http://www.ebi.ac.uk/QuickGO/GAnnotation?source=Alzheimers_University_of_Toronto">http://www.ebi.ac.uk/QuickGO/GAnnotation?source=Alzheimers_University_of_Toronto</ext-link> Quick GO (<ext-link ext-link-type="uri" xlink:href="http://www.ebi.ac.uk/QuickGO/">http://www.ebi.ac.uk/QuickGO/</ext-link>) is a web based tool used to extract data from the GO database.</p>
+<p>
+<bold>Cytoscape</bold>
+</p>
+<p>Cytoscape is an open source software platform visualization tool used to integrate data into complex networks of molecular interaction and biological pathways [(Saito et al., <xref ref-type="bibr" rid="B30">2012</xref>), <ext-link ext-link-type="uri" xlink:href="http://www.cytoscape.org/">http://www.cytoscape.org/</ext-link>]. See Figure <xref ref-type="fig" rid="F4">4</xref> as an example of a biological network.</p>
+</boxed-text>
+<fig id="F2" position="float">
+<label>Figure 2</label>
+<caption>
+<p><bold>Sample of initial transport system network with selected GO terms before pruning</bold>. A subsection is selected to show how the criteria was used to prune the complex GO network. Pruning steps are shown in Figure <xref ref-type="fig" rid="F3">3</xref>.</p>
+</caption>
+<graphic xlink:href="fninf-10-00014-g0002"></graphic>
+</fig>
+<fig id="F3" position="float">
+<label>Figure 3</label>
+<caption>
+<p><bold>Criteria used to prune a complex network</bold>. Green box: Selected GO terms that are associated with a gene identified from Lambert et al. (<xref ref-type="bibr" rid="B21">2013</xref>). Orange box: Child terms of selected GO terms. Pink box: Less common parent term only associated with one selected child GO term. Yellow box: Regulation GO terms that do not specify positive or negative regulation. <bold>(A)</bold> Child terms of selected GO terms were removed. <bold>(B)</bold> A less common parent GO term (receptor metabolic process) which has one selected child GO term (“receptor internalization”) is removed because “receptor-mediated endocytosis” is a parent term for both selected GO terms “receptor internalization,” and “clathrin-mediated endocytosis.” <bold>(C)</bold> Regulation terms that do not specify the type of regulation is removed because selected GO term “negative regulation of receptor-mediated endocytosis” is more descriptive than the parent GO term “regulation of receptor-mediated endocytosis.” <bold>(D)</bold> A sample of a pruned network after following the criteria in Figures <xref ref-type="fig" rid="F3">3A–C</xref>.</p>
+</caption>
+<graphic xlink:href="fninf-10-00014-g0003"></graphic>
+</fig>
+<fig id="F4" position="float">
+<label>Figure 4</label>
+<caption>
+<p><bold>Gene Ontology (GO) biological process network of the “transport system” in association with AD</bold>. Green boxes are GO terms that are associated with the specific genes (blue ovals) connected by purple dotted line. White boxes are intermediate parent GO terms related to the selected GO terms (green boxes). Black arrows represent “is_a” relationship between the GO terms and its parent term; blue arrows shows a “part _of” relationship; orange arrows, a “regulation” relationship; green arrows, a “positive_regulation” relationship and red arrows, a “negative_regulation” relationship.</p>
+</caption>
+<graphic xlink:href="fninf-10-00014-g0004"></graphic>
+</fig>
+<p>The following criteria were used to select the child and parent GO terms.</p>
+<list list-type="alpha-lower">
+<list-item>
+<p>When extracting the ontology of the OGO terms using Cytoscape, child terms are automatically selected. Therefore, to simplify the ontology networks, child terms were removed. Orange terms in Figure <xref ref-type="fig" rid="F3">3A</xref> represent extra child terms of the OGO terms, which are not needed in the network. For example the GO term “clathrin-mediated endocytosis” has two child terms “clathrin-mediated extracellular exosome endocytosis” and “clathrin-mediated endocytosis of virus by host cell.” These terms are not necessary because the genes from step 1 have not been associated with these GO terms. (Figure <xref ref-type="fig" rid="F3">3A</xref>).</p>
+</list-item>
+<list-item>
+<p>If more than one parent term is identified for an OGO term, then a common parent term, which is shared by most of the OGO terms, is chosen. As an example, the term “receptor internalization” has two parent terms, namely, “receptor metabolic process,” and “receptor-mediated endocytosis.” In Figure <xref ref-type="fig" rid="F3">3B</xref> the term “receptor metabolic process,” displayed in a pink box, is removed because the alternate parent term, “receptor-mediated endocytosis,” is a parent term to both the selected GO terms “clathrin-mediated endocytosis” and “receptor internalization.” (In this case receptor-mediated endocytosis is an OGO term but the same criteria is followed if receptor-mediated endocytosis was not an OGO term).</p>
+</list-item>
+<list-item>
+<p>A positive or negative regulation child term will have two types of parents. As an example, we will investigate the term “negative regulation of receptor-mediated endocytosis.” The first parent will be the term it regulates (“receptor-mediated endocytosis”) and the second parent would likely be a term that has “regulation” as a key word in the term name, for example, “regulation of receptor-mediated endocytosis” could be a candidate. Therefore the parent term that is regulated was selected, in this case the term “receptor-mediated endocytosis,” and the parent term that regulates a biological process but does not specify positive or negative regulation (“regulation of receptor-mediated endocytosis”) is removed—shown in a yellow box – because the child term is more specific in terms of explaining how it is regulating the parent term (e.g., negative regulation of receptor-mediated endocytosis), Figure <xref ref-type="fig" rid="F3">3C</xref>.</p>
+<p><bold>Step 4:</bold> Quick GO was used to extract all the genes that are associated to the OGO terms (as displayed in Figure <xref ref-type="fig" rid="F4">4</xref> in green boxes) in the pruned “transport system” network. SNPs from these genes were extracted from the ENIGMA2 and ADNI1 (Supplementary Section 2) dataset using a reference file containing the start and end positions of the transcribed gene portion according to the Homo sapiens build 37 protein and coding genes from National Center for Biotechnology Information (NCBI). This list of SNPs formed the priority list for sFDR.</p>
+</list-item>
+</list>
+</sec>
+<sec>
+<title>ENIGMA2 dataset</title>
+<p>The ENIGMA consortium is composed of a network of international researchers collaborating together on large scale genetic and MRI analysis (Thompson et al., <xref ref-type="bibr" rid="B39">2014</xref>). Datasets from 70 institutions worldwide are utilized in meta-analysis studies for imaging genetics. The initial sample size for ENIGMA1 included a total of 24,997 individuals. The first large scale project for ENIGMA was investigating common genetic variants from case controls samples for neuropsychiatric disorders (depression, anxiety, Alzheimer's disease and schizophrenia) in association with hippocampal and intracranial volumes.</p>
+<p>In this paper we use summary statistics of the ENIGMA2 dataset which includes ENIGMA1 individuals and new individuals increasing the sample size to 30,717 individuals from 50 cohorts. The summary statistic contained a total of 6,570,616 SNPs. In this large scale meta-analysis, association testing was done with imputed GWAS data and volumes of major subcortical structures including: intracranial volume, nucleus accumbens, amygdala, caudate, pallidum, putamen, thalamus, and hippocampus (Hibar et al., <xref ref-type="bibr" rid="B15">2015</xref>). In this paper we used summary statistic of GWAS association with hippocampal volumes. Protocols for genetic and MRI quality control and analysis for ENIGMA2 are available online at <ext-link ext-link-type="uri" xlink:href="http://enigma.ini.usc.edu/protocols/">http://enigma.ini.usc.edu/protocols/</ext-link>.</p>
+</sec>
+<sec>
+<title>sFDR</title>
+<p>Fixed FDR strategies are used to control FDR in a group of tests. In sFDR, SNP <italic>p</italic>-values from the association analysis are grouped into distinct strata, one or more of which are believed to have a higher prior probability of being associated with the trait of interest (Sun et al., <xref ref-type="bibr" rid="B35">2006</xref>). The association <italic>p</italic>-values of each SNP are transformed to <italic>q</italic>-values and FDR is controlled separately within each strata. To control the FDR at a given level—for example 10%—the null hypothesis is rejected when tests have a <italic>q</italic>-value equal to or less than the specified threshold (0.1). This method increases the power to identify true associations if one of the strata is enriched with associated variants. When the strata aren't enriched, the method is still robust. Two SNP strata were formed in our data. All SNPs in the genes associated to the OGO terms (Figure <xref ref-type="fig" rid="F4">4</xref>) from the pruned “transport system” network formed one, high priority, strata (274,272 SNPs), and all the remaining SNPs formed the other (6,296,344 SNPs) in our non-priority stratum. Association <italic>p</italic>-values from ENIGMA2 summary statistics were merged with each corresponding SNPs in each strata (priority and non-priority list) for sFDR. A Perl script was used to analyze priority and non-priority SNPs (<ext-link ext-link-type="uri" xlink:href="http://www.utstat.toronto.edu/sun/Software/SFDR/">http://www.utstat.toronto.edu/sun/Software/SFDR/</ext-link>).</p>
+</sec>
+<sec>
+<title>Null models: prostate cancer and random seed gene list</title>
+<p>To address the concern of overfitting to a generic biological signal in GO, we tested our approach against a null model. We chose prostate cancer since cancer and AD generally have different biological characteristics (Behrens et al., <xref ref-type="bibr" rid="B4">2009</xref>). A seed list of 21 genes associated with prostate cancer was identified from Stadler et al. (<xref ref-type="bibr" rid="B33">2010</xref>) review (Stadler et al., <xref ref-type="bibr" rid="B33">2010</xref>). In addition, three random gene lists, were generated using a random number generator of Entrez IDs in R to randomly select for 24 genes (similar to the number of genes in our seed gene list for AD). For each gene list four biological domains common to the genes within the list were selected. We then undertook sFDR control with these gene strata in the ENIGMA2 GWAS hippocampal volume dataset.</p>
+</sec>
+<sec>
+<title>Datasets</title>
+<p>The two data sets used in this study are the ADNI1 data and ENIGMA2 summary statistics.</p>
+<p>The ENIGMA consortium is composed of a network of international researchers collaborating together on large scale genetic and MRI analysis. ENIGMA2 dataset was used in this study, which includes also ENIGMA1 individuals with a total sample of 30,717. In this large scale meta-analysis, association testing was done with imputed GWAS data and volumes of major subcortical structures such as hippocampal volume (Hibar et al., <xref ref-type="bibr" rid="B15">2015</xref>). To obtain access to the ENIGMA2 summary statistics, a “Data Agreement for ENIGMA2 Download form” was completed online at <ext-link ext-link-type="uri" xlink:href="http://enigma.ini.usc.edu/publications/enigma-2/data-agreement-for-enigma2-download/">http://enigma.ini.usc.edu/publications/enigma-2/data-agreement-for-enigma2-download/</ext-link>. More information of the ENIGMA dataset can be found in Section ENIGMA2 Dataset.</p>
+<p>The ADNI database has been established in 2003 to facilitate the development of methods for biomarker investigation in order to enable detection of Alzheimer's disease at earlier stages. The ADNI database contains different information including neuroimaging, clinical, and genome-wide SNPs data. According to the ADNI protocol, subjects are diagnosed as cognitively normal (CN), mild cognitive impairment (MCI), or Alzheimer's disease (AD), based on the severity of their condition, and are recruited from Canada and the United States. To obtain access to the ADNI data “ADNI Data Use Agreement,” had to be completed online at <ext-link ext-link-type="uri" xlink:href="http://adni.loni.usc.edu/data-samples/access-data/">http://adni.loni.usc.edu/data-samples/access-data/</ext-link>. More information of the ADNI dataset can be found in Supplementary Section 2.1.</p>
+</sec>
+</sec>
+<sec id="s3" sec-type="results">
+<title>Results</title>
+<p>In this paper we will focus on the results obtained by prioritizing genes from the transport system GO network using the AD seeded gene list with the ENIGMA2 dataset (known as our AD model) which improved sFDR values compared to results obtained with the ADNI1 dataset. More information of association analysis and sFDR analysis using ADNI1 data can be found in the Supplementary Section 2.2.</p>
+<sec>
+<title>AD model: SNP selection</title>
+<p>The following results for selection of priority genes are shown corresponding to each step presented in the methods section. In total 24 genes were used as our original gene list in which GO terms associated to these gene were extracted to form the “transport system” network. The extraction of additional genes associated with OGO terms increased our gene list from 24 to 1727 priority genes. Below, we discuss in detail the results from each step when selecting for priority list of genes.</p>
+<list list-type="simple">
+<list-item>
+<p><bold>Step 1:</bold> From the 21 loci identified in Lambert et al., (2013) in association with AD, 10 were already known through previous GWAS and 11 novel loci were found (Table <xref ref-type="table" rid="T1">1</xref>). <italic>APP, PSEN1</italic>, and <italic>PSEN2</italic> were also added to the gene list.</p>
+</list-item>
+<list-item>
+<p><bold>Step 2:</bold> Common biological processes within the gene list were identified using GO and Generic Gene Ontology (GO) Term Mapper web based tool. INRICH was used as an alternative objective method, but significant results were not found. Regardless, results from INRICH are found in the Supplementary Section 1.2. The GO database was accessed on July 2nd, 2015. In the GO database all genes from the list had BP GO terms annotated to them except the gene Membrane-spanning 4-domains subfamily A member 6A (<italic>MS4A6A</italic>). Table <xref ref-type="table" rid="T2">2</xref> shows the common BP domains associated with the 21 genes. In this study we focused on the “transport system” network (Figure <xref ref-type="fig" rid="F4">4</xref>), which included many genes from our original list. The network can be broken down into sub-domains with key GO terms in the areas of vesicle-mediated transport, organic substance transport, and ion transport. For example, in the domain “vesicle-mediated transport”, Phosphatidylinositol-binding clathrin assembly protein (<italic>PICALM</italic>) has been associated with GO terms “receptor-mediated endocytosis” and “clathrin-mediated endocytosis.”</p>
+</list-item>
+<list-item>
+<p><bold>Step 3:</bold> Cytoscape visualization of the transport network is shown in Figure <xref ref-type="fig" rid="F4">4</xref>.</p>
+</list-item>
+<list-item>
+<p><bold>Step 4:</bold> The list of genes associated with the OGO terms from the pruned “transport system” network included 1727 genes, after removal of all non-autosomal genes 1671 genes remained and formed our stratum for sFDR. Supplementary Excel Table <xref ref-type="supplementary-material" rid="SM1">S1</xref> shows a list of all priority genes with chromosome number, start and end position and gene symbol. Furthermore Supplementary Excel Table <xref ref-type="supplementary-material" rid="SM2">S2</xref> contains all 274, 272 SNPs from 1671 genes used for sFDR.</p>
+</list-item>
+</list>
+<table-wrap id="T1" position="float">
+<label>Table 1</label>
+<caption>
+<p><bold>Top genes associated with AD from the Lambert et al. (<xref ref-type="bibr" rid="B21">2013</xref>) meta-analysis</bold>.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="2" rowspan="1" style="background-color:#bbbdc0" valign="top">
+<bold>(A) 10 loci known to be associated with Alzheimer's disease</bold>
+</th>
+</tr>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Gene Symbol</bold>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Gene Name</bold>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">APOE</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Apolipoprotein E</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">BIN1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Myc box-dependent-interacting protein 1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CLU</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Clusterin (Apolipoprotein J)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">ABCA7</td>
+<td align="left" colspan="1" rowspan="1" valign="top">ATP-binding cassette sub-family A member 7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CR1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Complement receptor type 1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PICALM</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Phosphatidylinositol-binding clathrin assembly protein</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">MS4A6A</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Membrane-spanning 4-domains subfamily A member 6A</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CD33</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Myeloid cell surface antigen CD33</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CD2AP</td>
+<td align="left" colspan="1" rowspan="1" valign="top">CD2-associated protein</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">EPHA1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Ephrin type-A receptor 1</td>
+</tr>
+<tr>
+<td align="left" colspan="2" rowspan="1" style="background-color:#bbbdc0" valign="top">
+<bold>(B) 11 new loci associated Alzheimer's disease</bold>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">HLA</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Human leukocyte antigen class II histocompatibility antigen</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">SORL1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Sortilin-related receptor</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PTK2B</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Protein-tyrosine kinase 2-beta</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">SLC24A4</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Sodium/potassium/calcium exchanger 4</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">NYAP1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Neuronal tyrosine-phosphorylated phosphoinositide-3-kinase adapter 1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CELF1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Encode CUGBP, Elav-like family member 1 region</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">NME8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Thioredoxin domain-containing protein 3</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FERMT2</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Fermitin family homolog 2</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">INPP5D</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Phosphatidylinositol 3,4,5-trisphosphate 5-phosphatase 1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">MEF2C</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Myocyte-specific enhancer factor 2C</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CASS4</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Cas scaffolding protein family member 4</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="T2" position="float">
+<label>Table 2</label>
+<caption>
+<p><bold>Common GO Biological Process domains of gene hits from the Lambert et al. (<xref ref-type="bibr" rid="B21">2013</xref>) meta-analysis</bold>.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Gene</bold>
+</th>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Protein ID</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Transport System</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Steroid and cholesterol metabolic process</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Immune system process</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Cell membrane processes and Cell migration</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Nervous system development and Synaptic transmission</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Regulation of calcium-mediated signaling</bold>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">DRB5</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q30154</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">SORL1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q92673</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PTK2B</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q14289</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">SLC24A4</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q8NFF2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">NYAP1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q6ZVC0</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">MADD</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q8WXG6</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">NME8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q8N427</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">FERMT2</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q96AC1</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">INPP5D</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q92835</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">MEF2C</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q06413</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CASS4</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q9NQ75</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">APOE</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P02649</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">BIN1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">O00499</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CLU</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P10909</td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">ABCA7</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q8IZY2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CR1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P17927</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">PICALM</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q13492</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">MS4A6A</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q9H2W1</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CD33</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P20138</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">CD2AP</td>
+<td align="left" colspan="1" rowspan="1" valign="top">Q9Y5K6</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">EPHA1</td>
+<td align="left" colspan="1" rowspan="1" valign="top">P21709</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td align="center" colspan="1" rowspan="1" valign="top">X</td>
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1"></td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</sec>
+<sec>
+<title>Summary statistics of ENIGMA2 GWAS meta-analysis of hippocampal volume</title>
+<p><italic>P</italic>-values were extracted from summary statistics of association testing between SNPs and hippocampal volume from the ENIGMA2 dataset. Significant SNPs were identified as <italic>p</italic> &lt; 5 × 10<sup>−8</sup>. For example the top significant SNP rs77956314 (<italic>P</italic> = 9.33 × 10<sup>−11</sup>) is located in the intergenic region near the gene, activator of apoptosis harakiri (HRK) on chromosome 12. (For more information on association analysis results and Manhattan plot please refer to Hibar et al., <xref ref-type="bibr" rid="B15">2015</xref>).</p>
+</sec>
+<sec>
+<title>AD model: sFDR results using ENIGMA2 GWAS meta-analysis of hippocampal volume</title>
+<p>In total there were 274, 272 SNPs in our priority stratum (transport system) and 6,296,344 SNPs in our non-priority stratum of our AD model. SNPs in the transport system priority group showed a sFDR between 10 and 20% in gene regions Sodium-driven chloride bicarbonate exchanger (SLC4A10), Potassium voltage-gated channel subfamily H member 7 (KCNH7), Cationic amino acid transporter 2 (SLC7A2), Zinc transporter ZIP1 (SLC39A1), and Protein PTHB1 (BBS9). FDR was used as a benchmark for sFDR by comparing the <italic>q</italic>-values. The top SNPs from our priority group rs117831534 in gene region Calcineurin B homologous protein 3 (TESC) performed the same in FDR and sFDR however SNP rs118025365 performed slightly better in FDR than sFDR (Table <xref ref-type="table" rid="T3">3</xref>). The remaining SNPs in the transport system priority list showed improved <italic>q</italic> sFDR values than FDR alone. For example a set of SNPs in the SLC4A10 gene has a <italic>q</italic> sFDR value of 0.118 (rs12472555, rs4500960, rs6707646, rs7580486, and rs7604885) whereas FDR <italic>q</italic>-value was 0.152. Furthermore SNPs rs10048805 and rs10172470 showed greater improvement of sFDR with a <italic>q</italic>-value of 0.165 compared to FDR of 0.304.</p>
+<table-wrap id="T3" position="float">
+<label>Table 3</label>
+<caption>
+<p><bold>Top 10 sFDR results from summary statistics on ENIGMA2 GWAS meta-analysis of hippocampal volume</bold>.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="top">
+<bold>Chromosome Number</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>SNP</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Base position</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold><italic>p</italic>-value</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold><italic>q</italic>_valueFDR</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Rank FDR</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold><italic>q</italic>_value sFDR</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Rank sFDR</bold>
+</th>
+<th align="center" colspan="1" rowspan="1" valign="top">
+<bold>Gene</bold>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs117831534</td>
+<td align="center" colspan="1" rowspan="1" valign="top">117506632</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.91E-07</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.068</td>
+<td align="center" colspan="1" rowspan="1" valign="top">47</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.067</td>
+<td align="center" colspan="1" rowspan="1" valign="top">47</td>
+<td align="center" colspan="1" rowspan="1" valign="top">TESC</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">12</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs118025365</td>
+<td align="center" colspan="1" rowspan="1" valign="top">117477082</td>
+<td align="center" colspan="1" rowspan="1" valign="top">4.00E-07</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.058</td>
+<td align="center" colspan="1" rowspan="1" valign="top">45</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.067</td>
+<td align="center" colspan="1" rowspan="1" valign="top">46</td>
+<td align="center" colspan="1" rowspan="1" valign="top">TESC</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs12472555</td>
+<td align="center" colspan="1" rowspan="1" valign="top">162816728</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3.04E-06</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.152</td>
+<td align="center" colspan="1" rowspan="1" valign="top">103</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.118</td>
+<td align="center" colspan="1" rowspan="1" valign="top">53</td>
+<td align="center" colspan="1" rowspan="1" valign="top">SLC4A10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs4500960</td>
+<td align="center" colspan="1" rowspan="1" valign="top">162818621</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.77E-06</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.152</td>
+<td align="center" colspan="1" rowspan="1" valign="top">91</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.118</td>
+<td align="center" colspan="1" rowspan="1" valign="top">52</td>
+<td align="center" colspan="1" rowspan="1" valign="top">SLC4A10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs6707646</td>
+<td align="center" colspan="1" rowspan="1" valign="top">162808640</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.02E-06</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.152</td>
+<td align="center" colspan="1" rowspan="1" valign="top">70</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.118</td>
+<td align="center" colspan="1" rowspan="1" valign="top">49</td>
+<td align="center" colspan="1" rowspan="1" valign="top">SLC4A10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs7580486</td>
+<td align="center" colspan="1" rowspan="1" valign="top">162810159</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.46E-06</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.152</td>
+<td align="center" colspan="1" rowspan="1" valign="top">83</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.118</td>
+<td align="center" colspan="1" rowspan="1" valign="top">51</td>
+<td align="center" colspan="1" rowspan="1" valign="top">SLC4A10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs7604885</td>
+<td align="center" colspan="1" rowspan="1" valign="top">162806408</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.30E-06</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.152</td>
+<td align="center" colspan="1" rowspan="1" valign="top">80</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.118</td>
+<td align="center" colspan="1" rowspan="1" valign="top">50</td>
+<td align="center" colspan="1" rowspan="1" valign="top">SLC4A10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs4664442</td>
+<td align="center" colspan="1" rowspan="1" valign="top">162828001</td>
+<td align="center" colspan="1" rowspan="1" valign="top">3.58E-06</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.152</td>
+<td align="center" colspan="1" rowspan="1" valign="top">150</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.122</td>
+<td align="center" colspan="1" rowspan="1" valign="top">55</td>
+<td align="center" colspan="1" rowspan="1" valign="top">SLC4A10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs10048805</td>
+<td align="center" colspan="1" rowspan="1" valign="top">163466462</td>
+<td align="center" colspan="1" rowspan="1" valign="top">2.20E-05</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.304</td>
+<td align="center" colspan="1" rowspan="1" valign="top">473</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.165</td>
+<td align="center" colspan="1" rowspan="1" valign="top">216</td>
+<td align="center" colspan="1" rowspan="1" valign="top">KCNH7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">2</td>
+<td align="center" colspan="1" rowspan="1" valign="top">rs10172470</td>
+<td align="center" colspan="1" rowspan="1" valign="top">163476863</td>
+<td align="center" colspan="1" rowspan="1" valign="top">1.66E-05</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.304</td>
+<td align="center" colspan="1" rowspan="1" valign="top">359</td>
+<td align="center" colspan="1" rowspan="1" valign="top">0.165</td>
+<td align="center" colspan="1" rowspan="1" valign="top">202</td>
+<td align="center" colspan="1" rowspan="1" valign="top">KCNH7</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<p><italic>P-value is the associated significance between the SNP and phenotype (hippocampal volume). Significant SNPs at a GWAS level is p &lt; 5 × 10<sup>−8</sup>. The sFDR q-value controls the false discovery rate; the q-value is the adjusted p-value. “Rank” is the order of SNPs based on sFDR q-values from a total of 6,570,616 SNPs</italic>.</p>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec>
+<title>AD model comparison against null model SFDR results</title>
+<p>To ensure our approach of using GO to prioritize genes in our AD model was not simply resulting in false positives we used the ENIGMA2 GWAS data and selected set of genes not related to AD. As our null models we chose prostate cancer and three random gene lists which were classified into biological domains using GO. Comparing the AD model against the prostate cancer model and three random null models, SNPs within each biological domain within the null models did not show sFDR values below 20% for each of the four biological domains selected within each gene list (Supplementary Excel Tables <xref ref-type="supplementary-material" rid="SM3">S3</xref>–<xref ref-type="supplementary-material" rid="SM6">S6</xref>). Whereas SNPs within the AD model showed sFDR value less than 20% (as described in Section AD Model: sFDR Results Using ENIGMA2 GWAS Meta-Analysis of Hippocampal Volume). In the gene seed list of the null models, biological domains selected were: anatomical structure formation involved in morphogenesis, cell differentiation, cellular component assembly and signal transduction. Furthermore, there was no reduction in sFDR <italic>q</italic>-values when compared to FDR within each biological domain from both the prostate cancer and random gene seed lists.</p>
+</sec>
+</sec>
+<sec id="s4" sec-type="discussion">
+<title>Discussion</title>
+<p>In contrast to existing approaches, our novel method provides a systematic integration framework for previous knowledge with the GO database. Alternatives such as Aligator and INRICH both rely on the identification of over-represented GO categories among significant hits. These approaches use GO as the last step to identify which biological domains are enriched based on significant genetic variants providing results relating to the whole domain and not individual variants. In contrast, we identify and adapt relevant categories based on GO and use sFDR to increase power while controlling for multiplicity, the method provides <italic>q</italic>-values for individual variants. A direct comparison between our approach to tools such as INRICH and Aligator is therefore difficult. However we have compared the intermediate step of manually selecting biological domains use in our approach to a gene enrichment tool, INRICH (detail found in Supplementary Section 1.1).</p>
+<p>Results from sFDR are promising, in the ENIGMA2 dataset <italic>q</italic>-values of sFDR ranged in the 10–20%. Furthermore SNPs in the transport priority list using the ENIGMA2 data showed improved q sFDR values than FDR (Table <xref ref-type="table" rid="T3">3</xref>) indicating a potential link between the genes in our pruned transport system network in connection to hippocampal volume. SNPs with 10–20% q sFDR from the ENIGMA2 data are found in gene regions SLC4A10, KCNH7, SLC7A2, SLC39A1, and BBS9. However, the SNPs are within introns region of (non-cording regions) the gene therefore the role a SNP will have on a gene function is unclear. RegulomeDB was used to investigate the role of these SNPs in non-coding regions (Boyle et al., <xref ref-type="bibr" rid="B7">2012</xref>), however no further evidence of functionality was provided. The SNPs we identified may just be tagging SNPs hence the causal variants may be within genes that are close by. For example, the SLC4A10 gene is a sodium/bicarbonate co-transporter for intracellular chloride exchange. It plays a key role in regulating intracellular and extracellular pH for synaptic transmission, nerve stimulation, and enzyme activities and it is expressed in the brain (Fang et al., <xref ref-type="bibr" rid="B13">2010</xref>). During aging and or ischemia, accumulation of acidic metabolites decreases the pH which can affect the activity of enzymes related to APP processing affecting the amyloid plaque formation in AD (Song et al., <xref ref-type="bibr" rid="B32">2003</xref>; Xue et al., <xref ref-type="bibr" rid="B41">2006</xref>). Another genes of interest to AD is KCNH7 which is a zinc transporter also known as ZIP1. Tau protein phosphorylation and aggregation is affected by changes in Zn<sup>+2</sup> ion levels which in turn affect neurofibrillary tangles (Mo et al., <xref ref-type="bibr" rid="B28">2009</xref>) and amyloid plaque formation (Lee et al., <xref ref-type="bibr" rid="B22">2002</xref>).</p>
+<p>In our AD model, stratified SNPs extracted from GO within the transport system showed sFDR <italic>q</italic>-values less than 20%, using the ENGIMA dataset which was not seen within each biological domain in the null models (prostate cancer and random seed gene lists). Comparison of AD model against the results from the null models addresses the concern of overfitting in our approach because if our approach was identifying random errors or noise as significant sFDR <italic>q</italic>-values, the null model will also identify random SNPs as being significant. Furthermore the purpose of applying sFDR is to investigate if a subset of SNPs based on common biological characteristics has more significant <italic>q</italic>-values compared to a standard FDR. In our AD model the sFDR results for the selected biological process were more significant than that of the standard FDR results but the results were the same in the null datasets. Hence, stratification of SNPs alone did not make the <italic>q</italic>-values more significant. As we are unable to provide nested models of FDR and sFDR and we do not know which genes are actually truly involved in AD, we are unable to determine if sFDR is significantly better than FDR. Thus at this time our results are suggestive.</p>
+<p>Some aspects of the process by which priority SNPs are selected for sFDR could be considered subjective and represent an area of active development for our algorithm. For example, often the associations in GWAS studies are designated to the most promising gene in the region from a biological standpoint, introducing bias in step 1. One approach to combat this phenomenon would be for the input list to include all genes within a high recombination region alongside the most significant hit. Selection of the common biological domains in step 2 can be performed in a variety of ways due to different tools available. In our approach we used a web based tool Generic Gene Ontology (GO) Term Mapper which decreases the subjectivity of identifying common biological domains. However because there are different GO Slim terms that can be used on a gene set, identified common biological domains in GO can differ. Other potential standard pathway approaches are INRICH or Aligator. We have performed pilot work using INRICH as outlined in the Supplementary text. In this example no pathways were identified, preventing us from pursuing this avenue. This is likely due to a lack of power to identify relevant pathways.</p>
+<p>Another area of active development relating to SNP selection revolves around growing and pruning the network of terms utilized. As such, further pruning the GO network by focusing on BP GO terms annotated to genes specific to one brain region, such as the hippocampus, or neuronal cell type within such structures may be crucial. Biological processes associated with structural information have recently begun to be captured in GO (Huntley et al., <xref ref-type="bibr" rid="B18">2014</xref>). Therefore, when genes are annotated to BP GO terms, additional information on where the biological process is occurring can be recorded. As a result, filtering the data and looking at BP GO terms occurring in neuro-anatomical cells in region of the hippocampus may help in further pruning the network.</p>
+<p>Both automatic and manual curation was used to assign GO terms to the genes in question. Automatic curation is the result of machine learning algorithms, and the terms assigned tend to be much broader than the manually curated ones and adds a potential source of noise to our priority SNPs stratum. In the example analysis presented here the inclusion of these sub-optimal classifications was necessary due to the limited manual annotation of the loci observed in Lambert et al. (<xref ref-type="bibr" rid="B21">2013</xref>) yet we acknowledge the shortcomings of this approach and advise the prioritization of manually curated GO data. To further address the issue we are in the process of manually curating the list of 21 loci associated with AD.</p>
+<p>In conclusion, this article introduces the use of GO, an online database, as a novel method to efficiently prioritize data for sFDR multiple testing control. We take advantage of how the GO terms in the biological process ontology relates to each other in a hierarchical order ontology and we capture the different properties of a particular biological process that is impaired in a disease.</p>
+<p>In particular we applied this method to a GWAS of hippocampal volume in the ENIGMA2 and ADNI1 dataset. Our method has the potential to improve the identification of genes in imaging-genetic studies; further development along the lines described above could increase this ability.</p>
+</sec>
+<sec id="s5">
+<title>Author contributions</title>
+<p>SP performed quality control and imputation on GWAS data, developed the Gene Ontology network and performed the association analysis between GWAS data and mean hippocampal volume. MP carried out automatic and manual hippocampal segmentation and quality control on the segmentation. SP, JK, MC conceptualized the design of the study. All authors wrote and edited the manuscript.</p>
+<sec>
+<title>Conflict of interest statement</title>
+<p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+</sec>
+</sec>
+</body>
+<back>
+<ack>
+<p>Computations were performed on the CAMH Specialized Computing Cluster. The SCC is funded by: The Canada Foundation for Innovation, Research Hospital Fund. Computations were performed on the gpc supercomputer at the SciNet HPC Consortium (Loken et al., <xref ref-type="bibr" rid="B25">2010</xref>). SciNet is funded by: the Canada Foundation for Innovation under the auspices of Compute Canada; the Government of Ontario; Ontario Research Fund - Research Excellence; and the University of Toronto. MMC is funded by the National Sciences and Engineering Research Council, Canadian Institutes for Health, Weston Brain Institute, Michael J. Fox Foundation for Parkinson's Research, Alzheimer's Society, and Brain Canada. JK holds the Joanne Murphy Professorship in Behavioral Science and is also funded by the Canadian Institutes for Health. SP is funded by The Cadsby Foundation. Thanks to Mark Silverberg for providing the Jewish ancestry sample. We would like to thank Chris Coles for his help with editing the manuscript.</p>
+<sec>
+<title>ADNI acknowledgments</title>
+<p>Data collection and sharing for this project was funded by the Alzheimer's Disease Neuroimaging Initiative (ADNI) (National Institutes of Health Grant U01 AG024904) and DOD ADNI (Department of Defense award number W81XWH-12-2-0012). ADNI is funded by the National Institute on Aging, the National Institute of Biomedical Imaging and Bioengineering, and through generous contributions from the following: Alzheimer's Association; Alzheimer's Drug Discovery Foundation; BioClinica, Inc.; Biogen Idec Inc.; Bristol-Myers Squibb Company; Eisai Inc.; Elan Pharmaceuticals, Inc.; Eli Lilly and Company; F. Hoffmann-La Roche Ltd. and its affiliated company Genentech, Inc.; GE Healthcare; Innogenetics, N.V.; IXICO Ltd.; Janssen Alzheimer Immunotherapy Research &amp; Development, LLC.; Johnson &amp; Johnson Pharmaceutical Research &amp; Development LLC.; Medpace, Inc.; Merck &amp; Co., Inc.; Meso Scale Diagnostics, LLC.; NeuroRx Research; Novartis Pharmaceuticals Corporation; Pfizer Inc.; Piramal Imaging; Servier; Synarc Inc.; and Takeda Pharmaceutical Company. The Canadian Institutes of Health Research is providing funds to support ADNI clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Health (<ext-link ext-link-type="uri" xlink:href="http://www.fnih.org">www.fnih.org</ext-link>). The grantee organization is the Northern California Institute for Research and Education, and the study is coordinated by the Alzheimer's Disease Cooperative Study at the University of California, San Diego. ADNI data are disseminated by the Laboratory for Neuro Imaging at the University of Southern California.</p>
+</sec>
+</ack>
+<sec id="s6" sec-type="supplementary-material">
+<title>Supplementary material</title>
+<p>The Supplementary Material for this article can be found online at: <ext-link ext-link-type="uri" xlink:href="http://journal.frontiersin.org/article/10.3389/fninf.2016.00014">http://journal.frontiersin.org/article/10.3389/fninf.2016.00014</ext-link></p>
+<supplementary-material content-type="local-data" id="SM1">
+<media xlink:href="Table1.XLSX">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SM2">
+<media xlink:href="Table2.XLSX">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SM3">
+<media xlink:href="Table3.XLSX">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SM4">
+<media xlink:href="Table4.XLSX">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SM5">
+<media xlink:href="Table5.XLSX">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SM6">
+<media xlink:href="Table6.XLSX">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SM7">
+<media xlink:href="DataSheet1.PDF">
+<caption>
+<p>Click here for additional data file.</p>
+</caption>
+</media>
+</supplementary-material>
+</sec>
+<ref-list>
+<title>References</title>
+<ref id="B1">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Anney</surname><given-names>R. J. L.</given-names></name><name><surname>Kenny</surname><given-names>E. M.</given-names></name><name><surname>O'Dushlaine</surname><given-names>C.</given-names></name><name><surname>Yaspan</surname><given-names>B. L.</given-names></name><name><surname>Parkhomenka</surname><given-names>E.</given-names></name><name><surname>Buxbaum</surname><given-names>J. D.</given-names></name><etal></etal></person-group>. (<year>2011</year>). <article-title>Gene-ontology enrichment analysis in two independent family-based samples highlights biologically plausible processes for autism spectrum disorders</article-title>. <source/>Eur. J. Hum. Genet.
+<volume>19</volume>, <fpage>1082</fpage>–<lpage>1089</lpage>. <pub-id pub-id-type="doi">10.1038/ejhg.2011.75</pub-id><pub-id pub-id-type="pmid">21522181</pub-id></mixed-citation>
+</ref>
+<ref id="B2">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ashburner</surname><given-names>M.</given-names></name><name><surname>Ball</surname><given-names>C. A.</given-names></name><name><surname>Blake</surname><given-names>J. A.</given-names></name><name><surname>Botstein</surname><given-names>D.</given-names></name><name><surname>Butler</surname><given-names>H.</given-names></name><name><surname>Cherry</surname><given-names>J. M.</given-names></name><etal></etal></person-group>. (<year>2000</year>). <article-title>Gene ontology: tool for the unification of biology. The Gene Ontology Consortium</article-title>. <source/>Nature genetics
+<volume>25</volume>, <fpage>25</fpage>–<lpage>29</lpage>. <pub-id pub-id-type="doi">10.1038/75556</pub-id><pub-id pub-id-type="pmid">10802651</pub-id></mixed-citation>
+</ref>
+<ref id="B3">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Baig</surname><given-names>S.</given-names></name><name><surname>Joseph</surname><given-names>S. A.</given-names></name><name><surname>Tayler</surname><given-names>H.</given-names></name><name><surname>Abraham</surname><given-names>R.</given-names></name><name><surname>Owen</surname><given-names>M. J.</given-names></name><name><surname>Williams</surname><given-names>J.</given-names></name><etal></etal></person-group>. (<year>2010</year>). <article-title>Distribution and expression of picalm in Alzheimer disease</article-title>. <source/>J. Neuropathol. Exp. Neurol.
+<volume>69</volume>, <fpage>1071</fpage>–<lpage>1077</lpage>. <pub-id pub-id-type="doi">10.1097/NEN.0b013e3181f52e01</pub-id><pub-id pub-id-type="pmid">20838239</pub-id></mixed-citation>
+</ref>
+<ref id="B4">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Behrens</surname><given-names>M. I.</given-names></name><name><surname>Lendon</surname><given-names>C.</given-names></name><name><surname>Roe</surname><given-names>C. M.</given-names></name></person-group> (<year>2009</year>). <article-title>A common biological mechanism in cancer and Alzheimer's disease?</article-title>
+<source/>Curr. Alzheimer Res.
+<volume>6</volume>, <fpage>196</fpage>–<lpage>204</lpage>. <pub-id pub-id-type="doi">10.2174/156720509788486608</pub-id><pub-id pub-id-type="pmid">19519301</pub-id></mixed-citation>
+</ref>
+<ref id="B5">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Benjamini</surname><given-names>Y.</given-names></name><name><surname>Hochberg</surname><given-names>Y.</given-names></name></person-group> (<year>1995</year>). <article-title>Controlling the false discovery rate: a practical and powerful approach to multiple testing</article-title>. <source/>J. R. Statis. Soc. B, <volume>57</volume>, <fpage>289</fpage>–<lpage>300</lpage>.</mixed-citation>
+</ref>
+<ref id="B6">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Benjamini</surname><given-names>Y.</given-names></name><name><surname>Yekutieli</surname><given-names>D.</given-names></name></person-group> (<year>2005</year>). <article-title>Quantitative trait Loci analysis using the false discovery rate</article-title>. <source/>Genetics
+<volume>171</volume>, <fpage>783</fpage>–<lpage>790</lpage>. <pub-id pub-id-type="doi">10.1534/genetics.104.036699</pub-id><pub-id pub-id-type="pmid">15956674</pub-id></mixed-citation>
+</ref>
+<ref id="B7">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Boyle</surname><given-names>A. P.</given-names></name><name><surname>Hong</surname><given-names>E. L.</given-names></name><name><surname>Hariharan</surname><given-names>M.</given-names></name><name><surname>Cheng</surname><given-names>Y.</given-names></name><name><surname>Schaub</surname><given-names>M. A.</given-names></name><name><surname>Kasowski</surname><given-names>M.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>Annotation of functional variation in personal genomes using RegulomeDB</article-title>. <source/>Genome Res.
+<volume>22</volume>, <fpage>1790</fpage>–<lpage>1797</lpage>. <pub-id pub-id-type="doi">10.1101/gr.137323.112</pub-id><pub-id pub-id-type="pmid">22955989</pub-id></mixed-citation>
+</ref>
+<ref id="B8">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Braskie</surname><given-names>M. N.</given-names></name><name><surname>Toga</surname><given-names>A. W.</given-names></name><name><surname>Thompson</surname><given-names>P. M.</given-names></name></person-group> (<year>2013</year>). <article-title>Recent advances in imaging Alzheimer's disease</article-title>. <source/>J. Alzheimers Di.
+<volume>33</volume>(<issue>Suppl. 1</issue>), <fpage>S313</fpage>–<lpage>S327</lpage>. <pub-id pub-id-type="doi">10.3233/JAD-2012-129016</pub-id><pub-id pub-id-type="pmid">22672880</pub-id></mixed-citation>
+</ref>
+<ref id="B9">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chen</surname><given-names>J.</given-names></name><name><surname>Xu</surname><given-names>H.</given-names></name><name><surname>Aronow</surname><given-names>B. J.</given-names></name><name><surname>Jegga</surname><given-names>A. G.</given-names></name></person-group> (<year>2007</year>). <article-title>Improved human disease candidate gene prioritization using mouse phenotype</article-title>. <source/>BMC bioinformatics
+<volume>8</volume>:<fpage>392</fpage>. <pub-id pub-id-type="doi">10.1186/1471-2105-8-392</pub-id><pub-id pub-id-type="pmid">17939863</pub-id></mixed-citation>
+</ref>
+<ref id="B10">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cruchaga</surname><given-names>C.</given-names></name><name><surname>Haller</surname><given-names>G.</given-names></name><name><surname>Chakraverty</surname><given-names>S.</given-names></name><name><surname>Mayo</surname><given-names>K.</given-names></name><name><surname>Vallania</surname><given-names>F. L.</given-names></name><name><surname>Mitra</surname><given-names>R. D.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>Rare variants in APP, PSEN1 and PSEN2 increase risk for AD in late-onset Alzheimer's disease families</article-title>. <source/>PLoS ONE
+<volume>7</volume>:<fpage>e31039</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0031039</pub-id><pub-id pub-id-type="pmid">22312439</pub-id></mixed-citation>
+</ref>
+<ref id="B11">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cruts</surname><given-names>M.</given-names></name><name><surname>van Duijn</surname><given-names>C. M.</given-names></name><name><surname>Backhovens</surname><given-names>H.</given-names></name><name><surname>Van Den Broeck</surname><given-names>M.</given-names></name><name><surname>Wehnert</surname><given-names>A.</given-names></name><name><surname>Serneels</surname><given-names>S.</given-names></name><etal></etal></person-group>. (<year>1998</year>). <article-title>Estimation of the genetic contribution of presenilin-1 and -2 mutations in a population-based study of presenile Alzheimer disease</article-title>. <source/>Hum. Mol. Genet.
+<volume>7</volume>, <fpage>43</fpage>–<lpage>51</lpage>. <pub-id pub-id-type="pmid">9384602</pub-id></mixed-citation>
+</ref>
+<ref id="B12">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dudbridge</surname><given-names>F.</given-names></name><name><surname>Gusnanto</surname><given-names>A.</given-names></name></person-group> (<year>2008</year>). <article-title>Estimation of significance thresholds for genomewide association scans</article-title>. <source/>Genet. Epidemiol.
+<volume>32</volume>, <fpage>227</fpage>–<lpage>234</lpage>. <pub-id pub-id-type="doi">10.1002/gepi.20297</pub-id><pub-id pub-id-type="pmid">18300295</pub-id></mixed-citation>
+</ref>
+<ref id="B13">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fang</surname><given-names>B.</given-names></name><name><surname>Wang</surname><given-names>D.</given-names></name><name><surname>Huang</surname><given-names>M.</given-names></name><name><surname>Yu</surname><given-names>G.</given-names></name><name><surname>Li</surname><given-names>H.</given-names></name></person-group> (<year>2010</year>). <article-title>Hypothesis on the relationship between the change in intracellular pH and incidence of sporadic Alzheimer's disease or vascular dementia</article-title>. <source/>Int. J. Neurosci.
+<volume>120</volume>, <fpage>591</fpage>–<lpage>595</lpage>. <pub-id pub-id-type="doi">10.3109/00207454.2010.505353</pub-id><pub-id pub-id-type="pmid">20707633</pub-id></mixed-citation>
+</ref>
+<ref id="B14">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Goate</surname><given-names>A.</given-names></name><name><surname>Chartier-Harlin</surname><given-names>M. C.</given-names></name><name><surname>Mullan</surname><given-names>M.</given-names></name><name><surname>Brown</surname><given-names>J.</given-names></name><name><surname>Crawford</surname><given-names>F.</given-names></name><name><surname>Fidani</surname><given-names>L.</given-names></name><etal></etal></person-group>. (<year>1991</year>). <article-title>Segregation of a missense mutation in the amyloid precursor protein gene with familial Alzheimer's disease</article-title>. <source/>Nature
+<volume>349</volume>, <fpage>704</fpage>–<lpage>706</lpage>. <pub-id pub-id-type="doi">10.1038/349704a0</pub-id><pub-id pub-id-type="pmid">1671712</pub-id></mixed-citation>
+</ref>
+<ref id="B15">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hibar</surname><given-names>D. P.</given-names></name><name><surname>Stein</surname><given-names>J. L.</given-names></name><name><surname>Renteria</surname><given-names>M. E.</given-names></name><name><surname>Arias-Vasquez</surname><given-names>A.</given-names></name><name><surname>Desrivières</surname><given-names>S.</given-names></name><name><surname>Jahanshad</surname><given-names>N.</given-names></name><etal></etal></person-group>. (<year>2015</year>). <article-title>Common genetic variants influence human subcortical brain structures</article-title>. <source/>Nature
+<volume>520</volume>, <fpage>224</fpage>–<lpage>229</lpage>. <pub-id pub-id-type="doi">10.1038/nature14101</pub-id><pub-id pub-id-type="pmid">25607358</pub-id></mixed-citation>
+</ref>
+<ref id="B16">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hirschhorn</surname><given-names>J. N.</given-names></name><name><surname>Lohmueller</surname><given-names>K.</given-names></name><name><surname>Byrne</surname><given-names>E.</given-names></name><name><surname>Hirschhorn</surname><given-names>K.</given-names></name></person-group> (<year>2002</year>). <article-title>A comprehensive review of genetic association studies</article-title>. <source/>Genet. Med.
+<volume>4</volume>, <fpage>45</fpage>–<lpage>61</lpage>. <pub-id pub-id-type="doi">10.1097/00125817-200203000-00002</pub-id><pub-id pub-id-type="pmid">11882781</pub-id></mixed-citation>
+</ref>
+<ref id="B17">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Holmans</surname><given-names>P.</given-names></name><name><surname>Green</surname><given-names>E. K.</given-names></name><name><surname>Pahwa</surname><given-names>J. S.</given-names></name><name><surname>Ferreira</surname><given-names>M. A.</given-names></name><name><surname>Purcell</surname><given-names>S. M.</given-names></name><name><surname>Sklar</surname><given-names>P.</given-names></name><etal></etal></person-group>. (<year>2009</year>). <article-title>Gene ontology analysis of GWA study data sets provides insights into the biology of bipolar disorder</article-title>. <source/>Am. J. Hum. Genet.
+<volume>85</volume>, <fpage>13</fpage>–<lpage>24</lpage>. <pub-id pub-id-type="doi">10.1016/j.ajhg.2009.05.011</pub-id><pub-id pub-id-type="pmid">19539887</pub-id></mixed-citation>
+</ref>
+<ref id="B18">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Huntley</surname><given-names>R. P.</given-names></name><name><surname>Harris</surname><given-names>M. A.</given-names></name><name><surname>Alam-Faruque</surname><given-names>Y.</given-names></name><name><surname>Blake</surname><given-names>J. A.</given-names></name><name><surname>Carbon</surname><given-names>S.</given-names></name><name><surname>Dietze</surname><given-names>H.</given-names></name><etal></etal></person-group>. (<year>2014</year>). <article-title>A method for increasing expressivity of Gene Ontology annotations using a compositional approach</article-title>. <source/>BMC Bioinformatics
+<volume>15</volume>:<fpage>155</fpage>. <pub-id pub-id-type="doi">10.1186/1471-2105-15-155</pub-id><pub-id pub-id-type="pmid">24885854</pub-id></mixed-citation>
+</ref>
+<ref id="B19">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ioannidis</surname><given-names>J. P.</given-names></name></person-group> (<year>2005</year>). <article-title>Why most published research findings are false</article-title>. <source/>PLoS Med.
+<volume>2</volume>:<fpage>e124</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pmed.0020124</pub-id><pub-id pub-id-type="pmid">16060722</pub-id></mixed-citation>
+</ref>
+<ref id="B20">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jones</surname><given-names>L.</given-names></name><name><surname>Holmans</surname><given-names>P. A.</given-names></name><name><surname>Hamshere</surname><given-names>M. L.</given-names></name><name><surname>Harold</surname><given-names>D.</given-names></name><name><surname>Moskvina</surname><given-names>V.</given-names></name><name><surname>Ivanov</surname><given-names>D.</given-names></name><etal></etal></person-group>. (<year>2010</year>). <article-title>Genetic evidence implicates the immune system and cholesterol metabolism in the aetiology of Alzheimer's disease</article-title>. <source/>PLoS ONE
+<volume>5</volume>:<fpage>e13950</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0013950</pub-id><pub-id pub-id-type="pmid">21085570</pub-id></mixed-citation>
+</ref>
+<ref id="B21">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lambert</surname><given-names>J. C.</given-names></name><name><surname>Ibrahim-Verbaas</surname><given-names>C. A.</given-names></name><name><surname>Harold</surname><given-names>D.</given-names></name><name><surname>Naj</surname><given-names>A. C.</given-names></name><name><surname>Sims</surname><given-names>R.</given-names></name><name><surname>Bellenguez</surname><given-names>C.</given-names></name><etal></etal></person-group>. (<year>2013</year>). <article-title>Meta-analysis of 74,046 individuals identifies 11 new susceptibility loci for Alzheimer's disease</article-title>. <source/>Nat. Genet.
+<volume>45</volume>, <fpage>1452</fpage>–<lpage>1458</lpage>. <pub-id pub-id-type="doi">10.1038/ng.2802</pub-id><pub-id pub-id-type="pmid">24162737</pub-id></mixed-citation>
+</ref>
+<ref id="B22">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>J. Y.</given-names></name><name><surname>Cole</surname><given-names>T. B.</given-names></name><name><surname>Palmiter</surname><given-names>R. D.</given-names></name><name><surname>Suh</surname><given-names>S. W.</given-names></name><name><surname>Koh</surname><given-names>J. Y.</given-names></name></person-group> (<year>2002</year>). <article-title>Contribution by synaptic zinc to the gender-disparate plaque formation in human Swedish mutant APP transgenic mice</article-title>. <source/>Proc. Natl. Acad. Sci. U.S.A.
+<volume>99</volume>, <fpage>7705</fpage>–<lpage>7710</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.092034699</pub-id><pub-id pub-id-type="pmid">12032347</pub-id></mixed-citation>
+</ref>
+<ref id="B23">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>P. H.</given-names></name><name><surname>O'Dushlaine</surname><given-names>C.</given-names></name><name><surname>Thomas</surname><given-names>B.</given-names></name><name><surname>Purcell</surname><given-names>S. M.</given-names></name></person-group> (<year>2012</year>). <article-title>INRICH: interval-based enrichment analysis for genome-wide association studies</article-title>. <source/>Bioinformatics
+<volume>28</volume>, <fpage>1797</fpage>–<lpage>1799</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bts191</pub-id><pub-id pub-id-type="pmid">22513993</pub-id></mixed-citation>
+</ref>
+<ref id="B24">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Linghu</surname><given-names>B.</given-names></name><name><surname>Snitkin</surname><given-names>E. S.</given-names></name><name><surname>Hu</surname><given-names>Z.</given-names></name><name><surname>Xia</surname><given-names>Y.</given-names></name><name><surname>DeLisi</surname><given-names>C.</given-names></name></person-group> (<year>2009</year>). <article-title>Genome-wide prioritization of disease genes and identification of disease-disease associations from an integrated human functional linkage network</article-title>. <source/>Genome Biol.
+<volume>10</volume>, <fpage>R91</fpage>. <pub-id pub-id-type="doi">10.1186/gb-2009-10-9-r91</pub-id><pub-id pub-id-type="pmid">19728866</pub-id></mixed-citation>
+</ref>
+<ref id="B25">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Loken</surname><given-names>C.</given-names></name><name><surname>Gruner</surname><given-names>D.</given-names></name><name><surname>Groer</surname><given-names>L.</given-names></name><name><surname>Peltier</surname><given-names>R.</given-names></name><name><surname>Bunn</surname><given-names>N.</given-names></name><name><surname>Craig</surname><given-names>M.</given-names></name><etal></etal></person-group> (<year>2010</year>). <article-title>SciNet: lessons learned from building a power-efficient top-20 system and data centre</article-title>, in <source/>Journal of Physics: Conference Series, (<publisher-loc>Toronto, ON</publisher-loc>: <publisher-name>IOP Publishing</publisher-name>).</mixed-citation>
+</ref>
+<ref id="B26">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lotan</surname><given-names>A.</given-names></name><name><surname>Fenckova</surname><given-names>M.</given-names></name><name><surname>Bralten</surname><given-names>J.</given-names></name><name><surname>Alttoa</surname><given-names>A.</given-names></name><name><surname>Dixson</surname><given-names>L.</given-names></name><name><surname>Williams</surname><given-names>R. W.</given-names></name><etal></etal></person-group>. (<year>2014</year>). <article-title>Neuroinformatic analyses of common and distinct genetic components associated with major neuropsychiatric disorders</article-title>. <source/>Front. Neurosci.
+<volume>8</volume>:<issue>331</issue>. <pub-id pub-id-type="doi">10.3389/fnins.2014.00331</pub-id><pub-id pub-id-type="pmid">25414627</pub-id></mixed-citation>
+</ref>
+<ref id="B27">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miyazaki</surname><given-names>K.</given-names></name><name><surname>Yamaguchi</surname><given-names>M.</given-names></name><name><surname>Imai</surname><given-names>H.</given-names></name><name><surname>Kobayashi</surname><given-names>T.</given-names></name><name><surname>Tamaru</surname><given-names>S.</given-names></name><name><surname>Nishii</surname><given-names>K.</given-names></name><etal></etal></person-group>. (<year>2009</year>). <article-title>Gene expression profiling of peripheral T-cell lymphoma including gammadelta T-cell lymphoma</article-title>. <source/>Blood
+<volume>113</volume>, <fpage>1071</fpage>–<lpage>1074</lpage>. <pub-id pub-id-type="doi">10.1182/blood-2008-07-166363</pub-id><pub-id pub-id-type="pmid">18955564</pub-id></mixed-citation>
+</ref>
+<ref id="B28">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mo</surname><given-names>Z. Y.</given-names></name><name><surname>Zhu</surname><given-names>Y. Z.</given-names></name><name><surname>Zhu</surname><given-names>H. L.</given-names></name><name><surname>Fan</surname><given-names>J. B.</given-names></name><name><surname>Chen</surname><given-names>J.</given-names></name><name><surname>Liang</surname><given-names>Y.</given-names></name></person-group> (<year>2009</year>). <article-title>Low micromolar zinc accelerates the fibrillization of human tau via bridging of Cys-291 and Cys-322</article-title>. <source/>J. Biol. Chem.
+<volume>284</volume>, <fpage>34648</fpage>–<lpage>34657</lpage>. <pub-id pub-id-type="doi">10.1074/jbc.M109.058883</pub-id><pub-id pub-id-type="pmid">19826005</pub-id></mixed-citation>
+</ref>
+<ref id="B29">
+<mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Patel</surname><given-names>V.</given-names></name><name><surname>Chiang</surname><given-names>M.-C.</given-names></name><name><surname>Thompson</surname><given-names>P. M.</given-names></name><name><surname>Mcmahon</surname><given-names>K. L.</given-names></name><name><surname>De Zubicaray</surname><given-names>G. I.</given-names></name><name><surname>Martin</surname><given-names>N. G.</given-names></name><etal></etal></person-group> (<year>2010</year>). <article-title>Scalar connectivity measures from fast-marching tractography reveal heritability of white matter architecture</article-title>, in <source/>IEEE International Symposium on Biomedical Imaging: From Nano to Macro, 2010, (<publisher-loc>Rotterdam</publisher-loc>: <publisher-name>IEEE</publisher-name>), <fpage>1109</fpage>–<lpage>1112</lpage>.</mixed-citation>
+</ref>
+<ref id="B30">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Saito</surname><given-names>R.</given-names></name><name><surname>Smoot</surname><given-names>M. E.</given-names></name><name><surname>Ono</surname><given-names>K.</given-names></name><name><surname>Ruscheinski</surname><given-names>J.</given-names></name><name><surname>Wang</surname><given-names>P. L.</given-names></name><name><surname>Lotia</surname><given-names>S.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>A travel guide to Cytoscape plugins</article-title>. <source/>Nat. Methods
+<volume>9</volume>, <fpage>1069</fpage>–<lpage>1076</lpage>. <pub-id pub-id-type="doi">10.1038/nmeth.2212</pub-id><pub-id pub-id-type="pmid">23132118</pub-id></mixed-citation>
+</ref>
+<ref id="B31">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schjeide</surname><given-names>B. M.</given-names></name><name><surname>Schnack</surname><given-names>C.</given-names></name><name><surname>Lambert</surname><given-names>J. C.</given-names></name><name><surname>Lill</surname><given-names>C. M.</given-names></name><name><surname>Kirchheiner</surname><given-names>J.</given-names></name><name><surname>Tumani</surname><given-names>H.</given-names></name><etal></etal></person-group>. (<year>2011</year>). <article-title>The role of clusterin, complement receptor 1, and phosphatidylinositol binding clathrin assembly protein in Alzheimer disease risk and cerebrospinal fluid biomarker levels</article-title>. <source/>Arch. Gen. Psychiatry
+<volume>68</volume>, <fpage>207</fpage>–<lpage>213</lpage>. <pub-id pub-id-type="doi">10.1001/archgenpsychiatry.2010.196</pub-id><pub-id pub-id-type="pmid">21300948</pub-id></mixed-citation>
+</ref>
+<ref id="B32">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Song</surname><given-names>E. S.</given-names></name><name><surname>Juliano</surname><given-names>M. A.</given-names></name><name><surname>Juliano</surname><given-names>L.</given-names></name><name><surname>Hersh</surname><given-names>L. B.</given-names></name></person-group> (<year>2003</year>). <article-title>Substrate activation of insulin-degrading enzyme (insulysin). A potential target for drug development</article-title>. <source/>J. Biol. Chem.
+<volume>278</volume>, <fpage>49789</fpage>–<lpage>49794</lpage>. <pub-id pub-id-type="doi">10.1074/jbc.M308983200</pub-id><pub-id pub-id-type="pmid">14527953</pub-id></mixed-citation>
+</ref>
+<ref id="B33">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Stadler</surname><given-names>Z. K.</given-names></name><name><surname>Thom</surname><given-names>P.</given-names></name><name><surname>Robson</surname><given-names>M. E.</given-names></name><name><surname>Weitzel</surname><given-names>J. N.</given-names></name><name><surname>Kauff</surname><given-names>N. D.</given-names></name><name><surname>Hurley</surname><given-names>K. E.</given-names></name><etal></etal></person-group>. (<year>2010</year>). <article-title>Genome-wide association studies of cancer</article-title>. <source/>J. Clin. Oncol.
+<volume>28</volume>, <fpage>4255</fpage>–<lpage>4267</lpage>. <pub-id pub-id-type="doi">10.1200/JCO.2009.25.7816</pub-id><pub-id pub-id-type="pmid">20585100</pub-id></mixed-citation>
+</ref>
+<ref id="B34">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Stein</surname><given-names>J. L.</given-names></name><name><surname>Medland</surname><given-names>S. E.</given-names></name><name><surname>Vasquez</surname><given-names>A. A.</given-names></name><name><surname>Hibar</surname><given-names>D. P.</given-names></name><name><surname>Senstad</surname><given-names>R. E.</given-names></name><name><surname>Winkler</surname><given-names>A. M.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>Identification of common variants associated with human hippocampal and intracranial volumes</article-title>. <source/>Nat. Genet.
+<volume>44</volume>, <fpage>552</fpage>–<lpage>561</lpage>. <pub-id pub-id-type="doi">10.1038/ng.2250</pub-id><pub-id pub-id-type="pmid">22504417</pub-id></mixed-citation>
+</ref>
+<ref id="B35">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sun</surname><given-names>L.</given-names></name><name><surname>Craiu</surname><given-names>R. V.</given-names></name><name><surname>Paterson</surname><given-names>A. D.</given-names></name><name><surname>Bull</surname><given-names>S. B.</given-names></name></person-group> (<year>2006</year>). <article-title>Stratified false discovery control for large-scale hypothesis testing with application to genome-wide association studies</article-title>. <source/>Genet. Epidemiol.
+<volume>30</volume>, <fpage>519</fpage>–<lpage>530</lpage>. <pub-id pub-id-type="doi">10.1002/gepi.20164</pub-id><pub-id pub-id-type="pmid">16800000</pub-id></mixed-citation>
+</ref>
+<ref id="B36">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sun</surname><given-names>L.</given-names></name><name><surname>Rommens</surname><given-names>J. M.</given-names></name><name><surname>Corvol</surname><given-names>H.</given-names></name><name><surname>Li</surname><given-names>W.</given-names></name><name><surname>Li</surname><given-names>X.</given-names></name><name><surname>Chiang</surname><given-names>T. A.</given-names></name><etal></etal></person-group>. (<year>2012</year>). <article-title>Multiple apical plasma membrane constituents are associated with susceptibility to meconium ileus in individuals with cystic fibrosis</article-title>. <source/>Nat. Genet.
+<volume>44</volume>, <fpage>562</fpage>–<lpage>569</lpage>. <pub-id pub-id-type="doi">10.1038/ng.2221</pub-id><pub-id pub-id-type="pmid">22466613</pub-id></mixed-citation>
+</ref>
+<ref id="B37">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tabor</surname><given-names>H. K.</given-names></name><name><surname>Risch</surname><given-names>N. J.</given-names></name><name><surname>Myers</surname><given-names>R. M.</given-names></name></person-group> (<year>2002</year>). <article-title>Candidate-gene approaches for studying complex genetic traits: practical considerations</article-title>. <source/>Nat. Rev.
+<volume>3</volume>, <fpage>391</fpage>–<lpage>397</lpage>. <pub-id pub-id-type="doi">10.1038/nrg796</pub-id><pub-id pub-id-type="pmid">11988764</pub-id></mixed-citation>
+</ref>
+<ref id="B38">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Thompson</surname><given-names>P. M.</given-names></name><name><surname>Martin</surname><given-names>N. G.</given-names></name><name><surname>Wright</surname><given-names>M. J.</given-names></name></person-group> (<year>2010</year>). <article-title>Imaging genomics</article-title>. <source/>Curr. Opin. Neurol.
+<volume>23</volume>, <fpage>368</fpage>–<lpage>373</lpage>. <pub-id pub-id-type="doi">10.1097/WCO.0b013e32833b764c</pub-id><pub-id pub-id-type="pmid">20581684</pub-id></mixed-citation>
+</ref>
+<ref id="B39">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Thompson</surname><given-names>P. M.</given-names></name><name><surname>Stein</surname><given-names>J. L.</given-names></name><name><surname>Medland</surname><given-names>S. E.</given-names></name><name><surname>Hibar</surname><given-names>D. P.</given-names></name><name><surname>Vasquez</surname><given-names>A. A.</given-names></name><name><surname>Renteria</surname><given-names>M. E.</given-names></name><etal></etal></person-group>. (<year>2014</year>). <article-title>The ENIGMA Consortium: large-scale collaborative analyses of neuroimaging and genetic data</article-title>. <source/>Brain Imaging Behav.
+<volume>8</volume>, <fpage>153</fpage>–<lpage>182</lpage>. <pub-id pub-id-type="doi">10.1007/s11682-013-9269-5</pub-id><pub-id pub-id-type="pmid">24399358</pub-id></mixed-citation>
+</ref>
+<ref id="B40">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><collab>Wellcome_Trust_Case_Control_Consortium</collab></person-group> (<year>2007</year>). <article-title>Genome-wide association study of 14,000 cases of seven common diseases and 3,000 shared controls</article-title>. <source/>Nature
+<volume>447</volume>, <fpage>661</fpage>–<lpage>678</lpage>. <pub-id pub-id-type="doi">10.1038/nature05911</pub-id><pub-id pub-id-type="pmid">17554300</pub-id></mixed-citation>
+</ref>
+<ref id="B41">
+<mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Xue</surname><given-names>S.</given-names></name><name><surname>Jia</surname><given-names>L.</given-names></name><name><surname>Jia</surname><given-names>J.</given-names></name></person-group> (<year>2006</year>). <article-title>Hypoxia and reoxygenation increased BACE1 mRNA and protein levels in human neuroblastoma SH-SY5Y cells</article-title>. <source/>Neurosci. Lett.
+<volume>405</volume>, <fpage>231</fpage>–<lpage>235</lpage>. <pub-id pub-id-type="doi">10.1016/j.neulet.2006.07.013</pub-id><pub-id pub-id-type="pmid">16901640</pub-id></mixed-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

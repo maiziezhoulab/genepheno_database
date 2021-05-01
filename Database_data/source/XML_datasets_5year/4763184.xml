@@ -1,0 +1,896 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+<journal-title-group>
+<journal-title>Scientific Reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2045-2322</issn>
+<publisher>
+<publisher-name>Nature Publishing Group</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">26903168</article-id>
+<article-id pub-id-type="pmc">4763184</article-id>
+<article-id pub-id-type="pii">srep21824</article-id>
+<article-id pub-id-type="doi">10.1038/srep21824</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Beyond Rare-Variant Association Testing: Pinpointing Rare Causal Variants in Case-Control Sequencing Study</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Lin</surname>
+<given-names>Wan-Yu</given-names>
+</name>
+<xref ref-type="corresp" rid="c1">a</xref>
+<xref ref-type="aff" rid="a1">1</xref>
+<xref ref-type="aff" rid="a2">2</xref>
+</contrib>
+<aff id="a1"><label>1</label><institution>Institute of Epidemiology and Preventive Medicine, College of Public Health, National Taiwan University</institution>, Taipei, <country>Taiwan</country></aff>
+<aff id="a2"><label>2</label><institution>Department of Public Health, College of Public Health, National Taiwan University</institution>, Taipei, <country>Taiwan</country></aff>
+</contrib-group>
+<author-notes>
+<corresp id="c1">
+<label>a</label>
+<email>linwy@ntu.edu.tw</email>
+</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>23</day>
+<month>02</month>
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2016</year>
+</pub-date>
+<volume>6</volume>
+<elocation-id>21824</elocation-id>
+<history>
+<date date-type="received">
+<day>16</day>
+<month>09</month>
+<year>2015</year>
+</date>
+<date date-type="accepted">
+<day>01</day>
+<month>02</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016, Macmillan Publishers Limited</copyright-statement>
+<copyright-year>2016</copyright-year>
+<copyright-holder>Macmillan Publishers Limited</copyright-holder>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--author-paid-->
+<license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+</license>
+</permissions>
+<abstract>
+<p>Rare-variant association testing usually requires some method of aggregation. The next important step is to pinpoint individual rare causal variants among a large number of variants within a genetic region. Recently Ionita-Laza <italic>et al.</italic> propose a backward elimination (BE) procedure that can identify individual causal variants among the many variants in a gene. The BE procedure removes a variant if excluding this variant can lead to a smaller <italic>P</italic>-value for the BURDEN test (referred to as “BE-BURDEN”) or the SKAT test (referred to as “BE-SKAT”). We here use the adaptive combination of <italic>P</italic>-values (ADA) method to pinpoint causal variants. Unlike most gene-based association tests, the ADA statistic is built upon per-site <italic>P</italic>-values of individual variants. It is straightforward to select important variants given the optimal <italic>P</italic>-value truncation threshold found by ADA. We performed comprehensive simulations to compare ADA with BE-SKAT and BE-BURDEN. Ranking these three approaches according to positive predictive values (PPVs), the percentage of truly causal variants among the total selected variants, we found ADA &gt; BE-SKAT &gt; BE-BURDEN across all simulation scenarios. We therefore recommend using ADA to pinpoint plausible rare causal variants in a gene.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<p>Next-generation sequencing (NGS) technologies enable the measurement of epigenetic information for the entire genome at a high resolution<xref ref-type="bibr" rid="b1">1</xref><xref ref-type="bibr" rid="b2">2</xref><xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b4">4</xref>. Due to the extremely low minor allele frequencies (MAFs), detecting individual rare causal variants is difficult. To strengthen signals, most statistical methods test the combined effects of rare variants in a gene or a functional unit<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b7">7</xref><xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref><xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref><xref ref-type="bibr" rid="b22">22</xref><xref ref-type="bibr" rid="b23">23</xref><xref ref-type="bibr" rid="b24">24</xref><xref ref-type="bibr" rid="b25">25</xref>. These statistical methods can be classified into three categories: (1) the BURDEN test<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b7">7</xref><xref ref-type="bibr" rid="b8">8</xref>; (2) the sequence kernel association test (SKAT)<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref>; and (3) the <italic>P</italic>-values combination methods<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b26">26</xref>.</p>
+<p>The BURDEN test is more powerful than SKAT when the proportion of causal variants in a region is large and all causal variants are deleterious/protective<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b27">27</xref><xref ref-type="bibr" rid="b28">28</xref>. SKAT, however, is superior to the BURDEN test when the number of neutral variants increases and/or both deleterious and protective variants coexist in a gene<xref ref-type="bibr" rid="b28">28</xref>. Moreover, because many neutral variants may be included in an NGS analysis, it is worthwhile to truncate variants with larger <italic>P</italic>-values that are more likely to be neutral<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b26">26</xref><xref ref-type="bibr" rid="b29">29</xref>. With this concept, one of the <italic>P</italic>-values combination methods<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b26">26</xref>, the “adaptive combination of <italic>P</italic>-values method” (abbreviated as “ADA”)<xref ref-type="bibr" rid="b13">13</xref>, is applicable to NGS data analyses.</p>
+<p>Sequencing a gene in thousands of subjects can detect hundreds of rare variants<xref ref-type="bibr" rid="b30">30</xref>. Each of the above gene-based methods reports a <italic>P</italic>-value for the association of multiple rare variants and the disease. However, the following identification of a small proportion of truly causal variants is an even more difficult challenge. The BURDEN tests and SKAT group the variants in a gene to form statistics, but it is not easy to pinpoint individual causal variants from the composite statistics. Recently, Ionita-Laza <italic>et al.</italic> propose a backward elimination (BE) procedure to identify individual causal variants<xref ref-type="bibr" rid="b30">30</xref>. The BE procedure removes a variant if excluding it can lead to a smaller <italic>P</italic>-value for the BURDEN test (referred to as “BE-BURDEN”) or the SKAT test (referred to as “BE-SKAT”).</p>
+<p>The BE algorithm determines the number of interesting variants by applying the backward elimination to the entire list of variants. Then a resampling procedure is used to select interesting variants, with the following four steps:</p>
+<p>(1) Randomly sampling <italic>r</italic> (say, <italic>r</italic> = 20) variants from the region of interest, to form a current set (denoted by <inline-formula id="d33e234"><inline-graphic id="d33e235" xlink:href="srep21824-m1.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>). Computing the <italic>P</italic>-value of SKAT (or BURDEN) test with the variants in the current set, denoted by <inline-formula id="d33e240"><inline-graphic id="d33e241" xlink:href="srep21824-m2.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>.</p>
+<p>(2) Removing each of the variants one at a time from <inline-formula id="d33e245"><inline-graphic id="d33e246" xlink:href="srep21824-m3.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> and computing the <italic>P</italic>-value of SKAT (or BURDEN) test with the remaining variants, denoted by <inline-formula id="d33e251"><inline-graphic id="d33e252" xlink:href="srep21824-m4.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> where <inline-formula id="d33e254"><inline-graphic id="d33e255" xlink:href="srep21824-m5.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula></p>
+<p>(3) Removing the <italic>k</italic>th variant from <inline-formula id="d33e261"><inline-graphic id="d33e262" xlink:href="srep21824-m6.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> if <inline-formula id="d33e264"><inline-graphic id="d33e265" xlink:href="srep21824-m7.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> and if <inline-formula id="d33e267"><inline-graphic id="d33e268" xlink:href="srep21824-m8.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula><inline-formula id="d33e269"><inline-graphic id="d33e270" xlink:href="srep21824-m9.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> Updating <inline-formula id="d33e272"><inline-graphic id="d33e273" xlink:href="srep21824-m10.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> and computing a new <inline-formula id="d33e276"><inline-graphic id="d33e277" xlink:href="srep21824-m11.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> the <italic>P</italic>-value of SKAT (or BURDEN) test with the variants in the new current set <inline-formula id="d33e282"><inline-graphic id="d33e283" xlink:href="srep21824-m12.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula></p>
+<p>(4) Repeating steps (2) and (3) until <inline-formula id="d33e286"><inline-graphic id="d33e287" xlink:href="srep21824-m13.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> cannot be even smaller by removing any one variant from <inline-formula id="d33e289"><inline-graphic id="d33e290" xlink:href="srep21824-m14.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>. Then returning all the variants in <inline-formula id="d33e292"><inline-graphic id="d33e293" xlink:href="srep21824-m15.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula></p>
+<p>The above algorithm is applied to <italic>B</italic> (say, <italic>B</italic> = 1000) random subsamples. With B subsamples, Ionita-Laza <italic>et al.</italic> calculate the number of times each variant is returned in Step 4, and call this number the <italic>return count</italic> of a variant<xref ref-type="bibr" rid="b30">30</xref>. Then a nonparametric EM-like method<xref ref-type="bibr" rid="b31">31</xref> is used to partition the variants into “interesting” (higher return counts) and “non-interesting” (lower return counts) groups.</p>
+<p>In this work, we pinpoint rare causal variants via the ADA method<xref ref-type="bibr" rid="b13">13</xref>. Although ADA also aggregates association signals of multiple variants in a gene, its statistic is built upon per-site <italic>P</italic>-values of individual variants. Therefore, it is straightforward to pinpoint plausible causal variants via ADA. With extensive simulations, we compare the numbers of true positives (TPs) and false positives (FPs), and the positive predictive values (PPVs) of ADA and the two BE procedures. The three methods (ADA, BE-SKAT, and BE-BURDEN) are also applied to the Dallas Heart Study data<xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b32">32</xref>.</p>
+<p>Because the previous ADA approach<sup>13</sup> is directly applicable to pinpoint individual causal variants, here we use the same name (ADA) for the selection of causal variants. However, the previous SKAT <xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b11">11</xref> and BURDEN <xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref><xref ref-type="bibr" rid="b7">7</xref><xref ref-type="bibr" rid="b8">8</xref> tests cannot be directly used to identify individual causal variants. We therefore leave “SKAT” and “BURDEN” to be the names of tests, and let “BE-SKAT” and “BE-BURDEN” be the backward elimination procedures for the identification of individual causal variants.</p>
+<sec disp-level="1">
+<title>Results</title>
+<sec disp-level="2">
+<title>Simulation Study</title>
+<p>We simulate 10,000 chromosomes of 5 kb (kilo base pairs), 10 kb, or 20 kb regions with a coalescent model<xref ref-type="bibr" rid="b33">33</xref>. The sequences were generated according to the linkage disequilibrium (LD) patterns of Europeans. We defined an analysis marker set that contained all variants with population MAF &lt; 5%. This is a conventional MAF cutoff value to prohibit common variants from dominating the results of groupwise association tests for a gene. We specified 25% and 50% of rare variants (with MAF &lt; 1%) as causal variants, respectively. Although 25% and 50% were not small percentages, many causal variants were not observed in a simulated sample that contained 500 cases and 500 controls, because of their low MAFs. After summarizing all simulated data sets, the causal percentages were found to be ~7.3% and ~14.6% in the analysis marker sets (all markers with MAF &lt; 5%), respectively.</p>
+<p><xref ref-type="table" rid="t1">Table 1</xref> lists the details of each simulation scenario (region length: 5 kb, 10 kb, or 20 kb; causal percentage: ~7.3%, or ~14.6%). The population attributable risk fraction (PAF) of each causal variant was set to be 0.3% and 0.5%, respectively. We let “<italic>r</italic><sub><italic>isk</italic></sub>” be the percentage of risk variants from among the total causal variants, and “<italic>r</italic><sub><italic>isk</italic></sub>” was specified as 5%, 20%, 50%, 80%, and 100%, respectively. When the region length was 5 kb, the number of causal variants was small (see <xref ref-type="table" rid="t1">Table 1</xref>) so that specifying <italic>r</italic><sub><italic>isk</italic></sub> as five levels made no sense. In this situation, we let <italic>r</italic><sub><italic>isk</italic></sub> be 0%, 50%, and 100%, respectively. Given <italic>r</italic><sub><italic>isk</italic></sub>, the number of risk variants was #(causal variants) <inline-formula id="d33e380"><inline-graphic id="d33e381" xlink:href="srep21824-m16.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> <italic>r</italic><sub><italic>isk</italic></sub>. When this number was not an integer, we modified it to be <inline-formula id="d33e390"><inline-graphic id="d33e391" xlink:href="srep21824-m17.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> where <inline-formula id="d33e393"><inline-graphic id="d33e394" xlink:href="srep21824-m18.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> was the smallest integer not less than <italic>x</italic>.</p>
+<p>According to the definition of PAF, we can obtain the relationship between it and the genotype relative risk (GRR)<xref ref-type="bibr" rid="b34">34</xref>. The GRR of a causal variant is <inline-formula id="d33e403"><inline-graphic id="d33e404" xlink:href="srep21824-m19.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> where <italic>MAF</italic> is the population MAF of that variant, and <inline-formula id="d33e409"><inline-graphic id="d33e410" xlink:href="srep21824-m20.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is an indicator variable (<inline-formula id="d33e412"><inline-graphic id="d33e413" xlink:href="srep21824-m21.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> = 1 if that variant is protective; <inline-formula id="d33e416"><inline-graphic id="d33e417" xlink:href="srep21824-m22.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> = 0 if deleterious). To form the genotypes of a subject, we randomly chose two haplotypes from the pool of 10,000 haplotypes. Following the simulation setting of previous association studies<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b36">36</xref><xref ref-type="bibr" rid="b37">37</xref>, the disease status of a subject with haplotypes <italic>H</italic><sub><italic>1</italic></sub> and <italic>H</italic><sub><italic>2</italic></sub> is</p>
+<p>
+<disp-formula id="eq23">
+<inline-graphic id="d33e435" xlink:href="srep21824-m23.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p>where <inline-formula id="d33e438"><inline-graphic id="d33e439" xlink:href="srep21824-m24.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is the baseline penetrance, H<sub><italic>k,j</italic></sub> is the allele at the <italic>j</italic>th causal variant site (<italic>j</italic> = 1, …, <italic>d</italic>, in which <italic>d</italic> is the number of causal variants) on the haplotype <italic>H</italic><sub><italic>k</italic></sub> (<italic>k</italic> = 1, 2), and <inline-formula id="d33e467"><inline-graphic id="d33e468" xlink:href="srep21824-m25.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is the minor allele (served as causal allele) at the <italic>j</italic>th causal variant site. Throughout the simulation, we specified the baseline penetrance <inline-formula id="d33e474"><inline-graphic id="d33e475" xlink:href="srep21824-m26.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> as 1%, and 500 cases and 500 controls were analyzed in each replication.</p>
+<p>As pointed out by Wang <italic>et al.</italic><xref ref-type="bibr" rid="b38">38</xref>, if properly modelled, the impact of a protective variant is minor compared to the impact of a deleterious variant. Our above simulation setting has been shown to assign a smaller effect size to a protective variant than to a deleterious variant with the same MAF<xref ref-type="bibr" rid="b13">13</xref>.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Competitor Methods</title>
+<p>We compared the number of TPs and FPs, and the PPVs of ADA<xref ref-type="bibr" rid="b13">13</xref>, BE-SKAT, and BE-BURDEN<xref ref-type="bibr" rid="b30">30</xref>. The ADA code was downloaded from <ext-link ext-link-type="uri" xlink:href="http://homepage.ntu.edu.tw/~linwy/ADAprioritized.html" xmlns:xlink="http://www.w3.org/1999/xlink">http://homepage.ntu.edu.tw/~linwy/ADAprioritized.html</ext-link> and was implemented with 1,000 permutations. BE (for both BE-SKAT and BE-BURDEN) was downloaded from the authors,<xref ref-type="bibr" rid="b30">30</xref> website <ext-link ext-link-type="uri" xlink:href="http://www.columbia.edu/~ii2135/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.columbia.edu/~ii2135/</ext-link> and was conducted with 1,000 random subsamples.</p>
+<p>Throughout this work (including simulations and the real data application), the <italic>P</italic>-value truncation thresholds considered in ADA were 0.10, 0.11, 0.12, …, and 0.20. Using a wider range of <italic>P</italic>-value truncation thresholds, say 0.05, 0.06, …, 0.25, will not contribute a noticeable power gain to ADA given a typical sequencing study sample size<xref ref-type="bibr" rid="b13">13</xref>. About the pre-specified weight given to the <italic>j</italic>th variant (<inline-formula id="d33e515"><inline-graphic id="d33e516" xlink:href="srep21824-m27.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>), we followed the original SKAT paper<xref ref-type="bibr" rid="b10">10</xref> to set <inline-formula id="d33e521"><inline-graphic id="d33e522" xlink:href="srep21824-m28.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>, where <inline-formula id="d33e524"><inline-graphic id="d33e525" xlink:href="srep21824-m29.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> was the MAF (across cases and controls combined) of that variant. To have a fair comparison, we used this weighting scheme for all the three methods.</p>
+<sec disp-level="2">
+<title>Simulation Results</title>
+<p>We evaluated the performance of the three methods by varying four factors: (1) causal percentage (the percentage of causal variants among all variants): lower (~7.3%, <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref>) vs. higher (~14.6%, <xref ref-type="fig" rid="f4">Figs 4</xref>, <xref ref-type="fig" rid="f5">5</xref>, <xref ref-type="fig" rid="f6">6)</xref>; (2) region length: 5 kb (<xref ref-type="fig" rid="f1">Figs 1</xref> and <xref ref-type="fig" rid="f4">4</xref>), 10 kb (<xref ref-type="fig" rid="f2">Figs 2</xref> and <xref ref-type="fig" rid="f5">5</xref>), or 20 kb (<xref ref-type="fig" rid="f3">Figs 3</xref> and <xref ref-type="fig" rid="f6">6</xref>); (3) effect size of each causal variant: PAF = 0.3% (top rows of <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref>, <xref ref-type="fig" rid="f4">4</xref>, <xref ref-type="fig" rid="f5">5</xref>, <xref ref-type="fig" rid="f6">6</xref>) vs. 0.5% (bottom rows of <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref>, <xref ref-type="fig" rid="f4">4</xref>, <xref ref-type="fig" rid="f5">5</xref>, <xref ref-type="fig" rid="f6">6)</xref>; (4) percentage of risk variants from among the total causal variants (<italic>x</italic>-axis in <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref>, <xref ref-type="fig" rid="f4">4</xref>, <xref ref-type="fig" rid="f5">5</xref>, <xref ref-type="fig" rid="f6">6</xref>, “<italic>r</italic><sub><italic>isk</italic></sub>”).</p>
+<p>Let #(<italic>TP</italic>) and #(<italic>FP</italic>) be the numbers of TPs and FPs, respectively. PPV is defined as #(<italic>TP</italic>)/[#(<italic>TP</italic>) + #(<italic>FP</italic>)], which is the percentage of true positives out of all positives. That is, the percentage of truly causal variants among the total selected variants. In the following, we discuss the mean and variability in #(<italic>TP</italic>), #(<italic>FP</italic>), and PPVs, for the three methods.</p>
+</sec>
+<sec disp-level="2">
+<title>Mean performance in #(TP), #(FP), and PPVs</title>
+<p><xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref> present the results for 5 kb, 10 kb, and 20 kb, respectively, given the causal percentage of ~7.3% and 1,000 replications. Among the three methods, ADA always provided the shortest list of important variants. BE-SKAT and BE-BURDEN detected more TPs than ADA, however they also yielded more FPs and smaller PPVs than ADA. BE-BURDEN generated the largest #(<italic>FP</italic>) and the smallest PPVs among all the three methods. The results given a higher causal percentage (~14.6%) and 1,000 replications were shown in <xref ref-type="fig" rid="f4">Figs 4</xref>, <xref ref-type="fig" rid="f5">5</xref>, <xref ref-type="fig" rid="f6">6</xref>, which were quite similar to <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref>. Among the three methods, ADA provided the largest PPV and the fewest FPs across all scenarios.</p>
+<p>PPV is the percentage of truly causal variants among the total selected variants. Ranking the three approaches according to PPV, we have PPV<sub>ADA</sub> &gt; PPV<sub>BE-SKAT</sub> &gt; PPV<sub>BE-BURDEN</sub> across all scenarios. From PPV<sub>ADA</sub> &gt; PPV<sub>BE</sub>, we have #(<italic>TP</italic>)<sub>ADA</sub>/[#(<italic>TP</italic>)<sub>ADA</sub> + #(<italic>FP</italic>)<sub>ADA</sub>]&gt; #(<italic>TP</italic>)<sub>BE</sub>/[#(<italic>TP</italic>)<sub>BE</sub> + #(<italic>FP</italic>)<sub>BE</sub>]. This is equivalent to #(<italic>TP</italic>)<sub>ADA</sub>/#(<italic>FP</italic>)<sub>ADA</sub> &gt; #(<italic>TP</italic>)<sub>BE</sub>/#(<italic>FP</italic>)<sub>BE</sub>, meaning that the signal-to-noise ratio of ADA is larger than that of the BE approach. ADA has the smallest #(<italic>FP</italic>) so that the unnecessary cost on following investigation to false-positive variants can be decreased. Furthermore, its larger PPV represents a larger signal-to-noise ratio. However, if an investigator prefers a larger #(<italic>TP</italic>) to a larger PPV, he/she may choose the BE approach at the cost of more FPs.</p>
+<p>In the following, we discuss the impact of the four factors accordingly:</p>
+</sec>
+<sec disp-level="2">
+<title>Causal percentage</title>
+<p>As the causal percentage increased, #(<italic>TP</italic>) and PPVs increased, whereas #(<italic>FP</italic>) decreased. The relative performance of the three methods did not vary with the increasing causal percentage.</p>
+</sec>
+<sec disp-level="2">
+<title>Region length</title>
+<p>Because the causal percentage was fixed from <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref> (or from <xref ref-type="fig" rid="f4">Figs 4</xref>–<xref ref-type="fig" rid="f6">6</xref>), #(<italic>TP</italic>) and #(<italic>FP</italic>) increased at roughly the same rate as the increase in region length. PPVs did not change much with the different region lengths. The relative performance of the three methods remained the same across the three region lengths.</p>
+</sec>
+<sec disp-level="2">
+<title>Effect size of each causal variant</title>
+<p>With a larger effect size, #(<italic>TP</italic>) increased while #(<italic>FP</italic>) remained unchanged, and therefore PPVs increased. When the PAF associated with each causal variant was increased from 0.3% to 0.5%, ADA and BE-SKAT had larger improvements in mean #(<italic>TP</italic>) than BE-BURDEN did. This is because, for ADA, the identification of variants relies on per-site <italic>P</italic>-values of individual variants. The PAF of 0.3% (corresponding to GRR ≈ 1.3 for a 1% deleterious variant) was too small for ADA to identify more TPs. When the PAF was enlarged to 0.5% (corresponding to GRR ≈ 1.5 for a 1% deleterious variant), more causal variants could be pinpointed according to their per-site <italic>P</italic>-values. For BE-SKAT, its larger improvement in #(<italic>TP</italic>) can be traced back to the statistic of the SKAT test. The SKAT statistic is a weighted sum of squared single-variant score statistics<xref ref-type="bibr" rid="b39">39</xref>. When the PAF was enlarged to 0.5%, causal variants had larger squared single-variant score statistics and were more easily to be detected.</p>
+</sec>
+<sec disp-level="2">
+<title>Percentage of risk variants from among the total causal variants</title>
+<p>As the proportion of risk variants increased, BE-SKAT and ADA identified more TPs. However, BE-BURDEN had a V-shaped curve in the sense that the minimum #(<italic>TP</italic>) occurred around 50% risk variants and 50% protective variants. To explain this, we compare the statistics of the SKAT and BURDEN tests. The SKAT statistic is a weighted sum of squared single-variant score statistics<xref ref-type="bibr" rid="b39">39</xref>. Because risk variants had larger effect sizes than protective variants with similar MAFs<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b38">38</xref>, the squared single-variant score statistics of individual risk variants made greater contributions to the SKAT statistic than protective variants did. Therefore, as the proportion of risk variants increased, BE-SKAT identified more TPs. ADA identified causal variants according to per-site <italic>P</italic>-values. Risk variants had larger effect sizes<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b38">38</xref>, corresponding to smaller per-site <italic>P</italic>-values, than protective variants. As the number of risk variants increased, more TPs with small per-site <italic>P</italic>-values could be found by ADA.</p>
+<p>Things were different in BE-BURDEN. The BURDEN statistic is the square of a weighted sum of single-variant score statistics<xref ref-type="bibr" rid="b39">39</xref>. When a region included 50% risk variants and 50% protective variants, the single-variant score statistics contributed by risk variants were diluted by protective variants. Using the BURDEN statistic to detect the association of a gene/region was not appropriate in this scenario, and evaluating the contribution of each variant to this BURDEN statistic made no much sense. Therefore, it is not surprising that BE-BURDEN found fewer TPs in the presence of both risk and protective variants.</p>
+</sec>
+<sec disp-level="2">
+<title>Variability in #(<italic>TP</italic>), #(<italic>FP</italic>), and PPVs</title>
+<p>The standard deviations of #(<italic>TP</italic>), #(<italic>FP</italic>), and PPVs were listed in <xref ref-type="supplementary-material" rid="S1">Supplementary Tables S1–S3</xref>. A larger mean usually corresponded to a larger standard deviation. We therefore also listed the coefficients of variation (C.V., defined as the ratio of standard deviation to the mean) of #(<italic>TP</italic>), #(<italic>FP</italic>), and PPVs in <xref ref-type="supplementary-material" rid="S1">Supplementary Tables S4–S6</xref>. Because the identification of variants relies on per-site <italic>P</italic>-values of individual variants, ADA generally had larger variability compared with its two competitors.</p>
+</sec>
+<sec disp-level="2">
+<title>Computation Time</title>
+<p>The computation time for the three methods depends on three factors: (1) the number of variants, (2) the sample size, and (3) the number of permutations (for ADA) or random subsamples (for BE-SKAT and BE-BURDEN). <xref ref-type="fig" rid="f7">Figure 7</xref> presents the mean computation time (in seconds) of every method, under several levels of the region length, the sample size, and the number of permutations or random subsamples. The required time was measured on a Linux platform with an Intel Xeon E5-2690 2.9 GHz processor and 4 GB memory. ADA is the most computationally efficient method, with a time complexity <inline-formula id="d33e917"><inline-graphic id="d33e918" xlink:href="srep21824-m30.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>, where <italic>r</italic> is the number of variants, <italic>n</italic> is the sample size, and <italic>B</italic> is the number of permutations. The BE procedure evaluates the contribution of each individual variants to the groupwise association test statistics (BURDEN or SKAT) and sequentially removes variants from the variant set. This step-by-step procedure requires more time than ADA.</p>
+</sec>
+<sec disp-level="2">
+<title>Application to the Dallas Heart Study Data</title>
+<p>We then applied the three methods to the Dallas Heart Study (DHS) data. Romeo <italic>et al.</italic> sequenced seven exons and intron-exon boundaries of the <italic>angiopoietin-like 4</italic> (<italic>ANGPTL4</italic>) gene in 3,551 participants of DHS, in order to uncover the effects of genetic variants on human triglycerides<xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b32">32</xref>. In our analysis, we selected 1,045 European Americans from among the 3,551 DHS participants. Following the analysis in the DHS paper<xref ref-type="bibr" rid="b32">32</xref>, we stratified the 1,045 European Americans by sex (500 males and 545 females), and then compared the numbers of variants in the top and bottom quartiles of the triglyceride distribution. Wu <italic>et al.</italic><xref ref-type="bibr" rid="b10">10</xref> also analyzed this dichotomized phenotype on the highest and the lowest quartiles of each of the sex groups. In the male group, the 25<sup>th</sup> and 75<sup>th</sup> percentiles were 81 mg/dl and 187 mg/dl, respectively. In the female group, the 25<sup>th</sup> and 75<sup>th</sup> percentiles were 71 mg/dl and 152 mg/dl, respectively. Therefore, we treated 126 males with triglycerides <inline-formula id="d33e966"><inline-graphic id="d33e967" xlink:href="srep21824-m31.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>187 mg/dl and 137 females with triglycerides <inline-formula id="d33e969"><inline-graphic id="d33e970" xlink:href="srep21824-m32.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>152 mg/dl as cases and 130 males with triglycerides <inline-formula id="d33e972"><inline-graphic id="d33e973" xlink:href="srep21824-m33.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>81 mg/dl and 138 females with triglycerides <inline-formula id="d33e975"><inline-graphic id="d33e976" xlink:href="srep21824-m34.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> 71 mg/dl as controls. In total, we had 263 cases and 268 controls.</p>
+<p>Similar to our simulation study, we defined an analysis marker set to contain all variants with MAF &lt; 5%. A synonymous variant at 8336810 bp was excluded because of a high missing rate (14.3%). Moreover, 65 cases and 66 controls with any missing genotypes in the test region were removed. Finally, the data set contained 198 cases and 202 controls. <xref ref-type="table" rid="t2">Table 2</xref> lists the 17 genetic variants (inside the <italic>ANGPTL4</italic> gene) observed in this sample. We listed the numbers of variant carriers in cases/controls in <xref ref-type="table" rid="t2">Table 2</xref>. Because these 17 variants were rare or low-frequency (MAF &lt; 5%), we did not observe any subject with homozygous minor alleles at any locus.</p>
+</sec>
+<sec disp-level="2">
+<title>Gene-based association tests</title>
+<p>The <italic>P</italic>-values of the ADA, SKAT, and BURDEN methods for testing the association between triglycerides and the region containing these 17 loci were 0.0467, 0.0123, and 0.6962, respectively. The ADA test was implemented with the R code from <ext-link ext-link-type="uri" xlink:href="http://homepage.ntu.edu.tw/~linwy/ADAprioritized.html" xmlns:xlink="http://www.w3.org/1999/xlink">http://homepage.ntu.edu.tw/~linwy/ADAprioritized.html</ext-link>, which could not only provide the <italic>P</italic>-value of the ADA gene-based association test but also pinpoint individual rare variants. Same as the previous simulation studies, the <italic>P</italic>-value truncation thresholds used in ADA were 0.10, 0.11, 0.12, …, and 0.20. The SKAT and BURDEN tests were performed with the SKAT package (version 1.1.2)<xref ref-type="bibr" rid="b40">40</xref>. Within the SKAT function, we specified the parameter r.corr (<inline-formula id="d33e1009"><inline-graphic id="d33e1010" xlink:href="srep21824-m35.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>) as 0 and 1 to obtain the <italic>P</italic>-values of the SKAT and BURDEN tests, respectively. Following the original SKAT paper<xref ref-type="bibr" rid="b10">10</xref>, the weight given to the <italic>j</italic>th variant (<inline-formula id="d33e1020"><inline-graphic id="d33e1021" xlink:href="srep21824-m36.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>) was set to be <inline-formula id="d33e1023"><inline-graphic id="d33e1024" xlink:href="srep21824-m37.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>, where <inline-formula id="d33e1027"><inline-graphic id="d33e1028" xlink:href="srep21824-m38.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> was the MAF (across cases and controls combined) of that variant. With a significance level of 0.05, only SKAT and ADA suggested an association of the <italic>ANGPTL4</italic> gene with triglycerides.</p>
+</sec>
+<sec disp-level="2">
+<title>Pinpointing individual rare variants</title>
+<p>We then used the BE package<xref ref-type="bibr" rid="b30">30</xref> (for both BE-SKAT and BE-BURDEN) (<ext-link ext-link-type="uri" xlink:href="http://www.columbia.edu/~ii2135/" xmlns:xlink="http://www.w3.org/1999/xlink">http://www.columbia.edu/~ii2135/</ext-link>) to pinpoint individual rare variants. Variants pinpointed by ADA, BE-SKAT, or BE-BURDEN, were marked in <xref ref-type="table" rid="t2">Table 2</xref>. ADA found only one important variant: E40K, which was also selected by BE-SKAT. E40K is a rare variant, reported to have a MAF of ~1.3% in European Americans<xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b41">41</xref>. It was previously reported to be associated with significantly lower plasma levels of triglyceride in European Americans<xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b41">41</xref><xref ref-type="bibr" rid="b42">42</xref><xref ref-type="bibr" rid="b43">43</xref><xref ref-type="bibr" rid="b44">44</xref>. BE-SKAT and BE-BURDEN pinpointed three and seven important variants, respectively.</p>
+<p>To the best of our knowledge, among the 17 variants listed in <xref ref-type="table" rid="t2">Table 2</xref>, only E40K has been reported to be associated with plasma levels of triglyceride in European Americans<xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b41">41</xref><xref ref-type="bibr" rid="b42">42</xref><xref ref-type="bibr" rid="b43">43</xref><xref ref-type="bibr" rid="b44">44</xref>. ADA only pinpointed this variant, which was consistent with our simulation result that ADA always selected the fewest variants among the three methods. BE-SKAT pinpointed two more variants than ADA. However, these two additional variants have not been reported to be associated with triglycerides. Based on our simulation results, BE-SKAT selected more FPs than ADA. We have to be more cautious with these two variants. BE-BURDEN pinpointed seven variants. Because the BURDEN test did not suggest a significant association between triglycerides and the region containing these 17 loci (<italic>P</italic>-value<italic> </italic>= 0.6962), there was no need to investigate these seven variants in details.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Discussion</title>
+<p>Single marker approaches are under-powered for sequencing studies with typical sample sizes, and therefore rare-variant association testing usually requires some strategy of aggregation<xref ref-type="bibr" rid="b45">45</xref>. The next important step is to identify individual rare causal variants from the promising regions/genes. Identifying a small number of rare causal variants that contribute to complex diseases has become a major focus of investigation<xref ref-type="bibr" rid="b46">46</xref>. We here recommend using ADA to pinpoint important rare variants that may be responsible for the disease pathogenesis. We compare ADA with the BE procedure based on the BURDEN test or the SKAT test<xref ref-type="bibr" rid="b30">30</xref>. This work is not a power comparison between ADA, BURDEN, and SKAT–which has been addressed in a previous study<xref ref-type="bibr" rid="b13">13</xref>. ADA can be more powerful than BURDEN and SKAT, because it truncates variants with larger <italic>P</italic>-values that are more likely to be neutral. This purification of association signals can enhance the statistical power of a gene-based test.</p>
+<p>In this work, we focus on identifying rare causal variants from among the variants in a gene, instead of testing the significance for a group of variants. To have a pure evaluation of the performance to identify rare causal variants, we did not assess the association for a group of variants with the ADA, SKAT, or BURDEN test before pinpointing individual variants. The results shown in <xref ref-type="fig" rid="f1">Figs 1</xref>, <xref ref-type="fig" rid="f2">2</xref>, <xref ref-type="fig" rid="f3">3</xref>, <xref ref-type="fig" rid="f4">4</xref>, <xref ref-type="fig" rid="f5">5</xref>, <xref ref-type="fig" rid="f6">6</xref> were not filtered by the significance of ADA, SKAT, or BURDEN.</p>
+<p>However, in practice, it is not reasonable to go to the step of pinpointing individual variants, if gene-based association tests are not statistically significant. We therefore also show the results with consideration of gene-based association testing. <xref ref-type="supplementary-material" rid="S1">Supplementary Figs S1–S3</xref> present the mean #(<italic>TP</italic>), #(<italic>FP</italic>), and PPVs, of the extra simulations. In these figures we show the mean #(<italic>TP</italic>) (or #(<italic>FP</italic>), PPVs) based on all replications (regardless of the significance of ADA, SKAT, or BURDEN), and that based on the replications with <italic>P</italic>-values &lt; 0.001 (or 0.0001) in the corresponding association tests. The association signals within a region, including both true association signals from causal variants and false association signals from neutral variants, are more significant, when the <italic>P</italic>-value of the corresponding association test is smaller. Therefore, we see larger means in #(<italic>TP</italic>) and #(<italic>FP</italic>) given more significant test results. The increase in #(<italic>TP</italic>) or #(<italic>FP</italic>) is larger when all causal variants are protective than when they are deleterious. This is because protective variants have smaller effect sizes than deleterious variants with similar MAFs<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b38">38</xref>. If the association test for a gene containing protective variants can reach a stringent significance threshold (say, 0.0001), presumably there are more true signals from causal variants and/or more false signals from neutral variants. Therefore, it is not surprising that the mean #(<italic>TP</italic>) and #(<italic>FP</italic>) have a larger increase at <italic>r</italic><sub><italic>isk</italic></sub><italic> </italic>= 0% than at <italic>r</italic><sub><italic>isk</italic></sub> = 100%. The mean PPVs generally have a slight increase given more significant test results. The relative performance of the three methods remains the same as that shown in our simulation study, where the results were not filtered by the significance of ADA, SKAT, or BURDEN.</p>
+<p>Moreover, we also studied the situations where a region actually contained no causal variants. <xref ref-type="table" rid="t3">Table 3</xref> lists the mean #(<italic>FP</italic>), and the corresponding standard deviation, when the region in fact includes no causal variant. FPs from ADA were fewer, compared with its two competitors. Consistent with the aforementioned simulation results, BE-BURDEN generated the most FPs. In this situation that all variants were neutral, the association signals were actually all false alarms from neutral variants. Therefore, it is not surprising that a larger mean #(<italic>FP</italic>) can be found in replications with smaller <italic>P</italic>-values in association tests.</p>
+<p>We find that ADA greatly enhances PPVs compared with the BE procedure based on BURDEN or SKAT<xref ref-type="bibr" rid="b30">30</xref>. Furthermore, ADA is more computationally feasible than the two competitors. We therefore recommend using ADA to pinpoint plausible rare causal variants in a gene.</p>
+</sec>
+<sec disp-level="1">
+<title>Methods</title>
+<sec disp-level="2">
+<title>Adaptive Combination of P-values (ADA) Algorithm to Pinpoint Rare Causal Variants from A Large Number of Variants in A Gene</title>
+<p>Given <italic>r</italic> variants in a gene of interest, <italic>J</italic> candidate <italic>P</italic>-value truncation thresholds (<inline-formula id="d33e1195"><inline-graphic id="d33e1196" xlink:href="srep21824-m39.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>), pre-specified weights for variants (<inline-formula id="d33e1198"><inline-graphic id="d33e1199" xlink:href="srep21824-m40.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>), and a significance level for gene-based association tests, the ADA algorithm is performed as follows:</p>
+<p><bold>Step 1.</bold> Obtain per-site <italic>P</italic>-values for the <italic>r</italic> variants, <inline-formula id="d33e1211"><inline-graphic id="d33e1212" xlink:href="srep21824-m41.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>, using appropriate single-variant tests. For binary trait analysis without confounder adjustment, per-site <italic>P</italic>-values can be obtained by the Fisher’s exact test<xref ref-type="bibr" rid="b47">47</xref>. To adjust confounders, logistic (linear) regression model can be used in analyses for binary (quantitative) traits.</p>
+<p>Following Cheung <italic>et al.</italic><xref ref-type="bibr" rid="b15">15</xref>, in this work we used the Fisher’s exact test<xref ref-type="bibr" rid="b47">47</xref> to assess the significance of each variant. For a variant that is more frequent in cases than in controls, we let <italic>X</italic> be the random variable representing the number of minor-allele counts in the case group, <inline-formula id="d33e1230"><inline-graphic id="d33e1231" xlink:href="srep21824-m42.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> be the observed minor-allele counts in the case group, <inline-formula id="d33e1233"><inline-graphic id="d33e1234" xlink:href="srep21824-m43.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> be the total minor-allele counts in the case and control groups, <inline-formula id="d33e1237"><inline-graphic id="d33e1238" xlink:href="srep21824-m44.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> be the observed number of alleles in the case group, and <italic>n</italic> be the total number of alleles in the case and control groups. The mid-<italic>P</italic>-value for the association of this variant with the disease is</p>
+<p>
+<disp-formula id="eq45">
+<inline-graphic id="d33e1248" xlink:href="srep21824-m45.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic>
+</disp-formula>
+</p>
+<p><bold>Step 2.</bold> Under the <italic>j</italic>th <italic>P</italic>-value truncation threshold, calculate two significance scores, <inline-formula id="d33e1259"><inline-graphic id="d33e1260" xlink:href="srep21824-m46.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula><inline-formula id="d33e1261"><inline-graphic id="d33e1262" xlink:href="srep21824-m47.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> and <inline-formula id="d33e1264"><inline-graphic id="d33e1265" xlink:href="srep21824-m48.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> where <inline-formula id="d33e1268"><inline-graphic id="d33e1269" xlink:href="srep21824-m49.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is 1 if the <italic>i</italic>th variant is ‘deleterious-inclined’ (with larger variant frequencies in cases than in controls) and 0 otherwise, <inline-formula id="d33e1274"><inline-graphic id="d33e1275" xlink:href="srep21824-m50.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is 1 if the <italic>i</italic>th variant is ‘protective-inclined’ (with larger variant frequencies in controls than in cases) and 0 otherwise, and <inline-formula id="d33e1280"><inline-graphic id="d33e1281" xlink:href="srep21824-m51.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is an indicator variable with two possible values: 0 and 1.</p>
+<p><bold>Step 3.</bold> Across the <italic>J P</italic>-value truncation thresholds, obtain <inline-formula id="d33e1290"><inline-graphic id="d33e1291" xlink:href="srep21824-m52.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>, where <inline-formula id="d33e1293"><inline-graphic id="d33e1294" xlink:href="srep21824-m53.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> for <italic>j</italic> = 1, 2, …, <italic>J</italic>. With <italic>B</italic> permutations, the <italic>P</italic>-value of <inline-formula id="d33e1309"><inline-graphic id="d33e1310" xlink:href="srep21824-m54.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is estimated by <inline-formula id="d33e1312"><inline-graphic id="d33e1313" xlink:href="srep21824-m55.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> where <inline-formula id="d33e1315"><inline-graphic id="d33e1316" xlink:href="srep21824-m56.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is calculated with the <italic>b</italic>th permuted sample under the <italic>j</italic>th <italic>P</italic>-value truncation threshold, <italic>b </italic>= 1, …, <italic>B</italic>. The <italic>P</italic>-value of <inline-formula id="d33e1337"><inline-graphic id="d33e1338" xlink:href="srep21824-m57.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> is estimated by <inline-formula id="d33e1341"><inline-graphic id="d33e1342" xlink:href="srep21824-m58.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>
+<italic>k</italic> = 1, …, <italic>B</italic>. For the observed sample and the <italic>b</italic>th permuted sample, the minimum <italic>P</italic>-values across the <italic>J P</italic>-value truncation thresholds are denoted by <inline-formula id="d33e1360"><inline-graphic id="d33e1361" xlink:href="srep21824-m59.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> and <inline-formula id="d33e1363"><inline-graphic id="d33e1364" xlink:href="srep21824-m60.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>, respectively. Then the ‘final <italic>P</italic>-value’ is <inline-formula id="d33e1369"><inline-graphic id="d33e1370" xlink:href="srep21824-m61.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula> which is the <italic>P</italic>-value of the ADA test<xref ref-type="bibr" rid="b13">13</xref> for the association of a gene/region with the disease. If this ‘final <italic>P</italic>-value’ is larger than the pre-specified significance level, stop here. We conclude that the gene/region is not associated with the disease.</p>
+<p><bold>Step 4.</bold> If the ‘final <italic>P</italic>-value’ is smaller than the significance level, select all variants with per-site <italic>P</italic>-values smaller than the optimal <italic>P</italic>-value truncation threshold, i.e., the <italic>P</italic>-value threshold producing the minimum <italic>P</italic>-value for the unpermuted sample.The R code to implement the ADA method can be downloaded from <ext-link ext-link-type="uri" xlink:href="http://homepage.ntu.edu.tw/~linwy/ADAprioritized.html" xmlns:xlink="http://www.w3.org/1999/xlink">http://homepage.ntu.edu.tw/~linwy/ADAprioritized.html</ext-link>. The above Steps 1–3 are used to perform the ADA test<xref ref-type="bibr" rid="b13">13</xref>. By adding Step 4, ADA is directly applied to the selection of individual causal variants.</p>
+</sec>
+</sec>
+<sec disp-level="1">
+<title>Additional Information</title>
+<p><bold>How to cite this article</bold>: Lin, W.-Y. Beyond Rare-Variant Association Testing: Pinpointing Rare Causal Variants in Case-Control Sequencing Study. <italic>Sci. Rep.</italic>
+<bold>6</bold>, 21824; doi: 10.1038/srep21824 (2016).</p>
+</sec>
+<sec id="S1" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="d33e96">
+<caption>
+<title>Supplementary Information</title>
+</caption>
+<media xlink:href="srep21824-s1.pdf" xmlns:xlink="http://www.w3.org/1999/xlink"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>The author would like to thank the anonymous reviewers for their insightful and constructive comments, and thank Drs. Jonathan C. Cohen and Helen H. Hobbs for kindly providing the Dallas Heart Study data. This work was supported by grants 102-2628-B-002-039-MY3 from the Ministry of Science and Technology of Taiwan, and NTU-CESRP-104R7622-8 from National Taiwan University.</p>
+</ack>
+<ref-list>
+<ref id="b1">
+<mixed-citation publication-type="journal"><name><surname>Cohen</surname><given-names>J. C.</given-names></name>
+<italic>et al.</italic>
+<article-title>Multiple rare alleles contribute to low plasma levels of HDL cholesterol</article-title>. <source/>Science
+<volume>305</volume>, <fpage>869</fpage>–<lpage>872</lpage>, <pub-id pub-id-type="doi">10.1126/science.1099870</pub-id> (<year>2004</year>).<pub-id pub-id-type="pmid">15297675</pub-id></mixed-citation>
+</ref>
+<ref id="b2">
+<mixed-citation publication-type="journal"><name><surname>Ji</surname><given-names>W.</given-names></name>
+<italic>et al.</italic>
+<article-title>Rare independent mutations in renal salt handling genes contribute to blood pressure variation</article-title>. <source/>Nat Genet
+<volume>40</volume>, <fpage>592</fpage>–<lpage>599</lpage>, <pub-id pub-id-type="doi">10.1038/ng.118</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18391953</pub-id></mixed-citation>
+</ref>
+<ref id="b3">
+<mixed-citation publication-type="journal"><name><surname>Romeo</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Rare loss-of-function mutations in ANGPTL family members contribute to plasma triglyceride levels in humans</article-title>. <source/>J Clin Invest
+<volume>119</volume>, <fpage>70</fpage>–<lpage>79</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19075393</pub-id></mixed-citation>
+</ref>
+<ref id="b4">
+<mixed-citation publication-type="journal"><name><surname>Hamada</surname><given-names>M.</given-names></name>, <name><surname>Ono</surname><given-names>Y.</given-names></name>, <name><surname>Fujimaki</surname><given-names>R.</given-names></name> &amp; <name><surname>Asai</surname><given-names>K.</given-names></name>
+<article-title>Learning chromatin states with factorized information criteria</article-title>. <source/>Bioinformatics, <pub-id pub-id-type="doi">10.1093/bioinformatics/btv163</pub-id> (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b5">
+<mixed-citation publication-type="journal"><name><surname>Li</surname><given-names>B.</given-names></name> &amp; <name><surname>Leal</surname><given-names>S. M.</given-names></name>
+<article-title>Methods for detecting associations with rare variants for common diseases: application to analysis of sequence data</article-title>. <source/>Am J Hum Genet
+<volume>83</volume>, <fpage>311</fpage>–<lpage>321</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18691683</pub-id></mixed-citation>
+</ref>
+<ref id="b6">
+<mixed-citation publication-type="journal"><name><surname>Madsen</surname><given-names>B. E.</given-names></name> &amp; <name><surname>Browning</surname><given-names>S. R.</given-names></name>
+<article-title>A groupwise association test for rare mutations using a weighted sum statistic</article-title>. <source/>PLoS Genet
+<volume>5</volume>, <fpage>e1000384</fpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19214210</pub-id></mixed-citation>
+</ref>
+<ref id="b7">
+<mixed-citation publication-type="journal"><name><surname>Morris</surname><given-names>A. P.</given-names></name> &amp; <name><surname>Zeggini</surname><given-names>E.</given-names></name>
+<article-title>An evaluation of statistical approaches to rare variant analysis in genetic association studies</article-title>. <source/>Genet Epidemiol
+<volume>34</volume>, <fpage>188</fpage>–<lpage>193</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">19810025</pub-id></mixed-citation>
+</ref>
+<ref id="b8">
+<mixed-citation publication-type="journal"><name><surname>Price</surname><given-names>A. L.</given-names></name>
+<italic>et al.</italic>
+<article-title>Pooled association tests for rare variants in exon-resequencing studies</article-title>. <source/>Am J Hum Genet
+<volume>86</volume>, <fpage>832</fpage>–<lpage>838</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20471002</pub-id></mixed-citation>
+</ref>
+<ref id="b9">
+<mixed-citation publication-type="journal"><name><surname>Han</surname><given-names>F.</given-names></name> &amp; <name><surname>Pan</surname><given-names>W.</given-names></name>
+<article-title>A data-adaptive sum test for disease association with multiple common or rare variants</article-title>. <source/>Hum Hered
+<volume>70</volume>, <fpage>42</fpage>–<lpage>54</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20413981</pub-id></mixed-citation>
+</ref>
+<ref id="b10">
+<mixed-citation publication-type="journal"><name><surname>Wu</surname><given-names>M. C.</given-names></name>
+<italic>et al.</italic>
+<article-title>Rare-variant association testing for sequencing data with the sequence kernel association test</article-title>. <source/>Am J Hum Genet
+<volume>89</volume>, <fpage>82</fpage>–<lpage>93</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21737059</pub-id></mixed-citation>
+</ref>
+<ref id="b11">
+<mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>S.</given-names></name>, <name><surname>Wu</surname><given-names>M. C.</given-names></name> &amp; <name><surname>Lin</surname><given-names>X.</given-names></name>
+<article-title>Optimal tests for rare variant effects in sequencing association studies</article-title>. <source/>Biostatistics
+<volume>13</volume>, <fpage>762</fpage>–<lpage>775</lpage>, <pub-id pub-id-type="doi">10.1093/biostatistics/kxs014</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22699862</pub-id></mixed-citation>
+</ref>
+<ref id="b12">
+<mixed-citation publication-type="journal"><name><surname>Neale</surname><given-names>B. M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Testing for an unusual distribution of rare variants</article-title>. <source/>PLoS Genet
+<volume>7</volume>, <fpage>e1001322</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pgen.1001322</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21408211</pub-id></mixed-citation>
+</ref>
+<ref id="b13">
+<mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>W. Y.</given-names></name>, <name><surname>Lou</surname><given-names>X. Y.</given-names></name>, <name><surname>Gao</surname><given-names>G.</given-names></name> &amp; <name><surname>Liu</surname><given-names>N.</given-names></name>
+<article-title>Rare variant association testing by adaptive combination of P-values</article-title>. <source/>PLoS One
+<volume>9</volume>, <fpage>e85728</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pone.0085728</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24454922</pub-id></mixed-citation>
+</ref>
+<ref id="b14">
+<mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>W. Y.</given-names></name>
+<article-title>Association testing of clustered rare causal variants in case-control studies</article-title>. <source/>PLoS One
+<volume>9</volume>, <fpage>e94337</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pone.0094337</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24736372</pub-id></mixed-citation>
+</ref>
+<ref id="b15">
+<mixed-citation publication-type="journal"><name><surname>Cheung</surname><given-names>Y. H.</given-names></name>, <name><surname>Wang</surname><given-names>G.</given-names></name>, <name><surname>Leal</surname><given-names>S. M.</given-names></name> &amp; <name><surname>Wang</surname><given-names>S.</given-names></name>
+<article-title>A fast and noise-resilient approach to detect rare-variant associations with deep sequencing data for complex disorders</article-title>. <source/>Genet Epidemiol
+<volume>36</volume>, <fpage>675</fpage>–<lpage>685</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.21662</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22865616</pub-id></mixed-citation>
+</ref>
+<ref id="b16">
+<mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>H. C.</given-names></name> &amp; <name><surname>Chen</surname><given-names>C. W.</given-names></name>
+<article-title>Region-based and pathway-based QTL mapping using a p-value combination method</article-title>. <source/>BMC Proc
+<volume>5</volume> Suppl 9, <fpage>S43</fpage>, <pub-id pub-id-type="doi">10.1186/1753-6561-5-S9-S43</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">22373302</pub-id></mixed-citation>
+</ref>
+<ref id="b17">
+<mixed-citation publication-type="journal"><name><surname>Moutsianas</surname><given-names>L.</given-names></name>
+<italic>et al.</italic>
+<article-title>The power of gene-based rare variant methods to detect disease-associated variation and test hypotheses about complex disease</article-title>. <source/>PLoS Genet
+<volume>11</volume>, <fpage>e1005165</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pgen.1005165</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25906071</pub-id></mixed-citation>
+</ref>
+<ref id="b18">
+<mixed-citation publication-type="journal"><name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>, <name><surname>Cho</surname><given-names>M. H.</given-names></name> &amp; <name><surname>Laird</surname><given-names>N. M.</given-names></name>
+<article-title>Statistical challenges in sequence-based association studies with population- and family-based designs</article-title>. <source/>Statistics in Biosciences
+<volume>5</volume>, <fpage>54</fpage>–<lpage>70</lpage> (<year>2013</year>).</mixed-citation>
+</ref>
+<ref id="b19">
+<mixed-citation publication-type="journal"><name><surname>Liu</surname><given-names>D. J.</given-names></name> &amp; <name><surname>Leal</surname><given-names>S. M.</given-names></name>
+<article-title>A novel adaptive method for the analysis of next-generation sequencing data to detect complex trait associations with rare variants due to gene main effects and interactions</article-title>. <source/>PLoS Genet
+<volume>6</volume>, <fpage>e1001156</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pgen.1001156</pub-id> (<year>2010</year>).<pub-id pub-id-type="pmid">20976247</pub-id></mixed-citation>
+</ref>
+<ref id="b20">
+<mixed-citation publication-type="journal"><name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>, <name><surname>Buxbaum</surname><given-names>J. D.</given-names></name>, <name><surname>Laird</surname><given-names>N. M.</given-names></name> &amp; <name><surname>Lange</surname><given-names>C.</given-names></name>
+<article-title>A new testing strategy to identify rare variants with either risk or protective effect on disease</article-title>. <source/>PLoS Genet
+<volume>7</volume>, <fpage>e1001289</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pgen.1001289</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21304886</pub-id></mixed-citation>
+</ref>
+<ref id="b21">
+<mixed-citation publication-type="journal"><name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>
+<italic>et al.</italic>
+<article-title>Finding disease variants in Mendelian disorders by using sequence data: methods and applications</article-title>. <source/>Am J Hum Genet
+<volume>89</volume>, <fpage>701</fpage>–<lpage>712</lpage>, <pub-id pub-id-type="doi">10.1016/j.ajhg.2011.11.003</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">22137099</pub-id></mixed-citation>
+</ref>
+<ref id="b22">
+<mixed-citation publication-type="journal"><name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>, <name><surname>Lee</surname><given-names>S.</given-names></name>, <name><surname>Makarov</surname><given-names>V.</given-names></name>, <name><surname>Buxbaum</surname><given-names>J. D.</given-names></name> &amp; <name><surname>Lin</surname><given-names>X.</given-names></name>
+<article-title>Family-based association tests for sequence data, and comparisons with population-based association tests</article-title>. <source/>Eur J Hum Genet
+<volume>21</volume>, <fpage>1158</fpage>–<lpage>1162</lpage>, <pub-id pub-id-type="doi">10.1038/ejhg.2012.308</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23386037</pub-id></mixed-citation>
+</ref>
+<ref id="b23">
+<mixed-citation publication-type="journal"><name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>, <name><surname>Lee</surname><given-names>S.</given-names></name>, <name><surname>Makarov</surname><given-names>V.</given-names></name>, <name><surname>Buxbaum</surname><given-names>J. D.</given-names></name> &amp; <name><surname>Lin</surname><given-names>X.</given-names></name>
+<article-title>Sequence kernel association tests for the combined effect of rare and common variants</article-title>. <source/>Am J Hum Genet
+<volume>92</volume>, <fpage>841</fpage>–<lpage>853</lpage>, <pub-id pub-id-type="doi">10.1016/j.ajhg.2013.04.015</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23684009</pub-id></mixed-citation>
+</ref>
+<ref id="b24">
+<mixed-citation publication-type="journal"><article-title></article-title>Lin, W. Y. <article-title>Adaptive combination of p-values for family-based association testing with sequence data</article-title>. <source/>PLoS One
+<volume>9</volume>, <fpage>e115971</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pone.0115971</pub-id> (<year>2014</year>).</mixed-citation>
+</ref>
+<ref id="b25">
+<mixed-citation publication-type="journal">Lin, W. Y., <name><surname>Zhang</surname><given-names>B.</given-names></name>, <name><surname>Yi</surname><given-names>N.</given-names></name>, <name><surname>Gao</surname><given-names>G.</given-names></name> &amp; <name><surname>Liu</surname><given-names>N.</given-names></name>
+<article-title>Evaluation of pooled association tests for rare variant identification</article-title>. <source/>BMC Proc
+<volume>5</volume> Suppl 9, <fpage>S118</fpage> (<year>2011</year>).<pub-id pub-id-type="pmid">22373333</pub-id></mixed-citation>
+</ref>
+<ref id="b26">
+<mixed-citation publication-type="journal"><name><surname>Yu</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Pathway analysis by adaptive combination of P-values</article-title>. <source/>Genet Epidemiol
+<volume>33</volume>, <fpage>700</fpage>–<lpage>709</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.20422</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19333968</pub-id></mixed-citation>
+</ref>
+<ref id="b27">
+<mixed-citation publication-type="journal"><name><surname>Feng</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Methods for association analysis and meta-analysis of rare variants in families</article-title>. <source/>Genet Epidemiol
+<volume>39</volume>, <fpage>227</fpage>–<lpage>238</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.21892</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25740221</pub-id></mixed-citation>
+</ref>
+<ref id="b28">
+<mixed-citation publication-type="journal"><name><surname>Basu</surname><given-names>S.</given-names></name> &amp; <name><surname>Pan</surname><given-names>W.</given-names></name>
+<article-title>Comparison of statistical tests for disease association with rare variants</article-title>. <source/>Genet Epidemiol
+<volume>35</volume>, <fpage>606</fpage>–<lpage>619</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.20609</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21769936</pub-id></mixed-citation>
+</ref>
+<ref id="b29">
+<mixed-citation publication-type="journal"><name><surname>Zaykin</surname><given-names>D. V.</given-names></name>, <name><surname>Zhivotovsky</surname><given-names>L. A.</given-names></name>, <name><surname>Westfall</surname><given-names>P. H.</given-names></name> &amp; <name><surname>Weir</surname><given-names>B. S.</given-names></name>
+<article-title>Truncated product method for combining P-values</article-title>. <source/>Genet Epidemiol
+<volume>22</volume>, <fpage>170</fpage>–<lpage>185</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.0042</pub-id> (<year>2002</year>).<pub-id pub-id-type="pmid">11788962</pub-id></mixed-citation>
+</ref>
+<ref id="b30">
+<mixed-citation publication-type="journal"><name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>, <name><surname>Capanu</surname><given-names>M.</given-names></name>, <name><surname>De Rubeis</surname><given-names>S.</given-names></name>, <name><surname>McCallum</surname><given-names>K.</given-names></name> &amp; <name><surname>Buxbaum</surname><given-names>J. D.</given-names></name>
+<article-title>Identification of rare causal variants in sequence-based studies: methods and applications to VPS13B, a gene involved in Cohen syndrome and autism</article-title>. <source/>PLoS Genet
+<volume>10</volume>, <fpage>e1004729</fpage>, <pub-id pub-id-type="doi">10.1371/journal.pgen.1004729</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25502226</pub-id></mixed-citation>
+</ref>
+<ref id="b31">
+<mixed-citation publication-type="journal"><article-title></article-title><name><surname>Benaglia</surname><given-names>T.</given-names></name>, <name><surname>Chauveau</surname><given-names>D.</given-names></name> &amp; Hunter, D. R. <article-title>An EM-Like algorithm for semi- and nonparametric estimation in multivariate mixtures</article-title>. <source/>Journal of Computational and Graphical Statistics
+<volume>18</volume>, <fpage>505</fpage>–<lpage>526</lpage> (<year>2009</year>).</mixed-citation>
+</ref>
+<ref id="b32">
+<mixed-citation publication-type="journal"><name><surname>Romeo</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Population-based resequencing of ANGPTL4 uncovers variations that reduce triglycerides and increase HDL</article-title>. <source/>Nat Genet
+<volume>39</volume>, <fpage>513</fpage>–<lpage>516</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17322881</pub-id></mixed-citation>
+</ref>
+<ref id="b33">
+<mixed-citation publication-type="journal"><name><surname>Schaffner</surname><given-names>S. F.</given-names></name>
+<italic>et al.</italic>
+<article-title>Calibrating a coalescent simulation of human genome sequence variation</article-title>. <source/>Genome Res
+<volume>15</volume>, <fpage>1576</fpage>–<lpage>1583</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">16251467</pub-id></mixed-citation>
+</ref>
+<ref id="b34">
+<mixed-citation publication-type="journal"><name><surname>Jiang</surname><given-names>Y.</given-names></name>
+<italic>et al.</italic>
+<article-title>Utilizing population controls in rare-variant case-parent association tests</article-title>. <source/>Am J Hum Genet
+<volume>94</volume>, <fpage>845</fpage>–<lpage>853</lpage>, <pub-id pub-id-type="doi">10.1016/j.ajhg.2014.04.014</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24836453</pub-id></mixed-citation>
+</ref>
+<ref id="b35">
+<mixed-citation publication-type="journal"><name><surname>Li</surname><given-names>Y.</given-names></name>, <name><surname>Byrnes</surname><given-names>A. E.</given-names></name> &amp; <name><surname>Li</surname><given-names>M.</given-names></name>
+<article-title>To identify associations with rare variants, just WHaIT: Weighted haplotype and imputation-based tests</article-title>. <source/>Am J Hum Genet
+<volume>87</volume>, <fpage>728</fpage>–<lpage>735</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">21055717</pub-id></mixed-citation>
+</ref>
+<ref id="b36">
+<mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>W. Y.</given-names></name>
+<italic>et al.</italic>
+<article-title>Haplotype kernel association test as a powerful method to identify chromosomal regions harboring uncommon causal variants</article-title>. <source/>Genet Epidemiol
+<volume>37</volume>, <fpage>560</fpage>–<lpage>570</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.21740</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23740760</pub-id></mixed-citation>
+</ref>
+<ref id="b37">
+<mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>W. Y.</given-names></name>
+<italic>et al.</italic>
+<article-title>Haplotype-based methods for detecting uncommon causal variants with common SNPs</article-title>. <source/>Genet Epidemiol
+<volume>36</volume>, <fpage>572</fpage>–<lpage>582</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.21650</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22706849</pub-id></mixed-citation>
+</ref>
+<ref id="b38">
+<mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>G. T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Pitfalls in development of statistical methods for rare variant association studies</article-title>. <source/>Presented at the 65th Annual Meeting of The American Society of Human Genetics, October 7, 2015, Baltimore, MD (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b39">
+<mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>S.</given-names></name>, <name><surname>Abecasis</surname><given-names>G. R.</given-names></name>, <name><surname>Boehnke</surname><given-names>M.</given-names></name> &amp; <name><surname>Lin</surname><given-names>X.</given-names></name>
+<article-title>Rare-variant association analysis: study designs and statistical tests</article-title>. <source/>Am J Hum Genet
+<volume>95</volume>, <fpage>5</fpage>–<lpage>23</lpage>, <pub-id pub-id-type="doi">10.1016/j.ajhg.2014.06.009</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24995866</pub-id></mixed-citation>
+</ref>
+<ref id="b40">
+<mixed-citation publication-type="other"><name><surname>Lee</surname><given-names>S.</given-names></name>, <name><surname>Miropolsky</surname><given-names>L.</given-names></name> &amp; <name><surname>Wu</surname><given-names>M.</given-names></name>
+<article-title>Package ‘SKAT’</article-title>, <ext-link ext-link-type="uri" xlink:href="https://cran.r-project.org/web/packages/SKAT/index.html" xmlns:xlink="http://www.w3.org/1999/xlink">https://cran.r-project.org/web/packages/SKAT/index.html</ext-link>, version 1.1.2. (<year>2015</year>).</mixed-citation>
+</ref>
+<ref id="b41">
+<mixed-citation publication-type="journal"><name><surname>Talmud</surname><given-names>P. J.</given-names></name>
+<italic>et al.</italic>
+<article-title>ANGPTL4 E40K and T266M: effects on plasma triglyceride and HDL levels, postprandial responses, and CHD risk</article-title>. <source/>Arterioscler Thromb Vasc Biol
+<volume>28</volume>, <fpage>2319</fpage>–<lpage>2325</lpage>, <pub-id pub-id-type="doi">10.1161/ATVBAHA.108.176917</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18974381</pub-id></mixed-citation>
+</ref>
+<ref id="b42">
+<mixed-citation publication-type="journal"><name><surname>Smart-Halajko</surname><given-names>M. C.</given-names></name>
+<italic>et al.</italic>
+<article-title>ANGPTL4 variants E40K and T266M are associated with lower fasting triglyceride levels in Non-Hispanic White Americans from the Look AHEAD Clinical Trial</article-title>. <source/>BMC Med Genet
+<volume>12</volume>, <fpage>89</fpage>, <pub-id pub-id-type="doi">10.1186/1471-2350-12-89</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21714923</pub-id></mixed-citation>
+</ref>
+<ref id="b43">
+<mixed-citation publication-type="journal"><name><surname>Nettleton</surname><given-names>J. A.</given-names></name>, <name><surname>Volcik</surname><given-names>K. A.</given-names></name>, <name><surname>Demerath</surname><given-names>E. W.</given-names></name>, <name><surname>Boerwinkle</surname><given-names>E.</given-names></name> &amp; <name><surname>Folsom</surname><given-names>A. R.</given-names></name>
+<article-title>Longitudinal changes in triglycerides according to ANGPTL4[E40K] genotype and longitudinal body weight change in the atherosclerosis risk in communities study</article-title>. <source/>Ann Epidemiol
+<volume>18</volume>, <fpage>842</fpage>–<lpage>846</lpage>, <pub-id pub-id-type="doi">10.1016/j.annepidem.2008.07.004</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18809343</pub-id></mixed-citation>
+</ref>
+<ref id="b44">
+<mixed-citation publication-type="journal"><name><surname>Yin</surname><given-names>W.</given-names></name>
+<italic>et al.</italic>
+<article-title>Genetic variation in ANGPTL4 provides insights into protein processing and function</article-title>. <source/>J Biol Chem
+<volume>284</volume>, <fpage>13213</fpage>–<lpage>13222</lpage>, <pub-id pub-id-type="doi">10.1074/jbc.M900553200</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19270337</pub-id></mixed-citation>
+</ref>
+<ref id="b45">
+<mixed-citation publication-type="journal"><name><surname>Larson</surname><given-names>N. B.</given-names></name> &amp; <name><surname>Schaid</surname><given-names>D. J.</given-names></name>
+<article-title>Regularized rare variant enrichment analysis for case-control exome sequencing data</article-title>. <source/>Genet Epidemiol
+<volume>38</volume>, <fpage>104</fpage>–<lpage>113</lpage>, <pub-id pub-id-type="doi">10.1002/gepi.21783</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24382715</pub-id></mixed-citation>
+</ref>
+<ref id="b46">
+<mixed-citation publication-type="journal"><name><surname>Capanu</surname><given-names>M.</given-names></name> &amp; <name><surname>Ionita-Laza</surname><given-names>I.</given-names></name>
+<article-title>Integrative analysis of functional genomic annotations and sequencing data to identify rare causal variants via hierarchical modeling</article-title>. <source/>Front Genet
+<volume>6</volume>, <fpage>17</fpage>, <pub-id pub-id-type="doi">10.3389/fgene.2015.00176</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">26005447</pub-id></mixed-citation>
+</ref>
+<ref id="b47">
+<mixed-citation publication-type="journal"><name><surname>Fisher</surname><given-names>R. A.</given-names></name>
+<article-title>On the interpretation of χ<sup>2</sup> from contingency tables, and the calculation of P</article-title>. <source/>J R Stat Soc
+<volume>85</volume>, <fpage>87</fpage>–<lpage>94</lpage> (<year>1922</year>).</mixed-citation>
+</ref>
+</ref-list>
+<fn-group>
+<fn>
+<p><bold>Author Contributions</bold> W.Y.L. conceived the idea of this study, developed the statistical methodology, programmed the simulation R codes, performed the real data analysis, and wrote the manuscript.</p>
+</fn>
+</fn-group>
+</back>
+<floats-group>
+<fig id="f1">
+<label>Figure 1</label>
+<caption>
+<title>Results for 5 kb regions, given a causal percentage of ~7.3%.</title>
+<p>Top row: PAF = 0.3%; bottom row: PAF = 0.5%. The <italic>x</italic>-axis is the percentage of risk variants from among the total causal variants, whereas the <italic>y</italic>-axis is the mean number of true positives (left column), the mean number of false positives (middle column), or the mean positive predictive values (right column), based on 1,000 replications.</p>
+</caption>
+<graphic xlink:href="srep21824-f1" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f2">
+<label>Figure 2</label>
+<caption>
+<title>Results for 10 kb regions, given a causal percentage of ~7.3%.</title>
+<p>Top row: PAF = 0.3%; bottom row: PAF = 0.5%. The <italic>x</italic>-axis is the percentage of risk variants from among the total causal variants, whereas the <italic>y</italic>-axis is the mean number of true positives (left column), the mean number of false positives (middle column), or the mean positive predictive values (right column), based on 1,000 replications.</p>
+</caption>
+<graphic xlink:href="srep21824-f2" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f3">
+<label>Figure 3</label>
+<caption>
+<title>Results for 20 kb regions, given a causal percentage of ~7.3%.</title>
+<p>Top row: PAF = 0.3%; bottom row: PAF = 0.5%. The <italic>x</italic>-axis is the percentage of risk variants from among the total causal variants, whereas the <italic>y</italic>-axis is the mean number of true positives (left column), the mean number of false positives (middle column), or the mean positive predictive values (right column), based on 1,000 replications.</p>
+</caption>
+<graphic xlink:href="srep21824-f3" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f4">
+<label>Figure 4</label>
+<caption>
+<title>Results for 5 kb regions, given a causal percentage of ~14.6%.</title>
+<p>Top row: PAF = 0.3%; bottom row: PAF = 0.5%. The <italic>x</italic>-axis is the percentage of risk variants from among the total causal variants, whereas the <italic>y</italic>-axis is the mean number of true positives (left column), the mean number of false positives (middle column), or the mean positive predictive values (right column), based on 1,000 replications.</p>
+</caption>
+<graphic xlink:href="srep21824-f4" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f5">
+<label>Figure 5</label>
+<caption>
+<title>Results for 10 kb regions, given a causal percentage of ~14.6%.</title>
+<p>Top row: PAF = 0.3%; bottom row: PAF = 0.5%. The <italic>x</italic>-axis is the percentage of risk variants from among the total causal variants, whereas the <italic>y</italic>-axis is the mean number of true positives (left column), the mean number of false positives (middle column), or the mean positive predictive values (right column), based on 1,000 replications.</p>
+</caption>
+<graphic xlink:href="srep21824-f5" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f6">
+<label>Figure 6</label>
+<caption>
+<title>Results for 20 kb regions, given a causal percentage of ~14.6%.</title>
+<p>Top row: PAF = 0.3%; bottom row: PAF = 0.5%. The <italic>x</italic>-axis is the percentage of risk variants from among the total causal variants, whereas the <italic>y</italic>-axis is the mean number of true positives (left column), the mean number of false positives (middle column), or the mean positive predictive values (right column), based on 1,000 replications.</p>
+</caption>
+<graphic xlink:href="srep21824-f6" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<fig id="f7">
+<label>Figure 7</label>
+<caption>
+<title>The mean computation time (in seconds) of every method, by varying the region length, the sample size, or the number of permutations (for ADA) or random subsamples (for BE-SKAT and BE-BURDEN).</title>
+<p>Left column: sample size =1000, the number of permutations or random subsamples =1000; middle column: region length =5 kb, the number of permutations or random subsamples =1000; right column: region length =5 kb, sample size =1000.</p>
+</caption>
+<graphic xlink:href="srep21824-f7" xmlns:xlink="http://www.w3.org/1999/xlink"></graphic>
+</fig>
+<table-wrap id="t1" position="float">
+<label>Table 1</label>
+<caption>
+<title>The details of each simulation scenario.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top">Causal percentage<sup><italic>a</italic></sup></th>
+<th align="center" charoff="50" valign="top">Region length</th>
+<th align="center" charoff="50" valign="top">No. of variant sites (mean)</th>
+<th align="center" charoff="50" valign="top">No. of causal variants (mean)</th>
+<th align="center" charoff="50" valign="top">Results</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" rowspan="3" valign="middle">Lower (~7.3%)</td>
+<td align="center" charoff="50" valign="top">5 kb</td>
+<td align="center" charoff="50" valign="top">~45</td>
+<td align="center" charoff="50" valign="top">~3</td>
+<td align="center" charoff="50" valign="top">
+<xref ref-type="fig" rid="f1">Fig. 1</xref>
+</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">10 kb</td>
+<td align="center" charoff="50" valign="top">~91</td>
+<td align="center" charoff="50" valign="top">~7</td>
+<td align="center" charoff="50" valign="top">
+<xref ref-type="fig" rid="f2">Fig. 2</xref>
+</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">20 kb</td>
+<td align="center" charoff="50" valign="top">~182</td>
+<td align="center" charoff="50" valign="top">~14</td>
+<td align="center" charoff="50" valign="top">
+<xref ref-type="fig" rid="f3">Fig. 3</xref>
+</td>
+</tr>
+<tr>
+<td align="left" charoff="50" rowspan="3" valign="middle">Higher (~14.6%)</td>
+<td align="center" charoff="50" valign="top">5 kb</td>
+<td align="center" charoff="50" valign="top">~45</td>
+<td align="center" charoff="50" valign="top">~6</td>
+<td align="center" charoff="50" valign="top">
+<xref ref-type="fig" rid="f4">Fig. 4</xref>
+</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">10 kb</td>
+<td align="center" charoff="50" valign="top">~91</td>
+<td align="center" charoff="50" valign="top">~14</td>
+<td align="center" charoff="50" valign="top">
+<xref ref-type="fig" rid="f5">Fig. 5</xref>
+</td>
+</tr>
+<tr>
+<td align="center" charoff="50" valign="top">20 kb</td>
+<td align="center" charoff="50" valign="top">~182</td>
+<td align="center" charoff="50" valign="top">~28</td>
+<td align="center" charoff="50" valign="top">
+<xref ref-type="fig" rid="f6">Fig. 6</xref>
+</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t1-fn1">
+<p><sup>a</sup>Causal percentage: The percentage of causal variants from among all the variants in the analysis marker set.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t2" position="float">
+<label>Table 2</label>
+<caption>
+<title>Association analysis for the <italic>ANGPTL4</italic> gene and triglycerides.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" rowspan="2" valign="top">Genomic position (bp)<xref ref-type="bibr" rid="b32">32</xref></th>
+<th align="center" charoff="50" rowspan="2" valign="top">Variant name<xref ref-type="bibr" rid="b32">32</xref></th>
+<th align="center" charoff="50" colspan="3" valign="top">Pinpointed by the method (marked by ‘V’)<hr/></th>
+<th align="center" charoff="50" rowspan="2" valign="top">Non-synonymous(marked by ‘Y’)</th>
+<th align="center" charoff="50" rowspan="2" valign="top">No. of variant carriers in cases<sup>c</sup></th>
+<th align="center" charoff="50" rowspan="2" valign="top">No. of variant carriers in controls<sup>c</sup></th>
+</tr>
+<tr>
+<th align="center" charoff="50" valign="top">ADA<sup>a</sup></th>
+<th align="center" charoff="50" valign="top">BE-SKAT<sup>b</sup></th>
+<th align="center" charoff="50" valign="top">BE-BURDEN<sup>b</sup></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">8335323</td>
+<td align="center" charoff="50" valign="top">E40K</td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">8</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8337000</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8337027</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8337155</td>
+<td align="center" charoff="50" valign="top">E167K</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8337250</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8340030</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8340185</td>
+<td align="center" charoff="50" valign="top">P210P</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8340204</td>
+<td align="center" charoff="50" valign="top">K217X</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8341802</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8341945</td>
+<td align="center" charoff="50" valign="top">G223R</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8342029</td>
+<td align="center" charoff="50" valign="top">P251T</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8342288</td>
+<td align="center" charoff="50" valign="top">P307P</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8342289</td>
+<td align="center" charoff="50" valign="top">V308M</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8342373</td>
+<td align="center" charoff="50" valign="top">R336C</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">3</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8342438</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">2</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8344630</td>
+<td align="center" charoff="50" valign="top">G361S</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">Y</td>
+<td align="center" charoff="50" valign="top">0</td>
+<td align="center" charoff="50" valign="top">1</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">8344771</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">V</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">0</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top">Total pinpointed causal variants</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top">1</td>
+<td align="center" charoff="50" valign="top">3</td>
+<td align="center" charoff="50" valign="top">7</td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+<td align="center" charoff="50" valign="top"> </td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t2-fn1">
+<p><sup>a</sup>The ADA method was implemented with 1,000 permutations.</p>
+</fn>
+<fn id="t2-fn2">
+<p><sup>b</sup>The BE procedure (for both SKAT and BURDEN) was implemented with 1,000 random subsamples.</p>
+</fn>
+<fn id="t2-fn3">
+<p><sup>c</sup>Variant carriers were heterozygotes for all the 17 loci. We did not observe any subject with homozygous minor alleles at any locus.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="t3" position="float">
+<label>Table 3</label>
+<caption>
+<title>The mean number of false positives (and the corresponding standard deviation) [the number of replications considered] when the region actually contains no causal variant<sup>a</sup>.</title>
+</caption>
+<table border="1" frame="hsides" rules="groups">
+<colgroup>
+<col align="left"/>
+<col align="center"/>
+<col align="center"/>
+<col align="center"/>
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th align="left" charoff="50" valign="top"><italic>P</italic>-value of ADA, SKAT, or BURDEN test</th>
+<th align="center" charoff="50" valign="top">ADA<sup>b</sup></th>
+<th align="center" charoff="50" valign="top">BE-SKAT<sup>c</sup></th>
+<th align="center" charoff="50" valign="top">BE-BURDEN<sup>c</sup></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td align="left" charoff="50" valign="top">No restriction (all results)</td>
+<td align="center" charoff="50" valign="top">2.92 (2.37) [10000]</td>
+<td align="center" charoff="50" valign="top">10.57 (3.92) [10000]</td>
+<td align="center" charoff="50" valign="top">20.66 (4.10) [10000]</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top"><inline-formula id="d33e1963"><inline-graphic id="d33e1964" xlink:href="srep21824-m62.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>0.05</td>
+<td align="center" charoff="50" valign="top">6.01 (3.24) [496]</td>
+<td align="center" charoff="50" valign="top">12.54 (3.85) [510]</td>
+<td align="center" charoff="50" valign="top">24.24 (4.67) [495]</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top"><inline-formula id="d33e1974"><inline-graphic id="d33e1975" xlink:href="srep21824-m63.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>0.01</td>
+<td align="center" charoff="50" valign="top">6.78 (3.62) [92]</td>
+<td align="center" charoff="50" valign="top">12.89 (3.72) [108]</td>
+<td align="center" charoff="50" valign="top">25.29 (4.03) [102]</td>
+</tr>
+<tr>
+<td align="left" charoff="50" valign="top"><inline-formula id="d33e1985"><inline-graphic id="d33e1986" xlink:href="srep21824-m64.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"></inline-graphic></inline-formula>0.001</td>
+<td align="center" charoff="50" valign="top">12.33 (6.66) [7]</td>
+<td align="center" charoff="50" valign="top">12.89 (3.95) [9]</td>
+<td align="center" charoff="50" valign="top">25.00 (5.00) [9]</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="t3-fn1">
+<p><sup>a</sup>Region length =5 kb; causal percentage =0%; no. of cases=no. of controls =500; the total number of replications =10000</p>
+</fn>
+<fn id="t3-fn2">
+<p><sup>b</sup>The ADA method was implemented with 10,000 permutations.</p>
+</fn>
+<fn id="t3-fn3">
+<p><sup>c</sup>Due to a longer computation time, the BE procedure (for both BE-SKAT and BE-BURDEN) was implemented with 1,000 random subsamples.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>

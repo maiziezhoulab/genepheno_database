@@ -1,0 +1,2274 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<?properties manuscript?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-journal-id">101573691</journal-id>
+<journal-id journal-id-type="pubmed-jr-id">39703</journal-id>
+<journal-id journal-id-type="nlm-ta">Cell Rep</journal-id>
+<journal-id journal-id-type="iso-abbrev">Cell Rep</journal-id>
+<journal-title-group>
+<journal-title>Cell reports</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2211-1247</issn>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29719253</article-id>
+<article-id pub-id-type="pmc">5957504</article-id>
+<article-id pub-id-type="doi">10.1016/j.celrep.2018.04.024</article-id>
+<article-id pub-id-type="manuscript">NIHMS965983</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>An Improved Method for Modeling Voltage-Gated Ion Channels at Atomic Accuracy Applied to Human Ca<sub>v</sub> Channels</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Martinez-Ortiz</surname>
+<given-names>Wilnelly</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Cardozo</surname>
+<given-names>Timothy J.</given-names>
+</name>
+<xref ref-type="aff" rid="A1">1</xref>
+<xref ref-type="author-notes" rid="FN2">2</xref>
+<xref ref-type="author-notes" rid="FN1">*</xref>
+</contrib>
+</contrib-group>
+<aff id="A1">
+<label>1</label>Department of Biochemistry and Molecular Pharmacology, NYU Langone Health, New York, NY 10016, USA</aff>
+<author-notes>
+<corresp id="FN1"><label>*</label>Correspondence: <email>timothy.cardozo@nyumc.org</email></corresp>
+<fn id="FN2">
+<label>2</label>
+<p>Lead Contact</p>
+</fn>
+</author-notes>
+<pub-date pub-type="nihms-submitted">
+<day>8</day>
+<month>5</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="ppub">
+<day>01</day>
+<month>5</month>
+<year>2018</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>17</day>
+<month>5</month>
+<year>2018</year>
+</pub-date>
+<volume>23</volume>
+<issue>5</issue>
+<fpage>1399</fpage>
+<lpage>1408</lpage>
+<!--elocation-id from pubmed: 10.1016/j.celrep.2018.04.024-->
+<permissions>
+<license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+<license-p><!--CREATIVE COMMONS-->This is an open access article under the CC BY-NC-ND license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0/">http://creativecommons.org/licenses/by-nc-nd/4.0/</ext-link>).</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<title>SUMMARY</title>
+<p id="P1">Voltage-gated ion channels (VGICs) are associated with hundreds of human diseases. To date, 3D structural models of human VGICs have not been reported. We developed a 3D structural integrity metric to rank the accuracy of all VGIC structures deposited in the PDB. The metric revealed inaccuracies in structural models built from recent single-particle, non-crystalline cryo-electron microscopy maps and enabled the building of highly accurate homology models of human Ca<sub>v</sub> channel α<sub>1</sub> subunits at atomic resolution. Human Ca<sub>v</sub> Mendelian mutations mostly located to segments involved in the mechanism of voltage sensing and gating within the 3D structure, with multiple mutations targeting equivalent 3D structural locations despite eliciting distinct clinical phenotypes. The models also revealed that the architecture of the ion selectivity filter is highly conserved from bacteria to humans and between sodium and calcium VGICs.</p>
+</abstract>
+<abstract abstract-type="graphical" id="Abs2">
+<title>In Brief</title>
+<p id="P2">Martinez-Ortiz et al. develop an accuracy metric for structural models of voltage-gated ion channels based on the conservation of a core functional cluster of amino acids. The significance of the method is its ability to reveal and correct subtle modeling errors and refine low-resolution VGICs to atomic accuracy.</p>
+<p id="P3">
+<graphic orientation="portrait" position="anchor" xlink:href="nihms965983u1.jpg"></graphic></p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<sec id="S1" sec-type="intro">
+<title>INTRODUCTION</title>
+<p id="P4">The pore-forming α<sub>1</sub> subunit of voltage-gated ion channels (VGICs) is composed of four repeats (I, II, III, and IV), each containing six membrane-spanning α helices often referred to as segments (S1–S6). In 3D space, the S1–S4 cluster into an intra-repeat voltage-sensing domain (VSD), and S5 and S6 from all four repeats interlock to form an inter-repeat pore domain (PD) through which the ion is transmitted. A cluster of positive residues in S4 is known as the “voltage sensor” (VS). (<xref ref-type="bibr" rid="R46">Yu and Catterall, 2004</xref>) Mutations in these segments within the α<sub>1</sub> subunit of Ca<sub>v</sub> channels are associated with multiple heritable human diseases, including episodic ataxia type 2, familial hemiplegic migraine type 1, congenital stationary night blindness type 2, and other autosomal dominant diseases (<xref ref-type="bibr" rid="R4">Adams and Snutch, 2007</xref>; <xref ref-type="bibr" rid="R5">Bech-Hansen et al., 1998</xref>; <xref ref-type="bibr" rid="R6">Caciotti et al., 2003</xref>; <xref ref-type="bibr" rid="R9">Chang et al., 2006</xref>; <xref ref-type="bibr" rid="R10">Chen et al., 2003</xref>; <xref ref-type="bibr" rid="R11">Denier et al., 1999</xref>; <xref ref-type="bibr" rid="R13">Fouad et al., 1997</xref>; <xref ref-type="bibr" rid="R15">Heron et al., 2004</xref>; <xref ref-type="bibr" rid="R16">Jen et al., 1999</xref>; <xref ref-type="bibr" rid="R17">Jeng et al., 2006</xref>; <xref ref-type="bibr" rid="R18">Jurkat-Rott et al., 1994</xref>, <xref ref-type="bibr" rid="R19">2002</xref>; <xref ref-type="bibr" rid="R21">Khosravani et al., 2005</xref>; <xref ref-type="bibr" rid="R22">Mantuano et al., 2004</xref>; <xref ref-type="bibr" rid="R23">McRory et al., 2004</xref>; <xref ref-type="bibr" rid="R24">Ophoff et al., 1996</xref>; <xref ref-type="bibr" rid="R27">Ptácek et al., 1994</xref>; <xref ref-type="bibr" rid="R30">Spacey et al., 2004</xref>; <xref ref-type="bibr" rid="R31">Splawski et al., 2004</xref>, <xref ref-type="bibr" rid="R32">2005</xref>, <xref ref-type="bibr" rid="R33">2006</xref>; <xref ref-type="bibr" rid="R34">Striessnig et al., 2004</xref>; <xref ref-type="bibr" rid="R35">Strom et al., 1998</xref>; <xref ref-type="bibr" rid="R40">Vitko et al., 2005</xref>; <xref ref-type="bibr" rid="R41">Wallace, 1986</xref>; <xref ref-type="bibr" rid="R43">Wappl et al., 2002</xref>). An enormous number of additional phenotypes across many species also map to VGIC α<sub>1</sub> subunits. To better understand the mechanisms of each human channel and biophysical structure-activity relationships (SARs) associated with inherited (Mendelian) disease-causing mutations, an atomic-detailed 3D view of the relative arrangement of amino acids in the pore-forming repeats and segments of the α<sub>1</sub> subunits of the human Ca<sub>v</sub> family is necessary (<xref ref-type="bibr" rid="R39">Van Petegem and Minor, 2006</xref>).</p>
+<p id="P5">We applied the bioinformatics concept of “mutual information” (<xref ref-type="bibr" rid="R12">Dunn et al., 2008</xref>; <xref ref-type="bibr" rid="R20">Kamisetty et al., 2013</xref>; <xref ref-type="bibr" rid="R37">Tress and Valencia, 2010</xref>) to construct a metric capable of assessing the structural accuracy of all VGIC X-ray crystal and cryo-electron microscopy (cryo-EM) structures deposited in the PDB. Because the metric is a quantitative score that can be applied to any VGIC model, it can be used to guide and assess the value of individual molecular modeling steps (target-template sequence alignment, side chain building, loop building, etc.) and, therefore, build maximally accurate 3D models of the α<sub>1</sub> subunit for any VGIC. We employed our metric to build structural models of human Ca<sub>v</sub> channel α<sub>1</sub> subunits. Because the best available X-ray crystallographic VGIC structures are resolved at atomic resolution (&lt;3.5 Å), our models, which inherit conserved architectural features from these structures, are resolved at that same atomic level of detail and may be of improved utility for SAR studies. Accordingly, we used our models to visualize the 3D structural locations of disease-causing mutations that target this family of channels and to evaluate the extent of architectural conservation in the selectivity filter among the family of human Ca<sub>v</sub> channels and homologous VGICs.</p>
+</sec>
+<sec id="S2" sec-type="results">
+<title>RESULTS</title>
+<sec id="S3">
+<title>The Contact Area of Conserved VSD Side Chains Reflects VGIC Structural Integrity</title>
+<p id="P6">A tripartite, discontinuous, tertiary intra-molecular interaction between S2, S3, and the VS (S4) is conserved and structurally evident within the hydrophobic core of the VSD of all VGIC structures reported in the PDB (<xref ref-type="fig" rid="F1">Figure 1</xref>; <xref ref-type="bibr" rid="R25">Payandeh et al., 2011</xref>). This interaction forms a network of salt bridges between VGIC-conserved FxxExxxR and SxxD motifs of S2 and S3, respectively, and the last positive charge of the VS (S4), consisting of the following contacts: S2 forms one intra-segment salt bridge with itself (E<sub>S2</sub>-R<sub>S2</sub>), one inter-segment salt bridge with S4 (E<sub>S2</sub>-R<sub>4-S4</sub>), and two inter-segment salt bridges with S3 (R<sub>S2</sub>-D<sub>S3</sub> and K<sub>S2</sub>-S<sub>S3</sub>), whereas S3 forms a third inter-segment salt bridge with S4 (D<sub>S3</sub>-R<sub>4-S4</sub>), as depicted in <xref ref-type="fig" rid="F1">Figure 1A</xref>. The amino acids that participate in this network or structural motif are conserved in all VGIC VSD domain sequences and structures reported, despite significant variations in amino acid identity at directly adjacent positions (<xref ref-type="supplementary-material" rid="SD1">Figure S1</xref>; <xref ref-type="bibr" rid="R14">Guda et al., 2007</xref>; <xref ref-type="bibr" rid="R46">Yu and Catterall, 2004</xref>). Accordingly, we defined the total surface contact area between this ensemble of interacting side chains (ΣA<sub>VSD</sub>) as an accuracy metric for any VSD 3D structural model in any VGIC.</p>
+</sec>
+<sec id="S4">
+<title>ΣA<sub>VSD</sub> Ranking of All VGIC Structures Deposited in the PDB</title>
+<p id="P7">Searching the PDB with the keyword “voltage-gated channel” yielded over 200 X-ray crystallographic structural models, fewer than 40 of which encompassed the full VSD. Defining the ΣA<sub>VSD</sub> for all experimentally visualized VSDs revealed a correlation between high ΣA<sub>VSD</sub> values and structures with higher overall percentile scores of global validation metrics of structural quality (<xref ref-type="fig" rid="F1">Figure 1B</xref>; <xref ref-type="table" rid="T1">Table 1</xref>). A plateau appears at ~500–600 Å<sup>2</sup> ΣA<sub>VSD</sub>, suggesting that this is an accuracy threshold for the experimental resolution of VSD domains in VGICs. ΣA<sub>VSD</sub> ranges from 320–600 Å<sup>2</sup> among structures with the intact cluster (acceptable range), suggesting that ΣA<sub>VSD</sub> captures different conformations of the VS; namely, up and down conformations. Our statistical analyses show that an ΣA<sub>VSD</sub> value of 320 Å<sup>2</sup> discriminates between acceptable and unacceptable structures (p = 1.14 × 10<sup>−17</sup>; Experimental Procedures), with the ΣA<sub>VSD</sub> score greatly degrading for inaccurate/less resolved X-ray crystal structures such as PDB: 4DXW, PDB: 5E1J, and PDB: 3LUT, where the key cluster of residues is disrupted. The same analysis performed on VGICs built from single-particle cryo-EM maps deposited in the PDB revealed much poorer ΣA<sub>VSD</sub> scores that did not correlate with global validation metrics of structural quality applicable to cryo-EM models (<xref ref-type="table" rid="T2">Table 2</xref>). Specifically, recent models of rabbit Ca<sub>v</sub>1.1 α<sub>1</sub> subunits built from single-particle cryo-EM maps (PDB: 3JBR, <xref ref-type="bibr" rid="R44">Wu et al., 2015</xref>; PDB: 5GJV, <xref ref-type="bibr" rid="R45">Wu et al., 2016</xref>) exhibited unacceptable ΣA<sub>VSD</sub> scores (≤320 Å<sup>2</sup> ΣA<sub>VSD</sub>), whereas a model of <italic>Periplaneta americana</italic> NavPaS (PDB: 5X0M) (<xref ref-type="bibr" rid="R29">Shen et al., 2017</xref>), a voltage-gated sodium channel (VGSD) solved by the same authors, reported lower general structural quality validation metric scores but exhibited an acceptable ΣA<sub>VSD</sub> score (<xref ref-type="table" rid="T2">Table 2</xref>; <xref ref-type="fig" rid="F1">Figure 1C</xref>).</p>
+</sec>
+<sec id="S5">
+<title>ΣA<sub>VSD</sub> Scores Correlate with Inaccuracies in Residue Assignment and Provide Structural Constraints for Accurate Homology Modeling of VGIC VSDs</title>
+<p id="P8">Analysis of the residue assignments in the two recent cryo-EM-derived Ca<sub>v</sub>1.1 α<sub>1</sub> subunit 3D structural models exhibiting poor ΣA<sub>VSD</sub> scores revealed unambiguous errors in the placement of VSD motif side chains within the cryo-EM-based models (<xref ref-type="fig" rid="F2">Figure 2A</xref>). The specific list of inaccurate residue assignments is shown in <xref ref-type="table" rid="T3">Table 3</xref>. Inaccurate residue assignment of the cryo-EM-based models appears to be a direct result of inaccurate model building in sparser areas of the experimental map. These inaccuracies in residue assignments result in low ΣA<sub>VSD</sub> scores for these specific domains/repeats because the tripartite interaction is impossible with the alternate location of the amino acids of the VSD motif. In addition, because the ΣA<sub>VSD</sub> scores improved dramatically for the accurate repeats of PDB: 5GJV (repeats II and IV) versus its incorrect repeats (PDB: 5GJV, repeats I and III) and incorrect repeats in the identical protein from a lower (PDB: 3JBR) resolution dataset, ΣA<sub>VSD</sub> appears to be able to distinguish errors and inaccuracies in VGIC models, including those deriving from avoidable modeling errors, which are not evident with any other metrics, such as root-mean-square deviation (RMSD; <xref ref-type="supplementary-material" rid="SD1">Figure S2</xref>). Although ΣA<sub>VSD</sub> only pertains to the VSD, accuracy in modeling this domain is highly correlated with structural accuracy of the entire subunit, including the PD, because the sequence signal of the PD is so high that unambiguous sequence alignment and modeling of this domain are relatively trivial tasks for most of the template structures available.</p>
+<p id="P9">Interestingly, models of the rabbit Ca<sub>v</sub>1.1 α<sub>1</sub> subunit that are significantly more accurate than the 3.6-Å PDB: 5GJV model could be generated directly from the 4.2-Å PDB: 3JBR map using the ΣA<sub>VSD</sub> score. ΣA<sub>VSD</sub> easily identifies the best template for homology modeling, and the unorthodox four-repeat structure can easily be built by faithfully applying sound theoretical principles of homology modeling, using the VSD motif as a structural landmark for molecular modeling restraints (as described in the Experimental Procedures). Accordingly, we used our method to correct the remaining modeling errors in the best rabbit Ca<sub>v</sub>1.1 α<sub>1</sub> subunit cryo-EM molecular model (PDB: 5GJV) and produce a 3D model that more accurately conveys the density acquired in the cryo-EM map for the functional side chains. We observed that our “corrected model” of PDB:5GJV (<xref ref-type="fig" rid="F2">Figure 2B</xref>) achieved an improved ΣA<sub>VSD</sub> score, equivalent to those characteristic of the highest (atomic)-resolution VGIC structures (<xref ref-type="fig" rid="F2">Figure 2C</xref>). We then used this maximally accurate, corrected rabbit Ca<sub>v</sub> model of the α<sub>1</sub> subunit as a structural template to construct homology models of the α<sub>1</sub> subunits of the entire human Ca<sub>v</sub> family, which are themselves at the same maximal (atomic) resolution and level of accuracy (<xref ref-type="supplementary-material" rid="SD1">Figure S3</xref>). The ΣA<sub>VSD</sub> score and, independently, the sequence similarity between the rabbit Ca<sub>v</sub>1.1 template and the human Ca<sub>v</sub> α<sub>1</sub> subunits are sufficiently high, that the human Ca<sub>v</sub> models we have built may be considered the highest atomic-resolution structural models currently available (Experimental Procedures; <xref ref-type="bibr" rid="R1">Abagyan and Batalov, 1997</xref>; <xref ref-type="bibr" rid="R3">Abagyan and Totrov, 1997</xref>; <xref ref-type="bibr" rid="R7">Cardozo et al., 1995</xref>).</p>
+</sec>
+<sec id="S6">
+<title>Mapping of Genetic Mutations Associated with Clinical Phenotypes onto 3D Models of Human Ca<sub>v</sub> Channels</title>
+<p id="P10">Human Ca<sub>v</sub> channels are associated with a large number of missense Mendelian mutations that have distinct clinical phenotypes. The symmetry of the repeats in these proteins allowed us to structurally equate specific amino acid positions of the α1 subunit in different repeats and different family members. This approach enabled the mapping of missense Mendelian mutations into a single universal structural context independent of the specific channel, repeat, or disease associated with the mutation, as depicted in <xref ref-type="fig" rid="F3">Figure 3</xref>. Our approach and models reveal that phenotypically distinct diseases target equivalent 3D structural sites within the highly conserved structural regions of the channels, which have been previously associated with the mechanistic properties of voltage sensing and gating.</p>
+<sec id="S7">
+<title>Mutations Affecting Voltage Sensing</title>
+<p id="P11">Many pathogenic mutations that affect the voltage-sensing mechanism of the channels were located in the segments of the VSD (S1–S4). While some mutations located in other segments have also been associated with aberrant voltage sensing. We subdivided the mutations targeting the VSD into two categories for the purposes of discussion: mutations targeting the VS (S4) segment itself (<xref ref-type="fig" rid="F3">Figure 3A</xref>) and mutations mapping to the other segments (S1–S3) of the VSD.</p>
+<p id="P12">Four representative autosomal diseases—familial hypokalemic periodic paralysis (FHPP1, Ca<sub>v</sub>1.1), episodic ataxia type 2 (EA2, Ca<sub>v</sub>2.1), familial hemiplegic migraine type 1 (FHM1, Ca<sub>v</sub>2.1), and spinal cerebellar ataxia 42 (SCA42, Ca<sub>v</sub>3.1)—exhibited mutations mapping to the VS (S4) segment of three different channels (<xref ref-type="fig" rid="F2">Figure 2</xref>). In general, the mutations that map to this segment: target the positively charged residues, reduce the number of positive residues (from a positively charged amino acid to a shorter, non-positively charged amino acid), and preferentially mutate the second positive residue (R<sup>2</sup>) of the VS. The only exceptions are R1664H in Ca<sub>v</sub>2.1 associated with episodic ataxia 2 and R195K in Ca<sub>v</sub>1.2 associated with FHM, which significantly modify the structure of the chemical group while preserving the positive charge of the terminal side chains (<xref ref-type="fig" rid="F3">Figure 3</xref>).</p>
+<p id="P13">Mutations mapping to segments S1–S3 of the VSD are difficult to interpret given the limited experimental data linking the specific sites of mutated amino acids to specific mechanistic functions of the channels. However, three inherited diseases are caused by mutations targeting these segments: FHPP1 (Ca<sub>v</sub>1.1), absence epilepsy (AE, Ca<sub>v</sub>3.2), and epileptic encephalopathy early infantile 42 (EIEE42, Ca<sub>v</sub>3.2). Interestingly, among these, two similarly located or “functionally equivalent” mutations, Ca<sub>v</sub>1.1_III V876E and Ca<sub>v</sub>3.2_III V831, lead to two phenotypically distinct diseases: FHPP1 and AE (<xref ref-type="supplementary-material" rid="SD1">Table S1</xref>).</p>
+</sec>
+<sec id="S8">
+<title>Mutations Affecting Gating</title>
+<p id="P14">Mutations in the S4-S5 linker and S5 and S6 segments are referred to as mutations that affect the gating mechanism of the channels. The S4-S5 linker, although not a segment but an inter-segment linker, is highly conserved among the family, mechanistically proven to be part of the gating assembly of the channels, and embedded in the membrane, as suggested by recently published structures. Seven representative diseases exhibited mutations targeting the S5 and S6 segments and have been associated with affecting the gating mechanism of the channels: Timothy syndrome (TS, Ca<sub>v</sub>1.2); primary aldosteronism, seizures, and neurological abnormalities (PASNA, Ca<sub>v</sub>1.3); congenital stationary blindness type 2 (CSNB2, Ca<sub>v</sub>1.4); FHM1 (Ca<sub>v</sub>2.1); EA2 (Ca<sub>v</sub>2.1); AE (Ca<sub>v</sub>3.2); and hyperal-dosteronism type 4 (HALD4, Ca<sub>v</sub>3.2) (<xref ref-type="fig" rid="F3">Figure 3B</xref>). The mutated sites typically targeted helical points of contact within the gate-forming segments and introduced electrostatic side chains within the hydrophobic areas of the helical edges. Mutations in these segments were found in all voltage-gated calcium channel (VGCC)-exhibiting clinical phenotypes, with the exception of Ca<sub>v</sub>1.1 and Ca<sub>v</sub>3.1. Most mutations were located at the tip of S6. Interestingly, the sites mutated in TS are repeatedly targeted by mutations causing other diseases. Here we note 3 distinct diseases (PASNA, CSNB2, and FHM1) with mutations mapping to this same structural location, representing a SAR between 4 different channels and phenotypes.</p>
+</sec>
+</sec>
+<sec id="S9">
+<title>Architecture of the Selectivity Filter in Human Ca<sub>v</sub> Channels</title>
+<p id="P15">In addition to mapping disease-causing mutations, the accuracy of our models allows us to assess the extent of architectural conservation over the vast evolutionary distance between mammalian calcium (rabbit and human Ca<sub>v</sub>) and bacterial sodium (Na<sub>v</sub>Ab) selectivity filters of homologous ion channels (<xref ref-type="bibr" rid="R25">Payandeh et al., 2011</xref>, <xref ref-type="bibr" rid="R26">2012</xref>; <xref ref-type="bibr" rid="R38">Tsai et al., 2013</xref>; <xref ref-type="bibr" rid="R47">Zhang et al., 2012</xref>). The mechanism of Ca<sup>2+</sup> permeation and the architecture of the ion selectivity filter, which was revealed by the crystal structure of Ca<sub>vAb</sub> and named, from extracellular to intracellular, sites 1, 2, and 3 is largely conserved in mammalian Ca<sub>v</sub> channels (<xref ref-type="fig" rid="F4">Figure 4</xref>; <xref ref-type="bibr" rid="R8">Catterall et al., 2017</xref>; <xref ref-type="bibr" rid="R36">Tang et al., 2014</xref>).</p>
+<p id="P16">Specifically, the atoms seen in Ca<sub>vAb</sub> contributing to sites 2 and 3 are conserved both in sequence and in 3D space in all of our modeled Ca<sub>v</sub> channels; however, the 4-fold symmetric planar ring of site 1 appears to be formed distinctly across the different channels. In Ca<sub>v</sub>1.x and Ca<sub>v</sub>2.x, site 1 is formed with the terminal side chain of one amino acid located at an equivalent position in both sequence and structure to position 178 in Ca<sub>vAb</sub> and three terminal side-chain atoms originating from the amino acid position equivalent to 181 in Ca<sub>vAb</sub>. For Ca<sub>v</sub>3.x, site 1 is constructed by two amino acids at the location equivalent to Ca<sub>vAb</sub>’s 178 amino acid and two amino acids from amino acid location equivalent to Ca<sub>vAb</sub>’s 181, as illustrated in <xref ref-type="fig" rid="F4">Figure 4</xref>. The unusual exceptions are Ca<sub>v</sub>1.3 and Ca<sub>v</sub>1.4, where three, not four, charged amino acids are found mapping to site 1. Thus, the 3D architecture of the selectivity filter is largely conserved but is built from different contributing amino acid side chains. These findings suggest that contributing amino acids to this site have varied through evolution and that this variation itself differs from repeat to repeat across the family, as depicted in the aligned sequences of <xref ref-type="fig" rid="F4">Figure 4</xref>.</p>
+</sec>
+</sec>
+<sec id="S10" sec-type="discussion">
+<title>DISCUSSION</title>
+<p id="P17">We report the contact area (ΣA<sub>VSD</sub>) score for VGIC, a unique structure quality metric capable of scoring the accuracy of VSD residue assignment and, therefore, the accuracy of the whole α<sub>1</sub> subunit for any VGIC structure regardless of the origin and quality of the experimental data. Our metric therefore standardizes diverse X-ray and cryo-EM model quality validation scores, with our results showing that the ΣA<sub>VSD</sub> score enables the refinement of a near-atomic VGIC single-particle, non-crystalline, cryo-EM dataset to atomic resolution (<xref ref-type="fig" rid="F4">Figure 4C</xref>), which is a tremendous gain in value for any near-atomic cryo-EM data-set. Failure to utilize this ΣA<sub>VSD</sub> approach and adhere to sound theoretical homology modeling principles has the potential of wasting significant experimental signal. Notably, common automated homology modeling algorithms fail to produce correct models (<xref ref-type="supplementary-material" rid="SD1">Table S2</xref>). Thus, the use of ΣA<sub>VSD</sub> is proposed as a critical component of any experimental VGIC structure determination attempt, many of which are currently underway in the field.</p>
+<p id="P18">The ΣA<sub>VSD</sub> metric has enabled the building of state-of-the-art homology models of the human α<sub>1</sub> subunits of the Ca<sub>v</sub> family of VGIC at the equivalent of the highest possible (atomic) resolution, which is arguably a superior resolution and accuracy to all but one recent single-particle, non-crystalline, cryo-EM-based VGIC α<sub>1</sub> subunit structure. Because of their accuracy, these models have multiple applications. Here we used the models to better understand the mechanism of disease-causing heritable mutations that target the α<sub>1</sub> subunit. We classified a representative group of the mutations according to their locations within state-of-the-art structural models of human Ca<sub>v</sub> channels, which revealed that the segments associated with voltage sensing (S4), pore formation (P-loops), and gating (S4-S5 linker, S5, and S6) are preferentially mutated compared with other segments of the channel.</p>
+<p id="P19">By superimposing all repeats of all human Ca<sub>v</sub> channels, we noticed that multiple disease-causing mutations map to the same segments and even to equivalent residues between the human channels while leading to distinct disease phenotypes. Some examples are <italic>S229P</italic> in Ca<sub>v</sub>1.4 and <italic>S218L</italic> in Ca<sub>v</sub>2.1, which map to the same location within the structure but are associated with different diseases (<italic>S229P</italic>, CSB2; <italic>S218L</italic>, FHM1); <italic>G402S</italic> in Ca<sub>v</sub>1.2 and <italic>G369D</italic> in Ca<sub>v</sub>1.4, which lead to TS and CSNB, respectively; and lastly, <italic>R528H</italic> in Ca<sub>v</sub>1.1, associated with FHPP, <italic>R195K</italic>, <italic>R583Q</italic>, and <italic>R1347Q</italic> in Ca<sub>v</sub>2.1, associated with FHM; and <italic>R1666H</italic>, also in Ca<sub>v</sub>2.1 but associated with EA2; all map to the same structural site: the first positive residue of the S4 segment.</p>
+<p id="P20">We also noted that some diseases were associated with multiple mutations and exhibited a homogeneous distribution of mutations throughout the structure, with no functional elements preferentially mutated, such as CSNB, EA2, and FHM, whereas other diseases, such as TS, preferentially mutate a single mechanistic element: the gate. These differences would suggest that some VGCC diseases, such as those exhibiting a homogeneous distribution of the mutations, may be associated with reduced or increased stability of the channel or with specific post-translational effects on expression, whereas other diseases, such as TS, that exclusively target the gate would suggest a direct correlation between a specific functionality of the channel and the disease.</p>
+<p id="P21">As expected, some mutations target the same structural location in different channels and lead to distinct diseases. Such mutations may lead to the same electrophysiological effect in both channels, but the observable disease phenotypes may ultimately depend, at least in part, on the cellular or tissue context (e.g., the differential expression of the channel in body and brain tissues) and on the effects of these mutations on the divergent, non-α<sub>1</sub> subunits of the channels. Other interesting mutations were found to target the same channels at equivalent structural sites while leading to different diseases. The convergence of diseases with dramatically different phenotypes targeting the same functional element, or even to the same amino acid, in different repeats of the same channel suggests domain-specific functions for equivalent sites within the repeats. Thus, differential cellular or tissue contexts of channels may not be the only mechanism whereby different family members produce different phenotypes; structure-phenotype relationships also appear to be present and dependent on specific architectural features of the channel.</p>
+<p id="P22">The location of disease-causing mutations within these homology models identifies relationships between otherwise distant diseases by grouping them from a novel 3D structural/biophysical point of view according to the functional elements affected. The confidence accuracy of our models, conferred by ΣA<sub>VSD</sub>, also allowed us to establish a high degree of architectural conservation of the selectivity filter between bacterial sodium VGICs and mammalian calcium VGICs, where three specific binding sites are conserved but constructed differentially for the different channels. The availability of the 3D models and the data presented here, which relate to the overall architecture of the channels and to disease-causing mutations, is thus expected to serve as a previously unavailable 3D structural reference map for many investigations into the mechanism and function of this family of channels in health and disease.</p>
+</sec>
+<sec id="S11" sec-type="methods">
+<title>EXPERIMENTAL PROCEDURES</title>
+<sec id="S12">
+<title>ΣA<sub>VSD</sub> Metric</title>
+<p id="P23">The ΣA<sub>VSD</sub> between amino acid residues was calculated with ICM-Pro as described previously (<xref ref-type="bibr" rid="R3">Abagyan and Totrov, 1997</xref>). Briefly: for any two residues (i and j) in a full-atom, 3D structural model, a Connolley surface around the residue (i) is generated by rolling a suitably sized probe over the van der Waals surface of the residue atoms and tracing the surface encountered by the center of the probe. The angstrom-squared surface of residue (i) occluded by the analogous surface residue (j) is the ΣA<sub>VSD</sub> for that pair. The aggregate ΣA<sub>VSD</sub> for any arbitrary set of residues can be summed. In this case, only the amino acids participating in the salt bridges of the VSD motif were summed to generate ΣA<sub>VSD</sub>.</p>
+<sec id="S13">
+<title>VGIC PDB Search</title>
+<p id="P24">To identify all deposited structures that contain the VSD motif, we searched the PDB with the term “voltage-gated channel” and filtered the results to select only X-ray and cryo-EM structures. Multiple sequence alignments of the resulting hits (240 total) were generated using the ClustalW method, with 20–40 sequences at a time. After identifying the ΣA<sub>VSD</sub> motif in the multiple sequence alignment, the amino acids were located in the 3D structural model to ensure that they co-locate in the canonical 4-helix VSD bundle and are, in fact, all facing toward the hydrophobic core of the domain, forming a single intramolecular (intradomain) cluster. For the structural models that contained the structural motif, we recorded the residue numbers and calculated the corresponding ΣA<sub>VSD</sub>.</p>
+</sec>
+<sec id="S14">
+<title>Statistical Methods</title>
+<p id="P25">Because ΣA<sub>VSD</sub> consists of continuous data, two-tailed Student’s t test was calculated to assess the statistical significance of the difference in ΣA<sub>VSD</sub> score between the “acceptable” (&gt;320-Å<sup>2</sup> ΣA<sub>VSD</sub>) group of X-ray and cryo-EM structures and the “unacceptable” (&lt;320-Å<sup>2</sup> ΣA<sub>VSD</sub>) group.</p>
+</sec>
+</sec>
+<sec id="S15">
+<title>Homology Modeling</title>
+<sec id="S16">
+<title>Sequence Alignment</title>
+<p id="P26">All sequence alignments were performed with a ClustalW-based algorithm in the ICM-Pro software package (Molsoft, La Jolla CA) (<xref ref-type="bibr" rid="R7">Cardozo et al., 1995</xref>).</p>
+</sec>
+<sec id="S17">
+<title>Model Building and Refinement</title>
+<p id="P27">Model building was performed as described previously using the following steps in ICM-Pro (Molsoft, La Jolla, CA) (<xref ref-type="bibr" rid="R7">Cardozo et al., 1995</xref>). Briefly, an extended polypeptide chain with idealized covalent geometry (<xref ref-type="bibr" rid="R2">Abagyan and Totrov, 1994</xref>) was built for each of the four repeats of the α<sub>1</sub> subunit. Torsion angles in each amino acid in each Ca<sub>v</sub> repeat were assigned the same numerical value as observed for their counterparts in the template PDB crystallographic structure, using pairwise sequence alignment as a guide to establish the amino acid equivalences between repeat and template. The most likely rotamer for each side chain in each amino acid was assigned to non-identical aligned residues, and near-extended backbone torsion values were assigned to the inserted or deleted (un-aligned) amino acid residues. The sum of the physical energy and quadratic restraints between corresponding atoms in the model and template structures were iteratively minimized, reducing the strength of the restraint potential with each iteration. Non-identical side chains and loops were subjected to biased probability Monte Carlo sampling (<xref ref-type="bibr" rid="R2">Abagyan and Totrov, 1994</xref>) to produce the lowest energy structure matching the template coordinates. For the human model, each Ca<sub>v</sub> repeat was built on a successive clockwise arrangement around the pore, with the order of repeats established with analysis of cryo-EM density data.</p>
+</sec>
+</sec>
+<sec id="S18">
+<title>3RVY-R Modeling</title>
+<sec id="S19">
+<title>Structural Template Selection</title>
+<p id="P28">The crystallographic structure of the voltage-gated Na<sup>+</sup> channel from <italic>Arcobacter butzleri</italic> (Na<sub>v</sub>Ab) resolved to 2.7 Å (PDB: 3RVY) was used as the template to build an initial model of the rabbit Ca<sub>v</sub>1.1 α<sub>1</sub> subunit (referred to as the “3RVY-R model”)(<xref ref-type="bibr" rid="R25">Payandeh et al., 2011</xref>). We selected this template because it received the highest ΣA<sub>VSD</sub> score while also resolving an entire repeat (voltage-sensing and PDs) at atomic resolution.</p>
+</sec>
+<sec id="S20">
+<title>Sequence Alignment</title>
+<p id="P29">Pairwise zero-end-gap global sequence alignments (ZEGAs) resulted in a p value for confidence of structural similarity between rabbit Ca<sub>v</sub>1.1 (CAC1S, UniProt: P07293) and 3RVY averaged p &lt; 10<sup>−12.5</sup> (<xref ref-type="bibr" rid="R1">Abagyan and Batalov, 1997</xref>), confirming that correctly executed homology modeling would likely yield a degree of structural accuracy equivalent to the Na<sub>v</sub>Ab template (2.7 Å).</p>
+</sec>
+<sec id="S21">
+<title>Challenges in Modeling 3RVY-R</title>
+<p id="P30">The first challenge was modeling the “heterotetrameric” subunit, formed by four internal non-identical VSD-PD repeats, with a homotetrameric template (Na<sub>v</sub>Ab, PDB: 3RVY) (<xref ref-type="bibr" rid="R25">Payandeh et al., 2011</xref>) where four identical VSD-PD chains form the subunit. We met this challenge with a multilink approach (<xref ref-type="bibr" rid="R28">Rost, 1999</xref>). First, we identified that rabbit Ca<sub>v</sub>1.1 repeat II had the highest similarity to 3RVY. Thus, the domain boundaries of repeat II of Ca<sub>v</sub>1.1 were clearly delineated, and an initial model of rabbit Ca<sub>v</sub>1.1 repeat II was built based on 3RVY’s atomic coordinates. We noted that Ca<sub>v</sub>1.1 repeats I, III, and IV have a higher similarity to repeat II than to the 3RVY template. Consequently, we used ZEGA global pairwise alignments (<xref ref-type="bibr" rid="R1">Abagyan and Batalov, 1997</xref>) between repeat II and the remainder of the Ca<sub>v</sub>1.1 sequence to find and build models of the remaining three internal repeats of the rabbit Ca<sub>v</sub>1.1 α<sub>1</sub> subunit using the structural model of repeat II as a template.</p>
+<p id="P31">A second challenge to modeling 3RVY-R “blinded” to the recent single-particle, non-crystalline cryo-EM data was determining the order of the repeats around the ion-conducting pore. The order of the repeats for our homology model was initially determined by analyzing the non-atomic EM density pattern reported for human Ca<sub>v</sub>3.1 (<xref ref-type="bibr" rid="R42">Walsh et al., 2009</xref>). Briefly, from the Ca<sub>v</sub>3.1 cryo-EM density pattern resolved at 20 Å, we noted that a C-terminal gold probe nestled around the N terminus of repeat I in a counter-clockwise manner as viewed from the intracellular surface, which suggests a clockwise orientation of the repeats as viewed from the extracellular surface, as reported by <xref ref-type="bibr" rid="R42">Walsh et al. (2009)</xref>. Each Ca<sub>v</sub> repeat in our 3RVY-R model was thus built on a successive clockwise arrangement around the pore. To achieve the modeling of the repeats around the pore, we independently modeled each unlinked repeat based on the 3RVY 3D coordinates and used the crystal contact points of the deposited structure, where a symmetric tetramer was generated by the crystal lattice, to superimpose and, hence, guide the modeling of each repeat to a clockwise orientation as viewed from the extra-cellular side of the model.</p>
+</sec>
+</sec>
+<sec id="S22">
+<title>Residue Assignment Optimization of 5GJV</title>
+<sec id="S23">
+<title>Residue Assignment/Structure Comparison</title>
+<p id="P32">3D structural visualization and sequence alignment were used to compare the residue assignment of all rabbit Ca<sub>v</sub>1.1 models. To identify the residues assigned to each of the segments (S1–S6, 24 segments in total in each model), we visually inspected all transmembrane helices from all structural models and noted the residue number for the first and last 3 amino acids of the selected helix. We then proceeded to draw a box in each protein sequence around the amino acids that corresponded to the contiguous stretch of amino acids between the first and last 3 amino acids of the helix observed.</p>
+</sec>
+<sec id="S24">
+<title>Refinement of the Cryo-EM-Based PDB Structures Using the 3RVY-R Model</title>
+<p id="P33">Analyzing the cryo-EM data, we noted that the order of the repeats of the subunit was corroborated by the report of the rabbit cryo-EM 4.2-Å structure (PDB: 3JBR) via the analysis of the cryo-EM densities created by the varying lengths of the extracellular P-loops and unique sequence motifs. The 3JBR analysis, which also concluded that the repeats arrange in a clockwise orientation around the pore as viewed from the extracellular surface, matched experimental results (electron density in the cryo-EM map) to the following major observations: (1) the loop between S5 and the P1 helix (referred to as L5) in repeats I and III is longer than the L5 loops in repeats II and IV; (2) repeat III contains a unique YYYVY repeat in L5 that distinguishes repeat I from repeat III; and (3) the length between the P2 helix and S6 (L6) in repeat IV is longer than repeat II. We independently confirmed that, indeed, (1) L5 is longer for repeat I (57 residues) and repeat III (47 residues) than for repeats II (19 residues) and IV (18 residues); (2) repeat III contained the YYYVY motif reported (located at Y971): and (3) L6 was longer in repeat IV (35 residues) than in repeat II (21 residues). Correlating observations from two independent cryo-EM reports with our bioinformatics analysis and inspection of the electron density data confirmed a clockwise orientation of the repeats around the pore as viewed from the extracellular surface and as reported for human Ca<sub>v</sub>3.1 (<xref ref-type="bibr" rid="R42">Walsh et al., 2009</xref>) and later for rabbit Ca<sub>v</sub>1.1. The PDB: 5GJV model further confirmed this arrangement of the repeats.</p>
+<p id="P34">The only structural feature not recapitulated in our 3RVY-R model and reliably represented in the PDB: 5GJV map is the reported 30° angle deviation in the spatial orientation of the four-helix bundle of repeats II and III, which likely represents biologically relevant, accurate structural information uniquely provided by the cryo-EM maps and raw data. To account for this unique finding, we used the 3RVY-R model to correct the inaccuracies in residue assignment of S3 found in repeats I and III of PDB: 5GJV by iteratively globally superimposing the Cα carbons of the PDB: 5GJV and 3RVY-R models to minimize the RMSD between them and then using the superimposition to guide manual modifications in the sequence alignment, which clearly introduced gaps near areas of misalignment. A homology model was then built using the coordinates of the PDB: 5GVJ cryo-EM-based model as a template but reassigning the residues to their correct position using the residue assignment of the 3RVY-R model as guide. This PDB: 3RVY-”corrected 5GJV” model restores the motif in the two repeats where they are absent (I and III) by moving the relevant side chains, which are conserved throughout the family, to their expected location, where they are positioned to the same face of the 3<sub>10</sub> alpha helix in S3, facing toward the hydrophobic core of the VSD four-helix bundle in all segments, and corresponding to the equivalent turn of the helix within the α helix in S3 as in the original PDB: 3RVY crystal structure, which also correlates with the other two repeats of PDB: 5GJV (II and IV). The “3RVY-corrected-5GJV” model accurately fits the cryo-EM map at the side-chain density level, with the improvement that our method accounts for conservation of functional inter-domain contacts, which, in this case, translates into accurately modeling all functional residues of the VSD within the structure.</p>
+<p id="P35">To compare the accuracy of fitness, we performed rigid body fitting of the superimposition of the PDB: 5GJV cryo-EM-based model and our 3RVY-R and corrected PDB: 5GJV homology models onto the PDB: 5GJV cryo-EM map with the Chimera software as depicted in <xref ref-type="fig" rid="F2">Figure 2</xref>.</p>
+</sec>
+</sec>
+<sec id="S25">
+<title>Human Ca<sub>v</sub> Channel Modeling</title>
+<p id="P36">To model by homology the α1 subunit of the human Ca<sub>v</sub> family, we first corrected the cryo-EM-based models and then used our corrected model of rabbit Ca<sub>v</sub>1.1 as a structural template to individually construct the subunits by modeling the repeats in a clockwise orientation around the pore as viewed from the extracellular side.</p>
+<sec id="S26">
+<title>Mapping the Location of Disease-Causing Mutations and Functional Residues</title>
+<p id="P37">The 3D location of known disease-causing mutations and the functional residues associated with the salt bridge network of the VSD and the selectivity filter sites were analyzed with multiple sequence alignment to identify equivalent amino acids between all human Ca<sub>v</sub> channels, paired with visual inspection andanalysis of the structural location of theside chains of the functional amino acids of interest. To map the structural location of the mutations in the figures, we segmented each of the four repeats of all 10 channels (40 sequences total, 10 sequences per repeat) and performed multiple sequence alignment by repeat. We included repeat I of Ca<sub>v</sub>1.1 in all alignments to find structurally equivalent positions between all repeats and then used this “template” repeat to display the relationships between all mutations that target a specific structural site independent of the channel or disease to which it relates.</p>
+</sec>
+</sec>
+<sec id="S27">
+<title>Pore Architecture Conservation Analysis</title>
+<p id="P38">To analyze architectural features of the selectivity filter, we identified equivalent amino acids between all human Ca<sub>v</sub> channels and the engineered Ca<sub>vAb</sub> channel with functional mapping as described above (<xref ref-type="bibr" rid="R36">Tang et al., 2014</xref>) After identifying the equivalent functional amino acids of Ca<sub>vAb</sub> in our homology model of Ca<sub>v</sub>1.1, we proceeded to perform iterative rounds of energy minimization of the side chains of the residues of the selectivity filter and visually analyzed the resultant conformations.</p>
+</sec>
+</sec>
+<sec id="S28">
+<title>DATA AND SOFTWARE AVAILABILITY</title>
+<p id="P39">The UniProt ID for the rabbit Ca<sub>v</sub>1.1 sequence used for our 3RVY-R and corrected 5GJV model was P07923. The UniProt ID for the human Ca<sub>v</sub> sequences modeled were as follows: Ca<sub>v</sub>1.1, Q13698; Ca<sub>v</sub>1.2, Q13936; Ca<sub>v</sub>1.3, Q01668; Ca<sub>v</sub>1.4, O60840; Ca<sub>v</sub>2.1, O00555; Ca<sub>v</sub>2.2, Q00975; Ca<sub>v</sub>2.3, Q15878; Ca<sub>v</sub>3.1, O43497; Ca<sub>v</sub>3.2, O95180; and Ca<sub>v</sub>3.3, Q9P0X4. The cryo-EM map used for modeling was EMDB: EM9513 (associated with PDB: 5GJV). The human models are available for download at <ext-link ext-link-type="uri" xlink:href="https://github.com/CardozoLab/Voltage-Gated-Calcium-Channels-/blob/master/README.md">https://github.com/CardozoLab/Voltage-Gated-Calcium-Channels-/blob/master/README.md</ext-link>. The coordinates of the corrected 5GJV rabbit Ca<sub>v</sub>1.1 α<sub>1</sub> model reported in this paper are available at PDB: 6BYO.</p>
+</sec>
+<sec id="S30" sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material content-type="local-data" id="SD1">
+<label>1</label>
+<media id="d36e1185" orientation="portrait" position="anchor" xlink:href="NIHMS965983-supplement-1.pdf" xlink:type="simple"></media>
+</supplementary-material>
+<supplementary-material content-type="local-data" id="SD2">
+<label>2</label>
+<media id="d36e1189" orientation="portrait" position="anchor" xlink:href="NIHMS965983-supplement-2.pdf" xlink:type="simple"></media>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack id="S31">
+<p>This work was supported by NIH grants F31HL124898-02 (to W.M.O.) and DP2 OD004631 (to T.C.), as well as institutional funds. We thank Rodolfo Llinas and David Stokes for their intellectual contributions as well as Evgeny Shmelkov for technical support.</p>
+</ack>
+<fn-group>
+<fn id="FN3">
+<p>Data and Software Availability</p>
+<p>6BYO</p>
+</fn>
+<fn id="FN4">
+<p>
+<xref ref-type="supplementary-material" rid="SD1">SUPPLEMENTAL INFORMATION</xref>
+</p>
+<p><xref ref-type="supplementary-material" rid="SD1">Supplemental Information</xref> includes three figures and two tables and can be found with this article online at <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.celrep.2018.04.024">https://doi.org/10.1016/j.celrep.2018.04.024</ext-link>.</p>
+</fn>
+<fn fn-type="con" id="FN5">
+<p>
+<bold>AUTHOR CONTRIBUTIONS</bold>
+</p>
+<p>W.M.O. was responsible for study conception and design, performance of experiments, organization and analysis of data, and manuscript writing. T.C. was responsible for study conception and design, organization and analysis of data, and manuscript writing.</p>
+</fn>
+<fn fn-type="COI-statement" id="FN6">
+<p>
+<bold>DECLARATION OF INTERESTS</bold>
+</p>
+<p>The authors declare no financial interests.</p>
+</fn>
+</fn-group>
+<ref-list>
+<ref id="R1">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abagyan</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Batalov</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<year>1997</year>
+<article-title>Do aligned sequences share the same fold?</article-title>
+<source/>J Mol Biol
+          <volume>273</volume>
+<fpage>355</fpage>
+<lpage>368</lpage>
+<pub-id pub-id-type="pmid">9367768</pub-id>
+</element-citation>
+</ref>
+<ref id="R2">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abagyan</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Totrov</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<year>1994</year>
+<article-title>Biased probability Monte Carlo conformational searches and electrostatic calculations for peptides and proteins</article-title>
+<source/>J Mol Biol
+          <volume>235</volume>
+<fpage>983</fpage>
+<lpage>1002</lpage>
+<pub-id pub-id-type="pmid">8289329</pub-id>
+</element-citation>
+</ref>
+<ref id="R3">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Abagyan</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Totrov</surname>
+<given-names>MM</given-names>
+</name>
+</person-group>
+<year>1997</year>
+<article-title>Contact area difference (CAD): a robust measure to evaluate accuracy of protein models</article-title>
+<source/>J Mol Biol
+          <volume>268</volume>
+<fpage>678</fpage>
+<lpage>685</lpage>
+<pub-id pub-id-type="pmid">9171291</pub-id>
+</element-citation>
+</ref>
+<ref id="R4">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Adams</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Snutch</surname>
+<given-names>TP</given-names>
+</name>
+</person-group>
+<year>2007</year>
+<article-title>Calcium channelopathies: voltage-gated calcium channels</article-title>
+<source/>Subcell Biochem
+          <volume>45</volume>
+<fpage>215</fpage>
+<lpage>251</lpage>
+<pub-id pub-id-type="pmid">18193639</pub-id>
+</element-citation>
+</ref>
+<ref id="R5">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bech-Hansen</surname>
+<given-names>NT</given-names>
+</name>
+<name>
+<surname>Naylor</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Maybaum</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Pearce</surname>
+<given-names>WG</given-names>
+</name>
+<name>
+<surname>Koop</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Fishman</surname>
+<given-names>GA</given-names>
+</name>
+<name>
+<surname>Mets</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Musarella</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Boycott</surname>
+<given-names>KM</given-names>
+</name>
+</person-group>
+<year>1998</year>
+<article-title>Loss-of-function mutations in a calcium-channel alpha1-subunit gene in Xp11.23 cause incomplete X-linked congenital stationary night blindness</article-title>
+<source/>Nat Genet
+          <volume>19</volume>
+<fpage>264</fpage>
+<lpage>267</lpage>
+<pub-id pub-id-type="pmid">9662400</pub-id>
+</element-citation>
+</ref>
+<ref id="R6">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Caciotti</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Morrone</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Domenici</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Donati</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Zammarchi</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<year>2003</year>
+<article-title>Severe prognosis in a large family with hypokalemic periodic paralysis</article-title>
+<source/>Muscle Nerve
+          <volume>27</volume>
+<fpage>165</fpage>
+<lpage>169</lpage>
+<pub-id pub-id-type="pmid">12548523</pub-id>
+</element-citation>
+</ref>
+<ref id="R7">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cardozo</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Totrov</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Abagyan</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<year>1995</year>
+<article-title>Homology modeling by the ICM method</article-title>
+<source/>Proteins
+          <volume>23</volume>
+<fpage>403</fpage>
+<lpage>414</lpage>
+<pub-id pub-id-type="pmid">8710833</pub-id>
+</element-citation>
+</ref>
+<ref id="R8">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Catterall</surname>
+<given-names>WA</given-names>
+</name>
+<name>
+<surname>Wisedchaisri</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<year>2017</year>
+<article-title>The chemical basis for electrical signaling</article-title>
+<source/>Nat Chem Biol
+          <volume>13</volume>
+<fpage>455</fpage>
+<lpage>463</lpage>
+<pub-id pub-id-type="pmid">28406893</pub-id>
+</element-citation>
+</ref>
+<ref id="R9">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chang</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Heckenlively</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Bayley</surname>
+<given-names>PR</given-names>
+</name>
+<name>
+<surname>Brecha</surname>
+<given-names>NC</given-names>
+</name>
+<name>
+<surname>Davisson</surname>
+<given-names>MT</given-names>
+</name>
+<name>
+<surname>Hawes</surname>
+<given-names>NL</given-names>
+</name>
+<name>
+<surname>Hirano</surname>
+<given-names>AA</given-names>
+</name>
+<name>
+<surname>Hurd</surname>
+<given-names>RE</given-names>
+</name>
+<name>
+<surname>Ikeda</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Johnson</surname>
+<given-names>BA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>2006</year>
+<article-title>The nob2 mouse, a null mutation in Cacna1f: anatomical and functional abnormalities in the outer retina and their consequences on ganglion cell visual responses</article-title>
+<source/>Vis Neurosci
+          <volume>23</volume>
+<fpage>11</fpage>
+<lpage>24</lpage>
+<pub-id pub-id-type="pmid">16597347</pub-id>
+</element-citation>
+</ref>
+<ref id="R10">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Jiang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Bao</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Yao</surname>
+<given-names>Z</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>2003</year>
+<article-title>Association between genetic variation of CACNA1H and childhood absence epilepsy</article-title>
+<source/>Ann Neurol
+          <volume>54</volume>
+<fpage>239</fpage>
+<lpage>243</lpage>
+<pub-id pub-id-type="pmid">12891677</pub-id>
+</element-citation>
+</ref>
+<ref id="R11">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Denier</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Ducros</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Vahedi</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Joutel</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Thierry</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Ritz</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Castelnovo</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Deonna</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Gérard</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Devoize</surname>
+<given-names>JL</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>1999</year>
+<article-title>High prevalence of CACNA1A truncations and broader clinical spectrum in episodic ataxia type 2</article-title>
+<source/>Neurology
+          <volume>52</volume>
+<fpage>1816</fpage>
+<lpage>1821</lpage>
+<pub-id pub-id-type="pmid">10371528</pub-id>
+</element-citation>
+</ref>
+<ref id="R12">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Dunn</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Wahl</surname>
+<given-names>LM</given-names>
+</name>
+<name>
+<surname>Gloor</surname>
+<given-names>GB</given-names>
+</name>
+</person-group>
+<year>2008</year>
+<article-title>Mutual information without the influence of phylogeny or entropy dramatically improves residue contact prediction</article-title>
+<source/>Bioinformatics
+          <volume>24</volume>
+<fpage>333</fpage>
+<lpage>340</lpage>
+<pub-id pub-id-type="pmid">18057019</pub-id>
+</element-citation>
+</ref>
+<ref id="R13">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fouad</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Dalakas</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Servidei</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Mendell</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Van den Bergh</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Angelini</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Alderson</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Griggs</surname>
+<given-names>RC</given-names>
+</name>
+<name>
+<surname>Tawil</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gregg</surname>
+<given-names>R</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>1997</year>
+<article-title>Genotype-phenotype correlations of DHP receptor alpha 1-subunit gene mutations causing hypokalemic periodic paralysis</article-title>
+<source/>Neuromuscul Disord
+          <volume>7</volume>
+<fpage>33</fpage>
+<lpage>38</lpage>
+<pub-id pub-id-type="pmid">9132138</pub-id>
+</element-citation>
+</ref>
+<ref id="R14">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Guda</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Bourne</surname>
+<given-names>PE</given-names>
+</name>
+<name>
+<surname>Guda</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<year>2007</year>
+<article-title>Conserved motifs in voltage-sensing and pore-forming modules of voltage-gated ion channel proteins</article-title>
+<source/>Biochem Biophys Res Commun
+          <volume>352</volume>
+<fpage>292</fpage>
+<lpage>298</lpage>
+<pub-id pub-id-type="pmid">17126810</pub-id>
+</element-citation>
+</ref>
+<ref id="R15">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Heron</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Phillips</surname>
+<given-names>HA</given-names>
+</name>
+<name>
+<surname>Mulley</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Mazarib</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Neufeld</surname>
+<given-names>MY</given-names>
+</name>
+<name>
+<surname>Berkovic</surname>
+<given-names>SF</given-names>
+</name>
+<name>
+<surname>Scheffer</surname>
+<given-names>IE</given-names>
+</name>
+</person-group>
+<year>2004</year>
+<article-title>Genetic variation of CACNA1H in idiopathic generalized epilepsy</article-title>
+<source/>Ann Neurol
+          <volume>55</volume>
+<fpage>595</fpage>
+<lpage>596</lpage>
+<pub-id pub-id-type="pmid">15048902</pub-id>
+</element-citation>
+</ref>
+<ref id="R16">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jen</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yue</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>SF</given-names>
+</name>
+<name>
+<surname>Yu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Litt</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Nutt</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Baloh</surname>
+<given-names>RW</given-names>
+</name>
+</person-group>
+<year>1999</year>
+<article-title>A novel nonsense mutation in CACNA1A causes episodic ataxia and hemiplegia</article-title>
+<source/>Neurology
+          <volume>53</volume>
+<fpage>34</fpage>
+<lpage>37</lpage>
+<pub-id pub-id-type="pmid">10408533</pub-id>
+</element-citation>
+</ref>
+<ref id="R17">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jeng</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>YT</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>YW</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>CY</given-names>
+</name>
+</person-group>
+<year>2006</year>
+<article-title>Dominant-negative effects of human P/Q-type Ca2+ channel mutations associated with episodic ataxia type 2</article-title>
+<source/>Am J Physiol Cell Physiol
+          <volume>290</volume>
+<fpage>C1209</fpage>
+<lpage>C1220</lpage>
+<pub-id pub-id-type="pmid">16306128</pub-id>
+</element-citation>
+</ref>
+<ref id="R18">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jurkat-Rott</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Lehmann-Horn</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Elbaz</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Heine</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gregg</surname>
+<given-names>RG</given-names>
+</name>
+<name>
+<surname>Hogan</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Powers</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Lapie</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Vale-Santos</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Weissenbach</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>1994</year>
+<article-title>A calcium channel mutation causing hypokalemic periodic paralysis</article-title>
+<source/>Hum Mol Genet
+          <volume>3</volume>
+<fpage>1415</fpage>
+<lpage>1419</lpage>
+<pub-id pub-id-type="pmid">7987325</pub-id>
+</element-citation>
+</ref>
+<ref id="R19">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Jurkat-Rott</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Lerche</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Lehmann-Horn</surname>
+<given-names>F</given-names>
+</name>
+</person-group>
+<year>2002</year>
+<article-title>Skeletal muscle channelopathies</article-title>
+<source/>J Neurol
+          <volume>249</volume>
+<fpage>1493</fpage>
+<lpage>1502</lpage>
+<pub-id pub-id-type="pmid">12420087</pub-id>
+</element-citation>
+</ref>
+<ref id="R20">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kamisetty</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Ovchinnikov</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Baker</surname>
+<given-names>D</given-names>
+</name>
+</person-group>
+<year>2013</year>
+<article-title>Assessing the utility of coevolution-based residue-residue contact predictions in a sequence- and structure-rich era</article-title>
+<source/>Proc Natl Acad Sci USA
+          <volume>110</volume>
+<fpage>15674</fpage>
+<lpage>15679</lpage>
+<pub-id pub-id-type="pmid">24009338</pub-id>
+</element-citation>
+</ref>
+<ref id="R21">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Khosravani</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Bladen</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Parker</surname>
+<given-names>DB</given-names>
+</name>
+<name>
+<surname>Snutch</surname>
+<given-names>TP</given-names>
+</name>
+<name>
+<surname>McRory</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Zamponi</surname>
+<given-names>GW</given-names>
+</name>
+</person-group>
+<year>2005</year>
+<article-title>Effects of Cav3.2 channel mutations linked to idiopathic generalized epilepsy</article-title>
+<source/>Ann Neurol
+          <volume>57</volume>
+<fpage>745</fpage>
+<lpage>749</lpage>
+<pub-id pub-id-type="pmid">15852375</pub-id>
+</element-citation>
+</ref>
+<ref id="R22">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mantuano</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Veneziano</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Spadaro</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Giunti</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Guida</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Leggio</surname>
+<given-names>MG</given-names>
+</name>
+<name>
+<surname>Verriello</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Wood</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Jodice</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Frontali</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<year>2004</year>
+<article-title>Clusters of non-truncating mutations of P/Q type Ca2+ channel subunit Ca(v)2.1 causing episodic ataxia 2</article-title>
+<source/>J Med Genet
+          <volume>41</volume>
+<fpage>e82</fpage>
+<pub-id pub-id-type="pmid">15173248</pub-id>
+</element-citation>
+</ref>
+<ref id="R23">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>McRory</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Hamid</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Doering</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Garcia</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Parker</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Hamming</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Hildebrand</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Beedle</surname>
+<given-names>AM</given-names>
+</name>
+<name>
+<surname>Feldcamp</surname>
+<given-names>L</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>2004</year>
+<article-title>The CACNA1F gene encodes an L-type calcium channel with unique biophysical properties and tissue distribution</article-title>
+<source/>J Neurosci
+          <volume>24</volume>
+<fpage>1707</fpage>
+<lpage>1718</lpage>
+<pub-id pub-id-type="pmid">14973233</pub-id>
+</element-citation>
+</ref>
+<ref id="R24">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ophoff</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Terwindt</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Vergouwe</surname>
+<given-names>MN</given-names>
+</name>
+<name>
+<surname>van Eijk</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Oefner</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Hoffman</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Lamerdin</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Mohrenweiser</surname>
+<given-names>HW</given-names>
+</name>
+<name>
+<surname>Bulman</surname>
+<given-names>DE</given-names>
+</name>
+<name>
+<surname>Ferrari</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>1996</year>
+<article-title>Familial hemiplegic migraine and episodic ataxia type-2 are caused by mutations in the Ca2+ channel gene CACNL1A4</article-title>
+<source/>Cell
+          <volume>87</volume>
+<fpage>543</fpage>
+<lpage>552</lpage>
+<pub-id pub-id-type="pmid">8898206</pub-id>
+</element-citation>
+</ref>
+<ref id="R25">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Payandeh</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Scheuer</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Catterall</surname>
+<given-names>WA</given-names>
+</name>
+</person-group>
+<year>2011</year>
+<article-title>The crystal structure of a voltage-gated sodium channel</article-title>
+<source/>Nature
+          <volume>475</volume>
+<fpage>353</fpage>
+<lpage>358</lpage>
+<pub-id pub-id-type="pmid">21743477</pub-id>
+</element-citation>
+</ref>
+<ref id="R26">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Payandeh</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Gamal El-Din</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Scheuer</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Catterall</surname>
+<given-names>WA</given-names>
+</name>
+</person-group>
+<year>2012</year>
+<article-title>Crystal structure of a voltage-gated sodium channel in two potentially inactivated states</article-title>
+<source/>Nature
+          <volume>486</volume>
+<fpage>135</fpage>
+<lpage>139</lpage>
+<pub-id pub-id-type="pmid">22678296</pub-id>
+</element-citation>
+</ref>
+<ref id="R27">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ptácek</surname>
+<given-names>LJ</given-names>
+</name>
+<name>
+<surname>Tawil</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Griggs</surname>
+<given-names>RC</given-names>
+</name>
+<name>
+<surname>Engel</surname>
+<given-names>AG</given-names>
+</name>
+<name>
+<surname>Layzer</surname>
+<given-names>RB</given-names>
+</name>
+<name>
+<surname>Kwieciński</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>McManis</surname>
+<given-names>PG</given-names>
+</name>
+<name>
+<surname>Santiago</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Moore</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Fouad</surname>
+<given-names>G</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>1994</year>
+<article-title>Dihydropyridine receptor mutations cause hypokalemic periodic paralysis</article-title>
+<source/>Cell
+          <volume>77</volume>
+<fpage>863</fpage>
+<lpage>868</lpage>
+<pub-id pub-id-type="pmid">8004673</pub-id>
+</element-citation>
+</ref>
+<ref id="R28">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rost</surname>
+<given-names>B</given-names>
+</name>
+</person-group>
+<year>1999</year>
+<article-title>Twilight zone of protein sequence alignments</article-title>
+<source/>Protein Eng
+          <volume>12</volume>
+<fpage>85</fpage>
+<lpage>94</lpage>
+<pub-id pub-id-type="pmid">10195279</pub-id>
+</element-citation>
+</ref>
+<ref id="R29">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shen</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Pan</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<year>2017</year>
+<article-title>Structure of a eukaryotic voltage-gated sodium channel at near-atomic resolution</article-title>
+<source/>Science
+          <volume>355</volume>
+<fpage>eaal4326</fpage>
+<pub-id pub-id-type="pmid">28183995</pub-id>
+</element-citation>
+</ref>
+<ref id="R30">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Spacey</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Hildebrand</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Materek</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Bird</surname>
+<given-names>TD</given-names>
+</name>
+<name>
+<surname>Snutch</surname>
+<given-names>TP</given-names>
+</name>
+</person-group>
+<year>2004</year>
+<article-title>Functional implications of a novel EA2 mutation in the P/Q-type calcium channel</article-title>
+<source/>Ann Neurol
+          <volume>56</volume>
+<fpage>213</fpage>
+<lpage>220</lpage>
+<pub-id pub-id-type="pmid">15293273</pub-id>
+</element-citation>
+</ref>
+<ref id="R31">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Splawski</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Timothy</surname>
+<given-names>KW</given-names>
+</name>
+<name>
+<surname>Sharpe</surname>
+<given-names>LM</given-names>
+</name>
+<name>
+<surname>Decher</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kumar</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Bloise</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Napolitano</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Schwartz</surname>
+<given-names>PJ</given-names>
+</name>
+<name>
+<surname>Joseph</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Condouris</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>2004</year>
+<article-title>Ca(V)1.2 calcium channel dysfunction causes a multisystem disorder including arrhythmia and autism</article-title>
+<source/>Cell
+          <volume>119</volume>
+<fpage>19</fpage>
+<lpage>31</lpage>
+<pub-id pub-id-type="pmid">15454078</pub-id>
+</element-citation>
+</ref>
+<ref id="R32">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Splawski</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Timothy</surname>
+<given-names>KW</given-names>
+</name>
+<name>
+<surname>Decher</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Kumar</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Sachse</surname>
+<given-names>FB</given-names>
+</name>
+<name>
+<surname>Beggs</surname>
+<given-names>AH</given-names>
+</name>
+<name>
+<surname>Sanguinetti</surname>
+<given-names>MC</given-names>
+</name>
+<name>
+<surname>Keating</surname>
+<given-names>MT</given-names>
+</name>
+</person-group>
+<year>2005</year>
+<article-title>Severe arrhythmia disorder caused by cardiac L-type calcium channel mutations</article-title>
+<source/>Proc Natl Acad Sci USA
+          <volume>102</volume>
+<fpage>8089</fpage>
+<lpage>8096</lpage>
+<comment>discussion 8086–8088</comment>
+<pub-id pub-id-type="pmid">15863612</pub-id>
+</element-citation>
+</ref>
+<ref id="R33">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Splawski</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Yoo</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Stotz</surname>
+<given-names>SC</given-names>
+</name>
+<name>
+<surname>Cherry</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Clapham</surname>
+<given-names>DE</given-names>
+</name>
+<name>
+<surname>Keating</surname>
+<given-names>MT</given-names>
+</name>
+</person-group>
+<year>2006</year>
+<article-title>CACNA1H mutations in autism spectrum disorders</article-title>
+<source/>J Biol Chem
+          <volume>281</volume>
+<fpage>22085</fpage>
+<lpage>22091</lpage>
+<pub-id pub-id-type="pmid">16754686</pub-id>
+</element-citation>
+</ref>
+<ref id="R34">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Striessnig</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hoda</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Koschak</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Zaghetto</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Mullner</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Sinnegger-Brauns</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Wild</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Watschinger</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Trockenbacher</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Pelster</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<year>2004</year>
+<article-title>L-type Ca2+ channels in Ca2+ channelopathies</article-title>
+<source/>Biochem Biophys Res Commun
+          <volume>322</volume>
+<fpage>1341</fpage>
+<lpage>1346</lpage>
+<pub-id pub-id-type="pmid">15336981</pub-id>
+</element-citation>
+</ref>
+<ref id="R35">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Strom</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Nyakatura</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Apfelstedt-Sylla</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Hellebrand</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Lorenz</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Weber</surname>
+<given-names>BH</given-names>
+</name>
+<name>
+<surname>Wutz</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Gutwillinger</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Ruther</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Drescher</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>1998</year>
+<article-title>An L-type calcium-channel gene mutated in incomplete X-linked congenital stationary night blindness</article-title>
+<source/>Nat Genet
+          <volume>19</volume>
+<fpage>260</fpage>
+<lpage>263</lpage>
+<pub-id pub-id-type="pmid">9662399</pub-id>
+</element-citation>
+</ref>
+<ref id="R36">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Gamal El-Din</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Payandeh</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Martinez</surname>
+<given-names>GQ</given-names>
+</name>
+<name>
+<surname>Heard</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Scheuer</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Catterall</surname>
+<given-names>WA</given-names>
+</name>
+</person-group>
+<year>2014</year>
+<article-title>Structural basis for Ca2+ selectivity of a voltage-gated calcium channel</article-title>
+<source/>Nature
+          <volume>505</volume>
+<fpage>56</fpage>
+<lpage>61</lpage>
+<pub-id pub-id-type="pmid">24270805</pub-id>
+</element-citation>
+</ref>
+<ref id="R37">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tress</surname>
+<given-names>ML</given-names>
+</name>
+<name>
+<surname>Valencia</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<year>2010</year>
+<article-title>Predicted residue-residue contacts can help the scoring of 3D models</article-title>
+<source/>Proteins
+          <volume>78</volume>
+<fpage>1980</fpage>
+<lpage>1991</lpage>
+<pub-id pub-id-type="pmid">20408174</pub-id>
+</element-citation>
+</ref>
+<ref id="R38">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Tsai</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Tani</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Irie</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Hiroaki</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Shimomura</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>McMillan</surname>
+<given-names>DG</given-names>
+</name>
+<name>
+<surname>Cook</surname>
+<given-names>GM</given-names>
+</name>
+<name>
+<surname>Schertler</surname>
+<given-names>GF</given-names>
+</name>
+<name>
+<surname>Fujiyoshi</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>XD</given-names>
+</name>
+</person-group>
+<year>2013</year>
+<article-title>Two alternative conformations of a voltage-gated sodium channel</article-title>
+<source/>J Mol Biol
+          <volume>425</volume>
+<fpage>4074</fpage>
+<lpage>4088</lpage>
+<pub-id pub-id-type="pmid">23831224</pub-id>
+</element-citation>
+</ref>
+<ref id="R39">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Van Petegem</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Minor</surname>
+<given-names>DL</given-names>
+<suffix>Jr</suffix>
+</name>
+</person-group>
+<year>2006</year>
+<article-title>The structural biology of voltage-gated calcium channel function and regulation</article-title>
+<source/>Biochem Soc Trans
+          <volume>34</volume>
+<fpage>887</fpage>
+<lpage>893</lpage>
+<pub-id pub-id-type="pmid">17052221</pub-id>
+</element-citation>
+</ref>
+<ref id="R40">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Vitko</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Arias</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>XR</given-names>
+</name>
+<name>
+<surname>Perez-Reyes</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<year>2005</year>
+<article-title>Functional characterization and neuronal modeling of the effects of childhood absence epilepsy variants of CACNA1H, a T-type calcium channel</article-title>
+<source/>J Neurosci
+          <volume>25</volume>
+<fpage>4844</fpage>
+<lpage>4855</lpage>
+<pub-id pub-id-type="pmid">15888660</pub-id>
+</element-citation>
+</ref>
+<ref id="R41">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wallace</surname>
+<given-names>SJ</given-names>
+</name>
+</person-group>
+<year>1986</year>
+<article-title>Use of ethosuximide and valproate in the treatment of epilepsy</article-title>
+<source/>Neurol Clin
+          <volume>4</volume>
+<fpage>601</fpage>
+<lpage>616</lpage>
+<pub-id pub-id-type="pmid">3092003</pub-id>
+</element-citation>
+</ref>
+<ref id="R42">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Walsh</surname>
+<given-names>CP</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Butcher</surname>
+<given-names>AJ</given-names>
+</name>
+<name>
+<surname>Dolphin</surname>
+<given-names>AC</given-names>
+</name>
+<name>
+<surname>Kitmitto</surname>
+<given-names>A</given-names>
+</name>
+</person-group>
+<year>2009</year>
+<article-title>Three-dimensional structure of CaV3.1: comparison with the cardiac L-type voltage-gated calcium channel monomer architecture</article-title>
+<source/>J Biol Chem
+          <volume>284</volume>
+<fpage>22310</fpage>
+<lpage>22321</lpage>
+<pub-id pub-id-type="pmid">19520861</pub-id>
+</element-citation>
+</ref>
+<ref id="R43">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wappl</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Koschak</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Poteser</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sinnegger</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Walter</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Eberhart</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Groschner</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Glossmann</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kraus</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Grabner</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Striessnig</surname>
+<given-names>J</given-names>
+</name>
+</person-group>
+<year>2002</year>
+<article-title>Functional consequences of P/Q-type Ca2+ channel Cav2.1 missense mutations associated with episodic ataxia type 2 and progressive ataxia</article-title>
+<source/>J Biol Chem
+          <volume>277</volume>
+<fpage>6960</fpage>
+<lpage>6966</lpage>
+<pub-id pub-id-type="pmid">11742003</pub-id>
+</element-citation>
+</ref>
+<ref id="R44">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<year>2015</year>
+<article-title>Structure of the voltage-gated calcium channel Cav1.1 complex</article-title>
+<source/>Science
+          <volume>350</volume>
+<fpage>aad2395</fpage>
+<pub-id pub-id-type="pmid">26680202</pub-id>
+</element-citation>
+</ref>
+<ref id="R45">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Qian</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Lu</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Dong</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>N</given-names>
+</name>
+</person-group>
+<year>2016</year>
+<article-title>Structure of the voltage-gated calcium channel Ca(v)1.1 at 3.6 Å resolution</article-title>
+<source/>Nature
+          <volume>537</volume>
+<fpage>191</fpage>
+<lpage>196</lpage>
+<pub-id pub-id-type="pmid">27580036</pub-id>
+</element-citation>
+</ref>
+<ref id="R46">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Yu</surname>
+<given-names>FH</given-names>
+</name>
+<name>
+<surname>Catterall</surname>
+<given-names>WA</given-names>
+</name>
+</person-group>
+<year>2004</year>
+<article-title>The VGL-chanome: a protein superfamily specialized for electrical signaling and ionic homeostasis</article-title>
+<source/>Sci STKE
+          <volume>2004</volume>
+<fpage>re15</fpage>
+<pub-id pub-id-type="pmid">15467096</pub-id>
+</element-citation>
+</ref>
+<ref id="R47">
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Ren</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>DeCaen</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Yan</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Tao</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Tang</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Hasegawa</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kumasaka</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>J</given-names>
+</name>
+<etal></etal>
+</person-group>
+<year>2012</year>
+<article-title>Crystal structure of an orthologue of the NaChBac voltage-gated sodium channel</article-title>
+<source/>Nature
+          <volume>486</volume>
+<fpage>130</fpage>
+<lpage>134</lpage>
+<pub-id pub-id-type="pmid">22678295</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="F1" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<title>ΣA<sub>VSD</sub> Value Scores the Preservation of Evolutionarily Conserved Interactions of the VSD in All VGIC Structures Deposited in the PDB</title>
+<p>(A) All voltage-gated ion channels (VGICs) contain a conserved structural motif within the voltage-sensing domain (VSD) as depicted by the ribbon, stick, and CPK representation of the VSD structural motif of the sodium Na<sub>v</sub>Ab voltage-gated channel (PDB: 3RVY), where a unique cluster of side chains forms a tripartite salt bridge network that connects amino acids from S2, S3, and S4, creating a clear ΣA<sub>VSD</sub> signature (orange line) for the VSD.</p>
+<p>(B and C) Contact area values (ΣA<sub>VSD</sub>) of VGIC X-ray crystal structures (B) and cryo-EM-based models (C), showing the conservation of the VSD motif in all structures deposited with the more resolved structures achieving higher ΣA<sub>VSD</sub> values. The structures are identified in the graphs by their unique PDB identifying codes.</p>
+<p>See also <xref ref-type="supplementary-material" rid="SD1">Figure S1</xref>.</p>
+</caption>
+<graphic xlink:href="nihms965983f1"></graphic>
+</fig>
+<fig id="F2" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<title>ΣA<sub>VSD</sub> Scores Correlate with Inaccuracies in Residue Assignment and Provide Structural Constraints for Accurate Homology Modeling of VGIC VSD</title>
+<p>(A–C) Ribbon, stick, and CPK representation of the VSD structural motif of PDB: 3JBR and PDB: 5GJV (A), both near-atomic cryo-EM structures of the Ca<sub>v</sub>1.1 channel that lack the VSD interaction as a result of incorrect residue assignment of the functional residues. For PDB: 5GJV, we show that, by correctly placing the functional residues in their accurate locations, we reconstitute the VSD interaction in our corrected structure and produce a molecular model that is in higher agreement with the cryo-EM electron density map and raw data, as depicted (B) by the structural superimposition of the deposited 3D cryo-EM-based model (PDB: 5GJV) and our corrected-5GJV homology model, which shows that our model’s residue assignment correlates better with the cryo-EM density map than the deposited model. This is evidenced by the specific density pattern created by glutamate versus that of leucine, in which the oxygen atoms are expected to be distorted whereas the carbon atoms are expected to be resolved in the electron density map, as highlighted by the enlargements of the same amino acids in repeat I, which was incorrectly modeled, and repeat II, which was correctly modeled. Our corrected rabbit Ca<sub>v</sub>1.1 model not only correlates better with the map, but also displays an improved ΣA<sub>VSD</sub> score over the models that have been deposited in the PDB, as shown in the graph (C). See also <xref ref-type="supplementary-material" rid="SD1">Figure S2</xref>.</p>
+</caption>
+<graphic xlink:href="nihms965983f2"></graphic>
+</fig>
+<fig id="F3" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<title>Mapping of Genetic Mutations Associated with Clinical Phenotypes onto 3D Models of Human Ca<sub>v</sub> Channels</title>
+<p>(A and B) Mapping of a representative group of disease-causing mutation onto the 3D model of human Ca<sub>v</sub>1.1 repeat I, as depicted with the ribbon and stick representation of the structure. The legend table shows a large number of mutations targeting both the voltage-sensing (A) and gating (B) mechanisms of the channels and that multiple mutations target the same structural location while leading to an array of phenotypically diverse diseases. The pseudo-numbering of the mutations only takes into account the mutated sites within the domains and begins at the first mutated amino acid. See also <xref ref-type="supplementary-material" rid="SD1">Figure S3</xref> and <xref ref-type="supplementary-material" rid="SD1">Table S1</xref>.</p>
+</caption>
+<graphic xlink:href="nihms965983f3"></graphic>
+</fig>
+<fig id="F4" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<title>The Architecture of the Selectivity Filter Is Conserved in Human Ca<sub>v</sub> Channels</title>
+<p>(A) Structural side view of 3 repeats in the human model of Ca<sub>v</sub>1.1 shows the conservation in space of the amino acids that compose the 3 selectivity rings initially described for the Ca<sub>v</sub>Ab-engineered channel, as depicted by the ribbon and stick representation of the subunits.</p>
+<p>(B) In the multiple sequence alignment, we observe that the residues involved in the selectivity filter sites: 1, 2, and 3, initially described for Ca<sub>v</sub>Ab, are conserved in all human Ca<sub>v</sub> channels with varying amino acids participating in each site.</p>
+<p>See also <xref ref-type="supplementary-material" rid="SD1">Figure S3</xref>.</p>
+</caption>
+<graphic xlink:href="nihms965983f4"></graphic>
+</fig>
+<table-wrap id="T1" orientation="landscape" position="float">
+<label>Table 1</label>
+<caption>
+<p>Global Accuracy Metric Percentile Scores of VGIC VSD X-Ray Structures as Provided by the PDB</p>
+</caption>
+<table frame="hsides" rules="rows">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="bottom">PDB Code</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Resolution (Å)</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">R-Free</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Clash Score</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Ramachandran Outliers</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Side-Chain Outliers</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">RSRZ Outliers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">3LUT</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.9</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.222</td>
+<td align="left" colspan="1" rowspan="1" valign="top">23</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.50%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6.80%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">20.30%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">3RVY</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.7</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.289</td>
+<td align="left" colspan="1" rowspan="1" valign="top">32</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.20%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.20%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">4DXW</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.05</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.261</td>
+<td align="left" colspan="1" rowspan="1" valign="top">35</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5.40%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16.10%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">1.60%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">4MS2</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.75</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.25</td>
+<td align="left" colspan="1" rowspan="1" valign="top">16</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.50%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">8.20%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.90%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">5VB2</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.2</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.27</td>
+<td align="left" colspan="1" rowspan="1" valign="top">6</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.00%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.10%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.10%</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="TFN1">
+<p>This table contains the global percentile scores of the data and model accuracy of VGIC crystal structures containing the VSD, as listed in the summary report of the database. The data quality validation metrics include free R-factor (R-Free) and Clash Score and Ramachandran, side-chain, and real-space R-value Z-score (RSRZ) outliers as reported for each selected example structure in the Structure Summary section of the database. See also <xref ref-type="fig" rid="F1">Figures 1</xref> and <xref ref-type="fig" rid="F2">2</xref>.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="T2" orientation="portrait" position="float">
+<label>Table 2</label>
+<caption>
+<p>Global Accuracy Metric Percentile Scores of VGIC VSD Single-Particle Cryo-EM Structures as Provided by the PDB</p>
+</caption>
+<table frame="hsides" rules="rows">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="bottom">PDB Code</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Resolution (Å)</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Clash Score</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Ramachandran Outliers</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Side-Chain Outliers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">3JBR</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.2</td>
+<td align="left" colspan="1" rowspan="1" valign="top">19</td>
+<td align="left" colspan="1" rowspan="1" valign="top">7.10%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">0.50%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">5GJV</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.6</td>
+<td align="left" colspan="1" rowspan="1" valign="top">18</td>
+<td align="left" colspan="1" rowspan="1" valign="top">2.00%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">4.80%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">5X0M</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">53</td>
+<td align="left" colspan="1" rowspan="1" valign="top">5.20%</td>
+<td align="left" colspan="1" rowspan="1" valign="top">12.20%</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="TFN2">
+<p>Listed in this table are the global percentile scores of the data and model accuracy of VGIC cryo-EM-based models containing the VSD, as listed in the summary report of the PDB. The data quality validation metrics include Clash Score and Ramachandran and side-chain outliers as reported for each selected example structure in the Structure Summary section of the database. See also <xref ref-type="fig" rid="F2">Figure 2</xref>.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="T3" orientation="landscape" position="float">
+<label>Table 3</label>
+<caption>
+<p>Modeling Errors in Recent VGIC VSD Cryo-EM-Based Models</p>
+</caption>
+<table frame="hsides" rules="rows">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1" valign="bottom">PDB Code</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Resolution (Å)</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Repeat I</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Repeat II</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Repeat III</th>
+<th align="left" colspan="1" rowspan="1" valign="bottom">Repeat IV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="3" valign="top">3JBR</td>
+<td align="left" colspan="1" rowspan="3" valign="top">4.2</td>
+<td align="left" colspan="1" rowspan="3" valign="top">C-term translation: S3 (2 pos.)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">N-term translation</td>
+<td align="left" colspan="1" rowspan="1" valign="top">N-term translation</td>
+<td align="left" colspan="1" rowspan="3" valign="top">errors in side-chain angles (16° difference)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">S2 (7 pos.);</td>
+<td align="left" colspan="1" rowspan="1" valign="top">S2 (7 pos.);</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">S3 (5 pos.)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">S3 (5 pos.)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">5GJV</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.6</td>
+<td align="left" colspan="1" rowspan="1" valign="top">C-term translation: S3 (5 pos.)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">no errors</td>
+<td align="left" colspan="1" rowspan="1" valign="top">C-term translation: S3 (3 pos.)</td>
+<td align="left" colspan="1" rowspan="1" valign="top">no errors</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1" valign="top">5X0M</td>
+<td align="left" colspan="1" rowspan="1" valign="top">3.8</td>
+<td align="left" colspan="1" rowspan="1" valign="top">no errors</td>
+<td align="left" colspan="1" rowspan="1" valign="top">no errors</td>
+<td align="left" colspan="1" rowspan="1" valign="top">no errors</td>
+<td align="left" colspan="1" rowspan="1" valign="top">no errors</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="TFN3">
+<p>Listed in this table are the direction and magnitude of frameshift molecular modeling errors of recent cryo-EM-based models of VGIC; PDB: 3JBR, 5GJV, and 5X0M. For each repeat in the tetrameric subunit, the inaccuracies in residue assignment are described for S2 and S3 of the VSD in the structural models. This table also lists the resolution of the cryo-EM map to emphasize that the modeling errors are exclusive to low-quality maps, as determined by resolution. C-term, C terminus; N-term, N terminus; pos., positions. See also <xref ref-type="fig" rid="F2">Figure 2</xref>.</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+<boxed-text id="BX1" orientation="portrait" position="float">
+<caption>
+<title>Highlights</title>
+</caption>
+<list id="L1" list-type="bullet">
+<list-item>
+<p id="P40">Core residue contact surface area is quantitative structure accuracy metric</p>
+</list-item>
+<list-item>
+<p id="P41">Refine low-resolution X-ray and cryo-EM structures to atomic resolution with metric</p>
+</list-item>
+<list-item>
+<p id="P42">Identify/correct inaccuracies in mammalian voltage-gated ion channel structure</p>
+</list-item>
+<list-item>
+<p id="P43">Metric-refined channel models illuminate mechanism and disease-causing mutations</p>
+</list-item>
+</list>
+</boxed-text>
+</floats-group>
+</article>
+</pmc-articleset>

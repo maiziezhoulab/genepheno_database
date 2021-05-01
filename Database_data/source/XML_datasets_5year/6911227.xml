@@ -1,0 +1,3570 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">JMIR Med Inform</journal-id>
+<journal-id journal-id-type="iso-abbrev">JMIR Med Inform</journal-id>
+<journal-id journal-id-type="publisher-id">JMI</journal-id>
+<journal-title-group>
+<journal-title>JMIR Medical Informatics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2291-9694</issn>
+<publisher>
+<publisher-name>JMIR Publications</publisher-name>
+<publisher-loc>Toronto, Canada</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">31553307</article-id>
+<article-id pub-id-type="pmc">6911227</article-id>
+<article-id pub-id-type="publisher-id">v7i4e14325</article-id>
+<article-id pub-id-type="doi">10.2196/14325</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Original Paper</subject>
+</subj-group>
+<subj-group subj-group-type="article-type">
+<subject>Original Paper</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Mapping ICD-10 and ICD-10-CM Codes to Phecodes: Workflow Development and Initial Evaluation</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="editor">
+<name>
+<surname>Eysenbach</surname>
+<given-names>Gunther</given-names>
+</name>
+</contrib>
+</contrib-group>
+<contrib-group>
+<contrib contrib-type="reviewer">
+<name>
+<surname>Perros</surname>
+<given-names>Ioakeim</given-names>
+</name>
+</contrib>
+<contrib contrib-type="reviewer">
+<name>
+<surname>Curcin</surname>
+<given-names>Vasa</given-names>
+</name>
+</contrib>
+</contrib-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes" id="contrib1">
+<name>
+<surname>Wu</surname>
+<given-names>Patrick</given-names>
+</name>
+<degrees>BS</degrees>
+<xref ref-type="aff" rid="aff1">1</xref>
+<xref ref-type="aff" rid="aff2">2</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-1437-6688</contrib-id>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes" id="contrib2">
+<name>
+<surname>Gifford</surname>
+<given-names>Aliya</given-names>
+</name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff1">1</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0001-8931-8362</contrib-id>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes" id="contrib3">
+<name>
+<surname>Meng</surname>
+<given-names>Xiangrui</given-names>
+</name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff3">3</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-4889-4640</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib4">
+<name>
+<surname>Li</surname>
+<given-names>Xue</given-names>
+</name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff3">3</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0001-6880-2577</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib5">
+<name>
+<surname>Campbell</surname>
+<given-names>Harry</given-names>
+</name>
+<degrees>MD</degrees>
+<xref ref-type="aff" rid="aff3">3</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-6169-6262</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib6">
+<name>
+<surname>Varley</surname>
+<given-names>Tim</given-names>
+</name>
+<degrees>BSc</degrees>
+<xref ref-type="aff" rid="aff4">4</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-6106-568X</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib7">
+<name>
+<surname>Zhao</surname>
+<given-names>Juan</given-names>
+</name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff1">1</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-1429-0662</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib8">
+<name>
+<surname>Carroll</surname>
+<given-names>Robert</given-names>
+</name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff1">1</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-3802-8183</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib9">
+<name>
+<surname>Bastarache</surname>
+<given-names>Lisa</given-names>
+</name>
+<degrees>MS</degrees>
+<xref ref-type="aff" rid="aff1">1</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-3020-447X</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib10">
+<name>
+<surname>Denny</surname>
+<given-names>Joshua C</given-names>
+</name>
+<degrees>MD, MS</degrees>
+<xref ref-type="aff" rid="aff1">1</xref>
+<xref ref-type="aff" rid="aff5">5</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-3049-7332</contrib-id>
+</contrib>
+<contrib contrib-type="author" id="contrib11">
+<name>
+<surname>Theodoratou</surname>
+<given-names>Evropi</given-names>
+</name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff3">3</xref>
+<xref ref-type="aff" rid="aff6">6</xref>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0001-5887-9132</contrib-id>
+</contrib>
+<contrib contrib-type="author" corresp="yes" id="contrib12">
+<name>
+<surname>Wei</surname>
+<given-names>Wei-Qi</given-names>
+</name>
+<degrees>MD, PhD</degrees>
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-4985-056X</contrib-id>
+<xref ref-type="aff" rid="aff1">1</xref>
+<address>
+<institution>Department of Biomedical Informatics</institution>
+<institution>Vanderbilt University Medical Center</institution>
+<addr-line>2525 West End Ave, Suite 1500</addr-line>
+<addr-line>Nashville, TN, 37203</addr-line>
+<country>United States</country>
+<phone>1 615 343 1956</phone>
+<email>wei-qi.wei@vumc.org</email>
+</address>
+</contrib>
+</contrib-group>
+<aff id="aff1">
+<label>1</label>
+<institution>Department of Biomedical Informatics</institution>
+<institution>Vanderbilt University Medical Center</institution>
+<addr-line>Nashville, TN</addr-line>
+<country>United States</country>
+</aff>
+<aff id="aff2">
+<label>2</label>
+<institution>Medical Scientist Training Program</institution>
+<institution>Vanderbilt University School of Medicine</institution>
+<addr-line>Nashville, TN</addr-line>
+<country>United States</country>
+</aff>
+<aff id="aff3">
+<label>3</label>
+<institution>Centre for Global Health Research</institution>
+<institution>Usher Institute of Population Health Sciences and Informatics</institution>
+<institution>The University of Edinburgh</institution>
+<addr-line>Edinburgh</addr-line>
+<country>United Kingdom</country>
+</aff>
+<aff id="aff4">
+<label>4</label>
+<institution>Public Health and Intelligence Strategic Business Unit</institution>
+<institution>National Services Scotland</institution>
+<addr-line>Edinburgh</addr-line>
+<country>United Kingdom</country>
+</aff>
+<aff id="aff5">
+<label>5</label>
+<institution>Department of Medicine</institution>
+<institution>Vanderbilt University Medical Center</institution>
+<addr-line>Nashville, TN</addr-line>
+<country>United States</country>
+</aff>
+<aff id="aff6">
+<label>6</label>
+<institution>Edinburgh Cancer Research Centre</institution>
+<institution>Institute of Genetics and Molecular Medicine</institution>
+<institution>University of Edinburgh</institution>
+<addr-line>Edinburgh</addr-line>
+<country>United Kingdom</country>
+</aff>
+<author-notes>
+<corresp>Corresponding Author: Wei-Qi Wei <email>wei-qi.wei@vumc.org</email></corresp>
+</author-notes>
+<pub-date pub-type="collection">
+<season>Oct-Dec</season>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>29</day>
+<month>11</month>
+<year>2019</year>
+</pub-date>
+<volume>7</volume>
+<issue>4</issue>
+<elocation-id>e14325</elocation-id>
+<history>
+<date date-type="received">
+<day>9</day>
+<month>4</month>
+<year>2019</year>
+</date>
+<date date-type="rev-request">
+<day>2</day>
+<month>7</month>
+<year>2019</year>
+</date>
+<date date-type="rev-recd">
+<day>3</day>
+<month>8</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>24</day>
+<month>9</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>©Patrick Wu, Aliya Gifford, Xiangrui Meng, Xue Li, Harry Campbell, Tim Varley, Juan Zhao, Robert Carroll, Lisa Bastarache, Joshua C Denny, Evropi Theodoratou, Wei-Qi Wei. Originally published in JMIR Medical Informatics (http://medinform.jmir.org), 29.11.2019.</copyright-statement>
+<copyright-year>2019</copyright-year>
+<license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/4.0/">
+<license-p><!--CREATIVE COMMONS-->This is an open-access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work, first published in JMIR Medical Informatics, is properly cited. The complete bibliographic information, a link to the original publication on <ext-link ext-link-type="uri" xlink:href="http://medinform.jmir.org/">http://medinform.jmir.org/</ext-link>, as well as this copyright and license information must be included.</license-p>
+</license>
+</permissions>
+<self-uri xlink:href="http://medinform.jmir.org/2019/4/e14325/" xlink:type="simple"></self-uri>
+<abstract>
+<sec sec-type="background">
+<title>Background</title>
+<p>The phecode system was built upon the International Classification of Diseases, Ninth Revision, Clinical Modification (ICD-9-CM) for phenome-wide association studies (PheWAS) using the electronic health record (EHR).</p>
+</sec>
+<sec sec-type="objective">
+<title>Objective</title>
+<p>The goal of this paper was to develop and perform an initial evaluation of maps from the International Classification of Diseases, 10th Revision (ICD-10) and the International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM) codes to phecodes.</p>
+</sec>
+<sec sec-type="methods">
+<title>Methods</title>
+<p>We mapped ICD-10 and ICD-10-CM codes to phecodes using a number of methods and resources, such as concept relationships and explicit mappings from the Centers for Medicare &amp; Medicaid Services, the Unified Medical Language System, Observational Health Data Sciences and Informatics, Systematized Nomenclature of Medicine-Clinical Terms, and the National Library of Medicine. We assessed the coverage of the maps in two databases: Vanderbilt University Medical Center (VUMC) using ICD-10-CM and the UK Biobank (UKBB) using ICD-10. We assessed the fidelity of the ICD-10-CM map in comparison to the gold-standard ICD-9-CM phecode map by investigating phenotype reproducibility and conducting a PheWAS.</p>
+</sec>
+<sec sec-type="results">
+<title>Results</title>
+<p>We mapped &gt;75% of ICD-10 and ICD-10-CM codes to phecodes. Of the unique codes observed in the UKBB (ICD-10) and VUMC (ICD-10-CM) cohorts, &gt;90% were mapped to phecodes. We observed 70-75% reproducibility for chronic diseases and &lt;10% for an acute disease for phenotypes sourced from the ICD-10-CM phecode map. Using the ICD-9-CM and ICD-10-CM maps, we conducted a PheWAS with a Lipoprotein(a) genetic variant, rs10455872, which replicated two known genotype-phenotype associations with similar effect sizes: coronary atherosclerosis (ICD-9-CM: <italic>P</italic>&lt;.001; odds ratio (OR) 1.60 [95% CI 1.43-1.80] vs ICD-10-CM: <italic>P</italic>&lt;.001; OR 1.60 [95% CI 1.43-1.80]) and chronic ischemic heart disease (ICD-9-CM: <italic>P</italic>&lt;.001; OR 1.56 [95% CI 1.35-1.79] vs ICD-10-CM: <italic>P</italic>&lt;.001; OR 1.47 [95% CI 1.22-1.77]).</p>
+</sec>
+<sec sec-type="conclusions">
+<title>Conclusions</title>
+<p>This study introduces the beta versions of ICD-10 and ICD-10-CM to phecode maps that enable researchers to leverage accumulated ICD-10 and ICD-10-CM data for PheWAS in the EHR.</p>
+</sec>
+</abstract>
+<kwd-group>
+<kwd>electronic health record</kwd>
+<kwd>genome-wide association study</kwd>
+<kwd>phenome-wide association study</kwd>
+<kwd>phenotyping</kwd>
+<kwd>medical informatics applications</kwd>
+<kwd>data science</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec sec-type="introduction">
+<title>Introduction</title>
+<sec>
+<title>Background</title>
+<p>Electronic health records (EHRs) have become a powerful resource for biomedical research in the last decade, and many studies based on EHR data have used International Classification of Diseases (ICD) codes [<xref ref-type="bibr" rid="ref1">1</xref>]. When linked to DNA biobanks, healthcare information in EHRs can be a tool to help discover genetic associations by using billing codes in phenotyping algorithms. The phenome-wide association study (PheWAS) paradigm was introduced in 2010 as an approach that scans across a range of phenotypes, similar to what is done for the genome in genome-wide association studies. Studies using PheWAS have replicated hundreds of known genotype-phenotype associations and discovered dozens of new ones [<xref ref-type="bibr" rid="ref2">2</xref>-<xref ref-type="bibr" rid="ref12">12</xref>]. The initial version of phecodes consisted of 733 custom groups of ICD Ninth Revision, Clinical Modification (ICD-9-CM) diagnosis codes. The most recent iteration of phecodes consists of 1866 hierarchical phenotype codes that map to 15,558 ICD-9-CM codes [<xref ref-type="bibr" rid="ref13">13</xref>,<xref ref-type="bibr" rid="ref14">14</xref>]. However, many health systems and international groups use the International Classification of Diseases, 10th Revision (ICD-10) or the International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM) codes [<xref ref-type="bibr" rid="ref15">15</xref>], therefore necessitating a new phecode map.</p>
+</sec>
+<sec>
+<title>Transition from ICD-9 to ICD-10</title>
+<p>In 1979, the World Health Organization (WHO) developed ICD-9 to track mortality and morbidity. To improve its application to clinical billing, the United States National Center for Health Statistics (NCHS) modified ICD-9 codes to create ICD-9-CM, whose end-of-life date was scheduled around the year 2000 but was delayed until October 2015 [<xref ref-type="bibr" rid="ref15">15</xref>]. In 1990, the WHO developed ICD-10 [<xref ref-type="bibr" rid="ref16">16</xref>], which the NCHS used to create ICD-10-CM to replace ICD-9-CM.</p>
+<p>Moving from ICD-9-CM to ICD-10-CM led to major structural changes in the coding system. First, the structure moved from a broadly numeric-based system in ICD-9-CM (eg, 474.11 for “Hypertrophy of tonsils alone”) to an alphanumeric system in ICD-10-CM (eg, J35.1 for the same condition). Second, ICD-10-CM contains much more granular information than ICD-9-CM, as seen with the approximately tenfold increase in the number of diabetes-related codes in ICD-10-CM. ICD-10-CM also differs from ICD-9-CM in terms of semantics and organization [<xref ref-type="bibr" rid="ref15">15</xref>,<xref ref-type="bibr" rid="ref17">17</xref>].</p>
+<p>Compared to ICD-10, ICD-10-CM has even more codes and granularity. While the 2018AA Unified Medical Language System (UMLS) [<xref ref-type="bibr" rid="ref18">18</xref>] contains 94,201 unique ICD-10-CM codes, it has 12,027 unique ICD-10 codes after exclusion of range codes (eg, ICD-10-CM A00-A09). Further, there are ICD-10 codes that do not exist in ICD-10-CM, and vice versa, like ICD-10 A16.9 “Respiratory tuberculosis unspecified, without mention of bacteriological or histological confirmation”, which has no ICD-10-CM equivalent. </p>
+</sec>
+<sec>
+<title>Prior Work</title>
+<p>To develop the original phecode system, one or more related ICD-9-CM codes were combined into distinct diseases or traits. For example, three depression-related ICD-9-CM codes, 311, 296.31, and 296.2, were condensed to phecode 296.2 “Depression”. With the help of clinical experts in disparate domains, such as cardiology and oncology, we have iteratively updated the phecode groupings [<xref ref-type="bibr" rid="ref19">19</xref>].</p>
+<p>The phecode scheme is unique because it has built-in exclusion criteria to prevent contamination by cases in the control cohort. This is an important feature, as case contamination of control groups decreases the statistical power for finding genotype-phenotype associations [<xref ref-type="bibr" rid="ref20">20</xref>]. For each disease phenotype, we defined exclusion criteria by using our clinical knowledge and by consulting physician specialists.</p>
+<p>An example for how users can use phecode exclusion criteria is illustrated by a type 2 diabetes study using EHRs. To define cases of type 2 diabetes, users include patients with ICD codes that map to phecode 250.2 “Type 2 diabetes”. To create the control cohort, they only include patients without phenotypes in the “Diabetes” group, which is comprised of phecodes in the range of 249-250.99. This prevents contamination of the control group by patients with diseases such as “Type 1 diabetes” (phecode 250.1) and “Secondary diabetes mellitus” (phecode 249). Excluded patients also include those with signs and symptoms commonly associated with type 2 diabetes, such as “Abnormal glucose” (phecode 250.4), which may indicate someone who has not yet been diagnosed with diabetes.</p>
+<p>Though the phecode system is effective at replicating and identifying novel genotype-phenotype associations, PheWAS have largely been limited to using ICD-9-CM codes. A few studies have mapped ICD-10 codes to phecodes by converting ICD-10 to ICD-9-CM, and then mapping the converted ICD-9-CM codes to phecodes [<xref ref-type="bibr" rid="ref3">3</xref>,<xref ref-type="bibr" rid="ref10">10</xref>]. However, these studies limited their mappings to ICD-10 (non-CM) codes, did not provide a map to translate ICD-10-CM codes to phecodes, and did not evaluate the accuracy of these maps.</p>
+</sec>
+<sec>
+<title>Study Goals</title>
+<p>In this study, we developed and evaluated maps of ICD-10 and ICD-10-CM codes to phecodes. The primary aims of this study were to create an initial beta map to perform PheWAS using ICD-10 and ICD-10-CM codes and to focus the analyses on PheWAS-relevant codes. Our goal was to demonstrate that researchers should expect similar results from the ICD-10-CM phecode map compared to the gold-standard ICD-9-CM map. To accomplish this goal, we investigated phecode coverage, phenotype reproducibility, and the results from a PheWAS.</p>
+</sec>
+</sec>
+<sec sec-type="methods">
+<title>Methods</title>
+<sec>
+<title>Databases</title>
+<p>In this study, we used data obtained from the Vanderbilt University Medical Center (VUMC) and UK Biobank (UKBB) databases. The VUMC EHR contains clinical information derived from the medical records of &gt;3 million unique individuals. The UKBB is a prospective longitudinal cohort study designed to investigate the genetic and environmental determinants of diseases in UK adults. Between 2006-2010, the study recruited &gt;500,000 men and women aged 40-69 years. Participants consented to allow their data to be linked to their medical records. EHR records from the UKBB were obtained under an approved data request application (ID:10775).</p>
+<p>We used VUMC data with &gt;2.5 years of ICD-10-CM data (October 10, 2015 to June 1, 2017) for inpatient and outpatient encounters. Comparatively, we used UKBB data with &gt;2 decades of ICD-10 data [<xref ref-type="bibr" rid="ref21">21</xref>] (April 1, 1995 to March 31, 2015) for only inpatient encounters.</p>
+</sec>
+<sec>
+<title>Mapping ICD-10-CM and ICD-10 Codes to Phecodes</title>
+<p>We extracted ICD-10-CM codes from the 2018AA release of the UMLS [<xref ref-type="bibr" rid="ref18">18</xref>] and used several automated methods to translate ICD-10-CM diagnosis codes to phecodes (<xref ref-type="fig" rid="figure1">Figure 1</xref>). We mapped 515 ICD-10-CM codes directly to phecodes by matching code descriptions regardless of capitalization (eg, ICD-10-CM H52.4 “Presbyopia” to phecode 367.4 “Presbyopia”). We mapped 82,287 ICD-10-CM codes indirectly to phecodes using the existing ICD-9-CM phecode map [<xref ref-type="bibr" rid="ref14">14</xref>]. To convert ICD-10-CM codes indirectly to phecodes, we used General Equivalence Mappings (GEMS) provided by the Centers for Medicare &amp; Medicaid Services that map ICD-10-CM to ICD-9-CM and vice versa [<xref ref-type="bibr" rid="ref22">22</xref>]. We included both equivalent and nonequivalent GEMS mappings (ie, where the approximate flag was either 0 or 1). As an example of this indirect approach, to map ICD-10-CM E11.9 “Type 2 diabetes mellitus without complications” to phecode 250.2 “Type 2 diabetes,” we mapped ICD-10-CM E11.9 to ICD-9-CM 250.0 “Diabetes mellitus without mention of complication” to phecode 250.2.</p>
+<fig id="figure1" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Mapping strategy for ICD-10 (non-CM) and ICD-10-CM diagnosis codes to phecodes. We mapped ICD-10-CM codes directly by matching code descriptions (path A) or indirectly to phecodes, using a number of manually validated mapping resources (paths B, C, D, E, and F). In path D, we used NLM’s SNOMED CT to create ICD-9-CM one-to-one and many-to-one maps [<xref ref-type="bibr" rid="ref23">23</xref>]. To map ICD-9-CM codes to phecodes, we applied Phecode Map 1.2 with ICD-9 Codes (ICD-9-CM phecode map) [<xref ref-type="bibr" rid="ref14">14</xref>]. Boxes with solid lines indicate clinical terminologies, and those with dashed lines describe the resources and mapping methods used. ICD-10-CM: International Classification of Diseases, Tenth Revision, Clinical Modification; CUI: Concept Unique Identifier; SNOMED CT: Systematized Nomenclature of Medicine Clinical Terms; GEMS: General Equivalence Mappings; NLM: National Library of Medicine; ICD-9-CM: International Classification of Diseases, Ninth Revision, Clinical Modification; OHDSI: Observational Health Data Sciences and Informatics.</p>
+</caption>
+<graphic xlink:href="medinform_v7i4e14325_fig1"></graphic>
+</fig>
+<p>Since the GEMS do not provide ICD-9-CM mappings for all ICD-10-CM codes [<xref ref-type="bibr" rid="ref17">17</xref>], we complemented this approach with UMLS semantic mapping [<xref ref-type="bibr" rid="ref24">24</xref>], Observational Health Data Sciences and Informatics (OHDSI) concept relationships [<xref ref-type="bibr" rid="ref25">25</xref>,<xref ref-type="bibr" rid="ref26">26</xref>], and National Library of Medicine (NLM) maps [<xref ref-type="bibr" rid="ref23">23</xref>]. In this approach to indirect mapping, we first mapped ICD-10-CM codes to Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT) through UMLS Concept Unique Identifier (CUI) equivalents, which were then converted to ICD-9-CM through either UMLS CUI equivalents [<xref ref-type="bibr" rid="ref18">18</xref>,<xref ref-type="bibr" rid="ref24">24</xref>], OHDSI [<xref ref-type="bibr" rid="ref25">25</xref>], or NLM maps [<xref ref-type="bibr" rid="ref23">23</xref>]. For example, we mapped ICD-10-CM L01.00 “Impetigo, unspecified” to CUI C0021099 to SNOMED CT 48277006 to OHDSI Concept ID 140480 to OHDSI Concept ID 44832600 to ICD-9-CM 684 and finally to phecode 686.2 “Impetigo”.</p>
+<p>There were two general instances when an ICD-10-CM code mapped to more than one phecode. First, some ICD-10-CM codes mapped to both a parent phecode and one of its child phecodes that was lower in the hierarchy. To maintain the granular meanings of ICD-10-CM codes, we only kept the mappings to child phecodes, a decision that we could make due to the hierarchical structure of phecodes. For example, ICD-10-CM I10 “Essential (primary) hypertension” was mapped to phecodes 401 “Hypertension” and 401.1 “Essential hypertension”, but we only kept the mapping to phecode 401.1. Second, we kept all the mappings for ICD-10-CM codes that were translated to phecodes that were not in the same family. This can be seen in the mapping of ICD-10-CM D57.812 “Other sickle-cell disorders with splenic sequestration” to phecodes 282.5 “Sickle cell anemia” and 289.5 “Diseases of spleen”. This latter association created a polyhierarchical nature to phecodes that did not previously exist.</p>
+<p>To map ICD-10 (non-CM) codes to phecodes, we also used ICD-10 codes from the 2018AA UMLS [<xref ref-type="bibr" rid="ref18">18</xref>]. ICD-10 codes were mapped to phecodes in a similar manner to ICD-10-CM, but since a GEMS to translate ICD-10 to ICD-9-CM was not available, we used only string matching and previously manually reviewed resources from the UMLS [<xref ref-type="bibr" rid="ref24">24</xref>], NLM [<xref ref-type="bibr" rid="ref23">23</xref>], and OHDSI [<xref ref-type="bibr" rid="ref25">25</xref>,<xref ref-type="bibr" rid="ref26">26</xref>].</p>
+</sec>
+<sec>
+<title>Evaluation of Phecode Coverage of ICD-10 and ICD-10-CM in UKBB and VUMC</title>
+<p>To evaluate the phecode coverage of ICD-10 and ICD-10-CM source codes in UKBB and VUMC, respectively, we calculated the number of source codes in the 2018AA UMLS, the number of source codes mapped to phecodes, and the number of mapped and unmapped source codes that were used in the two EHRs (<xref ref-type="fig" rid="figure2">Figure 2</xref>). To identify potential limitations of our automated mapping approach, two authors with clinical training (PW, WQW) manually reviewed all the unmapped ICD-10 and ICD-10-CM codes that were used at UKBB and VUMC, respectively.</p>
+<fig id="figure2" position="float">
+<label>Figure 2</label>
+<caption>
+<p>Counts of distinct ICD-10-CM source codes at VUMC and ICD-10 (non-CM) source codes in UKBB. (A) Number of unique ICD-10-CM codes in each category. For example, there were 34,793 unique codes (grey section) that were in the official ICD-10-CM system, observed in the VUMC dataset, and mapped to phecodes. (B) Number of unique ICD-10 codes in each category. For example, there were 5823 unique codes (off-white section) that were in the official ICD-10 system, observed in the UKBB dataset, and mapped to phecodes. ICD-10-CM: International Classification of Diseases, 10th Revision, Clinical Modification; VUMC: Vanderbilt University Medical Center; ICD-10: International Classification of Diseases, 10th Revision; UKBB: UK Biobank.</p>
+</caption>
+<graphic xlink:href="medinform_v7i4e14325_fig2"></graphic>
+</fig>
+</sec>
+<sec>
+<title>Comparison of Phenotypes Generated from the ICD-10-CM Phecode Map </title>
+<p>We aimed to provide evidence that the ICD-10-CM phecode map resulted in phenotypes like those sourced from the ICD-9-CM phecode map. First, we selected 357,728 patients in the VUMC EHR who had ≥1 ICD-9-CM and ≥1 ICD-10-CM codes in two 18-month windows. We selected windows to occur prior to and after VUMC’s transition to ICD-10-CM. To reduce potential confounders, we left a 6-month buffer after ICD-9-CM was replaced with ICD-10-CM. Further, the ICD-10-CM observation window ended before VUMC switched from its locally developed EHR [<xref ref-type="bibr" rid="ref27">27</xref>] to the Epic system. This created two windows ranging from January 1, 2014 to June 30, 2015 for ICD-9-CM, and January 1, 2016 to June 30, 2017 for ICD-10-CM (<xref ref-type="fig" rid="figure3">Figure 3</xref>). The final cohort consisted of 55.10% (197,109/357,728) females with mean age of 45 (SD 25) years old. From the two observation periods, we extracted all ICD-9-CM and ICD-10-CM codes for each patient. We then mapped these codes to phecodes using the ICD-9-CM phecode [<xref ref-type="bibr" rid="ref14">14</xref>] and ICD-10-CM phecode maps.</p>
+<p>We used the patient cohort to test our hypothesis that the ICD-10-CM phecode map created phenotype definitions that were comparable to those generated using the gold-standard ICD-9-CM phecode map. For this analysis, we used four common chronic diseases (Hypertension, Hyperlipidemia, Type 1 Diabetes, and Type 2 Diabetes) and chose one acute disease (Intestinal infection) as a negative control. We expected that a large majority of the chronic disease patients and a small minority of the acute disease patients from the ICD-9-CM era would reproduce the same phenotypes during the ICD-10-CM era. We defined the phenotype cases as follows: Hypertension with phecodes 401.* (* means one or more digits or a period); Hyperlipidemia, phecodes 272.*; Type 1 diabetes, phecodes 250.1*; Type 2 diabetes, phecodes 250.2*; Intestinal infection, phecodes 008.*.</p>
+<p>For each phenotype, we reported the number of ICD-9-CM cases and the number of those individuals who were also ICD-10-CM cases. To identify the possible reasons for individuals who were not identified as phenotype cases in the ICD-10-CM period, two authors with clinical training (PW, WQW) manually reviewed the EHRs of ten randomly selected patients from each chronic disease group, except Type 1 diabetes, for a total of thirty patients.</p>
+<fig id="figure3" position="float">
+<label>Figure 3</label>
+<caption>
+<p>Timeline of the two 18-month periods from which ICD-9-CM and ICD-10-CM codes from VUMC were analyzed. The cohort of 357,728 patients had at least one ICD-9-CM and one ICD-10-CM code in the respective 18-month windows. ICD-9-CM: International Classification of Diseases, Ninth Revision, Clinical Modification; ICD-10-CM: International Classification of Diseases, 10th Revision, Clinical Modification.</p>
+</caption>
+<graphic xlink:href="medinform_v7i4e14325_fig3"></graphic>
+</fig>
+</sec>
+<sec>
+<title>Comparative PheWAS Analysis of a Lipoprotein(a) Single-Nucleotide Polymorphism</title>
+<p>To evaluate the accuracy of the ICD-10-CM phecode map, we performed two PheWASs on a Lipoprotein(a) (LPA) genetic variant (rs10455872) using mapped phecodes from ICD-9-CM and ICD-10-CM. The LPA single-nucleotide polymorphism (SNP) is associated with increased risks of developing hyperlipidemia and cardiovascular diseases [<xref ref-type="bibr" rid="ref28">28</xref>-<xref ref-type="bibr" rid="ref30">30</xref>].</p>
+<p>We used data from BioVU, the deidentified DNA biobank at VUMC, to conduct the PheWAS [<xref ref-type="bibr" rid="ref31">31</xref>]. We identified 13,900 adults (56.9% female; mean 59 [SD 15] years old in 2014), who had rs10455872 genotyped and at least one ICD-9-CM and ICD-10-CM code in their respective time windows. For rs10455872, we observed 86.7% AA, 12.8% AG, and 0.5% GG. We used 1632 phecodes that overlapped in the time windows for PheWAS using the R PheWAS package [<xref ref-type="bibr" rid="ref13">13</xref>] with binary logistic regression, adjusting for age, sex, and race.</p>
+</sec>
+</sec>
+<sec sec-type="results">
+<title>Results</title>
+<sec>
+<title>Phecode Coverage of ICD-10-CM and ICD-10 in VUMC and UKBB</title>
+<p>Of all possible ICD-10-CM codes [<xref ref-type="bibr" rid="ref18">18</xref>], 82,303 (87.37%) mapped to at least one phecode, with 7881 (8.37%) mapping to &gt;1 phecode. For example, ICD-10-CM I25.708 “Atherosclerosis of coronary artery bypass graft(s), unspecified, with other forms of angina pectoris” mapped to phecodes 411.3 “Angina pectoris” and 411.4 “Coronary atherosclerosis”. Of all possible ICD-10 codes, 9060 (75.33%) mapped to at least one phecode, and 289 (2.40%) mapped to &gt;1 phecode. For example, ICD-10 code B21.1 “HIV disease resulting in Burkitt lymphoma” mapped to phecodes 071.1 “HIV infection, symptomatic” and 202.2 “Non-Hodgkins lymphoma”.</p>
+<p>Among the 36,858 ICD-10-CM codes used at VUMC, 34,793 (94.40%) codes were mapped to phecodes. Of the 6245 ICD-10 codes used in the UKBB, 5823 (93.24%) codes mapped to phecodes (<xref ref-type="table" rid="table1">Table 1</xref>, <xref ref-type="fig" rid="figure2">Figure 2</xref>). Considering all the instances of ICD-10-CM and ICD-10 codes used at each site, we generated a total count of unique codes grouped by patient, date, and those codes that mapped to phecodes (<xref ref-type="table" rid="table1">Table 1</xref>). Among the total number of codes used, the vast majority of ICD-10-CM (17,658,470/19,682,697; 89.72%) and ICD-10 (4,279,544/5,114,363; 83.68%) codes were mapped to phecodes.</p>
+<table-wrap id="table1" position="float">
+<label>Table 1</label>
+<caption>
+<p>ICD-10-CM and ICD-10 codes data summary.</p>
+</caption>
+<table border="1" cellpadding="5" cellspacing="0" frame="hsides" rules="groups" width="1000">
+<col span="1" width="19"/>
+<col span="1" width="565"/>
+<col span="1" width="219"/>
+<col span="1" width="197"/>
+<thead>
+<tr valign="top">
+<td colspan="2" rowspan="1">
+<break></break>
+</td>
+<td colspan="1" rowspan="1">ICD-10-CM<sup>a</sup> (VUMC<sup>b</sup>)</td>
+<td colspan="1" rowspan="1">ICD-10<sup>c</sup> (UKBB<sup>d</sup>)</td>
+</tr>
+</thead>
+<tbody>
+<tr valign="top">
+<td colspan="2" rowspan="1">
+<bold>Official classification systems</bold>
+</td>
+<td colspan="1" rowspan="1">
+<break></break>
+</td>
+<td colspan="1" rowspan="1">
+<break></break>
+</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">Unique codes, n</td>
+<td colspan="1" rowspan="1">94,201</td>
+<td colspan="1" rowspan="1">12,027</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">Unique codes mapped, n (%)</td>
+<td colspan="1" rowspan="1">82,303 (87.37)</td>
+<td colspan="1" rowspan="1">9,060 (75.33)</td>
+</tr>
+<tr valign="top">
+<td colspan="2" rowspan="1">
+<bold>Official codes used in cohorts</bold>
+</td>
+<td colspan="1" rowspan="1">
+<break></break>
+</td>
+<td colspan="1" rowspan="1">
+<break></break>
+</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">Unique codes, n</td>
+<td colspan="1" rowspan="1">36,858</td>
+<td colspan="1" rowspan="1">6,245</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1"></td>
+<td colspan="1" rowspan="1">Unique codes mapped, n (%)</td>
+<td colspan="1" rowspan="1">34,793 (94.40)</td>
+<td colspan="1" rowspan="1">5,823 (93.24)</td>
+</tr>
+<tr valign="top">
+<td colspan="2" rowspan="1">Total patients (with ICD-10-CM or ICD-10 codes), n</td>
+<td colspan="1" rowspan="1">651,649</td>
+<td colspan="1" rowspan="1">391,181</td>
+</tr>
+<tr valign="top">
+<td colspan="2" rowspan="1">Total instances of all ICD<sup>e</sup> codes, n</td>
+<td colspan="1" rowspan="1">19,682,697</td>
+<td colspan="1" rowspan="1">5,114,363</td>
+</tr>
+<tr valign="top">
+<td colspan="2" rowspan="1">Instances mapped to phecodes, n (%)</td>
+<td colspan="1" rowspan="1">17,658,470 (89.72)</td>
+<td colspan="1" rowspan="1">4,279,544 (83.68)</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="table1fn1">
+<p><sup>a</sup>ICD-10-CM: International Classification of Diseases, 10th Revision, Clinical Modification</p>
+</fn>
+<fn id="table1fn2">
+<p><sup>b</sup>VUMC: Vanderbilt University Medical Center</p>
+</fn>
+<fn id="table1fn3">
+<p><sup>c</sup>ICD-10: International Classification of Diseases, 10th Revision</p>
+</fn>
+<fn id="table1fn4">
+<p><sup>d</sup>UKBB: UK Biobank</p>
+</fn>
+<fn id="table1fn5">
+<p><sup>e</sup>ICD: International Classification of Diseases</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec>
+<title>Analysis of Unmapped ICD-10 and ICD-10-CM Codes</title>
+<p>Many of the unmapped ICD-10 codes used in the UKBB dataset represented medical concepts related to personal (ie, past medical history) or family history of disease. For ICD-10-CM, removing codes used at VUMC that we expected to be unmapped (ie, local or supplementary classification codes) left 2065 ICD-10-CM codes that did not map to a phecode. After excluding 1395 codes (eg, X, Y, and Z codes) indicating nonbiological disease phenotypes, 670 codes remained, the majority of which represented either external causes of morbidity or factors influencing health status and contact with health services. All the remaining unmapped ICD-10-CM codes in this cohort had &lt;200 unique individuals (ie, &lt;0.1% of the cohort), and the majority of the ICD-10-CM codes with &gt;10 unique individuals were phenotypes that are most likely due to nongenetic factors. For example, 287 (59.2%) of the unmapped ICD-10-CM codes represented external causes of morbidity, such as assault and injuries due to motor vehicle accidents.</p>
+</sec>
+<sec>
+<title>Reproducibility Analysis of the ICD-10-CM Phecode map</title>
+<p>In the defined 18-month time windows, a cohort of 357,728 patients had both ICD-9-CM and ICD-10-CM codes (<xref ref-type="fig" rid="figure3">Figure 3</xref>). For the chronic diseases, 70-75% of individuals with the relevant phecodes in the ICD-9-CM observation period also had the same phecodes of interest during the ICD-10-CM period. On the contrary, for the reproducibility analysis with an acute disease we observed that &lt;10% of individuals who had phecodes 008.* (Intestinal infection) in the ICD-9-CM period also had the same phecodes in the ICD-10-CM period (<xref ref-type="table" rid="table2">Table 2</xref>).</p>
+<p>To identify the reasons that may explain why some patients were not identified as cases for the phenotype of interest during the ICD-10-CM period, we manually reviewed their medical records. A total of 30 patients were selected for review, 10 each from the Hypertension, Hyperlipidemia, and Type 2 diabetes cohorts (see <xref ref-type="supplementary-material" rid="app1">Multimedia Appendix 1</xref>). We found that none of the patients had a relevant ICD-10-CM code for the phenotype being studied in the 18-month observation period. Reasons for patients not being ICD-10-CM cases included: patients were labeled with the relevant ICD-10-CM code(s) outside of the short ICD-10-CM observation window (8 patients), patients had &lt;2 visits at VUMC during the ICD-10-CM period or were only seen by physician specialists (10 patients; eg, a patient with hypertension was only seen by their neurologist during the ICD-10-CM period), and patients were inconsistently diagnosed (2 people; eg, patient with Type 1 diabetes given Type 2 diabetes ICD-9-CM code). No cases were missed due to errors in the ICD-10-CM phecode map.</p>
+<table-wrap id="table2" position="float">
+<label>Table 2</label>
+<caption>
+<p>ICD-10-CM phecode map reproducibility analysis.</p>
+</caption>
+<table border="1" cellpadding="5" cellspacing="0" frame="hsides" rules="groups" width="1000">
+<col span="1" width="223"/>
+<col span="1" width="138"/>
+<col span="1" width="262"/>
+<col span="1" width="377"/>
+<thead>
+<tr valign="top">
+<td colspan="1" rowspan="1">Phenotype</td>
+<td colspan="1" rowspan="1">Phecodes<sup>a</sup></td>
+<td colspan="1" rowspan="1">ICD-9-CM<sup>b</sup> cases (n)</td>
+<td colspan="1" rowspan="1">ICD-10-CM<sup>c</sup> case|ICD-9-CM case<sup>d</sup>, n (%)</td>
+</tr>
+</thead>
+<tbody>
+<tr valign="top">
+<td colspan="1" rowspan="1">Hypertension</td>
+<td colspan="1" rowspan="1">401.*</td>
+<td colspan="1" rowspan="1">65,216</td>
+<td colspan="1" rowspan="1">49,468 (75.85)</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1">Hyperlipidemia</td>
+<td colspan="1" rowspan="1">272.*</td>
+<td colspan="1" rowspan="1">51,187</td>
+<td colspan="1" rowspan="1">36,187 (70.7)</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1">Type 1 diabetes</td>
+<td colspan="1" rowspan="1">250.1*</td>
+<td colspan="1" rowspan="1">5782</td>
+<td colspan="1" rowspan="1">4412 (76.31)</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1">Type 2 diabetes</td>
+<td colspan="1" rowspan="1">250.2*</td>
+<td colspan="1" rowspan="1">25,077</td>
+<td colspan="1" rowspan="1">19,066 (76.03)</td>
+</tr>
+<tr valign="top">
+<td colspan="1" rowspan="1">Intestinal infection</td>
+<td colspan="1" rowspan="1">008.*</td>
+<td colspan="1" rowspan="1">3410</td>
+<td colspan="1" rowspan="1">273 (8.01)</td>
+</tr>
+</tbody>
+</table>
+<table-wrap-foot>
+<fn id="table2fn1">
+<p><sup>a</sup>In the phecode column, * means ≥1 digits or a period (eg, phecode 401.*=phecodes 401, 401.1, 401.3, 401.22, 401.21, or 401.2)</p>
+</fn>
+<fn id="table2fn2">
+<p><sup>b</sup>ICD-9-CM: International Classification of Diseases, Ninth Revision, Clinical Modification</p>
+</fn>
+<fn id="table2fn3">
+<p><sup>c</sup>ICD-10-CM: International Classification of Diseases, 10th Revision, Clinical Modification</p>
+</fn>
+<fn id="table2fn4">
+<p><sup>d</sup>In the last column, “ICD-10-CM case|ICD-9-CM case” indicates patients who were cases for the phenotype of interest during the ICD-9-CM period who were also ICD-10-CM cases</p>
+</fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec>
+<title>Comparative PheWAS Analysis of the Lipoprotein(a) SNP, rs10455872</title>
+<p>To further evaluate the ICD-10-CM phecode map, we performed and compared the results of PheWAS analyses for rs10455872. One PheWAS was conducted using the ICD-9-CM map and another was conducted using the ICD-10-CM map. Both analyses replicated previous findings with similar effect sizes: coronary atherosclerosis (ICD-9-CM: <italic>P</italic>&lt;.001; odds ratio [OR] 1.60 [95% CI 1.43-1.80] vs ICD-10-CM: <italic>P</italic>&lt;.001, OR 1.60 [95% CI 1.43-1.80]) and chronic ischemic heart disease (ICD-9-CM: <italic>P</italic>&lt;.001; OR 1.56, [95% CI 1.35-1.79] vs ICD-10-CM: <italic>P</italic>&lt;.001, OR 1.47 [95% CI 1.22-1.77]) (<xref ref-type="fig" rid="figure4">Figure 4</xref>).</p>
+<fig id="figure4" position="float">
+<label>Figure 4</label>
+<caption>
+<p>Comparative PheWAS of lipoprotein(a) genetic variant, rs10455872. “Coronary atherosclerosis” (phecode 411.4) and “Other chronic ischemic heart disease” (phecode 411.8) were top hits associated with rs10455872 in a PheWAS analysis conducted using ICD-9-CM (top) and ICD-10-CM (bottom) phecode maps. Analyses were adjusted for age, sex, and race. PheWAS: phenome-wide association studies; ICD-9-CM: International Classification of Diseases, Ninth Revision, Clinical Modification; ICD-10-CM: International Classification of Diseases, 10th Revision, Clinical Modification.</p>
+</caption>
+<graphic xlink:href="medinform_v7i4e14325_fig4"></graphic>
+</fig>
+</sec>
+</sec>
+<sec sec-type="discussion">
+<title>Discussion</title>
+<sec>
+<title>Maps of ICD-10 and ICD-10-CM Codes to Phecodes have High Coverage and Yield Similar Results</title>
+<p>In this study, we described the process of mapping ICD-10 and ICD-10-CM codes to phecodes and evaluated the results of the new maps in two databases. These results show that the majority of the ICD-10 and ICD-10-CM codes used in EHRs were mapped to phecodes. Our analyses suggest that researchers can expect that phenotypes sourced using the ICD-10-CM phecode map will be like those sourced from the gold-standard ICD-9-CM phecode map. As the use of ICD-10 and ICD-10-CM codes increases, so does the need for convenient and reliable methods of aggregating codes to represent clinically meaningful phenotypes. </p>
+<p>Since the introduction of phecodes, many studies have demonstrated the value of aggregating ICD-9-CM codes for genetic association studies. These maps will allow biomedical researchers to leverage clinical data represented by ICD-10 and ICD-10-CM codes for their large-scale PheWAS using EHRs. They will also allow researchers to combine phenotypes as phecodes mapped from ICD-9- and ICD-10-based coding systems, thereby increasing the size of their patient cohorts and statistical power of their studies. The maps are available from the PheWAS Resources page [<xref ref-type="bibr" rid="ref14">14</xref>] and are incorporated in the PheWAS R package, version 0.99.5-2 [<xref ref-type="bibr" rid="ref13">13</xref>,<xref ref-type="bibr" rid="ref32">32</xref>]. </p>
+</sec>
+<sec>
+<title>ICD-10 and ICD-10-CM Codes not Mapped to Phecodes</title>
+<p>Analysis of the unmapped ICD-10 codes demonstrates a possible area of expansion for phecodes. The ICD-10 phecode map did not include medical concepts representing personal history or family history of disease.</p>
+<p>We observed that a majority of the unmapped ICD-10-CM codes represented concepts that we did not expect to have phecode equivalents. Most of the codes were from ICD-10-CM chapters 20, “External causes of morbidity” and 21, “Factors influencing health status and contact with health services”. Codes from chapter 19, “Injury, poisoning, and certain other consequences of external causes” also made up a large proportion of unmapped codes, such as ICD-10-CM T38.3X6A, “Underdosing of insulin and oral hypoglycemic [antidiabetic] drugs, initial encounter”. We did not expect ICD-10-CM T38.3X6A to map to a phecode, as it is an encounter code that is not relevant to PheWAS. Three-digit codes that are not frequently used for reimbursement purposes, such as ICD-10-CM I67, “Other cerebrovascular diseases”, also made up many unmapped codes. A few potential clinically meaningful phenotypes, such as ICD-10-CM O04.6, “Delayed or excessive hemorrhage following [induced] termination of pregnancy”, were unmapped and represent areas of potential expansion for phecodes.</p>
+</sec>
+<sec>
+<title>ICD-10-CM Phecode Map Phenotype Reproducibility Analysis</title>
+<p>In general, our analysis suggests that in most of the cases in which phenotypes are not reproduced in the ICD-10-CM observation period, they are not due to errors in the ICD-10-CM phecode map.. This study’s reproducibility analysis (<xref ref-type="table" rid="table2">Table 2</xref>) demonstrates that most patients (70-75%) with phecodes of four chronic diseases sourced from ICD-9-CM codes were also phenotype cases in the ICD-10-CM era. In comparison, when the same experiment is repeated for an acute disease (Intestinal infection), a minority (&lt;10%) of patients had the same phenotype in the ICD-10-CM period. </p>
+<p>Using the ICD-9-CM and ICD-10-CM maps, PheWAS found significant genetic associations with similar effect sizes for coronary atherosclerosis and chronic ischemic heart disease (<xref ref-type="fig" rid="figure4">Figure 4</xref>). Results of this analysis provide additional support for the accuracy of the ICD-10-CM map when compared to the gold-standard ICD-9-CM phecode map.</p>
+</sec>
+<sec>
+<title>PheWAS Using ICD-10 Phecode Map</title>
+<p>Two published studies have used the ICD-10 phecode map to identify genotype-phenotype associations using UKBB data. Zhou et al used the map to demonstrate a method that adjusts for case-control imbalances in a large genome-wide PheWAS [<xref ref-type="bibr" rid="ref33">33</xref>], and Li et al used the same map to estimate the causal effects of elevated serum uric acid across the phenome [<xref ref-type="bibr" rid="ref12">12</xref>].</p>
+</sec>
+<sec>
+<title>Utilization of Phecodes Outside of PheWAS</title>
+<p>In addition to being employed for PheWAS, phecodes have been used to answer a range of questions in biomedicine. Phecodes have been used to identify features in radiographic images that are associated with disease phenotypes [<xref ref-type="bibr" rid="ref34">34</xref>] and used in machine learning models to improve cardiovascular disease prediction [<xref ref-type="bibr" rid="ref35">35</xref>]. In a recent study to understand public opinion about diseases, Huang et al identified articles about diseases and mapped them to phecodes [<xref ref-type="bibr" rid="ref36">36</xref>]. Motivated by the difficulties in automatically translating diagnosis codes from EHRs, Shi et al used phecodes to map ICD-9-CM diagnosis codes from one health system to another [<xref ref-type="bibr" rid="ref37">37</xref>]. Phecodes have also been applied to identify conditions for aggregation in phenotype risk scores, much as SNPs are aggregated as a genetic risk score to identify Mendelian diseases and determine pathogenicity of genetic variants [<xref ref-type="bibr" rid="ref38">38</xref>].</p>
+</sec>
+<sec>
+<title>Related Work</title>
+<p>The Clinical Classification Software (CCS) is another maintained system for aggregating ICD codes into clinically meaningful phenotypes. CCS was originally developed by the Agency for Healthcare Research and Quality (AHRQ) to cluster ICD-9-CM diagnosis and procedure codes to a smaller number of clinically meaningful categories [<xref ref-type="bibr" rid="ref39">39</xref>]. CCS has been used for many purposes, such as measuring outcomes [<xref ref-type="bibr" rid="ref40">40</xref>] and predicting future health care usage [<xref ref-type="bibr" rid="ref41">41</xref>]. In a previous study, we showed that phecodes were better aligned with diseases mentioned in clinical practice and that were relevant to genomic studies than CCS for ICD-9-CM (CCS9) codes [<xref ref-type="bibr" rid="ref20">20</xref>]. We found that phecodes outperform CCS9 codes, in part because CCS9 was not as granular as phecodes. Since CCS for ICD-10-CM (CCS10) is of similar granularity as CCS9 (283 versus 285 disease groups) [<xref ref-type="bibr" rid="ref42">42</xref>], we believe that the phecode map would likely still better represent clinically meaningful phenotypes in genetic research.</p>
+</sec>
+<sec>
+<title>Limitations</title>
+<p>This study has limitations. First, only 84.14% (1570/1866) of phecodes are mapped to at least one ICD-10 code. This may be due in part to the automated strategy that we used to map ICD-10 to ICD-9-CM. Second, the VUMC data are from a single site, thereby making it difficult to generalize the results of our accuracy studies (eg, phenotype reproducibility analysis and LPA SNP PheWAS) to patient cohorts in other EHRs. Third, we have not yet manually reviewed all the mappings in these beta phecode maps, and our assumptions that the manually reviewed resources (eg, NLM and OHDSI) are highly accurate could have affected the accuracy of the new phecode maps. For example, in the 2009 ICD-10-CM to ICD-9-CM GEMS, &gt;90% of the mappings were approximate (ie, nonequivalent) [<xref ref-type="bibr" rid="ref15">15</xref>]. For this study’s purposes, we aimed to maximize phecode coverage of ICD source codes and thus included both equivalent and nonequivalent 2018 GEMS translations, which could have decreased mapping performance.</p>
+<p>Fourth, our automated approach to map &gt;80,000 ICD-10-CM and &gt;9000 ICD-10 codes to phecodes with minimal human engineering could have decreased the accuracy of the final maps. Hripcsak et al [<xref ref-type="bibr" rid="ref43">43</xref>] recently evaluated the effects of translating ICD-9-CM codes to SNOMED CT codes on the creation of patient cohorts. In general, they found that mapping source billing codes to a standard clinical vocabulary (eg, ICD-9-CM to SNOMED CT) did not greatly affect cohort selection. Their findings suggested that optimized domain knowledge–engineered mappings outperformed simple automated translations between clinical vocabularies. Using four phenotype concept sets, they showed that automated mappings resulted in errors of up to 10% and that domain-knowledge engineered mappings had errors of &lt;0.5%. Other studies have also found that mapping performance is generally better with smaller value sets [<xref ref-type="bibr" rid="ref17">17</xref>]. To create a more comprehensive and accurate map between ICD-9-CM and ICD-10-CM, future mapping studies could consider using an iterative forward and backward mapping approach using GEMS [<xref ref-type="bibr" rid="ref17">17</xref>]. </p>
+</sec>
+<sec>
+<title>Future Directions</title>
+<p>Currently, if an ICD-10 or ICD-10-CM code maps to ≥2 unlinked phecodes, we keep all the mappings. In subsequent studies, it will be important to further scrutinize these mappings to ensure accuracy through manual review. As new ICD-10-CM codes are released, we plan to assess their relevance to clinical practice and genetic research and decide whether we should translate them to phecodes. We intend to address the unmapped source codes (eg, ICD-10-CM E78.41 “Elevated Lipoprotein(a)”) by potentially expanding the phecode system, and to systematically evaluate the mappings with input from users. </p>
+</sec>
+<sec>
+<title>Conclusions</title>
+<p>In this paper, we introduced our work on mapping ICD-10 and ICD-10-CM codes to phecodes. We provide initial beta maps with high coverage of EHR data in two large databases. Results from this study suggested that the ICD-10-CM phecode map created phenotypes similar to those generated by the ICD-9-CM phecode map. These mappings will enable researchers to leverage accumulated ICD-10 and ICD-10-CM data in the EHR for large PheWAS.</p>
+</sec>
+</sec>
+</body>
+<back>
+<ack>
+<p>The project was supported by NIH grant R01 LM 010685, R01 HL133786, T32 GM007347, T15 LM007450, P50 GM115305, and AHA Scientist Development Grant 16SDG27490014. The dataset used in the analyses described were obtained from Vanderbilt University Medical Center’s BioVU, which is supported by institutional funding and by the Vanderbilt CTSA grant ULTR000445 from NCATS/NIH. This research was also conducted using the UK Biobank Resource under Application Number 10775. The work conducted in Edinburgh was supported by funding for the infrastructure and staffing of the Edinburgh CRUK Cancer Research Centre. ET is supported by a CRUK Career Development Fellowship (C31250/ A22804). XM and XL are supported by the China Scholarship Council Studentships. We thank those individuals who manually reviewed the various maps that we used in this study [<xref ref-type="bibr" rid="ref18">18</xref>,<xref ref-type="bibr" rid="ref22">22</xref>-<xref ref-type="bibr" rid="ref25">25</xref>]. We also thank the peer-reviewers who provided feedback for this manuscript.</p>
+</ack>
+<fn-group>
+<fn fn-type="con">
+<p>Authors' Contributions: PW, AG, JCD, and WQW contributed to the design of the studies. PW, AG, XM, XL, HC, ET, TV, JZ, JCD, and WQW analyzed the data. PW and AG were responsible for the literature review. AG, XM, XL, and ET retrieved the raw data. PW, AG, RC, LB, JCD, ET, and WQW interpreted the data. PW, AG, JCD, and WQW drafted the initial manuscript. PW, AG, JCD, and WQW were involved in the creation and design of figures and tables. All authors revised the document and gave final approval for publication.</p>
+</fn>
+<fn fn-type="COI-statement">
+<p>Conflicts of Interest: None declared.</p>
+</fn>
+</fn-group>
+<app-group>
+<app>
+<title>Appendix</title>
+<supplementary-material content-type="local-data" id="app1">
+<label>Multimedia Appendix 1</label>
+<p>ICD-10-CM reproducibility analysis, manual chart review results.</p>
+<media id="d35e1114" position="anchor" xlink:href="medinform_v7i4e14325_app1.xlsx" xlink:title="XLSX File (Microsoft Excel File), 10 KB" xlink:type="simple"></media>
+</supplementary-material>
+</app>
+</app-group>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item>
+<term id="abb1">AHRQ</term>
+<def>
+<p>Agency for Healthcare Research and Quality</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb2">CCS</term>
+<def>
+<p>Clinical Classification Software</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb3">CUI</term>
+<def>
+<p>Concept Unique Identifier</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb4">EHR</term>
+<def>
+<p>electronic health record</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb5">GEMS</term>
+<def>
+<p>General Equivalence Mappings</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb6">ICD</term>
+<def>
+<p>International Classification of Diseases</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb7">ICD-9-CM</term>
+<def>
+<p>International Classification of Diseases, Ninth Revision, Clinical Modification</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb8">ICD-10</term>
+<def>
+<p>International Classification of Diseases, 10th Revision</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb9">ICD-10-CM</term>
+<def>
+<p>International Classification of Diseases, 10th Revision, Clinical Modification</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb10">LPA</term>
+<def>
+<p>lipoprotein(a)</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb11">NCHS</term>
+<def>
+<p>National Center for Health Statistics</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb12">NLM</term>
+<def>
+<p>National Library of Medicine</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb13">OHDSI</term>
+<def>
+<p>Observational Health Data Sciences and Informatics</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb14">OR</term>
+<def>
+<p>odds ratio</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb15">PheWAS</term>
+<def>
+<p>phenome-wide association studies</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb16">SNOMED CT</term>
+<def>
+<p>Systematized Nomenclature of Medicine Clinical Terms</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb17">SNP</term>
+<def>
+<p>single nucleotide polymorphism</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb18">UKBB</term>
+<def>
+<p>UK Biobank</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb19">UMLS</term>
+<def>
+<p>Unified Medical Language System</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb20">VUMC</term>
+<def>
+<p>Vanderbilt University Medical Center</p>
+</def>
+</def-item>
+<def-item>
+<term id="abb21">WHO</term>
+<def>
+<p>World Health Organization</p>
+</def>
+</def-item>
+</def-list>
+</glossary>
+<ref-list>
+<ref id="ref1">
+<label>1</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kirby</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Speltz</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Rasmussen</surname>
+<given-names>LV</given-names>
+</name>
+<name>
+<surname>Basford</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Gottesman</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Peissig</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Pacheco</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Tromp</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Pathak</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Carrell</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Ellis</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Lingren</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Thompson</surname>
+<given-names>WK</given-names>
+</name>
+<name>
+<surname>Savova</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Haines</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Harris</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<article-title>PheKB: a catalog and workflow for creating electronic phenotype algorithms for transportability</article-title>
+<source/>J Am Med Inform Assoc
+          <year>2016</year>
+<month>11</month>
+<volume>23</volume>
+<issue>6</issue>
+<fpage>1046</fpage>
+<lpage>1052</lpage>
+<pub-id pub-id-type="doi">10.1093/jamia/ocv202</pub-id>
+<pub-id pub-id-type="medline">27026615</pub-id>
+<!--<pub-id pub-id-type="pii">ocv202</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC5070514</pub-id>-->
+<pub-id pub-id-type="pmid">27026615</pub-id>
+</element-citation>
+</ref>
+<ref id="ref2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gamazon</surname>
+<given-names>ER</given-names>
+</name>
+<name>
+<surname>Segrè</surname>
+<given-names>Ayellet V</given-names>
+</name>
+<name>
+<surname>van de Bunt</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wen</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Xi</surname>
+<given-names>HS</given-names>
+</name>
+<name>
+<surname>Hormozdiari</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Ongen</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Konkashbaev</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Derks</surname>
+<given-names>EM</given-names>
+</name>
+<name>
+<surname>Aguet</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Quan</surname>
+<given-names>J</given-names>
+</name>
+<collab>GTEx Consortium</collab>
+<name>
+<surname>Nicolae</surname>
+<given-names>DL</given-names>
+</name>
+<name>
+<surname>Eskin</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Kellis</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Getz</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>McCarthy</surname>
+<given-names>MI</given-names>
+</name>
+<name>
+<surname>Dermitzakis</surname>
+<given-names>ET</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Ardlie</surname>
+<given-names>KG</given-names>
+</name>
+</person-group>
+<article-title>Using an atlas of gene regulation across 44 human tissues to inform complex disease- and trait-associated variation</article-title>
+<source/>Nat Genet
+          <year>2018</year>
+<month>7</month>
+<volume>50</volume>
+<issue>7</issue>
+<fpage>956</fpage>
+<lpage>967</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/29955180"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1038/s41588-018-0154-4</pub-id>
+<pub-id pub-id-type="medline">29955180</pub-id>
+<!--<pub-id pub-id-type="pii">10.1038/s41588-018-0154-4</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6248311</pub-id>-->
+<pub-id pub-id-type="pmid">29955180</pub-id>
+</element-citation>
+</ref>
+<ref id="ref3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nielsen</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Thorolfsdottir</surname>
+<given-names>RB</given-names>
+</name>
+<name>
+<surname>Fritsche</surname>
+<given-names>LG</given-names>
+</name>
+<name>
+<surname>Zhou</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Skov</surname>
+<given-names>MW</given-names>
+</name>
+<name>
+<surname>Graham</surname>
+<given-names>SE</given-names>
+</name>
+<name>
+<surname>Herron</surname>
+<given-names>TJ</given-names>
+</name>
+<name>
+<surname>McCarthy</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Schmidt</surname>
+<given-names>EM</given-names>
+</name>
+<name>
+<surname>Sveinbjornsson</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Surakka</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Mathis</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Yamazaki</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Crawford</surname>
+<given-names>RD</given-names>
+</name>
+<name>
+<surname>Gabrielsen</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Skogholt</surname>
+<given-names>AH</given-names>
+</name>
+<name>
+<surname>Holmen</surname>
+<given-names>OL</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wolford</surname>
+<given-names>BN</given-names>
+</name>
+<name>
+<surname>Dey</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Dalen</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Sulem</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Chung</surname>
+<given-names>JH</given-names>
+</name>
+<name>
+<surname>Backman</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Arnar</surname>
+<given-names>DO</given-names>
+</name>
+<name>
+<surname>Thorsteinsdottir</surname>
+<given-names>U</given-names>
+</name>
+<name>
+<surname>Baras</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>O'Dushlaine</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Holst</surname>
+<given-names>AG</given-names>
+</name>
+<name>
+<surname>Wen</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Hornsby</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Dewey</surname>
+<given-names>FE</given-names>
+</name>
+<name>
+<surname>Boehnke</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kheterpal</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Mukherjee</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Holm</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Kitzman</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Shavit</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Jalife</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Brummett</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Teslovich</surname>
+<given-names>TM</given-names>
+</name>
+<name>
+<surname>Carey</surname>
+<given-names>DJ</given-names>
+</name>
+<name>
+<surname>Gudbjartsson</surname>
+<given-names>DF</given-names>
+</name>
+<name>
+<surname>Stefansson</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Abecasis</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Hveem</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Willer</surname>
+<given-names>CJ</given-names>
+</name>
+</person-group>
+<article-title>Biobank-driven genomic discovery yields new insight into atrial fibrillation biology</article-title>
+<source/>Nat Genet
+          <year>2018</year>
+<month>9</month>
+<volume>50</volume>
+<issue>9</issue>
+<fpage>1234</fpage>
+<lpage>1239</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/30061737"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1038/s41588-018-0171-3</pub-id>
+<pub-id pub-id-type="medline">30061737</pub-id>
+<!--<pub-id pub-id-type="pii">10.1038/s41588-018-0171-3</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6530775</pub-id>-->
+<pub-id pub-id-type="pmid">30061737</pub-id>
+</element-citation>
+</ref>
+<ref id="ref4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Simonti</surname>
+<given-names>CN</given-names>
+</name>
+<name>
+<surname>Vernot</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Bastarache</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Bottinger</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Carrell</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Chisholm</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Crosslin</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Hebbring</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Jarvik</surname>
+<given-names>GP</given-names>
+</name>
+<name>
+<surname>Kullo</surname>
+<given-names>IJ</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Pathak</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Verma</surname>
+<given-names>SS</given-names>
+</name>
+<name>
+<surname>Tromp</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Prato</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Bush</surname>
+<given-names>WS</given-names>
+</name>
+<name>
+<surname>Akey</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Capra</surname>
+<given-names>JA</given-names>
+</name>
+</person-group>
+<article-title>The phenotypic legacy of admixture between modern humans and Neandertals</article-title>
+<source/>Science
+          <year>2016</year>
+<month>2</month>
+<day>12</day>
+<volume>351</volume>
+<issue>6274</issue>
+<fpage>737</fpage>
+<lpage>41</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://www.sciencemag.org/cgi/pmidlookup?view=long&amp;pmid=26912863"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1126/science.aad2149</pub-id>
+<pub-id pub-id-type="medline">26912863</pub-id>
+<!--<pub-id pub-id-type="pii">351/6274/737</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4849557</pub-id>-->
+<pub-id pub-id-type="pmid">26912863</pub-id>
+</element-citation>
+</ref>
+<ref id="ref5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Diogo</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Bastarache</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Liao</surname>
+<given-names>KP</given-names>
+</name>
+<name>
+<surname>Graham</surname>
+<given-names>RR</given-names>
+</name>
+<name>
+<surname>Fulton</surname>
+<given-names>RS</given-names>
+</name>
+<name>
+<surname>Greenberg</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Eyre</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Bowes</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Cui</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Pappas</surname>
+<given-names>DA</given-names>
+</name>
+<name>
+<surname>Kremer</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Barton</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Coenen</surname>
+<given-names>MJH</given-names>
+</name>
+<name>
+<surname>Franke</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Kiemeney</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Mariette</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Richard-Miceli</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Canhão</surname>
+<given-names>Helena</given-names>
+</name>
+<name>
+<surname>Fonseca</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>de Vries</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Tak</surname>
+<given-names>PP</given-names>
+</name>
+<name>
+<surname>Crusius</surname>
+<given-names>JBA</given-names>
+</name>
+<name>
+<surname>Nurmohamed</surname>
+<given-names>MT</given-names>
+</name>
+<name>
+<surname>Kurreeman</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Mikuls</surname>
+<given-names>TR</given-names>
+</name>
+<name>
+<surname>Okada</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Stahl</surname>
+<given-names>EA</given-names>
+</name>
+<name>
+<surname>Larson</surname>
+<given-names>DE</given-names>
+</name>
+<name>
+<surname>Deluca</surname>
+<given-names>TL</given-names>
+</name>
+<name>
+<surname>O'Laughlin</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Fronick</surname>
+<given-names>CC</given-names>
+</name>
+<name>
+<surname>Fulton</surname>
+<given-names>LL</given-names>
+</name>
+<name>
+<surname>Kosoy</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Ransom</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Bhangale</surname>
+<given-names>TR</given-names>
+</name>
+<name>
+<surname>Ortmann</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Cagan</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Gainer</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Karlson</surname>
+<given-names>EW</given-names>
+</name>
+<name>
+<surname>Kohane</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Murphy</surname>
+<given-names>SN</given-names>
+</name>
+<name>
+<surname>Martin</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Zhernakova</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Klareskog</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Padyukov</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Worthington</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Mardis</surname>
+<given-names>ER</given-names>
+</name>
+<name>
+<surname>Seldin</surname>
+<given-names>MF</given-names>
+</name>
+<name>
+<surname>Gregersen</surname>
+<given-names>PK</given-names>
+</name>
+<name>
+<surname>Behrens</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Raychaudhuri</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Plenge</surname>
+<given-names>RM</given-names>
+</name>
+</person-group>
+<article-title>TYK2 protein-coding variants protect against rheumatoid arthritis and autoimmunity, with no evidence of major pleiotropic effects on non-autoimmune complex traits</article-title>
+<source/>PLoS One
+          <year>2015</year>
+<volume>10</volume>
+<issue>4</issue>
+<fpage>e0122271</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://dx.plos.org/10.1371/journal.pone.0122271"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0122271</pub-id>
+<pub-id pub-id-type="medline">25849893</pub-id>
+<!--<pub-id pub-id-type="pii">PONE-D-14-31740</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4388675</pub-id>-->
+<pub-id pub-id-type="pmid">25849893</pub-id>
+</element-citation>
+</ref>
+<ref id="ref6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Rastegar-Mojarad</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ye</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Kolesar</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Hebbring</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>SM</given-names>
+</name>
+</person-group>
+<article-title>Opportunities for drug repositioning from phenome-wide association studies</article-title>
+<source/>Nat Biotechnol
+          <year>2015</year>
+<month>4</month>
+<volume>33</volume>
+<issue>4</issue>
+<fpage>342</fpage>
+<lpage>5</lpage>
+<pub-id pub-id-type="doi">10.1038/nbt.3183</pub-id>
+<pub-id pub-id-type="medline">25850054</pub-id>
+<!--<pub-id pub-id-type="pii">nbt.3183</pub-id>-->
+<pub-id pub-id-type="pmid">25850054</pub-id>
+</element-citation>
+</ref>
+<ref id="ref7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Millard</surname>
+<given-names>LAC</given-names>
+</name>
+<name>
+<surname>Davies</surname>
+<given-names>NM</given-names>
+</name>
+<name>
+<surname>Timpson</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Tilling</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Flach</surname>
+<given-names>PA</given-names>
+</name>
+<name>
+<surname>Davey Smith</surname>
+<given-names>G</given-names>
+</name>
+</person-group>
+<article-title>MR-PheWAS: hypothesis prioritization among potential causal effects of body mass index on many outcomes, using Mendelian randomization</article-title>
+<source/>Sci Rep
+          <year>2015</year>
+<month>11</month>
+<day>16</day>
+<volume>5</volume>
+<fpage>16645</fpage>
+<pub-id pub-id-type="doi">10.1038/srep16645</pub-id>
+<pub-id pub-id-type="doi">10.1038/srep16645</pub-id>
+<pub-id pub-id-type="medline">26568383</pub-id>
+<!--<pub-id pub-id-type="pii">srep16645</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4644974</pub-id>-->
+<pub-id pub-id-type="pmid">26568383</pub-id>
+</element-citation>
+</ref>
+<ref id="ref8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ehm</surname>
+<given-names>MG</given-names>
+</name>
+<name>
+<surname>Aponte</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Chiano</surname>
+<given-names>MN</given-names>
+</name>
+<name>
+<surname>Yerges-Armstrong</surname>
+<given-names>LM</given-names>
+</name>
+<name>
+<surname>Johnson</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Barker</surname>
+<given-names>JN</given-names>
+</name>
+<name>
+<surname>Cook</surname>
+<given-names>SF</given-names>
+</name>
+<name>
+<surname>Gupta</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hinds</surname>
+<given-names>DA</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Nelson</surname>
+<given-names>MR</given-names>
+</name>
+<name>
+<surname>Simpson</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Tian</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>McCarthy</surname>
+<given-names>LC</given-names>
+</name>
+<name>
+<surname>Rajpal</surname>
+<given-names>DK</given-names>
+</name>
+<name>
+<surname>Waterworth</surname>
+<given-names>DM</given-names>
+</name>
+</person-group>
+<article-title>Phenome-wide association study using research participants' self-reported data provides insight into the Th17 and IL-17 pathway</article-title>
+<source/>PLoS One
+          <year>2017</year>
+<volume>12</volume>
+<issue>11</issue>
+<fpage>e0186405</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://dx.plos.org/10.1371/journal.pone.0186405"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0186405</pub-id>
+<pub-id pub-id-type="medline">29091937</pub-id>
+<!--<pub-id pub-id-type="pii">PONE-D-17-04600</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC5665418</pub-id>-->
+<pub-id pub-id-type="pmid">29091937</pub-id>
+</element-citation>
+</ref>
+<ref id="ref9">
+<label>9</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Liu</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Ye</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Mayer</surname>
+<given-names>JG</given-names>
+</name>
+<name>
+<surname>Hoch</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Green</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Rolak</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Cold</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Khor</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Miyagawa</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Tokunaga</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Brilliant</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>Hebbring</surname>
+<given-names>SJ</given-names>
+</name>
+</person-group>
+<article-title>Phenome-wide association study maps new diseases to the human major histocompatibility complex region</article-title>
+<source/>J Med Genet
+          <year>2016</year>
+<month>10</month>
+<volume>53</volume>
+<issue>10</issue>
+<fpage>681</fpage>
+<lpage>9</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/27287392"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1136/jmedgenet-2016-103867</pub-id>
+<pub-id pub-id-type="medline">27287392</pub-id>
+<!--<pub-id pub-id-type="pii">jmedgenet-2016-103867</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC5035188</pub-id>-->
+<pub-id pub-id-type="pmid">27287392</pub-id>
+</element-citation>
+</ref>
+<ref id="ref10">
+<label>10</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Neuraz</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Chouchana</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Malamut</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Le Beller</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Roche</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Beaune</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Degoulet</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Burgun</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Loriot</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Avillach</surname>
+<given-names>P</given-names>
+</name>
+</person-group>
+<article-title>Phenome-wide association studies on a quantitative trait: application to TPMT enzyme activity and thiopurine therapy in pharmacogenomics</article-title>
+<source/>PLoS Comput Biol
+          <year>2013</year>
+<volume>9</volume>
+<issue>12</issue>
+<fpage>e1003405</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://dx.plos.org/10.1371/journal.pcbi.1003405"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1003405</pub-id>
+<pub-id pub-id-type="medline">24385893</pub-id>
+<!--<pub-id pub-id-type="pii">PCOMPBIOL-D-13-00970</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC3873228</pub-id>-->
+<pub-id pub-id-type="pmid">24385893</pub-id>
+</element-citation>
+</ref>
+<ref id="ref11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Doshi-Velez</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Ge</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Kohane</surname>
+<given-names>I</given-names>
+</name>
+</person-group>
+<article-title>Comorbidity clusters in autism spectrum disorders: an electronic health record time-series analysis</article-title>
+<source/>Pediatrics
+          <year>2014</year>
+<month>1</month>
+<volume>133</volume>
+<issue>1</issue>
+<fpage>e54</fpage>
+<lpage>63</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/24323995"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1542/peds.2013-0819</pub-id>
+<pub-id pub-id-type="medline">24323995</pub-id>
+<!--<pub-id pub-id-type="pii">peds.2013-0819</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC3876178</pub-id>-->
+<pub-id pub-id-type="pmid">24323995</pub-id>
+</element-citation>
+</ref>
+<ref id="ref12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Li</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Meng</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Spiliopoulou</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Timofeeva</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Gifford</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Shen</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>He</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Varley</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>McKeigue</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Tzoulaki</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Wright</surname>
+<given-names>AF</given-names>
+</name>
+<name>
+<surname>Joshi</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Campbell</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Theodoratou</surname>
+<given-names>E</given-names>
+</name>
+</person-group>
+<article-title>MR-PheWAS: exploring the causal effect of SUA level on multiple disease outcomes by using genetic instruments in UK Biobank</article-title>
+<source/>Ann Rheum Dis
+          <year>2018</year>
+<month>7</month>
+<volume>77</volume>
+<issue>7</issue>
+<fpage>1039</fpage>
+<lpage>1047</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://ard.bmj.com/cgi/pmidlookup?view=long&amp;pmid=29437585"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1136/annrheumdis-2017-212534</pub-id>
+<pub-id pub-id-type="medline">29437585</pub-id>
+<!--<pub-id pub-id-type="pii">annrheumdis-2017-212534</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6029646</pub-id>-->
+<pub-id pub-id-type="pmid">29437585</pub-id>
+</element-citation>
+</ref>
+<ref id="ref13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Carroll</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Bastarache</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<article-title>R PheWAS: data analysis and plotting tools for phenome-wide association studies in the R environment</article-title>
+<source/>Bioinformatics
+          <year>2014</year>
+<month>8</month>
+<day>15</day>
+<volume>30</volume>
+<issue>16</issue>
+<fpage>2375</fpage>
+<lpage>6</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/24733291"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btu197</pub-id>
+<pub-id pub-id-type="medline">24733291</pub-id>
+<!--<pub-id pub-id-type="pii">btu197</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4133579</pub-id>-->
+<pub-id pub-id-type="pmid">24733291</pub-id>
+</element-citation>
+</ref>
+<ref id="ref14">
+<label>14</label>
+<element-citation publication-type="webpage">
+<source/>PheWAS Catalog
+          <date-in-citation>2019-07-14</date-in-citation>
+<comment>Phecode Map 1.2 with ICD-9 Codes. <ext-link ext-link-type="uri" xlink:href="https://phewascatalog.org/phecodes">https://phewascatalog.org/phecodes</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Steindel</surname>
+<given-names>SJ</given-names>
+</name>
+</person-group>
+<article-title>International classification of diseases, 10th edition, clinical modification and procedure coding system: descriptive overview of the next generation HIPAA code sets</article-title>
+<source/>J Am Med Inform Assoc
+          <year>2010</year>
+<volume>17</volume>
+<issue>3</issue>
+<fpage>274</fpage>
+<lpage>82</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/20442144"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1136/jamia.2009.001230</pub-id>
+<pub-id pub-id-type="medline">20442144</pub-id>
+<!--<pub-id pub-id-type="pii">17/3/274</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC2995704</pub-id>-->
+<pub-id pub-id-type="pmid">20442144</pub-id>
+</element-citation>
+</ref>
+<ref id="ref16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Topaz</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Shafran-Topaz</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Bowles</surname>
+<given-names>KH</given-names>
+</name>
+</person-group>
+<article-title>ICD-9 to ICD-10: evolution, revolution, and current debates in the United States</article-title>
+<source/>Perspect Health Inf Manag
+          <year>2013</year>
+<volume>10</volume>
+<fpage>1d</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/23805064"></ext-link>
+</comment>
+<pub-id pub-id-type="medline">23805064</pub-id>
+<!--<pub-id pub-id-type="pmcid">PMC3692324</pub-id>-->
+</element-citation>
+</ref>
+<ref id="ref17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fung</surname>
+<given-names>KW</given-names>
+</name>
+<name>
+<surname>Richesson</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Smerek</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Pereira</surname>
+<given-names>KC</given-names>
+</name>
+<name>
+<surname>Green</surname>
+<given-names>BB</given-names>
+</name>
+<name>
+<surname>Patkar</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Clowse</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Bauck</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bodenreider</surname>
+<given-names>O</given-names>
+</name>
+</person-group>
+<article-title>Preparing for the ICD-10-CM Transition: Automated Methods for Translating ICD Codes in Clinical Phenotype Definitions</article-title>
+<source/>EGEMS (Wash DC)
+          <year>2016</year>
+<volume>4</volume>
+<issue>1</issue>
+<fpage>1211</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/27195309"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.13063/2327-9214.1211</pub-id>
+<pub-id pub-id-type="medline">27195309</pub-id>
+<!--<pub-id pub-id-type="pii">egems1211</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4862764</pub-id>-->
+<pub-id pub-id-type="pmid">27195309</pub-id>
+</element-citation>
+</ref>
+<ref id="ref18">
+<label>18</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Wilder</surname>
+<given-names>V</given-names>
+</name>
+</person-group>
+<source/>NLM Technical Bulletin
+          <year>2018</year>
+<month>5</month>
+<date-in-citation>2019-07-16</date-in-citation>
+<publisher-name>US National Library of Medicine</publisher-name>
+<comment>UMLS 2018AA Release Available. <ext-link ext-link-type="uri" xlink:href="https://www.nlm.nih.gov/pubs/techbull/mj18/mj18_umls_2018aa_release.html">https://www.nlm.nih.gov/pubs/techbull/mj18/mj18_umls_2018aa_release.html</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Bastarache</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>MD</given-names>
+</name>
+<name>
+<surname>Carroll</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Zink</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Mosley</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Field</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Pulley</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Ramirez</surname>
+<given-names>AH</given-names>
+</name>
+<name>
+<surname>Bowton</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Basford</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Carrell</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Peissig</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Kho</surname>
+<given-names>AN</given-names>
+</name>
+<name>
+<surname>Pacheco</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Rasmussen</surname>
+<given-names>LV</given-names>
+</name>
+<name>
+<surname>Crosslin</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Crane</surname>
+<given-names>PK</given-names>
+</name>
+<name>
+<surname>Pathak</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Bielinski</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Pendergrass</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Xu</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Hindorff</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Manolio</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Chute</surname>
+<given-names>CG</given-names>
+</name>
+<name>
+<surname>Chisholm</surname>
+<given-names>RL</given-names>
+</name>
+<name>
+<surname>Larson</surname>
+<given-names>EB</given-names>
+</name>
+<name>
+<surname>Jarvik</surname>
+<given-names>GP</given-names>
+</name>
+<name>
+<surname>Brilliant</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>McCarty</surname>
+<given-names>CA</given-names>
+</name>
+<name>
+<surname>Kullo</surname>
+<given-names>IJ</given-names>
+</name>
+<name>
+<surname>Haines</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Crawford</surname>
+<given-names>DC</given-names>
+</name>
+<name>
+<surname>Masys</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+</person-group>
+<article-title>Systematic comparison of phenome-wide association study of electronic medical record data and genome-wide association study data</article-title>
+<source/>Nat Biotechnol
+          <year>2013</year>
+<month>12</month>
+<volume>31</volume>
+<issue>12</issue>
+<fpage>1102</fpage>
+<lpage>10</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/24270849"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1038/nbt.2749</pub-id>
+<pub-id pub-id-type="medline">24270849</pub-id>
+<!--<pub-id pub-id-type="pii">nbt.2749</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC3969265</pub-id>-->
+<pub-id pub-id-type="pmid">24270849</pub-id>
+</element-citation>
+</ref>
+<ref id="ref20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Bastarache</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Carroll</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Marlo</surname>
+<given-names>JE</given-names>
+</name>
+<name>
+<surname>Osterman</surname>
+<given-names>TJ</given-names>
+</name>
+<name>
+<surname>Gamazon</surname>
+<given-names>ER</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<article-title>Evaluating phecodes, clinical classification software, and ICD-9-CM codes for phenome-wide association studies in the electronic health record</article-title>
+<source/>PLoS One
+          <year>2017</year>
+<volume>12</volume>
+<issue>7</issue>
+<fpage>e0175508</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://dx.plos.org/10.1371/journal.pone.0175508"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0175508</pub-id>
+<pub-id pub-id-type="medline">28686612</pub-id>
+<!--<pub-id pub-id-type="pii">PONE-D-16-36822</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC5501393</pub-id>-->
+<pub-id pub-id-type="pmid">28686612</pub-id>
+</element-citation>
+</ref>
+<ref id="ref21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sudlow</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Gallacher</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Allen</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Beral</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Burton</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Danesh</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Downey</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Elliott</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Green</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Landray</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Matthews</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Ong</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Pell</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Silman</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Young</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Sprosen</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Peakman</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>UK biobank: an open access resource for identifying the causes of a wide range of complex diseases of middle and old age</article-title>
+<source/>PLoS Med
+          <year>2015</year>
+<month>3</month>
+<volume>12</volume>
+<issue>3</issue>
+<fpage>e1001779</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://dx.plos.org/10.1371/journal.pmed.1001779"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1371/journal.pmed.1001779</pub-id>
+<pub-id pub-id-type="medline">25826379</pub-id>
+<!--<pub-id pub-id-type="pii">PMEDICINE-D-12-02351</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4380465</pub-id>-->
+<pub-id pub-id-type="pmid">25826379</pub-id>
+</element-citation>
+</ref>
+<ref id="ref22">
+<label>22</label>
+<element-citation publication-type="webpage">
+<person-group person-group-type="author">
+<collab>Centers for Medicare &amp; Medicaid Services</collab>
+</person-group>
+<source/>CMS.gov
+          <year>2017</year>
+<month>8</month>
+<day>11</day>
+<date-in-citation>2019-07-05</date-in-citation>
+<comment>2018 ICD-10-CM and GEMs. <ext-link ext-link-type="uri" xlink:href="https://www.cms.gov/Medicare/Coding/ICD10/2018-ICD-10-CM-and-GEMs.html">https://www.cms.gov/Medicare/Coding/ICD10/2018-ICD-10-CM-and-GEMs.html</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref23">
+<label>23</label>
+<element-citation publication-type="webpage">
+<source/>US National Library of Medicine
+          <year>2018</year>
+<month>1</month>
+<day>26</day>
+<date-in-citation>2019-04-06</date-in-citation>
+<comment>SNOMED CT to ICD-9-CM Rule Based Mapping to Support Reimbursement. <ext-link ext-link-type="uri" xlink:href="https://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd9cm_reimburse.html">https://www.nlm.nih.gov/research/umls/mapping_projects/snomedct_to_icd9cm_reimburse.html</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Fung</surname>
+<given-names>KW</given-names>
+</name>
+<name>
+<surname>Bodenreider</surname>
+<given-names>O</given-names>
+</name>
+</person-group>
+<article-title>Utilizing the UMLS for semantic mapping between terminologies</article-title>
+<source/>AMIA Annu Symp Proc
+          <year>2005</year>
+<fpage>266</fpage>
+<lpage>70</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/16779043"></ext-link>
+</comment>
+<pub-id pub-id-type="medline">16779043</pub-id>
+<!--<pub-id pub-id-type="pii">58254</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC1560893</pub-id>-->
+<pub-id pub-id-type="pmid">16779043</pub-id>
+</element-citation>
+</ref>
+<ref id="ref25">
+<label>25</label>
+<element-citation publication-type="webpage">
+<source/>Observational Health Data Sciences and Informatics
+          <year>2016</year>
+<month>6</month>
+<day>04</day>
+<date-in-citation>2019-07-17</date-in-citation>
+<comment>ICD9CM. <ext-link ext-link-type="uri" xlink:href="https://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:icd9cm">https://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:icd9cm</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref26">
+<label>26</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hripcsak</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Duke</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Shah</surname>
+<given-names>NH</given-names>
+</name>
+<name>
+<surname>Reich</surname>
+<given-names>CG</given-names>
+</name>
+<name>
+<surname>Huser</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>Schuemie</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Suchard</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Park</surname>
+<given-names>RW</given-names>
+</name>
+<name>
+<surname>Wong</surname>
+<given-names>ICK</given-names>
+</name>
+<name>
+<surname>Rijnbeek</surname>
+<given-names>PR</given-names>
+</name>
+<name>
+<surname>van der Lei</surname>
+<given-names>Johan</given-names>
+</name>
+<name>
+<surname>Pratt</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Norén</surname>
+<given-names>G Niklas</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Stang</surname>
+<given-names>PE</given-names>
+</name>
+<name>
+<surname>Madigan</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Ryan</surname>
+<given-names>PB</given-names>
+</name>
+</person-group>
+<article-title>Observational Health Data Sciences and Informatics (OHDSI): Opportunities for Observational Researchers</article-title>
+<source/>Stud Health Technol Inform
+          <year>2015</year>
+<volume>216</volume>
+<fpage>574</fpage>
+<lpage>8</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/26262116"></ext-link>
+</comment>
+<pub-id pub-id-type="medline">26262116</pub-id>
+<!--<pub-id pub-id-type="pmcid">PMC4815923</pub-id>-->
+<pub-id pub-id-type="pmid">26262116</pub-id>
+</element-citation>
+</ref>
+<ref id="ref27">
+<label>27</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Giuse</surname>
+<given-names>DA</given-names>
+</name>
+</person-group>
+<article-title>Supporting communication in an integrated patient record system</article-title>
+<source/>AMIA Annu Symp Proc
+          <year>2003</year>
+<fpage>1065</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/14728568"></ext-link>
+</comment>
+<pub-id pub-id-type="medline">14728568</pub-id>
+<!--<pub-id pub-id-type="pii">D030003066</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC1480157</pub-id>-->
+<pub-id pub-id-type="pmid">14728568</pub-id>
+</element-citation>
+</ref>
+<ref id="ref28">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nordestgaard</surname>
+<given-names>BG</given-names>
+</name>
+<name>
+<surname>Chapman</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Ray</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Borén</surname>
+<given-names>Jan</given-names>
+</name>
+<name>
+<surname>Andreotti</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Watts</surname>
+<given-names>GF</given-names>
+</name>
+<name>
+<surname>Ginsberg</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Amarenco</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Catapano</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Descamps</surname>
+<given-names>OS</given-names>
+</name>
+<name>
+<surname>Fisher</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Kovanen</surname>
+<given-names>PT</given-names>
+</name>
+<name>
+<surname>Kuivenhoven</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Lesnik</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Masana</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Reiner</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Taskinen</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Tokgözoglu</surname>
+<given-names>Lale</given-names>
+</name>
+<name>
+<surname>Tybjærg-Hansen</surname>
+<given-names>Anne</given-names>
+</name>
+<collab>European Atherosclerosis Society Consensus Panel</collab>
+</person-group>
+<article-title>Lipoprotein(a) as a cardiovascular risk factor: current status</article-title>
+<source/>Eur Heart J
+          <year>2010</year>
+<month>12</month>
+<volume>31</volume>
+<issue>23</issue>
+<fpage>2844</fpage>
+<lpage>53</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/20965889"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1093/eurheartj/ehq386</pub-id>
+<pub-id pub-id-type="medline">20965889</pub-id>
+<!--<pub-id pub-id-type="pii">ehq386</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC3295201</pub-id>-->
+<pub-id pub-id-type="pmid">20965889</pub-id>
+</element-citation>
+</ref>
+<ref id="ref29">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Warner</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>Using topic modeling via non-negative matrix factorization to identify relationships between genetic variants and disease phenotypes: A case study of Lipoprotein(a) (LPA)</article-title>
+<source/>PLoS One
+          <year>2019</year>
+<volume>14</volume>
+<issue>2</issue>
+<fpage>e0212112</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://dx.plos.org/10.1371/journal.pone.0212112"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0212112</pub-id>
+<pub-id pub-id-type="medline">30759150</pub-id>
+<!--<pub-id pub-id-type="pii">PONE-D-18-17709</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6374022</pub-id>-->
+<pub-id pub-id-type="pmid">30759150</pub-id>
+</element-citation>
+</ref>
+<ref id="ref30">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Kubo</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Kullo</surname>
+<given-names>IJ</given-names>
+</name>
+<name>
+<surname>Peissig</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Karlson</surname>
+<given-names>EW</given-names>
+</name>
+<name>
+<surname>Jarvik</surname>
+<given-names>GP</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>MTM</given-names>
+</name>
+<name>
+<surname>Shang</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Larson</surname>
+<given-names>EA</given-names>
+</name>
+<name>
+<surname>Edwards</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Shaffer</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Mosley</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Maeda</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Horikoshi</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ritchie</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Williams</surname>
+<given-names>MS</given-names>
+</name>
+<name>
+<surname>Larson</surname>
+<given-names>EB</given-names>
+</name>
+<name>
+<surname>Crosslin</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Bland</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Pacheco</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Rasmussen-Torvik</surname>
+<given-names>LJ</given-names>
+</name>
+<name>
+<surname>Cronkite</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Hripcsak</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Wilke</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Stein</surname>
+<given-names>CM</given-names>
+</name>
+<name>
+<surname>Rotter</surname>
+<given-names>JI</given-names>
+</name>
+<name>
+<surname>Momozawa</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Krauss</surname>
+<given-names>RM</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<article-title>LPA Variants Are Associated With Residual Cardiovascular Risk in Patients Receiving Statins</article-title>
+<source/>Circulation
+          <year>2018</year>
+<month>10</month>
+<day>23</day>
+<volume>138</volume>
+<issue>17</issue>
+<fpage>1839</fpage>
+<lpage>1849</lpage>
+<pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.117.031356</pub-id>
+<pub-id pub-id-type="medline">29703846</pub-id>
+<!--<pub-id pub-id-type="pii">CIRCULATIONAHA.117.031356</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6202211</pub-id>-->
+<pub-id pub-id-type="pmid">29703846</pub-id>
+</element-citation>
+</ref>
+<ref id="ref31">
+<label>31</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Pulley</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Basford</surname>
+<given-names>MA</given-names>
+</name>
+<name>
+<surname>Bernard</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Clayton</surname>
+<given-names>EW</given-names>
+</name>
+<name>
+<surname>Balser</surname>
+<given-names>JR</given-names>
+</name>
+<name>
+<surname>Masys</surname>
+<given-names>DR</given-names>
+</name>
+</person-group>
+<article-title>Development of a large-scale de-identified DNA biobank to enable personalized medicine</article-title>
+<source/>Clin Pharmacol Ther
+          <year>2008</year>
+<month>9</month>
+<volume>84</volume>
+<issue>3</issue>
+<fpage>362</fpage>
+<lpage>9</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/18500243"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1038/clpt.2008.89</pub-id>
+<pub-id pub-id-type="medline">18500243</pub-id>
+<!--<pub-id pub-id-type="pii">clpt200889</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC3763939</pub-id>-->
+<pub-id pub-id-type="pmid">18500243</pub-id>
+</element-citation>
+</ref>
+<ref id="ref32">
+<label>32</label>
+<element-citation publication-type="webpage">
+<person-group person-group-type="author">
+<collab>PheWAS</collab>
+</person-group>
+<source/>GitHub
+          <date-in-citation>2019-10-04</date-in-citation>
+<comment>PheWAS R Package. <ext-link ext-link-type="uri" xlink:href="https://github.com/PheWAS/PheWAS">https://github.com/PheWAS/PheWAS</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref33">
+<label>33</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhou</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Nielsen</surname>
+<given-names>JB</given-names>
+</name>
+<name>
+<surname>Fritsche</surname>
+<given-names>LG</given-names>
+</name>
+<name>
+<surname>Dey</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Gabrielsen</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Wolford</surname>
+<given-names>BN</given-names>
+</name>
+<name>
+<surname>LeFaive</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>VandeHaar</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Gagliano</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Gifford</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Bastarache</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Lin</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Hveem</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>HM</given-names>
+</name>
+<name>
+<surname>Abecasis</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Willer</surname>
+<given-names>CJ</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Efficiently controlling for case-control imbalance and sample relatedness in large-scale genetic association studies</article-title>
+<source/>Nat Genet
+          <year>2018</year>
+<month>9</month>
+<volume>50</volume>
+<issue>9</issue>
+<fpage>1335</fpage>
+<lpage>1341</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/30104761"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1038/s41588-018-0184-y</pub-id>
+<pub-id pub-id-type="medline">30104761</pub-id>
+<!--<pub-id pub-id-type="pii">10.1038/s41588-018-0184-y</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6119127</pub-id>-->
+<pub-id pub-id-type="pmid">30104761</pub-id>
+</element-citation>
+</ref>
+<ref id="ref34">
+<label>34</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chaganti</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Mawn</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Kang</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Egan</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Resnick</surname>
+<given-names>SM</given-names>
+</name>
+<name>
+<surname>Beason-Held</surname>
+<given-names>LL</given-names>
+</name>
+<name>
+<surname>Landman</surname>
+<given-names>BA</given-names>
+</name>
+<name>
+<surname>Lasko</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Electronic Medical Record Context Signatures Improve Diagnostic Classification Using Medical Image Computing</article-title>
+<source/>IEEE J Biomed Health Inform
+          <year>2019</year>
+<month>9</month>
+<volume>23</volume>
+<issue>5</issue>
+<fpage>2052</fpage>
+<lpage>2062</lpage>
+<pub-id pub-id-type="doi">10.1109/JBHI.2018.2890084</pub-id>
+<pub-id pub-id-type="medline">30602428</pub-id>
+<pub-id pub-id-type="pmid">30602428</pub-id>
+</element-citation>
+</ref>
+<ref id="ref35">
+<label>35</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhao</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Lupu</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Wilke</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Wells</surname>
+<given-names>QS</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+</person-group>
+<article-title>Learning from Longitudinal Data in Electronic Health Record and Genetic Data to Improve Cardiovascular Event Prediction</article-title>
+<source/>Sci Rep
+          <year>2019</year>
+<month>1</month>
+<day>24</day>
+<volume>9</volume>
+<issue>1</issue>
+<fpage>717</fpage>
+<pub-id pub-id-type="doi">10.1038/s41598-018-36745-x</pub-id>
+<pub-id pub-id-type="medline">30679510</pub-id>
+<!--<pub-id pub-id-type="pii">10.1038/s41598-018-36745-x</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6345960</pub-id>-->
+<pub-id pub-id-type="pmid">30679510</pub-id>
+</element-citation>
+</ref>
+<ref id="ref36">
+<label>36</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>ElTayeby</surname>
+<given-names>O</given-names>
+</name>
+<name>
+<surname>Zolnoori</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Yao</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Public Opinions Toward Diseases: Infodemiological Study on News Media Data</article-title>
+<source/>J Med Internet Res
+          <year>2018</year>
+<month>5</month>
+<day>08</day>
+<volume>20</volume>
+<issue>5</issue>
+<fpage>e10047</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="https://www.jmir.org/2018/5/e10047/"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.2196/10047</pub-id>
+<pub-id pub-id-type="medline">29739741</pub-id>
+<!--<pub-id pub-id-type="pii">v20i5e10047</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC5964307</pub-id>-->
+<pub-id pub-id-type="pmid">29739741</pub-id>
+</element-citation>
+</ref>
+<ref id="ref37">
+<label>37</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shi</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Li</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Cai</surname>
+<given-names>T</given-names>
+</name>
+</person-group>
+<article-title>Spherical Regression under Mismatch Corruption with Application to Automated Knowledge Translation</article-title>
+<source/>arXiv preprint
+          <year>2019</year>
+<month>9</month>
+<day>04</day>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="https://arxiv.org/abs/1810.05679"></ext-link>
+</comment>
+</element-citation>
+</ref>
+<ref id="ref38">
+<label>38</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bastarache</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Hughey</surname>
+<given-names>JJ</given-names>
+</name>
+<name>
+<surname>Hebbring</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Marlo</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Ho</surname>
+<given-names>WT</given-names>
+</name>
+<name>
+<surname>Van Driest</surname>
+<given-names>SL</given-names>
+</name>
+<name>
+<surname>McGregor</surname>
+<given-names>TL</given-names>
+</name>
+<name>
+<surname>Mosley</surname>
+<given-names>JD</given-names>
+</name>
+<name>
+<surname>Wells</surname>
+<given-names>QS</given-names>
+</name>
+<name>
+<surname>Temple</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Ramirez</surname>
+<given-names>AH</given-names>
+</name>
+<name>
+<surname>Carroll</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Osterman</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Edwards</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Ruderfer</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Velez Edwards</surname>
+<given-names>DR</given-names>
+</name>
+<name>
+<surname>Hamid</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Cogan</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Glazer</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Wei</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Brilliant</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Zhao</surname>
+<given-names>ZJ</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Roden</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Denny</surname>
+<given-names>JC</given-names>
+</name>
+</person-group>
+<article-title>Phenotype risk scores identify patients with unrecognized Mendelian disease patterns</article-title>
+<source/>Science
+          <year>2018</year>
+<month>3</month>
+<day>16</day>
+<volume>359</volume>
+<issue>6381</issue>
+<fpage>1233</fpage>
+<lpage>1239</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/29590070"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1126/science.aal4043</pub-id>
+<pub-id pub-id-type="medline">29590070</pub-id>
+<!--<pub-id pub-id-type="pii">359/6381/1233</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC5959723</pub-id>-->
+<pub-id pub-id-type="pmid">29590070</pub-id>
+</element-citation>
+</ref>
+<ref id="ref39">
+<label>39</label>
+<element-citation publication-type="webpage">
+<person-group person-group-type="author">
+<collab>Agency for Healthcare Research and Quality</collab>
+</person-group>
+<source/>Healthcare Cost and Utilization Project (HCUP)
+          <year>2012</year>
+<month>1</month>
+<date-in-citation>2019-07-15</date-in-citation>
+<comment>HCUP CCS Fact Sheet. <ext-link ext-link-type="uri" xlink:href="https://www.hcup-us.ahrq.gov/toolssoftware/ccs/ccsfactsheet.jsp">https://www.hcup-us.ahrq.gov/toolssoftware/ccs/ccsfactsheet.jsp</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref40">
+<label>40</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sabbatini</surname>
+<given-names>AK</given-names>
+</name>
+<name>
+<surname>Kocher</surname>
+<given-names>KE</given-names>
+</name>
+<name>
+<surname>Basu</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hsia</surname>
+<given-names>RY</given-names>
+</name>
+</person-group>
+<article-title>In-Hospital Outcomes and Costs Among Patients Hospitalized During a Return Visit to the Emergency Department</article-title>
+<source/>JAMA
+          <year>2016</year>
+<month>2</month>
+<day>16</day>
+<volume>315</volume>
+<issue>7</issue>
+<fpage>663</fpage>
+<lpage>71</lpage>
+<pub-id pub-id-type="doi">10.1001/jama.2016.0649</pub-id>
+<pub-id pub-id-type="medline">26881369</pub-id>
+<!--<pub-id pub-id-type="pii">2491638</pub-id>-->
+<pub-id pub-id-type="pmid">26881369</pub-id>
+</element-citation>
+</ref>
+<ref id="ref41">
+<label>41</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hu</surname>
+<given-names>Z</given-names>
+</name>
+<name>
+<surname>Hao</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Jin</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Shin</surname>
+<given-names>AY</given-names>
+</name>
+<name>
+<surname>Zhu</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Zheng</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Dai</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Culver</surname>
+<given-names>DS</given-names>
+</name>
+<name>
+<surname>Alfreds</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Rogow</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Stearns</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Sylvester</surname>
+<given-names>KG</given-names>
+</name>
+<name>
+<surname>Widen</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Ling</surname>
+<given-names>X</given-names>
+</name>
+</person-group>
+<article-title>Online Prediction of Health Care Utilization in the Next Six Months Based on Electronic Health Record Information: A Cohort and Validation Study</article-title>
+<source/>J Med Internet Res
+          <year>2015</year>
+<month>9</month>
+<day>22</day>
+<volume>17</volume>
+<issue>9</issue>
+<fpage>e219</fpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="https://www.jmir.org/2015/9/e219/"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.2196/jmir.4976</pub-id>
+<pub-id pub-id-type="medline">26395541</pub-id>
+<!--<pub-id pub-id-type="pii">v17i9e219</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC4642374</pub-id>-->
+<pub-id pub-id-type="pmid">26395541</pub-id>
+</element-citation>
+</ref>
+<ref id="ref42">
+<label>42</label>
+<element-citation publication-type="webpage">
+<person-group person-group-type="author">
+<collab>Agency for Healthcare Research and Quality</collab>
+</person-group>
+<source/>Healthcare Cost and Utilization Project (HCUP)
+          <year>2019</year>
+<month>9</month>
+<date-in-citation>2019-07-05</date-in-citation>
+<comment>Clinical Classifications Software (CCS) for ICD-10-PCS (beta version). <ext-link ext-link-type="uri" xlink:href="https://www.hcup-us.ahrq.gov/toolssoftware/ccs10/ccs10.jsp">https://www.hcup-us.ahrq.gov/toolssoftware/ccs10/ccs10.jsp</ext-link></comment>
+</element-citation>
+</ref>
+<ref id="ref43">
+<label>43</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hripcsak</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Levine</surname>
+<given-names>ME</given-names>
+</name>
+<name>
+<surname>Shang</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Ryan</surname>
+<given-names>PB</given-names>
+</name>
+</person-group>
+<article-title>Effect of vocabulary mapping for conditions on phenotype cohorts</article-title>
+<source/>J Am Med Inform Assoc
+          <year>2018</year>
+<month>12</month>
+<day>01</day>
+<volume>25</volume>
+<issue>12</issue>
+<fpage>1618</fpage>
+<lpage>1625</lpage>
+<comment>
+<ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/30395248"></ext-link>
+</comment>
+<pub-id pub-id-type="doi">10.1093/jamia/ocy124</pub-id>
+<pub-id pub-id-type="medline">30395248</pub-id>
+<!--<pub-id pub-id-type="pii">5159502</pub-id>-->
+<!--<pub-id pub-id-type="pmcid">PMC6289550</pub-id>-->
+<pub-id pub-id-type="pmid">30395248</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

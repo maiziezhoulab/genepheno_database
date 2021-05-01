@@ -1,0 +1,1607 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">BMC Bioinformatics</journal-id>
+<journal-id journal-id-type="iso-abbrev">BMC Bioinformatics</journal-id>
+<journal-title-group>
+<journal-title>BMC Bioinformatics</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1471-2105</issn>
+<publisher>
+<publisher-name>BioMed Central</publisher-name>
+<publisher-loc>London</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">29191167</article-id>
+<article-id pub-id-type="pmc">5710091</article-id>
+<article-id pub-id-type="publisher-id">1951</article-id>
+<article-id pub-id-type="doi">10.1186/s12859-017-1951-y</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Methodology Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Using variant databases for variant prioritization and to detect erroneous genotype-phenotype associations</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6742-3911</contrib-id>
+<name>
+<surname>Broeckx</surname>
+<given-names>Bart J. G.</given-names>
+</name>
+<address>
+<phone>+32 9 264 78 01</phone>
+<email>bart.broeckx@ugent.be</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Peelman</surname>
+<given-names>Luc</given-names>
+</name>
+<address>
+<email>luc.peelman@ugent.be</email>
+</address>
+<xref ref-type="aff" rid="Aff1">1</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Saunders</surname>
+<given-names>Jimmy H.</given-names>
+</name>
+<address>
+<email>jimmy.saunders@ugent.be</email>
+</address>
+<xref ref-type="aff" rid="Aff2">2</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Deforce</surname>
+<given-names>Dieter</given-names>
+</name>
+<address>
+<email>dieter.deforce@ugent.be</email>
+</address>
+<xref ref-type="aff" rid="Aff3">3</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Clement</surname>
+<given-names>Lieven</given-names>
+</name>
+<address>
+<email>lieven.clement@ugent.be</email>
+</address>
+<xref ref-type="aff" rid="Aff4">4</xref>
+</contrib>
+<aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2069 7798</institution-id><institution-id institution-id-type="GRID">grid.5342.0</institution-id><institution>Laboratory of Animal Genetics, Faculty of Veterinary Medicine, </institution><institution>Ghent University, </institution></institution-wrap>Heidestraat 19, B-9820 Merelbeke, Belgium </aff>
+<aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2069 7798</institution-id><institution-id institution-id-type="GRID">grid.5342.0</institution-id><institution>Department of Medical Imaging and Orthopedics, Faculty of Veterinary Medicine, </institution><institution>Ghent University, </institution></institution-wrap>Merelbeke, Belgium </aff>
+<aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2069 7798</institution-id><institution-id institution-id-type="GRID">grid.5342.0</institution-id><institution>Laboratory of Pharmaceutical Biotechnology, Faculty of Pharmaceutical Sciences, </institution><institution>Ghent University, </institution></institution-wrap>Ghent, Belgium </aff>
+<aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2069 7798</institution-id><institution-id institution-id-type="GRID">grid.5342.0</institution-id><institution>Department of Applied Mathematics, Computer Science and Statistics, Faculty of Sciences, </institution><institution>Ghent University, </institution></institution-wrap>Ghent, Belgium </aff>
+</contrib-group>
+<pub-date pub-type="epub">
+<day>1</day>
+<month>12</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="pmc-release">
+<day>1</day>
+<month>12</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2017</year>
+</pub-date>
+<volume>18</volume>
+<elocation-id>535</elocation-id>
+<history>
+<date date-type="received">
+<day>14</day>
+<month>8</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>22</day>
+<month>11</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>© The Author(s). 2017</copyright-statement>
+<license license-type="OpenAccess">
+<license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+</license>
+</permissions>
+<abstract id="Abs1">
+<sec>
+<title>Background</title>
+<p id="Par1">In the search for novel causal mutations, public and/or private variant databases are nearly always used to facilitate the search as they result in a massive reduction of putative variants in one step. Practically, variant filtering is often done by either using all variants from the variant database (called the absence-approach, i.e. it is assumed that disease-causing variants do not reside in variant databases) or by using the subset of variants with an allelic frequency &gt; 1% (called the 1%-approach). We investigate the validity of these two approaches in terms of false negatives (the true disease-causing variant does not pass all filters) and false positives (a harmless mutation passes all filters and is erroneously retained in the list of putative disease-causing variants) and compare it with an novel approach which we named the quantile-based approach. This approach applies variable instead of static frequency thresholds and the calculation of these thresholds is based on prior knowledge of disease prevalence, inheritance models, database size and database characteristics.</p>
+</sec>
+<sec>
+<title>Results</title>
+<p id="Par2">Based on real-life data, we demonstrate that the quantile-based approach outperforms the absence-approach in terms of false negatives. At the same time, this quantile-based approach deals more appropriately with the variable allele frequencies of disease-causing alleles in variant databases relative to the 1%-approach and as such allows a better control of the number of false positives.</p>
+<p id="Par3">We also introduce an alternative application for variant database usage and the quantile-based approach. If disease-causing variants in variant databases deviate substantially from theoretical expectancies calculated with the quantile-based approach, their association between genotype and phenotype had to be reconsidered in 12 out of 13 cases.</p>
+</sec>
+<sec>
+<title>Conclusions</title>
+<p id="Par4">We developed a novel method and demonstrated that this so-called quantile-based approach is a highly suitable method for variant filtering. In addition, the quantile-based approach can also be used for variant flagging. For user friendliness, lookup tables and easy-to-use R calculators are provided.</p>
+</sec>
+<sec>
+<title>Electronic supplementary material</title>
+<p>The online version of this article (doi: 10.1186/s12859-017-1951-y) contains supplementary material, which is available to authorized users.</p>
+</sec>
+</abstract>
+<kwd-group xml:lang="en">
+<title>Keywords</title>
+<kwd>1000 Genomes project variant database</kwd>
+<kwd>Allele frequency</kwd>
+<kwd>dbSNP</kwd>
+<kwd>HapMap</kwd>
+<kwd>Variant filtering</kwd>
+<kwd>Variant database</kwd>
+</kwd-group>
+<funding-group>
+<award-group>
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/501100003130</institution-id>
+<institution>Fonds Wetenschappelijk Onderzoek</institution>
+</institution-wrap>
+</funding-source>
+<award-id>12G9217N</award-id>
+</award-group>
+</funding-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>issue-copyright-statement</meta-name>
+<meta-value>© The Author(s) 2017</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="Sec1">
+<title>Background</title>
+<p id="Par10">The identification of genetic variation responsible for a phenotype, is one of the key aims in the field of genetics. Already in 1999, the importance of a central variant database to facilitate the discovery of variant-phenotype associations was recognized and led subsequently to the establishment of dbSNP [<xref ref-type="bibr" rid="CR1">1</xref>]. More recently, large scale projects like HapMap and the 1000 Genomes project variant database (1000G) were initiated that actively collect and sequence samples in order to identify the vast majority of genetic variation segregating in several populations [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>].</p>
+<p id="Par11">While these three databases all are publicly available variant catalogs, they differ in terms of scope, inclusion criteria and data collection [<xref ref-type="bibr" rid="CR2">2</xref>–<xref ref-type="bibr" rid="CR4">4</xref>]. For dbSNP, the scope of the database was “to provide a dense catalog of variants” and this catalog encompasses both “disease-causing clinical mutations and neutral polymorphisms” [<xref ref-type="bibr" rid="CR1">1</xref>]. In addition, anyone can contribute to the database. For HapMap and 1000G, only samples fulfilling specific inclusion criteria (i.e. individuals that wanted to participate had to be legally competent adult donors that gave their explicit consent) were allowed and data was actively generated from a limited number of participating centers [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>]. These differences between databases can also influence the variants that end up in these databases. For example, based on the inclusion criteria of the latter two databases, for specific phenotypes, severely diseased individuals, are less likely to be included in the latter two databases.</p>
+<p id="Par12">Irrespective of the differences between these databases, they are often used the same way. Practically, this means that the facilitating role of variant databases for causal variant discovery lies currently mainly in reducing the large list of putative variants discovered during sequencing. This is often done according to one of the following approaches. The first approach is based on the assumption that disease-causing variants cannot reside in these databases [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>], hence, all variants in the variant database are used for filtering the list of putative disease-causing variants discovered during sequencing (called the “absence-approach”). The second approach employs allele frequency based cut-offs that differ with the mode of inheritance: for autosomal recessive (AR) disorders, all variants in databases with an allelic frequency of &gt;1% can be used, while for autosomal dominant (AD) disorders, the threshold is set at 0.1% (called the “1%-approach”) [<xref ref-type="bibr" rid="CR6">6</xref>]. As a consequence, a subset of the total number of variants inside these variant databases is used at that moment for filtering.</p>
+<p id="Par13">Even though the absence- and 1%-approach are part of the standard toolbox, to our knowledge, their performance has not been assessed yet. As such, the first aim was to assess the validity of these two standard approaches and at the same time compare their performance with a novel approach, the so-called quantile-based approach, which we believed would improve the search for novel variants responsible for Mendelian disorders. This quantile-based approach also applies frequency thresholds, but instead of static thresholds, these thresholds are variable and use prior knowledge on disease prevalence and inheritance data on one hand and database size and database characteristics on the other hand.</p>
+<p id="Par14">In addition, while databases are typically used for variant filtering, we also wanted to introduce an alternative application based of the quantile-based approach. This alternative application is based on the hypothesis that if a mutation is linked to a disease according to some proposed mode of inheritance, we should be able to predict its allelic frequency in a variant database. If this not the case, i.e. if the actual allelic frequency deviates sufficiently from these theoretical expectations, this might indicate that the proposed role of that variant in the disease has to be reconsidered.</p>
+</sec>
+<sec id="Sec2">
+<title>Methods</title>
+<p id="Par15">In this section, we will first introduce the quantile-based approach. Next, two different methods for variant database usage based on this quantile-based approach are developed (Fig. <xref ref-type="fig" rid="Fig1">1</xref>). The aim of the first method is to provide an improved method for variant filtering when novel disease-causing variants are looked for (method 1). The starting point of this method is thus a large list of variants discovered during a new sequencing experiment that needs to reduced as much as possible. The second method uses the allele frequency of disease-causing variants that reside in variant databases to assess the validity of the proposed models. As such, this method allows the flagging of previously identified disease-causing variants that warrant additional research (method 2). The starting point of this method is thus previously discovered variants in variant databases for which an association with a phenotype has been reported.<fig id="Fig1"><label>Fig. 1</label><caption><p>An overview of variant filtering (method 1) and variant flagging (method 2). A. method 1: In a sequencing study, a hypothetical list of 7 variants was discovered, with variant 4 being the causal variant and the other ones harmless co-inherited mutations. Inside the variant database, 5 out of 7 variants discovered during sequencing (including variant 4) are already represented with varying allele frequencies <italic>f</italic> (allele frequency db-column). Three different approaches for variant filtering can be used. Candidate variants that are filtered out, are denoted with an <bold>X</bold>. Candidate variants that are retained after filtering are denoted with a ✓. By assuming absence of disease-causing variants from variant databases (absence-approach), the disease-causing variant was erroneously filtered out. The same issue was encountered by using a static 1% threshold. The quantile-based approach was used to calculate a suitable allelic frequency threshold Tv. Based on the disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> of 1 in 10,000 individuals and an autosomal recessive mode of inheritance, the population allele frequency <italic>q</italic> is 0.01. For a variant database of 50 individuals (= 100 chromosomes, situation a), the Tv associated with the 95th quantile equals 0.03 (3/100). While the allele frequency <italic>f</italic> of the disease-causing variant in the variant database (= 0.02) is slightly higher than the theoretically expected population allele frequency (= 0.01) due to sampling variability, the Tv cut-off (0.03) has made it possible to discover the true disease-causing variant, while this was not the case for the other two approaches. B. method 2: this analysis determines how likely it is that a disease-causing variant (variant 4) occurs at least twice in a variant database of 50 individuals (= 100 chromosomes, situation a), given <italic>P</italic>
+<sub><italic>d</italic></sub> equals 1 in 10,000 and an autosomal mode of inheritance. Based on the binomial distribution, this probability equals 0.26. As such, there is insufficient evidence to conclude that this model is inappropriate</p></caption><graphic id="MO1" xlink:href="12859_2017_1951_Fig1_HTML"></graphic></fig>
+</p>
+<sec id="Sec3">
+<title>Terminology</title>
+<p id="Par16">Notation wise, the allelic frequencies for one locus are defined as <italic>p</italic> = frequency of allele 1 (A<sub>1</sub>), which is considered to be the normal wild type allele and <italic>q</italic> = frequency of allele 2 (A<sub>2</sub>), which is considered to be the deleterious mutant allele with <italic>p</italic> + <italic>q = 1</italic>. Based on Hardy-Weinberg equilibrium (HWE), the following relation exists between the aforementioned allelic frequencies and the corresponding genotype frequencies for the genotypes A<sub>1</sub>A<sub>1</sub>, A<sub>1</sub>A<sub>2</sub> and A<sub>2</sub>A<sub>2</sub>: <italic>P + H + Q = p</italic>
+<sup><italic>2</italic></sup> <italic>+ 2pq + q</italic>
+<sup><italic>2</italic></sup> <italic>= 1</italic>.</p>
+<p id="Par17">Penetrance and detectance are defined as <italic>P</italic>
+<sub><italic>pt</italic></sub> <italic>= P (phenotype|genotype)</italic> and <italic>P</italic>
+<sub><italic>dt</italic></sub> <italic>= P (genotype|phenotype)</italic>, respectively [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>]. Whereas disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> and the previously introduced allele and genotype frequencies are population parameters, the frequency of the disease-causing allele in the variant database is a sample parameter and is referred to as <italic>f</italic> (Fig. <xref ref-type="fig" rid="Fig1">1</xref>).</p>
+</sec>
+<sec id="Sec4">
+<title>The quantile-based approach</title>
+<p id="Par18">The quantile-based approach is short for “the expected allele frequency theoretical quantile-based filtering approach” that combines knowledge on disease prevalence, mode of inheritance, database size and database characteristics to calculate the expected allele frequency of the disease-causing allele in variant databases.</p>
+</sec>
+<sec id="Sec5">
+<title>Assumptions</title>
+<p id="Par19">The following assumptions are used:<list list-type="order"><list-item><p id="Par20">All causal variants are bi-allelic and in HWE.</p></list-item><list-item><p id="Par21">The disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> is error-free and from the same population the individuals included in the database are sampled from.</p></list-item><list-item><p id="Par22">Each individual included in the database is sequenced at a sufficient sequencing depth and with sufficient quality to avoid allelic drop-out and sequencing errors.</p></list-item><list-item><p id="Par23">All individuals and alleles are sampled independent and identically distributed.</p></list-item></list>
+</p>
+<p id="Par24">If genetic heterogeneity is present, the following simplification is made: if <italic>k</italic> loci are responsible for a phenotype, they are assumed to be mutually exclusive. The validity of this approximation is based on the observation that the probability that two unlinked loci occur in a disease-state in one individual is extremely small, as demonstrated in Additional file <xref ref-type="media" rid="MOESM1">1</xref>.</p>
+</sec>
+<sec id="Sec6">
+<title>Linking population disease prevalence with expected allele frequency in variant databases and allele frequency thresholds: a quantile-based approach</title>
+<p id="Par25">The starting point is knowledge on the disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub>
+<italic>.</italic> Given assumptions 1 and 2, when the disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> is known, it can be linked with <italic>q</italic> with different formulas according to the mode of inheritance. Several formulas are necessary as specific adaptations need to be considered when penetrance and/or detectance is reduced (Additional file <xref ref-type="media" rid="MOESM2">2</xref>). In addition, due to the inclusion criteria for HapMap and 1000G, not every individual from the population is available for sampling [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>]. The reason is that demanding legal competence might result in the selective exclusion of diseased individuals from participating. As this results in a selective exclusion of disease-causing alleles (relative to the wild type alleles), this might influence <italic>f</italic>. As such, separate formulas have to be developed for the situation where individuals can be selected at random from the entire population (situation a) or when individuals can only be selected from the non-diseased part of the population (situation b).</p>
+<p id="Par26">For situation a, it can be shown that the relation between <italic>q</italic> and <italic>P</italic>
+<sub><italic>d</italic></sub> for fully penetrant and non-heterogeneous AD and AR diseases, respectively equals to:<disp-formula id="Equ1"><label>AD</label><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ q=1-\sqrt{1-{P}_d} $$\end{document}</tex-math><mml:math display="block" id="M2"><mml:mspace width="0.25em"></mml:mspace><mml:mi>q</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:msqrt><mml:mrow><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:mrow></mml:msqrt></mml:math><graphic position="anchor" xlink:href="12859_2017_1951_Article_Equ1.gif"></graphic></alternatives></disp-formula>
+<disp-formula id="Equ2"><label>AR</label><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ q=\sqrt{P_d} $$\end{document}</tex-math><mml:math display="block" id="M4"><mml:mi>q</mml:mi><mml:mo>=</mml:mo><mml:msqrt><mml:msub><mml:mi>P</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:msqrt></mml:math><graphic position="anchor" xlink:href="12859_2017_1951_Article_Equ2.gif"></graphic></alternatives></disp-formula>
+</p>
+<p id="Par27">Based on this relation, it can be seen that for an identical <italic>P</italic>
+<sub><italic>d</italic>,</sub> the <italic>q</italic> for AD diseases is far lower compared to AR diseases (See Additional file <xref ref-type="media" rid="MOESM3">3</xref>). When the same disease characteristics apply, but the sampling situation is limited to situation b, the formulas have to be adapted. The derivation of the aforementioned formulas for situation a and additional formulas for genetic heterogeneity, reduced penetrance and a combination of both for situation a and b are shown in Additional file <xref ref-type="media" rid="MOESM2">2</xref>.</p>
+<p id="Par28">Once <italic>q</italic>, the mutant allele frequency for the population, is calculated given a population disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub>, one can calculate with a certain probability at which upper frequency the disease-causing variant would reside in the variant database. These calculations are based on the quantile function of the binomial distribution for a random variable Φ, that represents the number of times the mutant allele occurs in the variant database, with parameters <italic>2c</italic> and <italic>q</italic> or <italic>q’</italic> (situation a or b, respectively (see Additional file <xref ref-type="media" rid="MOESM2">2</xref>)). For diploid organisms, c is the database size, expressed as the number of individuals. The upper frequency, or so-called threshold value Tv, calculated with this method, will be used later on to select certain variants in the variant database. More specifically, only variants residing in the variant database at an allelic frequency strictly higher than this Tv can be used for filtering the list of putative disease-causing variants discovered during sequencing. In terms of probability, this quantile-based Tv corresponds to <italic>P (Φ ≤ Tv)</italic> and a priori, it has to be decided which probability that <italic>Φ ≤ Tv</italic> is considered to be sufficient. Throughout our analysis, a 95% quantile-based approach is used, i.e. <italic>P (Φ ≤ Tv)</italic> = 0.95 or conversely, <italic>P (Φ &gt; Tv)</italic> = 0.05<italic>.</italic>
+</p>
+</sec>
+<sec id="Sec7">
+<title>Method 1: improved identification of novel disease-causing variants (“variant filtering”)</title>
+<sec id="Sec8">
+<title>Problem setting</title>
+<p id="Par29">When searching for novel disease-causing mutations, due to the output of massive parallel sequencers, a large number of variants are discovered. As a consequence, it is difficult to discriminate the small number of causal mutations from the large amount of harmless mutations that are co-inherited. At that moment, variants inside variant databases are typically used to reduce this list of candidate variants as much as possible. In other words, the aim of variant database usage is to reduce the amount of false positives (i.e. a harmless mutation passes all filters and is erroneously retained in the list of putative disease-causing variants) as much as possible. At the same time, it has been argued and even demonstrated that variant databases might actually contain disease-causing variants, which is called variant database contamination [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. If a disease-causing variant occurs in a variant database and that database is used next for filtering variants discovered during sequencing, the true disease-causing variant might be erroneously removed from the list of candidate variants and cannot be discovered anymore [<xref ref-type="bibr" rid="CR6">6</xref>]. This is defined as a false negative: the true disease-causing variant does not pass all filters, is thus removed from the list of putative disease-causing variants and as such, the correct mutation cannot be identified. It is clear that an optimal balance has to be found in order to restrict the number of both false positives and false negatives as much as possible.</p>
+<p id="Par30">In the next section, the two standard methods for variant database usage (the 1%-approach and the absence-approach) and the novel quantile-based approach are compared in terms of false positives and false negatives.</p>
+</sec>
+<sec id="Sec9">
+<title>Assessment of variant database contamination inside 1000G for 30 AR diseases.</title>
+<p id="Par31">Practically, the absence-approach, the 1%-approach and the quantile-based approach were first compared in terms of the probability of encountering false negatives. This was done by alphabetically selecting diseases from the Genetics Home Reference National Institutes of Health database, based on the following three inclusion criteria: 1/ an AR mode of inheritance, 2/ the disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> is known and 3/ genes have been found to be associated with the phenotype. Selection was continued up until a total of 30 diseases were retained. Next, the actual allelic frequencies <italic>f</italic> of the causal mutations in the 1000G [<xref ref-type="bibr" rid="CR3">3</xref>] were obtained by searching ClinVar [<xref ref-type="bibr" rid="CR10">10</xref>] (filters: pathologic, single nucleotide variant, insertion, deletion, followed by a manual check of the associated condition) for disease-causing mutations in the genes suggested by Genetics Home Reference.</p>
+<p id="Par32">For the quantile-based approach, the following methodology was adopted. If <italic>P</italic>
+<sub><italic>d</italic></sub> was provided as a range, the highest prevalence was used. The Tv (95th quantile) was calculated based on the <italic>P</italic>
+<sub><italic>d</italic></sub>, by using the formula for an AR mode of inheritance, assuming situation b. Tv calculations were done under the assumption of no genetic heterogeneity (i.e. detectance of 100%) because the number of different loci is generally unknown a priori.</p>
+<p id="Par33">Next, the number of false negatives were counted for each method. A false negative occurs when the disease-causing variant occurs at any frequency <italic>f</italic> &gt; 0 inside the variant database, at a frequency higher than 1% or at a frequency higher than the Tv, for the absence-approach, 1%-approach and quantile-based approach, respectively.</p>
+</sec>
+<sec id="Sec10">
+<title>Evaluation of the effect of filtering method on the number of variants available for filtering</title>
+<p id="Par34">The second assessment aims to evaluate the false positive probability. Determining an exact false-positive probability is difficult however, given that it is a count based on the number of variants discovered during sequencing and the number retained after filtering. These numbers depend however on several factors (type and/or assumption of the other filters used, realized sequencing depth, number of samples, …) that are not solely related to the problem of variant database usage. As such, a different approach was chosen: an approach that looks at the question from the database perspective: how many variants inside the database occur at a frequency higher than 1% or the Tv, respectively for the 1%-approach and the quantile-based approach. By definition, for the absence-approach, the entire set of variants from the database is available all the time.</p>
+<p id="Par35">For this analysis, a random subset from 1000G was used (UCSC table browser, settings: genome: Human, group: Variation, track: 1000G Ph3 Vars) [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]. An important assumption (assumption 2) introduced earlier on states that the population used for the variant database is the same as the population from which the disease prevalence was obtained. The 1000G contains several subpopulations however [<xref ref-type="bibr" rid="CR3">3</xref>]. This has to be taken care of as a disease prevalence might vary between populations, and as such, the allelic frequency might differ as well. To fulfill the assumption that the disease prevalence and the population to sample from are the same, all variants that did not segregate in the (European) population were removed. In total, the subset of 1000G contained 100,000 variants.</p>
+<p id="Par36">For the quantile-based approach, the following methodology was used: as the Tv for the quantile-based approach varies with <italic>P</italic>
+<sub><italic>d</italic></sub>, the 95% quantile-based Tv was calculated for each step for a <italic>P</italic>
+<sub><italic>d</italic></sub> that varied between 1/1000 to 1/100000 (in steps of 1000). For each prevalence step, the number of variants with an allelic frequency higher than the Tv was counted.</p>
+</sec>
+<sec id="Sec11">
+<title>Example of the quantile-based approach for variant filtering</title>
+<p id="Par37">To exemplify the quantile-based approach practically, an additional example is given, based on Miller syndrome. Miller syndrome was used as it was the first successful application of whole exome sequencing [<xref ref-type="bibr" rid="CR12">12</xref>].</p>
+</sec>
+</sec>
+<sec id="Sec12">
+<title>Method 2: flagging suspicious disease-causing variants (“variant flagging”)</title>
+<p id="Par38">For previously identified disease-causing variants that reside in variant databases, the probability that they are present in a variant database at a frequency <italic>f</italic> or higher can be calculated when the disease-prevalence, mode of inheritance, database size and <italic>f</italic> are given. This corresponds to <italic>1-P (Φ &lt; f |q,2c) = P (Φ ≥ f |q,2c)</italic>. The 13 variants from the first analysis that deviated sufficiently (i.e. with a probability of ≤0.05) from the theoretical expectancy, based on the proposed disease model, were investigated in detail to identify potential reasons for their unexpected high allelic frequencies in the 1000G variant database by performing a literature search in PubMed. Literature was searched stepwise. First, evidence for a link between the phenotype and genotype was searched for. If a causal association was reported, next, a search was conducted to identify potential reasons for this abnormal high frequency.</p>
+<p id="Par39">Throughout the paper, all analysis and simulations were conducted in R (version 3.3.2) using R-studio (version 1.0.44). Variant descriptions were checked with Mutalyzer 2.0.24 [<xref ref-type="bibr" rid="CR13">13</xref>].</p>
+</sec>
+</sec>
+<sec id="Sec13">
+<title>Results</title>
+<sec id="Sec14">
+<title>Method 1: improved identification of novel disease-causing variants</title>
+<p id="Par40">For the first analysis, 1169 mutations responsible for 30 AR diseases were identified. From the total number of mutations, 113 were found in 1000G (Fig. <xref ref-type="fig" rid="Fig2">2</xref>). For the absence-approach, this means that 113 disease-causing variants might not have been identified if the entire database is used for filtering the list of disease-causing variants. Expressed differently, the false negative probability was around 10% (113/1169) for the absence-approach. For the 1%-approach, the probability of false negatives was 1% (11/1169), i.e. eleven variants had an allelic frequency &gt; 1%. The quantile-based approach resulted in a nearly identical false negative proportion of 1% as 13 out of 1169 variants had an allelic frequency higher than the 95th quantile Tv. When the list of false negative variants encountered with the 1% and the quantile-based approach were compared, 8 variants were found to be shared while 3 were uniquely missed by the 1%-approach and 5 by the quantile-based approach (Fig. <xref ref-type="fig" rid="Fig2">2</xref>). For the 1%-approach, the 3 unique false negative variants are associated with highly prevalent diseases, while for the quantile-based approach, 4 out of 5 unique false negatives are at the rare end of the spectrum.<fig id="Fig2"><label>Fig. 2</label><caption><p>Actual allelic frequencies <italic>f</italic> of the disease-causing mutations for 30 autosomal recessive disorders. For a total of 1169 disease-causing mutations, the allelic frequency <italic>f</italic> was plotted, relative to the static 1% threshold and the variable quantile-based thresholds. For all variants, it was indicated whether they were correctly classified. Disease prevalence is expressed as 1/n (with n ranging from 0 to 1 000 000)</p></caption><graphic id="MO2" xlink:href="12859_2017_1951_Fig2_HTML"></graphic></fig>
+</p>
+<p id="Par41">Next, the number of variants left in the database that can be used for variant filtering was evaluated for all three methods as an indirect method to estimate the false positives. Ideally, the number of false positives should be small, as such, the more variants that can be used for filtering, the better. By definition, for the absence-approach, 100% of the variants were available all the time. For the 95% quantile-based approach, the proportion of variants available ranged from 33% up to 47% for AR diseases for disease prevalences ranging from 1/1000 to 1/ 100,000 (Fig. <xref ref-type="fig" rid="Fig3">3</xref>). For the fixed 1%-approach, the number of variants remained fixed at the 42% level. While initially the quantile-based approach uses less variants from the database, as soon as <italic>P</italic>
+<sub><italic>d</italic></sub> ≤ 1/18000, this changes: from that moment on, the quantile-based approach has more variants available for filtering.<fig id="Fig3"><label>Fig. 3</label><caption><p>Relation between disease prevalence and proportion of the variant database available for filtering. The proposed mode of inheritance is autosomal recessive, the disease prevalence is expressed as 1/n (with n ranging from 1000 to 100,000). Both the variable quantile-based approach and the static 1%-approach are depicted. By definition, for the absence-approach all variants (100%) are available (not shown)</p></caption><graphic id="MO3" xlink:href="12859_2017_1951_Fig3_HTML"></graphic></fig>
+</p>
+<sec id="Sec15">
+<title>Example for method 1</title>
+<p id="Par42">A detailed example is given for Miller syndrome, which is also known as postaxial acrofacial dysostosis or Genee-Wiedemann syndrome. Miller syndrome has an estimated prevalence of 1 in 1 million and was generally reported to be an AR disease, with one exception of AD inheritance [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>]. As such, an AR mode of inheritance was deemed most plausible and used for the analysis. As the 1000G was used for filtering, Tv calculations had to take into account that sampling was likely restricted to healthy individuals (situation b) [<xref ref-type="bibr" rid="CR3">3</xref>]. A priori, it is generally unknown that cases typically have different mutations within the same gene, so a naïve analysis was conducted assuming no genetic heterogeneity.</p>
+<p id="Par43">From the total of 13 mutations currently identified [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR16">16</xref>], 12 do not reside in the 1000 Genome variant database (Additional file <xref ref-type="media" rid="MOESM4">4</xref>). One mutation (rs201230446, Arg135Cys) does reside in the database, at <italic>f</italic> = 0.0004. Even though this disease is rare, variant database contamination has thus occurred. As a consequence, using all variants from the 1000G for filtering (the absence-approach) might result in a false negative. Based on the calculations, a naïve Tv of 0.0018 was found with the quantile-based approach. As <italic>f</italic> &lt; Tv, applying this cut-off would thus not have resulted in a false negative and the same applies for the 1%-approach. In terms of false positives, 100%, 63% and 42% of the variant database would be available for filtering for the absence-approach, the quantile-based approach and the 1%-approach, respectively. The quantile-based approach thus outperforms the 1%-approach in terms of false positives, while it maintains a zero false negative probability for this specific disease.</p>
+</sec>
+</sec>
+<sec id="Sec16">
+<title>Method 2: flagging suspicious disease-causing variants</title>
+<p id="Par44">Based on the 95% quantile-based Tv, 13 variants occurred in the database at a frequency that was higher than expected (Additional file <xref ref-type="media" rid="MOESM5">5</xref>). These variants were thus flagged by the quantile-based approach to investigate their association with their respective phenotypes more deeply. For 2 variants, no evidence for any link with the phenotype was found. Two other variants were immediately considered to be normal polymorphisms upon discovery [<xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR19">19</xref>], while for one additional variant, the association with a phenotype was reported to be highly doubtful [<xref ref-type="bibr" rid="CR20">20</xref>, <xref ref-type="bibr" rid="CR21">21</xref>]. For these 5 variants, it can thus be expected that they deviate from the theoretical values as they are not linked to the specified diseases.</p>
+<p id="Par45">For the 8 remaining variants, associations with their respective phenotypes were reported, as such, literature was searched for additional explanations for their unexpected high occurrence. For 7 variants, potential explanations were found. One variant was first classified as pathogenic, but no functional consequences were found later on, which subsequently resulted in a reclassification as a normal polymorphism [<xref ref-type="bibr" rid="CR22">22</xref>, <xref ref-type="bibr" rid="CR23">23</xref>]. Other reasons were incorrect prevalence estimates (up to 20-fold higher [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>]), reduced penetrance [<xref ref-type="bibr" rid="CR25">25</xref>], mild clinical phenotypes [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR26">26</xref>] and incorrect modes of inheritances [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR27">27</xref>–<xref ref-type="bibr" rid="CR31">31</xref>] or a combination. In the end, for only 1 variant, no explanation for the high allelic frequency was found [<xref ref-type="bibr" rid="CR32">32</xref>]. As such, 12 out of 13 variants were correctly flagged by the quantile-based approach as suspicious, based on their frequency <italic>f</italic> in 1000G. A detailed overview is presented in Additional file <xref ref-type="media" rid="MOESM5">5</xref> for these variants.</p>
+</sec>
+</sec>
+<sec id="Sec17">
+<title>Discussion</title>
+<p id="Par46">When databases are used, quite often, no restrictions are made and all variants in these databases are used to filter the list of candidates [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR12">12</xref>]. This so-called absence-approach works under the assumption that the specific disease-causing variant(s) for the studied disease can under no circumstances have been included in these databases. As a consequence, this also implies that the individuals that were used to construct the database, cannot at least carry one copy of the disease-causing mutant allele. Whether this is likely, depends firstly on the scope of the database, as introduced earlier on. Based on the inclusion criteria for HapMap and 1000G, severely diseased individuals might be excluded from these two databases [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>]. For dbSNP however, variant database contamination is far more likely. There are however several additional reasons why disease-causing variants can end up in variant databases [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. For AR diseases, all mutations are symptomless in a heterozygous state. Whenever penetrance is not complete, individuals that are genetically affected might not show it phenotypically. Some diseases are late-onset or the phenotype is actually very mild or might not even be considered to be a disease. Overall, there seem to be overt reasons to conclude that requiring a mutation to be absent is dangerous. This conclusion is also supported by our results as 10% false negatives were reported.</p>
+<p id="Par47">Taking the risk of variant database contamination into account, the static 1% or 0.1% approach has been suggested as an alternative [<xref ref-type="bibr" rid="CR6">6</xref>]. This approach works as the false negatives decreased from 10% to 1% relative to the absence-approach. However, we demonstrated that this static threshold is too low for frequent AR disorders, while it is too high for rare AR disorders. While the former issue results in an increased probability to encounter false negatives, the latter can affect the number of false positives. This static approach is thus rather limited as it makes no use of epidemiologic data of the disease, neither of the characteristics or size of the database. One advantage is however that it is an easy rule of thumb, while our proposed models can require quite some calculations. To solve this, we provide look-up tables containing Tv cut-offs for AR and AD diseases for a wide range of disease prevalence and database sizes (Additional file <xref ref-type="media" rid="MOESM6">6</xref>-<xref ref-type="media" rid="MOESM7">7</xref>) and also an R-script to calculate these cut-offs, together with sample code used to obtain the result for Miller syndrome (Additional file <xref ref-type="media" rid="MOESM8">8</xref>).</p>
+<p id="Par48">Overall, it is clear that no method is entirely error free. As such, an optimal balance has to be found in terms of both the false negative and the false positive probability. However, we do believe more priority should be given at a reduction of the false negatives. The reason is that the consequences of erroneously filtering out your actual disease-causing variant are irreversible, while the number of false positives can easily be reduced further by additional (filtering) steps [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR7">7</xref>]. Examples of additional filters are eliminating variants that are not inherited in a manner compatible with the proposed mode of inheritance, sequencing additional affected individuals or controls and looking for shared/unshared mutations or genotypes and by removing synonymous variants [<xref ref-type="bibr" rid="CR12">12</xref>]. Based on this weighting of false negatives relative to false positive errors, we consider the general absence-approach rather dangerous, especially now database sizes are increasing tremendously. A direct comparison of the quantile-based approach and the 1%-approach revealed a more or less identical false negative probability overall. Whereas the number of false positives will be slightly lower with the 1%-approach for highly prevalent diseases, the difference between the quantile-based approach and the 1%-approach decreases rapidly and as soon as the <italic>P</italic>
+<sub><italic>d</italic></sub> drops beneath 1/18000, more variants will be available for filtering with the quantile-based approach, resulting in less false positives from that moment on. As such, while the false negative probability is nearly identical, it is likely that causal variant discrimination will be more easy with the quantile-based approach, especially for rare diseases.</p>
+<p id="Par49">The quantile-based approach proposed here is based on prior knowledge of both the disease studied and the database used. It starts with obtaining the correct disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> of the population and disease studied. When this has been done and the genetic disease characteristics have been determined, the theoretically expected mutant allele frequency <italic>q</italic> can be calculated with the appropriate formulas. In the final step, the appropriate Tv is calculated, based on the previously determined <italic>q</italic> and the database size. Clearly, the quantile-based approach is thus based on several assumptions. When the search is aimed towards the discovery of novel causal variants, it has to be assumed that this prior knowledge is correct.</p>
+<p id="Par50">The quantile-based approach can however also be used in a different way: a method to investigate the genotype-phenotype relation for “known” disease-causing variants that reside in variant databases and that have been reported to be associated with a phenotype previously. Contrary to the variant filtering method, this variant flagging method thus does not start from a list of variants that were discovered during a new sequencing experiment, but from variants that were previously discovered and reside inside a variant database. By comparing the theoretical disease characteristics with the actual database occurrence of variants, one can identify variants that do not follow these theoretical expectancies and even calculate the probability for this deviation to occur. It is important to stress that this method only allows flagging variants that warrant further attention: the exact cause of the deviations cannot be identified with the quantile-based approach. Based on the results, it is clear however that these variants are often flagged correctly and that deviations can be related to any of the assumptions.</p>
+<p id="Par51">A potential first cause for deviations and also the starting point for the quantile-based approach, is related to correct disease prevalence estimates. For variant filtering, if the disease prevalence estimate is an overestimation of the actual disease prevalence, <italic>q</italic> will be overestimated and accordingly the Tv will be set too high, hence less variants will be available for filtering leading to more false positives. The converse would happen if the prevalence is underestimated, as was the case for cerebrotendinous xanthomatosis (Additional file <xref ref-type="media" rid="MOESM5">5</xref>) where the Pro384Leu variant would have been filtered out erroneously [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>]. The same risk occurs when phenotypes are mild and as such can remain unrecognized, as was the case for one mutation associated with biotinidase deficiency. Precautionary measures to get the prevalence estimates correct are that estimates have to be based on a representative, sufficiently sized sample and clear, standardized diagnostic criteria should be used.</p>
+<p id="Par52">Secondly, the appropriate formulas to link <italic>P</italic>
+<sub><italic>d</italic></sub> with <italic>q</italic> and calculate the Tv have to be used. As such, the correct mode of inheritance, penetrance and probability of genetic heterogeneity have to be chosen. Whereas genetic heterogeneity tends to reduce the individual allelic frequencies of disease-causing alleles, the opposite happens when the penetrance is incomplete. As such, where an unexpected genetic heterogeneity reduces the probability of encountering a false negative, an unexpected reduced penetrance, especially when reduced severely, increases this probability. Based on the examples and our focus on reducing false negatives, especially reduced penetrance is thus a potential issue. One example is again related to cerebrotendinous xanthomatosis where a reduced penetrance led to unexpectedly high <italic>f</italic> [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>]. The disease model can however also be incorrect, as discovered for ataxia with oculomotor apraxia and Bardet Biedl [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR29">29</xref>].</p>
+<p id="Par53">From the database perspective, two other assumptions were made. Firstly, it was assumed that every individual was sequenced sufficiently in order to avoid allelic drop-out and, secondly, it was assumed that no sequencing errors occurred. The effect of sequencing errors can go in two directions: if a sequencing error occurs predominantly in the direction of the mutant allele, <italic>f</italic> might be (falsely) higher than expected based on the disease prevalence. If it is the other way around, <italic>f</italic> is lower. The latter would actually have no important consequence: the Tvs are not influenced by this (they are based on disease prevalence and database size), <italic>f</italic> will have even decreased and as such, the probability of being erroneously removed decreases as well. Linked to sequencing error is the sufficient sequencing/allelic drop-out assumption because in general, a higher sequencing coverage is associated with a reduced sequencing error and because the consequences are the same. Missing a mutant allele, results in a decreased <italic>f</italic>, hence nothing bad happens. The converse happens when a wild type allele is lost: <italic>f</italic> increases in the variant database, corresponding to an increased probability of erroneous removal of the disease-causing variant.</p>
+<p id="Par54">Two final causes for deviations are that the HWE assumption might be invalid and that deviations from the theoretical model can always occur by chance. While HWE can be tested for, by chance deviations and the database assumptions are difficult to evaluate. Either of the latter three assumptions might actually explain the high frequency of the Ile294Val variant for biotinidase deficiency as no other reason could be pinpointed [<xref ref-type="bibr" rid="CR32">32</xref>].</p>
+<p id="Par55">While all assumptions were discussed separately, it is important to stress that several assumptions can be jointly incorrect. Even though the exact cause for deviations differs, their net consequences are the same: <italic>f</italic> occurs either at higher frequencies than expected or at lower frequencies than expected. In the case <italic>f</italic> occurs at lower frequencies than expected, the Tv could have been set lower and as such, the probability of encountering false positives might be slightly increased. As discussed earlier on, this is not necessarily an issue as the number of false positives can often be reduced further by additional (filtering) steps [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR7">7</xref>]. Whenever <italic>f</italic> occurs at higher frequencies than expected, the potential consequences are far more dangerous as this results in an increased false negative probability. Based on the 1% false negative probability for the quantile-based approach which is based on real-life data, the quantile-based approach does seem to control this false negative probability relatively well. In addition, if a variant was missed, in 12 out of 13 times, it was actually correctly flagged as the correlation between genotype and phenotype did not follow the prespecified model.</p>
+<p id="Par56">Whereas the scope of this article is directed towards Mendelian disorders, it can be questioned whether the methodology proposed here might be of broader use, i.e. can it be used for complex disorders as well? For several reasons however, this is not necessarily the case. Complex disorders are the resultant of the combined effect of genetic and environmental factors and typically, this genetic contribution itself is due to the combined effect of several co-occurring variants [<xref ref-type="bibr" rid="CR33">33</xref>, <xref ref-type="bibr" rid="CR34">34</xref>]. As such, the negligible probability that several mutations occur together is due to the definition of complex disorders invalid. This assumption is however necessary to link disease prevalence directly to the probability of observing a certain mutant allele for an individual locus. A potential solution is based on the general architecture of complex disorders [<xref ref-type="bibr" rid="CR33">33</xref>]: assuming a <italic>q</italic> of 0.05 for common variants, the <italic>P (Φ ≤ Tv)</italic> can be calculated for one variant. The overall probability for <italic>k</italic> independent loci to occur ≤ Tv is the product of these individual probabilities. This is only an approximate solution however: it still requires an assumption on the number of loci and also assumes the disease follows the general architecture of complex disorders. As such, the proposed models might thus be of limited use for complex disorders.</p>
+</sec>
+<sec id="Sec18">
+<title>Conclusions</title>
+<p id="Par57">To conclude, we developed and evaluated a novel method for variant filtering, based on disease characteristics on one hand and database characteristics on the other hand. This so-called quantile-based approach has a similar false negative probability relative to the 1%-approach, but will often result in (far) less false positives. In addition, it can be used to correctly identify variants that deviate from their proposed role in specific phenotypes. For practical usability, R functions and tables are provided. Overall, we believe the quantile-based approach will lead to improved variant database usage in the search for novel disease-causing mutations and to assess phenotype-genotype relations.</p>
+</sec>
+<sec sec-type="supplementary-material">
+<title>Additional files</title>
+<sec id="Sec19">
+<p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="12859_2017_1951_MOESM1_ESM.docx"><label>Additional file 1:</label><caption><p>Prove that the probability that two unlinked loci in a disease-state are co-inherited is small. (DOCX 13 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="12859_2017_1951_MOESM2_ESM.docx"><label>Additional file 2:</label><caption><p>The derivation of all the models. (DOCX 34 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM3"><media xlink:href="12859_2017_1951_MOESM3_ESM.tiff"><label>Additional file 3:</label><caption><p>Disease prevalence, genotype and allele frequencies for autosomal recessive (A) and dominant (B) disorders, respectively. Each graph depicts the mutant allele frequency <italic>q,</italic> the frequency of heterozygous genotypes (<italic>H</italic>) and homozygous mutant allele genotypes (<italic>Q</italic>) for a varying disease prevalence <italic>P</italic>
+<sub><italic>d</italic></sub> of 1/n (with n ranging from 1000 to 100,000). For an autosomal recessive disease (A), the disease prevalence is equal to <italic>Q</italic>. For an autosomal dominant disease (B), the disease prevalence is equal to the sum of <italic>Q</italic> and <italic>H</italic>. Given the low contribution of Q relative to H, <italic>P</italic>
+<sub><italic>d</italic></sub> is graphically nearly perfectly superimposed on <italic>H</italic>. (TIFF 613 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM4"><media xlink:href="12859_2017_1951_MOESM4_ESM.xls"><label>Additional file 4:</label><caption><p>Variants associated with Miller syndrome and their allelic frequency in the 1000 Genomes variant database. (XLS 49 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM5"><media xlink:href="12859_2017_1951_MOESM5_ESM.xls"><label>Additional file 5:</label><caption><p>Variants inside the variant database flagged by the quantile-based approach for further investigation. (XLS 42 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM6"><media xlink:href="12859_2017_1951_MOESM6_ESM.xls"><label>Additional file 6:</label><caption><p>Allele frequency cut-offs for autosomal recessive disorders for various database sizes and disease prevalence. (XLS 73 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM7"><media xlink:href="12859_2017_1951_MOESM7_ESM.xls"><label>Additional file 7:</label><caption><p>Allele frequency cut-offs for autosomal dominant disorders for various database sizes and disease prevalence. (XLS 60 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM8"><media xlink:href="12859_2017_1951_MOESM8_ESM.r"><label>Additional file 8:</label><caption><p>An r-script containing the “Tv_threshold” function for Tv cut-off calculation and the “flag_probability” function to calculate the probability that variants occur at least with a frequency f in the database, together with practical examples. (R 8 kb)</p></caption></media></supplementary-material>
+</p>
+</sec>
+</sec>
+</body>
+<back>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item>
+<term>1000G</term>
+<def>
+<p id="Par5">1000 Genomes project variant database</p>
+</def>
+</def-item>
+<def-item>
+<term>AD</term>
+<def>
+<p id="Par6">Autosomal dominant</p>
+</def>
+</def-item>
+<def-item>
+<term>AR</term>
+<def>
+<p id="Par7">Autosomal recessive</p>
+</def>
+</def-item>
+<def-item>
+<term>HWE</term>
+<def>
+<p id="Par8">Hardy-Weinberg equilibrium</p>
+</def>
+</def-item>
+<def-item>
+<term>Tv</term>
+<def>
+<p id="Par9">Threshold value</p>
+</def>
+</def-item>
+</def-list>
+</glossary>
+<fn-group>
+<fn>
+<p>
+<bold>Electronic supplementary material</bold>
+</p>
+<p>The online version of this article (doi: 10.1186/s12859-017-1951-y) contains supplementary material, which is available to authorized users.</p>
+</fn>
+</fn-group>
+<ack>
+<title>Acknowledgements</title>
+<p>Not applicable</p>
+<sec id="FPar1">
+<title>Funding</title>
+<p id="Par58">We would like to thank the Research Foundation-Flanders for providing a Postdoctoral Research Fellow grant (12G9217N) to the first author.</p>
+</sec>
+<sec id="FPar2">
+<title>Availability of data and materials</title>
+<p id="Par59">The datasets analyzed during the current study were derived from the following public domain resources: ClinVar Variation Viewer, <ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/variation/view/">https://www.ncbi.nlm.nih.gov/variation/view/</ext-link>, last accessed April 2017; Genetics Home Reference of National Institute of Health, <ext-link ext-link-type="uri" xlink:href="https://ghr.nlm.nih.gov/condition">https://ghr.nlm.nih.gov/condition/</ext-link>, last accessed April 2017; Online Mendelian Inheritance in Man, <ext-link ext-link-type="uri" xlink:href="https://www.omim.org/">https://www.omim.org/</ext-link>, last accessed April 2017.</p>
+</sec>
+</ack>
+<notes notes-type="author-contribution">
+<title>Authors’ contributions</title>
+<p>BB, LP, JS, DD and LC conceived and designed the study and participated in the discussions. The data was analyzed by BB. All authors read, improved and approved the final manuscript.</p>
+</notes>
+<notes notes-type="COI-statement">
+<sec id="FPar3">
+<title>Ethics approval</title>
+<p id="Par60">Not applicable</p>
+</sec>
+<sec id="FPar4">
+<title>Consent for publication</title>
+<p id="Par61">Not applicable</p>
+</sec>
+<sec id="FPar5">
+<title>Competing interests</title>
+<p id="Par62">The authors declare that they have no competing interests.</p>
+</sec>
+</notes>
+<ref-list id="Bib1">
+<title>References</title>
+<ref id="CR1">
+<label>1.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sherry</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Ward</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Sirotkin</surname>
+<given-names>K</given-names>
+</name>
+</person-group>
+<article-title>dbSNP-database for single nucleotide polymorphisms and other classes of minor genetic variation</article-title>
+<source/>Genome Res
+          <year>1999</year>
+<volume>9</volume>
+<fpage>677</fpage>
+<lpage>679</lpage>
+<pub-id pub-id-type="pmid">10447503</pub-id>
+</element-citation>
+</ref>
+<ref id="CR2">
+<label>2.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Altshuler</surname>
+<given-names>DM</given-names>
+</name>
+<name>
+<surname>Gibbs</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Peltonen</surname>
+<given-names>L</given-names>
+</name>
+</person-group>
+<article-title>Integrating common and rare genetic variation in diverse human populations</article-title>
+<source/>Nature
+          <year>2010</year>
+<volume>467</volume>
+<fpage>52</fpage>
+<lpage>58</lpage>
+<pub-id pub-id-type="doi">10.1038/nature09298</pub-id>
+<pub-id pub-id-type="pmid">20811451</pub-id>
+</element-citation>
+</ref>
+<ref id="CR3">
+<label>3.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<collab>The 1000 Genomes Project Consortium</collab>
+</person-group>
+<article-title>A map of human genome variation from population-scale sequencing</article-title>
+<source/>Nature
+          <year>2010</year>
+<volume>467</volume>
+<fpage>1061</fpage>
+<lpage>1073</lpage>
+<pub-id pub-id-type="doi">10.1038/nature09534</pub-id>
+<pub-id pub-id-type="pmid">20981092</pub-id>
+</element-citation>
+</ref>
+<ref id="CR4">
+<label>4.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sherry</surname>
+<given-names>ST</given-names>
+</name>
+<name>
+<surname>Ward</surname>
+<given-names>MH</given-names>
+</name>
+<name>
+<surname>Kholodov</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Baker</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Phan</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Smigielski</surname>
+<given-names>EM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>dbSNP: the NCBI database of genetic variation</article-title>
+<source/>Nucleic Acids Res
+          <year>2001</year>
+<volume>29</volume>
+<fpage>308</fpage>
+<lpage>311</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/29.1.308</pub-id>
+<pub-id pub-id-type="pmid">11125122</pub-id>
+</element-citation>
+</ref>
+<ref id="CR5">
+<label>5.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Stitziel</surname>
+<given-names>NO</given-names>
+</name>
+<name>
+<surname>Kiezun</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Sunyaev</surname>
+<given-names>S</given-names>
+</name>
+</person-group>
+<article-title>Computational and statistical approaches to analyzing variants identified by exome sequencing</article-title>
+<source/>Genome Biol
+          <year>2011</year>
+<volume>12</volume>
+<fpage>227</fpage>
+<pub-id pub-id-type="doi">10.1186/gb-2011-12-9-227</pub-id>
+<pub-id pub-id-type="pmid">21920052</pub-id>
+</element-citation>
+</ref>
+<ref id="CR6">
+<label>6.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bamshad</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Ng</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Bigham</surname>
+<given-names>AW</given-names>
+</name>
+<name>
+<surname>Tabor</surname>
+<given-names>HK</given-names>
+</name>
+<name>
+<surname>Emond</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Nickerson</surname>
+<given-names>DA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Exome sequencing as a tool for Mendelian disease gene discovery</article-title>
+<source/>Nat Rev Genet
+          <year>2011</year>
+<volume>12</volume>
+<fpage>745</fpage>
+<lpage>755</lpage>
+<pub-id pub-id-type="doi">10.1038/nrg3031</pub-id>
+<pub-id pub-id-type="pmid">21946919</pub-id>
+</element-citation>
+</ref>
+<ref id="CR7">
+<label>7.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Broeckx</surname>
+<given-names>BJG</given-names>
+</name>
+<name>
+<surname>Coopman</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Verhoeven</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Bosmans</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Gielen</surname>
+<given-names>I</given-names>
+</name>
+<name>
+<surname>Dingemanse</surname>
+<given-names>W</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>An heuristic filtering tool to identify phenotype-associated genetic variants applied to human intellectual disability and canine coat colors</article-title>
+<source/>BMC Bioinformatics
+          <year>2015</year>
+<volume>16</volume>
+<fpage>391</fpage>
+<pub-id pub-id-type="doi">10.1186/s12859-015-0822-7</pub-id>
+<pub-id pub-id-type="pmid">26597515</pub-id>
+</element-citation>
+</ref>
+<ref id="CR8">
+<label>8.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Broeckx</surname>
+<given-names>BJG</given-names>
+</name>
+<name>
+<surname>Coopman</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Verhoeven</surname>
+<given-names>GEC</given-names>
+</name>
+<name>
+<surname>De Keulenaer</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>De Meester</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Bavegems</surname>
+<given-names>V</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Toward the most ideal case-control design with related and unrelated dogs in whole-exome sequencing studies</article-title>
+<source/>Anim Genet
+          <year>2016</year>
+<volume>47</volume>
+<fpage>200</fpage>
+<lpage>207</lpage>
+<pub-id pub-id-type="doi">10.1111/age.12400</pub-id>
+<pub-id pub-id-type="pmid">26689130</pub-id>
+</element-citation>
+</ref>
+<ref id="CR9">
+<label>9.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Xue</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</name>
+<name>
+<surname>Ayub</surname>
+<given-names>Q</given-names>
+</name>
+<name>
+<surname>Huang</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Ball</surname>
+<given-names>EV</given-names>
+</name>
+<name>
+<surname>Mort</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Deleterious- and disease-allele prevalence in healthy individuals: insights from current predictions, mutation databases, and population-scale resequencing</article-title>
+<source/>Am J Hum Genet
+          <year>2012</year>
+<volume>91</volume>
+<fpage>1022</fpage>
+<lpage>1032</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ajhg.2012.10.015</pub-id>
+<pub-id pub-id-type="pmid">23217326</pub-id>
+</element-citation>
+</ref>
+<ref id="CR10">
+<label>10.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Landrum</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Benson</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Brown</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Chao</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Chitipiralla</surname>
+<given-names>S</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>ClinVar: public archive of interpretations of clinically relevant variants</article-title>
+<source/>Nucleic Acids Res
+          <year>2016</year>
+<volume>44</volume>
+<fpage>D862</fpage>
+<lpage>D868</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkv1222</pub-id>
+<pub-id pub-id-type="pmid">26582918</pub-id>
+</element-citation>
+</ref>
+<ref id="CR11">
+<label>11.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Karolchik</surname>
+<given-names>D</given-names>
+</name>
+<name>
+<surname>Hinrichs</surname>
+<given-names>AS</given-names>
+</name>
+<name>
+<surname>Furey</surname>
+<given-names>TS</given-names>
+</name>
+<name>
+<surname>Roskin</surname>
+<given-names>KM</given-names>
+</name>
+<name>
+<surname>Sugnet</surname>
+<given-names>CW</given-names>
+</name>
+<name>
+<surname>Haussler</surname>
+<given-names>D</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The UCSC table browser data retrieval tool</article-title>
+<source/>Nucleic Acids Res
+          <year>2004</year>
+<volume>32</volume>
+<fpage>D493</fpage>
+<lpage>D496</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkh103</pub-id>
+<pub-id pub-id-type="pmid">14681465</pub-id>
+</element-citation>
+</ref>
+<ref id="CR12">
+<label>12.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ng</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Buckingham</surname>
+<given-names>KJ</given-names>
+</name>
+<name>
+<surname>Lee</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Bigham</surname>
+<given-names>AW</given-names>
+</name>
+<name>
+<surname>Tabor</surname>
+<given-names>HK</given-names>
+</name>
+<name>
+<surname>Dent</surname>
+<given-names>KM</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Exome sequencing identifies the cause of a mendelian disorder</article-title>
+<source/>Nat Genet
+          <year>2010</year>
+<volume>42</volume>
+<fpage>30</fpage>
+<lpage>35</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.499</pub-id>
+<pub-id pub-id-type="pmid">19915526</pub-id>
+</element-citation>
+</ref>
+<ref id="CR13">
+<label>13.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wildeman</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Van Ophuizen</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>den Dunnen</surname>
+<given-names>JT</given-names>
+</name>
+<name>
+<surname>Taschner</surname>
+<given-names>PEM</given-names>
+</name>
+</person-group>
+<article-title>Improving sequence variant descriptions in mutation databases and literature using the Mutalyzer sequence variation nomenclature checker</article-title>
+<source/>Hum Mutat
+          <year>2008</year>
+<volume>29</volume>
+<fpage>6</fpage>
+<lpage>13</lpage>
+<pub-id pub-id-type="doi">10.1002/humu.20654</pub-id>
+<pub-id pub-id-type="pmid">18000842</pub-id>
+</element-citation>
+</ref>
+<ref id="CR14">
+<label>14.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ogilvy-Stuart</surname>
+<given-names>AL</given-names>
+</name>
+<name>
+<surname>Parsons</surname>
+<given-names>AC</given-names>
+</name>
+</person-group>
+<article-title>Miller syndrome (postaxial acrofacial dysostosis): further evidence for autosomal recessive inheritance and expansion of the phenotype</article-title>
+<source/>J Med Genet
+          <year>1991</year>
+<volume>28</volume>
+<fpage>695</fpage>
+<lpage>700</lpage>
+<pub-id pub-id-type="doi">10.1136/jmg.28.10.695</pub-id>
+<pub-id pub-id-type="pmid">1941965</pub-id>
+</element-citation>
+</ref>
+<ref id="CR15">
+<label>15.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Opitz</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>Mollica</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Sorge</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Milana</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Cimino</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Caltabiano</surname>
+<given-names>M</given-names>
+</name>
+</person-group>
+<article-title>Acrofacial dysostosis: review and report of a previously Undescribed condition: the Autosomal or X-linked dominant Catania form of Acrofacial Dysostosis</article-title>
+<source/>Am J Med Genet
+          <year>1993</year>
+<volume>47</volume>
+<fpage>660</fpage>
+<lpage>678</lpage>
+<pub-id pub-id-type="doi">10.1002/ajmg.1320470517</pub-id>
+<pub-id pub-id-type="pmid">8266994</pub-id>
+</element-citation>
+</ref>
+<ref id="CR16">
+<label>16.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kinoshita</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Kondoh</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Komori</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Matsui</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Harada</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Yanai</surname>
+<given-names>A</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Miller syndrome with novel dihydroorotate dehydrogenase gene mutations</article-title>
+<source/>Pediatr Int
+          <year>2011</year>
+<volume>53</volume>
+<fpage>587</fpage>
+<lpage>591</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1442-200X.2010.03303.x</pub-id>
+<pub-id pub-id-type="pmid">21851494</pub-id>
+</element-citation>
+</ref>
+<ref id="CR17">
+<label>17.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Safranow</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Rzeuski</surname>
+<given-names>R</given-names>
+</name>
+<name>
+<surname>Binczak-Kuleta</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Czyzycka</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Skowronek</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Jakubowska</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>ADA*2 allele of the adenosine deaminase gene may protect against coronary artery disease</article-title>
+<source/>Cardiology
+          <year>2007</year>
+<volume>108</volume>
+<fpage>275</fpage>
+<lpage>281</lpage>
+<pub-id pub-id-type="doi">10.1159/000099096</pub-id>
+<pub-id pub-id-type="pmid">17287605</pub-id>
+</element-citation>
+</ref>
+<ref id="CR18">
+<label>18.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hettinger</surname>
+<given-names>JA</given-names>
+</name>
+<name>
+<surname>Liu</surname>
+<given-names>X</given-names>
+</name>
+<name>
+<surname>Holden</surname>
+<given-names>JJA</given-names>
+</name>
+</person-group>
+<article-title>The G22A polymorphism of the ADA gene and susceptibility to autism spectrum disorders</article-title>
+<source/>J Autism Dev Disord
+          <year>2008</year>
+<volume>38</volume>
+<fpage>14</fpage>
+<lpage>19</lpage>
+<pub-id pub-id-type="doi">10.1007/s10803-006-0354-0</pub-id>
+<pub-id pub-id-type="pmid">17340203</pub-id>
+</element-citation>
+</ref>
+<ref id="CR19">
+<label>19.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Borsatto</surname>
+<given-names>T</given-names>
+</name>
+<name>
+<surname>Sperb-Ludwig</surname>
+<given-names>F</given-names>
+</name>
+<name>
+<surname>Pinto</surname>
+<given-names>LL</given-names>
+</name>
+<name>
+<surname>De Luca</surname>
+<given-names>GR</given-names>
+</name>
+<name>
+<surname>Carvalho</surname>
+<given-names>FL</given-names>
+</name>
+<name>
+<surname>De Souza</surname>
+<given-names>CF</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Biotinidase deficiency: clinical and genetic studies of 38 Brazilian patients</article-title>
+<source/>BMC Med Genet
+          <year>2014</year>
+<volume>15</volume>
+<fpage>96</fpage>
+<pub-id pub-id-type="doi">10.1186/s12881-014-0096-3</pub-id>
+<pub-id pub-id-type="pmid">25174816</pub-id>
+</element-citation>
+</ref>
+<ref id="CR20">
+<label>20.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gul</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Hassan</surname>
+<given-names>MJ</given-names>
+</name>
+<name>
+<surname>Mahmood</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Rahmani</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Naseer</surname>
+<given-names>MI</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genetic studies of autosomal recessive primary microcephaly in 33 Pakistani families: novel sequence variants in ASPM gene</article-title>
+<source/>Neurogenetics
+          <year>2006</year>
+<volume>7</volume>
+<fpage>105</fpage>
+<lpage>110</lpage>
+<pub-id pub-id-type="doi">10.1007/s10048-006-0042-4</pub-id>
+<pub-id pub-id-type="pmid">16673149</pub-id>
+</element-citation>
+</ref>
+<ref id="CR21">
+<label>21.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Nicholas</surname>
+<given-names>AK</given-names>
+</name>
+<name>
+<surname>Swanson</surname>
+<given-names>EA</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>JJ</given-names>
+</name>
+<name>
+<surname>Karbani</surname>
+<given-names>G</given-names>
+</name>
+<name>
+<surname>Malik</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Springell</surname>
+<given-names>K</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The molecular landscape of ASPM mutations in primary microcephaly</article-title>
+<source/>J Med Genet
+          <year>2009</year>
+<volume>46</volume>
+<fpage>249</fpage>
+<lpage>253</lpage>
+<pub-id pub-id-type="doi">10.1136/jmg.2008.062380</pub-id>
+<pub-id pub-id-type="pmid">19028728</pub-id>
+</element-citation>
+</ref>
+<ref id="CR22">
+<label>22.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Simon</surname>
+<given-names>DB</given-names>
+</name>
+<name>
+<surname>Karet</surname>
+<given-names>FE</given-names>
+</name>
+<name>
+<surname>Hamdan</surname>
+<given-names>JM</given-names>
+</name>
+<name>
+<surname>DiPietro</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Sanjad</surname>
+<given-names>SA</given-names>
+</name>
+<name>
+<surname>Lifton</surname>
+<given-names>RP</given-names>
+</name>
+</person-group>
+<article-title>Bartter’s syndrome, hypokalaemic alkalosis with hypercalciuria, is caused by mutations in the Na-K-2CI cotransporter NKCC2</article-title>
+<source/>Nat Genet
+          <year>1996</year>
+<volume>13</volume>
+<fpage>183</fpage>
+<lpage>188</lpage>
+<pub-id pub-id-type="doi">10.1038/ng0696-183</pub-id>
+<pub-id pub-id-type="pmid">8640224</pub-id>
+</element-citation>
+</ref>
+<ref id="CR23">
+<label>23.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Schwalbe</surname>
+<given-names>RA</given-names>
+</name>
+<name>
+<surname>Blanchi</surname>
+<given-names>L</given-names>
+</name>
+<name>
+<surname>Accili</surname>
+<given-names>EA</given-names>
+</name>
+<name>
+<surname>Brown</surname>
+<given-names>AM</given-names>
+</name>
+</person-group>
+<article-title>Functional consequences of ROMK mutants linked to antenatal Bartter’s syndrome and implications for treatment</article-title>
+<source/>Hum Mol Genet
+          <year>1998</year>
+<volume>7</volume>
+<fpage>975</fpage>
+<lpage>980</lpage>
+<pub-id pub-id-type="doi">10.1093/hmg/7.6.975</pub-id>
+<pub-id pub-id-type="pmid">9580661</pub-id>
+</element-citation>
+</ref>
+<ref id="CR24">
+<label>24.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Okuyama</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Tomita</surname>
+<given-names>S</given-names>
+</name>
+<name>
+<surname>Takeuchi</surname>
+<given-names>H</given-names>
+</name>
+<name>
+<surname>Ichikawa</surname>
+<given-names>Y</given-names>
+</name>
+</person-group>
+<article-title>A novel mutation in the cytochrome P450(27) (CYP27) gene caused cerebrotendinous xanthomatosis in a Japanese family</article-title>
+<source/>J Lipid Res
+          <year>1996</year>
+<volume>37</volume>
+<fpage>631</fpage>
+<lpage>639</lpage>
+<pub-id pub-id-type="pmid">8728324</pub-id>
+</element-citation>
+</ref>
+<ref id="CR25">
+<label>25.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Appadurai</surname>
+<given-names>V</given-names>
+</name>
+<name>
+<surname>DeBarber</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Chiang</surname>
+<given-names>PW</given-names>
+</name>
+<name>
+<surname>Patel</surname>
+<given-names>SB</given-names>
+</name>
+<name>
+<surname>Steiner</surname>
+<given-names>RD</given-names>
+</name>
+<name>
+<surname>Tyler</surname>
+<given-names>C</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Apparent underdiagnosis of Cerebrotendinous Xanthomatosis revealed by analysis of ~60,000 human exomes</article-title>
+<source/>Mol Genet Metab
+          <year>2015</year>
+<volume>116</volume>
+<fpage>298</fpage>
+<lpage>304</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ymgme.2015.10.010</pub-id>
+<pub-id pub-id-type="pmid">26643207</pub-id>
+</element-citation>
+</ref>
+<ref id="CR26">
+<label>26.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Norrgard</surname>
+<given-names>KJ</given-names>
+</name>
+<name>
+<surname>Pomponio</surname>
+<given-names>RJ</given-names>
+</name>
+<name>
+<surname>Swango</surname>
+<given-names>KL</given-names>
+</name>
+<name>
+<surname>Hymes</surname>
+<given-names>J</given-names>
+</name>
+<name>
+<surname>Reynolds</surname>
+<given-names>TR</given-names>
+</name>
+<name>
+<surname>Buck</surname>
+<given-names>GA</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Mutation (Q456H) is the most common cause of profound biotinidase deficiency in children ascertained by newborn screening in the United States</article-title>
+<source/>Biochem Mol Med
+          <year>1997</year>
+<volume>61</volume>
+<fpage>22</fpage>
+<lpage>27</lpage>
+<pub-id pub-id-type="doi">10.1006/bmme.1997.2597</pub-id>
+<pub-id pub-id-type="pmid">9232193</pub-id>
+</element-citation>
+</ref>
+<ref id="CR27">
+<label>27.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Beales</surname>
+<given-names>PL</given-names>
+</name>
+<name>
+<surname>Badano</surname>
+<given-names>JL</given-names>
+</name>
+<name>
+<surname>Ross</surname>
+<given-names>AJ</given-names>
+</name>
+<name>
+<surname>Ansley</surname>
+<given-names>SJ</given-names>
+</name>
+<name>
+<surname>Hoskins</surname>
+<given-names>BE</given-names>
+</name>
+<name>
+<surname>Kirsten</surname>
+<given-names>B</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genetic interaction of BBS1 mutations with alleles at other BBS loci can result in non-Mendelian Bardet-Biedl syndrome</article-title>
+<source/>Am J Hum Genet
+          <year>2003</year>
+<volume>72</volume>
+<fpage>1187</fpage>
+<lpage>1199</lpage>
+<pub-id pub-id-type="doi">10.1086/375178</pub-id>
+<pub-id pub-id-type="pmid">12677556</pub-id>
+</element-citation>
+</ref>
+<ref id="CR28">
+<label>28.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wolf</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Jensen</surname>
+<given-names>KP</given-names>
+</name>
+<name>
+<surname>Barshop</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Blitzer</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Carlson</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Goudie</surname>
+<given-names>DR</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Biotinidase deficiency: novel mutations and their biochemical and clinical correlates</article-title>
+<source/>Hum Mutat
+          <year>2005</year>
+<volume>25</volume>
+<fpage>413</fpage>
+<pub-id pub-id-type="doi">10.1002/humu.9329</pub-id>
+<pub-id pub-id-type="pmid">15776412</pub-id>
+</element-citation>
+</ref>
+<ref id="CR29">
+<label>29.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bassuk</surname>
+<given-names>AG</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>YZ</given-names>
+</name>
+<name>
+<surname>Batish</surname>
+<given-names>SD</given-names>
+</name>
+<name>
+<surname>Nagan</surname>
+<given-names>N</given-names>
+</name>
+<name>
+<surname>Opal</surname>
+<given-names>P</given-names>
+</name>
+<name>
+<surname>Chance</surname>
+<given-names>PF</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>In cis autosomal dominant mutation of Senataxin associated with tremor/ataxia syndrome</article-title>
+<source/>Neurogenetics
+          <year>2007</year>
+<volume>8</volume>
+<fpage>45</fpage>
+<lpage>49</lpage>
+<pub-id pub-id-type="doi">10.1007/s10048-006-0067-8</pub-id>
+<pub-id pub-id-type="pmid">17096168</pub-id>
+</element-citation>
+</ref>
+<ref id="CR30">
+<label>30.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sarafoglou</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Bentler</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Gaviglio</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Redlinger-Grosse</surname>
+<given-names>K</given-names>
+</name>
+<name>
+<surname>Anderson</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>McCann</surname>
+<given-names>M</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>High incidence of profound biotinidase deficiency detected in newborn screening blood spots in the Somalian population in Minnesota</article-title>
+<source/>J Inherit Metab Dis
+          <year>2009</year>
+<volume>32</volume>
+<issue>Supplement 1</issue>
+<fpage>169</fpage>
+<lpage>173</lpage>
+<pub-id pub-id-type="doi">10.1007/s10545-009-1135-7</pub-id>
+</element-citation>
+</ref>
+<ref id="CR31">
+<label>31.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ohlsson</surname>
+<given-names>A</given-names>
+</name>
+<name>
+<surname>Guthenberg</surname>
+<given-names>C</given-names>
+</name>
+<name>
+<surname>Holme</surname>
+<given-names>E</given-names>
+</name>
+<name>
+<surname>Von Döbeln</surname>
+<given-names>U</given-names>
+</name>
+</person-group>
+<article-title>Profound biotinidase deficiency: a rare disease among native Swedes</article-title>
+<source/>J Inherit Metab Dis
+          <year>2010</year>
+<volume>33</volume>
+<fpage>175</fpage>
+<lpage>180</lpage>
+<pub-id pub-id-type="doi">10.1007/s10545-010-9065-y</pub-id>
+<pub-id pub-id-type="pmid">20151200</pub-id>
+</element-citation>
+</ref>
+<ref id="CR32">
+<label>32.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Procter</surname>
+<given-names>M</given-names>
+</name>
+<name>
+<surname>Wolf</surname>
+<given-names>B</given-names>
+</name>
+<name>
+<surname>Mao</surname>
+<given-names>R</given-names>
+</name>
+</person-group>
+<article-title>Forty-eight novel mutations causing biotinidase deficiency</article-title>
+<source/>Mol Genet Metab Elsevier Inc
+          <year>2016</year>
+<volume>117</volume>
+<fpage>369</fpage>
+<lpage>372</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ymgme.2016.01.002</pub-id>
+</element-citation>
+</ref>
+<ref id="CR33">
+<label>33.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bodmer</surname>
+<given-names>W</given-names>
+</name>
+<name>
+<surname>Bonilla</surname>
+<given-names>C</given-names>
+</name>
+</person-group>
+<article-title>Common and rare variants in multifactorial susceptibility to common diseases</article-title>
+<source/>Nat Genet
+          <year>2008</year>
+<volume>40</volume>
+<fpage>695</fpage>
+<lpage>701</lpage>
+<pub-id pub-id-type="doi">10.1038/ng.f.136</pub-id>
+<pub-id pub-id-type="pmid">18509313</pub-id>
+</element-citation>
+</ref>
+<ref id="CR34">
+<label>34.</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Manolio</surname>
+<given-names>TA</given-names>
+</name>
+<name>
+<surname>Collins</surname>
+<given-names>FS</given-names>
+</name>
+<name>
+<surname>Cox</surname>
+<given-names>NJ</given-names>
+</name>
+<name>
+<surname>Goldstein</surname>
+<given-names>DB</given-names>
+</name>
+<name>
+<surname>Hindorff</surname>
+<given-names>LA</given-names>
+</name>
+<name>
+<surname>Hunter</surname>
+<given-names>DJ</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Finding the missing heritability of complex diseases</article-title>
+<source/>Nature
+          <year>2009</year>
+<volume>461</volume>
+<fpage>747</fpage>
+<lpage>753</lpage>
+<pub-id pub-id-type="doi">10.1038/nature08494</pub-id>
+<pub-id pub-id-type="pmid">19812666</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+</article>
+</pmc-articleset>

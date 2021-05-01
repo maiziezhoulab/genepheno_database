@@ -1,0 +1,1381 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+
+<pmc-articleset><article article-type="research-article" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?properties open_access?>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Scientifica (Cairo)</journal-id>
+<journal-id journal-id-type="iso-abbrev">Scientifica (Cairo)</journal-id>
+<journal-id journal-id-type="publisher-id">SCIENTIFICA</journal-id>
+<journal-title-group>
+<journal-title>Scientifica</journal-title>
+</journal-title-group>
+<issn pub-type="epub">2090-908X</issn>
+<publisher>
+<publisher-name>Hindawi Publishing Corporation</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmid">27034906</article-id>
+<article-id pub-id-type="pmc">4808548</article-id>
+<article-id pub-id-type="doi">10.1155/2016/9589404</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Gene Prioritization by Integrated Analysis of Protein Structural and Network Topological Properties for the Protein-Protein Interaction Network of Neurological Disorders</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Paul</surname>
+<given-names>Yashna</given-names>
+</name>
+<xref ref-type="aff" rid="I1"></xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id authenticated="false" contrib-id-type="orcid">http://orcid.org/0000-0003-0116-0711</contrib-id>
+<name>
+<surname>Hasija</surname>
+<given-names>Yasha</given-names>
+</name>
+<xref ref-type="aff" rid="I1"></xref>
+<xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+</contrib>
+</contrib-group>
+<aff id="I1">Department of Biotechnology, Delhi Technological University, Shahbad Daulatpur, Main Bawana Road, New Delhi, Delhi 110042, India</aff>
+<author-notes>
+<corresp id="cor1">*Yasha Hasija: <email>yashahasija@gmail.com</email></corresp>
+<fn fn-type="other">
+<p>Academic Editor: Feng Ding</p>
+</fn>
+</author-notes>
+<pub-date pub-type="ppub">
+<year>2016</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>13</day>
+<month>3</month>
+<year>2016</year>
+</pub-date>
+<volume>2016</volume>
+<elocation-id>9589404</elocation-id>
+<history>
+<date date-type="received">
+<day>22</day>
+<month>12</month>
+<year>2015</year>
+</date>
+<date date-type="rev-recd">
+<day>11</day>
+<month>2</month>
+<year>2016</year>
+</date>
+<date date-type="accepted">
+<day>18</day>
+<month>2</month>
+<year>2016</year>
+</date>
+</history>
+<permissions>
+<copyright-statement>Copyright © 2016 Y. Paul and Y. Hasija.</copyright-statement>
+<copyright-year>2016</copyright-year>
+<license xlink:href="https://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+</license>
+</permissions>
+<abstract>
+<p>Neurological disorders are known to show similar phenotypic manifestations like anxiety, depression, and cognitive impairment. There is a need to identify shared genetic markers and molecular pathways in these diseases, which lead to such comorbid conditions. Our study aims to prioritize novel genetic markers that might increase the susceptibility of patients affected with one neurological disorder to other diseases with similar manifestations. Identification of pathways involving common candidate markers will help in the development of improved diagnosis and treatments strategies for patients affected with neurological disorders. This systems biology study for the first time integratively uses 3D-structural protein interface descriptors and network topological properties that characterize proteins in a neurological protein interaction network, to aid the identification of genes that are previously not known to be shared between these diseases. Results of protein prioritization by machine learning have identified known as well as new genetic markers which might have direct or indirect involvement in several neurological disorders. Important gene hubs have also been identified that provide an evidence for shared molecular pathways in the neurological disease network.</p>
+</abstract>
+</article-meta>
+</front>
+<body>
+<sec id="sec1">
+<title>1. Introduction</title>
+<p>Seizures and comorbid conditions like anxiety, depression, and cognitive impairment are some of the shared symptoms in patients with neurological disorders. This observation implies that these neurological disorders have certain shared genetic markers and molecular pathways that lead to their common clinical manifestations. There might be genetic markers associated with one disease, the mutations in which result into over- or underexpression of associated genes and interconnected molecular pathways. Such aberrations can cause similar observable symptoms in patients with different neurological disorders. For example, there are reports that suggest that epilepsy occurs in approximately 8 to 20% of children with autism spectrum disorders with an increasing prevalence of seizures occurring in the late adulthood [<xref ref-type="bibr" rid="B1">1</xref>]. Also, as compared to general population, in which the incidence/probability of developing bipolar disorder in general population is 0.07, the probability of the same in patients with epilepsy is 1.69 cases per 1000 person-years, which is significantly high [<xref ref-type="bibr" rid="B2">2</xref>]. There have been reports of episodic attacks in chronic disorders: epilepsy and migraine. The diseases commonly occur together and share overlapping pathophysiological mechanisms and common clinical features. Recently identified common genetic markers and molecular substrates for epilepsy and migraine include mutations in genes like CACNA1A, ATP1A2, SLC1A3, and POLG. However, both conditions also have several distinct and important differences. Hence, the diagnosis and treatment of each of these diseases must take into consideration a potential presence of the other [<xref ref-type="bibr" rid="B3">3</xref>].</p>
+<p>Keeping this in mind, we implement a strategic systems biology approach for structural and functional analysis of neurological protein interaction network. We aim to identify novel putative genetic markers through network analysis that could be the cause of comorbid conditions in neurological disorders. The approach followed for network analysis of neurological disorders in this study is unique and novel in several ways.</p>
+<p>We have targeted the human neurological proteome for this study. Proteins function by interacting with one another and also with other molecules of the cell, like DNA and RNA, and mediate vital metabolic pathways, signalling cascades, cellular processes, and organismal systems. The unique function that each protein interaction confers to the system determines its affinity and specificity. Protein interactions therefore have a central role in the biological functioning of an organism and a perturbation of such interactions that might include gain of an inappropriate interaction or the loss of an important association controls the healthy and diseased state of an organism. Disease mutations affect the protein's binding interface causing biochemically dysfunctional allosteric changes in the protein's binding site. Studying protein interactions provides insights into the molecular basis of the disease, and this information can be used to devise better methods for prevention, diagnosis, and treatment of diseases [<xref ref-type="bibr" rid="B4">4</xref>].</p>
+<p>The prioritization of novel candidates by machine learning in our study takes into consideration the structural descriptors of proteins in an interaction network. Machine learning techniques have been successfully used to find informative genes and mining critical information from raw data supplied to the machine. These prediction models have an increased interpretability and retain high accuracy to exploit the supplied data and figure out the required information effectively. Our work specifically deals with prioritizing novel gene products, that is, proteins that are previously not known to be associated with neurological disorders. This was done by identifying the characteristic protein network topological properties and 3-dimensional protein interface structural properties that are inherent in proteins that are known to be associated with neurological disorders. Protein interactions take place through protein interfaces. And differences in the structure of protein interface can lead to varied interactions. Hence, the structural properties of the protein interface play an important role in determining its interactions in a network. A similar study in which binding site structural characteristics were used to describe cancer associated human protein-protein interfaces in a cancer network shows that cancer protein interfaces have characteristic interface properties as compared with interfaces of normal proteins. Interface structural properties like accessible surface area (ASA), planarity, gap volume index, interface surface area, percent polar residues in the interface, percent nonpolar residues in the interface, and percent charged residues were used to describe cancer protein interfaces [<xref ref-type="bibr" rid="B5">5</xref>]. Our study used the same set of properties, calculated through the web tool 2P2I inspector (see Methodology), to characterize interfaces of proteins involved in neurological disease network. Two additional properties are used, namely, Gap Index and Interface Size, which are calculated from the above-mentioned seven properties.</p>
+<p>To understand the global behaviour of proteins, the network graph representation with characteristic properties that define the participating proteins has been used previously. These are called network topological properties and include degree, betweenness, closeness, centrality, and shortest path length. The inclusion of protein interface structure and using network topological properties to describe their effect on the interacting proteins has been shown to identify essential hub proteins with better accuracy than before [<xref ref-type="bibr" rid="B6">6</xref>]. We have taken into consideration ten network topological properties that were calculated by the network analyser plugin of cytoscape (see Methodology).</p>
+<p>Studies have shown that these protein descriptors (protein interface structural properties and network topological properties), individually, are optimal features of prioritizing novel candidates [<xref ref-type="bibr" rid="B7">7</xref>]. We have therefore considered both these structural descriptors together for the first time to describe and characterize known and novel potential neurological proteins under study. It was also observed that there was a decline in performance and accuracy of the classifiers at the cost of eliminating some of these features. And, therefore, all the 19 descriptors together were considered optimally fit to be included in the study.</p>
+<p>Machine learning classifiers were trained on these parameters and subjected on known set of neurological gene products to identify their unique underlying patterns and relationship in a network and then use these to identify previously unknown markers of neurological disorders from a list of human proteins that are not known to be associated with such disorders. This structural level analysis provides important clues about the affinity and specificity of protein interactions, and hence only the proteins whose 3D structure is available were considered. Identified risk markers could be considered important to determine patient prognosis for neurological diseases. Identifying such markers by taking into consideration the properties of known genes and proteins involved in the disorders under study is known as gene prioritization [<xref ref-type="bibr" rid="B8">8</xref>].</p>
+<p>Further, from the prioritized gene list, we identified proteins hubs that have the highest number of interacting partners in the network and can be thought to participate simultaneously in most neurological pathways.</p>
+</sec>
+<sec id="sec2">
+<title>2. Methodology</title>
+<sec id="sec2.1">
+<title>2.1. Screening of Genes under Study</title>
+<p>Gene sets known to be associated with several neurological disorders, namely, epilepsy, Alzheimer's, Parkinson's, autism, schizophrenia, bipolar disorder, and migraine, were downloaded from Genotator (<ext-link ext-link-type="uri" xlink:href="http://genotator.hms.harvard.edu/">http://genotator.hms.harvard.edu/</ext-link>) [<xref ref-type="bibr" rid="B9">9</xref>], which is an online available real-time aggregation tool that has a multiquery engine. It automatically integrates data from 11 external clinical genetics resources to provide reliable ranking of genes in order of disease relevance and covers both historical genetics research and recent advancements and discoveries in disease genetics. Total number of unique genes associated with these disorders was 2,807. A list of 4,538 proteins corresponding to these genes was downloaded from Uniprot (<ext-link ext-link-type="uri" xlink:href="http://www.uniprot.org/">http://www.uniprot.org/</ext-link>) [<xref ref-type="bibr" rid="B10">10</xref>]. For gene prioritization one of the parameters under consideration was interface structural properties of the interacting proteins in neurological disease network. To calculate the structural properties, the three-dimensional structures of all the proteins were downloaded from RCSB Protein Data Bank (PDB) (<ext-link ext-link-type="uri" xlink:href="http://www.rcsb.org/">http://www.rcsb.org/</ext-link>) [<xref ref-type="bibr" rid="B11">11</xref>]. Therefore the PDB Id list for 4,538 proteins was extracted from a total number of 47,532 available human protein structures on PDB. 17,457 3D-protein structures corresponded to our list of 4538 proteins associated with the group of neurological diseases under study. This was considered as the known set of proteins (KSOPs). Remaining 30,075 protein structures from PDB were listed as the unknown set of proteins (USOPs), that is, the proteins not considered to be associated with the group of diseases under study. The list of 17,457 KSOPs included a number of structural variants associated with each protein. Hence this list was then manually sorted and only the protein structure with highest resolution was considered. Each protein chain structure was taken into account, as the protein structural interface that takes part in interacting with other proteins can be an assemblage of any combination of the available chains of a protein. Also, mutant and recombinant structures were avoided. If multiple structures were available for each chain, a single high resolution structure was considered specific to the protein chain. This is mainly because high resolution crystal structures of proteins enable understanding of their associated molecular mechanisms with high degree of precision and accuracy. Such accurate structures help in addressing biological questions of fundamental importance, as well as aiding in the study of drug designing and pharmacological research. Increase in the resolution of a structure increases the confidence about positions of atoms in the respective conformation. Accurate positions of atoms in a high resolution structure would help in specific and physiologically relevant interactions with other proteins in an interaction network. However, considering that high resolution has minimum effect on the errors arising from multiple conformations of the protein, therefore, taking the high resolution structure of all the conformations of each protein into consideration is important [<xref ref-type="bibr" rid="B12">12</xref>]. Excluding the independent chain structures would mean losing out information on any putative protein interface structure. This left us with a list of 2,487 KSOPs, each associated with its available chain structure. Similarly, 30,075 USOPs were sorted and screened for available high resolution chain structures of all proteins, and the final list reduced to 9,434 proteins. The unique set of proteins from 2,487 KSOPs and 9,434 USOPs was used for construction of a protein-protein interaction network that was further used to analyse network topological properties of these proteins. And, the entire set of 2,487 KSOPs and 9,434 USOPs was used to fetch the structural properties of each possible interface that could be formed by different combinations of protein chains for each protein.</p>
+</sec>
+<sec id="sec2.2">
+<title>2.2. Protein-Protein Interaction Network and Analysis of Protein Network Properties</title>
+<p>881 and 4,073 unique set of total 2,487 KSOPs and 9,434 USOPs, respectively, were used as input for STRING (<ext-link ext-link-type="uri" xlink:href="http://string-db.org/">http://string-db.org/</ext-link>) to identify the potential protein-protein interactions that might have been predicted experimentally or computationally or published in literature [<xref ref-type="bibr" rid="B13">13</xref>]. A total of 683,159 interactions for all the proteins were extracted from STRING. The interactions were subsequently used as input to visualise and analyse a network using cytoscape (v 3.1.0) [<xref ref-type="bibr" rid="B14">14</xref>]. The final network had 4,954 nodes (corresponding to number of proteins in the network) and 683,159 edges (number of interactions between proteins). The network analyser, a well-known cytoscape plugin, was used to compute specific network topological properties of the protein-protein interaction (PPI) network [<xref ref-type="bibr" rid="B15">15</xref>]. The 10 network properties that were analysed for 4,954 proteins by this tool are listed in <xref ref-type="table" rid="tab1">Table 1</xref>. The functional protein interactions extracted from STRING were also used as input for web based tool HUBBA (<ext-link ext-link-type="uri" xlink:href="http://hub.iis.sinica.edu.tw/Hubba/index.php">http://hub.iis.sinica.edu.tw/Hubba/index.php</ext-link>) that analyses potential hubs in the network [<xref ref-type="bibr" rid="B16">16</xref>]. Also, the set of 881 KSOPs was used as a separate input for STRING, and the resulting interactions were subject to HUBBA analysis, in order to identify known protein hubs, that is, the proteins that have the maximum number of interactions in the known neurological protein-protein interaction network.</p>
+</sec>
+<sec id="sec2.3">
+<title>2.3. Inclusion of Protein Interface Structural Properties</title>
+<p>Protein-protein interactions take place through the binding site of the proteins contained in the protein interface. Multiple conformations of particularly the key residues in the binding sites make these interactions possible. However, in contrast to the numerous protein-protein interactions that are possible, there are only limited and specific binding site conformations that favour protein binding. Protein interface properties are therefore useful to describe the preference of protein interaction that could take place through that surface of the protein. A protein interface is formed from a couple of protein chains that provide the most favourable binding conformation to the protein. Only certain possible combinations of a couple of the number of protein chains associated with a single protein can form the protein interface. The list of favourable protein chain combinations that were involved in forming the interface of each protein was extracted from PIFACE (<ext-link ext-link-type="uri" xlink:href="http://prism.ccbb.ku.edu.tr/piface/">http://prism.ccbb.ku.edu.tr/piface/</ext-link>) [<xref ref-type="bibr" rid="B17">17</xref>]. The input for this included the PDB Id of the protein and any associated two protein chains at a time. PIFACE combinations were extracted for 2,487 PDB Ids corresponding to KSOPs and 9,434 PDB Ids corresponding to USOPs. The number of favourable protein chain combinations was 2,179 and 5,550 for KSOPs and USOPs, respectively. The favourable chain combinations were used for calculating interface structural properties, to be used as protein structural descriptors, with the help of an online available tool 2P2I inspector (<ext-link ext-link-type="uri" xlink:href="http://2p2idb.cnrs-mrs.fr/2p2i_inspector.html">http://2p2idb.cnrs-mrs.fr/2p2i_inspector.html</ext-link>) [<xref ref-type="bibr" rid="B18">18</xref>]. Input to this tool is a PDB Id and a combination of protein chains known to form a potential binding interface from PIFACE. The 9 protein structural descriptors that were assessed using 2P2I are listed in <xref ref-type="table" rid="tab1">Table 1</xref>.</p>
+</sec>
+<sec id="sec2.4">
+<title>2.4. Gene Prioritization by Machine Learning</title>
+<p>The network properties and interface properties for the KSOPs and USOPs were combined together to prepare files for machine learning using WEKA. Altogether there were 19 descriptors for all the proteins. WEKA (<ext-link ext-link-type="uri" xlink:href="http://www.cs.waikato.ac.nz/ml/weka/">http://www.cs.waikato.ac.nz/ml/weka/</ext-link>) is a data mining software that includes a collection of machine learning algorithms [<xref ref-type="bibr" rid="B19">19</xref>]. For preparing the training file, the list of 2,179 KSOPs was divided into half after random shuffling. And the same number of protein entries was taken from the unknown set after randomly shuffling it. The resulting training file had 1,090 KSOPs and 1,090 USOPs. Various available algorithms from WEKA, like Bagging, Naïve Bayes, Random Forest, Rotation Forest, and K-star, were trained upon a specific set of features (network topological properties and interface descriptors) associated with the KSOPs using tenfold cross-validation. Building more than one model helps explain how different classifiers make varied predictions on the training set. The models predict the recall, ROC area, accuracy, precision, true positive rate and the false positive rate for the training set. The models were individually applied to the test file to identify proteins that had features similar to those of KSOPs. The test file included 1,089 remaining KSOPs and 4,460 USOPs. The model that made predictions on the test set with highest precision, recall, ROC area, and accuracy was considered as the best fit model. The predictions of this model were taken for further analysis.</p>
+<p>The combined list of resulting putative neurological candidates from the test set and the list of KSOPs from the training and test sets were used as input for STRING to identify corresponding protein-protein interactions. These interactions were then used to identify hub proteins using HUBBA. This gave a list of important proteins with most interacting partners in the new network, which includes additional identified protein candidates.</p>
+<p>The three identified hub protein lists are compared to understand the essentiality of common hubs in all the three protein networks, namely, human structural protein interaction network, neurologically associated structural protein interaction network, and the final network of known and putative neurologically associated proteins. DAVID (<ext-link ext-link-type="uri" xlink:href="http://david.abcc.ncifcrf.gov/">http://david.abcc.ncifcrf.gov/</ext-link>) analysis of hub protein list from the third network which includes neurologically associated and newly predicted protein candidates was performed, to identify common pathways between new candidates and existing neurological pathways [<xref ref-type="bibr" rid="B20">20</xref>, <xref ref-type="bibr" rid="B21">21</xref>].</p>
+<p>The strategic systems biology approach to identify novel neurological candidates followed by applying the above methodology also extends the machine learning predictions for analysing hubs protein candidates and has been illustrated in <xref ref-type="fig" rid="fig1">Figure 1</xref>.</p>
+</sec>
+</sec>
+<sec id="sec3">
+<title>3. Results and Conclusions</title>
+<sec id="sec3.1">
+<title>3.1. Results for Gene Prioritization by Machine Learning</title>
+<p>WEKA classifiers were used to build models on the training set. The training set was built by random selection of 1,090 KSOPs and equal number of USOPs. Known proteins were the ones that are associated with neurological disorders. The unknown list consists of all other known human proteins whose 3-dimensional structures were available on the Protein Data Bank (PDB). There are 19 training features in both the training set and test set, for quantified description of the proteins. The features used for describing known proteins and evaluating novel candidates were an integration of protein network properties and interface structural properties. Five machine learning classifiers from WEKA were applied to the training set, to obtain five corresponding models. These include Naïve Bayes, Random Forest, Bagging with J48, Rotation Forest, and K-star. After 10-fold cross-validation, the predictions of the above classifiers on the training set are shown in <xref ref-type="fig" rid="fig2">Figure 2(a)</xref>. Machine learning performance metrics show that the classifier Random Forest has the best predictions of precision, that is, the number of instances that have been predicted correctly as known proteins. Receiver operating characteristic (ROC) curve is a graph that illustrates the performance of a classifier as its discrimination threshold is varied; and Random Forest has the maximum area under ROC curve. Maximum recall and accuracy have been achieved by Bagging combined with J48. Sensitivity/recall is the number of known proteins that have been predicted correctly as being known. Accuracy is the proportion of true results, that is, the known proteins, and the unknown proteins classified as known. The performance of a single test/classifier prediction can be calculated using the precision and the recall. The <italic>F</italic>-score is a single measure of the performance of the prediction, where<disp-formula id="eq1"><label>(1)</label><mml:math id="M1"><mml:mtable style="T1"><mml:mtr><mml:mtd><mml:mi>F</mml:mi><mml:mo>=</mml:mo><mml:mn mathvariant="normal">2</mml:mn><mml:mfenced separators="|"><mml:mrow><mml:mspace depth="7.29999pt" height="13.2pt"></mml:mspace><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">P</mml:mi><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">C</mml:mi><mml:mi mathvariant="normal">I</mml:mi><mml:mi mathvariant="normal">S</mml:mi><mml:mi mathvariant="normal">I</mml:mi><mml:mi mathvariant="normal">O</mml:mi><mml:mi mathvariant="normal">N</mml:mi><mml:mi>∗</mml:mi><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">C</mml:mi><mml:mi mathvariant="normal">A</mml:mi><mml:mi mathvariant="normal">L</mml:mi><mml:mi mathvariant="normal">L</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">P</mml:mi><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">C</mml:mi><mml:mi mathvariant="normal">I</mml:mi><mml:mi mathvariant="normal">S</mml:mi><mml:mi mathvariant="normal">I</mml:mi><mml:mi mathvariant="normal">O</mml:mi><mml:mi mathvariant="normal">N</mml:mi><mml:mo>+</mml:mo><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">C</mml:mi><mml:mi mathvariant="normal">A</mml:mi><mml:mi mathvariant="normal">L</mml:mi><mml:mi mathvariant="normal">L</mml:mi></mml:mrow></mml:mfrac><mml:mspace depth="7.29999pt" height="13.2pt"></mml:mspace></mml:mrow></mml:mfenced><mml:mo>.</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>The performance/<italic>F</italic>-score for all the classifiers on training sets were calculated by the above formula and are depicted in <xref ref-type="fig" rid="fig2">Figure 2(c)</xref> [<xref ref-type="bibr" rid="B22">22</xref>]. The graph shows that the classifier Bagging_J48 has the best performance.</p>
+<p>The models that were built on training set after 10-fold cross-validation were applied on the test dataset individually to obtain the results. The following result predictors like precision, accuracy, recall, and area under ROC curve describe how successful the models have been to mine candidate proteins involved in neurological disorders, from a set of proteins that are previously not known to be associated with neurological disorders. The test file included 1,089 remaining KSOPs and 4,460 USOPs. Values of all the four performance metrics on the test set data for the 5 classifiers used are shown in <xref ref-type="fig" rid="fig2">Figure 2(b)</xref>. Among the five models used for predictions on test set data, the K-star algorithm gives best result for precision, recall, and area under ROC curve as well as for the accuracy of predictions. Performance/<italic>F</italic>-score is calculated for all the models and is depicted in <xref ref-type="fig" rid="fig2">Figure 2(d)</xref>. Different models might perform variedly depending upon the dataset and the information contained. For the present test set, the model that gave best results was K-star. However, it can be noted that Bagging_J48 has better overall performance on the training set, whereas K-star has the third best performance in the same dataset after Bagging_J48 and Random Forest. From these results it can be concluded that K-star algorithm makes better discretion of noise and signal, whereas other algorithms overfit in the present data lead to inclusion of random error/noise. K-star specifically learns the heterogeneity and relatedness/relationship of training set data more accurately than any other algorithm and gives the best performance in test set data by identifying maximum true positives.</p>
+<p>The best predicted putative candidate proteins from the results of K-star algorithm are used for further analysis. <xref ref-type="table" rid="tab2"> Table 2</xref> shows the list of best 10 predictions of putative protein candidates from the unknown test set as obtained from the WEKA results of all five classifiers. Many putative candidate protein predictions were found to be common in all five model results. However, they have different prediction probabilities in all results. The fact that some proteins were commonly predicted by all the classifiers increases the probability of those proteins as potential candidates, as they got mined by all classifiers. Since, in certain classifier results, they might have lower prediction probabilities, they will not be taken as putative markers. Best prediction probabilities describe how accurately the previously not considered a neurological disorder candidate protein is predicted to be associated with neurological disorders.</p>
+</sec>
+<sec id="sec3.2">
+<title>3.2. Results from Hub Object Analyser</title>
+<p>The Hub Object analyser (HUBBA) is a web based tool that finds hub proteins from the input protein interaction data. Hub proteins have characteristic greater number of interactions in a network than other non-hub proteins. In other words these proteins have more interaction partners, making them physiologically important for the individual. Hub proteins are essential elements and are indispensable for an individual's survival [<xref ref-type="bibr" rid="B23">23</xref>].</p>
+<p>The first set of analysed hub proteins is from the human protein interaction network. All the protein interactions that were used for hub identification include proteins partners that have an available 3D structure in PDB. The list of prioritised hubs for the same is shown in <xref ref-type="fig" rid="fig3">Figure 3(a)</xref>.</p>
+<p>The hubs are ranked on the basis of decreasing order of priority, marked by the color coding. We then find out how many of these hubs are common to hubs in the protein interaction network of neurological disorders, that is, the list of KSOPs involved in neurological disorders. The list of hub proteins from KSOPs is given in <xref ref-type="fig" rid="fig3">Figure 3(b)</xref>. There are 21 neurologically important hub proteins that are present in the first 100 hub proteins' list of the human interaction network. The third hub proteins list is predicted from protein interaction data of known proteins and candidates prioritized by K-star algorithm of machine learning. K-star has been shown to predict novel neurological candidates with maximum accuracy; therefore the list of genes prioritized by this algorithm can be relied on with more confidence and has been used for prediction of hub proteins in the neurological network. Therefore, in addition to known neurological disease candidates, this list includes previously unknown putative neurological candidates. Their interaction data is extracted from STRING, and the same is used as input for HUBBA. This analysis informs if any of the previously unknown neurological candidates act as hub proteins in human neurological protein interaction network. The network and list of first 100 hub proteins from this analysis are shown in Figures <xref ref-type="fig" rid="fig4">4(a)</xref> and <xref ref-type="fig" rid="fig4">4(b)</xref>, respectively. Out of these 100 protein hubs, 44 are the predicted putative neurological candidates by machine learning, which tend to play important role in neurological protein network and are highlighted in <xref ref-type="fig" rid="fig4">Figure 4(b)</xref>.</p>
+<p>The identified 100 high ranking hubs from the third hub protein list were used as input for DAVID for pathway and gene ontology analysis. The most enriched pathways, biological processes, cellular components, and molecular functions are represented in <xref ref-type="fig" rid="fig5">Figure 5</xref>.</p>
+</sec>
+</sec>
+<sec id="sec4">
+<title>4. Discussion</title>
+<p>The present study describes a structural systems biology approach for gene prioritization of novel protein candidates involved in neurological protein interaction networks. We have considered neurological disorders like epilepsy, Alzheimer's, Parkinson's, bipolar disorder, autism, migraine, and schizophrenia for building a neurological protein network. These disorders share symptoms like depression, cognitive impairment, and anxiety. Experimental studies have shown that aberrations in the same gene or genomic area could increase the risk of acquiring several complex neuropsychiatric disorders owing to the fact that there are a number of underlying mechanisms and complex pathways associated with multiple diseases [<xref ref-type="bibr" rid="B24">24</xref>]. The interplay of numerous specific and nonspecific risk factors that result in coexistence of psychiatric and medical conditions makes diagnosis and treatment difficult that often results in other abnormalities, as in case of schizophrenia [<xref ref-type="bibr" rid="B25">25</xref>].</p>
+<p>Gene prioritization for neurological disorders is an important area of research. Several studies that identify putative candidates in disorders like autism and epileptic encephalopathy have been carried out [<xref ref-type="bibr" rid="B26">26</xref>, <xref ref-type="bibr" rid="B27">27</xref>]. Scoring systems have been developed previously, using gene prioritization based on human population genetics data to identify common<italic> de novo</italic> functional variants across four neuropsychiatric disorders, namely, epileptic encephalopathies, severe intellectual disability, schizophrenia, and autism spectrum disorders. The authors in this paper have identified hot zone<italic> de novo</italic> mutations in these disorders that occur in the most intolerant genes [<xref ref-type="bibr" rid="B28">28</xref>].</p>
+<p>In our study we use structural protein descriptors for prioritizing novel shared genetic markers in several neurological disorders owing to the specificity and characteristic structural properties of genes involved in similar phenotypic expression.</p>
+<p>Exome sequencing studies on over thousand patient samples have identified the importance of<italic> de novo</italic> and gene-disruption events in neurological disorders. Deciding on potential candidates for study is dependent on many factors including recurrence of mutation and involvement of the gene in the disease protein network [<xref ref-type="bibr" rid="B29">29</xref>]. For example, recurrent microdeletion at the locus 1q21.1 has been associated with numerous phenotypic abnormalities including of the brain, the heart, and the eye. This emphasizes the relevance of a genotypic approach to clinically manage the treatment of different patients [<xref ref-type="bibr" rid="B30">30</xref>]. The method used for gene prioritization is machine learning, and the features that are used to train the machine are structural descriptors of proteins. Therefore, only the proteins whose 3D structure is available on the Protein Data Bank are used for the study. The structural descriptors include protein network properties and protein interface structural properties. Various studies have shown that the protein network topological properties and interface structural properties are essential features for protein prioritization [<xref ref-type="bibr" rid="B31">31</xref>]. This study for the first time integrates these both features for gene prioritization of novel neurological candidates. Five machine learning algorithms were used for protein prioritization by WEKA. These included Naïve Bayes, Rotation Forest, Random Forest, Bagging-j48, and K-star. Maximum accuracy of 81.84%, a precision of 88%, and recall of 76.6% were achieved by the K-star algorithm on the test set, making its predictions the most reliable to use for further study and analysis.</p>
+<p>Previously also certain genetic markers and pathways have been identified that are shared in these disorders. However, a lot of scope remains. Our work identifies markers that are important in the network of these diseases. Also, previously unknown markers that might be involved in shared pathways of these neurological disorders have been identified using HUBBA. The hubs identified in the neurological disease network are the ones that have highest number of interactions in the network and therefore might be involved in multiple neurological pathways. DAVID analysis identifies the involvement of novel candidates in the existing neurological interaction network, wherein multiple signalling pathways like receptor binding, pathways in cancer, and cell proliferation, among others, get enriched. Previous studies also suggest that there are overlapping molecular pathways implicated in neurological disorders and cancers. Genes associated with these two groups of diseases are associated with kinase signalling, control of cell cycle, and cellular processes and DNA repair [<xref ref-type="bibr" rid="B32">32</xref>].</p>
+<p>This comprehensive neurological disease protein network analysis has therefore identified significant candidates that could be responsible for existence of shared clinical manifestations between these diseases that makes diagnosis and treatment difficult and also leads to resistance to treatment in certain cases. We present a larger network view that takes care of multiple interactions and molecular pathways associated with such diseases of comorbid phenotype. Novel protein hubs that have been identified are important potential candidates for studying neurological disorders. The promising pattern of observations from this study and the procedure followed sets an example to conduct such more comprehensive analysis which can then be taken to next level of experimental validation.</p>
+</sec>
+</body>
+<back>
+<sec sec-type="conflict">
+<title>Conflict of Interests</title>
+<p>The authors declare that there is no conflict of interests regarding the publication of this paper.</p>
+</sec>
+<ref-list>
+<ref id="B1">
+<label>1</label>
+<element-citation publication-type="book">
+<person-group person-group-type="author">
+<name>
+<surname>Stafstrom</surname>
+<given-names>C. E.</given-names>
+</name>
+<name>
+<surname>Hagerman</surname>
+<given-names>P. J.</given-names>
+</name>
+<name>
+<surname>Pessah</surname>
+<given-names>I. N.</given-names>
+</name>
+</person-group>
+<person-group person-group-type="editor">
+<name>
+<surname>Noebels</surname>
+<given-names>J. L.</given-names>
+</name>
+<name>
+<surname>Avoli</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Rogawski</surname>
+<given-names>M. A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Pathophysiology of epilepsy in autism spectrum disorders</article-title>
+<source/>
+<italic>Jasper's Basic Mechanisms of the Epilepsies</italic>
+<year>2012</year>
+<edition>4th</edition>
+<publisher-loc>Bethesda, Md, USA</publisher-loc>
+<publisher-name>National Center for Biotechnology Information</publisher-name>
+</element-citation>
+</ref>
+<ref id="B2">
+<label>2</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Ettinger</surname>
+<given-names>A. B.</given-names>
+</name>
+<name>
+<surname>Reed</surname>
+<given-names>M. L.</given-names>
+</name>
+<name>
+<surname>Goldberg</surname>
+<given-names>J. F.</given-names>
+</name>
+<name>
+<surname>Hirschfeld</surname>
+<given-names>R. M. A.</given-names>
+</name>
+</person-group>
+<article-title>Prevalence of bipolar symptoms in epilepsy vs other chronic health disorders</article-title>
+<source/>
+<italic>Neurology</italic>
+<year>2005</year>
+<volume>65</volume>
+<issue>4</issue>
+<fpage>535</fpage>
+<lpage>540</lpage>
+<pub-id pub-id-type="doi">10.1212/01.wnl.0000172917.70752.05</pub-id>
+<pub-id pub-id-type="other">2-s2.0-23844459243</pub-id>
+<pub-id pub-id-type="pmid">16116112</pub-id>
+</element-citation>
+</ref>
+<ref id="B3">
+<label>3</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Bianchin</surname>
+<given-names>M. M.</given-names>
+</name>
+<name>
+<surname>Londero</surname>
+<given-names>R. G.</given-names>
+</name>
+<name>
+<surname>Lima</surname>
+<given-names>J. E.</given-names>
+</name>
+<name>
+<surname>Bigal</surname>
+<given-names>M. E.</given-names>
+</name>
+</person-group>
+<article-title>Migraine and epilepsy: a focus on overlapping clinical, pathophysiological, molecular, and therapeutic aspects</article-title>
+<source/>
+<italic>Current Pain and Headache Reports</italic>
+<year>2010</year>
+<volume>14</volume>
+<issue>4</issue>
+<fpage>276</fpage>
+<lpage>283</lpage>
+<pub-id pub-id-type="doi">10.1007/s11916-010-0121-y</pub-id>
+<pub-id pub-id-type="other">2-s2.0-77956383573</pub-id>
+<pub-id pub-id-type="pmid">20495966</pub-id>
+</element-citation>
+</ref>
+<ref id="B4">
+<label>4</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Chen</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Sawyer</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Regan</surname>
+<given-names>L.</given-names>
+</name>
+</person-group>
+<article-title>Protein-protein interactions: general trends in the relationship between binding affinity and interfacial buried surface area</article-title>
+<source/>
+<italic>Protein Science</italic>
+<year>2013</year>
+<volume>22</volume>
+<issue>4</issue>
+<fpage>510</fpage>
+<lpage>515</lpage>
+<pub-id pub-id-type="doi">10.1002/pro.2230</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84878306995</pub-id>
+<pub-id pub-id-type="pmid">23389845</pub-id>
+</element-citation>
+</ref>
+<ref id="B5">
+<label>5</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Kar</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Gursoy</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Keskin</surname>
+<given-names>O.</given-names>
+</name>
+</person-group>
+<article-title>Human cancer protein-protein interaction network: a structural perspective</article-title>
+<source/>
+<italic>PLoS Computational Biology</italic>
+<year>2009</year>
+<volume>5</volume>
+<issue>12</issue>
+<pub-id pub-id-type="publisher-id">e1000601</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1000601</pub-id>
+<pub-id pub-id-type="other">2-s2.0-74549134502</pub-id>
+</element-citation>
+</ref>
+<ref id="B6">
+<label>6</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Gursoy</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Keskin</surname>
+<given-names>O.</given-names>
+</name>
+<name>
+<surname>Nussinov</surname>
+<given-names>R.</given-names>
+</name>
+</person-group>
+<article-title>Topological properties of protein interaction networks from a structural perspective</article-title>
+<source/>
+<italic>Biochemical Society Transactions</italic>
+<year>2008</year>
+<volume>36</volume>
+<issue>part 6</issue>
+<fpage>1398</fpage>
+<lpage>1403</lpage>
+<pub-id pub-id-type="doi">10.1042/bst0361398</pub-id>
+<pub-id pub-id-type="other">2-s2.0-59149094468</pub-id>
+<pub-id pub-id-type="pmid">19021563</pub-id>
+</element-citation>
+</ref>
+<ref id="B7">
+<label>7</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Johnson</surname>
+<given-names>M. E.</given-names>
+</name>
+<name>
+<surname>Hummer</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>Interface-resolved network of protein-protein interactions</article-title>
+<source/>
+<italic>PLoS Computational Biology</italic>
+<year>2013</year>
+<volume>9</volume>
+<issue>5</issue>
+<pub-id pub-id-type="publisher-id">e1003065</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1003065</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84878490254</pub-id>
+</element-citation>
+</ref>
+<ref id="B8">
+<label>8</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>K. X.</given-names>
+</name>
+<name>
+<surname>Ouellette</surname>
+<given-names>B. F. F.</given-names>
+</name>
+</person-group>
+<article-title>CAERUS: predicting CAncER outcomes using relationship between protein structural information, protein networks, gene expression data, and mutation data</article-title>
+<source/>
+<italic>PLoS Computational Biology</italic>
+<year>2011</year>
+<volume>7</volume>
+<issue>3</issue>
+<pub-id pub-id-type="publisher-id">e1001114</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pcbi.1001114</pub-id>
+<pub-id pub-id-type="other">2-s2.0-79953654633</pub-id>
+</element-citation>
+</ref>
+<ref id="B9">
+<label>9</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wall</surname>
+<given-names>D. P.</given-names>
+</name>
+<name>
+<surname>Pivovarov</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Tong</surname>
+<given-names>M.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Genotator: a disease-agnostic tool for genetic annotation of disease</article-title>
+<source/>
+<italic>BMC Medical Genomics</italic>
+<year>2010</year>
+<volume>3, article 50</volume>
+<pub-id pub-id-type="doi">10.1186/1755-8794-3-50</pub-id>
+<pub-id pub-id-type="other">2-s2.0-77958552210</pub-id>
+</element-citation>
+</ref>
+<ref id="B10">
+<label>10</label>
+<element-citation publication-type="journal">
+<collab>The UniProt Consortium</collab>
+<article-title>UniProt: a hub for protein information</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2015</year>
+<volume>43</volume>
+<issue>1</issue>
+<fpage>D204</fpage>
+<lpage>D212</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku989</pub-id>
+<pub-id pub-id-type="pmid">25348405</pub-id>
+</element-citation>
+</ref>
+<ref id="B11">
+<label>11</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Berman</surname>
+<given-names>H. M.</given-names>
+</name>
+<name>
+<surname>Westbrook</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Feng</surname>
+<given-names>Z.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>The protein data bank</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2000</year>
+<volume>28</volume>
+<issue>1</issue>
+<fpage>235</fpage>
+<lpage>242</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0033954256</pub-id>
+<pub-id pub-id-type="pmid">10592235</pub-id>
+</element-citation>
+</ref>
+<ref id="B12">
+<label>12</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Acharya</surname>
+<given-names>K. R.</given-names>
+</name>
+<name>
+<surname>Lloyd</surname>
+<given-names>M. D.</given-names>
+</name>
+</person-group>
+<article-title>The advantages and limitations of protein crystal structures</article-title>
+<source/>
+<italic>Trends in Pharmacological Sciences</italic>
+<year>2005</year>
+<volume>26</volume>
+<issue>1</issue>
+<fpage>10</fpage>
+<lpage>14</lpage>
+<pub-id pub-id-type="doi">10.1016/j.tips.2004.10.011</pub-id>
+<pub-id pub-id-type="other">2-s2.0-11144243170</pub-id>
+<pub-id pub-id-type="pmid">15629199</pub-id>
+</element-citation>
+</ref>
+<ref id="B13">
+<label>13</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Szklarczyk</surname>
+<given-names>D.</given-names>
+</name>
+<name>
+<surname>Franceschini</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Wyder</surname>
+<given-names>S.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>STRING v10: protein-protein interaction networks, integrated over the tree of life</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2015</year>
+<volume>43</volume>
+<issue>1</issue>
+<fpage>D447</fpage>
+<lpage>D452</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gku1003</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84922573956</pub-id>
+<pub-id pub-id-type="pmid">25352553</pub-id>
+</element-citation>
+</ref>
+<ref id="B14">
+<label>14</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Shannon</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Markiel</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Ozier</surname>
+<given-names>O.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Cytoscape: a software environment for integrated models of biomolecular interaction networks</article-title>
+<source/>
+<italic>Genome Research</italic>
+<year>2003</year>
+<volume>13</volume>
+<issue>11</issue>
+<fpage>2498</fpage>
+<lpage>2504</lpage>
+<pub-id pub-id-type="doi">10.1101/gr.1239303</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0242490780</pub-id>
+<pub-id pub-id-type="pmid">14597658</pub-id>
+</element-citation>
+</ref>
+<ref id="B15">
+<label>15</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Assenov</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Ramírez</surname>
+<given-names>F.</given-names>
+</name>
+<name>
+<surname>Schelhorn</surname>
+<given-names>S.-E. S.-E.</given-names>
+</name>
+<name>
+<surname>Lengauer</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Albrecht</surname>
+<given-names>M.</given-names>
+</name>
+</person-group>
+<article-title>Computing topological parameters of biological networks</article-title>
+<source/>
+<italic>Bioinformatics</italic>
+<year>2008</year>
+<volume>24</volume>
+<issue>2</issue>
+<fpage>282</fpage>
+<lpage>284</lpage>
+<pub-id pub-id-type="doi">10.1093/bioinformatics/btm554</pub-id>
+<pub-id pub-id-type="other">2-s2.0-38349164409</pub-id>
+<pub-id pub-id-type="pmid">18006545</pub-id>
+</element-citation>
+</ref>
+<ref id="B16">
+<label>16</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Lin</surname>
+<given-names>C.-Y.</given-names>
+</name>
+<name>
+<surname>Chin</surname>
+<given-names>C.-H.</given-names>
+</name>
+<name>
+<surname>Wu</surname>
+<given-names>H.-H.</given-names>
+</name>
+<name>
+<surname>Chen</surname>
+<given-names>S.-H.</given-names>
+</name>
+<name>
+<surname>Ho</surname>
+<given-names>C.-W.</given-names>
+</name>
+<name>
+<surname>Ko</surname>
+<given-names>M.-T.</given-names>
+</name>
+</person-group>
+<article-title>Hubba: hub objects analyzer—a framework of interactome hubs identification for network biology</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2008</year>
+<volume>36</volume>
+<fpage>W438</fpage>
+<lpage>W443</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkn257</pub-id>
+<pub-id pub-id-type="other">2-s2.0-48449102450</pub-id>
+<pub-id pub-id-type="pmid">18503085</pub-id>
+</element-citation>
+</ref>
+<ref id="B17">
+<label>17</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cukuroglu</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Gursoy</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Nussinov</surname>
+<given-names>R.</given-names>
+</name>
+<name>
+<surname>Keskin</surname>
+<given-names>O.</given-names>
+</name>
+</person-group>
+<article-title>Non-redundant unique interface structures as templates for modeling protein interactions</article-title>
+<source/>
+<italic>PLoS ONE</italic>
+<year>2014</year>
+<volume>9</volume>
+<issue>1</issue>
+<pub-id pub-id-type="publisher-id">e86738</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0086738</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84900297215</pub-id>
+</element-citation>
+</ref>
+<ref id="B18">
+<label>18</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Basse</surname>
+<given-names>M. J.</given-names>
+</name>
+<name>
+<surname>Betzi</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Bourgeas</surname>
+<given-names>R.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>2P2Idb: a structural database dedicated to orthosteric modulation of protein-protein interactions</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2013</year>
+<volume>41</volume>
+<issue>1</issue>
+<fpage>D824</fpage>
+<lpage>D827</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gks1002</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84876546810</pub-id>
+<pub-id pub-id-type="pmid">23203891</pub-id>
+</element-citation>
+</ref>
+<ref id="B19">
+<label>19</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hall</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Frank</surname>
+<given-names>E.</given-names>
+</name>
+<name>
+<surname>Holmes</surname>
+<given-names>G.</given-names>
+</name>
+<name>
+<surname>Pfahringer</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Reutemann</surname>
+<given-names>P.</given-names>
+</name>
+<name>
+<surname>Witten</surname>
+<given-names>I. H.</given-names>
+</name>
+</person-group>
+<article-title>The WEKA data mining software: an update</article-title>
+<source/>
+<italic>ACM SIGKDD Explorations Newsletter</italic>
+<year>2009</year>
+<volume>11</volume>
+<issue>1</issue>
+<fpage>10</fpage>
+<lpage>18</lpage>
+<pub-id pub-id-type="doi">10.1145/1656274.1656278</pub-id>
+</element-citation>
+</ref>
+<ref id="B20">
+<label>20</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>D. W.</given-names>
+</name>
+<name>
+<surname>Sherman</surname>
+<given-names>B. T.</given-names>
+</name>
+<name>
+<surname>Lempicki</surname>
+<given-names>R. A.</given-names>
+</name>
+</person-group>
+<article-title>Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources</article-title>
+<source/>
+<italic>Nature Protocols</italic>
+<year>2009</year>
+<volume>4</volume>
+<issue>1</issue>
+<fpage>44</fpage>
+<lpage>57</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2008.211</pub-id>
+<pub-id pub-id-type="other">2-s2.0-61449172037</pub-id>
+<pub-id pub-id-type="pmid">19131956</pub-id>
+</element-citation>
+</ref>
+<ref id="B21">
+<label>21</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Huang</surname>
+<given-names>D. W.</given-names>
+</name>
+<name>
+<surname>Sherman</surname>
+<given-names>B. T.</given-names>
+</name>
+<name>
+<surname>Lempicki</surname>
+<given-names>R. A.</given-names>
+</name>
+</person-group>
+<article-title>Bioinformatics enrichment tools: paths toward the comprehensive functional analysis of large gene lists</article-title>
+<source/>
+<italic>Nucleic Acids Research</italic>
+<year>2009</year>
+<volume>37</volume>
+<issue>1</issue>
+<fpage>1</fpage>
+<lpage>13</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkn923</pub-id>
+<pub-id pub-id-type="other">2-s2.0-58549112996</pub-id>
+<pub-id pub-id-type="pmid">19033363</pub-id>
+</element-citation>
+</ref>
+<ref id="B22">
+<label>22</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Sokolova</surname>
+<given-names>M.</given-names>
+</name>
+<name>
+<surname>Lapalme</surname>
+<given-names>G.</given-names>
+</name>
+</person-group>
+<article-title>A systematic analysis of performance measures for classification tasks</article-title>
+<source/>
+<italic>Information Processing &amp; Management</italic>
+<year>2009</year>
+<volume>45</volume>
+<issue>4</issue>
+<fpage>427</fpage>
+<lpage>437</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ipm.2009.03.002</pub-id>
+<pub-id pub-id-type="other">2-s2.0-65649138430</pub-id>
+</element-citation>
+</ref>
+<ref id="B23">
+<label>23</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Batada</surname>
+<given-names>N. N.</given-names>
+</name>
+<name>
+<surname>Reguly</surname>
+<given-names>T.</given-names>
+</name>
+<name>
+<surname>Breitkreutz</surname>
+<given-names>A.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Stratus not altocumulus: a new view of the yeast protein interaction network</article-title>
+<source/>
+<italic>PLoS Biology</italic>
+<year>2006</year>
+<volume>4</volume>
+<issue>10, article e317</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pbio.0040317</pub-id>
+<pub-id pub-id-type="other">2-s2.0-33750238153</pub-id>
+</element-citation>
+</ref>
+<ref id="B24">
+<label>24</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Zhu</surname>
+<given-names>X.</given-names>
+</name>
+<name>
+<surname>Need</surname>
+<given-names>A. C.</given-names>
+</name>
+<name>
+<surname>Petrovski</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Goldstein</surname>
+<given-names>D. B.</given-names>
+</name>
+</person-group>
+<article-title>One gene, many neuropsychiatric disorders: lessons from Mendelian diseases</article-title>
+<source/>
+<italic>Nature Neuroscience</italic>
+<year>2014</year>
+<volume>17</volume>
+<issue>6</issue>
+<fpage>773</fpage>
+<lpage>781</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.3713</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84901633682</pub-id>
+<pub-id pub-id-type="pmid">24866043</pub-id>
+</element-citation>
+</ref>
+<ref id="B25">
+<label>25</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Cosoff</surname>
+<given-names>S. J.</given-names>
+</name>
+<name>
+<surname>Hafner</surname>
+<given-names>R. J.</given-names>
+</name>
+</person-group>
+<article-title>The prevalence of comorbid anxiety in schizophrenia, schizoaffective disorder and bipolar disorder</article-title>
+<source/>
+<italic>Australian and New Zealand Journal of Psychiatry</italic>
+<year>1998</year>
+<volume>32</volume>
+<issue>1</issue>
+<fpage>67</fpage>
+<lpage>72</lpage>
+<pub-id pub-id-type="doi">10.1046/j.1440-1614.1998.00374.x</pub-id>
+<pub-id pub-id-type="other">2-s2.0-0031978932</pub-id>
+<pub-id pub-id-type="pmid">9565185</pub-id>
+</element-citation>
+</ref>
+<ref id="B26">
+<label>26</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Wall</surname>
+<given-names>D. P.</given-names>
+</name>
+<name>
+<surname>Esteban</surname>
+<given-names>F. J.</given-names>
+</name>
+<name>
+<surname>DeLuca</surname>
+<given-names>T. F.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Comparative analysis of neurological disorders focuses genome-wide search for autism genes</article-title>
+<source/>
+<italic>Genomics</italic>
+<year>2009</year>
+<volume>93</volume>
+<issue>2</issue>
+<fpage>120</fpage>
+<lpage>129</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ygeno.2008.09.015</pub-id>
+<pub-id pub-id-type="other">2-s2.0-58149512312</pub-id>
+<pub-id pub-id-type="pmid">18950700</pub-id>
+</element-citation>
+</ref>
+<ref id="B27">
+<label>27</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Oliver</surname>
+<given-names>K. L.</given-names>
+</name>
+<name>
+<surname>Lukic</surname>
+<given-names>V.</given-names>
+</name>
+<name>
+<surname>Thorne</surname>
+<given-names>N. P.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Harnessing gene expression networks to prioritize candidate epileptic encephalopathy genes</article-title>
+<source/>
+<italic>PLoS ONE</italic>
+<year>2014</year>
+<volume>9</volume>
+<issue>7</issue>
+<pub-id pub-id-type="publisher-id">e102079</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0102079</pub-id>
+</element-citation>
+</ref>
+<ref id="B28">
+<label>28</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Petrovski</surname>
+<given-names>S.</given-names>
+</name>
+<name>
+<surname>Wang</surname>
+<given-names>Q.</given-names>
+</name>
+<name>
+<surname>Heinzen</surname>
+<given-names>E. L.</given-names>
+</name>
+<name>
+<surname>Allen</surname>
+<given-names>A. S.</given-names>
+</name>
+<name>
+<surname>Goldstein</surname>
+<given-names>D. B.</given-names>
+</name>
+</person-group>
+<article-title>Genic intolerance to functional variation and the interpretation of personal genomes</article-title>
+<source/>
+<italic>PLoS Genetics</italic>
+<year>2013</year>
+<volume>9</volume>
+<issue>8</issue>
+<pub-id pub-id-type="publisher-id">e1003709</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1003709</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84884592445</pub-id>
+</element-citation>
+</ref>
+<ref id="B29">
+<label>29</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Hoischen</surname>
+<given-names>A.</given-names>
+</name>
+<name>
+<surname>Krumm</surname>
+<given-names>N.</given-names>
+</name>
+<name>
+<surname>Eichler</surname>
+<given-names>E. E.</given-names>
+</name>
+</person-group>
+<article-title>Prioritization of neurodevelopmental disease genes by discovery of new mutations</article-title>
+<source/>
+<italic>Nature Neuroscience</italic>
+<year>2014</year>
+<volume>17</volume>
+<issue>6</issue>
+<fpage>764</fpage>
+<lpage>772</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.3703</pub-id>
+<pub-id pub-id-type="other">2-s2.0-84901617965</pub-id>
+<pub-id pub-id-type="pmid">24866042</pub-id>
+</element-citation>
+</ref>
+<ref id="B30">
+<label>30</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Mefford</surname>
+<given-names>H. C.</given-names>
+</name>
+<name>
+<surname>Sharp</surname>
+<given-names>A. J.</given-names>
+</name>
+<name>
+<surname>Baker</surname>
+<given-names>C.</given-names>
+</name>
+<etal></etal>
+</person-group>
+<article-title>Recurrent rearrangements of chromosome 1q21.1 and variable pediatric phenotypes</article-title>
+<source/>
+<italic>The New England Journal of Medicine</italic>
+<year>2008</year>
+<volume>359</volume>
+<issue>16</issue>
+<fpage>1685</fpage>
+<lpage>1699</lpage>
+<pub-id pub-id-type="doi">10.1056/nejmoa0805384</pub-id>
+<pub-id pub-id-type="pmid">18784092</pub-id>
+</element-citation>
+</ref>
+<ref id="B31">
+<label>31</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Linghu</surname>
+<given-names>B.</given-names>
+</name>
+<name>
+<surname>Snitkin</surname>
+<given-names>E. S.</given-names>
+</name>
+<name>
+<surname>Hu</surname>
+<given-names>Z.</given-names>
+</name>
+<name>
+<surname>Xia</surname>
+<given-names>Y.</given-names>
+</name>
+<name>
+<surname>Delisi</surname>
+<given-names>C.</given-names>
+</name>
+</person-group>
+<article-title>Genome-wide prioritization of disease genes and identification of disease-disease associations from an integrated human functional linkage network</article-title>
+<source/>
+<italic>Genome Biology</italic>
+<year>2009</year>
+<volume>10</volume>
+<issue>9, article R91</issue>
+<pub-id pub-id-type="doi">10.1186/gb-2009-10-9-r91</pub-id>
+<pub-id pub-id-type="other">2-s2.0-76249105279</pub-id>
+</element-citation>
+</ref>
+<ref id="B32">
+<label>32</label>
+<element-citation publication-type="journal">
+<person-group person-group-type="author">
+<name>
+<surname>Plun-Favreau</surname>
+<given-names>H.</given-names>
+</name>
+<name>
+<surname>Lewis</surname>
+<given-names>P. A.</given-names>
+</name>
+<name>
+<surname>Hardy</surname>
+<given-names>J.</given-names>
+</name>
+<name>
+<surname>Martins</surname>
+<given-names>L. M.</given-names>
+</name>
+<name>
+<surname>Wood</surname>
+<given-names>N. W.</given-names>
+</name>
+</person-group>
+<article-title>Cancer and neurodegeneration: between the devil and the deep blue sea</article-title>
+<source/>
+<italic>PLoS Genetics</italic>
+<year>2010</year>
+<volume>6</volume>
+<issue>12</issue>
+<pub-id pub-id-type="publisher-id">e1001257</pub-id>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1001257</pub-id>
+<pub-id pub-id-type="other">2-s2.0-79953054469</pub-id>
+</element-citation>
+</ref>
+</ref-list>
+</back>
+<floats-group>
+<fig id="fig1" orientation="portrait" position="float">
+<label>Figure 1</label>
+<caption>
+<p>Flowchart of the methodology followed. KSOPs is the known set of proteins, and USOPs is the unknown set of proteins.</p>
+</caption>
+<graphic xlink:href="SCIENTIFICA2016-9589404.001"></graphic>
+</fig>
+<fig id="fig2" orientation="portrait" position="float">
+<label>Figure 2</label>
+<caption>
+<p>(a) Comparative representation of the performance metrics of five models for their predictions on the training dataset. (b) Comparative representation of the performance metrics of five models for their predictions on the test dataset. (c) Comparison of performance/<italic>F</italic>-score values for five models on training set. (d) Comparison of performance/<italic>F</italic>-score values for five models on test set.</p>
+</caption>
+<graphic xlink:href="SCIENTIFICA2016-9589404.002"></graphic>
+</fig>
+<fig id="fig3" orientation="portrait" position="float">
+<label>Figure 3</label>
+<caption>
+<p>(a) Hub proteins identified in the human structural protein interaction network. (b) Hub proteins identified in the human neurological protein interaction network. The hubs are ranked in the decreasing order of priority.</p>
+</caption>
+<graphic xlink:href="SCIENTIFICA2016-9589404.003"></graphic>
+</fig>
+<fig id="fig4" orientation="portrait" position="float">
+<label>Figure 4</label>
+<caption>
+<p>(a) Hub network of KSOPs and putative candidates. The proteins at the centre of the network are the ones that form most interactions with other proteins. (b) Hub proteins identified in the human neurological protein interaction network that includes newly identified gene products. The predicted gene candidates that are behaving as hubs have been highlighted.</p>
+</caption>
+<graphic xlink:href="SCIENTIFICA2016-9589404.004"></graphic>
+</fig>
+<fig id="fig5" orientation="portrait" position="float">
+<label>Figure 5</label>
+<caption>
+<p>(a) Most enriched KEGG pathways from DAVID analysis. (b) Enriched biological processes. (c) Enriched cellular components. (d) Enriched molecular functions.</p>
+</caption>
+<graphic xlink:href="SCIENTIFICA2016-9589404.005"></graphic>
+</fig>
+<table-wrap id="tab1" orientation="portrait" position="float">
+<label>Table 1</label>
+<caption>
+<p>Protein structural descriptors considered for machine learning.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Protein network properties</th>
+<th align="left" colspan="1" rowspan="1">Protein interface structural properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Average shortest path length</td>
+<td align="left" colspan="1" rowspan="1">Total accessible surface area</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Clustering coefficient</td>
+<td align="left" colspan="1" rowspan="1">Gap volume</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Closeness centrality</td>
+<td align="left" colspan="1" rowspan="1">Average interface surface area</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Eccentricity</td>
+<td align="left" colspan="1" rowspan="1">Percent average neutral residues</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Stress</td>
+<td align="left" colspan="1" rowspan="1">Percent average polar residues</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Degree</td>
+<td align="left" colspan="1" rowspan="1">Percent average nonpolar residues</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Betweenness</td>
+<td align="left" colspan="1" rowspan="1">Percent average charged residues</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Neighbourhood connectivity</td>
+<td align="left" colspan="1" rowspan="1">Gap Index</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Radiality</td>
+<td align="left" colspan="1" rowspan="1">Interface Size</td>
+</tr>
+<tr>
+<td align="center" colspan="2" rowspan="1">
+<hr/>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Topological coefficient</td>
+<td align="left" colspan="1" rowspan="1"> </td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+<table-wrap id="tab2" orientation="portrait" position="float">
+<label>Table 2</label>
+<caption>
+<p>Ten best putative candidate predictions with a probability of 1, from all five machine learning algorithms used.</p>
+</caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" colspan="1" rowspan="1">Naïve Bayes</th>
+<th align="center" colspan="1" rowspan="1">Bagging-J48</th>
+<th align="center" colspan="1" rowspan="1">Rotation<break></break> Forest</th>
+<th align="center" colspan="1" rowspan="1">Random <break></break>Forest</th>
+<th align="center" colspan="1" rowspan="1">K-star</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">1HRK</td>
+<td align="center" colspan="1" rowspan="1">1S18</td>
+<td align="center" colspan="1" rowspan="1">1ZT4</td>
+<td align="center" colspan="1" rowspan="1">1CC0</td>
+<td align="center" colspan="1" rowspan="1">1G82</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1MR8</td>
+<td align="center" colspan="1" rowspan="1">1J1J</td>
+<td align="center" colspan="1" rowspan="1">1MR1</td>
+<td align="center" colspan="1" rowspan="1">1CI4</td>
+<td align="center" colspan="1" rowspan="1">2GJX</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1WNT</td>
+<td align="center" colspan="1" rowspan="1">1OPL</td>
+<td align="center" colspan="1" rowspan="1">2K03</td>
+<td align="center" colspan="1" rowspan="1">1CKS</td>
+<td align="center" colspan="1" rowspan="1">1MR1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1Z6X</td>
+<td align="center" colspan="1" rowspan="1">1WMH</td>
+<td align="center" colspan="1" rowspan="1">1L9X</td>
+<td align="center" colspan="1" rowspan="1">1CZZ</td>
+<td align="center" colspan="1" rowspan="1">1NR4</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">2B2Y</td>
+<td align="center" colspan="1" rowspan="1">2ARY</td>
+<td align="center" colspan="1" rowspan="1">1I3O</td>
+<td align="center" colspan="1" rowspan="1">1DZA</td>
+<td align="center" colspan="1" rowspan="1">1ZSV</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">2J4E</td>
+<td align="center" colspan="1" rowspan="1">1I3O</td>
+<td align="center" colspan="1" rowspan="1">1X86</td>
+<td align="center" colspan="1" rowspan="1">1GWQ</td>
+<td align="center" colspan="1" rowspan="1">1S18</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">2NN6</td>
+<td align="center" colspan="1" rowspan="1">2B5N</td>
+<td align="center" colspan="1" rowspan="1">1XV9</td>
+<td align="center" colspan="1" rowspan="1">1HLO</td>
+<td align="center" colspan="1" rowspan="1">1WPQ</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1H28</td>
+<td align="center" colspan="1" rowspan="1">1H4O</td>
+<td align="center" colspan="1" rowspan="1">1ZT4</td>
+<td align="center" colspan="1" rowspan="1">1HYN</td>
+<td align="center" colspan="1" rowspan="1">1CKS</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1IYI</td>
+<td align="center" colspan="1" rowspan="1">1YBO</td>
+<td align="center" colspan="1" rowspan="1">2PO6</td>
+<td align="center" colspan="1" rowspan="1">1IRJ</td>
+<td align="center" colspan="1" rowspan="1">1NLW</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1Z6U</td>
+<td align="center" colspan="1" rowspan="1">2DSQ</td>
+<td align="center" colspan="1" rowspan="1">2EWY</td>
+<td align="center" colspan="1" rowspan="1">1KHU</td>
+<td align="center" colspan="1" rowspan="1">1KN0</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</floats-group>
+</article>
+</pmc-articleset>
