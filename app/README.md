@@ -3,15 +3,18 @@
 You can visit the app at https://gene-phenotype.herokuapp.com/
 
 ## Table of Contents
-* [React Frontend](#quick-start)
+* [React Frontend](#react-frontend)
+* [Flask Backend](#flask-backend)
+* [Production Deployment](#production-deployment)
 * [Quick Start](#quick-start)
-* [Documentation](#documentation)
 * [File Structure](#file-structure)
 * [Browser Support](#browser-support)
-* [Resources](#resources)
 * [Licensing](#licensing)
 
-## [React v16](https://facebook.github.io/react/) Frontend
+
+
+
+## [React](https://facebook.github.io/react/) Frontend
 In the frontend side, I utilized a React template created by [Creative Tim](https://github.com/creativetimofficial/paper-kit-react?ref=pkr-docs-navbar), which is a free Bootstrap 4, React, React Hooks and Reactstrap UI Kit with pale colors, beautiful typography and thoughtful drawings. Besides, Ant Design is also used.
 
 ## [Flask](http://flask.pocoo.org/) Backend
